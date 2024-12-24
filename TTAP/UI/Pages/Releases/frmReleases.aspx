@@ -13,7 +13,7 @@
             min-height: 100%;
             min-width: 100%;
             background-image: url("../../../Images/ajax-loaderblack.gif");
-            /*background-image: url("Images/spinner_60.gif");*/
+            /*background-image: url("Images/spinner_60.gif");*/ 
             background-position: center center;
             background-repeat: no-repeat;
             /*background-color: #e4e4e6;*/
