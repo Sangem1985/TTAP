@@ -7,7 +7,7 @@
         <%-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>--%>
         <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
             async defer></script>
-        <script type="text/javascript">
+        <script type="text/javascript"> 
 
             var site_key = '<%= ConfigurationManager.AppSettings["GCaptchSiteKey"]%>';
 
