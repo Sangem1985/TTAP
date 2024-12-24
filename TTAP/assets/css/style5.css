@@ -1,0 +1,144 @@
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    perspective: 1500px;
+}
+
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    color: #fff;
+    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transform-origin: bottom left;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+    transform: rotateY(100deg);
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+   
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+    #sidebar ul li a {
+        /*padding: 10px;*/
+        padding: 5px 15px;
+        font-size: small !important;
+        display: block;
+        /*border-bottom: 1px solid #47748b;
+        border-right: 1px solid #47748b;
+        border-left: 1px solid #47748b;*/
+    }
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: red;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+  
+}
+ul.list-unstyled.components li a {
+    border: 1px solid #795548;
+    border-radius: 25px;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    background: aliceblue;
+}
+
+    ul.list-unstyled.components li a:hover {
+        color: #000 !important;
+        background-color: #ccc !important;
+    }
+
+ul.list-unstyled.components {
+    padding: 0px !important;
+}
+
+div#minmumbox {
+    max-width: 100% !important;
+}
+
+.breadcrumb-bg {
+    margin-left: 15px !important;
+}
+
+div#headboxlabel {
+    border: 1px solid #ddd;
+    padding: 5px 0px 0px 20px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 2px 1px;
+}
+
+    div#headboxlabel h3 {
+        font-weight: 600;
+    }
+
+div#boxheadingfirst {
+    border: 0px groove blue;
+    margin-top: -14px;
+    margin-left: 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #ffd800;
+    color: darkgreen;
+}
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckPayment_Reverify">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ServiceID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckPayment_ReverifyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CheckPayment_ReverifyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckPayment_ReverifySoapIn">
+    <wsdl:part name="parameters" element="tns:CheckPayment_Reverify" />
+  </wsdl:message>
+  <wsdl:message name="CheckPayment_ReverifySoapOut">
+    <wsdl:part name="parameters" element="tns:CheckPayment_ReverifyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PGServicesSoap">
+    <wsdl:operation name="CheckPayment_Reverify">
+      <wsdl:input message="tns:CheckPayment_ReverifySoapIn" />
+      <wsdl:output message="tns:CheckPayment_ReverifySoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PGServicesSoap" type="tns:PGServicesSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckPayment_Reverify">
+      <soap:operation soapAction="http://tempuri.org/CheckPayment_Reverify" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PGServicesSoap12" type="tns:PGServicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckPayment_Reverify">
+      <soap12:operation soapAction="http://tempuri.org/CheckPayment_Reverify" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PGServices">
+    <wsdl:port name="PGServicesSoap" binding="tns:PGServicesSoap">
+      <soap:address location="https://aptonline.in/APTOLService/PGServices.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PGServicesSoap12" binding="tns:PGServicesSoap12">
+      <soap12:address location="https://aptonline.in/APTOLService/PGServices.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

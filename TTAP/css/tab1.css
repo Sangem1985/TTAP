@@ -1,0 +1,113 @@
+.tabContainerClass .ajax__tab_inner
+{
+	color: #ffffff;
+	padding: 5px 0px;
+	margin-left: 3px;
+	border: 1px solid #989898;
+	border-bottom: none;
+	background: #00aeef;
+	text-decoration: none;
+	font: bold 11px Tahoma;
+	cursor:hand;
+}
+.tabContainerClass .ajax__tab_hover .ajax__tab_inner
+{
+	color: #000;
+	background: #f1ffd7;
+	border-color: #0087b9;
+}
+.tabContainerClass .ajax__tab_active .ajax__tab_inner
+{
+	background-color: #f1ffd7;
+	border-bottom: 1px solid #989898;
+	color:#000000;
+}
+.tabContainerClass .ajax__tab_visited .ajax__tab_inner
+{
+    color: #000000; background-color:#000000;
+}
+.tabContainerClass .ajax__tab_active .ajax__tab_hover .ajax__tab_inner
+{
+	color: #000;
+	background: white;
+	border-bottom: 1px solid #c7c7c7;
+}
+
+.tabContainerClass_button
+        {
+            color: #ffffff;
+            padding: 5px 0px;            
+            margin-left: 3px;
+            border: 1px solid #989898;
+            border-bottom: none;
+            background: #00aeef;
+            text-decoration: none;
+            font: bold 11px Tahoma;
+            cursor: hand;
+            width:auto;            
+        }
+        .tabContainerClass_button_sel
+        {
+            color: #000000;
+            padding: 5px 0px;
+            margin-left: 3px;
+            border: 1px solid #989898;
+            border-bottom: none;
+            background: #FFFFFF;
+            text-decoration: none;
+            font: bold 11px Tahoma;
+            cursor: hand;
+            width:auto;
+        }
+        .tabContainerClass_button:hover
+        {
+            color: #000;
+            background: #f1ffd7;
+            border-color: #0087b9;
+        }
+        .tabContainerClass_button:active
+        {
+            color: #000;
+            background: #f1ffd7;
+            border-color: #0087b9;
+        }
+        
+        .tabButton
+        {
+            color: #ffffff;
+            padding: 5px 0px;
+            margin-left: 1px;
+            border: 1px solid #989898;
+            border-bottom: none;
+            background: #00aeef;
+            text-decoration: none;
+            font: 11px arial;
+            cursor: hand;
+            width:153px;
+        }
+        .tabButton_sel
+        {
+            color: #000000;
+            padding: 5px 0px;
+            margin-left: 1px;
+            border: 1px solid #989898;
+            border-bottom: none;
+            background: #FFFFFF;
+            text-decoration: none;
+            font: 11px arial;
+            cursor: hand;
+            width:153px;
+        }
+        .tabButton:hover
+        {
+            color: #000;
+            background: #f1ffd7;
+            border-color: #0087b9;
+        }
+        .tabButton:active
+        {
+            color: #000;
+            background: #f1ffd7;
+            border-color: #0087b9;
+        }
+

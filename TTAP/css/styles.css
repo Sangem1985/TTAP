@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700,900');
+body{
+	margin:0;
+	font-family: 'Titillium Web', sans-serif;
+	background:#dededc url(../images/img-footer.jpg) no-repeat left 98%;
+	background-size:100% auto;
+	padding-bottom:120px;
+}
+.main-container{
+	padding:0;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#fff;
+	text-transform:uppercase;
+	margin-right:10px;
+}
+
+.navbar-default .navbar-nav > li > a:hover{
+	color: #fff;
+    background-color: #009249;
+}
+.navbar-default .navbar-nav > li > a:before{
+	content:'';
+	width:4px;
+	height:4px;
+	background:#fff;
+	float:left;
+	position:absolute;
+	left:12px;
+	top:50%;
+	margin:-2px 0 0 0;
+	opacity:0.6;
+}
+#mainSlider .item img{
+	width:100%;
+	max-height:500px;
+}
+.latestnews-block{
+	float:left;
+	padding:10px 10px;
+	background:#009249;
+	font-size:14px;
+	color:#fefe00;
+}
+.latestnews-block b{
+	font-weight:600;
+	color:#fff;
+	position: absolute;
+    left: 15px;
+    top: 0;
+}
+.latestnews-block marquee{
+	display:inline-block;
+	padding-left:92px;
+}
+.latestnews-block marquee a{
+    color:#fefe00;
+    display:inline-block;
+    margin-right:20px;
+}
+.latestnews-block marquee a:before{
+    content:'';
+    width:1px;
+    height:16px;
+    background:#fff;
+    float:right;
+    margin:2px -10px 0 0;
+}
+.loginarea-block{
+	/*background:rgba(62, 168, 230, 0.72);*/
+	min-height:120px;
+	padding:12px 20px;
+	text-align:center;
+}
+.loginarea-block:before{
+	content:'';
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	background:url(../images/ShipBanner.jpg) no-repeat left -500px;
+	background-size:cover;
+	z-index:-1;
+}
+
+.getapprove-block a{
+	display:inline-block;
+	padding:8px 20px;
+	background:#fdba23;
+	color:#fff;
+	vertical-align:top;
+	font-size:18px;
+	text-transform:uppercase;
+	font-weight:400;
+	margin:0 0 0 15px;
+}
+.getapprove-block h3{
+	margin:4px 0 0 0;
+	color:#fff;
+	font-size:30px;
+	font-weight:300;
+	font-style:italic;
+	display:inline-block;
+}
+.getapprove-block{
+		display:inline-block;
+			margin: 22px 0 0 0;
+}
+.body-content{
+	background:#fff;
+	padding:20px 20px;
+}
+.body-content h2{
+	margin:0;
+	color:#0d418c;
+	font-size:35px;
+	font-style:italic;
+	font-weight:400;
+}
+.quicklinks-block{
+	padding:20px 0 0 0;
+}
+.galleydiv{
+	padding:0;
+}
+.galleydiv img{
+	max-width:100%;
+}
+.galleydiv a{
+	float:left;
+	position:relative;
+}
+.eventheading{
+	position:absolute;
+	bottom:0;
+	left:0;
+	padding:8px 10px;
+	background:rgba(0, 0, 0, 0.6);
+	color:#fff;
+	font-size:17px;
+	width:100%;
+}
+.block-categoryname{
+	float:left;
+	position:absolute;
+	top:0;
+	left:0;
+	padding:3px 12px;
+	background:rgba(0, 0, 0, 0.6);
+	color:#fff;
+	font-size:14px;
+}
+.sm-links-block .galleydiv{
+	padding:0 5px 10px;
+}
+.sm-links-block{
+	padding:0 0 0 15px;
+}
+.gallery-thumb{
+	min-height:330px;
+}
+.header-container{
+	float:left;
+	background:#fff;
+	padding:6px 10px;
+}
+.header-logo{
+	display:inline-block;
+	margin:3px 0 0;
+}
+.header-right{
+	float:right;
+}
+.header-kcr-title{
+	display:inline-block;
+	font-size:16px;
+	font-weight:700;
+	text-align:center;
+	margin-right:30px;
+}
+.header-kcr-title span{
+	display:block;
+}
+.header-kcr-title i{
+	display:inline-block;
+}
+.header-kcr-title i img{
+	/*max-width:72px;*/
+}
+.header-kcr-title span small{
+	display:block;
+	font-weight:300;
+}
+.footer-container{
+	margin:180px 0 0 0;
+	background:#eef6f8;
+	background-size:cover;
+	padding:10px 10px 10px 10px;
+	font-size:13px;
+	color:#505455;
+}
+
+.login-wrapper {
+    position:absolute;
+	left:36%;
+	top:19%;
+	/*transform:translate(-50%, -50%);*/
+    width: 380px;
+    float: left;
+}
+.nrl-login-logo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-left: -52px;
+    z-index: 9;
+}
+.login-block {
+    padding: 0;
+    margin: 52px 0 0;
+    padding: 60px 20px 20px;
+    background: #fff;
+    border-top: solid 7px #ff5e2e;
+}
+.login-title {
+    color: #061f47;
+    font-size: 22px;
+    font-weight: 500;
+    text-align: center;
+    padding-bottom: 30px;
+}
+.login-block .form-group {
+    margin-bottom: 20px;
+}
+.login-block input.form-control {
+    border: 0;
+    background: #e6e6e6;
+    min-height: 46px;
+    font-weight: 400;
+}
+.loginbg{
+	background:url(../images/ShipBanner.jpg) no-repeat;
+	background-size:cover;
+}
+.loginbg .footer-container{
+	display:none;
+}
+.login-error{
+	color:#ff0000;
+}
+.login-block .btn-submit {
+    width: 100%;
+    text-align: center;
+    background: #604d97;
+    color: #fff;
+    font-weight: 500;
+    padding: 10px 15px;
+    float: left;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 18px;
+    outline: none;
+}
+.position-rel{
+	position:relative;
+    padding-left:120px;
+}

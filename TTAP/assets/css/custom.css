@@ -1,0 +1,610 @@
+﻿/*=============================================================
+    Authour URI: www.binarytheme.com
+    License: Commons Attribution 3.0
+
+    http://creativecommons.org/licenses/by/3.0/
+
+    100% To use For Personal And Commercial Use.
+    IN EXCHANGE JUST GIVE US CREDITS AND TELL YOUR FRIENDS ABOUT US
+   
+    ========================================================  */
+
+/*==============================================
+    MAIN BOX  STYLES    
+    =============================================*/
+.main-box {
+    text-align:center;
+    padding:20px;
+    border-radius:5px;
+    -moz-border-radius:5px ;
+    -webkit-border-radius:5px;
+    margin-bottom:40px;
+}
+    .main-box a,.main-box a:hover {
+        color:#fff;
+        text-decoration:none;
+
+    }
+.mb-dull {
+    background-color:#8F8F2C;
+}
+.mb-red {
+    background-color:#d36f2e;
+}
+.mb-pink {
+    background-color:#FF2F71;
+}
+    .main-box h5 {
+        font-size:16px;
+        font-weight:800;
+        text-transform:uppercase;
+    }
+/*==============================================
+    CHAT WINDOW  STYLES    
+    =============================================*/
+
+.chat-widget-main {
+    max-height:500px;
+    padding:20px;
+    overflow:auto;
+}
+.chat-widget-left:after {
+    top: 100%;
+    left: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #6792d5;
+    border-width: 15px;
+    margin-left: -15px;
+   
+}
+
+.chat-widget-left {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #6792d5;
+    font-size:14px;
+   
+}
+.chat-widget-right:after {
+    top: 100%;
+    right: 10%;
+    border: solid transparent;
+    content: " ";
+    position: absolute;
+    border-top-color: #d51111;
+    border-width: 15px;
+    margin-left: -15px;
+}
+
+.chat-widget-right {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid #d51111;
+    font-size:14px;
+    
+}
+
+.chat-widget-name-left {
+    color: #6792d5;
+    margin-top: 30px;
+    margin-left: 60px;
+    text-align:left;
+    font-weight:900;
+    padding-bottom:20px;
+    font-size:16px;
+}
+.chat-widget-name-right {
+    color: #d51111;
+    margin-top: 30px;
+    margin-right: 60px;
+    font-size:16px;
+    text-align:right;
+    font-weight:900;
+    padding-bottom:20px;
+    
+
+}
+
+/*==============================================
+        Reviews Styles
+    =============================================*/
+#reviews {
+    min-height:180px;
+    background-color:#64A2DB;
+	padding:15px;
+}
+#reviews h4 {
+color: #fff;
+line-height: 30px;
+font-size: 16px;
+}
+#reviews .user-img {
+border: 2px solid #fff;
+overflow: hidden;
+border-radius: 50%;
+display: inline-block;
+}
+
+#reviews .img-u {
+   max-height: 90px;
+max-width: 90px;
+}
+
+#reviews .c-black {
+    color:#fff;
+    font-style: italic;
+font-size: 20px;
+padding: 5px;
+}
+
+/*==============================================
+        NOTICE BOX STYLES
+    =============================================*/
+
+.noti-box {
+min-height: 100px;
+color:#fff;
+padding: 20px;
+}
+.noti-box .icon-box {
+display: block;
+float: left;
+margin: 0 15px 10px 0;
+width: 70px;
+height: 70px;
+line-height: 75px;
+vertical-align: middle;
+text-align: center;
+font-size: 40px;
+}
+.bg-color-black {
+background-color: #424242;
+color: #fff;
+}
+.main-text {
+font-size: 25px;
+font-weight: 600;
+}
+.color-bottom-txt {
+font-size: 16px;
+line-height: 30px;
+}
+.panel-back {
+background-color: #929292;
+}
+
+/*==========================================
+   GALLERY/ PORTFOLIO STYLES
+    =====================================================*/
+
+#port-folio {
+    padding-top: 10px; 
+    padding-bottom: 100px; 
+}
+.portfolio-item {
+    border:1px solid #000;
+    margin:3px;
+}
+    .portfolio-item p {
+        padding:12px;
+        color:#fff;
+        line-height:25px;
+    }
+
+.portfolio-item .overlay {
+   
+  background-color: #000;
+  text-align: center;
+  padding-bottom:30px;
+  
+}
+
+/*==========================================
+   GALLERY/ PORTFOLIO FILTER STYLES
+    =====================================================*/
+ul#filters {
+	padding: 0px;
+}
+#filters {
+	margin: 3% 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+	#filters li {
+		display: -webkit-inline-box;
+	}
+	#filters li span {
+		display: block;
+		padding: 5px 4px;
+		text-decoration: none;
+		color: #d51111;
+		cursor: pointer;
+		font-size: 18px;
+	}
+ 	#port-folio .portfolio-item {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-o-box-sizing: border-box;
+		width: 100%;		
+        opacity:.2;
+		float:left;
+		overflow:hidden;
+	}
+
+div#demo {
+    margin-top: 8px !important;
+}
+
+.sideLink {
+    z-index: 999;
+    position: fixed;
+    right: 0px;
+}
+
+a.twitter {
+    background: linear-gradient(45deg, #00dbde, #fc00ff);
+    border: 0;
+    border-radius: 20px;
+    padding: 1px 8px;
+    color: #fff !important;
+    font-weight: 900;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+a.facebook {
+    background: linear-gradient(45deg,#27a4ae, #f9c029);
+    border: 0;
+    border-radius: 20px;
+    padding: 1px 8px;
+    color: #fff !important;
+    font-weight: 900;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.nav-menu,
+.nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+    .nav-menu ul {
+        position: absolute;
+        display: none;
+        top: 100%;
+        left: 0;
+        z-index: 99;
+    }
+
+    .nav-menu li {
+        position: relative;
+        white-space: nowrap;
+    }
+
+    .nav-menu > li {
+        float: left;
+    }
+
+    .nav-menu li:hover > ul,
+    .nav-menu li.sfHover > ul {
+        display: block;
+    }
+
+    .nav-menu ul ul {
+        top: 0;
+        left: 100%;
+    }
+
+    .nav-menu ul li {
+        min-width: 180px;
+    }
+
+/* Nav Menu Arrows */
+
+.sf-arrows .sf-with-ul {
+    padding-right: 22px;
+}
+
+    .sf-arrows .sf-with-ul:after {
+        content: "\f107";
+        position: absolute;
+        right: 8px;
+        font-family: FontAwesome;
+        font-style: normal;
+        font-weight: normal;
+    }
+
+.sf-arrows ul .sf-with-ul:after {
+    content: "\f105";
+}
+
+/* Nav Meu Container */
+
+#nav-menu-container {
+    float: right;
+    margin: 0;
+}
+
+/* Nav Meu Styling */
+
+.nav-menu a {
+    padding: 10px 6px;
+    text-decoration: none;
+    display: inline-block;
+    color: #555;
+    font-family: Montserrat !important;
+    font-weight: 700;
+    font-size: 14px;
+    outline: none;
+}
+
+.nav-menu li:hover > a,
+.nav-menu .menu-active > a {
+    color: #50d8af;
+}
+
+.nav-menu > li {
+    margin-left: 10px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav-menu ul {
+    margin: 4px 0 0 0;
+    padding: 10px;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+    background: #fff;
+}
+
+    .nav-menu ul li {
+        transition: 0.3s;
+    }
+
+        .nav-menu ul li a {
+            padding: 10px;
+            color: #333;
+            transition: 0.3s;
+            display: block;
+            font-size: 13px;
+            text-transform: none;
+        }
+
+        .nav-menu ul li:hover > a {
+            color: #50d8af;
+        }
+
+    .nav-menu ul ul {
+        margin: 0;
+    }
+
+/* Mobile Nav Toggle */
+
+#mobile-nav-toggle {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    margin: 20px 20px 0 0;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    display: none;
+    transition: all 0.4s;
+    outline: none;
+    cursor: pointer;
+}
+
+    #mobile-nav-toggle i {
+        color: #555;
+    }
+
+/* Mobile Nav Styling */
+
+#mobile-nav {
+    position: fixed;
+    top: 0;
+    padding-top: 18px;
+    bottom: 0;
+    z-index: 998;
+    background: rgba(52, 59, 64, 0.9);
+    left: -260px;
+    width: 260px;
+    overflow-y: auto;
+    transition: 0.4s;
+}
+
+    #mobile-nav ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+        #mobile-nav ul li {
+            position: relative;
+        }
+
+            #mobile-nav ul li a {
+                color: #fff;
+                font-size: 16px;
+                overflow: hidden;
+                padding: 10px 22px 10px 15px;
+                position: relative;
+                text-decoration: none;
+                width: 100%;
+                display: block;
+                outline: none;
+            }
+
+                #mobile-nav ul li a:hover {
+                    color: #fff;
+                }
+
+            #mobile-nav ul li li {
+                padding-left: 30px;
+            }
+
+        #mobile-nav ul .menu-has-children i {
+            position: absolute;
+            right: 0;
+            z-index: 99;
+            padding: 15px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+            #mobile-nav ul .menu-has-children i.fa-chevron-up {
+                color: #50d8af;
+            }
+
+        #mobile-nav ul .menu-item-active {
+            color: #50d8af;
+        }
+
+#mobile-body-overly {
+    width: 100%;
+    height: 100%;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(52, 59, 64, 0.9);
+    display: none;
+}
+
+/* Mobile Nav body classes */
+
+body.mobile-nav-active {
+    overflow: hidden;
+}
+
+    body.mobile-nav-active #mobile-nav {
+        left: 0;
+    }
+
+    body.mobile-nav-active #mobile-nav-toggle {
+        color: #fff;
+    }
+
+nav#nav-menu-container {
+    float: none !important;
+}
+
+ul.nav.nav-tabs li.active {
+    *background: #3F51B5;
+}
+
+ul.nav.nav-tabs li {
+    padding: 5px 25px;
+}
+
+    ul.nav.nav-tabs li.active a {
+        color: fff;
+    }
+
+a.active.show {
+    color: #fff !important;
+    font-weight: 900;
+    background: #3F51B5 !important;
+    padding: 8px !important;
+    border: 1px solid #C2C2C2 !important;
+}
+
+nav#nav-menu-container a {
+    color: #fff !important;
+}
+
+header#header, .nav-menu ul {
+    background: -webkit-linear-gradient(#4f84d2, #1957ae);
+}
+
+.sf-arrows .sf-with-ul {
+    padding-right: 22px;
+}
+
+.nav-menu ul li a {
+    padding: 10px;
+    color: #333;
+    transition: 0.3s;
+    display: block;
+    font-size: 13px;
+    text-transform: none;
+}
+
+ul#deepmenu {
+    left: -118% !important;
+    height: 300px !important;
+    overflow-y: scroll !important;
+}
+
+#header {
+    padding: 20px 0;
+    height: 84px;
+    transition: all 0.5s;
+    z-index: 997;
+    background: #fff;
+    box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
+}
+
+ol.carousel-indicators {
+    bottom: -20px !important;
+    left: 35px !important;
+}
+
+.title5 {
+    font-size: 15px !important;
+    line-height: 26px;
+    font-family: 'Montserrat' !important;
+}
+
+i.ion-android-checkmark-circle {
+    font-size: 20px;
+    padding-right: 4px;
+    color: #50d8af;
+}
+
+a.text-underline.know-more {
+    border-top: 2px solid #000;
+    color: #000 !important;
+    font-weight: 900;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav.navbar.navbar-expand-md.bg-primary.navbar-dark.w-100.p-0.font-medium.title6 {
+    background: #3F51B5 !important;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-control {
+    border-radius: 0px !important;
+}
+
+div#innerpagew {
+    max-width: 1380px !important;
+}
+
+ul#innerpagew {
+    max-width: 1325px !important;
+}
+
+div#ContentPlaceHolder1_Receipt {
+    max-width: 1325px !important;
+}
+
+.w-100.px-4.frm-form.box-content.py-4.font-medium.title5.mt-sm-5 {
+    border-radius: 0px !important;
+}

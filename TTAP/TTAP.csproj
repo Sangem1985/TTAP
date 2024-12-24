@@ -1,0 +1,2414 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9DD54794-B0F0-4557-95A0-16E16B3E7AA4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TTAP</RootNamespace>
+    <AssemblyName>TTAP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=3.5.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\ADMIN\Downloads\WebFormModelPopup\WebApplication26\WebApplication26\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\TTAP\PrivateReferences\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker">
+      <HintPath>..\..\TTAP\PrivateReferences\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\CMS Projects Live\KumNewOnlineApplication\KumNewOnlineApplication\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AssetsNew\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="AssetsNew\css\bootstrap.min.css" />
+    <Content Include="AssetsNew\css\float.css" />
+    <Content Include="AssetsNew\css\font-awesome.min.css" />
+    <Content Include="AssetsNew\css\media.css" />
+    <Content Include="AssetsNew\css\style.css" />
+    <Content Include="AssetsNew\fonts\fontawesome-webfont.svg" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Bold.svg" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-ExtraLight.svg" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Medium.svg" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Regular.svg" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-SemiBold.svg" />
+    <Content Include="AssetsNew\Images\bitmap.jpg" />
+    <Content Include="AssetsNew\Images\bitmap_old.jpg" />
+    <Content Include="AssetsNew\Images\CMSfooter.png" />
+    <Content Include="AssetsNew\Images\combined-shape.png" />
+    <Content Include="AssetsNew\Images\cytonn-photography-604680-unsplash.jpg" />
+    <Content Include="AssetsNew\Images\cytonn-photography-604680-unsplash_old.jpg" />
+    <Content Include="AssetsNew\Images\group-10.png" />
+    <Content Include="AssetsNew\Images\group-17.png" />
+    <Content Include="AssetsNew\Images\jo-szczepanska-1163258-unsplash.jpg" />
+    <Content Include="AssetsNew\Images\jo-szczepanska-1163258-unsplash_old.jpg" />
+    <Content Include="AssetsNew\Images\noun-approval-484181.png" />
+    <Content Include="AssetsNew\Images\ovel.png" />
+    <Content Include="AssetsNew\Images\service-banner.jpg" />
+    <Content Include="AssetsNew\Images\smartmockups-jvg-6-j-88-x.jpg" />
+    <Content Include="AssetsNew\Images\smartmockups-jvg-6-j-88-x_old.jpg" />
+    <Content Include="AssetsNew\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="AssetsNew\js\bootstrap.min.js" />
+    <Content Include="AssetsNew\js\floating.js" />
+    <Content Include="AssetsNew\js\moment.min.js" />
+    <Content Include="AssetsNew\js\popper.min.js" />
+    <Content Include="assets\css\custom.css" />
+    <Content Include="assets\css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="assets\css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="assets\css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="assets\css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="assets\css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="assets\css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="assets\css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="assets\css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="assets\css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="assets\css\images\ui-icons_222222_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="assets\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="assets\css\jquery-ui-1.8.19.custom.css" />
+    <Content Include="assets\css\main-style.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\style5.css" />
+    <Content Include="assets\font-awesome\css\font-awesome.css" />
+    <Content Include="assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\user.jpg" />
+    <Content Include="assets\plugins\bootstrap\bootstrap.css" />
+    <Content Include="assets\plugins\bootstrap\bootstrap.js" />
+    <Content Include="assets\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="assets\plugins\dataTables\dataTables.bootstrap.css" />
+    <Content Include="assets\plugins\dataTables\dataTables.bootstrap.js" />
+    <Content Include="assets\plugins\dataTables\jquery.dataTables.js" />
+    <Content Include="assets\plugins\flot\excanvas.min.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="assets\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="assets\plugins\jquery-1.10.2.js" />
+    <Content Include="assets\plugins\metisMenu\jquery.metisMenu.js" />
+    <Content Include="assets\plugins\morris\morris-0.4.3.min.css" />
+    <Content Include="assets\plugins\morris\morris.js" />
+    <Content Include="assets\plugins\morris\raphael-2.1.0.min.js" />
+    <Content Include="assets\plugins\pace\pace-theme-big-counter.css" />
+    <Content Include="assets\plugins\pace\pace.js" />
+    <Content Include="assets\plugins\social-buttons\social-buttons.css" />
+    <Content Include="assets\plugins\timeline\timeline.css" />
+    <Content Include="assets\scripts\dashboard-demo.js" />
+    <Content Include="assets\scripts\flot-demo.js" />
+    <Content Include="assets\scripts\morris-demo.js" />
+    <Content Include="assets\scripts\siminta.js" />
+    <Content Include="assets\vendor\animate.css\animate.compat.css" />
+    <Content Include="assets\vendor\animate.css\animate.css" />
+    <Content Include="assets\vendor\animate.css\animate.min.css" />
+    <Content Include="assets\vendor\aos\aos.css" />
+    <Content Include="assets\vendor\aos\aos.js" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\vendor\boxicons\css\animations.css" />
+    <Content Include="assets\vendor\boxicons\css\boxicons.css" />
+    <Content Include="assets\vendor\boxicons\css\boxicons.min.css" />
+    <Content Include="assets\vendor\boxicons\css\transformations.css" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.svg" />
+    <Content Include="assets\vendor\icofont\icofont.min.css" />
+    <Content Include="assets\vendor\isotope-layout\isotope.pkgd.js" />
+    <Content Include="assets\vendor\isotope-layout\isotope.pkgd.min.js" />
+    <Content Include="assets\vendor\jquery.easing\jquery.easing.min.js" />
+    <Content Include="assets\vendor\jquery\jquery.min.js" />
+    <Content Include="assets\vendor\owl.carousel\assets\ajax-loader.gif" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.carousel.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.carousel.min.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.default.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.default.min.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.green.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.theme.green.min.css" />
+    <Content Include="assets\vendor\owl.carousel\assets\owl.video.play.png" />
+    <Content Include="assets\vendor\owl.carousel\owl.carousel.js" />
+    <Content Include="assets\vendor\owl.carousel\owl.carousel.min.js" />
+    <Content Include="assets\vendor\php-email-form\changelog.txt" />
+    <Content Include="assets\vendor\php-email-form\validate.js" />
+    <Content Include="assets\vendor\remixicon\remixicon.css" />
+    <Content Include="assets\vendor\remixicon\remixicon.svg" />
+    <Content Include="assets\vendor\remixicon\remixicon.symbol.svg" />
+    <Content Include="assets\vendor\venobox\venobox.css" />
+    <Content Include="assets\vendor\venobox\venobox.js" />
+    <Content Include="assets\vendor\venobox\venobox.min.css" />
+    <Content Include="assets\vendor\venobox\venobox.min.js" />
+    <Content Include="contact.aspx" />
+    <Content Include="css\app.css" />
+    <Content Include="css\bootstrap-theme.css" />
+    <Content Include="css\bootstrap-theme.min.css" />
+    <Content Include="css\bootstrap.bundle.min.js" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\carousel.css" />
+    <Content Include="css\ctd.css" />
+    <Content Include="css\ctdBkp.css" />
+    <Content Include="css\datepicker.min.css" />
+    <Content Include="css\demo.css" />
+    <Content Include="css\flexslider.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\fontello.css" />
+    <Content Include="css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\innerPage.css" />
+    <Content Include="css\jquery-ui-1.8.24.custom.css" />
+    <Content Include="css\jquery-ui.css" />
+    <Content Include="css\jquery.fancybox-Inner.css" />
+    <Content Include="css\jquery.slim.min.js" />
+    <Content Include="css\layerslider.css" />
+    <Content Include="css\officers.css" />
+    <Content Include="css\owl.carousel.css" />
+    <Content Include="css\owl.theme.css" />
+    <Content Include="css\owl.transitions.css" />
+    <Content Include="css\print.css" />
+    <Content Include="css\responsive.css" />
+    <Content Include="css\rupee\WebRupee.V2.0.svg" />
+    <Content Include="css\shortcodes.css" />
+    <Content Include="css\sidemenu.css" />
+    <Content Include="css\simple.css" />
+    <Content Include="css\single.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\stylelogin.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="css\StyleSheet.css" />
+    <Content Include="css\tab.css" />
+    <Content Include="css\tab1.css" />
+    <Content Include="css\text.css" />
+    <Content Include="DeptDocs\TTAP EXTENSION UPTO 30.09.2021_1.jpg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Home.aspx" />
+    <Content Include="images\5bf9e4df2db88bcb95b05c225a6431ff.jpg" />
+    <Content Include="images\a111.jpg" />
+    <Content Include="images\a2.jpg" />
+    <Content Include="images\a3.jpg" />
+    <Content Include="images\a311.jpg" />
+    <Content Include="images\ajax-loaderblack.gif" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\banner1.jpg" />
+    <Content Include="images\banner11.jpg" />
+    <Content Include="images\banner11111.jfif" />
+    <Content Include="images\banner1a.jfif" />
+    <Content Include="images\banner2.jpg" />
+    <Content Include="images\banner3.jpg" />
+    <Content Include="images\bg-noise.png" />
+    <Content Include="images\CloseButtonimg.png" />
+    <Content Include="images\CloseButtonimg1.png" />
+    <Content Include="images\CloseButtonimg4.png" />
+    <Content Include="images\CM-Photo.png" />
+    <Content Include="images\CM-Photo1.png" />
+    <Content Include="images\Excel-icon.png" />
+    <Content Include="images\f.png" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\g1.jpg" />
+    <Content Include="images\g1a.jpg" />
+    <Content Include="images\g2.jpg" />
+    <Content Include="images\g3.jpg" />
+    <Content Include="images\g4.jpg" />
+    <Content Include="images\g5.jpg" />
+    <Content Include="images\g6.jpg" />
+    <Content Include="images\images %283%29.jfif" />
+    <Content Include="images\inner-banner.jpg" />
+    <Content Include="images\kcr.jpg" />
+    <Content Include="images\ktr.jpeg" />
+    <Content Include="images\launh1.jpg" />
+    <Content Include="images\launh2.jpg" />
+    <Content Include="images\launh3.jpg" />
+    <Content Include="images\launh4.jpg" />
+    <Content Include="images\launh5.jpg" />
+    <Content Include="images\launh6.jpg" />
+    <Content Include="images\launicon.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\m.png" />
+    <Content Include="images\refresh.png" />
+    <Content Include="images\silk-cotton-saree-1521027439-3719119.jpeg" />
+    <Content Include="images\slide.jpg" />
+    <Content Include="images\slider1.png" />
+    <Content Include="images\slider2.jpg" />
+    <Content Include="images\slider3.jpg" />
+    <Content Include="images\slider4.jpg" />
+    <Content Include="images\slider5.jpg" />
+    <Content Include="images\slider6.jpg" />
+    <Content Include="images\slider7.jpg" />
+    <Content Include="images\slider8.jpg" />
+    <Content Include="images\t1.jpg" />
+    <Content Include="images\t2.jpg" />
+    <Content Include="images\t3.jpg" />
+    <Content Include="Js\custom.js" />
+    <Content Include="Js\ddlsearch\jquery-customselect.css" />
+    <Content Include="Js\ddlsearch\jquery-customselect.js" />
+    <Content Include="Js\demos\demo-app-landing.js" />
+    <Content Include="Js\demos\demo-business-consulting.js" />
+    <Content Include="Js\demos\demo-church.js" />
+    <Content Include="Js\demos\demo-construction.js" />
+    <Content Include="Js\demos\demo-event.js" />
+    <Content Include="Js\demos\demo-finance.js" />
+    <Content Include="Js\demos\demo-gym.js" />
+    <Content Include="Js\demos\demo-hotel.js" />
+    <Content Include="Js\demos\demo-law-firm.js" />
+    <Content Include="Js\demos\demo-medical.js" />
+    <Content Include="Js\demos\demo-one-page-agency.js" />
+    <Content Include="Js\demos\demo-photography.js" />
+    <Content Include="Js\demos\demo-real-estate.js" />
+    <Content Include="Js\demos\demo-resume.js" />
+    <Content Include="Js\demos\demo-wedding.js" />
+    <Content Include="Js\examples\examples.carousels.js" />
+    <Content Include="Js\examples\examples.demos.js" />
+    <Content Include="Js\examples\examples.gallery.js" />
+    <Content Include="Js\examples\examples.lightboxes.js" />
+    <Content Include="Js\examples\examples.portfolio.js" />
+    <Content Include="Js\jquery-latest.min.js" />
+    <Content Include="Js\jquery-ui.min.js" />
+    <Content Include="Js\jquery.floatThead.js" />
+    <Content Include="Js\jquery.floatThead.min.js" />
+    <Content Include="Js\jquery.liMarquee.js" />
+    <Content Include="Js\jquery.min.js" />
+    <Content Include="Js\table2excel.js" />
+    <Content Include="Js\theme.init.js" />
+    <Content Include="Js\theme.js" />
+    <Content Include="Js\validations.js" />
+    <Content Include="Js\views\view.contact.js" />
+    <Content Include="Js\views\view.home.js" />
+    <Content Include="Launchingpage.aspx" />
+    <Content Include="loginReg.aspx" />
+    <Content Include="Models\bootstrap.css" />
+    <Content Include="NewCss\css\bootstrap-responsive.min.css" />
+    <Content Include="NewCss\css\bootstrap.min.css" />
+    <Content Include="NewCss\css\colorpicker.css" />
+    <Content Include="NewCss\css\datepicker.css" />
+    <Content Include="NewCss\css\fullcalendar.css" />
+    <Content Include="NewCss\css\jquery.gritter.css" />
+    <Content Include="NewCss\css\maruti-login.css" />
+    <Content Include="NewCss\css\maruti-media.css" />
+    <Content Include="NewCss\css\maruti-style.css" />
+    <Content Include="NewCss\css\select2.css" />
+    <Content Include="NewCss\css\uniform.css" />
+    <Content Include="NewCss\images\backgrounds\bodyBg.png" />
+    <Content Include="NewCss\images\backgrounds\default.jpg" />
+    <Content Include="NewCss\images\backgrounds\titleRowBg.png" />
+    <Content Include="NewCss\images\gallery\imgbox1.jpg" />
+    <Content Include="NewCss\images\gallery\imgbox2.jpg" />
+    <Content Include="NewCss\images\gallery\imgbox3.jpg" />
+    <Content Include="NewCss\images\gallery\imgbox4.jpg" />
+    <Content Include="NewCss\images\gallery\imgbox5.jpg" />
+    <Content Include="NewCss\img\alpha.png" />
+    <Content Include="NewCss\img\breadcrumb.png" />
+    <Content Include="NewCss\img\css-border-bg.jpg" />
+    <Content Include="NewCss\img\demo\av1.jpg" />
+    <Content Include="NewCss\img\demo\av2.jpg" />
+    <Content Include="NewCss\img\demo\av3.jpg" />
+    <Content Include="NewCss\img\demo\av4.jpg" />
+    <Content Include="NewCss\img\demo\av5.jpg" />
+    <Content Include="NewCss\img\demo\demo-image1.jpg" />
+    <Content Include="NewCss\img\demo\demo-image2.jpg" />
+    <Content Include="NewCss\img\demo\demo-image3.jpg" />
+    <Content Include="NewCss\img\demo\envelope.png" />
+    <Content Include="NewCss\img\glyphicons-halflings-white.png" />
+    <Content Include="NewCss\img\glyphicons-halflings.png" />
+    <Content Include="NewCss\img\gritter.png" />
+    <Content Include="NewCss\img\hue.png" />
+    <Content Include="NewCss\img\icons\16\book.png" />
+    <Content Include="NewCss\img\icons\16\cabinet.png" />
+    <Content Include="NewCss\img\icons\16\calendar.png" />
+    <Content Include="NewCss\img\icons\16\client.png" />
+    <Content Include="NewCss\img\icons\16\database.png" />
+    <Content Include="NewCss\img\icons\16\download.png" />
+    <Content Include="NewCss\img\icons\16\graph.png" />
+    <Content Include="NewCss\img\icons\16\home.png" />
+    <Content Include="NewCss\img\icons\16\lock.png" />
+    <Content Include="NewCss\img\icons\16\mail.png" />
+    <Content Include="NewCss\img\icons\16\pdf.png" />
+    <Content Include="NewCss\img\icons\16\people.png" />
+    <Content Include="NewCss\img\icons\16\piechart.png" />
+    <Content Include="NewCss\img\icons\16\search.png" />
+    <Content Include="NewCss\img\icons\16\shopping-bag.png" />
+    <Content Include="NewCss\img\icons\16\survey.png" />
+    <Content Include="NewCss\img\icons\16\tag.png" />
+    <Content Include="NewCss\img\icons\16\user.png" />
+    <Content Include="NewCss\img\icons\16\wallet.png" />
+    <Content Include="NewCss\img\icons\16\web.png" />
+    <Content Include="NewCss\img\icons\32\book.png" />
+    <Content Include="NewCss\img\icons\32\cabinet.png" />
+    <Content Include="NewCss\img\icons\32\calendar.png" />
+    <Content Include="NewCss\img\icons\32\client.png" />
+    <Content Include="NewCss\img\icons\32\dashboard.png" />
+    <Content Include="NewCss\img\icons\32\database.png" />
+    <Content Include="NewCss\img\icons\32\download.png" />
+    <Content Include="NewCss\img\icons\32\graph.png" />
+    <Content Include="NewCss\img\icons\32\home.png" />
+    <Content Include="NewCss\img\icons\32\lock.png" />
+    <Content Include="NewCss\img\icons\32\mail.png" />
+    <Content Include="NewCss\img\icons\32\pdf.png" />
+    <Content Include="NewCss\img\icons\32\people.png" />
+    <Content Include="NewCss\img\icons\32\piechart.png" />
+    <Content Include="NewCss\img\icons\32\search.png" />
+    <Content Include="NewCss\img\icons\32\shopping-bag.png" />
+    <Content Include="NewCss\img\icons\32\survey.png" />
+    <Content Include="NewCss\img\icons\32\tag.png" />
+    <Content Include="NewCss\img\icons\32\user.png" />
+    <Content Include="NewCss\img\icons\32\wallet.png" />
+    <Content Include="NewCss\img\icons\32\web.png" />
+    <Content Include="NewCss\img\larrow.png" />
+    <Content Include="NewCss\img\line.png" />
+    <Content Include="NewCss\img\login-logo.png" />
+    <Content Include="NewCss\img\logo.png" />
+    <Content Include="NewCss\img\menu-active.png" />
+    <Content Include="NewCss\img\rarrow.png" />
+    <Content Include="NewCss\img\saturation.png" />
+    <Content Include="NewCss\img\select2.png" />
+    <Content Include="NewCss\img\spinner.gif" />
+    <Content Include="NewCss\img\sprite.png" />
+    <Content Include="NewCss\js\bootstrap-colorpicker.js" />
+    <Content Include="NewCss\js\bootstrap-datepicker.js" />
+    <Content Include="NewCss\js\bootstrap.min.js" />
+    <Content Include="NewCss\js\excanvas.min.js" />
+    <Content Include="NewCss\js\fullcalendar.min.js" />
+    <Content Include="NewCss\js\jquery.dataTables.min.js" />
+    <Content Include="NewCss\js\jquery.flot.min.js" />
+    <Content Include="NewCss\js\jquery.flot.pie.min.js" />
+    <Content Include="NewCss\js\jquery.flot.resize.min.js" />
+    <Content Include="NewCss\js\jquery.gritter.min.js" />
+    <Content Include="NewCss\js\jquery.min.js" />
+    <Content Include="NewCss\js\jquery.peity.min.js" />
+    <Content Include="NewCss\js\jquery.ui.custom.js" />
+    <Content Include="NewCss\js\jquery.uniform.js" />
+    <Content Include="NewCss\js\jquery.validate.js" />
+    <Content Include="NewCss\js\jquery.wizard.js" />
+    <Content Include="NewCss\js\maruti.calendar.js" />
+    <Content Include="NewCss\js\maruti.charts.js" />
+    <Content Include="NewCss\js\maruti.chat.js" />
+    <Content Include="NewCss\js\maruti.dashboard.js" />
+    <Content Include="NewCss\js\maruti.form_common.js" />
+    <Content Include="NewCss\js\maruti.form_validation.js" />
+    <Content Include="NewCss\js\maruti.interface.js" />
+    <Content Include="NewCss\js\maruti.js" />
+    <Content Include="NewCss\js\maruti.login.js" />
+    <Content Include="NewCss\js\maruti.popover.js" />
+    <Content Include="NewCss\js\maruti.tables.js" />
+    <Content Include="NewCss\js\maruti.wizard.js" />
+    <Content Include="NewCss\js\select2.min.js" />
+    <Content Include="PrivateReferences\AjaxControlToolkit.dll" />
+    <Content Include="PrivateReferences\DocumentFormat.OpenXml.dll" />
+    <Content Include="PrivateReferences\DocumentFormat.OpenXml.xml" />
+    <Content Include="PrivateReferences\ExcelNumberFormat.dll" />
+    <Content Include="PrivateReferences\ExcelNumberFormat.xml" />
+    <Content Include="PrivateReferences\itextsharp.dll" />
+    <Content Include="PrivateReferences\itextsharp.xmlworker.dll" />
+    <Content Include="PrivateReferences\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="PrivateReferences\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="PrivateReferences\Newtonsoft.Json.dll" />
+    <Content Include="TTAPServices.asmx" />
+    <Content Include="UI\frmDLOApplicationDetailsNew.aspx" />
+    <Content Include="UI\frmIncentiveProcess.aspx" />
+    <Content Include="UI\Pages\Annexures\DraftfrmInspectionRptView.aspx" />
+    <Content Include="UI\Pages\Annexures\frmAssistanceforAcquisitionAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmAssistanceforEnergyWaterEnvironmentalAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmCapitalAssistanceAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmCapitalAssistanceExistingAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmCapitalEnergyAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmConcessiononSGSTAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmDesignProductDevelopmentAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmInspectionRptView.aspx" />
+    <Content Include="UI\Pages\Annexures\frmInterestSubsidyAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmInterestSubsidyAnnexureNew.aspx" />
+    <Content Include="UI\Pages\Annexures\frmOtherInfrastructureSupportAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmPowerTariffSubsidyAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmRebateCETPETPAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmReimbursementofLandCost.aspx" />
+    <Content Include="UI\Pages\Annexures\frmRentalLeaseSubsidyAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmReturningMigrantsAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmRevisedInspectionRptViewaspx.aspx" />
+    <Content Include="UI\Pages\Annexures\frmStampDutyReimbursementAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmTrainingInfrastructureAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmTrainingSubsidyAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmTransportSubsidyAnnexure.aspx" />
+    <Content Include="UI\Pages\Annexures\frmWorkerHousingDormitoriesAnnexure.aspx" />
+    <Content Include="UI\Pages\ApplicantIncentivesHistory.aspx" />
+    <Content Include="UI\Pages\ApplicantIncentivesTracker.aspx" />
+    <Content Include="UI\Pages\Application.aspx" />
+    <Content Include="UI\Pages\BilldeskPaymentPage.aspx" />
+    <Content Include="UI\Pages\BilldeskPaymentResponse.aspx" />
+    <Content Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx" />
+    <Content Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx" />
+    <Content Include="UI\Pages\CapitalAssistanceNewUnit.aspx" />
+    <Content Include="UI\Pages\CommissionerDashboard.aspx" />
+    <Content Include="UI\Pages\DLC\frmDLCAllApplicationst.aspx" />
+    <Content Include="UI\Pages\DLC\frmDLCSactionedApplications.aspx" />
+    <Content Include="UI\Pages\DLC\frmGenerateAgenda.aspx" />
+    <Content Include="UI\Pages\DLC\frmGenerateAgendaList.aspx" />
+    <Content Include="UI\Pages\DLC\frmGeneratedAgendaAbstract.aspx" />
+    <Content Include="UI\Pages\DLC\frmGeneratedAgendaPrint.aspx" />
+    <Content Include="UI\Pages\DLC\frmGeneratedAgendaUpdate.aspx" />
+    <Content Include="UI\Pages\DLSVC\frmDLSVCAllApplicationst.aspx" />
+    <Content Include="UI\Pages\DLSVC\frmDLSVCGenerateAgenda.aspx" />
+    <Content Include="UI\Pages\DLSVC\frmDLSVCGenerateAgendaList.aspx" />
+    <Content Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaAbstract.aspx" />
+    <Content Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaPrint.aspx" />
+    <Content Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaUpdate.aspx" />
+    <Content Include="UI\Pages\DLSVC\frmSVCSactionedApplications.aspx" />
+    <Content Include="UI\Pages\EnterQueryResponse.aspx" />
+    <Content Include="UI\Pages\FileApi.aspx" />
+    <Content Include="UI\Pages\FinalPage.aspx" />
+    <Content Include="UI\Pages\FormAutoMessages.aspx" />
+    <Content Include="UI\Pages\FormCreateAgenda.aspx" />
+    <Content Include="UI\Pages\FormIncentiveTracker.aspx" />
+    <Content Include="UI\Pages\FormMobileCheck.aspx" />
+    <Content Include="UI\Pages\FormOTPCheck.aspx" />
+    <Content Include="UI\Pages\FormRDDDashboard.aspx" />
+    <Content Include="UI\Pages\FormslsvcDetails.aspx" />
+    <Content Include="UI\Pages\FormUpdateWorkingStatus.aspx" />
+    <Content Include="UI\Pages\FormWorkingStatusUpdate.aspx" />
+    <Content Include="UI\Pages\frmacknowledgement.aspx" />
+    <Content Include="UI\Pages\frmAssistanceAcquisition.aspx" />
+    <Content Include="UI\Pages\frmassistancedevelopment.aspx" />
+    <Content Include="UI\Pages\frmAssistanceEnergy.aspx" />
+    <Content Include="UI\Pages\frmAssistanceTraningInfrastructutre.aspx" />
+    <Content Include="UI\Pages\frmCapitalAssistanceExistingUnit.aspx" />
+    <Content Include="UI\Pages\frmChangePassword.aspx" />
+    <Content Include="UI\Pages\frmCommissionerDashboard.aspx" />
+    <Content Include="UI\Pages\frmCommonAttachments.aspx" />
+    <Content Include="UI\Pages\frmConcessionSGST.aspx" />
+    <Content Include="UI\Pages\frmDashBoard.aspx" />
+    <Content Include="UI\Pages\frmDeprApprovalDrill.aspx" />
+    <Content Include="UI\Pages\frmDeptAdminDashBoard.aspx" />
+    <Content Include="UI\Pages\frmDeptAdminDrill.aspx" />
+    <Content Include="UI\Pages\frmDeptApprovalDashBoard.aspx" />
+    <Content Include="UI\Pages\frmDeptPaymentApproval.aspx" />
+    <Content Include="UI\Pages\frmDLOApplicationDetails.aspx" />
+    <Content Include="UI\Pages\frmDLOApplications.aspx" />
+    <Content Include="UI\Pages\frmDLOApplicationsComm.aspx" />
+    <Content Include="UI\Pages\frmDLODashboard.aspx" />
+    <Content Include="UI\Pages\frmDraftApplication.aspx" />
+    <Content Include="UI\Pages\frmDraftApplicationsDrill.aspx" />
+    <Content Include="UI\Pages\frmGMDashboard.aspx" />
+    <Content Include="UI\Pages\frmIncentiveCAFDetails.aspx" />
+    <Content Include="UI\Pages\frmInspectionRpt.aspx" />
+    <Content Include="UI\Pages\frmIPOIncentiveDashboard.aspx" />
+    <Content Include="UI\Pages\frmJDApplications.aspx" />
+    <Content Include="UI\Pages\frmJDDashboard.aspx" />
+    <Content Include="UI\Pages\frmLandBuildingPMDetails.aspx" />
+    <Content Include="UI\Pages\frmLandCostSubsidy.aspx" />
+    <Content Include="UI\Pages\frmMigrantIncentives.aspx" />
+    <Content Include="UI\Pages\frmNewIncentive.aspx" />
+    <Content Include="UI\Pages\frmOtherInfrastructure.aspx" />
+    <Content Include="UI\Pages\frmPaymentPage.aspx" />
+    <Content Include="UI\Pages\frmPlantandMachinery.aspx" />
+    <Content Include="UI\Pages\frmProductDevelopment.aspx" />
+    <Content Include="UI\Pages\frmRebateCharges.aspx" />
+    <Content Include="UI\Pages\frmReInspectionReport.aspx" />
+    <Content Include="UI\Pages\frmRentalSubsidy.aspx" />
+    <Content Include="UI\Pages\frmResptoIncQry.aspx" />
+    <Content Include="UI\Pages\frmStampDuty.aspx" />
+    <Content Include="UI\Pages\frmTraningSubsidy.aspx" />
+    <Content Include="UI\Pages\frmTransportSubsidy.aspx" />
+    <Content Include="UI\Pages\frmUnitSanctionLetters.aspx" />
+    <Content Include="UI\Pages\frmUserDownloads.aspx" />
+    <Content Include="UI\Pages\frmUserPaymentDetails.aspx" />
+    <Content Include="UI\Pages\frmViewAttachemnts.aspx" />
+    <Content Include="UI\Pages\Helpdesk\ApplicantDashBaord.aspx" />
+    <Content Include="UI\Pages\Helpdesk\fmUserHdView.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmDashBoard.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmdeptUserMaaping.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmeTicketAbstract.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmeTicketAbstractDrill.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmHDSearch.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmModuleMaster.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmRptDistWiseAbstract.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmStateDashboard.aspx" />
+    <Content Include="UI\Pages\Helpdesk\frmSubModuleMaster.aspx" />
+    <Content Include="UI\Pages\Helpdesk\HdDashBoard.aspx" />
+    <Content Include="UI\Pages\Helpdesk\HdDashBoardApproval.aspx" />
+    <Content Include="UI\Pages\Helpdesk\HdView.aspx" />
+    <Content Include="UI\Pages\Helpdesk\HelpdeskSolution.aspx" />
+    <Content Include="UI\Pages\Helpdesk\RaiseHelpDesk.aspx" />
+    <Content Include="UI\Pages\Helpdesk\UserDashBoard.aspx" />
+    <Content Include="UI\Pages\Helpdesk\ViewHDAttachments.aspx" />
+    <Content Include="UI\Pages\IncentiveFormDraftView.aspx" />
+    <Content Include="UI\Pages\IncentivesTracker.aspx" />
+    <Content Include="UI\Pages\InscentiveView_AttachmentsNewIncType.aspx" />
+    <Content Include="UI\Pages\InspectionDelayNotes.aspx" />
+    <Content Include="UI\Pages\InterestSubsidy.aspx" />
+    <Content Include="UI\Pages\MISReports\AdoDistrictWiseAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\CapitalSubsidyDetailedReport.aspx" />
+    <Content Include="UI\Pages\MISReports\CapitalSubsiyReportAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\DashboardReport.aspx" />
+    <Content Include="UI\Pages\MISReports\DLOPendingApplicationsRpt.aspx" />
+    <Content Include="UI\Pages\MISReports\FormIncentivesReportView.aspx" />
+    <Content Include="UI\Pages\MISReports\FormIncentiveWiseAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\FormSanctionReport.aspx" />
+    <Content Include="UI\Pages\MISReports\FormUnitReport.aspx" />
+    <Content Include="UI\Pages\MISReports\FrmDloPendingReportAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\frmIncentiveAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\frmIncentiveAbstractDrill.aspx" />
+    <Content Include="UI\Pages\MISReports\frmIncentiveReports.aspx" />
+    <Content Include="UI\Pages\MISReports\frmIncentiveWiseRpt.aspx" />
+    <Content Include="UI\Pages\MISReports\frmInsDetailedReport.aspx" />
+    <Content Include="UI\Pages\MISReports\FrmNatureWiseReportAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\FrmSLCDeatailedReport.aspx" />
+    <Content Include="UI\Pages\MISReports\frmUnitsDetailedReport.aspx" />
+    <Content Include="UI\Pages\MISReports\FrmUnitWiseReportAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\InspectionsDetailedReport.aspx" />
+    <Content Include="UI\Pages\MISReports\InspectionsReportAbstract.aspx" />
+    <Content Include="UI\Pages\MISReports\RejectedApplicationsDetails.aspx" />
+    <Content Include="UI\Pages\MISReports\SubmittedAppsDetailedReport.aspx" />
+    <Content Include="UI\Pages\PaymentFailedTransactions.aspx" />
+    <Content Include="UI\Pages\PlantandMachinerySearch.aspx" />
+    <Content Include="UI\Pages\PowerTariffSubsidy.aspx" />
+    <Content Include="UI\Pages\QueryGeneration\frmApllicationsforQuery.aspx" />
+    <Content Include="UI\Pages\QueryGeneration\frmApllicationsforQueryDrill.aspx" />
+    <Content Include="UI\Pages\QueryGeneration\frmGenerateQuery.aspx" />
+    <Content Include="UI\Pages\QueryGeneration\frmQueryDashboard.aspx" />
+    <Content Include="UI\Pages\RecommendationLetters\DLOCoveringLetter.aspx" />
+    <Content Include="UI\Pages\RecommendationLetters\frmIntimationLetter.aspx" />
+    <Content Include="UI\Pages\Releases\CompleteReleasedList.aspx" />
+    <Content Include="UI\Pages\Releases\FormUnitWorkingStatusHO.aspx" />
+    <Content Include="UI\Pages\Releases\FormWorkingStatusDashboard.aspx" />
+    <Content Include="UI\Pages\Releases\frmGoReleaseRegistration.aspx" />
+    <Content Include="UI\Pages\Releases\frmPartiallyReleasedApplications.aspx" />
+    <Content Include="UI\Pages\Releases\frmPartialReleasedListView.aspx" />
+    <Content Include="UI\Pages\Releases\frmPartialReleases.aspx" />
+    <Content Include="UI\Pages\Releases\frmPartialReleasesList.aspx" />
+    <Content Include="UI\Pages\Releases\frmReleasedApplications.aspx" />
+    <Content Include="UI\Pages\Releases\frmReleaseDashboard.aspx" />
+    <Content Include="UI\Pages\Releases\frmReleasedListView.aspx" />
+    <Content Include="UI\Pages\Releases\frmReleases.aspx" />
+    <Content Include="UI\Pages\Releases\frmReleasesList.aspx" />
+    <Content Include="UI\Pages\ReminderQueries.aspx" />
+    <Content Include="UI\Pages\SendMail.aspx" />
+    <Content Include="UI\Pages\SLC\FormIssueSanctionLetter.aspx" />
+    <Content Include="UI\Pages\SLC\frmIssueSanctionedLetter.aspx" />
+    <Content Include="UI\Pages\SLC\frmSanctionLettersIssuedList.aspx" />
+    <Content Include="UI\Pages\SLC\frmSanctionLettersPendingList.aspx" />
+    <Content Include="UI\Pages\SLC\frmSLCAllApplicationst.aspx" />
+    <Content Include="UI\Pages\SLC\frmSLCGenerateAgenda.aspx" />
+    <Content Include="UI\Pages\SLC\frmSLCGenerateAgendaList.aspx" />
+    <Content Include="UI\Pages\SLC\frmSLCGeneratedAgendaAbstract.aspx" />
+    <Content Include="UI\Pages\SLC\frmSLCGeneratedAgendaPrint.aspx" />
+    <Content Include="UI\Pages\SLC\frmSLCGeneratedAgendaUpdate.aspx" />
+    <Content Include="UI\Pages\SLC\frmSLCSactionedApplications.aspx" />
+    <Content Include="UI\Pages\SLVUploadsEntry.aspx" />
+    <Content Include="UI\Pages\SVC\frmSLSVCSactionedApplications.aspx" />
+    <Content Include="UI\Pages\SVC\frmSVCAllApplicationst.aspx" />
+    <Content Include="UI\Pages\SVC\frmSVCGenerateAgenda.aspx" />
+    <Content Include="UI\Pages\SVC\frmSVCGenerateAgendaList.aspx" />
+    <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaAbstract.aspx" />
+    <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaPrint.aspx" />
+    <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaUpdate.aspx" />
+    <Content Include="UI\Pages\TypeOfIncentivesNew.aspx" />
+    <Content Include="UI\Pages\TypeOfIncentivesNew1.aspx" />
+    <Content Include="UI\Pages\VisitorRegistration.aspx" />
+    <Content Include="UI\Pages\VisitorsList.aspx" />
+    <Content Include="UI\UserDashBoard.aspx" />
+    <Content Include="css\bootstrap-theme.css.map" />
+    <Content Include="css\bootstrap-theme.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\rupee\WebRupee.V2.0.eot" />
+    <Content Include="css\rupee\WebRupee.V2.0.ttf" />
+    <Content Include="css\rupee\WebRupee.V2.0.woff" />
+    <Content Include="css\styles" />
+    <Content Include="NewCss\img\demo\Thumbs.db" />
+    <Content Include="NewCss\img\icons\32\Thumbs.db" />
+    <Content Include="NewCss\img\Thumbs.db" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DeptDocs\G.O.MS.NO.14 IND AND COM DEPT - MODIFIED OPERATIONAL GUIDELINES_TTAP.pdf" />
+    <Content Include="DeptDocs\G.O.MS.NO.59 DT 18-8-2017_0001.pdf" />
+    <Content Include="DeptDocs\Annexures.zip" />
+    <Content Include="DeptDocs\ANNEXURE XX DPR FORMAT.pdf" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.js.map" />
+    <Content Include="assets\vendor\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.eot" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.ttf" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.woff" />
+    <Content Include="assets\vendor\boxicons\fonts\boxicons.woff2" />
+    <Content Include="assets\vendor\icofont\fonts\icofont.woff" />
+    <Content Include="assets\vendor\icofont\fonts\icofont.woff2" />
+    <Content Include="assets\vendor\jquery\jquery.min.map" />
+    <Content Include="assets\vendor\owl.carousel\LICENSE" />
+    <Content Include="assets\vendor\owl.carousel\README.md" />
+    <Content Include="assets\vendor\remixicon\remixicon.eot" />
+    <Content Include="assets\vendor\remixicon\remixicon.less" />
+    <Content Include="assets\vendor\remixicon\remixicon.ttf" />
+    <Content Include="assets\vendor\remixicon\remixicon.woff" />
+    <Content Include="assets\vendor\remixicon\remixicon.woff2" />
+    <Content Include="PrivateReferences\AjaxControlToolkit.dll.refresh" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="UI\Pages\CaptchaHandler.ashx" />
+    <None Include="Web References\APTONLINEFAILEDPGSERVICE\PGServices.wsdl" />
+    <None Include="Web References\APTONLINEFAILEDPGSERVICE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\APTONLINEPGSERVICE\EncryptDEcrypt.wsdl" />
+    <None Include="Web References\APTONLINEFAILEDPGSERVICE\PGServices.disco" />
+    <Content Include="Web References\APTONLINEPGSERVICE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\APTONLINESMSGATEWAY\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\APTONLINESMSGATEWAY\smsservice.wsdl" />
+    <None Include="Web References\TSIPASSSERVICE\departmentapprovalsystem.disco" />
+    <None Include="Web References\APTONLINEPGSERVICE\EncryptDEcrypt.disco" />
+    <None Include="Web References\APTONLINESMSGATEWAY\smsservice.disco" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classfiles\AllPropertiesClass.cs" />
+    <Compile Include="Classfiles\BussinessLogic.cs" />
+    <Compile Include="Classfiles\CAF2Class.cs" />
+    <Compile Include="Classfiles\CAFClass.cs" />
+    <Compile Include="Classfiles\ClsFileUpload.cs" />
+    <Compile Include="Classfiles\ClsSMSandMail.cs" />
+    <Compile Include="Classfiles\comFunctions.cs" />
+    <Compile Include="Classfiles\DataRetrivalClass.cs" />
+    <Compile Include="Classfiles\DB.cs" />
+    <Compile Include="Classfiles\Errors.cs" />
+    <Compile Include="Classfiles\General.cs" />
+    <Compile Include="Classfiles\IncentivesDataRetrivalClass.cs" />
+    <Compile Include="Classfiles\LogErrorFile.cs" />
+    <Compile Include="Classfiles\PageName.cs" />
+    <Compile Include="Classfiles\QueryStringModule.cs" />
+    <Compile Include="Classfiles\ServiceClass.cs" />
+    <Compile Include="Classfiles\SQLHelper.cs" />
+    <Compile Include="contact.aspx.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contact.aspx.designer.cs">
+      <DependentUpon>contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomeMaster.Master.cs">
+      <DependentUpon>HomeMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeMaster.Master.designer.cs">
+      <DependentUpon>HomeMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Launchingpage.aspx.cs">
+      <DependentUpon>Launchingpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Launchingpage.aspx.designer.cs">
+      <DependentUpon>Launchingpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="loginReg.aspx.cs">
+      <DependentUpon>loginReg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="loginReg.aspx.designer.cs">
+      <DependentUpon>loginReg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TTAPServices.asmx.cs">
+      <DependentUpon>TTAPServices.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\frmDLOApplicationDetailsNew.aspx.cs">
+      <DependentUpon>frmDLOApplicationDetailsNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\frmDLOApplicationDetailsNew.aspx.designer.cs">
+      <DependentUpon>frmDLOApplicationDetailsNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\frmIncentiveProcess.aspx.cs">
+      <DependentUpon>frmIncentiveProcess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\frmIncentiveProcess.aspx.designer.cs">
+      <DependentUpon>frmIncentiveProcess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\DraftfrmInspectionRptView.aspx.cs">
+      <DependentUpon>DraftfrmInspectionRptView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\DraftfrmInspectionRptView.aspx.designer.cs">
+      <DependentUpon>DraftfrmInspectionRptView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmAssistanceforAcquisitionAnnexure.aspx.cs">
+      <DependentUpon>frmAssistanceforAcquisitionAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmAssistanceforAcquisitionAnnexure.aspx.designer.cs">
+      <DependentUpon>frmAssistanceforAcquisitionAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmAssistanceforEnergyWaterEnvironmentalAnnexure.aspx.cs">
+      <DependentUpon>frmAssistanceforEnergyWaterEnvironmentalAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmAssistanceforEnergyWaterEnvironmentalAnnexure.aspx.designer.cs">
+      <DependentUpon>frmAssistanceforEnergyWaterEnvironmentalAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmCapitalAssistanceAnnexure.aspx.cs">
+      <DependentUpon>frmCapitalAssistanceAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmCapitalAssistanceAnnexure.aspx.designer.cs">
+      <DependentUpon>frmCapitalAssistanceAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmCapitalAssistanceExistingAnnexure.aspx.cs">
+      <DependentUpon>frmCapitalAssistanceExistingAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmCapitalAssistanceExistingAnnexure.aspx.designer.cs">
+      <DependentUpon>frmCapitalAssistanceExistingAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmCapitalEnergyAnnexure.aspx.cs">
+      <DependentUpon>frmCapitalEnergyAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmCapitalEnergyAnnexure.aspx.designer.cs">
+      <DependentUpon>frmCapitalEnergyAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmConcessiononSGSTAnnexure.aspx.cs">
+      <DependentUpon>frmConcessiononSGSTAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmConcessiononSGSTAnnexure.aspx.designer.cs">
+      <DependentUpon>frmConcessiononSGSTAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmDesignProductDevelopmentAnnexure.aspx.cs">
+      <DependentUpon>frmDesignProductDevelopmentAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmDesignProductDevelopmentAnnexure.aspx.designer.cs">
+      <DependentUpon>frmDesignProductDevelopmentAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmInspectionRptView.aspx.cs">
+      <DependentUpon>frmInspectionRptView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmInspectionRptView.aspx.designer.cs">
+      <DependentUpon>frmInspectionRptView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmInterestSubsidyAnnexure.aspx.cs">
+      <DependentUpon>frmInterestSubsidyAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmInterestSubsidyAnnexure.aspx.designer.cs">
+      <DependentUpon>frmInterestSubsidyAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmInterestSubsidyAnnexureNew.aspx.cs">
+      <DependentUpon>frmInterestSubsidyAnnexureNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmInterestSubsidyAnnexureNew.aspx.designer.cs">
+      <DependentUpon>frmInterestSubsidyAnnexureNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmOtherInfrastructureSupportAnnexure.aspx.cs">
+      <DependentUpon>frmOtherInfrastructureSupportAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmOtherInfrastructureSupportAnnexure.aspx.designer.cs">
+      <DependentUpon>frmOtherInfrastructureSupportAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmPowerTariffSubsidyAnnexure.aspx.cs">
+      <DependentUpon>frmPowerTariffSubsidyAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmPowerTariffSubsidyAnnexure.aspx.designer.cs">
+      <DependentUpon>frmPowerTariffSubsidyAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmRebateCETPETPAnnexure.aspx.cs">
+      <DependentUpon>frmRebateCETPETPAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmRebateCETPETPAnnexure.aspx.designer.cs">
+      <DependentUpon>frmRebateCETPETPAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmReimbursementofLandCost.aspx.cs">
+      <DependentUpon>frmReimbursementofLandCost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmReimbursementofLandCost.aspx.designer.cs">
+      <DependentUpon>frmReimbursementofLandCost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmRentalLeaseSubsidyAnnexure.aspx.cs">
+      <DependentUpon>frmRentalLeaseSubsidyAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmRentalLeaseSubsidyAnnexure.aspx.designer.cs">
+      <DependentUpon>frmRentalLeaseSubsidyAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmReturningMigrantsAnnexure.aspx.cs">
+      <DependentUpon>frmReturningMigrantsAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmReturningMigrantsAnnexure.aspx.designer.cs">
+      <DependentUpon>frmReturningMigrantsAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmRevisedInspectionRptViewaspx.aspx.cs">
+      <DependentUpon>frmRevisedInspectionRptViewaspx.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmRevisedInspectionRptViewaspx.aspx.designer.cs">
+      <DependentUpon>frmRevisedInspectionRptViewaspx.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmStampDutyReimbursementAnnexure.aspx.cs">
+      <DependentUpon>frmStampDutyReimbursementAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmStampDutyReimbursementAnnexure.aspx.designer.cs">
+      <DependentUpon>frmStampDutyReimbursementAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmTrainingInfrastructureAnnexure.aspx.cs">
+      <DependentUpon>frmTrainingInfrastructureAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmTrainingInfrastructureAnnexure.aspx.designer.cs">
+      <DependentUpon>frmTrainingInfrastructureAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmTrainingSubsidyAnnexure.aspx.cs">
+      <DependentUpon>frmTrainingSubsidyAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmTrainingSubsidyAnnexure.aspx.designer.cs">
+      <DependentUpon>frmTrainingSubsidyAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmTransportSubsidyAnnexure.aspx.cs">
+      <DependentUpon>frmTransportSubsidyAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmTransportSubsidyAnnexure.aspx.designer.cs">
+      <DependentUpon>frmTransportSubsidyAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmWorkerHousingDormitoriesAnnexure.aspx.cs">
+      <DependentUpon>frmWorkerHousingDormitoriesAnnexure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Annexures\frmWorkerHousingDormitoriesAnnexure.aspx.designer.cs">
+      <DependentUpon>frmWorkerHousingDormitoriesAnnexure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\ApplicantIncentivesHistory.aspx.cs">
+      <DependentUpon>ApplicantIncentivesHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\ApplicantIncentivesHistory.aspx.designer.cs">
+      <DependentUpon>ApplicantIncentivesHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\ApplicantIncentivesTracker.aspx.cs">
+      <DependentUpon>ApplicantIncentivesTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\ApplicantIncentivesTracker.aspx.designer.cs">
+      <DependentUpon>ApplicantIncentivesTracker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Application.aspx.cs">
+      <DependentUpon>Application.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Application.aspx.designer.cs">
+      <DependentUpon>Application.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\BilldeskPaymentPage.aspx.cs">
+      <DependentUpon>BilldeskPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\BilldeskPaymentPage.aspx.designer.cs">
+      <DependentUpon>BilldeskPaymentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\BilldeskPaymentResponse.aspx.cs">
+      <DependentUpon>BilldeskPaymentResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\BilldeskPaymentResponse.aspx.designer.cs">
+      <DependentUpon>BilldeskPaymentResponse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx.cs">
+      <DependentUpon>BilldeskPaymentResponseWithMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx.designer.cs">
+      <DependentUpon>BilldeskPaymentResponseWithMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx.cs">
+      <DependentUpon>CapitalAssistanceCreationEnergy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx.designer.cs">
+      <DependentUpon>CapitalAssistanceCreationEnergy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalAssistanceNewUnit.aspx.cs">
+      <DependentUpon>CapitalAssistanceNewUnit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalAssistanceNewUnit.aspx.designer.cs">
+      <DependentUpon>CapitalAssistanceNewUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\CommissionerDashboard.aspx.cs">
+      <DependentUpon>CommissionerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\CommissionerDashboard.aspx.designer.cs">
+      <DependentUpon>CommissionerDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmDLCAllApplicationst.aspx.cs">
+      <DependentUpon>frmDLCAllApplicationst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmDLCAllApplicationst.aspx.designer.cs">
+      <DependentUpon>frmDLCAllApplicationst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmDLCSactionedApplications.aspx.cs">
+      <DependentUpon>frmDLCSactionedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmDLCSactionedApplications.aspx.designer.cs">
+      <DependentUpon>frmDLCSactionedApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGenerateAgenda.aspx.cs">
+      <DependentUpon>frmGenerateAgenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGenerateAgenda.aspx.designer.cs">
+      <DependentUpon>frmGenerateAgenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGenerateAgendaList.aspx.cs">
+      <DependentUpon>frmGenerateAgendaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGenerateAgendaList.aspx.designer.cs">
+      <DependentUpon>frmGenerateAgendaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGeneratedAgendaAbstract.aspx.cs">
+      <DependentUpon>frmGeneratedAgendaAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGeneratedAgendaAbstract.aspx.designer.cs">
+      <DependentUpon>frmGeneratedAgendaAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGeneratedAgendaPrint.aspx.cs">
+      <DependentUpon>frmGeneratedAgendaPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGeneratedAgendaPrint.aspx.designer.cs">
+      <DependentUpon>frmGeneratedAgendaPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGeneratedAgendaUpdate.aspx.cs">
+      <DependentUpon>frmGeneratedAgendaUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLC\frmGeneratedAgendaUpdate.aspx.designer.cs">
+      <DependentUpon>frmGeneratedAgendaUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCAllApplicationst.aspx.cs">
+      <DependentUpon>frmDLSVCAllApplicationst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCAllApplicationst.aspx.designer.cs">
+      <DependentUpon>frmDLSVCAllApplicationst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGenerateAgenda.aspx.cs">
+      <DependentUpon>frmDLSVCGenerateAgenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGenerateAgenda.aspx.designer.cs">
+      <DependentUpon>frmDLSVCGenerateAgenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGenerateAgendaList.aspx.cs">
+      <DependentUpon>frmDLSVCGenerateAgendaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGenerateAgendaList.aspx.designer.cs">
+      <DependentUpon>frmDLSVCGenerateAgendaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaAbstract.aspx.cs">
+      <DependentUpon>frmDLSVCGeneratedAgendaAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaAbstract.aspx.designer.cs">
+      <DependentUpon>frmDLSVCGeneratedAgendaAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaPrint.aspx.cs">
+      <DependentUpon>frmDLSVCGeneratedAgendaPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaPrint.aspx.designer.cs">
+      <DependentUpon>frmDLSVCGeneratedAgendaPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaUpdate.aspx.cs">
+      <DependentUpon>frmDLSVCGeneratedAgendaUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmDLSVCGeneratedAgendaUpdate.aspx.designer.cs">
+      <DependentUpon>frmDLSVCGeneratedAgendaUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmSVCSactionedApplications.aspx.cs">
+      <DependentUpon>frmSVCSactionedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\DLSVC\frmSVCSactionedApplications.aspx.designer.cs">
+      <DependentUpon>frmSVCSactionedApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\EnterQueryResponse.aspx.cs">
+      <DependentUpon>EnterQueryResponse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\EnterQueryResponse.aspx.designer.cs">
+      <DependentUpon>EnterQueryResponse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FileApi.aspx.cs">
+      <DependentUpon>FileApi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FileApi.aspx.designer.cs">
+      <DependentUpon>FileApi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FinalPage.aspx.cs">
+      <DependentUpon>FinalPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FinalPage.aspx.designer.cs">
+      <DependentUpon>FinalPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormAutoMessages.aspx.cs">
+      <DependentUpon>FormAutoMessages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormAutoMessages.aspx.designer.cs">
+      <DependentUpon>FormAutoMessages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormCreateAgenda.aspx.cs">
+      <DependentUpon>FormCreateAgenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormCreateAgenda.aspx.designer.cs">
+      <DependentUpon>FormCreateAgenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormIncentiveTracker.aspx.cs">
+      <DependentUpon>FormIncentiveTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormIncentiveTracker.aspx.designer.cs">
+      <DependentUpon>FormIncentiveTracker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormMobileCheck.aspx.cs">
+      <DependentUpon>FormMobileCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormMobileCheck.aspx.designer.cs">
+      <DependentUpon>FormMobileCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormOTPCheck.aspx.cs">
+      <DependentUpon>FormOTPCheck.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormOTPCheck.aspx.designer.cs">
+      <DependentUpon>FormOTPCheck.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormRDDDashboard.aspx.cs">
+      <DependentUpon>FormRDDDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormRDDDashboard.aspx.designer.cs">
+      <DependentUpon>FormRDDDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormslsvcDetails.aspx.cs">
+      <DependentUpon>FormslsvcDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormslsvcDetails.aspx.designer.cs">
+      <DependentUpon>FormslsvcDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormUpdateWorkingStatus.aspx.cs">
+      <DependentUpon>FormUpdateWorkingStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormUpdateWorkingStatus.aspx.designer.cs">
+      <DependentUpon>FormUpdateWorkingStatus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\FormWorkingStatusUpdate.aspx.cs">
+      <DependentUpon>FormWorkingStatusUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\FormWorkingStatusUpdate.aspx.designer.cs">
+      <DependentUpon>FormWorkingStatusUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmacknowledgement.aspx.cs">
+      <DependentUpon>frmacknowledgement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmacknowledgement.aspx.designer.cs">
+      <DependentUpon>frmacknowledgement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmAssistanceAcquisition.aspx.cs">
+      <DependentUpon>frmAssistanceAcquisition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmAssistanceAcquisition.aspx.designer.cs">
+      <DependentUpon>frmAssistanceAcquisition.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmassistancedevelopment.aspx.cs">
+      <DependentUpon>frmassistancedevelopment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmassistancedevelopment.aspx.designer.cs">
+      <DependentUpon>frmassistancedevelopment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmAssistanceEnergy.aspx.cs">
+      <DependentUpon>frmAssistanceEnergy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmAssistanceEnergy.aspx.designer.cs">
+      <DependentUpon>frmAssistanceEnergy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmAssistanceTraningInfrastructutre.aspx.cs">
+      <DependentUpon>frmAssistanceTraningInfrastructutre.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmAssistanceTraningInfrastructutre.aspx.designer.cs">
+      <DependentUpon>frmAssistanceTraningInfrastructutre.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmCapitalAssistanceExistingUnit.aspx.cs">
+      <DependentUpon>frmCapitalAssistanceExistingUnit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmCapitalAssistanceExistingUnit.aspx.designer.cs">
+      <DependentUpon>frmCapitalAssistanceExistingUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmChangePassword.aspx.cs">
+      <DependentUpon>frmChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmChangePassword.aspx.designer.cs">
+      <DependentUpon>frmChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmCommissionerDashboard.aspx.cs">
+      <DependentUpon>frmCommissionerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmCommissionerDashboard.aspx.designer.cs">
+      <DependentUpon>frmCommissionerDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmCommonAttachments.aspx.cs">
+      <DependentUpon>frmCommonAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmCommonAttachments.aspx.designer.cs">
+      <DependentUpon>frmCommonAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmConcessionSGST.aspx.cs">
+      <DependentUpon>frmConcessionSGST.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmConcessionSGST.aspx.designer.cs">
+      <DependentUpon>frmConcessionSGST.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDashBoard.aspx.cs">
+      <DependentUpon>frmDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDashBoard.aspx.designer.cs">
+      <DependentUpon>frmDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeprApprovalDrill.aspx.cs">
+      <DependentUpon>frmDeprApprovalDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeprApprovalDrill.aspx.designer.cs">
+      <DependentUpon>frmDeprApprovalDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptAdminDashBoard.aspx.cs">
+      <DependentUpon>frmDeptAdminDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptAdminDashBoard.aspx.designer.cs">
+      <DependentUpon>frmDeptAdminDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptAdminDrill.aspx.cs">
+      <DependentUpon>frmDeptAdminDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptAdminDrill.aspx.designer.cs">
+      <DependentUpon>frmDeptAdminDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptApprovalDashBoard.aspx.cs">
+      <DependentUpon>frmDeptApprovalDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptApprovalDashBoard.aspx.designer.cs">
+      <DependentUpon>frmDeptApprovalDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptPaymentApproval.aspx.cs">
+      <DependentUpon>frmDeptPaymentApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDeptPaymentApproval.aspx.designer.cs">
+      <DependentUpon>frmDeptPaymentApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLOApplicationDetails.aspx.cs">
+      <DependentUpon>frmDLOApplicationDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLOApplicationDetails.aspx.designer.cs">
+      <DependentUpon>frmDLOApplicationDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLOApplications.aspx.cs">
+      <DependentUpon>frmDLOApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLOApplications.aspx.designer.cs">
+      <DependentUpon>frmDLOApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLOApplicationsComm.aspx.cs">
+      <DependentUpon>frmDLOApplicationsComm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLOApplicationsComm.aspx.designer.cs">
+      <DependentUpon>frmDLOApplicationsComm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLODashboard.aspx.cs">
+      <DependentUpon>frmDLODashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDLODashboard.aspx.designer.cs">
+      <DependentUpon>frmDLODashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDraftApplication.aspx.cs">
+      <DependentUpon>frmDraftApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDraftApplication.aspx.designer.cs">
+      <DependentUpon>frmDraftApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmDraftApplicationsDrill.aspx.cs">
+      <DependentUpon>frmDraftApplicationsDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmDraftApplicationsDrill.aspx.designer.cs">
+      <DependentUpon>frmDraftApplicationsDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmGMDashboard.aspx.cs">
+      <DependentUpon>frmGMDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmGMDashboard.aspx.designer.cs">
+      <DependentUpon>frmGMDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmIncentiveCAFDetails.aspx.cs">
+      <DependentUpon>frmIncentiveCAFDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmIncentiveCAFDetails.aspx.designer.cs">
+      <DependentUpon>frmIncentiveCAFDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmInspectionRpt.aspx.cs">
+      <DependentUpon>frmInspectionRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmInspectionRpt.aspx.designer.cs">
+      <DependentUpon>frmInspectionRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmIPOIncentiveDashboard.aspx.cs">
+      <DependentUpon>frmIPOIncentiveDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmIPOIncentiveDashboard.aspx.designer.cs">
+      <DependentUpon>frmIPOIncentiveDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmJDApplications.aspx.cs">
+      <DependentUpon>frmJDApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmJDApplications.aspx.designer.cs">
+      <DependentUpon>frmJDApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmJDDashboard.aspx.cs">
+      <DependentUpon>frmJDDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmJDDashboard.aspx.designer.cs">
+      <DependentUpon>frmJDDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmLandBuildingPMDetails.aspx.cs">
+      <DependentUpon>frmLandBuildingPMDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmLandBuildingPMDetails.aspx.designer.cs">
+      <DependentUpon>frmLandBuildingPMDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmLandCostSubsidy.aspx.cs">
+      <DependentUpon>frmLandCostSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmLandCostSubsidy.aspx.designer.cs">
+      <DependentUpon>frmLandCostSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmMigrantIncentives.aspx.cs">
+      <DependentUpon>frmMigrantIncentives.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmMigrantIncentives.aspx.designer.cs">
+      <DependentUpon>frmMigrantIncentives.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmNewIncentive.aspx.cs">
+      <DependentUpon>frmNewIncentive.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmNewIncentive.aspx.designer.cs">
+      <DependentUpon>frmNewIncentive.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmOtherInfrastructure.aspx.cs">
+      <DependentUpon>frmOtherInfrastructure.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmOtherInfrastructure.aspx.designer.cs">
+      <DependentUpon>frmOtherInfrastructure.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmPaymentPage.aspx.cs">
+      <DependentUpon>frmPaymentPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmPaymentPage.aspx.designer.cs">
+      <DependentUpon>frmPaymentPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmPlantandMachinery.aspx.cs">
+      <DependentUpon>frmPlantandMachinery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmPlantandMachinery.aspx.designer.cs">
+      <DependentUpon>frmPlantandMachinery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmProductDevelopment.aspx.cs">
+      <DependentUpon>frmProductDevelopment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmProductDevelopment.aspx.designer.cs">
+      <DependentUpon>frmProductDevelopment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmRebateCharges.aspx.cs">
+      <DependentUpon>frmRebateCharges.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmRebateCharges.aspx.designer.cs">
+      <DependentUpon>frmRebateCharges.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmReInspectionReport.aspx.cs">
+      <DependentUpon>frmReInspectionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmReInspectionReport.aspx.designer.cs">
+      <DependentUpon>frmReInspectionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmRentalSubsidy.aspx.cs">
+      <DependentUpon>frmRentalSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmRentalSubsidy.aspx.designer.cs">
+      <DependentUpon>frmRentalSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmResptoIncQry.aspx.cs">
+      <DependentUpon>frmResptoIncQry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmResptoIncQry.aspx.designer.cs">
+      <DependentUpon>frmResptoIncQry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmStampDuty.aspx.cs">
+      <DependentUpon>frmStampDuty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmStampDuty.aspx.designer.cs">
+      <DependentUpon>frmStampDuty.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmTraningSubsidy.aspx.cs">
+      <DependentUpon>frmTraningSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmTraningSubsidy.aspx.designer.cs">
+      <DependentUpon>frmTraningSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmTransportSubsidy.aspx.cs">
+      <DependentUpon>frmTransportSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmTransportSubsidy.aspx.designer.cs">
+      <DependentUpon>frmTransportSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmUnitSanctionLetters.aspx.cs">
+      <DependentUpon>frmUnitSanctionLetters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmUnitSanctionLetters.aspx.designer.cs">
+      <DependentUpon>frmUnitSanctionLetters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmUserDownloads.aspx.cs">
+      <DependentUpon>frmUserDownloads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmUserDownloads.aspx.designer.cs">
+      <DependentUpon>frmUserDownloads.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmUserPaymentDetails.aspx.cs">
+      <DependentUpon>frmUserPaymentDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmUserPaymentDetails.aspx.designer.cs">
+      <DependentUpon>frmUserPaymentDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmViewAttachemnts.aspx.cs">
+      <DependentUpon>frmViewAttachemnts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmViewAttachemnts.aspx.designer.cs">
+      <DependentUpon>frmViewAttachemnts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\ApplicantDashBaord.aspx.cs">
+      <DependentUpon>ApplicantDashBaord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\ApplicantDashBaord.aspx.designer.cs">
+      <DependentUpon>ApplicantDashBaord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\fmUserHdView.aspx.cs">
+      <DependentUpon>fmUserHdView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\fmUserHdView.aspx.designer.cs">
+      <DependentUpon>fmUserHdView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmDashBoard.aspx.cs">
+      <DependentUpon>frmDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmDashBoard.aspx.designer.cs">
+      <DependentUpon>frmDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmdeptUserMaaping.aspx.cs">
+      <DependentUpon>frmdeptUserMaaping.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmdeptUserMaaping.aspx.designer.cs">
+      <DependentUpon>frmdeptUserMaaping.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmeTicketAbstract.aspx.cs">
+      <DependentUpon>frmeTicketAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmeTicketAbstract.aspx.designer.cs">
+      <DependentUpon>frmeTicketAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmeTicketAbstractDrill.aspx.cs">
+      <DependentUpon>frmeTicketAbstractDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmeTicketAbstractDrill.aspx.designer.cs">
+      <DependentUpon>frmeTicketAbstractDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmHDSearch.aspx.cs">
+      <DependentUpon>frmHDSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmHDSearch.aspx.designer.cs">
+      <DependentUpon>frmHDSearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmModuleMaster.aspx.cs">
+      <DependentUpon>frmModuleMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmModuleMaster.aspx.designer.cs">
+      <DependentUpon>frmModuleMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmRptDistWiseAbstract.aspx.cs">
+      <DependentUpon>frmRptDistWiseAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmRptDistWiseAbstract.aspx.designer.cs">
+      <DependentUpon>frmRptDistWiseAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmStateDashboard.aspx.cs">
+      <DependentUpon>frmStateDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmStateDashboard.aspx.designer.cs">
+      <DependentUpon>frmStateDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmSubModuleMaster.aspx.cs">
+      <DependentUpon>frmSubModuleMaster.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\frmSubModuleMaster.aspx.designer.cs">
+      <DependentUpon>frmSubModuleMaster.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HdDashBoard.aspx.cs">
+      <DependentUpon>HdDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HdDashBoard.aspx.designer.cs">
+      <DependentUpon>HdDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HdDashBoardApproval.aspx.cs">
+      <DependentUpon>HdDashBoardApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HdDashBoardApproval.aspx.designer.cs">
+      <DependentUpon>HdDashBoardApproval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HdView.aspx.cs">
+      <DependentUpon>HdView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HdView.aspx.designer.cs">
+      <DependentUpon>HdView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HelpdeskSolution.aspx.cs">
+      <DependentUpon>HelpdeskSolution.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\HelpdeskSolution.aspx.designer.cs">
+      <DependentUpon>HelpdeskSolution.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\RaiseHelpDesk.aspx.cs">
+      <DependentUpon>RaiseHelpDesk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\RaiseHelpDesk.aspx.designer.cs">
+      <DependentUpon>RaiseHelpDesk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\UserDashBoard.aspx.cs">
+      <DependentUpon>UserDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\UserDashBoard.aspx.designer.cs">
+      <DependentUpon>UserDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\ViewHDAttachments.aspx.cs">
+      <DependentUpon>ViewHDAttachments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Helpdesk\ViewHDAttachments.aspx.designer.cs">
+      <DependentUpon>ViewHDAttachments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\IncentiveFormDraftView.aspx.cs">
+      <DependentUpon>IncentiveFormDraftView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\IncentiveFormDraftView.aspx.designer.cs">
+      <DependentUpon>IncentiveFormDraftView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\IncentivesTracker.aspx.cs">
+      <DependentUpon>IncentivesTracker.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\IncentivesTracker.aspx.designer.cs">
+      <DependentUpon>IncentivesTracker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\InscentiveView_AttachmentsNewIncType.aspx.cs">
+      <DependentUpon>InscentiveView_AttachmentsNewIncType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\InscentiveView_AttachmentsNewIncType.aspx.designer.cs">
+      <DependentUpon>InscentiveView_AttachmentsNewIncType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\InspectionDelayNotes.aspx.cs">
+      <DependentUpon>InspectionDelayNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\InspectionDelayNotes.aspx.designer.cs">
+      <DependentUpon>InspectionDelayNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\InterestSubsidy.aspx.cs">
+      <DependentUpon>InterestSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\InterestSubsidy.aspx.designer.cs">
+      <DependentUpon>InterestSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\AdoDistrictWiseAbstract.aspx.cs">
+      <DependentUpon>AdoDistrictWiseAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\AdoDistrictWiseAbstract.aspx.designer.cs">
+      <DependentUpon>AdoDistrictWiseAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\CapitalSubsidyDetailedReport.aspx.cs">
+      <DependentUpon>CapitalSubsidyDetailedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\CapitalSubsidyDetailedReport.aspx.designer.cs">
+      <DependentUpon>CapitalSubsidyDetailedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\CapitalSubsiyReportAbstract.aspx.cs">
+      <DependentUpon>CapitalSubsiyReportAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\CapitalSubsiyReportAbstract.aspx.designer.cs">
+      <DependentUpon>CapitalSubsiyReportAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\DashboardReport.aspx.cs">
+      <DependentUpon>DashboardReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\DashboardReport.aspx.designer.cs">
+      <DependentUpon>DashboardReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\DLOPendingApplicationsRpt.aspx.cs">
+      <DependentUpon>DLOPendingApplicationsRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\DLOPendingApplicationsRpt.aspx.designer.cs">
+      <DependentUpon>DLOPendingApplicationsRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormIncentivesReportView.aspx.cs">
+      <DependentUpon>FormIncentivesReportView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormIncentivesReportView.aspx.designer.cs">
+      <DependentUpon>FormIncentivesReportView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormIncentiveWiseAbstract.aspx.cs">
+      <DependentUpon>FormIncentiveWiseAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormIncentiveWiseAbstract.aspx.designer.cs">
+      <DependentUpon>FormIncentiveWiseAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormSanctionReport.aspx.cs">
+      <DependentUpon>FormSanctionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormSanctionReport.aspx.designer.cs">
+      <DependentUpon>FormSanctionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormUnitReport.aspx.cs">
+      <DependentUpon>FormUnitReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FormUnitReport.aspx.designer.cs">
+      <DependentUpon>FormUnitReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmDloPendingReportAbstract.aspx.cs">
+      <DependentUpon>FrmDloPendingReportAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmDloPendingReportAbstract.aspx.designer.cs">
+      <DependentUpon>FrmDloPendingReportAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveAbstract.aspx.cs">
+      <DependentUpon>frmIncentiveAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveAbstract.aspx.designer.cs">
+      <DependentUpon>frmIncentiveAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveAbstractDrill.aspx.cs">
+      <DependentUpon>frmIncentiveAbstractDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveAbstractDrill.aspx.designer.cs">
+      <DependentUpon>frmIncentiveAbstractDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveReports.aspx.cs">
+      <DependentUpon>frmIncentiveReports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveReports.aspx.designer.cs">
+      <DependentUpon>frmIncentiveReports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveWiseRpt.aspx.cs">
+      <DependentUpon>frmIncentiveWiseRpt.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmIncentiveWiseRpt.aspx.designer.cs">
+      <DependentUpon>frmIncentiveWiseRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmInsDetailedReport.aspx.cs">
+      <DependentUpon>frmInsDetailedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmInsDetailedReport.aspx.designer.cs">
+      <DependentUpon>frmInsDetailedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmNatureWiseReportAbstract.aspx.cs">
+      <DependentUpon>FrmNatureWiseReportAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmNatureWiseReportAbstract.aspx.designer.cs">
+      <DependentUpon>FrmNatureWiseReportAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmSLCDeatailedReport.aspx.cs">
+      <DependentUpon>FrmSLCDeatailedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmSLCDeatailedReport.aspx.designer.cs">
+      <DependentUpon>FrmSLCDeatailedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmUnitsDetailedReport.aspx.cs">
+      <DependentUpon>frmUnitsDetailedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\frmUnitsDetailedReport.aspx.designer.cs">
+      <DependentUpon>frmUnitsDetailedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmUnitWiseReportAbstract.aspx.cs">
+      <DependentUpon>FrmUnitWiseReportAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\FrmUnitWiseReportAbstract.aspx.designer.cs">
+      <DependentUpon>FrmUnitWiseReportAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\InspectionsDetailedReport.aspx.cs">
+      <DependentUpon>InspectionsDetailedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\InspectionsDetailedReport.aspx.designer.cs">
+      <DependentUpon>InspectionsDetailedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\InspectionsReportAbstract.aspx.cs">
+      <DependentUpon>InspectionsReportAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\InspectionsReportAbstract.aspx.designer.cs">
+      <DependentUpon>InspectionsReportAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\RejectedApplicationsDetails.aspx.cs">
+      <DependentUpon>RejectedApplicationsDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\RejectedApplicationsDetails.aspx.designer.cs">
+      <DependentUpon>RejectedApplicationsDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\SubmittedAppsDetailedReport.aspx.cs">
+      <DependentUpon>SubmittedAppsDetailedReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\MISReports\SubmittedAppsDetailedReport.aspx.designer.cs">
+      <DependentUpon>SubmittedAppsDetailedReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\PaymentFailedTransactions.aspx.cs">
+      <DependentUpon>PaymentFailedTransactions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\PaymentFailedTransactions.aspx.designer.cs">
+      <DependentUpon>PaymentFailedTransactions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\PlantandMachinerySearch.aspx.cs">
+      <DependentUpon>PlantandMachinerySearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\PlantandMachinerySearch.aspx.designer.cs">
+      <DependentUpon>PlantandMachinerySearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\PowerTariffSubsidy.aspx.cs">
+      <DependentUpon>PowerTariffSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\PowerTariffSubsidy.aspx.designer.cs">
+      <DependentUpon>PowerTariffSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmApllicationsforQuery.aspx.cs">
+      <DependentUpon>frmApllicationsforQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmApllicationsforQuery.aspx.designer.cs">
+      <DependentUpon>frmApllicationsforQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmApllicationsforQueryDrill.aspx.cs">
+      <DependentUpon>frmApllicationsforQueryDrill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmApllicationsforQueryDrill.aspx.designer.cs">
+      <DependentUpon>frmApllicationsforQueryDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmGenerateQuery.aspx.cs">
+      <DependentUpon>frmGenerateQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmGenerateQuery.aspx.designer.cs">
+      <DependentUpon>frmGenerateQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmQueryDashboard.aspx.cs">
+      <DependentUpon>frmQueryDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\QueryGeneration\frmQueryDashboard.aspx.designer.cs">
+      <DependentUpon>frmQueryDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\DLOCoveringLetter.aspx.cs">
+      <DependentUpon>DLOCoveringLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\DLOCoveringLetter.aspx.designer.cs">
+      <DependentUpon>DLOCoveringLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\frmIntimationLetter.aspx.cs">
+      <DependentUpon>frmIntimationLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\frmIntimationLetter.aspx.designer.cs">
+      <DependentUpon>frmIntimationLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\CompleteReleasedList.aspx.cs">
+      <DependentUpon>CompleteReleasedList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\CompleteReleasedList.aspx.designer.cs">
+      <DependentUpon>CompleteReleasedList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\FormUnitWorkingStatusHO.aspx.cs">
+      <DependentUpon>FormUnitWorkingStatusHO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\FormUnitWorkingStatusHO.aspx.designer.cs">
+      <DependentUpon>FormUnitWorkingStatusHO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\FormWorkingStatusDashboard.aspx.cs">
+      <DependentUpon>FormWorkingStatusDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\FormWorkingStatusDashboard.aspx.designer.cs">
+      <DependentUpon>FormWorkingStatusDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmGoReleaseRegistration.aspx.cs">
+      <DependentUpon>frmGoReleaseRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmGoReleaseRegistration.aspx.designer.cs">
+      <DependentUpon>frmGoReleaseRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartiallyReleasedApplications.aspx.cs">
+      <DependentUpon>frmPartiallyReleasedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartiallyReleasedApplications.aspx.designer.cs">
+      <DependentUpon>frmPartiallyReleasedApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartialReleasedListView.aspx.cs">
+      <DependentUpon>frmPartialReleasedListView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartialReleasedListView.aspx.designer.cs">
+      <DependentUpon>frmPartialReleasedListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartialReleases.aspx.cs">
+      <DependentUpon>frmPartialReleases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartialReleases.aspx.designer.cs">
+      <DependentUpon>frmPartialReleases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartialReleasesList.aspx.cs">
+      <DependentUpon>frmPartialReleasesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmPartialReleasesList.aspx.designer.cs">
+      <DependentUpon>frmPartialReleasesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleasedApplications.aspx.cs">
+      <DependentUpon>frmReleasedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleasedApplications.aspx.designer.cs">
+      <DependentUpon>frmReleasedApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleaseDashboard.aspx.cs">
+      <DependentUpon>frmReleaseDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleaseDashboard.aspx.designer.cs">
+      <DependentUpon>frmReleaseDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleasedListView.aspx.cs">
+      <DependentUpon>frmReleasedListView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleasedListView.aspx.designer.cs">
+      <DependentUpon>frmReleasedListView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleases.aspx.cs">
+      <DependentUpon>frmReleases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleases.aspx.designer.cs">
+      <DependentUpon>frmReleases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleasesList.aspx.cs">
+      <DependentUpon>frmReleasesList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\frmReleasesList.aspx.designer.cs">
+      <DependentUpon>frmReleasesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\ReminderQueries.aspx.cs">
+      <DependentUpon>ReminderQueries.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\ReminderQueries.aspx.designer.cs">
+      <DependentUpon>ReminderQueries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SendMail.aspx.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SendMail.aspx.designer.cs">
+      <DependentUpon>SendMail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\FormIssueSanctionLetter.aspx.cs">
+      <DependentUpon>FormIssueSanctionLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\FormIssueSanctionLetter.aspx.designer.cs">
+      <DependentUpon>FormIssueSanctionLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmIssueSanctionedLetter.aspx.cs">
+      <DependentUpon>frmIssueSanctionedLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmIssueSanctionedLetter.aspx.designer.cs">
+      <DependentUpon>frmIssueSanctionedLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSanctionLettersIssuedList.aspx.cs">
+      <DependentUpon>frmSanctionLettersIssuedList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSanctionLettersIssuedList.aspx.designer.cs">
+      <DependentUpon>frmSanctionLettersIssuedList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSanctionLettersPendingList.aspx.cs">
+      <DependentUpon>frmSanctionLettersPendingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSanctionLettersPendingList.aspx.designer.cs">
+      <DependentUpon>frmSanctionLettersPendingList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCAllApplicationst.aspx.cs">
+      <DependentUpon>frmSLCAllApplicationst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCAllApplicationst.aspx.designer.cs">
+      <DependentUpon>frmSLCAllApplicationst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGenerateAgenda.aspx.cs">
+      <DependentUpon>frmSLCGenerateAgenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGenerateAgenda.aspx.designer.cs">
+      <DependentUpon>frmSLCGenerateAgenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGenerateAgendaList.aspx.cs">
+      <DependentUpon>frmSLCGenerateAgendaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGenerateAgendaList.aspx.designer.cs">
+      <DependentUpon>frmSLCGenerateAgendaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGeneratedAgendaAbstract.aspx.cs">
+      <DependentUpon>frmSLCGeneratedAgendaAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGeneratedAgendaAbstract.aspx.designer.cs">
+      <DependentUpon>frmSLCGeneratedAgendaAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGeneratedAgendaPrint.aspx.cs">
+      <DependentUpon>frmSLCGeneratedAgendaPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGeneratedAgendaPrint.aspx.designer.cs">
+      <DependentUpon>frmSLCGeneratedAgendaPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGeneratedAgendaUpdate.aspx.cs">
+      <DependentUpon>frmSLCGeneratedAgendaUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCGeneratedAgendaUpdate.aspx.designer.cs">
+      <DependentUpon>frmSLCGeneratedAgendaUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCSactionedApplications.aspx.cs">
+      <DependentUpon>frmSLCSactionedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\frmSLCSactionedApplications.aspx.designer.cs">
+      <DependentUpon>frmSLCSactionedApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLVUploadsEntry.aspx.cs">
+      <DependentUpon>SLVUploadsEntry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLVUploadsEntry.aspx.designer.cs">
+      <DependentUpon>SLVUploadsEntry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSLSVCSactionedApplications.aspx.cs">
+      <DependentUpon>frmSLSVCSactionedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSLSVCSactionedApplications.aspx.designer.cs">
+      <DependentUpon>frmSLSVCSactionedApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCAllApplicationst.aspx.cs">
+      <DependentUpon>frmSVCAllApplicationst.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCAllApplicationst.aspx.designer.cs">
+      <DependentUpon>frmSVCAllApplicationst.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGenerateAgenda.aspx.cs">
+      <DependentUpon>frmSVCGenerateAgenda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGenerateAgenda.aspx.designer.cs">
+      <DependentUpon>frmSVCGenerateAgenda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGenerateAgendaList.aspx.cs">
+      <DependentUpon>frmSVCGenerateAgendaList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGenerateAgendaList.aspx.designer.cs">
+      <DependentUpon>frmSVCGenerateAgendaList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaAbstract.aspx.cs">
+      <DependentUpon>frmSVCGeneratedAgendaAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaAbstract.aspx.designer.cs">
+      <DependentUpon>frmSVCGeneratedAgendaAbstract.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaPrint.aspx.cs">
+      <DependentUpon>frmSVCGeneratedAgendaPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaPrint.aspx.designer.cs">
+      <DependentUpon>frmSVCGeneratedAgendaPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaUpdate.aspx.cs">
+      <DependentUpon>frmSVCGeneratedAgendaUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaUpdate.aspx.designer.cs">
+      <DependentUpon>frmSVCGeneratedAgendaUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\TypeOfIncentivesNew.aspx.cs">
+      <DependentUpon>TypeOfIncentivesNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\TypeOfIncentivesNew.aspx.designer.cs">
+      <DependentUpon>TypeOfIncentivesNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\TypeOfIncentivesNew1.aspx.cs">
+      <DependentUpon>TypeOfIncentivesNew1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\TypeOfIncentivesNew1.aspx.designer.cs">
+      <DependentUpon>TypeOfIncentivesNew1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\VisitorRegistration.aspx.cs">
+      <DependentUpon>VisitorRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\VisitorRegistration.aspx.designer.cs">
+      <DependentUpon>VisitorRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\VisitorsList.aspx.cs">
+      <DependentUpon>VisitorsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\VisitorsList.aspx.designer.cs">
+      <DependentUpon>VisitorsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserDashBoard.aspx.cs">
+      <DependentUpon>UserDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\UserDashBoard.aspx.designer.cs">
+      <DependentUpon>UserDashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserMaster.Master.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\UserMaster.Master.designer.cs">
+      <DependentUpon>UserMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\APTONLINEFAILEDPGSERVICE\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\APTONLINEPGSERVICE\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\APTONLINESMSGATEWAY\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\TSIPASSSERVICE\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HomeMaster.Master" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="AssetsNew\fonts\fontawesome-webfont.eot" />
+    <Content Include="AssetsNew\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AssetsNew\fonts\fontawesome-webfont.woff" />
+    <Content Include="AssetsNew\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AssetsNew\fonts\FontAwesome.otf" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Bold.eot" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Bold.ttf" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Bold.woff" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Bold.woff2" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-ExtraLight.eot" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-ExtraLight.woff" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-ExtraLight.woff2" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Medium.eot" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Medium.ttf" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Medium.woff" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Medium.woff2" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Regular.eot" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Regular.ttf" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Regular.woff" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-Regular.woff2" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-SemiBold.eot" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-SemiBold.woff" />
+    <Content Include="AssetsNew\fonts\Montserrat\Montserrat-SemiBold.woff2" />
+    <None Include="packages.config" />
+    <Content Include="UI\UserMaster.Master" />
+    <None Include="Web References\TSIPASSSERVICE\departmentapprovalsystem.wsdl" />
+    <None Include="Web References\TSIPASSSERVICE\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="css\ui-lightness\" />
+    <Folder Include="iTextSharp\text\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://aptonline.in/APTOLService/PGServices.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\APTONLINEFAILEDPGSERVICE\</RelPath>
+      <UpdateFromURL>https://aptonline.in/APTOLService/PGServices.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TTAP_APTONLINEFAILEDPGSERVICE_PGServices</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://aptonline.in/ThirdPartyPaymentPG/EncryptDEcrypt.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\APTONLINEPGSERVICE\</RelPath>
+      <UpdateFromURL>https://aptonline.in/ThirdPartyPaymentPG/EncryptDEcrypt.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TTAP_APTONLINEPGSERVICE_EncryptDEcrypt</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ipass.telangana.gov.in/departmentapprovalsystem.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\TSIPASSSERVICE\</RelPath>
+      <UpdateFromURL>https://ipass.telangana.gov.in/departmentapprovalsystem.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TTAP_TSIPASSSERVICE_DepartmentApprovalSystem</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://smsgateway.aptonline.in/APOLSMSGW/smsservice.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\APTONLINESMSGATEWAY\</RelPath>
+      <UpdateFromURL>https://smsgateway.aptonline.in/APOLSMSGW/smsservice.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>TTAP_APTONLINESMSGATEWAY_SMSService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>19454</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:19454/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

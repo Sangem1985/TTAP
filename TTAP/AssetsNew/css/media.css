@@ -1,0 +1,12 @@
+@media (min-width: 768px) {
+    /* .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    } */
+}
+@media (max-width: 767px){
+    .services-col {
+        max-width: 100%;
+        margin: 20px auto;
+    }
+}

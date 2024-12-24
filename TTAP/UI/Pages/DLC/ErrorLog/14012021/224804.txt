@@ -1,0 +1,15 @@
+Error Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'ProposedSLCDATE'.
+User:58225
+Form Name:frmGeneratedAgendaAbstract.aspx
+Date:14-Jan-21
+Time:22:48:04
+IP Address:::1
+HostName: Naresh
+InnerException: 
+StatckTrace:    at System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   at System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName, String format)
+   at System.Web.UI.WebControls.ListControl.PerformDataBinding(IEnumerable dataSource)
+   at System.Web.UI.WebControls.ListControl.OnDataBinding(EventArgs e)
+   at System.Web.UI.WebControls.ListControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at TTAP.UI.Pages.DLC.frmGeneratedAgendaAbstract.Page_Load(Object sender, EventArgs e) in D:\shankar Backup\CMS Projects Live\TTAP\TTAP\UI\Pages\DLC\frmGeneratedAgendaAbstract.aspx.cs:line 39

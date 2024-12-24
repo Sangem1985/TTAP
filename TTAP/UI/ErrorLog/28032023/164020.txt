@@ -1,0 +1,12 @@
+Error Message:Input string was not in a correct format.
+User:58240
+Form Name:frmDLOApplicationDetailsNew.aspx
+Date:28-Mar-23
+Time:16:40:20
+IP Address:::1
+HostName: ChanikyaGopal
+InnerException: 
+StatckTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TTAP.UI.frmDLOApplicationDetailsNew.btnAfterInspection_Click(Object sender, EventArgs e) in D:\Projects\TTAPPRODNew\TTAP\UI\frmDLOApplicationDetailsNew.aspx.cs:line 1561

@@ -1,0 +1,232 @@
+﻿#cssmenu {
+  width: auto;
+  /*border: 1px solid #b9121b;*/
+  background: #C87436;
+}
+#cssmenu > ul {
+  padding: 1px 0;
+  margin: 0px;
+  list-style: none;
+  width: auto;
+  height: auto;
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+  font: normal 10pt verdana, arial, helvetica;
+}
+#cssmenu > ul li {
+  margin: 0;
+  padding: 0;
+  display: block;
+  float: left;
+  position: relative;
+  width: 148px;
+}
+#cssmenu > ul li a:link,
+#cssmenu > ul li a:visited {
+  padding: 4px 0;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #C87436;
+  color: #ffffff;
+  width: 148px;
+}
+#cssmenu > ul li:hover a,
+#cssmenu > ul li a:hover,
+#cssmenu > ul li a:active {
+  padding: 4px 0;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  background: #C87436;
+  color: #ffffff;
+  width: 146px;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffffff;
+}
+#cssmenu > ul li ul {
+  margin: 0;
+  padding: 1px 1px 0;
+  list-style: none;
+  display: none;
+  background: #ffffff;
+  width: 146px;
+  position: absolute;
+  top: 21px;
+  left: -1px;
+  border: 1px solid #b9121b;
+  border-top: none;
+}
+#cssmenu > ul li:hover ul {
+  display: block;
+}
+#cssmenu > ul li ul li {
+  clear: left;
+  width: 146px;
+}
+#cssmenu > ul li ul li a:link,
+#cssmenu > ul li ul li a:visited {
+  clear: left;
+  background: #C87436;
+  padding: 4px 0;
+  width: 146px;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  position: relative;
+  z-index: 1000;
+}
+#cssmenu > ul li ul li:hover a,
+#cssmenu > ul li ul li a:active,
+#cssmenu > ul li ul li a:hover {
+  clear: left;
+  background: #fec89c;
+  padding: 4px 0;
+  width: 146px;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  position: relative;
+  z-index: 1000;
+}
+#cssmenu > ul li ul li ul.navigation-3 {
+  display: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  left: 145px;
+  top: -2px;
+  padding: 1px 1px 0 1px;
+  /*border: 1px solid #b9121b;*/
+  border-left: 1px solid #b9121b;
+  background: #ffffff;
+  z-index: 900;
+}
+#cssmenu > ul li ul li:hover ul.navigation-3 {
+  display: block;
+}
+#cssmenu > ul li ul li ul.navigation-3 li a:link,
+#cssmenu > ul li ul li ul.navigation-3 li a:visited {
+  background: #b9121b;
+}
+
+/*Added by shankar*/
+
+/* common Styles */
+.mar-top-15{
+    margin-top: 15px;
+}
+
+/* Header */
+header{
+    border-top:5px solid #FFA500;
+}
+.brand{
+    margin-top: 23px;
+}
+.vip .thumbnail{
+    border: none;
+    margin: 0;
+}
+.vip .thumbnail .caption{
+    text-align: center;
+    padding: 5px;
+}
+.vip .thumbnail .caption h3{
+    font-size: 16px;
+    color:#666;
+    margin: 0;
+    font-weight: bold;
+}
+.vip .thumbnail .caption p{
+    margin: 0px;
+    color: #999;
+}
+
+/* Navigation */
+.navbar-default {
+    background: #27985f;
+    border-radius: 0px;
+    margin-bottom: 0px;
+    border: none;
+}
+.navbar-default .navbar-nav>li>a,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+    
+}
+
+.navbar-default .navbar-nav>li.dropdown:hover>a,
+.navbar-default .navbar-nav>li.dropdown:hover>a:hover,
+.navbar-default .navbar-nav>li.dropdown:hover>a:focus {
+    background-color: #FFA500;
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+     background-color: #FFA500;
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    background-color: #FFA500;
+    color: #fff;
+}
+
+li.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+/* Downloads */
+.ds-btn li{ list-style:none; float:left; padding:10px; }
+.ds-btn li a span{padding-left:15px;padding-right:5px;width:100%;display:inline-block; text-align:left;}
+.ds-btn li a span small{width:100%; display:inline-block; text-align:left;}
+
+/* Latest News and Updates */
+
+.news_updates .bs-callout {
+    padding: 0px 10px;
+    margin: 15px 0;
+    border-left: 1px solid #eee;
+    border-left-width: 5px;
+    
+}
+.news_updates .bs-callout-info h4{
+    color: #27985f;
+    font-size: 15px;
+}
+.news_updates .bs-callout-info {
+    border-left-color: #27985f;
+}
+
+/* Footer */
+.footer_bg{
+    margin-top: 0;
+    background: #434343;
+    border-top: solid 1px #fff;
+    outline: #e1e1e1 solid 1px;
+    padding: 15px 0px;
+    color: #fff;
+}
+footer a{
+        color: #FFF;
+    text-decoration: none;
+    padding-right: 10px;
+}
+footer a:hover{
+    text-decoration: underline;
+    color: #fff;
+}
+
+.downloads .list-group a{
+    margin-bottom: 5px;
+    border-left: 5px solid #27985f;
+    padding: 5px 10px;
+    border-radius: 0px;
+}
+.widget-heading{
+    margin-top: 0px;
+    border-bottom: 2px solid #FFA500;
+    font-size: 18px;
+    padding: 5px 0px;
+}

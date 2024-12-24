@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TTAP.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TTAP_TSIPASSSERVICE_DepartmentApprovalSystem" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://ipass.telangana.gov.in/departmentapprovalsystem.asmx</Value>
+    </Setting>
+    <Setting Name="TTAP_APTONLINEPGSERVICE_EncryptDEcrypt" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://aptonline.in/ThirdPartyPaymentPG/EncryptDEcrypt.asmx</Value>
+    </Setting>
+    <Setting Name="TTAP_APTONLINESMSGATEWAY_SMSService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://smsgateway.aptonline.in/APOLSMSGW/smsservice.asmx</Value>
+    </Setting>
+    <Setting Name="TTAP_APTONLINEFAILEDPGSERVICE_PGServices" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://aptonline.in/APTOLService/PGServices.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

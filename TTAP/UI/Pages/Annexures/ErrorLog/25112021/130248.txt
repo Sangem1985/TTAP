@@ -1,0 +1,32 @@
+Error Message:DataBinding: 'System.Data.DataRowView' does not contain a property with the name 'MachineAvailabilityText'.
+User:58225
+Form Name:frmInspectionRptView.aspx
+Date:25-Nov-21
+Time:13:02:48
+IP Address:127.0.0.1
+HostName: DESKTOP-EJLJRRU
+InnerException: 
+StatckTrace:    at System.Web.UI.DataBinder.GetPropertyValue(Object container, String propName)
+   at System.Web.UI.DataBinder.Eval(Object container, String[] expressionParts)
+   at System.Web.UI.DataBinder.Eval(Object container, String expression)
+   at System.Web.UI.TemplateControl.Eval(String expression)
+   at ASP.ui_pages_annexures_frminspectionrptview_aspx.__DataBinding__control195(Object sender, EventArgs e) in D:\CMS Projects Live\TTAP\TTAP\UI\Pages\Annexures\frmInspectionRptView.aspx:line 337
+   at System.Web.UI.Control.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBind()
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBind()
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBind()
+   at System.Web.UI.WebControls.GridView.CreateRow(Int32 rowIndex, Int32 dataSourceIndex, DataControlRowType rowType, DataControlRowState rowState, Boolean dataBind, Object dataItem, DataControlField[] fields, TableRowCollection rows, PagedDataSource pagedDataSource)
+   at System.Web.UI.WebControls.GridView.CreateChildControls(IEnumerable dataSource, Boolean dataBinding)
+   at System.Web.UI.WebControls.CompositeDataBoundControl.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.GridView.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.DataBoundControl.OnDataSourceViewSelectCallback(IEnumerable data)
+   at System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   at System.Web.UI.WebControls.DataBoundControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at System.Web.UI.WebControls.GridView.DataBind()
+   at TTAP.UI.Pages.Annexures.frmInspectionRptView.BindPandMGrid(Int32 PMId, Int32 IncentiveId, String IndusType) in D:\CMS Projects Live\TTAP\TTAP\UI\Pages\Annexures\frmInspectionRptView.aspx.cs:line 327

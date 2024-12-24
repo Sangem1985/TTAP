@@ -1,0 +1,28 @@
+Error Message:A field or property with the name 'AdminVerifiedDate' was not found on the selected data source.
+User:58257
+Form Name:frmDLOApplicationDetailsNew.aspx
+Date:03-Apr-21
+Time:22:24:40
+IP Address:127.0.0.1
+HostName: DESKTOP-EJLJRRU
+InnerException: 
+StatckTrace:    at System.Web.UI.WebControls.BoundField.TryGetSimplePropertyValue(Object dataItem, Object& data)
+   at System.Web.UI.WebControls.BoundField.GetValue(Control controlContainer)
+   at System.Web.UI.WebControls.BoundField.OnDataBindField(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnDataBinding(EventArgs e)
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBind()
+   at System.Web.UI.Control.DataBindChildren()
+   at System.Web.UI.Control.DataBind(Boolean raiseOnDataBinding)
+   at System.Web.UI.Control.DataBind()
+   at System.Web.UI.WebControls.GridView.CreateRow(Int32 rowIndex, Int32 dataSourceIndex, DataControlRowType rowType, DataControlRowState rowState, Boolean dataBind, Object dataItem, DataControlField[] fields, TableRowCollection rows, PagedDataSource pagedDataSource)
+   at System.Web.UI.WebControls.GridView.CreateChildControls(IEnumerable dataSource, Boolean dataBinding)
+   at System.Web.UI.WebControls.CompositeDataBoundControl.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.GridView.PerformDataBinding(IEnumerable data)
+   at System.Web.UI.WebControls.DataBoundControl.OnDataSourceViewSelectCallback(IEnumerable data)
+   at System.Web.UI.DataSourceView.Select(DataSourceSelectArguments arguments, DataSourceViewSelectCallback callback)
+   at System.Web.UI.WebControls.DataBoundControl.PerformSelect()
+   at System.Web.UI.WebControls.BaseDataBoundControl.DataBind()
+   at System.Web.UI.WebControls.GridView.DataBind()
+   at TTAP.UI.frmDLOApplicationDetailsNew.BindCommQueries() in D:\CMS Projects Live\TTAP\TTAP\UI\frmDLOApplicationDetailsNew.aspx.cs:line 1659
+   at TTAP.UI.frmDLOApplicationDetailsNew.BtnadminProcess_Click(Object sender, EventArgs e) in D:\CMS Projects Live\TTAP\TTAP\UI\frmDLOApplicationDetailsNew.aspx.cs:line 1584

@@ -1,0 +1,122 @@
+﻿.TabStyle1 .ajax__tab_header
+{
+    color: #aa976b;
+    font-size: 13px;
+    font-weight: bold; /* background-color: White; */
+    margin-left: 10px;
+    text-align: left;
+}
+.TabStyle1 .ajax__tab_outer
+{
+    /* background-color: White; */
+}
+.TabStyle1 .ajax__tab_inner
+{
+    /*padding: 6px;     margin-right: 1px;     margin-left: 1px;     margin-top: 1px;     margin-bottom: 1px;*/
+    background-color: #f8f6ea;
+    background-image: url(../images/tab/tab.jpg);
+    color: White;
+    width: 85px;
+    height: 30px;
+    text-align: center;
+}
+.TabStyle1 .ajax__tab_hover .ajax__tab_outer
+{
+    /* background-color: Orange; */
+}
+.TabStyle1 .ajax__tab_hover .ajax__tab_inner
+{
+    background-color: #FFFFE1;
+    background-image: url(../images/tab/active.jpg);
+    color: White;
+    width: 81px;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 1px;
+    text-align: center;
+    cursor: pointer;
+}
+.TabStyle1 .ajax__tab_active .ajax__tab_outer
+{
+    /* background-color: White; */
+    color: White;
+    width: 85px;
+    height: 30px;
+    text-align: center;
+}
+.TabStyle1 .ajax__tab_active .ajax__tab_inner
+{
+    background-color: #fefdf7;
+    background-image: url(../images/tab/active.jpg);
+    color: White;
+    width: 81px;
+    height: 30px;
+    margin-left: 2px;
+    margin-right: 1px;
+    text-align: center;
+}
+.TabStyle1 .ajax__tab_body
+{
+    background-image: url(../images/tab/bg.jpg);
+    height: 450px;
+    overflow: auto;
+    width: 940px;
+}
+.tblBg
+{
+    background-color: #ead6a1;
+    border: 5px #ead6a1 solid;
+}
+.tblBg tr td
+{
+    background-color: #ffffff;
+}
+.tblBg tr th
+{
+    text-align: left;
+}
+.tblBg tr td input, .tblBg tr td select, .tblBg tr td textarea
+{
+    width: 95%;
+}
+.tblBg table tr td input, .tblBg table tr td select, .tblBg table tr td textarea
+{
+    width: 90%;
+    margin: 7px;
+}
+
+.panel_header
+{
+    background-color: #EAD6A1;
+    color: #9c0000;
+}
+.btn_submit
+{
+    border: 1px solid #3B5B64;
+    color: #9C0000;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.WaterMarkedTextBox
+{
+    height: 16px;
+    width: 168px;
+    padding: 2px 2 2 2px; /*border: 1px solid #BEBEBE;*/ /*background-color: #F0F8FF;*/
+    color: gray;
+    font-size: 8pt;
+}
+
+.links
+{
+}
+.links li
+{
+}
+.MandatoryField
+{
+    color: Red;
+    font-size: 15px;
+}
+

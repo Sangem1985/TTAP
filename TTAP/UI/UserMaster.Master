@@ -1,0 +1,255 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="UserMaster.master.cs" Inherits="TTAP.UI.UserMaster" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Department of Handlooms & Textiles | Government of Telangana</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%--Added by Pramod--%>
+    <link rel="stylesheet" href="<%=Page.ResolveUrl("/AssetsNew/css/font-awesome.min.css")%>" />
+    <link rel="stylesheet" href="../AssetsNew/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../AssetsNew/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../AssetsNew/css/style.css" />
+    <link rel="stylesheet" href="../AssetsNew/css/media.css" />
+    <%--  <link href="../AssetsNew/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />--%>
+    <style>
+        .main {
+            min-height: 595px;
+            min-height: 75.4vh;
+            /*background: #f3f8ff;*/
+        }
+
+        .navbar-collapse .nav-item {
+            padding-left: 5px;
+        }
+
+        .navbar-expand-md .navbar-nav {
+            margin-left: 0px !important;
+        }
+
+        #collapsibleNavbar .navbar-nav.d-flex.w-50.m-auto {
+            margin: 0px !important;
+        }
+    </style>
+    <%-- <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker').datetimepicker();
+        });
+        </script>--%>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <header class="header">
+            <div class="logo-section container-fluid">
+                <div class="row">
+                    <%--<div class="col-sm-1 pl-md-0"></div>--%>
+                    <div class="col-sm-12">
+                        <img src="<%=Page.ResolveUrl("~/images/innerheader.JPEG")%>" alt="" class="img-fluid" />
+                    </div>
+                    <%--<div class="col-sm-1 pl-md-0"></div>--%>
+                </div>
+            </div>
+            <%--<div class="pr-sm-3 text-white font-SemiBold title7"><i class="fa fa-phone"></i>: 040-23221684</div>--%>
+            <nav class="navbar navbar-expand-md bg-primary navbar-dark w-100 p-0 font-medium title6">
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar links -->
+                <div class="container" id="innerpagew">
+                    <div class="row" style="display: contents !important;">
+                        <div class="col-md-9">
+                            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                                <ul class="navbar-nav d-flex m-auto">
+                                    <li class="nav-item"><a class="nav-link" href="ApplicantDashBaord.aspx" runat="server" id="anchoetag"><i class="fa fa-tachometer title7"></i>Home</a></li>
+
+                                    <li class="nav-item dropdown" id="liIncentiveDeptDashboard" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdownMenuLink5" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-list-ul" aria-hidden="true"></i>Incentives</span> <%--<span class="label label-important">3</span>--%></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                            <li id="liIncentiveDeptDashboardchild" runat="server"><a class="dropdown-item" id="anchdeptincdashboard" runat="server">DashBoard</a> </li>
+                                            <li id="liRDDDashboard" visible="false" runat="server"><a class="dropdown-item" id="anchRDD" runat="server">DashBoard</a> </li>
+                                            <li id="liIncentiveReports" runat="server"><a class="dropdown-item" id="a1" href="~/UI/Pages/MISReports/frmIncentiveReports.aspx" runat="server">Reports</a> </li>
+                                            <li id="liApplicationTracker" runat="server"><a class="dropdown-item" id="a6" href="~/UI/Pages/ApplicantIncentivesTracker.aspx" runat="server">Application Tracker</a> </li>
+                                            <li id="liSvcEntry" visible="false" runat="server"><a class="dropdown-item" id="a7" href="~/UI/Pages/FormslsvcDetails.aspx" runat="server">Completed SLCs Data</a> </li>
+                                            <li id="liIncentiveTracker" visible="false" runat="server"><a class="dropdown-item" id="a8" href="~/UI/Pages/FormIncentiveTracker.aspx" runat="server">Incentive Tracker</a> </li>
+                                            <li id="liPlantMachinery" visible="false" runat="server"><a class="dropdown-item" id="a9" href="~/UI/Pages/PlantandMachinerySearch.aspx" runat="server">Plant and Machinary Search</a> </li>
+                                            <li id="lidloWorkingStatus" visible="false" runat="server"><a class="dropdown-item" id="a10" href="~/UI/Pages/FormUpdateWorkingStatus.aspx" runat="server">Update Unit Working Status</a> </li>
+                                            <li id="liAppraisal" visible="false" runat="server"><a class="dropdown-item" id="a12" href="~/UI/Pages/FormCreateAgenda.aspx" runat="server">Create Appraisal Note</a> </li>
+                                        </ul> 
+                                    </li>
+                                    <li class="nav-item dropdown" id="Lidepartment" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdownMenuLink6" aria-haspopup="true" aria-expanded="false"><i class="icon icon-file"></i><span>Helpdesk</span></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                            <li><i class="fa fa-tachometer" aria-hidden="true"></i><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/Helpdesk/HdDashBoard.aspx") %>">Dashboard</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown" id="liApplicantIncentivedashbiard" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-list title7"></i><span>Incentives</span></a>
+                                        <ul class="dropdown-menu title6" id="applyincentive" aria-labelledby="navbarDropdownMenuLin2">
+                                            <li><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmNewIncentive.aspx") %>"><i class="fa fa-list-alt" aria-hidden="true"></i>Apply Incentives</a> </li>
+                                            <li><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmUnitSanctionLetters.aspx") %>"><i class="fa fa-list-alt" aria-hidden="true"></i>Sanctioned Letters</a> </li>
+                                            <%-- <li><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/IncentiveFormTTap.aspx") %>">Apply Incentives</a> </li>--%>
+                                            <li><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/ApplicantIncentivesHistory.aspx") %>"><i class="fa fa-address-card-o" aria-hidden="true"></i>DashBoard</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown" id="applicanthd" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-info-circle" aria-hidden="true"></i><span>Helpdesk</span></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin3">
+                                            <li><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/Helpdesk/RaiseHelpDesk.aspx") %>"><i class="fa fa-ticket" aria-hidden="true"></i>Raise Ticket</a></li>
+                                            <li><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/Helpdesk/ApplicantDashBaord.aspx") %>"><i class="fa fa-dashcube" aria-hidden="true"></i>Dashboard</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown" id="lireleases" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navreleases" aria-haspopup="true" aria-expanded="false"><span>
+                                            <i class="fa fa-list-ul" aria-hidden="true"></i>Releases</span> <%--<span class="label label-important">3</span>--%></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                            <li id="li4" runat="server"><a class="dropdown-item" id="a3" href="~/UI/Pages/Releases/frmGoReleaseRegistration.aspx" runat="server">Fund Release Registration</a> </li>
+                                            <li id="li3" runat="server"><a class="dropdown-item" id="a2" href="~/UI/Pages/Releases/frmReleaseDashboard.aspx" runat="server">DashBoard</a> </li>
+                                            <li id="li1" runat="server"><a class="dropdown-item" id="a11" href="~/UI/Pages/Releases/FormWorkingStatusDashboard.aspx" runat="server">Units Working Status Details</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown" id="LiAdmin1" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdownMenuLink7" aria-haspopup="true" aria-expanded="false"><i class="icon icon-file"></i><span>Admin</span></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                            <li id="liModuleMaster" runat="server" visible="false"><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/Helpdesk/frmModuleMaster.aspx") %>">Module Master</a></li>
+                                            <li id="liSubModuleMaster" runat="server" visible="false"><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/Helpdesk/frmSubModuleMaster.aspx") %>">Sub Module Master</a></li>
+                                            <li id="liUserMaaping" runat="server" visible="false"><a class="dropdown-item" href="<%=Page.ResolveClientUrl("~/UI/Pages/Helpdesk/frmdeptUserMaaping.aspx") %>">Dept User Mapping</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item" id="lipayment" runat="server" visible="false"><a class="nav-link" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmDeptApprovalDashBoard.aspx") %>"><i class="fa fa-ticket title7"></i>Payment Verification</a></li>
+                                    <li class="nav-item" id="liAdmin" runat="server" visible="false"><a class="nav-link" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmDeptAdminDashBoard.aspx") %>"><i class="fa fa-ticket title7"></i>Admin Dashboard</a></li>
+                                    <li class="nav-item dropdown" id="liQueryGeneration" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navQueryGeneration" aria-haspopup="true" aria-expanded="false"><span>
+                                            <i class="fa fa-list-ul" aria-hidden="true"></i>Generate Query</span> <%--<span class="label label-important">3</span>--%></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                            <li id="li2" runat="server"><a class="dropdown-item" id="a4" href="~/UI/Pages/QueryGeneration/frmApllicationsforQuery.aspx?Stg=1" runat="server">Generate Query Letter</a> </li>
+                                            <li id="li6" runat="server"><a class="dropdown-item" id="a5" href="~/UI/Pages/QueryGeneration/frmQueryDashboard.aspx" runat="server">DashBoard</a> </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item" id="lichangepwd" runat="server" visible="false"><a class="nav-link" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmChangePassword.aspx") %>"><i class="fa fa-ticket title7"></i>Change Password</a></li>
+                                    <li class="nav-item" id="liDownloads" runat="server"><a class="nav-link" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmUserDownloads.aspx") %>"><i class="fa fa-ticket title7"></i>Downloads</a></li>
+                                    <li class="nav-item" id="liMail" visible="false" runat="server"><a class="nav-link" href="<%=Page.ResolveClientUrl("~/UI/Pages/SendMail.aspx") %>"><i class="fa fa-ticket title7"></i>Send Mail</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3" <%--style="text-align: right;"--%>>
+                            <a class="text-white font-regular title6">Welcome
+                        <asp:Label ID="lblusername" runat="server" Text="" CssClass="font-SemiBold"></asp:Label></a>
+                            <a class="btn bg-white text-blue font-SemiBold py-1 px-2 singin-btn" id="ascaleUpgarde" runat="server"><i class="fa fa-sign-out title7"></i>LOGOUT</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+
+
+        </header>
+
+        <!--top-Header-messaages-->
+
+        <div class="main">
+            <%-- <asp:ScriptManager ID="ScriptManager1" runat="server">
+            </asp:ScriptManager>--%>
+            <cc1:ToolkitScriptManager ID="toolkitScriptManager1" runat="server"></cc1:ToolkitScriptManager>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer class="footer p-3 container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 text-white title5 font-medium">
+                        Copyright © 2019. All Rights Reserved | Department of Handlooms & Textiles, Government of Telangana
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 text-white title5 font-medium">
+                        For any technical assistance in using the software please contact :+91-8008705787
+                    </div>
+                </div>
+            </div>
+            <asp:HiddenField ID="hdnUToken" runat="server" Value="" />
+            <asp:HiddenField ID="LoggedUserName" runat="server" Value="" />
+            
+        </footer>
+        <%--<script src="../js/jquery-ui.min.js" type="text/javascript"></script>--%>
+        <script src="../NewCss/js/excanvas.min.js"></script>
+        <script src="../NewCss/js/jquery.ui.custom.js"></script>
+        <script src="../NewCss/js/bootstrap.min.js"></script>
+        <script src="../NewCss/js/jquery.flot.min.js"></script>
+        <script src="../NewCss/js/jquery.flot.resize.min.js"></script>
+        <script src="../NewCss/js/jquery.peity.min.js"></script>
+        <script src="../NewCss/js/maruti.js"></script>
+        <script src="../NewCss/js/maruti.dashboard.js"></script>
+        <script src="../NewCss/js/maruti.chat.js"></script>
+        <%-- <script src="Scripts/bootstrap.min.js"></script>
+        <script src="../Scripts/jquery-3.3.1.min.js"></script>
+        <script src="../Scripts/jquery-3.3.1.js"></script>
+        <script src="../AssetsNew/js/bootstrap-datetimepicker.min.js"></script>--%>
+        <script type="text/javascript">
+            // This function is called from the pop-up menus to transfer to
+            // a different page. Ignore if the value returned is a null string:
+            function goPage(newURL) {
+
+                // if url is empty, skip the menu dividers and reset the menu selection to default
+                if (newURL != "") {
+
+                    // if url is "-", it is this page -- reset the menu:
+                    if (newURL == "-") {
+                        resetMenu();
+                    }
+                    // else, send page to designated URL            
+                    else {
+                        document.location.href = newURL;
+                    }
+                }
+            }
+
+            // resets the menu selection upon entry to this page:
+            function resetMenu() {
+                document.gomenu.selector.selectedIndex = 2;
+            }
+        </script>
+        <script src="../AssetsNew/js/popper.min.js"></script>
+        <script src="../AssetsNew/js/bootstrap.min.js"></script>
+        <script src="../AssetsNew/js/floating.js"></script>
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+                $(function () {
+                    var url = window.location.pathname,
+                        urlRegExp = new RegExp(url.replace(/\/$/, '') + "$");
+                    // now grab every link from the navigation
+                    $('.navbar a, footer a').each(function () {
+                        // and test its normalized href against the url pathname regexp
+                        if (urlRegExp.test(this.href.replace(/\/$/, ''))) {
+                            $(this).addClass('active');
+                        }
+                    });
+                });
+            });
+
+         
+        var sessionTimeout = "<%= Session.Timeout %>";
+            /*sessionTimeout = 60;
+   var sTimeout = parseInt(sessionTimeout);
+    setTimeout('SessionWarning()', sTimeout);
+
+    function SessionWarning() {
+        var message = "Your session Expired ";
+        alert(message);
+    }*/
+
+
+        </script>
+    </form>
+</body>
+</html>

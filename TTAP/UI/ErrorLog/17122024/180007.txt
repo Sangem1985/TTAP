@@ -1,0 +1,10 @@
+Error Message:Input string was not in a correct format.
+User:58225
+Form Name:frmDLOApplicationDetailsNew.aspx
+Date:17-Dec-24
+Time:18:00:07
+IP Address:::1
+HostName: ChanikyaGopal
+InnerException: 
+StatckTrace:    at TTAP.Classfiles.CAFClass.AssignInspectingOfficer(ApplicationStatus objApplicationStatus) in D:\Projects\TTAP TO IPASS\TTAP_LIVE\TTAP\Classfiles\CAFClass.cs:line 5677
+   at TTAP.UI.frmDLOApplicationDetailsNew.btnQuery_Click(Object sender, EventArgs e) in D:\Projects\TTAP TO IPASS\TTAP_LIVE\TTAP\UI\frmDLOApplicationDetailsNew.aspx.cs:line 3003
