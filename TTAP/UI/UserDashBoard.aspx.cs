@@ -37,7 +37,11 @@ namespace TTAP.UI
                 {
                     Response.Redirect("Pages/frmGMDashboard.aspx");
                 }
-                if (rolecode == "DLO" || rolecode=="IND" || rolecode== "IPO" || rolecode == "AD" || rolecode == "DD")
+                if (rolecode == "IPO" || rolecode == "AD" || rolecode == "DD")
+                {
+                    Response.Redirect("Pages/frmIPOIncentiveDashboard.aspx");
+                }
+                if (rolecode == "DLO" || rolecode=="IND")
                 {
                     Response.Redirect("Pages/frmDLODashboard.aspx");
                 }

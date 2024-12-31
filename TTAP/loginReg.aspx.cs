@@ -155,8 +155,14 @@ namespace TTAP
                                 //Session["RoleId"] = ObjLoginNewvo.RoleId = dv.Table.Rows[0]["RoleId"].ToString();
 
                                 //Session["DistrictId"] = GetDistrictIdofDLO(ObjLoginNewvo.uid);
-
-                                ObjLoginNewvo.DistrictID = Session["DistrictId"].ToString();
+                                if (Session["DistrictId"].ToString() != "")
+                                {
+                                    ObjLoginNewvo.DistrictID = Session["DistrictId"].ToString();
+                                }
+                                else 
+                                {
+                                    Session["DistrictId"] = GetDistrictIdofDLO(ObjLoginNewvo.uid);
+                                }
 
                                 ObjLoginNewvo.FirstName = dv.Table.Rows[0]["Firstname"].ToString();
                                 ObjLoginNewvo.LastName = dv.Table.Rows[0]["Lastname"].ToString();

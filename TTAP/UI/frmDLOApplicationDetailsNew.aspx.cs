@@ -147,13 +147,13 @@ namespace TTAP.UI
                                     {
                                         BindYetAssignedIncentives(IncentiveId, Role_Code);
                                     }
-                                    if (Role_Code == "IPO" || Role_Code == "IND")
+                                    if (Role_Code == "IPO" || Role_Code == "IND" || Role_Code == "DLO")
                                     {
-                                        SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (DLO - " + DistrictName + ")";
-                                        SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (DLO - " + DistrictName + ")";
+                                        SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC ("+ Role_Code + " - " + DistrictName + ")";
+                                        SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC ("+ Role_Code + " - " + DistrictName + ")";
 
-                                        SpanDLOApplcation.InnerHtml = "Verification of Applcation (IPO - " + DistrictName + ")";
-                                        SpanInspectionReport.InnerHtml = "Update Inspection Report (IPO - " + DistrictName + ")";
+                                        SpanDLOApplcation.InnerHtml = "Verification of Applcation ("+ Role_Code + " - " + DistrictName + ")";
+                                        SpanInspectionReport.InnerHtml = "Update Inspection Report ("+ Role_Code + " - " + DistrictName + ")";
                                         
                                         BindAppliedIncentives(IncentiveId, Role_Code);
                                         BindPendingInspections(IncentiveId, Role_Code);
@@ -1192,10 +1192,10 @@ namespace TTAP.UI
                         try
                         {
                             ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
-                            msg = ClsSMSandMailobj.SendSmsWebService(IncentiveId, SubIncentiveId, "Incentives", TransactionId, SubModule);
+                            /*msg = ClsSMSandMailobj.SendSmsWebService(IncentiveId, SubIncentiveId, "Incentives", TransactionId, SubModule);*/
                             if (Rbtnstatus.SelectedValue == "3")
                             {
-                                msg = ClsSMSandMailobj.SendSmsWebService(IncentiveId, SubIncentiveId, "Incentives", "8", SubModule);
+                                /*msg = ClsSMSandMailobj.SendSmsWebService(IncentiveId, SubIncentiveId, "Incentives", "8", SubModule);*/
                             }
                         }
                         catch (Exception ex)
@@ -3172,22 +3172,24 @@ namespace TTAP.UI
         {
             dss = GetGMHistoryById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
             if (dss != null && dss.Tables.Count > 0)
-            {
-                divGMHistory.Visible = true;
+            {   
                 if (dss.Tables[0].Rows.Count > 0)
                 {
+                    divGMHistory.Visible = true;
                     gvGMAssigned.DataSource = dss.Tables[0];
                     gvGMAssigned.DataBind();
                     divAssignedDtls.Visible = true;
                 }
                 if (dss.Tables[1].Rows.Count > 0)
                 {
+                    divGMHistory.Visible = true;
                     gvGMQuery.DataSource = dss.Tables[1];
                     gvGMQuery.DataBind();
                     divGMQuery.Visible = true;
                 }
                 if (dss.Tables[2].Rows.Count > 0)
                 {
+                    divGMHistory.Visible = true;
                     gvGMReject.DataSource = dss.Tables[2];
                     gvGMReject.DataBind();
                     divGMReject.Visible = true;

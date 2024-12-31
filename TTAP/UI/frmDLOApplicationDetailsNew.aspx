@@ -1816,7 +1816,7 @@
                                                 <asp:RadioButtonList ID="Rbtnstatus" runat="server" AutoPostBack="True" class="custom-radio" OnSelectedIndexChanged="Rbtnstatus_SelectedIndexChanged">
                                                     <asp:ListItem Text="Schedule Inspection" Value="1"></asp:ListItem>
                                                     <asp:ListItem Text="Raise Query" Value="2"></asp:ListItem>
-                                                    <asp:ListItem Text="Reject" Value="3"></asp:ListItem>
+                                                    <%--<asp:ListItem Text="Reject" Value="3"></asp:ListItem>--%>
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>

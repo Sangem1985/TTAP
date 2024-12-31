@@ -105,13 +105,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblAppl;
 
         /// <summary>
-        /// lblPendingWithin control.
+        /// lblYetotoAssignWithin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPendingWithin;
+        protected global::System.Web.UI.WebControls.Label lblYetotoAssignWithin;
 
         /// <summary>
         /// lblPendingBeyond control.

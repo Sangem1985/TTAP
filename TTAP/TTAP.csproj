@@ -574,6 +574,7 @@
     <Content Include="UI\Pages\frmDLODashboard.aspx" />
     <Content Include="UI\Pages\frmDraftApplication.aspx" />
     <Content Include="UI\Pages\frmDraftApplicationsDrill.aspx" />
+    <Content Include="UI\Pages\frmGMApplications.aspx" />
     <Content Include="UI\Pages\frmGMDashboard.aspx" />
     <Content Include="UI\Pages\frmIncentiveCAFDetails.aspx" />
     <Content Include="UI\Pages\frmInspectionRpt.aspx" />
@@ -1408,6 +1409,13 @@
     </Compile>
     <Compile Include="UI\Pages\frmDraftApplicationsDrill.aspx.designer.cs">
       <DependentUpon>frmDraftApplicationsDrill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmGMApplications.aspx.cs">
+      <DependentUpon>frmGMApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmGMApplications.aspx.designer.cs">
+      <DependentUpon>frmGMApplications.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\frmGMDashboard.aspx.cs">
       <DependentUpon>frmGMDashboard.aspx</DependentUpon>
