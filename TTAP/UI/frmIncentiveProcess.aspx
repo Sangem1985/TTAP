@@ -66,7 +66,7 @@
 
             return false;
         }
-    </script>
+    </script><%-- HI--%>
     <%-- <link href="assets/css/basic.css" rel="stylesheet" />--%>
     <%--  <div align="left">
         <div class="row" align="left">
