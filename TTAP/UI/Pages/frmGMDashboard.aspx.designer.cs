@@ -132,31 +132,31 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblpendingTotal;
 
         /// <summary>
-        /// lblTotalQuery control.
+        /// lblTotalQueryWithIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalQuery;
+        protected global::System.Web.UI.WebControls.Label lblTotalQueryWithIn;
 
         /// <summary>
-        /// Label1 control.
+        /// lblTotalQueryBeyond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblTotalQueryBeyond;
 
         /// <summary>
-        /// lblRepliedQueryWITHIN control.
+        /// lblRepliedQueryWithIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepliedQueryWITHIN;
+        protected global::System.Web.UI.WebControls.Label lblRepliedQueryWithIn;
 
         /// <summary>
         /// lblOpenQuery control.
@@ -177,31 +177,31 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
 
         /// <summary>
-        /// lblcomWithin control.
+        /// lblAssignedWithIn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcomWithin;
+        protected global::System.Web.UI.WebControls.Label lblAssignedWithIn;
 
         /// <summary>
-        /// lblcombeyond control.
+        /// lblAssignedBeyond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcombeyond;
+        protected global::System.Web.UI.WebControls.Label lblAssignedBeyond;
 
         /// <summary>
-        /// lblDLrejected control.
+        /// lblAssignedTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDLrejected;
+        protected global::System.Web.UI.WebControls.Label lblAssignedTotal;
 
         /// <summary>
         /// Label2 control.
@@ -213,13 +213,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Label3 control.
+        /// lblRejectedByGM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label lblRejectedByGM;
 
         /// <summary>
         /// Label4 control.

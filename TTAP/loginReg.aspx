@@ -10,7 +10,7 @@
         <script type="text/javascript"> 
 
             var site_key = '<%= ConfigurationManager.AppSettings["GCaptchSiteKey"]%>';
-
+            document.getElementById('dvCaptcha').style.display = false;
             var recaptchres = "";
             var onloadCallback = function () {
                 loadgrecaptchaexplicit();

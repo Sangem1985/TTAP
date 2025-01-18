@@ -94,6 +94,12 @@
                                                 </ItemTemplate>
                                                 <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
                                             </asp:TemplateField>
+                                             <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Sanction Letter">
+                                                <ItemTemplate>
+                                                    <asp:HyperLink ID="HyperLinkSanction" Text="View" NavigateUrl='<%#Eval("IntimationLetterPath")%>' Target="_blank" runat="server" />
+                                                </ItemTemplate>
+                                                <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                            </asp:TemplateField>
                                             <asp:TemplateField HeaderText="Incentive Id" Visible="false">
                                                 <ItemTemplate>
                                                     <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveId") %>' runat="server" />

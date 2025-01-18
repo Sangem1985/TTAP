@@ -184,6 +184,32 @@ namespace TTAP.UI
                         lidloWorkingStatus.Visible = true;
                         liApplicationTracker.Visible = false;
                     }
+                    if (ObjLoginvo.Role_Code == "AD" || ObjLoginvo.Role_Code == "IPO" || ObjLoginvo.Role_Code == "DD")
+                    {
+                        anchoetag.HRef = "~/UI/Pages/frmDashBoard.aspx";
+                        applicanthd.Visible = true;
+                        liApplicantIncentivedashbiard.Visible = false;
+                        liIncentiveDeptDashboard.Visible = true;
+                        anchdeptincdashboard.HRef = "~/UI/Pages/frmIPOIncentiveDashboard.aspx";
+                        lichangepwd.Visible = true;
+                        liQueryGeneration.Visible = true;
+                        liIncentiveReports.Visible = true;
+                        lidloWorkingStatus.Visible = true;
+                        liApplicationTracker.Visible = false;
+                    }
+                    if (ObjLoginvo.Role_Code == "GM")
+                    {
+                        anchoetag.HRef = "~/UI/Pages/frmDashBoard.aspx";
+                        applicanthd.Visible = true;
+                        liApplicantIncentivedashbiard.Visible = false;
+                        liIncentiveDeptDashboard.Visible = true;
+                        anchdeptincdashboard.HRef = "~/UI/Pages/frmIPOIncentiveDashboard.aspx";
+                        lichangepwd.Visible = true;
+                        liQueryGeneration.Visible = true;
+                        liIncentiveReports.Visible = true;
+                        lidloWorkingStatus.Visible = true;
+                        liApplicationTracker.Visible = false;
+                    }
                     else if (ObjLoginvo.Role_Code == "ADPP")
                     {
                         anchoetag.HRef = "~/UI/Pages/frmDashBoard.aspx";
@@ -269,7 +295,17 @@ namespace TTAP.UI
             Killsession();
             Session["UserDetails"] = null;
             Session.Abandon();
-            Response.Redirect("~/loginReg.aspx");
+            if (Session["IPASSFlag"] != null)
+            {
+                if (Session["IPASSFlag"].ToString() == "Y")
+                {
+                    Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx");
+                }
+            }
+            else
+            {
+                Response.Redirect("~/loginReg.aspx");
+            }
         }
         public void Killsession()
         {
@@ -289,6 +325,17 @@ namespace TTAP.UI
             Response.Buffer = false;
             Response.Cookies.Clear();
             Request.Cookies.Clear();
+        }
+
+        protected void btnIpass_Click(object sender, EventArgs e)
+        {
+
+            string IntUserId = Session["uid"].ToString();
+            string UserName = Session["user_id"].ToString();
+            string Password = Session["password"].ToString();
+            string PwdEncryflag = Session["PwdEncryflag"].ToString();
+            Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx?IntUserId=" + IntUserId + "&UserName=" + UserName + "&Password=" +
+                                Password + "&PwdEncryflag=" + PwdEncryflag + "&IsTtap=Y");
         }
 
         //    public void CheckMultiUsers(string CurrentUser)

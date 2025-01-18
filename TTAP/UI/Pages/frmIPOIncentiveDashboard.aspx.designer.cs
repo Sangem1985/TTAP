@@ -195,6 +195,42 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblInspectionsBeyond;
 
         /// <summary>
+        /// lblTotalQueryAfter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalQueryAfter;
+
+        /// <summary>
+        /// lblRepliedQueryWITHINAfter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRepliedQueryWITHINAfter;
+
+        /// <summary>
+        /// lblRepliedQueryBEYONDAfter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRepliedQueryBEYONDAfter;
+
+        /// <summary>
+        /// lblOpenQueryAfter control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOpenQueryAfter;
+
+        /// <summary>
         /// divline1 control.
         /// </summary>
         /// <remarks>

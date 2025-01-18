@@ -36,13 +36,10 @@ namespace TTAP
                         string Flg = Request.QueryString["Flg"].ToString();
                         if (Flg.Trim().TrimStart() == "Y")
                         {
-                            string Decrypt = "";
                             ViewState["IPASSFlg"] = "Y";
-                            Decrypt = UserCode;
-                            if (Request.QueryString["IsEnc"].ToString() == "Y")
-                            {
-                                Decrypt = Objret.Decrypt(UserCode.Replace(" ", "+"), "SYSTIME");
-                            }
+                            Session["IPASSFlag"] = "Y";
+                            /*string Decrypt = Objret.Decrypt(UserCode.Replace(" ", "+"), "SYSTIME");*/
+                            string Decrypt = UserCode;
                             txtpsw.TextMode = TextBoxMode.SingleLine;
                             txtuname.Text = UserId;
                             txtpsw.Text = Decrypt;

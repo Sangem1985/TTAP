@@ -578,6 +578,7 @@
     <Content Include="UI\Pages\frmGMDashboard.aspx" />
     <Content Include="UI\Pages\frmIncentiveCAFDetails.aspx" />
     <Content Include="UI\Pages\frmInspectionRpt.aspx" />
+    <Content Include="UI\Pages\frmIPOApplications.aspx" />
     <Content Include="UI\Pages\frmIPOIncentiveDashboard.aspx" />
     <Content Include="UI\Pages\frmJDApplications.aspx" />
     <Content Include="UI\Pages\frmJDDashboard.aspx" />
@@ -1437,6 +1438,13 @@
     </Compile>
     <Compile Include="UI\Pages\frmInspectionRpt.aspx.designer.cs">
       <DependentUpon>frmInspectionRpt.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\frmIPOApplications.aspx.cs">
+      <DependentUpon>frmIPOApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\frmIPOApplications.aspx.designer.cs">
+      <DependentUpon>frmIPOApplications.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\frmIPOIncentiveDashboard.aspx.cs">
       <DependentUpon>frmIPOIncentiveDashboard.aspx</DependentUpon>

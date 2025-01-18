@@ -37,6 +37,11 @@ namespace TTAP.UI.Pages
                         {
                             lblAppl.Text = dss.Tables[0].Rows[0]["NoofapplicationsRcvd"].ToString();
                             lblYetotoAssignWithin.Text = dss.Tables[0].Rows[0]["YetToAssignWithIn"].ToString();
+                            lblAssignedWithIn.Text = dss.Tables[0].Rows[0]["AssignedWithIn"].ToString();
+                            lblTotalQueryWithIn.Text = dss.Tables[0].Rows[0]["GMQueryRaisedBeforeAssignWitnin"].ToString();
+                            lblRepliedQueryWithIn.Text = dss.Tables[0].Rows[0]["GMQueryResponded"].ToString();
+                            lblOpenQuery.Text = dss.Tables[0].Rows[0]["GMAwaitingResponse"].ToString();
+                            lblRejectedByGM.Text = dss.Tables[0].Rows[0]["GMRejectedBeforeAssign"].ToString();
                         }
                     }
                 }

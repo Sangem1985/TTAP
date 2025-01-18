@@ -151,13 +151,17 @@
                 <span class="floatleft auto-style3">This amount will be released as and when your unit’s turn comes as per seriatim for disbursement of available funds
                 </span>
             </div>
+             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 11px">
+                 <span class=" pull-left">Enclosures : As above.  
+                </span>
+            </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 10px; padding-bottom: 5px; text-align: left">
                 <span class=" pull-right"><span style="font-weight: bold">Yours faithfully,</span><br />
                     <asp:Label ID="lblGMname" runat="server"></asp:Label><br />
                     <%--Asst. Director (H&T)<br />
                     <asp:Label ID="lbldist3" runat="server"></asp:Label>--%>
                 </span>
-                <span class=" pull-left">Enclosures : As above.  
+                <span class=" pull-left">This is computer generated document.
                 </span>
             </div>
             <%--<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 10px; padding-bottom: 5px; text-align: left">

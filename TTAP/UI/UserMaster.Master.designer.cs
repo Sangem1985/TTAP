@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TTAP.UI {
-    
-    
-    public partial class UserMaster {
-        
+namespace TTAP.UI
+{
+
+
+    public partial class UserMaster
+    {
+
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+
         /// <summary>
         /// anchoetag control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor anchoetag;
-        
+
         /// <summary>
         /// liIncentiveDeptDashboard control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liIncentiveDeptDashboard;
-        
+
         /// <summary>
         /// liIncentiveDeptDashboardchild control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liIncentiveDeptDashboardchild;
-        
+
         /// <summary>
         /// anchdeptincdashboard control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor anchdeptincdashboard;
-        
+
         /// <summary>
         /// liRDDDashboard control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liRDDDashboard;
-        
+
         /// <summary>
         /// anchRDD control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor anchRDD;
-        
+
         /// <summary>
         /// liIncentiveReports control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liIncentiveReports;
-        
+
         /// <summary>
         /// a1 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a1;
-        
+
         /// <summary>
         /// liApplicationTracker control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liApplicationTracker;
-        
+
         /// <summary>
         /// a6 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a6;
-        
+
         /// <summary>
         /// liSvcEntry control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liSvcEntry;
-        
+
         /// <summary>
         /// a7 control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a7;
-        
+
         /// <summary>
         /// liIncentiveTracker control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liIncentiveTracker;
-        
+
         /// <summary>
         /// a8 control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a8;
-        
+
         /// <summary>
         /// liPlantMachinery control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPlantMachinery;
-        
+
         /// <summary>
         /// a9 control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a9;
-        
+
         /// <summary>
         /// lidloWorkingStatus control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lidloWorkingStatus;
-        
+
         /// <summary>
         /// a10 control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a10;
-        
+
         /// <summary>
         /// liAppraisal control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAppraisal;
-        
+
         /// <summary>
         /// a12 control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a12;
-        
+
         /// <summary>
         /// Lidepartment control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Lidepartment;
-        
+
         /// <summary>
         /// liApplicantIncentivedashbiard control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liApplicantIncentivedashbiard;
-        
+
         /// <summary>
         /// applicanthd control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl applicanthd;
-        
+
         /// <summary>
         /// lireleases control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lireleases;
-        
+
         /// <summary>
         /// li4 control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl li4;
-        
+
         /// <summary>
         /// a3 control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a3;
-        
+
         /// <summary>
         /// li3 control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl li3;
-        
+
         /// <summary>
         /// a2 control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a2;
-        
+
         /// <summary>
         /// li1 control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl li1;
-        
+
         /// <summary>
         /// a11 control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a11;
-        
+
         /// <summary>
         /// LiAdmin1 control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl LiAdmin1;
-        
+
         /// <summary>
         /// liModuleMaster control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liModuleMaster;
-        
+
         /// <summary>
         /// liSubModuleMaster control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liSubModuleMaster;
-        
+
         /// <summary>
         /// liUserMaaping control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liUserMaaping;
-        
+
         /// <summary>
         /// lipayment control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lipayment;
-        
+
         /// <summary>
         /// liAdmin control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAdmin;
-        
+
         /// <summary>
         /// liQueryGeneration control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liQueryGeneration;
-        
+
         /// <summary>
         /// li2 control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl li2;
-        
+
         /// <summary>
         /// a4 control.
         /// </summary>
@@ -371,7 +373,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a4;
-        
+
         /// <summary>
         /// li6 control.
         /// </summary>
@@ -380,7 +382,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl li6;
-        
+
         /// <summary>
         /// a5 control.
         /// </summary>
@@ -389,7 +391,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor a5;
-        
+
         /// <summary>
         /// lichangepwd control.
         /// </summary>
@@ -398,7 +400,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lichangepwd;
-        
+
         /// <summary>
         /// liDownloads control.
         /// </summary>
@@ -407,16 +409,25 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liDownloads;
-        
+
         /// <summary>
-        /// liMail control.
+        /// li5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liMail;
-        
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl li5;
+
+        /// <summary>
+        /// btnIpass control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnIpass;
+
         /// <summary>
         /// lblusername control.
         /// </summary>
@@ -425,7 +436,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblusername;
-        
+
         /// <summary>
         /// ascaleUpgarde control.
         /// </summary>
@@ -434,7 +445,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor ascaleUpgarde;
-        
+
         /// <summary>
         /// toolkitScriptManager1 control.
         /// </summary>
@@ -443,7 +454,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ToolkitScriptManager toolkitScriptManager1;
-        
+
         /// <summary>
         /// ContentPlaceHolder1 control.
         /// </summary>
@@ -452,7 +463,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
-        
+
         /// <summary>
         /// hdnUToken control.
         /// </summary>
@@ -461,7 +472,7 @@ namespace TTAP.UI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnUToken;
-        
+
         /// <summary>
         /// LoggedUserName control.
         /// </summary>

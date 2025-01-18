@@ -43,6 +43,9 @@ namespace TTAP.UI.Pages
                             lblInspectionsScheduledWithin.Text = dss.Tables[0].Rows[0]["InspectionScheduledWithin"].ToString();
                             lblInspectionPendingWithin.Text = dss.Tables[0].Rows[0]["InspectionPendingWithin"].ToString();
                             lblInspectionCompletedWithin.Text = dss.Tables[0].Rows[0]["InspectionCompletedWithIn"].ToString();
+                            lblTotalQueryAfter.Text = dss.Tables[0].Rows[0]["IPOQueryRaisedAfterInspection"].ToString();
+                            lblRepliedQueryWITHINAfter.Text = dss.Tables[0].Rows[0]["IPOQueryResponseAfterInspectionWithIn"].ToString();
+                            lblOpenQueryAfter.Text = dss.Tables[0].Rows[0]["IPOWaitingQuryRespAfterInspection"].ToString();
                         }
                     }
                 }
