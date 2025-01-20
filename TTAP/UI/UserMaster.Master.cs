@@ -203,7 +203,7 @@ namespace TTAP.UI
                         applicanthd.Visible = true;
                         liApplicantIncentivedashbiard.Visible = false;
                         liIncentiveDeptDashboard.Visible = true;
-                        anchdeptincdashboard.HRef = "~/UI/Pages/frmIPOIncentiveDashboard.aspx";
+                        anchdeptincdashboard.HRef = "~/UI/Pages/frmGMDashboard.aspx";
                         lichangepwd.Visible = true;
                         liQueryGeneration.Visible = true;
                         liIncentiveReports.Visible = true;

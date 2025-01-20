@@ -897,24 +897,6 @@ namespace TTAP.UI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMHistory;
 
         /// <summary>
-        /// divAssignedDtls control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAssignedDtls;
-
-        /// <summary>
-        /// gvGMAssigned control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvGMAssigned;
-
-        /// <summary>
         /// divGMQuery control.
         /// </summary>
         /// <remarks>
@@ -931,6 +913,24 @@ namespace TTAP.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvGMQuery;
+
+        /// <summary>
+        /// divAssignedDtls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAssignedDtls;
+
+        /// <summary>
+        /// gvGMAssigned control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvGMAssigned;
 
         /// <summary>
         /// divGMReject control.
@@ -1041,6 +1041,42 @@ namespace TTAP.UI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl SpanApplcationStatusHistory;
 
         /// <summary>
+        /// divIPOQueryBI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIPOQueryBI;
+
+        /// <summary>
+        /// gvIPOQueryBI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvIPOQueryBI;
+
+        /// <summary>
+        /// divAppcntQryRespBeforeInsp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAppcntQryRespBeforeInsp;
+
+        /// <summary>
+        /// gvAppcntQryRespBeforeInsp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAppcntQryRespBeforeInsp;
+
+        /// <summary>
         /// DivInspectionDetails control.
         /// </summary>
         /// <remarks>
@@ -1111,42 +1147,6 @@ namespace TTAP.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdQueriesResponse;
-
-        /// <summary>
-        /// divIPOQueryBI control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIPOQueryBI;
-
-        /// <summary>
-        /// gvIPOQueryBI control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvIPOQueryBI;
-
-        /// <summary>
-        /// divAppcntQryRespBeforeInsp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAppcntQryRespBeforeInsp;
-
-        /// <summary>
-        /// gvAppcntQryRespBeforeInsp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvAppcntQryRespBeforeInsp;
 
         /// <summary>
         /// divAppcntQryRespAfterInsp control.
