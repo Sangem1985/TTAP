@@ -148,6 +148,7 @@ namespace TTAP.UI
                                     {
                                         BindYetAssignedIncentives(IncentiveId, Role_Code);
                                         BindIPOQueries();
+                                        BindGMVerifications();
                                     }
                                     if (Role_Code == "IPO" || Role_Code == "IND" || Role_Code == "DLO" || Role_Code == "DD" || Role_Code == "AD")
                                     {
@@ -479,6 +480,16 @@ namespace TTAP.UI
            };
             pp[0].Value = IncentiveId;
             Dsnew = caf.GenericFillDs("USP_GET_GM_HISTORY", pp);
+            return Dsnew;
+        }
+        public DataSet GetGMVerificationsById(int IncentiveId)
+        {
+            DataSet Dsnew = new DataSet();
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@IncentiveId",SqlDbType.Int),
+           };
+            pp[0].Value = IncentiveId;
+            Dsnew = caf.GenericFillDs("USP_GET_GM_VERIFICATION_GRIDS", pp);
             return Dsnew;
         }
 
@@ -3319,6 +3330,20 @@ namespace TTAP.UI
                 }
             }
         }
+        public void BindGMVerifications()
+        {
+            dss = GetGMVerificationsById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
+            if (dss != null && dss.Tables.Count > 0)
+            {
+                if (dss.Tables[0].Rows.Count > 0)
+                {
+                    divGMVerification.Visible = true;
+                    gvFwdAppResptoIPO.DataSource = dss.Tables[0];
+                    gvFwdAppResptoIPO.DataBind();
+                    divForwardApplicantResponsetoIPO.Visible = true;
+                }
+            }
+        }
         protected void btnResponsetoIPOBeforeInsp_Click(object sender, EventArgs e)
         {
             try
@@ -3339,7 +3364,7 @@ namespace TTAP.UI
                 ScriptManager.GetCurrent(this).RegisterPostBackControl(btnResponsetoIPOBeforeInsp);
                 HyperLink hypconcernedCTo = new HyperLink();
                 hypconcernedCTo = ((HyperLink)gvQueriesFromIPO.Rows[indexing].FindControl("hyGMRespFile"));
-                if (ObjApplicationStatus.Remarks == "") 
+                if (ObjApplicationStatus.Remarks == "")
                 {
                     string info = "Please Enter Response";
                     string message = "alert('" + info + "')";
@@ -3349,7 +3374,7 @@ namespace TTAP.UI
                 ObjApplicationStatus.TransType = "GMTOIPO";
                 FileUpload fuGMReplyIPOQuery = (FileUpload)gvQueriesFromIPO.Rows[indexing].FindControl("fuGMReplyIPOQuery");
                 if (fuGMReplyIPOQuery.HasFile)
-                {   
+                {
                     string Mimetype = objClsFileUpload.getmimetype(fuGMReplyIPOQuery);
                     if (Mimetype == "application/pdf")
                     {
@@ -3679,6 +3704,148 @@ namespace TTAP.UI
             else
             {
                 DivQueryDetails.Visible = false;
+            }
+        }
+
+        protected void btnForwardtoIPOAftrResp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+
+                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
+
+                ObjApplicationStatus.IncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
+                ObjApplicationStatus.SubIncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
+                ObjApplicationStatus.QueryId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
+                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
+                ObjApplicationStatus.Remarks = ((TextBox)gvFwdAppResptoIPO.Rows[indexing].FindControl("txtIPOQueryReplyInsp")).Text.ToString();
+                Button btnForwardtoIPOAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnForwardtoIPOAftrResp");
+                Button btnRaiseQueryAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnRaiseQueryAftrResp");
+                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnForwardtoIPOAftrResp);
+                HyperLink hypconcernedCTo = new HyperLink();
+                hypconcernedCTo = ((HyperLink)gvFwdAppResptoIPO.Rows[indexing].FindControl("hyGMRespFileInsp"));
+                if (ObjApplicationStatus.Remarks == "")
+                {
+                    string info = "Please Enter Remarks";
+                    string message = "alert('" + info + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+                ObjApplicationStatus.TransType = "QRSPGMTOIPOBFR";
+                FileUpload fuGMFwdAppRespInsp = (FileUpload)gvFwdAppResptoIPO.Rows[indexing].FindControl("fuGMFwdAppRespInsp");
+                if (fuGMFwdAppRespInsp.HasFile)
+                {
+                    string Mimetype = objClsFileUpload.getmimetype(fuGMFwdAppRespInsp);
+                    if (Mimetype == "application/pdf")
+                    {
+                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMFwdAppRespInsp, hypconcernedCTo, ObjLoginNewvo.Role_Code + "ForwartoIPO", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQueryBeforeInsp");
+                        ObjApplicationStatus.QueryLetterID = OutPut;
+                    }
+                    else
+                    {
+                        string errormsg = "Only pdf files allowed !";
+                        string message = "alert('" + errormsg + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+                    }
+                }
+
+                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
+                if (Convert.ToInt32(Status) > 0)
+                {
+                    btnForwardtoIPOAftrResp.Visible = false;
+                    btnRaiseQueryAftrResp.Visible = false;
+                    hypconcernedCTo.Visible = true;
+                    BindGMHistory();
+                    string Successmsg = "";
+                    Successmsg = "Applicant Response Forwarded Successfully to IPO";
+                    string message = "alert('" + Successmsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Errors.ErrorLog(ex);
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                success.Visible = false;
+                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+            }
+        }
+
+        protected void btnRaiseQueryAftrResp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+
+                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
+
+                ObjApplicationStatus.IncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
+                ObjApplicationStatus.SubIncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
+                ObjApplicationStatus.QueryId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
+                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
+                ObjApplicationStatus.Remarks = ((TextBox)gvFwdAppResptoIPO.Rows[indexing].FindControl("txtIPOQueryReplyInsp")).Text.ToString();
+                Button btnForwardtoIPOAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnForwardtoIPOAftrResp");
+                Button btnRaiseQueryAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnRaiseQueryAftrResp");
+                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnRaiseQueryAftrResp);
+                HyperLink hypconcernedCTo = new HyperLink();
+                hypconcernedCTo = ((HyperLink)gvFwdAppResptoIPO.Rows[indexing].FindControl("hyGMRespFileInsp"));
+                if (ObjApplicationStatus.Remarks == "")
+                {
+                    string info = "Please Enter Remarks";
+                    string message = "alert('" + info + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+                ObjApplicationStatus.TransType = "QRYAFTRRESP";
+                FileUpload fuGMFwdAppRespInsp = (FileUpload)gvFwdAppResptoIPO.Rows[indexing].FindControl("fuGMFwdAppRespInsp");
+                if (fuGMFwdAppRespInsp.HasFile)
+                {
+                    string Mimetype = objClsFileUpload.getmimetype(fuGMFwdAppRespInsp);
+                    if (Mimetype == "application/pdf")
+                    {
+                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMFwdAppRespInsp, hypconcernedCTo, ObjLoginNewvo.Role_Code + "ForwartoIPO", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQueryBeforeInsp");
+                        ObjApplicationStatus.QueryLetterID = OutPut;
+                    }
+                    else
+                    {
+                        string errormsg = "Only pdf files allowed !";
+                        string message = "alert('" + errormsg + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+                    }
+                }
+
+                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
+                if (Convert.ToInt32(Status) > 0)
+                {
+                    btnForwardtoIPOAftrResp.Visible = false;
+                    btnRaiseQueryAftrResp.Visible = false;
+                    hypconcernedCTo.Visible = true;
+                    BindGMHistory();
+                    string Successmsg = "";
+                    Successmsg = "Query Raised Successfully";
+                    string message = "alert('" + Successmsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Errors.ErrorLog(ex);
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                success.Visible = false;
+                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
             }
         }
     }

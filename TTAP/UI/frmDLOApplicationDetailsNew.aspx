@@ -1374,140 +1374,237 @@
                                         </div>
                                         <div runat="server" id="divIPOQueryBeforeInsp" visible="false">
                                             <div class="row" id="divQueriesFromIPO" runat="server" visible="false">
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Queries from IPO</div>
-                                            <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                <asp:GridView ID="gvQueriesFromIPO" runat="server" AutoGenerateColumns="False"
-                                                    CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    HorizontalAlign="Left" ShowHeader="true">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                    <RowStyle CssClass="GridviewScrollC1Item" />
-                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="60px" CssClass="text-center" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Incentive">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblIncentiveName" Text='<%#Eval("IncentiveName") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Query Description">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblQueryDesc" Text='<%#Eval("Query") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Response" ItemStyle-HorizontalAlign="Center">
-                                                            <ItemTemplate>
-                                                               <asp:TextBox ID="txtIPOQueryReply" runat="server" TextMode="MultiLine"></asp:TextBox><br />
-                                                                <asp:FileUpload ID="fuGMReplyIPOQuery" runat="server" CssClass="file-browse" />
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Action" ItemStyle-HorizontalAlign="Center">
-                                                            <ItemTemplate>
-                                                               <asp:Button Text="Send Response to IPO" CssClass="btn btn-blue mx-2" ID="btnResponsetoIPOBeforeInsp" runat="server" OnClick="btnResponsetoIPOBeforeInsp_Click" />
-                                                                <br /><br />
-                                                                <asp:Button Text="Forward to Applicant" CssClass="btn btn-blue mx-2" ID="btnFwdtoApplicantBeforeInsp" runat="server" OnClick="btnFwdtoApplicantBeforeInsp_Click" />
-                                                                <br />
-                                                                <asp:HyperLink ID="hyGMRespFile" runat="server" Visible="false" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="IncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblQueryId" Text='<%#Eval("QueryId") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="IncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                    </Columns>
-                                                </asp:GridView>
+                                                <div class="col-sm-12 text-black font-SemiBold mb-1">Queries from IPO</div>
+                                                <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                    <asp:GridView ID="gvQueriesFromIPO" runat="server" AutoGenerateColumns="False"
+                                                        CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                        HorizontalAlign="Left" ShowHeader="true">
+                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                        <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                        <RowStyle CssClass="GridviewScrollC1Item" />
+                                                        <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                        <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                        <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                </ItemTemplate>
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle Width="60px" CssClass="text-center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Incentive">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblIncentiveName" Text='<%#Eval("IncentiveName") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Query Description">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblQueryDesc" Text='<%#Eval("Query") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Response" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtIPOQueryReply" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+                                                                    <asp:FileUpload ID="fuGMReplyIPOQuery" runat="server" CssClass="file-browse" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Action" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:Button Text="Send Response to IPO" CssClass="btn btn-blue mx-2" ID="btnResponsetoIPOBeforeInsp" runat="server" OnClick="btnResponsetoIPOBeforeInsp_Click" />
+                                                                    <br />
+                                                                    <br />
+                                                                    <asp:Button Text="Forward to Applicant" CssClass="btn btn-blue mx-2" ID="btnFwdtoApplicantBeforeInsp" runat="server" OnClick="btnFwdtoApplicantBeforeInsp_Click" />
+                                                                    <br />
+                                                                    <asp:HyperLink ID="hyGMRespFile" runat="server" Visible="false" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="IncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblQueryId" Text='<%#Eval("QueryId") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="IncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
                                             </div>
                                         </div>
-                                        </div>
-                                         <div runat="server" id="divGMActionIPOQueryAfterInsp" visible="false">
-                                            <div class="row" id="div7" runat="server" >
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Queries from IPO After Inspection Scheduled</div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                <asp:GridView ID="gvGMActionIPOQueryAfterInsp" runat="server" AutoGenerateColumns="False"
-                                                    CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    HorizontalAlign="Left" ShowHeader="true">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                    <RowStyle CssClass="GridviewScrollC1Item" />
-                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="60px" CssClass="text-center" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Incentive">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblIncentiveName" Text='<%#Eval("IncentiveName") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Query Description">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblQueryDesc" Text='<%#Eval("Query") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Response" ItemStyle-HorizontalAlign="Center">
-                                                            <ItemTemplate>
-                                                               <asp:TextBox ID="txtIPOQueryReplyInsp" runat="server" TextMode="MultiLine"></asp:TextBox><br />
-                                                                <asp:FileUpload ID="fuGMReplyIPOQueryInsp" runat="server" CssClass="file-browse" />
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Action" ItemStyle-HorizontalAlign="Center">
-                                                            <ItemTemplate>
-                                                               <asp:Button Text="Send Response to IPO" CssClass="btn btn-blue mx-2" ID="btnResponsetoIPOAfterInsp" runat="server" OnClick="btnResponsetoIPOAfterInsp_Click" />
-                                                                <br /><br />
-                                                                <asp:Button Text="Forward to Applicant" CssClass="btn btn-blue mx-2" ID="btnFwdtoApplicantAfterInsp" runat="server" OnClick="btnFwdtoApplicantAfterInsp_Click" />
-                                                                <br />
-                                                                <asp:HyperLink ID="hyGMRespFileInsp" runat="server" Visible="false" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Center" />
-                                                        </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="IncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblQueryId" Text='<%#Eval("QueryId") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="IncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                    </Columns>
-                                                </asp:GridView>
+                                        <div runat="server" id="divGMActionIPOQueryAfterInsp" visible="false">
+                                            <div class="row" id="div7" runat="server">
+                                                <div class="col-sm-12 text-black font-SemiBold mb-1">Queries from IPO After Inspection Scheduled</div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                    <asp:GridView ID="gvGMActionIPOQueryAfterInsp" runat="server" AutoGenerateColumns="False"
+                                                        CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                        HorizontalAlign="Left" ShowHeader="true">
+                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                        <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                        <RowStyle CssClass="GridviewScrollC1Item" />
+                                                        <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                        <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                        <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                </ItemTemplate>
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle Width="60px" CssClass="text-center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Incentive">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblIncentiveName" Text='<%#Eval("IncentiveName") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Query Description">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblQueryDesc" Text='<%#Eval("Query") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Response" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtIPOQueryReplyInsp" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+                                                                    <asp:FileUpload ID="fuGMReplyIPOQueryInsp" runat="server" CssClass="file-browse" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Action" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:Button Text="Send Response to IPO" CssClass="btn btn-blue mx-2" ID="btnResponsetoIPOAfterInsp" runat="server" OnClick="btnResponsetoIPOAfterInsp_Click" />
+                                                                    <br />
+                                                                    <br />
+                                                                    <asp:Button Text="Forward to Applicant" CssClass="btn btn-blue mx-2" ID="btnFwdtoApplicantAfterInsp" runat="server" OnClick="btnFwdtoApplicantAfterInsp_Click" />
+                                                                    <br />
+                                                                    <asp:HyperLink ID="hyGMRespFileInsp" runat="server" Visible="false" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="IncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblQueryId" Text='<%#Eval("QueryId") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="IncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div runat="server" id="divForwardApplicantResponsetoIPO" visible="false">
+                                            <div class="row" id="div8" runat="server">
+                                                <div class="col-sm-12 text-black font-SemiBold mb-1">Forward Applicant Response to IPO / Raise Query</div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                    <asp:GridView ID="gvFwdAppResptoIPO" runat="server" AutoGenerateColumns="False"
+                                                        CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                        HorizontalAlign="Left" ShowHeader="true">
+                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                        <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                        <RowStyle CssClass="GridviewScrollC1Item" />
+                                                        <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                        <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                        <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                </ItemTemplate>
+                                                                <HeaderStyle HorizontalAlign="Center" />
+                                                                <ItemStyle Width="60px" CssClass="text-center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Incentive">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblIncentiveName" Text='<%#Eval("IncentiveName") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="IPO Query Description">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblQueryDesc" Text='<%#Eval("Query") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                             <asp:TemplateField HeaderText="IPO Query Raised Date">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblCreatedDate" Text='<%#Eval("CreatedDate") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                             <asp:TemplateField HeaderText="GM Forward Remarks">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblGMForwardQuery" Text='<%#Eval("GMForwardQuery") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                             <asp:TemplateField HeaderText="GM Forwarded Date">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblGMForwardtoApplicantDate" Text='<%#Eval("GMForwardtoApplicantDate") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                             <asp:TemplateField HeaderText="Applicant Response">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblResponce" Text='<%#Eval("Responce") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                             <asp:TemplateField HeaderText="Applicant Response Date">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblResponseDate" Text='<%#Eval("ResponseDate") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Query/Remarks" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:TextBox ID="txtIPOQueryReplyInsp" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+                                                                    <asp:FileUpload ID="fuGMFwdAppRespInsp" runat="server" CssClass="file-browse" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Action" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:Button Text="Forward to IPO" CssClass="btn btn-blue mx-2" ID="btnForwardtoIPOAftrResp" runat="server" OnClick="btnForwardtoIPOAftrResp_Click" />
+                                                                    <br />
+                                                                    <br />
+                                                                    <asp:Button Text="Raise Query" CssClass="btn btn-blue mx-2" ID="btnRaiseQueryAftrResp" runat="server" OnClick="btnRaiseQueryAftrResp_Click" />
+                                                                    <br />
+                                                                    <asp:HyperLink ID="hyGMRespFileInsp" runat="server" Visible="false" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="IncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblQueryId" Text='<%#Eval("QueryId") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="IncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
+                                            </div>
                                         </div>
+
 
                                     </div>
 
@@ -1571,6 +1668,11 @@
                                                                 <asp:Label ID="lblResponseDate" Text='<%#Eval("ResponseDate") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Raised at">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblRaisedAt" Text='<%#Eval("RaisedAt") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="IncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
@@ -1585,7 +1687,7 @@
                                                 </asp:GridView>
                                             </div>
                                         </div>
-                                         <div class="row" id="divAssignedDtls" runat="server" visible="false">
+                                        <div class="row" id="divAssignedDtls" runat="server" visible="false">
                                             <div class="col-sm-12 text-black font-SemiBold mb-1">Assigned to Inspecting Officer</div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                 <asp:GridView ID="gvGMAssigned" runat="server" AutoGenerateColumns="False"
@@ -1693,7 +1795,7 @@
                                                 </asp:GridView>
                                             </div>
                                         </div>
-                                         <div class="row" id="divGMResponseIPOQuery" runat="server" visible="false">
+                                        <div class="row" id="divGMResponseIPOQuery" runat="server" visible="false">
                                             <div class="col-sm-12 text-black font-SemiBold mb-1">GM Response to IPO Query</div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                 <asp:GridView ID="gvGMResponseIPOQuery" runat="server" AutoGenerateColumns="False"
@@ -1723,7 +1825,7 @@
                                                                 <asp:Label ID="lblQuery" Text='<%#Eval("Query") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="GM Responce">
+                                                        <asp:TemplateField HeaderText="GM Responce">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblGMResponce" Text='<%#Eval("GMResponce") %>' runat="server" />
                                                             </ItemTemplate>
@@ -1748,7 +1850,7 @@
                                             </div>
                                         </div>
                                         <div class="row" id="divGMForwardtoApplicant" runat="server" visible="false">
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">GM Forwarded IPO Query to Applicant</div>
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">IPO Query Details</div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                 <asp:GridView ID="gvGMForwardtoApplicant" runat="server" AutoGenerateColumns="False"
                                                     CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
@@ -1777,7 +1879,7 @@
                                                                 <asp:Label ID="lblQuery" Text='<%#Eval("Query") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="GM Forward Query">
+                                                        <asp:TemplateField HeaderText="GM Forward Query">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblGMForwardQuery" Text='<%#Eval("GMForwardQuery") %>' runat="server" />
                                                             </ItemTemplate>
@@ -1795,6 +1897,16 @@
                                                         <asp:TemplateField HeaderText="Applicant Response Date">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblResponseDate" Text='<%#Eval("ResponseDate") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Remarks of GM When Applicant Response Forwarded to IPO">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblGMForwardAppResptoIpo" Text='<%#Eval("GMForwardAppResptoIpo") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Date of Applicant Response forwarded to IPO by GM">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblGMForwardAppResptoIpoDt" Text='<%#Eval("GMForwardAppResptoIpoDt") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="IncentiveId" Visible="false">
@@ -1841,7 +1953,7 @@
                                                                 <asp:Label ID="lblQuery" Text='<%#Eval("Query") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="GM Responce">
+                                                        <asp:TemplateField HeaderText="GM Responce">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblGMResponce" Text='<%#Eval("GMResponce") %>' runat="server" />
                                                             </ItemTemplate>
@@ -1895,7 +2007,7 @@
                                                                 <asp:Label ID="lblQuery" Text='<%#Eval("Query") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="GM Forward Query">
+                                                        <asp:TemplateField HeaderText="GM Forward Query">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblGMForwardQuery" Text='<%#Eval("GMForwardQuery") %>' runat="server" />
                                                             </ItemTemplate>
@@ -1933,12 +2045,12 @@
                                 </div>
                                 <div id="collapse3" class="collapse">
                                     <div class="card-body">
-                                         <div class="row" id="divIPOQueryBI" runat="server" visible="false">
+                                        <div class="row" id="divIPOQueryBI" runat="server" visible="false">
                                             <div class="col-sm-12 text-black font-SemiBold mb-1">Query Details - Before Scheduled</div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                 <asp:GridView ID="gvIPOQueryBI" runat="server" AutoGenerateColumns="False"
                                                     CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    Width="100%" Font-Names="Verdana" Font-Size="12px" >
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
                                                     <HeaderStyle HorizontalAlign="Center" />
                                                     <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                                     <RowStyle CssClass="GridviewScrollC1Item" />
@@ -1953,10 +2065,46 @@
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <ItemStyle Width="60px" />
                                                         </asp:TemplateField>
-                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
-                                                        <asp:BoundField DataField="Query" HeaderText="Query" />
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Query Raised By" />
-                                                        <asp:BoundField DataField="CreatedDate" HeaderText="Query Raised Date" />
+                                                        <asp:TemplateField HeaderText="Incentive">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblIncentiveName" Text='<%#Eval("IncentiveName") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Query Description by IPO">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblQuery" Text='<%#Eval("Query") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="GM Forward Query">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblGMForwardQuery" Text='<%#Eval("GMForwardQuery") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="GM Forward to Applicant Date">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblGMForwardtoApplicantDate" Text='<%#Eval("GMForwardtoApplicantDate") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Applicant Response">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblResponce" Text='<%#Eval("Responce") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Applicant Response Date">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblResponseDate" Text='<%#Eval("ResponseDate") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Remarks of GM When Applicant Response Forwarded to IPO">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblGMForwardAppResptoIpo" Text='<%#Eval("GMForwardAppResptoIpo") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Date of Applicant Response forwarded to IPO by GM">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblGMForwardAppResptoIpoDt" Text='<%#Eval("GMForwardAppResptoIpoDt") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
@@ -2212,8 +2360,8 @@
                                             </div>
                                         </div>
 
-                                        
-                                         <div class="row" id="divAppcntQryRespAfterInsp" runat="server" visible="false">
+
+                                        <div class="row" id="divAppcntQryRespAfterInsp" runat="server" visible="false">
                                             <div class="col-sm-12 text-black font-SemiBold mb-1">Query Details After Inspection - Responded by Applicant</div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                 <asp:GridView ID="gvAppcntQryRespAfterInsp" runat="server" AutoGenerateColumns="False"
@@ -2384,14 +2532,14 @@
                                                         </asp:TemplateField>
                                                         <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
                                                         <asp:BoundField DataField="SchduledDate" HeaderText="Inspection Scheduled Date" />
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Scheduled By" Visible="false"/>
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Scheduled By" Visible="false" />
                                                         <asp:BoundField DataField="Status" HeaderText="Status of Inspection" Visible="false" />
                                                         <asp:TemplateField HeaderText="Download Draft Inspection Report" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:HyperLink ID="anchDownloadDraftInspectionReport" runat="server" Text="Download" Font-Bold="true" Target="_blank" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Action">
+                                                        <asp:TemplateField HeaderText="Action">
                                                             <ItemTemplate>
                                                                 <asp:DropDownList runat="server" ID="ddlInsOption" CssClass="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlInsOption_SelectedIndexChanged">
                                                                     <asp:ListItem Value="0" Selected="True" Text="--Select--"></asp:ListItem>
@@ -2400,12 +2548,12 @@
                                                                 </asp:DropDownList>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Upload Inspection Report/Raise Query" >
+                                                        <asp:TemplateField HeaderText="Upload Inspection Report/Raise Query">
                                                             <ItemTemplate>
                                                                 <asp:HyperLink ID="anchortaglinkView" runat="server" Text="Upload Inspection Report" Font-Bold="true" Target="_blank" Visible="false" />
                                                                 <asp:TextBox ID="txtAfterInspQuery" TextMode="MultiLine" runat="server" CssClass="form-control" Visible="false"></asp:TextBox>
                                                                 <br />
-                                                                <asp:Button ID="btnRaiseQuery" runat="server" Text="Raise Query"  CssClass="btn btn-blue py-1 title7" OnClick="btnRaiseQuery_Click" Visible="false"></asp:Button>
+                                                                <asp:Button ID="btnRaiseQuery" runat="server" Text="Raise Query" CssClass="btn btn-blue py-1 title7" OnClick="btnRaiseQuery_Click" Visible="false"></asp:Button>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Send to Industires" ItemStyle-HorizontalAlign="Center" Visible="false">

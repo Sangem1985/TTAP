@@ -888,6 +888,33 @@ namespace TTAP.UI
         protected global::System.Web.UI.WebControls.GridView gvGMActionIPOQueryAfterInsp;
 
         /// <summary>
+        /// divForwardApplicantResponsetoIPO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divForwardApplicantResponsetoIPO;
+
+        /// <summary>
+        /// div8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div8;
+
+        /// <summary>
+        /// gvFwdAppResptoIPO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvFwdAppResptoIPO;
+
+        /// <summary>
         /// divGMHistory control.
         /// </summary>
         /// <remarks>

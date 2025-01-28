@@ -42,6 +42,10 @@ namespace TTAP.UI.Pages
                             lblRepliedQueryWithIn.Text = dss.Tables[0].Rows[0]["GMQueryResponded"].ToString();
                             lblOpenQuery.Text = dss.Tables[0].Rows[0]["GMAwaitingResponse"].ToString();
                             lblRejectedByGM.Text = dss.Tables[0].Rows[0]["GMRejectedBeforeAssign"].ToString();
+
+                            lblIPOQueries.Text = dss.Tables[0].Rows[0]["IPOQueriesRaised"].ToString();
+                            lblIPOQueryFwdtoApp.Text = dss.Tables[0].Rows[0]["IPOQueryForwardtoApplicant"].ToString();
+                            lblAppResptoIPOQry.Text = dss.Tables[0].Rows[0]["ApplicantResponsetoIPOQuery"].ToString();
                         }
                     }
                 }

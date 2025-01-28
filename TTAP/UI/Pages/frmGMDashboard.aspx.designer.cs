@@ -258,13 +258,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AncWithInInsPending;
 
         /// <summary>
-        /// lblInspectionPendingWithin control.
+        /// lblIPOQueries control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInspectionPendingWithin;
+        protected global::System.Web.UI.WebControls.Label lblIPOQueries;
 
         /// <summary>
         /// AncBeyondInsPending control.
@@ -276,13 +276,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AncBeyondInsPending;
 
         /// <summary>
-        /// lblInspectionPendingBeyond control.
+        /// lblIPOQueryFwdtoApp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInspectionPendingBeyond;
+        protected global::System.Web.UI.WebControls.Label lblIPOQueryFwdtoApp;
 
         /// <summary>
         /// AncTotalInsPending control.
@@ -294,13 +294,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AncTotalInsPending;
 
         /// <summary>
-        /// lblInspectionPendingTotal control.
+        /// lblAppResptoIPOQry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInspectionPendingTotal;
+        protected global::System.Web.UI.WebControls.Label lblAppResptoIPOQry;
 
         /// <summary>
         /// AncWithInInsCompleted control.

@@ -1,10 +1,34 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="frmGMApplications.aspx.cs" Inherits="TTAP.UI.Pages.frmGMApplications" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
         #search {
             position: unset !important;
         }
     </style>
+    <style>
+        #divGrid {
+            position: relative;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .sticky-header th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: #ffffff;
+            border: 1px solid #282222;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+
+</script>
+
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <div id="content">
@@ -37,11 +61,11 @@
                                     <asp:Button Text="Search" CssClass="btn btn-blue ml-2 px-4 py-1 title5" ID="btnSearch" runat="server" OnClick="btnSearch_Click" />
                                     <asp:Button Text="Reset" CssClass="btn btn-blue ml-2 px-4 py-1 title5" ID="btnReset" runat="server" OnClick="btnReset_Click" />
                                 </div>
-                                <div class="col-sm-12 table-responsive">
+                                <div class="table-responsive" id="divGrid">
                                     <asp:GridView ID="gvdetailsnew" runat="server" AllowPaging="false" AutoGenerateColumns="False"
                                         CssClass="table table-bordered mb-0 title6 alternet-table w-100 NewEnterprise"
                                         PageSize="20" GridLines="Both">
-                                        <HeaderStyle VerticalAlign="Middle" CssClass="text-center" />
+                                        <HeaderStyle VerticalAlign="Middle" CssClass="sticky-header text-center" />
                                         <RowStyle CssClass="GridviewScrollC1Item" />
                                         <PagerStyle CssClass="GridviewScrollC1Pager" />
                                         <FooterStyle CssClass="GridviewScrollC1Header" />
@@ -103,5 +127,5 @@
             <asp:HiddenField ID="hdnDistrictId" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
-   
+
 </asp:Content>

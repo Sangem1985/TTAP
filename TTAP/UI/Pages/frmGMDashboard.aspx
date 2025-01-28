@@ -243,23 +243,23 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Queries From Inspecting Officer</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" runat="server" id="AncWithInInsPending" href="frmGMApplications.aspx?Stg=12">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" runat="server" id="AncWithInInsPending" href="frmGMApplications.aspx?Stg=8">
                                             <span><i class="fa fa-fw fa-calendar"></i>Query Raised</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblInspectionPendingWithin" runat="server"></asp:Label>
+                                                <asp:Label ID="lblIPOQueries" runat="server"></asp:Label>
                                             </span>
                                         </a>
 
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" runat="server" id="AncBeyondInsPending" href="frmGMApplications.aspx?Stg=13">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" runat="server" id="AncBeyondInsPending" href="frmGMApplications.aspx?Stg=9">
                                             <span><i class="fa fa-fw fa-calendar"></i>Forwarded to Applicant</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblInspectionPendingBeyond" runat="server"></asp:Label>
+                                                <asp:Label ID="lblIPOQueryFwdtoApp" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" runat="server" id="AncTotalInsPending" href="frmGMApplications.aspx?Stg=14">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" runat="server" id="AncTotalInsPending" href="frmGMApplications.aspx?Stg=10">
                                             <span><i class="fa fa-fw fa-calendar"></i>Query Response form the Applicant</span>
                                             <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="lblInspectionPendingTotal" runat="server"></asp:Label>
+                                                <asp:Label ID="lblAppResptoIPOQry" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
