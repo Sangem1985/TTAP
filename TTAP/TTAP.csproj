@@ -526,6 +526,16 @@
     <Content Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceNewUnit.aspx" />
+    <Content Include="UI\Pages\COI\AdApplications.aspx" />
+    <Content Include="UI\Pages\COI\AdDashboard.aspx" />
+    <Content Include="UI\Pages\COI\ClerkApplications.aspx" />
+    <Content Include="UI\Pages\COI\ClerkDashboard.aspx" />
+    <Content Include="UI\Pages\COI\DdApplications.aspx" />
+    <Content Include="UI\Pages\COI\DdDashboard.aspx" />
+    <Content Include="UI\Pages\COI\JdApplications.aspx" />
+    <Content Include="UI\Pages\COI\JdDashboard.aspx" />
+    <Content Include="UI\Pages\COI\SuperintendentApplications.aspx" />
+    <Content Include="UI\Pages\COI\SuperintendentDashboard.aspx" />
     <Content Include="UI\Pages\CommissionerDashboard.aspx" />
     <Content Include="UI\Pages\DLC\frmDLCAllApplicationst.aspx" />
     <Content Include="UI\Pages\DLC\frmDLCSactionedApplications.aspx" />
@@ -1075,6 +1085,76 @@
     </Compile>
     <Compile Include="UI\Pages\CapitalAssistanceNewUnit.aspx.designer.cs">
       <DependentUpon>CapitalAssistanceNewUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\AdApplications.aspx.cs">
+      <DependentUpon>AdApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\AdApplications.aspx.designer.cs">
+      <DependentUpon>AdApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\AdDashboard.aspx.cs">
+      <DependentUpon>AdDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\AdDashboard.aspx.designer.cs">
+      <DependentUpon>AdDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ClerkApplications.aspx.cs">
+      <DependentUpon>ClerkApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ClerkApplications.aspx.designer.cs">
+      <DependentUpon>ClerkApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ClerkDashboard.aspx.cs">
+      <DependentUpon>ClerkDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ClerkDashboard.aspx.designer.cs">
+      <DependentUpon>ClerkDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\DdApplications.aspx.cs">
+      <DependentUpon>DdApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\DdApplications.aspx.designer.cs">
+      <DependentUpon>DdApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\DdDashboard.aspx.cs">
+      <DependentUpon>DdDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\DdDashboard.aspx.designer.cs">
+      <DependentUpon>DdDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\JdApplications.aspx.cs">
+      <DependentUpon>JdApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\JdApplications.aspx.designer.cs">
+      <DependentUpon>JdApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\JdDashboard.aspx.cs">
+      <DependentUpon>JdDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\JdDashboard.aspx.designer.cs">
+      <DependentUpon>JdDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\SuperintendentApplications.aspx.cs">
+      <DependentUpon>SuperintendentApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\SuperintendentApplications.aspx.designer.cs">
+      <DependentUpon>SuperintendentApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\SuperintendentDashboard.aspx.cs">
+      <DependentUpon>SuperintendentDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\SuperintendentDashboard.aspx.designer.cs">
+      <DependentUpon>SuperintendentDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\CommissionerDashboard.aspx.cs">
       <DependentUpon>CommissionerDashboard.aspx</DependentUpon>
@@ -2344,7 +2424,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="css\ui-lightness\" />
     <Folder Include="iTextSharp\text\" />
-    <Folder Include="UI\Pages\COI\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
