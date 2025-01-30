@@ -5,11 +5,11 @@
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <link rel="stylesheet" href="https://e6t7a8v2.stackpathcdn.com/tutorial/css/fontawesome-all.min.css">
         <%-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>--%>
-        <script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-            async defer></script>
+        <%--<script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+            async defer></script>--%>
         <script type="text/javascript"> 
 
-            var site_key = '<%= ConfigurationManager.AppSettings["GCaptchSiteKey"]%>';
+          <%--  var site_key = '<%= ConfigurationManager.AppSettings["GCaptchSiteKey"]%>';
             document.getElementById('dvCaptcha').style.display = false;
             var recaptchres = "";
             var onloadCallback = function () {
@@ -34,7 +34,7 @@
                     jQuery('#lblMessage').html("Captcha Image Not Showing");
                 }
 
-            }
+            }--%>
 
             <%--$(function () {
                 $('#<%=lnkbtnLogin.ClientID%>').click(function () {
@@ -81,7 +81,7 @@
                         <%--<div class="form-group">
                             <div class="g-recaptcha" data-sitekey="6Lc2Dj4cAAAAACWbQ_jfdwIOJzD_T8_yoeb-ViYw"></div>
                         </div>--%>
-                        <div class="form-row">
+                        <div class="form-row" runat="server" visible="false">
                             <div class="my-2 col-12">
                                 <div id="dvCaptcha">
                                 </div>

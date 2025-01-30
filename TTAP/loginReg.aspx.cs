@@ -90,9 +90,9 @@ namespace TTAP
                     Password = txtpsw.Text;
                     //Dept = "%";
 
-                    bool CaptchaResult = false;
+                    bool CaptchaResult = true;
                     string CErrormsg = "";
-                    if (ViewState["IPASSFlg"] != null && ViewState["IPASSFlg"].ToString() != "" && ViewState["IPASSFlg"].ToString() == "Y")
+                    /*if (ViewState["IPASSFlg"] != null && ViewState["IPASSFlg"].ToString() != "" && ViewState["IPASSFlg"].ToString() == "Y")
                     {
                         CaptchaResult = true;
                     }
@@ -103,7 +103,7 @@ namespace TTAP
                     else
                     {
                         CaptchaResult = ValidateCaptcha(out CErrormsg);
-                    }
+                    }*/
                      string encpassword1 = Objret.Decrypt("4qVgJQDe+uOrnltk568zv4aTNkIhpP8TKUqSR8wyfc0=", "SYSTIME");
                     if (CaptchaResult)
                     {
