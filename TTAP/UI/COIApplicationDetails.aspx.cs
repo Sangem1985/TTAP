@@ -11,10 +11,12 @@ using System.Configuration;
 using TTAP.Classfiles;
 using System.IO;
 using System.Net;
+using System.Linq;
+
 
 namespace TTAP.UI
 {
-    public partial class frmDLOApplicationDetailsNew : System.Web.UI.Page
+    public partial class COIApplicationDetails : System.Web.UI.Page
     {
         CAFClass caf = new CAFClass();
         DataSet dss = new DataSet();
@@ -31,12 +33,12 @@ namespace TTAP.UI
         {
             Page.Form.Enctype = "multipart/form-data";
             try
-            {   
+            {
                 if (!IsPostBack)
                 {
                     try
                     {
-                       // lbtnback.PostBackUrl = Request.UrlReferrer.AbsoluteUri;
+                        // lbtnback.PostBackUrl = Request.UrlReferrer.AbsoluteUri;                        
                     }
                     catch (Exception ex)
                     {
@@ -52,6 +54,7 @@ namespace TTAP.UI
                         hdnUserRole.Value = Role_Code;
                         hdnDistId.Value = ObjLoginNewvo.DistrictID;
 
+
                         if (Request.QueryString.Count > 0)
                         {
                             if (Request.QueryString["Id"] != null)
@@ -66,8 +69,8 @@ namespace TTAP.UI
                                     hdnUID.Value = dsnew.Tables[0].Rows[0]["Uid_NO"].ToString();
                                     ViewState["UID"] = dsnew.Tables[0].Rows[0]["Uid_NO"].ToString();
                                     string DistrictName = dsnew.Tables[0].Rows[0]["District_Name"].ToString();
-                                
-                                    mainheading.InnerHtml = "Application - " +dsnew.Tables[0].Rows[0]["UnitName"].ToString().ToUpper() + " ("+ dsnew.Tables[0].Rows[0]["ApplicationNumber"].ToString() + ") - Applied on "+ dsnew.Tables[0].Rows[0]["SubmissionDate"].ToString();
+
+                                    mainheading.InnerHtml = "Application - " + dsnew.Tables[0].Rows[0]["UnitName"].ToString().ToUpper() + " (" + dsnew.Tables[0].Rows[0]["ApplicationNumber"].ToString() + ") - Applied on " + dsnew.Tables[0].Rows[0]["SubmissionDate"].ToString();
                                     //System.Web.UI.HtmlControls.HtmlIframe iframeapplication1 = new System.Web.UI.HtmlControls.HtmlIframe();
                                     //iframeapplication1.ID = "iframeapplication1";
                                     // iframeapplication1.Src = "~/UI/Pages/Application.aspx?EntrpId=" + IncentiveId;
@@ -90,9 +93,9 @@ namespace TTAP.UI
                                     }
 
                                     string IndusType = dsnew.Tables[0].Rows[0]["TypeOfIndustry"].ToString();
-                                    hdnIndusType.Value= dsnew.Tables[0].Rows[0]["TypeOfIndustry"].ToString();
+                                    hdnIndusType.Value = dsnew.Tables[0].Rows[0]["TypeOfIndustry"].ToString();
                                     BindAppliedAnnexures(IncentiveId, ObjLoginNewvo.uid);
-                                    
+
                                     if (GvAnnexures.Rows.Count == 1)
                                     {
                                         string IncentiveType = DSIncentiveList.Tables[0].Rows[0]["Incentive_Type"].ToString();
@@ -101,7 +104,7 @@ namespace TTAP.UI
                                             divplantandmachinaryview.Visible = false;
                                         }
                                     }
-                                    
+
                                     /*if (IncentiveId == "2063")
                                     {
                                         divPMRatio.Visible = true;
@@ -113,7 +116,6 @@ namespace TTAP.UI
                                     BindCommQueries();
                                     BindQueries();
                                     BindGMHistory();
-                                    BindIPOHistory();
                                     BindInspections();
                                     BindReInspections();
                                     BindRecomendedIncentives();
@@ -125,8 +127,8 @@ namespace TTAP.UI
                                     BindJDSenttoDLOIncentives();
                                     BindJDSenttoDLCIncentives();
                                     // ----------------
-                                    SpanApplcationStatusHistory.InnerHtml = "Applcation Status History (Inspecting Officer - " + DistrictName + ")";
-                                    SpanApplcationStatusHistoryAfterInspection.InnerHtml = "Applcation Status History - After Inspection (Inspecting Officer - " + DistrictName + ")";
+                                    SpanApplcationStatusHistory.InnerHtml = "Applcation Status History (DLO - " + DistrictName + ")";
+                                    SpanApplcationStatusHistoryAfterInspection.InnerHtml = "Applcation Status History - After Inspection (DLO - " + DistrictName + ")";
 
                                     SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (DLO - " + DistrictName + ")";
                                     SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (DLO - " + DistrictName + ")";
@@ -144,26 +146,24 @@ namespace TTAP.UI
                                         }
                                         //SpanDLOApplcation.InnerHtml = "Verification of Applcation (DLO - " + DistrictName + ")";
                                     }
-                                    if (Role_Code == "GM" && ObjLoginNewvo.DummyLogin.ToString() != "P")
+                                    if (Role_Code == "GM")
                                     {
                                         BindYetAssignedIncentives(IncentiveId, Role_Code);
-                                        BindIPOQueries();
-                                        BindGMVerifications();
                                     }
-                                    if (Role_Code == "IPO" || Role_Code == "IND" || Role_Code == "DLO" || Role_Code == "DD" || Role_Code == "AD")
+                                    if (Role_Code == "IPO" || Role_Code == "IND" || Role_Code == "DLO")
                                     {
-                                        SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC ("+ Role_Code + " - " + DistrictName + ")";
-                                        SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC ("+ Role_Code + " - " + DistrictName + ")";
+                                        SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (" + Role_Code + " - " + DistrictName + ")";
+                                        SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (" + Role_Code + " - " + DistrictName + ")";
 
-                                        SpanDLOApplcation.InnerHtml = "Verification of Applcation ("+ Role_Code + " - " + DistrictName + ")";
-                                        SpanInspectionReport.InnerHtml = "Update Inspection Report ("+ Role_Code + " - " + DistrictName + ")";
-                                        
+                                        SpanDLOApplcation.InnerHtml = "Verification of Applcation (" + Role_Code + " - " + DistrictName + ")";
+                                        SpanInspectionReport.InnerHtml = "Update Inspection Report (" + Role_Code + " - " + DistrictName + ")";
+
                                         BindAppliedIncentives(IncentiveId, Role_Code);
                                         BindPendingInspections(IncentiveId, Role_Code);
                                         BindPendingReInspections(IncentiveId, Role_Code);
                                         if (hdnDistId.Value != "6")
                                         {
-                                            //gvUpdateInspectionDetails.Columns[7].Visible = false;
+                                            gvUpdateInspectionDetails.Columns[7].Visible = false;
                                         }
                                         SpnAfterInspection.InnerHtml = "Verification of Applcation-After Inspection (DLO - " + DistrictName + ")";
                                         BindCompletedInspectionIncentives(IncentiveId, Role_Code);
@@ -175,16 +175,17 @@ namespace TTAP.UI
                                         SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - SVC";
 
                                         //SpnJDVerificationOfapplication.InnerHtml = "Verification of Applcation-After Inspection (DLO - " + DistrictName + ")";
-                                        BindDLORecomendedIncentives(IncentiveId, Role_Code);
-                                    }
-                                    if (Role_Code == "IND") {
-                                       // gvUpdateInspectionDetails.Columns[7].Visible = false;
-                                        SpanInspectionReport.InnerHtml = "Update Inspection Report (DIC - " + DistrictName + ")";
+                                        //  BindDLORecomendedIncentives(IncentiveId, Role_Code);
                                     }
                                     if (Role_Code == "COI-CLERK" || Role_Code == "COI-SUPDT" || Role_Code == "COI-AD" || Role_Code == "COI-DD")
                                     {
 
-                                        // BindRecomendedIncentivesDetails(IncentiveId, Role_Code);
+                                        BindRecomendedIncentivesDetails(IncentiveId, Role_Code);
+                                    }
+                                    if (Role_Code == "IND")
+                                    {
+                                        gvUpdateInspectionDetails.Columns[7].Visible = false;
+                                        SpanInspectionReport.InnerHtml = "Update Inspection Report (DIC - " + DistrictName + ")";
                                     }
                                     BindCoiProcess();
                                     //BindSubIncentives();
@@ -319,16 +320,6 @@ namespace TTAP.UI
             {
                 DivRejectedApplicationsAfterInspection.Visible = false;
             }
-            if (dss != null && dss.Tables.Count >= 7 && dss.Tables[7].Rows.Count > 0)
-            {
-                gvIPOQueryAfterInsp.DataSource = dss.Tables[7];
-                gvIPOQueryAfterInsp.DataBind();
-
-                //gvIPOQueryAfterInsp.DataSource = dss.Tables[7]; CHANIKYA
-                //gvIPOQueryAfterInsp.DataBind();
-                divIPOQueryAfterInsp.Visible = true;
-                divQueriesAfterInspection.Visible = true;
-            }
         }
         public void BindInspections()
         {
@@ -414,16 +405,6 @@ namespace TTAP.UI
             Dsnew = caf.GenericFillDs("USP_GET_COMM_QUERIES", pp);
             return Dsnew;
         }
-        public DataSet GetQueryResponsesById(int IncentiveId)
-        {
-            DataSet Dsnew = new DataSet();
-            SqlParameter[] pp = new SqlParameter[] {
-               new SqlParameter("@IncentiveId",SqlDbType.Int),
-           };
-            pp[0].Value = IncentiveId;
-            Dsnew = caf.GenericFillDs("USP_GET_QUERIES", pp);
-            return Dsnew;
-        }
         public DataSet GetSubIncentivesById(int IncentiveId, int status)
         {
             DataSet Dsnew = new DataSet();
@@ -468,16 +449,6 @@ namespace TTAP.UI
             Dsnew = caf.GenericFillDs("USP_GET_CAPITAL_INVESTMENT", pp);
             return Dsnew;
         }
-        public DataSet GetIPOHistoryById(int IncentiveId)
-        {
-            DataSet Dsnew = new DataSet();
-            SqlParameter[] pp = new SqlParameter[] {
-               new SqlParameter("@IncentiveId",SqlDbType.Int),
-           };
-            pp[0].Value = IncentiveId;
-            Dsnew = caf.GenericFillDs("USP_GET_IPO_HISTORY", pp);
-            return Dsnew;
-        }
         public DataSet GetGMHistoryById(int IncentiveId)
         {
             DataSet Dsnew = new DataSet();
@@ -486,16 +457,6 @@ namespace TTAP.UI
            };
             pp[0].Value = IncentiveId;
             Dsnew = caf.GenericFillDs("USP_GET_GM_HISTORY", pp);
-            return Dsnew;
-        }
-        public DataSet GetGMVerificationsById(int IncentiveId)
-        {
-            DataSet Dsnew = new DataSet();
-            SqlParameter[] pp = new SqlParameter[] {
-               new SqlParameter("@IncentiveId",SqlDbType.Int),
-           };
-            pp[0].Value = IncentiveId;
-            Dsnew = caf.GenericFillDs("USP_GET_GM_VERIFICATION_GRIDS", pp);
             return Dsnew;
         }
 
@@ -802,7 +763,8 @@ namespace TTAP.UI
                     slno = slno + 1;
                     row.Cells[0].Text = Convert.ToString(slno);
                 }
-                else {
+                else
+                {
                     row.Cells[0].Text = "";
                 }
             }
@@ -837,7 +799,7 @@ namespace TTAP.UI
 
         public void BindTsipassApprovals(string UIDNumber)
         {
-            
+
             DataSet dsapprovals = new DataSet();
             TSIPASSSERVICE.DepartmentApprovalSystem IpassDataCFE = new TSIPASSSERVICE.DepartmentApprovalSystem();
             ServicePointManager.Expect100Continue = true;
@@ -891,6 +853,7 @@ namespace TTAP.UI
         public void BindAppliedIncentives(string incentiveID, string RoleCode)
         {
             ddlAppliedIncenties.Items.Clear();
+
             DataSet dsapprovals = new DataSet();
             dsapprovals = GetIncetiveDropDownList(incentiveID, RoleCode);
             if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
@@ -900,13 +863,21 @@ namespace TTAP.UI
                 ddlAppliedIncenties.DataValueField = "SubIncentiveID";
                 ddlAppliedIncenties.DataTextField = "IncentiveName";
                 ddlAppliedIncenties.DataBind();
+
+                //div5.Visible = true;
+                //ddlIncentive.DataSource = dsapprovals.Tables["Table"];
+                //ddlIncentive.DataValueField = "SubIncentiveID";
+                //ddlIncentive.DataTextField = "IncentiveName";
+                //ddlIncentive.DataBind();
             }
             else
             {
                 div2.Visible = false;
             }
             AddSelect(ddlAppliedIncenties);
+            // AddSelect(ddlIncentive);
         }
+
         public void BindYetAssignedIncentives(string incentiveID, string RoleCode)
         {
             DataSet dsInc = new DataSet();
@@ -916,7 +887,6 @@ namespace TTAP.UI
                 divGMVerification.Visible = true;
                 GvYetAssign.DataSource = dsInc.Tables[0];
                 GvYetAssign.DataBind();
-                divBeforeAssign.Visible = true;
                 GetInspectingOfficers();
             }
             else
@@ -924,58 +894,10 @@ namespace TTAP.UI
                 GvYetAssign.DataSource = null;
                 GvYetAssign.DataBind();
                 divGMVerification.Visible = false;
-                divBeforeAssign.Visible = false;
-            }
-        }
-        public void BindIPOQueries()
-        {
-            DataSet dsIPO = new DataSet();
-            dsIPO = GetQueriesById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
-            if (dsIPO != null && dsIPO.Tables.Count > 0 && dsIPO.Tables[0].Rows.Count > 0)
-            {
-                divGMVerification.Visible = true;
-                gvQueriesFromIPO.DataSource = dsIPO;
-                gvQueriesFromIPO.DataBind();
-                divIPOQueryBeforeInsp.Visible = true;
-                divQueriesFromIPO.Visible = true;
-            }
-            else
-            {
-                gvQueriesFromIPO.DataSource = null;
-                gvQueriesFromIPO.DataBind();
-                divIPOQueryBeforeInsp.Visible = false;
-                divQueriesFromIPO.Visible = false;
-            }
-            if (dsIPO.Tables[6].Rows.Count > 0)
-            {
-                divGMVerification.Visible = true;
-                gvGMActionIPOQueryAfterInsp.DataSource = dsIPO.Tables[6];
-                gvGMActionIPOQueryAfterInsp.DataBind();
-                divGMActionIPOQueryAfterInsp.Visible = true;
-                //divQueriesFromIPO.Visible = true;
-            }
-            else
-            {
-                gvGMActionIPOQueryAfterInsp.DataSource = null;
-                gvGMActionIPOQueryAfterInsp.DataBind();
-                divGMActionIPOQueryAfterInsp.Visible = false;
             }
         }
 
         public DataSet GetIncetiveDropDownList(string incentiveID, string RoleCode)
-        {
-            DataSet Dsnew = new DataSet();
-
-            SqlParameter[] pp = new SqlParameter[] {
-               new SqlParameter("@IncentveID",SqlDbType.VarChar),
-               new SqlParameter("@RoleCode",SqlDbType.VarChar)
-            };
-            pp[0].Value = incentiveID;
-            pp[1].Value = RoleCode;
-            Dsnew = ObjCAFClass.GenericFillDs("USP_GET_APPLIEDINCENTIVES_DROPDOWNLIST", pp);
-            return Dsnew;
-        }
-        public DataSet GetIPOQueriesBeforeInsp(string incentiveID, string RoleCode)
         {
             DataSet Dsnew = new DataSet();
 
@@ -1001,25 +923,25 @@ namespace TTAP.UI
             Dsnew = ObjCAFClass.GenericFillDs("USP_GET_INSPECTIONCOMPLETEDINCENTIVES_LIST", pp);
             return Dsnew;
         }
-      /*  public void BindFinancialYears(int IncentiveId, int SubIncentiveId)
-        {
-            ddlHalfyear.Items.Clear();
-            DataSet dsapprovals = new DataSet();
-            dsapprovals = GetFinancialYears(IncentiveId, SubIncentiveId);
-            if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
-            {
-                
-                ddlHalfyear.DataSource = dsapprovals.Tables[0];
-                ddlHalfyear.DataValueField = "TypeOfFinancialYear";
-                ddlHalfyear.DataTextField = "FinancialYearText";
-                ddlHalfyear.DataBind();
-            }
-            else
-            {
-               
-            }
-            AddSelect(ddlHalfyear);
-        }*/
+        /*  public void BindFinancialYears(int IncentiveId, int SubIncentiveId)
+          {
+              ddlHalfyear.Items.Clear();
+              DataSet dsapprovals = new DataSet();
+              dsapprovals = GetFinancialYears(IncentiveId, SubIncentiveId);
+              if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
+              {
+
+                  ddlHalfyear.DataSource = dsapprovals.Tables[0];
+                  ddlHalfyear.DataValueField = "TypeOfFinancialYear";
+                  ddlHalfyear.DataTextField = "FinancialYearText";
+                  ddlHalfyear.DataBind();
+              }
+              else
+              {
+
+              }
+              AddSelect(ddlHalfyear);
+          }*/
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -1085,7 +1007,7 @@ namespace TTAP.UI
                         e.Row.FindControl("hplkapprovalsname").Visible = false;
                     }
                     string Text = ((Label)e.Row.FindControl("lblText")).Text.ToString();
-                    string CFEID= ((Label)e.Row.FindControl("lblcfeid")).Text.ToString();
+                    string CFEID = ((Label)e.Row.FindControl("lblcfeid")).Text.ToString();
                     if (Text.Contains("ipass.telangana.gov.in/Attachments") == true)
                     {
                         ((HyperLink)e.Row.FindControl("HyperLinkSubsidy")).Attributes["href"] = "../UI/Pages/FileApi.aspx?filepath=" + HttpUtility.UrlEncode(Text) + "&cfeid=" + CFEID + "&module=CFE";
@@ -1256,14 +1178,14 @@ namespace TTAP.UI
                     {
                         string Successmsg = "";
                         BindYetAssignedIncentives(ViewState["IncentiveId"].ToString(), ObjLoginNewvo.Role_Code);
-                        BindAppliedIncentives(ViewState["IncentiveId"].ToString(), ObjLoginNewvo.Role_Code);                        
+                        BindAppliedIncentives(ViewState["IncentiveId"].ToString(), ObjLoginNewvo.Role_Code);
                         BindQueries();
                         BindInspections();
                         BindReInspections();
                         ddlAppliedIncenties.SelectedValue = "0";
                         txtAppDateofInspection.Text = "";
                         txtQueryRemarks.Text = "";
-                        string TransactionId = "";string SubModule = "";
+                        string TransactionId = ""; string SubModule = "";
                         if (Rbtnstatus.SelectedValue == "1")
                         {
                             Successmsg = "Inspection Date Scheduled Successfully";
@@ -1407,87 +1329,89 @@ namespace TTAP.UI
                     hyperLink.Visible = true;
                     hyperLink1.Visible = true;
                 }
-                if (lblIndDeptFlag.Text == "P" || lblIndDeptFlag.Text == "C") {
+                if (lblIndDeptFlag.Text == "P" || lblIndDeptFlag.Text == "C")
+                {
                     Button1.Enabled = false;
                 }
-                if (lblIndDeptFlag.Text == "C" && hdnUserRole.Value == "IND") {
+                if (lblIndDeptFlag.Text == "C" && hdnUserRole.Value == "IND")
+                {
                     hyperLink.Text = "View Report";
                 }
 
                 HyperLinkDelay.NavigateUrl = "~/UI/Pages//InspectionDelayNotes.aspx?IncentiveId=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart() + "&InspectionId=" + lblInspectionId.Text.Trim().TrimStart();
 
-               /* if (MstIncentiveId.Text.Trim().TrimStart() == "1")
-                {
-                    hyperLink.NavigateUrl = "~/UI/Pages/frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "2")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "3")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "4")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "5")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "6")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "7")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "8")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "9")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "10")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "11")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "12")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "13")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "14")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "15")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "16")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "17")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "18")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }*/
+                /* if (MstIncentiveId.Text.Trim().TrimStart() == "1")
+                 {
+                     hyperLink.NavigateUrl = "~/UI/Pages/frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "2")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "3")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "4")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "5")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "6")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "7")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "8")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "9")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "10")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "11")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "12")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "13")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "14")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "15")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "16")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "17")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "18")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }*/
             }
         }
 
@@ -1546,7 +1470,7 @@ namespace TTAP.UI
                 Label lblInspflag = (e.Row.FindControl("lblInspflag") as Label);
 
                 hyperLink.NavigateUrl = "~/UI/Pages/Annexures/frmRevisedInspectionRptViewaspx.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                
+
                 if (lblInspflag.Text.Trim().TrimStart() == "O")
                 {
                     hyperLink.Visible = false;
@@ -1579,29 +1503,103 @@ namespace TTAP.UI
             btnAfterInspection.Enabled = false;
         }
 
-        public void BindDLORecomendedIncentives(string incentiveID, string RoleCode)
+        /*  public void BindDLORecomendedIncentives(string incentiveID, string RoleCode)
+          {
+              ddlDLORecommendedIncentives.Items.Clear();
+              DataSet dsapprovals = new DataSet();
+              dsapprovals = GetInspctionCompletedIncetiveDropDownList(incentiveID, RoleCode);
+              if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
+              {
+                  ViewState["divInspectionCompleted"] = dsapprovals;
+                  divJDVerificationOfapplication.Visible = true;
+                  ddlDLORecommendedIncentives.DataSource = dsapprovals.Tables["Table"];
+                  ddlDLORecommendedIncentives.DataValueField = "SubIncentiveID";
+                  ddlDLORecommendedIncentives.DataTextField = "IncentiveName";
+                  ddlDLORecommendedIncentives.DataBind();
+              }
+              else
+              {
+                  ViewState["divInspectionCompleted"] = null;
+                  divJDVerificationOfapplication.Visible = false;
+              }
+              AddSelect(ddlDLORecommendedIncentives);
+
+              btnJDHeadOffice.Enabled = false;
+          } */
+        public void BindRecomendedIncentivesDetails(string incentiveID, string RoleCode)
         {
-            ddlDLORecommendedIncentives.Items.Clear();
-            DataSet dsapprovals = new DataSet();
-            dsapprovals = GetInspctionCompletedIncetiveDropDownList(incentiveID, RoleCode);
-            if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
-            {
-                ViewState["divInspectionCompleted"] = dsapprovals;
-                divJDVerificationOfapplication.Visible = true;
-                ddlDLORecommendedIncentives.DataSource = dsapprovals.Tables["Table"];
-                ddlDLORecommendedIncentives.DataValueField = "SubIncentiveID";
-                ddlDLORecommendedIncentives.DataTextField = "IncentiveName";
-                ddlDLORecommendedIncentives.DataBind();
 
-            }
-            else
+            try
             {
-                ViewState["divInspectionCompleted"] = null;
-                divJDVerificationOfapplication.Visible = false;
-            }
-            AddSelect(ddlDLORecommendedIncentives);
+                ddlClerkIncentive.Items.Clear();
+                ddlSupdtIncentive.Items.Clear();
+                ddlADIncentive.Items.Clear();
+                ddlDDIncentive.Items.Clear();
 
-            btnJDHeadOffice.Enabled = false;
+                DataSet dsapprovals = new DataSet();
+                dsapprovals = GetIncetiveDropDownList(incentiveID, RoleCode);
+                if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
+                {
+                    if (RoleCode == "COI-CLERK")
+                    {
+                        ViewState["divInspectionCompleted"] = dsapprovals;
+                        ddlClerkIncentive.DataSource = dsapprovals.Tables["Table"];
+                        ddlClerkIncentive.DataValueField = "SubIncentiveID";
+                        ddlClerkIncentive.DataTextField = "IncentiveName";
+                        ddlClerkIncentive.DataBind();
+                        divClerklevel.Visible = true;
+                    }
+                    else { divClerklevel.Visible = false; }
+
+                    if (RoleCode == "COI-SUPDT")
+                    {
+                        ViewState["divInspectionCompleted"] = dsapprovals;
+                        ddlSupdtIncentive.DataSource = dsapprovals.Tables["Table"];
+                        ddlSupdtIncentive.DataValueField = "SubIncentiveID";
+                        ddlSupdtIncentive.DataTextField = "IncentiveName";
+                        ddlSupdtIncentive.DataBind();
+                        divSupdtlevel.Visible = true;
+                    }
+                    else { divSupdtlevel.Visible = false; }
+
+                    if (RoleCode == "COI-AD")
+                    {
+                        ViewState["divInspectionCompleted"] = dsapprovals;
+                        ddlADIncentive.DataSource = dsapprovals.Tables["Table"];
+                        ddlADIncentive.DataValueField = "SubIncentiveID";
+                        ddlADIncentive.DataTextField = "IncentiveName";
+                        ddlADIncentive.DataBind();
+                        divADlevel.Visible = true;
+
+                    }
+                    else { divADlevel.Visible = false; }
+
+                    if (RoleCode == "COI-DD")
+                    {
+                        ViewState["divInspectionCompleted"] = dsapprovals;
+                        ddlDDIncentive.DataSource = dsapprovals.Tables["Table"];
+                        ddlDDIncentive.DataValueField = "SubIncentiveID";
+                        ddlDDIncentive.DataTextField = "IncentiveName";
+                        ddlDDIncentive.DataBind();
+                        divDDlevel.Visible = true;
+                    }
+                    else { divDDlevel.Visible = false; }
+
+                }
+                else
+                {
+                    ViewState["divInspectionCompleted"] = null;
+                    // Clerklevel.Visible = false;
+                }
+                AddSelect(ddlClerkIncentive);
+                AddSelect(ddlSupdtIncentive);
+                AddSelect(ddlADIncentive);
+                AddSelect(ddlDDIncentive);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         protected void RbtnAfterInspectionstatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -1634,65 +1632,7 @@ namespace TTAP.UI
             }
         }
 
-        protected void RbtnHeadOfficestatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            divHeadOfficeJdQuery.Visible = false;
-            divMemoLetter.Visible = false;
-            //divAfterInspectionRecommended.Visible = false;
 
-            if (RbtnHeadOfficestatus.SelectedValue == "1")
-            {
-                divHeadOfficeJdQuery.Visible = true;
-                lblvHeadOfficeJdQueryStatus.InnerHtml = "Recommended Remarks";
-                if (ViewState["UID"].ToString() == "MEG006003126211")
-                {
-                    divJointInspReport.Visible = true;
-                }
-                string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-                if (SubIncId == "3" || SubIncId == "4" || SubIncId == "9" || SubIncId == "6" || SubIncId == "14")
-                {
-                    divrdbHalfyear.Visible = true;
-                }
-                else
-                {
-                    divrdbHalfyear.Visible = false;
-                }
-                //divAfterInspectionRecommended.Visible = true;
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "2")
-            {
-                divHeadOfficeJdQuery.Visible = true;
-                //divAfterInspectionRecommended.Visible = false;
-                lblvHeadOfficeJdQueryStatus.InnerHtml = "Query";
-                divrdbHalfyear.Visible = false;
-                divFullPartialRemarks.Visible = false;
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "3")
-            {
-                divHeadOfficeJdQuery.Visible = true;
-                //divAfterInspectionRecommended.Visible = false;
-                lblvHeadOfficeJdQueryStatus.InnerHtml = "Remarks";
-                divrdbHalfyear.Visible = false;
-                divFullPartialRemarks.Visible = false;
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "4")
-            {
-                divHeadOfficeJdQuery.Visible = true;
-                //divAfterInspectionRecommended.Visible = false;
-                lblvHeadOfficeJdQueryStatus.InnerHtml = "Revised Inspection Report Reason/Remarks";
-                divMemoLetter.Visible = true;
-                divrdbHalfyear.Visible = false;
-                divFullPartialRemarks.Visible = false;
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "5")
-            {
-                divHeadOfficeJdQuery.Visible = true;
-                lblvHeadOfficeJdQueryStatus.InnerHtml = "Remarks";
-                divrdbHalfyear.Visible = false;
-                divFullPartialRemarks.Visible = false;
-            }
-            btnJDHeadOffice.Enabled = true;
-        }
 
         protected void ddlInspectionCompletedIncentives_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1847,215 +1787,115 @@ namespace TTAP.UI
             }
         }
 
-        public string JDRecommendValidateControls()
-        {
-            int slno = 1;
-            string ErrorMsg = "";
-            if (ddlDLORecommendedIncentives.SelectedValue == "0")
-            {
-                ErrorMsg = ErrorMsg + slno + ". Please Select Incentive \\n";
-                slno = slno + 1;
-            }
-            if (RbtnHeadOfficestatus.SelectedIndex == -1)
-            {
-                ErrorMsg = ErrorMsg + slno + ". Please Application Status \\n";
-                slno = slno + 1;
-            }
-            string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-            if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
-            {
-                if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
-                {
-                    if (txtPartialRecommendedAmount.Text == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + ". Please enter JD Recommended amount \\n";
-                        slno = slno + 1;
-                    }
-                    if (txtFullPartialRemarks.Text == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + ". Please enter Remarks of Partial Process \\n";
-                        slno = slno + 1;
-                    }
-                }
-            }
+        /*   public string JDRecommendValidateControls()
+           {
+               int slno = 1;
+               string ErrorMsg = "";
+               if (ddlDLORecommendedIncentives.SelectedValue == "0")
+               {
+                   ErrorMsg = ErrorMsg + slno + ". Please Select Incentive \\n";
+                   slno = slno + 1;
+               }
+               if (RbtnHeadOfficestatus.SelectedIndex == -1)
+               {
+                   ErrorMsg = ErrorMsg + slno + ". Please Application Status \\n";
+                   slno = slno + 1;
+               }
+               string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
+               if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
+               {
+                   if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
+                   {
+                       if (txtPartialRecommendedAmount.Text == "")
+                       {
+                           ErrorMsg = ErrorMsg + slno + ". Please enter JD Recommended amount \\n";
+                           slno = slno + 1;
+                       }
+                       if (txtFullPartialRemarks.Text == "")
+                       {
+                           ErrorMsg = ErrorMsg + slno + ". Please enter Remarks of Partial Process \\n";
+                           slno = slno + 1;
+                       }
+                   }
+               }
 
-            if (RbtnHeadOfficestatus.SelectedValue == "1")
-            {
-                if (txtvHeadOfficeJdQueryRemarks.Text == "")
-                {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Recommended Remarks \\n";
-                    slno = slno + 1;
-                }
-                else if (fuJointInspReport.HasFile)
-                {
-                    string errormsg = objClsFileUpload.CheckFileSize(fuJointInspReport);
-                    if (errormsg != "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "." + errormsg + " \\n";
-                        slno = slno + 1;
-                    }
+               if (RbtnHeadOfficestatus.SelectedValue == "1")
+               {
+                   if (txtvHeadOfficeJdQueryRemarks.Text == "")
+                   {
+                       ErrorMsg = ErrorMsg + slno + ". Please Enter Recommended Remarks \\n";
+                       slno = slno + 1;
+                   }
+                   else if (fuJointInspReport.HasFile)
+                   {
+                       string errormsg = objClsFileUpload.CheckFileSize(fuJointInspReport);
+                       if (errormsg != "")
+                       {
+                           ErrorMsg = ErrorMsg + slno + "." + errormsg + " \\n";
+                           slno = slno + 1;
+                       }
 
-                    string Mimetype = objClsFileUpload.getmimetype(fuJointInspReport);
-                    if (Mimetype == "application/pdf")
-                    {
+                       string Mimetype = objClsFileUpload.getmimetype(fuJointInspReport);
+                       if (Mimetype == "application/pdf")
+                       {
 
-                    }
-                    else
-                    {
-                        ErrorMsg = ErrorMsg + slno + ". Only pdf files allowed! \\n";
-                        slno = slno + 1;
-                    }
-                }
+                       }
+                       else
+                       {
+                           ErrorMsg = ErrorMsg + slno + ". Only pdf files allowed! \\n";
+                           slno = slno + 1;
+                       }
+                   }
 
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "2")
-            {
-                if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
-                {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Query Remarks \\n";
-                    slno = slno + 1;
-                }
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "3")
-            {
-                if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
-                {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Rejected Remarks \\n";
-                    slno = slno + 1;
-                }
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "4")
-            {
-                if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
-                {
-                    ErrorMsg = ErrorMsg + slno + ". Please Enter Re-Inspection Remarks/Reason \\n";
-                    slno = slno + 1;
-                }
-                else if (fuMemoLetter.HasFile)
-                {
-                    string errormsg = objClsFileUpload.CheckFileSize(fuMemoLetter);
-                    if (errormsg != "")
-                    {
-                        // string message = "alert('" + errormsg + "')";
-                        ErrorMsg = ErrorMsg + slno + "." + errormsg + " \\n";
-                        slno = slno + 1;
-                    }
+               }
+               else if (RbtnHeadOfficestatus.SelectedValue == "2")
+               {
+                   if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
+                   {
+                       ErrorMsg = ErrorMsg + slno + ". Please Enter Query Remarks \\n";
+                       slno = slno + 1;
+                   }
+               }
+               else if (RbtnHeadOfficestatus.SelectedValue == "3")
+               {
+                   if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
+                   {
+                       ErrorMsg = ErrorMsg + slno + ". Please Enter Rejected Remarks \\n";
+                       slno = slno + 1;
+                   }
+               }
+               else if (RbtnHeadOfficestatus.SelectedValue == "4")
+               {
+                   if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
+                   {
+                       ErrorMsg = ErrorMsg + slno + ". Please Enter Re-Inspection Remarks/Reason \\n";
+                       slno = slno + 1;
+                   }
+                   else if (fuMemoLetter.HasFile)
+                   {
+                       string errormsg = objClsFileUpload.CheckFileSize(fuMemoLetter);
+                       if (errormsg != "")
+                       {
+                           // string message = "alert('" + errormsg + "')";
+                           ErrorMsg = ErrorMsg + slno + "." + errormsg + " \\n";
+                           slno = slno + 1;
+                       }
 
-                    string Mimetype = objClsFileUpload.getmimetype(fuMemoLetter);
-                    if (Mimetype == "application/pdf")
-                    {
+                       string Mimetype = objClsFileUpload.getmimetype(fuMemoLetter);
+                       if (Mimetype == "application/pdf")
+                       {
 
-                    }
-                    else
-                    {
-                        ErrorMsg = ErrorMsg + slno + ". Only pdf files allowed! \\n";
-                        slno = slno + 1;
-                    }
-                }
-            }
-                return ErrorMsg;
-        }
-        protected void btnJDHeadOffice_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string errormsg = JDRecommendValidateControls();
-                if (errormsg.Trim().TrimStart() != "")
-                {
-                    string message = "alert('" + errormsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
-                }
-                else
-                {
-                    ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
-                    UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                    ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+                       }
+                       else
+                       {
+                           ErrorMsg = ErrorMsg + slno + ". Only pdf files allowed! \\n";
+                           slno = slno + 1;
+                       }
+                   }
+               }
+               return ErrorMsg;
+           } */
 
-                    ObjApplicationStatus.IncentiveId = ViewState["IncentiveId"].ToString();
-                    ObjApplicationStatus.SubIncentiveId = ddlDLORecommendedIncentives.SelectedValue;
-                    ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                    ObjApplicationStatus.TransType = RbtnHeadOfficestatus.SelectedValue;
-                    string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-                    if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
-                    {
-                        if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue=="CP")
-                        {
-                            ObjApplicationStatus.PartialSanction = rdbFullPartial.SelectedValue;
-                            ObjApplicationStatus.JDRecommendedAmount = txtPartialRecommendedAmount.Text.Trim();
-                            ObjApplicationStatus.PartialRemarks = txtFullPartialRemarks.Text;
-                        }
-                    }
-                    ObjApplicationStatus.Remarks = txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart();
-                    HyperLink hypconcernedCTo = new HyperLink();
-                    if (RbtnHeadOfficestatus.SelectedValue == "4")
-                    {
-                        objClsFileUpload.IncentiveFileUploading("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuMemoLetter, hypconcernedCTo, "JDReInspectionMemo", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "181111", Session["uid"].ToString(), "JD");
-                    }
-                    if (RbtnHeadOfficestatus.SelectedValue == "1")
-                    {
-                        if (ViewState["UID"].ToString() == "MEG006003126211")
-                        {
-                            objClsFileUpload.IncentiveFileUploading("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuJointInspReport, hypconcernedCTo, "JointInspectionReport", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "181112", Session["uid"].ToString(), "JD");
-                        }
-                }
-                    string OutPut = "1";
-                    if (OutPut == "1")
-                    {
-                        string Status = ObjCAFClass.UpdateApplicationStatusJDStage4(ObjApplicationStatus);
-
-                        if (Convert.ToInt32(Status) > 0)
-                        {
-                            string Successmsg = "";
-                            BindDLORecomendedIncentives(ViewState["IncentiveId"].ToString(), ObjLoginNewvo.Role_Code);
-                            BindJDQueries();
-                            BindJDRecomendedIncentives();
-                            BindJDSenttoDLOIncentives();
-                            ddlDLORecommendedIncentives.SelectedValue = "0";
-                            txtvHeadOfficeJdQueryRemarks.Text = "";
-
-                            if (RbtnHeadOfficestatus.SelectedValue == "1")
-                            {
-                                Successmsg = "Application Recommended Successfully";
-                            }
-                            else if (RbtnHeadOfficestatus.SelectedValue == "2")
-                            {
-                                Successmsg = "Query Raised Successfully";
-                            }
-                            else if (RbtnHeadOfficestatus.SelectedValue == "3")
-                            {
-                                Successmsg = "Application Rejected Successfully";
-                            }
-                            else if (RbtnHeadOfficestatus.SelectedValue == "4")
-                            {
-                                Successmsg = "Application Sent to DLO for Revised Inspection Report Successfully";
-                            }
-                            else if (RbtnHeadOfficestatus.SelectedValue == "5")
-                            {
-                                Successmsg = "Application Sent to DLC Successfully";
-                            }
-                            RbtnHeadOfficestatus.SelectedIndex = -1;
-
-                            string message = "alert('" + Successmsg + "')";
-                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        }
-                    }
-                    else
-                    {
-                        string message = "alert('" + "Error...! Uploading File" + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Errors.ErrorLog(ex);
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
-            }
-        }
         public void BindJDRecomendedIncentives()
         {
             dss = GetJDRecomendedIncentivesById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
@@ -2101,6 +1941,7 @@ namespace TTAP.UI
                 divJDtoDLC.Visible = false;
             }
         }
+
         public DataSet GetJDRecomendedIncentivesById(int IncentiveId)
         {
             DataSet Dsnew = new DataSet();
@@ -2356,7 +2197,7 @@ namespace TTAP.UI
                         try
                         {
                             ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
-                            string IncentiveID= ViewState["IncentiveId"].ToString();
+                            string IncentiveID = ViewState["IncentiveId"].ToString();
                             ClsSMSandMailobj.SendSmsEmail(IncentiveID, "", "ADMN", "INFOTODLO", "Incentives");
                         }
                         catch (Exception ex)
@@ -2442,7 +2283,7 @@ namespace TTAP.UI
                 ds = GetPandM(PMId, IncentiveId, IndusType);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    PhaseView=ds.Tables[0].Rows[0]["Phase"].ToString();
+                    PhaseView = ds.Tables[0].Rows[0]["Phase"].ToString();
                     grdPandM.DataSource = ds.Tables[0];
                     grdPandM.DataBind();
 
@@ -2806,15 +2647,7 @@ namespace TTAP.UI
             }
         }
 
-        protected void ddlDLORecommendedIncentives_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string Incentive_id = ViewState["IncentiveId"].ToString();
-            string CheckEligibilitytoReVisedInsp = ObjCAFClass.Check_RevisedInspectionReport(Incentive_id, ddlDLORecommendedIncentives.SelectedValue.ToString());
-            if (CheckEligibilitytoReVisedInsp == "N") {
-                RbtnHeadOfficestatus.Items[3].Attributes.Add("style", "display:none");
-            }
-            RbtnHeadOfficestatus_SelectedIndexChanged(this, EventArgs.Empty);
-        }
+
 
         protected void btnIndustries_Click(object sender, EventArgs e)
         {
@@ -2849,7 +2682,7 @@ namespace TTAP.UI
             {
                 Label lbl = (e.Row.FindControl("lblSubIncentiveId") as Label);
                 HyperLink HyperLinkSubsidy = (e.Row.FindControl("hyQueryReminders") as HyperLink);
-                HyperLinkSubsidy.NavigateUrl = "~/UI/Pages//ReminderQueries.aspx?IncentiveId="+ INCId+"&SubIncentiveId="+ lbl.Text.ToString();
+                HyperLinkSubsidy.NavigateUrl = "~/UI/Pages//ReminderQueries.aspx?IncentiveId=" + INCId + "&SubIncentiveId=" + lbl.Text.ToString();
             }
         }
 
@@ -2883,21 +2716,7 @@ namespace TTAP.UI
             }
         }
 
-        protected void rdbFullPartial_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-            if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
-            {
-                if (rdbFullPartial.SelectedValue.ToString() == "P" || rdbFullPartial.SelectedValue.ToString() == "CP")
-                {
-                    divFullPartialRemarks.Visible = true;
-                }
-                else
-                {
-                    divFullPartialRemarks.Visible = false;
-                }
-            }
-        }
+
 
         protected void btnView_Click(object sender, EventArgs e)
         {
@@ -3029,7 +2848,7 @@ namespace TTAP.UI
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -3037,7 +2856,7 @@ namespace TTAP.UI
         {
             try
             {
-                if (ddlOfficer.SelectedValue == "0") 
+                if (ddlOfficer.SelectedValue == "0")
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please select Inspecting Officer');", true);
                     return;
@@ -3148,7 +2967,7 @@ namespace TTAP.UI
         {
             try
             {
-                
+
                 int IncCount = 0;
                 ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
                 UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
@@ -3159,7 +2978,7 @@ namespace TTAP.UI
                     string SubIncentiveId;
                     SubIncentiveId = ((Label)gvrow.FindControl("lblSubIncentiveId")).Text.ToString();
                     string Reason = ((TextBox)gvrow.FindControl("txtReasons")).Text.ToString();
-                    if (Reason == "") 
+                    if (Reason == "")
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please enter Reject Reason');", true);
                         return;
@@ -3236,7 +3055,7 @@ namespace TTAP.UI
                 foreach (GridViewRow gvrow in GvYetAssign.Rows)
                 {
                     if (SubIncId != "0")
-                    {  
+                    {
                         Label lblMstIncentiveId = (Label)gvrow.FindControl("lblSubIncentiveId");
                         if (lblMstIncentiveId.Text.Trim() == SubIncId)
                         {
@@ -3270,7 +3089,7 @@ namespace TTAP.UI
         {
             dss = GetGMHistoryById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
             if (dss != null && dss.Tables.Count > 0)
-            {   
+            {
                 if (dss.Tables[0].Rows.Count > 0)
                 {
                     divGMHistory.Visible = true;
@@ -3292,568 +3111,964 @@ namespace TTAP.UI
                     gvGMReject.DataBind();
                     divGMReject.Visible = true;
                 }
-                if (dss.Tables[3].Rows.Count > 0)
-                {
-                    divGMHistory.Visible = true;
-                    gvGMResponseIPOQuery.DataSource = dss.Tables[3];
-                    gvGMResponseIPOQuery.DataBind();
-                    divGMResponseIPOQuery.Visible = true;
-                }
-                if (dss.Tables[4].Rows.Count > 0)
-                {
-                    divGMHistory.Visible = true;
-                    gvGMForwardtoApplicant.DataSource = dss.Tables[4];
-                    gvGMForwardtoApplicant.DataBind();
-                    divGMForwardtoApplicant.Visible = true;
-                }
-                if (dss.Tables[5].Rows.Count > 0)
-                {
-                    divGMHistory.Visible = true;
-                    gvGMResponseIPOQueryAfterInsp.DataSource = dss.Tables[5];
-                    gvGMResponseIPOQueryAfterInsp.DataBind();
-                    divGMResponseIPOQueryAfterInsp.Visible = true;
-                }
-                if (dss.Tables[6].Rows.Count > 0)
-                {
-                    divGMHistory.Visible = true;
-                    gvGMForwardtoAppAfterInsp.DataSource = dss.Tables[6];
-                    gvGMForwardtoAppAfterInsp.DataBind();
-                    divGMForwardtoAppAfterInsp.Visible = true;
-                }
             }
         }
-        public void BindIPOHistory()
-        {
-            dss = GetIPOHistoryById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
-            if (dss != null && dss.Tables.Count > 0)
-            {
-                if (dss.Tables[0].Rows.Count > 0)
-                {
-                    divQueries.Visible = true;
-                    gvIPOQueryBI.DataSource = dss.Tables[0];
-                    gvIPOQueryBI.DataBind();
-                    divIPOQueryBI.Visible = true;
-                }
-            }
-        }
-        public void BindGMVerifications()
-        {
-            dss = GetGMVerificationsById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
-            if (dss != null && dss.Tables.Count > 0)
-            {
-                if (dss.Tables[0].Rows.Count > 0)
-                {
-                    divGMVerification.Visible = true;
-                    gvFwdAppResptoIPO.DataSource = dss.Tables[0];
-                    gvFwdAppResptoIPO.DataBind();
-                    divForwardApplicantResponsetoIPO.Visible = true;
-                }
-            }
-        }
-        protected void btnResponsetoIPOBeforeInsp_Click(object sender, EventArgs e)
+
+        protected void ddlstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
+                if (ddlstatus.SelectedValue == "1")
+                {
+                    Remarks.Visible = false;
+                    Amount.Visible = true;
+                    Query.Visible = false;
+                    Div7.Visible = false;
+                }
+                else if (ddlstatus.SelectedValue == "Select")
+                {
+                    Remarks.Visible = false;
+                    Query.Visible = false;
+                    Amount.Visible = false;
+                    Div7.Visible = false;
+                }
+                else if (ddlstatus.SelectedValue == "2")
+                {
+                    Query.Visible = true;
+                    Remarks.Visible = false;
+                    Amount.Visible = false;
+                    Div7.Visible = false;
+                }
+                else if (ddlstatus.SelectedValue == "3")
+                {
+                    Div7.Visible = true;
+                    Query.Visible = false;
+                    Remarks.Visible = false;
+                    Amount.Visible = false;
+                }
+                else
+                {
+                    Remarks.Visible = true;
+                    Query.Visible = false;
+                    Amount.Visible = false;
+                    Div7.Visible = false;
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnlevel_Click(object sender, EventArgs e)
+        {
+            try
+            {
                 UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
                 ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
 
-                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-
-                ObjApplicationStatus.IncentiveId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
-                ObjApplicationStatus.SubIncentiveId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
-                ObjApplicationStatus.QueryId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
-                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                ObjApplicationStatus.Remarks = ((TextBox)gvQueriesFromIPO.Rows[indexing].FindControl("txtIPOQueryReply")).Text.ToString();
-                Button btnResponsetoIPOBeforeInsp = (Button)gvQueriesFromIPO.Rows[indexing].FindControl("btnResponsetoIPOBeforeInsp");
-                Button btnFwdtoApplicantBeforeInsp = (Button)gvQueriesFromIPO.Rows[indexing].FindControl("btnFwdtoApplicantBeforeInsp");
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnResponsetoIPOBeforeInsp);
-                HyperLink hypconcernedCTo = new HyperLink();
-                hypconcernedCTo = ((HyperLink)gvQueriesFromIPO.Rows[indexing].FindControl("hyGMRespFile"));
-                if (ObjApplicationStatus.Remarks == "")
+                if (string.IsNullOrEmpty(ddlClerkIncentive.SelectedItem.Text) ||
+                    string.IsNullOrEmpty(ddlstatus.SelectedItem.Text) ||
+                    string.IsNullOrEmpty(ddlDepartment.SelectedValue))
                 {
-                    string info = "Please Enter Response";
-                    string message = "alert('" + info + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
+                    lblmsg0.Text = "Please Enter All Details of Clerk Level";
+                    Failure.Visible = true;
                 }
-                ObjApplicationStatus.TransType = "GMTOIPO";
-                FileUpload fuGMReplyIPOQuery = (FileUpload)gvQueriesFromIPO.Rows[indexing].FindControl("fuGMReplyIPOQuery");
-                if (fuGMReplyIPOQuery.HasFile)
+                else
                 {
-                    string Mimetype = objClsFileUpload.getmimetype(fuGMReplyIPOQuery);
-                    if (Mimetype == "application/pdf")
+                    DataTable dt = new DataTable();
+
+                    if (ViewState["Clerklevel"] == null)
                     {
-                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMReplyIPOQuery, hypconcernedCTo, ObjLoginNewvo.Role_Code + "Response", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQuery");
-                        ObjApplicationStatus.QueryLetterID = OutPut;
+                        dt.Columns.Add("SubIncentiveID", typeof(string));
+                        dt.Columns.Add("IncentiveName", typeof(string));
+                        dt.Columns.Add("IncentiveId", typeof(string));
+                        dt.Columns.Add("StatusName", typeof(string));
+                        dt.Columns.Add("StatusId", typeof(string));
+                        dt.Columns.Add("CLERK_Forwardto", typeof(string));
+                        dt.Columns.Add("Recommendation", typeof(string));
+                        dt.Columns.Add("Query", typeof(string));
+                        dt.Columns.Add("Inspection", typeof(string));
+                        dt.Columns.Add("Abeyance", typeof(string));
                     }
                     else
                     {
-                        string errormsg = "Only pdf files allowed !";
-                        string message = "alert('" + errormsg + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        return;
+                        dt = (DataTable)ViewState["Clerklevel"];
                     }
-                }
 
-                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
-                if (Convert.ToInt32(Status) > 0)
+                    DataRow dr = dt.NewRow();
+                    dr["SubIncentiveID"] = ddlClerkIncentive.SelectedValue;
+                    dr["IncentiveName"] = ddlClerkIncentive.SelectedItem.Text;
+                    dr["IncentiveId"] = ViewState["IncentiveId"];
+                    dr["StatusName"] = ddlstatus.SelectedItem.Text;
+                    dr["StatusId"] = ddlstatus.SelectedValue;
+                    dr["CLERK_Forwardto"] = ddlDepartment.SelectedValue;
+
+                    switch (ddlstatus.SelectedValue)
+                    {
+                        case "1":
+                            dr["Recommendation"] = txtAmount.Text;
+                            break;
+                        case "2":
+                            dr["Query"] = txtQuery.Text;
+                            break;
+                        case "3":
+                            dr["Inspection"] = txtSSCRemarks.Text;
+                            break;
+                        case "4":
+                            dr["Abeyance"] = txtRemark.Text;
+                            break;
+                    }
+
+                    dt.Rows.Add(dr);
+                    GVDLO.Visible = true;
+                    GVDLO.DataSource = dt;
+                    GVDLO.DataBind();
+
+
+                    ViewState["Clerklevel"] = dt;
+
+                    ddlClerkIncentive.ClearSelection();
+                    ddlstatus.ClearSelection();
+                    ddlDepartment.ClearSelection();
+                    txtAmount.Text = string.Empty;
+                    txtQuery.Text = string.Empty;
+                    txtSSCRemarks.Text = string.Empty;
+                    txtRemark.Text = string.Empty;
+                    CLERK.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "An error occurred: " + ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void GVDLO_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVDLO.Rows.Count > 0)
                 {
-                    btnResponsetoIPOBeforeInsp.Visible = false;
-                    btnFwdtoApplicantBeforeInsp.Visible = false;
-                    hypconcernedCTo.Visible = true;
-                    BindGMHistory();
-                    string Successmsg = "";
-                    Successmsg = "Response Submitted Successfully to IPO";
-                    string message = "alert('" + Successmsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    ((DataTable)ViewState["Clerklevel"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVDLO.DataSource = ((DataTable)ViewState["Clerklevel"]).DefaultView;
+                    this.GVDLO.DataBind();
+                    GVDLO.Visible = true;
+                    GVDLO.Focus();
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
                 }
 
             }
             catch (Exception ex)
             {
-                Errors.ErrorLog(ex);
                 lblmsg0.Text = ex.Message;
                 Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
             }
         }
 
-        protected void btnFwdtoApplicantBeforeInsp_Click(object sender, EventArgs e)
+        protected void GVDLO_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string status = DataBinder.Eval(e.Row.DataItem, "StatusId").ToString();
+
+
+                Label lblRecommand = (Label)e.Row.FindControl("lblRecommand");
+                Label lblQuery = (Label)e.Row.FindControl("lblQuery");
+                Label lblSSCInspection = (Label)e.Row.FindControl("lblSSCInspection");
+                Label lblAbeyance = (Label)e.Row.FindControl("lblAbeyance");
+
+                if (status == "1")
+                {
+                    lblRecommand.Visible = true;
+                    lblQuery.Visible = false;
+                    lblSSCInspection.Visible = false;
+                    lblAbeyance.Visible = false;
+                }
+                else if (status == "2")
+                {
+                    lblRecommand.Visible = false;
+                    lblQuery.Visible = true;
+                    lblSSCInspection.Visible = false;
+                    lblAbeyance.Visible = false;
+                }
+                else if (status == "3")
+                {
+                    lblRecommand.Visible = false;
+                    lblQuery.Visible = false;
+                    lblSSCInspection.Visible = true;
+                    lblAbeyance.Visible = false;
+                }
+                else if (status == "4")
+                {
+                    lblRecommand.Visible = false;
+                    lblQuery.Visible = false;
+                    lblSSCInspection.Visible = false;
+                    lblAbeyance.Visible = true;
+                }
+            }
+        }
+
+        protected void ddlStatus1_SelectedIndexChanged1(object sender, EventArgs e)
         {
             try
             {
-                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
-                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-
-                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-
-                ObjApplicationStatus.IncentiveId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
-                ObjApplicationStatus.SubIncentiveId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
-                ObjApplicationStatus.QueryId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
-                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                ObjApplicationStatus.Remarks = ((TextBox)gvQueriesFromIPO.Rows[indexing].FindControl("txtIPOQueryReply")).Text.ToString();
-                Button btnResponsetoIPOBeforeInsp = (Button)gvQueriesFromIPO.Rows[indexing].FindControl("btnResponsetoIPOBeforeInsp");
-                Button btnFwdtoApplicantBeforeInsp = (Button)gvQueriesFromIPO.Rows[indexing].FindControl("btnFwdtoApplicantBeforeInsp");
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnFwdtoApplicantBeforeInsp);
-                HyperLink hypconcernedCTo = new HyperLink();
-                hypconcernedCTo = ((HyperLink)gvQueriesFromIPO.Rows[indexing].FindControl("hyGMRespFile"));
-                if (ObjApplicationStatus.Remarks == "")
+                if (ddlStatus1.SelectedValue == "Select")
                 {
-                    string info = "Please Enter Response";
-                    string message = "alert('" + info + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
+                    Forward.Visible = false;
+                    Return.Visible = false;
+                    Div5.Visible = false;
+                    Div8.Visible = false;
+                    Div9.Visible = false;
+                    Div10.Visible = false;
+                    ReturnRemarks.Visible = false;
                 }
-                ObjApplicationStatus.TransType = "GMTOAPP";
-                FileUpload fuGMReplyIPOQuery = (FileUpload)gvQueriesFromIPO.Rows[indexing].FindControl("fuGMReplyIPOQuery");
-                if (fuGMReplyIPOQuery.HasFile)
+                else if (ddlStatus1.SelectedValue == "5")
                 {
-                    string Mimetype = objClsFileUpload.getmimetype(fuGMReplyIPOQuery);
-                    if (Mimetype == "application/pdf")
+                    Return.Visible = true;
+                    ReturnRemarks.Visible = true;
+                    Forward.Visible = false;
+                    Div5.Visible = false;
+                    Div8.Visible = false;
+                    Div9.Visible = false;
+                    Div10.Visible = false;
+                }
+                else if (ddlStatus1.SelectedValue == "1")
+                {
+                    Div5.Visible = true;
+                    Forward.Visible = true;
+                    Return.Visible = false;
+                    Div8.Visible = false;
+                    Div9.Visible = false;
+                    Div10.Visible = false;
+                    ReturnRemarks.Visible = false;
+                }
+                else if (ddlStatus1.SelectedValue == "2")
+                {
+                    Div8.Visible = true;
+                    Forward.Visible = true;
+                    Div5.Visible = false;
+                    Div9.Visible = false;
+                    Div10.Visible = false;
+                    Return.Visible = false;
+                    ReturnRemarks.Visible = false;
+                }
+                else if (ddlStatus1.SelectedValue == "3")
+                {
+                    Div9.Visible = true;
+                    Forward.Visible = true;
+                    Return.Visible = false;
+                    Div8.Visible = false;
+                    Div10.Visible = false;
+                    Div5.Visible = false;
+                    ReturnRemarks.Visible = false;
+                }
+                else if (ddlStatus1.SelectedValue == "4")
+                {
+                    Div10.Visible = true;
+                    Forward.Visible = true;
+                    Div9.Visible = false;
+                    Return.Visible = false;
+                    Div8.Visible = false;
+                    Div5.Visible = false;
+                    ReturnRemarks.Visible = false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(ddlSupdtIncentive.SelectedItem.Text) ||
+                    string.IsNullOrEmpty(ddlStatus1.SelectedItem.Text))
+                {
+                    lblmsg0.Text = "Please Enter All Details of Supdt Level";
+                    Failure.Visible = true;
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+
+                    if (ViewState["SUPDTLEVEL"] == null)
                     {
-                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMReplyIPOQuery, hypconcernedCTo, ObjLoginNewvo.Role_Code + "Response", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQuery");
-                        ObjApplicationStatus.QueryLetterID = OutPut;
+
+                        dt.Columns.Add("SubIncentiveID", typeof(string));
+                        dt.Columns.Add("IncentiveName", typeof(string));
+                        dt.Columns.Add("IncentiveId", typeof(string));
+                        dt.Columns.Add("StatusName", typeof(string));
+                        dt.Columns.Add("StatusId", typeof(string));
+                        dt.Columns.Add("SUPDT_Forwardto", typeof(string));
+                        dt.Columns.Add("SUPDT_Return", typeof(string));
+                        dt.Columns.Add("Recommendation", typeof(string));
+                        dt.Columns.Add("Query", typeof(string));
+                        dt.Columns.Add("Inspection", typeof(string));
+                        dt.Columns.Add("Abeyance", typeof(string));
+                        dt.Columns.Add("ReturnRemark", typeof(string));
+
+
                     }
                     else
                     {
-                        string errormsg = "Only pdf files allowed !";
-                        string message = "alert('" + errormsg + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        return;
+                        dt = (DataTable)ViewState["SUPDTLEVEL"];
                     }
-                }
 
-                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
-                if (Convert.ToInt32(Status) > 0)
-                {
-                    string Successmsg = "";
-                    btnResponsetoIPOBeforeInsp.Visible = false;
-                    btnFwdtoApplicantBeforeInsp.Visible = false;
-                    hypconcernedCTo.Visible = true;
-                    BindGMHistory();
-                    Successmsg = "Query Forwarded Successfully to Applicant";
-                    string message = "alert('" + Successmsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
+                    DataRow dr = dt.NewRow();
 
-            }
-            catch (Exception ex)
-            {
-                Errors.ErrorLog(ex);
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
-            }
-        }
-
-        protected void ddlInsOption_SelectedIndexChanged(object sender, EventArgs e)
-        {   
-            int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-
-            DropDownList ddlInsOption = (DropDownList)gvUpdateInspectionDetails.Rows[indexing].FindControl("ddlInsOption");
-            HyperLink anchortaglinkView = (HyperLink)gvUpdateInspectionDetails.Rows[indexing].FindControl("anchortaglinkView");
-            TextBox txtAfterInspQuery = (TextBox)gvUpdateInspectionDetails.Rows[indexing].FindControl("txtAfterInspQuery");
-            Button btnRaiseQuery = (Button)gvUpdateInspectionDetails.Rows[indexing].FindControl("btnRaiseQuery");
-
-            if (ddlInsOption.SelectedValue == "1")
-            {
-                anchortaglinkView.Visible = true;
-                txtAfterInspQuery.Visible = false;
-                btnRaiseQuery.Visible = false;
-            }
-            else 
-            {
-                anchortaglinkView.Visible = false;
-                txtAfterInspQuery.Visible = true;
-                btnRaiseQuery.Visible = true;
-            }
-        }
-
-        protected void btnRaiseQuery_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
-                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-
-                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-                TextBox txtAfterInspQuery = (TextBox)gvUpdateInspectionDetails.Rows[indexing].FindControl("txtAfterInspQuery");
-
-                ObjApplicationStatus.IncentiveId = ((Label)gvUpdateInspectionDetails.Rows[indexing].FindControl("lblIncentiveID")).Text.ToString();
-                ObjApplicationStatus.SubIncentiveId = ((Label)gvUpdateInspectionDetails.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
-                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                ObjApplicationStatus.TransType = "4";
-                ObjApplicationStatus.Remarks = ((TextBox)gvUpdateInspectionDetails.Rows[indexing].FindControl("txtAfterInspQuery")).Text.ToString();
-
-                string Status = ObjCAFClass.UpdateApplicationStatusDLOStage1(ObjApplicationStatus);
-
-                if (Convert.ToInt32(Status) > 0)
-                {
-                    string Successmsg = "";
-                    txtAfterInspQuery.Text = "";
-                    Successmsg = "Query Raised Successfully";
-                    string message = "alert('" + Successmsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Errors.ErrorLog(ex);
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
-            }
-
-
-        }
-
-        protected void btnResponsetoIPOAfterInsp_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
-                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-
-                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-
-                ObjApplicationStatus.IncentiveId = ((Label)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
-                ObjApplicationStatus.SubIncentiveId = ((Label)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
-                ObjApplicationStatus.QueryId = ((Label)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
-                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                ObjApplicationStatus.Remarks = ((TextBox)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("txtIPOQueryReplyInsp")).Text.ToString();
-                Button btnResponsetoIPOAfterInsp = (Button)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("btnResponsetoIPOAfterInsp");
-                Button btnFwdtoApplicantAfterInsp = (Button)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("btnFwdtoApplicantAfterInsp");
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnResponsetoIPOAfterInsp);
-                HyperLink hypconcernedCTo = new HyperLink();
-                hypconcernedCTo = ((HyperLink)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("hyGMRespFileInsp"));
-                if (ObjApplicationStatus.Remarks == "")
-                {
-                    string info = "Please Enter Response";
-                    string message = "alert('" + info + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
-                }
-                ObjApplicationStatus.TransType = "GMTOIPOINSP";
-                FileUpload fuGMReplyIPOQueryInsp = (FileUpload)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("fuGMReplyIPOQueryInsp");
-                if (fuGMReplyIPOQueryInsp.HasFile)
-                {
-                    string Mimetype = objClsFileUpload.getmimetype(fuGMReplyIPOQueryInsp);
-                    if (Mimetype == "application/pdf")
+                    dr["SubIncentiveID"] = ddlSupdtIncentive.SelectedValue;
+                    dr["IncentiveName"] = ddlSupdtIncentive.SelectedItem.Text;
+                    dr["IncentiveId"] = ViewState["IncentiveId"];
+                    dr["StatusName"] = ddlStatus1.SelectedItem.Text;
+                    dr["StatusId"] = ddlStatus1.SelectedValue;
+                    if (ddlStatus1.SelectedValue == "5")
                     {
-                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMReplyIPOQueryInsp, hypconcernedCTo, ObjLoginNewvo.Role_Code + "Response", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQueryAfterInsp");
-                        ObjApplicationStatus.QueryLetterID = OutPut;
+                        dr["SUPDT_Forwardto"] = ddlreturn.SelectedValue;
+                    }
+                    else { dr["SUPDT_Forwardto"] = ddlForward.SelectedValue; }
+
+
+
+                    switch (ddlStatus1.SelectedValue)
+                    {
+
+                        case "1":
+                            dr["Recommendation"] = txtRecomAmount.Text;
+                            break;
+                        case "2":
+                            dr["Query"] = txtDescQuery.Text;
+                            break;
+                        case "3":
+                            dr["Inspection"] = txtRemarkes.Text;
+                            break;
+                        case "4":
+                            dr["Abeyance"] = txtAbeyanceRemark.Text;
+                            break;
+                        case "5":
+                            dr["ReturnRemark"] = txtReturnRemark.Text;
+                            break;
+
+                    }
+
+                    dt.Rows.Add(dr);
+                    GVSUPDT.Visible = true;
+                    GVSUPDT.DataSource = dt;
+                    GVSUPDT.DataBind();
+
+
+                    ViewState["SUPDTLEVEL"] = dt;
+
+                    ddlSupdtIncentive.ClearSelection();
+                    ddlStatus1.ClearSelection();
+                    ddlForward.ClearSelection();
+                    txtRecomAmount.Text = string.Empty;
+                    txtDescQuery.Text = string.Empty;
+                    txtRemarkes.Text = string.Empty;
+                    txtAbeyanceRemark.Text = string.Empty;
+                    SUPDTDetails.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = "An error occurred: " + ex.Message;
+                Failure.Visible = true;
+            }
+
+        }
+
+        protected void GVSUPDT_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                string status = DataBinder.Eval(e.Row.DataItem, "StatusId").ToString();
+
+                Label lblRecommand = (Label)e.Row.FindControl("lblRecommand");
+                Label lblQuery = (Label)e.Row.FindControl("lblQuery");
+                Label lblInspection = (Label)e.Row.FindControl("lblSSCInspection");
+                Label lblAbeyance = (Label)e.Row.FindControl("lblAbeyance");
+                Label lblRemarks = (Label)e.Row.FindControl("lblReturn");
+
+                if (status == "1")
+                {
+                    lblRecommand.Visible = true;
+                    lblRemarks.Visible = false;
+                    lblQuery.Visible = false;
+                    lblInspection.Visible = false;
+                    lblAbeyance.Visible = false;
+
+                }
+                else if (status == "2")
+                {
+                    lblRecommand.Visible = false;
+                    lblQuery.Visible = true;
+                    lblRemarks.Visible = false;
+                    lblInspection.Visible = false;
+                    lblAbeyance.Visible = false;
+
+                }
+                else if (status == "3")
+                {
+                    lblRecommand.Visible = false;
+                    lblQuery.Visible = false;
+                    lblInspection.Visible = true;
+                    lblRemarks.Visible = false;
+                    lblAbeyance.Visible = false;
+
+                }
+                else if (status == "4")
+                {
+                    lblRecommand.Visible = false;
+                    lblQuery.Visible = false;
+                    lblInspection.Visible = false;
+                    lblAbeyance.Visible = true;
+                    lblRemarks.Visible = false;
+
+                }
+                else if (status == "5")
+                {
+                    lblRecommand.Visible = false;
+                    lblQuery.Visible = false;
+                    lblInspection.Visible = false;
+                    lblRemarks.Visible = true;
+                    lblAbeyance.Visible = false;
+
+                }
+
+            }
+        }
+
+        protected void GVSUPDT_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
+            try
+            {
+                if (GVSUPDT.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["SUPDTLEVEL"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVSUPDT.DataSource = ((DataTable)ViewState["SUPDTLEVEL"]).DefaultView;
+                    this.GVSUPDT.DataBind();
+                    GVSUPDT.Visible = true;
+                    GVSUPDT.Focus();
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void btnaddbutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(ddlADIncentive.SelectedItem.Text) ||
+                    string.IsNullOrEmpty(ddlsendstatus.SelectedItem.Text))
+                {
+                    lblmsg0.Text = "Please Enter All Details of AD Level";
+                    Failure.Visible = true;
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+
+                    if (ViewState["ADLEVEL"] == null)
+                    {
+
+                        dt.Columns.Add("SubIncentiveID", typeof(string));
+                        dt.Columns.Add("IncentiveName", typeof(string));
+                        dt.Columns.Add("IncentiveId", typeof(string));
+                        dt.Columns.Add("StatusName", typeof(string));
+                        dt.Columns.Add("StatusId", typeof(string));
+                        dt.Columns.Add("AD_Forwardto", typeof(string));
+                        //  dt.Columns.Add("SUPDT_Return", typeof(string));
+                        dt.Columns.Add("Recommendation", typeof(string));
+                        dt.Columns.Add("Query", typeof(string));
+                        dt.Columns.Add("Inspection", typeof(string));
+                        dt.Columns.Add("Abeyance", typeof(string));
+                        dt.Columns.Add("ReturnRemark", typeof(string));
                     }
                     else
                     {
-                        string errormsg = "Only pdf files allowed !";
-                        string message = "alert('" + errormsg + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        return;
+                        dt = (DataTable)ViewState["ADLEVEL"];
                     }
-                }
 
-                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
-                if (Convert.ToInt32(Status) > 0)
-                {
-                    btnResponsetoIPOAfterInsp.Visible = false;
-                    btnFwdtoApplicantAfterInsp.Visible = false;
-                    hypconcernedCTo.Visible = true;
-                    BindGMHistory();
-                    string Successmsg = "";
-                    Successmsg = "Response Submitted Successfully to IPO";
-                    string message = "alert('" + Successmsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
+                    DataRow dr = dt.NewRow();
 
+                    dr["SubIncentiveID"] = ddlADIncentive.SelectedValue;
+                    dr["IncentiveName"] = ddlADIncentive.SelectedItem.Text;
+                    dr["IncentiveId"] = ViewState["IncentiveId"];
+                    dr["StatusName"] = ddlsendstatus.SelectedItem.Text;
+                    dr["StatusId"] = ddlsendstatus.SelectedValue;
+                    if (ddlsendstatus.SelectedValue == "5")
+                    {
+                        dr["AD_Forwardto"] = ddlsupdt.SelectedValue;
+                    }
+                    else { dr["AD_Forwardto"] = ddlsend.SelectedValue; }
+
+
+
+                    switch (ddlsendstatus.SelectedValue)
+                    {
+
+                        case "1":
+                            dr["Recommendation"] = txtAmounted.Text;
+                            break;
+                        case "2":
+                            dr["Query"] = txtQueryDesced.Text;
+                            break;
+                        case "3":
+                            dr["Inspection"] = txtRemarked.Text;
+                            break;
+                        case "4":
+                            dr["Abeyance"] = txtAbeyRemark.Text;
+                            break;
+                        case "5":
+                            dr["ReturnRemark"] = txtRemarkReturn.Text;
+                            break;
+
+                    }
+
+                    dt.Rows.Add(dr);
+                    GVAD.Visible = true;
+                    GVAD.DataSource = dt;
+                    GVAD.DataBind();
+
+
+                    ViewState["ADLEVEL"] = dt;
+                    ADLEVEL.Visible = true;
+
+                    ddlADIncentive.ClearSelection();
+                    ddlsendstatus.ClearSelection();
+                    txtAmounted.Text = string.Empty;
+                        txtQueryDesced.Text= string.Empty;
+                    txtRemarked.Text= string.Empty;
+                    txtAbeyRemark.Text= string.Empty;
+                    txtRemarkReturn.Text= string.Empty;
+                }
             }
             catch (Exception ex)
             {
-                Errors.ErrorLog(ex);
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                throw ex;
             }
         }
 
-        protected void btnFwdtoApplicantAfterInsp_Click(object sender, EventArgs e)
+        protected void ddlsendstatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
-                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-
-                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-
-                ObjApplicationStatus.IncentiveId = ((Label)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
-                ObjApplicationStatus.SubIncentiveId = ((Label)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
-                ObjApplicationStatus.QueryId = ((Label)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
-                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                ObjApplicationStatus.Remarks = ((TextBox)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("txtIPOQueryReplyInsp")).Text.ToString();
-                Button btnResponsetoIPOAfterInsp = (Button)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("btnResponsetoIPOAfterInsp");
-                Button btnFwdtoApplicantAfterInsp = (Button)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("btnFwdtoApplicantAfterInsp");
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnResponsetoIPOAfterInsp);
-                HyperLink hypconcernedCTo = new HyperLink();
-                hypconcernedCTo = ((HyperLink)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("hyGMRespFileInsp"));
-                if (ObjApplicationStatus.Remarks == "")
+                if (ddlsendstatus.SelectedValue == "Select")
                 {
-                    string info = "Please Enter Response";
-                    string message = "alert('" + info + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
+                    Div11.Visible = false;
+                    Div12.Visible = false;
+                    lblReturnto.Visible = false;
+                    Div13.Visible = false;
+                    Div14.Visible = false;
+                    Div15.Visible = false;
+                    Div16.Visible = false;
                 }
-                ObjApplicationStatus.TransType = "GMTOAPPINSP";
-                FileUpload fuGMReplyIPOQueryInsp = (FileUpload)gvGMActionIPOQueryAfterInsp.Rows[indexing].FindControl("fuGMReplyIPOQueryInsp");
-                if (fuGMReplyIPOQueryInsp.HasFile)
+                else if (ddlsendstatus.SelectedValue == "1")
                 {
-                    string Mimetype = objClsFileUpload.getmimetype(fuGMReplyIPOQueryInsp);
-                    if (Mimetype == "application/pdf")
-                    {
-                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMReplyIPOQueryInsp, hypconcernedCTo, ObjLoginNewvo.Role_Code + "Forward", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQueryAfterInsp");
-                        ObjApplicationStatus.QueryLetterID = OutPut;
-                    }
-                    else
-                    {
-                        string errormsg = "Only pdf files allowed !";
-                        string message = "alert('" + errormsg + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        return;
-                    }
-                }
+                    Div11.Visible = true;
+                    Div13.Visible = true;
+                    Div12.Visible = false;
+                    Div14.Visible = false;
+                    lblReturnto.Visible = false;
+                    Div15.Visible = false;
+                    Div16.Visible = false;
 
-                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
-                if (Convert.ToInt32(Status) > 0)
+                }
+                else if (ddlsendstatus.SelectedValue == "2")
                 {
-                    btnResponsetoIPOAfterInsp.Visible = false;
-                    btnFwdtoApplicantAfterInsp.Visible = false;
-                    hypconcernedCTo.Visible = true;
-                    BindGMHistory();
-                    string Successmsg = "";
-                    Successmsg = "Query Forwarded Successfully to Applicant";
-                    string message = "alert('" + Successmsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    Div14.Visible = true;
+                    Div11.Visible = true;
+                    Div12.Visible = false;
+                    lblReturnto.Visible = false;
+                    Div13.Visible = false;
+                    Div15.Visible = false;
+                    Div16.Visible = false;
                 }
-
+                else if (ddlsendstatus.SelectedValue == "3")
+                {
+                    Div15.Visible = true;
+                    Div11.Visible = true;
+                    Div12.Visible = false;
+                    lblReturnto.Visible = false;
+                    Div13.Visible = false;
+                    Div16.Visible = false;
+                    Div14.Visible = false;
+                }
+                else if (ddlsendstatus.SelectedValue == "4")
+                {
+                    Div16.Visible = true;
+                    Div11.Visible = true;
+                    Div12.Visible = false;
+                    lblReturnto.Visible = false;
+                    Div13.Visible = false;
+                    Div15.Visible = false;
+                    Div14.Visible = false;
+                }
+                else if (ddlsendstatus.SelectedValue == "5")
+                {
+                    Div12.Visible = true;
+                    lblReturnto.Visible = true;
+                    Div11.Visible = false;
+                    Div13.Visible = false;
+                    Div14.Visible = false;
+                    Div15.Visible = false;
+                    Div16.Visible = false;
+                }
             }
             catch (Exception ex)
             {
-                Errors.ErrorLog(ex);
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
-            }
-        }
-        public void BindApplicantResponses()
-        {
-            dss = GetQueriesById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
-            if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
-            {
-                grdQueries.DataSource = dss;
-                grdQueries.DataBind();
-                DivQueryDetails.Visible = true;
-                divQueries.Visible = true;
-            }
-            else
-            {
-                DivQueryDetails.Visible = false;
+                throw ex;
             }
         }
 
-        protected void btnForwardtoIPOAftrResp_Click(object sender, EventArgs e)
+        protected void GVDD_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
             {
-                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
-                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-
-                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-
-                ObjApplicationStatus.IncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
-                ObjApplicationStatus.SubIncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
-                ObjApplicationStatus.QueryId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
-                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                ObjApplicationStatus.Remarks = ((TextBox)gvFwdAppResptoIPO.Rows[indexing].FindControl("txtIPOQueryReplyInsp")).Text.ToString();
-                Button btnForwardtoIPOAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnForwardtoIPOAftrResp");
-                Button btnRaiseQueryAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnRaiseQueryAftrResp");
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnForwardtoIPOAftrResp);
-                HyperLink hypconcernedCTo = new HyperLink();
-                hypconcernedCTo = ((HyperLink)gvFwdAppResptoIPO.Rows[indexing].FindControl("hyGMRespFileInsp"));
-                if (ObjApplicationStatus.Remarks == "")
+                if (GVAD.Rows.Count > 0)
                 {
-                    string info = "Please Enter Remarks";
-                    string message = "alert('" + info + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
+                    ((DataTable)ViewState["ADLEVEL"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVAD.DataSource = ((DataTable)ViewState["ADLEVEL"]).DefaultView;
+                    this.GVAD.DataBind();
+                    GVAD.Visible = true;
+                    GVAD.Focus();
                 }
-                ObjApplicationStatus.TransType = "QRSPGMTOIPOBFR";
-                FileUpload fuGMFwdAppRespInsp = (FileUpload)gvFwdAppResptoIPO.Rows[indexing].FindControl("fuGMFwdAppRespInsp");
-                if (fuGMFwdAppRespInsp.HasFile)
+                else
                 {
-                    string Mimetype = objClsFileUpload.getmimetype(fuGMFwdAppRespInsp);
-                    if (Mimetype == "application/pdf")
-                    {
-                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMFwdAppRespInsp, hypconcernedCTo, ObjLoginNewvo.Role_Code + "ForwartoIPO", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQueryBeforeInsp");
-                        ObjApplicationStatus.QueryLetterID = OutPut;
-                    }
-                    else
-                    {
-                        string errormsg = "Only pdf files allowed !";
-                        string message = "alert('" + errormsg + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        return;
-                    }
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
                 }
-
-                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
-                if (Convert.ToInt32(Status) > 0)
-                {
-                    btnForwardtoIPOAftrResp.Visible = false;
-                    btnRaiseQueryAftrResp.Visible = false;
-                    hypconcernedCTo.Visible = true;
-                    BindGMHistory();
-                    string Successmsg = "";
-                    Successmsg = "Applicant Response Forwarded Successfully to IPO";
-                    string message = "alert('" + Successmsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                }
-
             }
             catch (Exception ex)
             {
-                Errors.ErrorLog(ex);
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                throw ex;
             }
         }
-        protected void btnRaiseQueryAftrResp_Click(object sender, EventArgs e)
+
+        protected void ddlStatused_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
-                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-
-                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
-
-                ObjApplicationStatus.IncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
-                ObjApplicationStatus.SubIncentiveId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
-                ObjApplicationStatus.QueryId = ((Label)gvFwdAppResptoIPO.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
-                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                ObjApplicationStatus.Remarks = ((TextBox)gvFwdAppResptoIPO.Rows[indexing].FindControl("txtIPOQueryReplyInsp")).Text.ToString();
-                Button btnForwardtoIPOAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnForwardtoIPOAftrResp");
-                Button btnRaiseQueryAftrResp = (Button)gvFwdAppResptoIPO.Rows[indexing].FindControl("btnRaiseQueryAftrResp");
-                ScriptManager.GetCurrent(this).RegisterPostBackControl(btnRaiseQueryAftrResp);
-                HyperLink hypconcernedCTo = new HyperLink();
-                hypconcernedCTo = ((HyperLink)gvFwdAppResptoIPO.Rows[indexing].FindControl("hyGMRespFileInsp"));
-                if (ObjApplicationStatus.Remarks == "")
+                if (ddlStatused.SelectedValue == "Select")
                 {
-                    string info = "Please Enter Remarks";
-                    string message = "alert('" + info + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
+                    Div17.Visible = false;
+                    Div18.Visible = false;
+                    Div19.Visible = false;
+                    Div20.Visible = false;
+                    Div21.Visible = false;
+                    Div22.Visible = false;
+                    lblReturned.Visible = false;
                 }
-                ObjApplicationStatus.TransType = "QRYAFTRRESP";
-                FileUpload fuGMFwdAppRespInsp = (FileUpload)gvFwdAppResptoIPO.Rows[indexing].FindControl("fuGMFwdAppRespInsp");
-                if (fuGMFwdAppRespInsp.HasFile)
+                else if (ddlStatused.SelectedValue == "1")
                 {
-                    string Mimetype = objClsFileUpload.getmimetype(fuGMFwdAppRespInsp);
-                    if (Mimetype == "application/pdf")
-                    {
-                        string Attachmentidnew = ObjApplicationStatus.IncentiveId + "020" + ObjApplicationStatus.SubIncentiveId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
-                        string OutPut = objClsFileUpload.IncentiveFileUploadingQuery("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuGMFwdAppRespInsp, hypconcernedCTo, ObjLoginNewvo.Role_Code + "ForwartoIPO", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, Attachmentidnew, Session["uid"].ToString(), ObjLoginNewvo.Role_Code, ObjApplicationStatus.QueryId, "IPOQueryBeforeInsp");
-                        ObjApplicationStatus.QueryLetterID = OutPut;
-                    }
-                    else
-                    {
-                        string errormsg = "Only pdf files allowed !";
-                        string message = "alert('" + errormsg + "')";
-                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        return;
-                    }
+                    Div17.Visible = true;
+                    Div18.Visible = false;
+                    Div19.Visible = true;
+                    Div20.Visible = false;
+                    Div21.Visible = false;
+                    Div22.Visible = false;
+                    lblReturned.Visible = false;
                 }
-
-                string Status = ObjCAFClass.UpdateGMResponseIPOBeforeInsp(ObjApplicationStatus);
-                if (Convert.ToInt32(Status) > 0)
+                else if (ddlStatused.SelectedValue == "2")
                 {
-                    btnForwardtoIPOAftrResp.Visible = false;
-                    btnRaiseQueryAftrResp.Visible = false;
-                    hypconcernedCTo.Visible = true;
-                    BindGMHistory();
-                    string Successmsg = "";
-                    Successmsg = "Query Raised Successfully";
-                    string message = "alert('" + Successmsg + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    Div17.Visible = true;
+                    Div18.Visible = false;
+                    Div19.Visible = false;
+                    Div20.Visible = true;
+                    Div21.Visible = false;
+                    Div22.Visible = false;
+                    lblReturned.Visible = false;
                 }
-
+                else if (ddlStatused.SelectedValue == "3")
+                {
+                    Div17.Visible = true;
+                    Div18.Visible = false;
+                    Div19.Visible = false;
+                    Div20.Visible = false;
+                    Div21.Visible = true;
+                    Div22.Visible = false;
+                    lblReturned.Visible = false;
+                }
+                else if (ddlStatused.SelectedValue == "4")
+                {
+                    Div17.Visible = true;
+                    Div18.Visible = false;
+                    Div19.Visible = false;
+                    Div20.Visible = false;
+                    Div21.Visible = false;
+                    Div22.Visible = true;
+                    lblReturned.Visible = false;
+                }
+                else if (ddlStatused.SelectedValue == "5")
+                {
+                    Div17.Visible = false;
+                    Div18.Visible = true;
+                    lblReturned.Visible = true;
+                    Div19.Visible = false;
+                    Div20.Visible = false;
+                    Div21.Visible = false;
+                    Div22.Visible = false;
+                }
             }
             catch (Exception ex)
             {
-                Errors.ErrorLog(ex);
-                lblmsg0.Text = ex.Message;
-                Failure.Visible = true;
-                success.Visible = false;
-                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                throw ex;
             }
         }
 
+        protected void btnAdded_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(ddlDDIncentive.SelectedItem.Text) ||
+                    string.IsNullOrEmpty(ddlStatused.SelectedItem.Text))
+                {
+                    lblmsg0.Text = "Please Enter All Details of DD Level";
+                    Failure.Visible = true;
+                }
+                else
+                {
+                    DataTable dt = new DataTable();
+
+                    if (ViewState["DDLEVEL"] == null)
+                    {
+                        //dt.Columns.Add("Incentive", typeof(string));
+                        //dt.Columns.Add("Status", typeof(string));
+                        //dt.Columns.Add("Status2", typeof(string));
+                        //dt.Columns.Add("Forward", typeof(string));
+                        //// dt.Columns.Add("Clerk", typeof(string));
+                        //dt.Columns.Add("Shape", typeof(string));
+                        //dt.Columns.Add("Query", typeof(string));
+                        //dt.Columns.Add("Inspection", typeof(string));
+                        //dt.Columns.Add("Remarks", typeof(string));
+
+                        dt.Columns.Add("SubIncentiveID", typeof(string));
+                        dt.Columns.Add("IncentiveName", typeof(string));
+                        dt.Columns.Add("IncentiveId", typeof(string));
+                        dt.Columns.Add("StatusName", typeof(string));
+                        dt.Columns.Add("StatusId", typeof(string));
+                        dt.Columns.Add("DD_Forwardto", typeof(string));
+                        dt.Columns.Add("Recommendation", typeof(string));
+                        dt.Columns.Add("Query", typeof(string));
+                        dt.Columns.Add("Inspection", typeof(string));
+                        dt.Columns.Add("Abeyance", typeof(string));
+                        dt.Columns.Add("ReturnRemark", typeof(string));
+
+                    }
+                    else
+                    {
+                        dt = (DataTable)ViewState["DDLEVEL"];
+                    }
+
+                    DataRow dr = dt.NewRow();
+                    //dr["Incentive"] = ddlDDIncentive.SelectedItem.Text;
+                    //dr["Status"] = ddlStatused.SelectedItem.Text;
+                    //dr["Status2"] = ddlStatused.SelectedValue;
+                    //dr["Forward"] = ddlSendedto.SelectedValue;
+
+                    dr["SubIncentiveID"] = ddlDDIncentive.SelectedValue;
+                    dr["IncentiveName"] = ddlDDIncentive.SelectedItem.Text;
+                    dr["IncentiveId"] = ViewState["IncentiveId"];
+                    dr["StatusName"] = ddlStatused.SelectedItem.Text;
+                    dr["StatusId"] = ddlStatused.SelectedValue;
+                    if (ddlStatused.SelectedValue == "5")
+                    {
+                        dr["DD_Forwardto"] = ddlReturnto.SelectedValue;
+                    }
+                    else { dr["DD_Forwardto"] = ddlSendedto.SelectedValue; }
+
+
+
+                    switch (ddlStatused.SelectedValue)
+                    {
+
+                        case "1":
+                            dr["Recommendation"] = txtAmountRe.Text;
+                            break;
+                        case "2":
+                            dr["Query"] = txtdescQuery1.Text;
+                            break;
+                        case "3":
+                            dr["Inspection"] = txtIncepctioned.Text;
+                            break;
+                        case "4":
+                            dr["Abeyance"] = txtAbeyanceRemar.Text;
+                            break;
+                        case "5":
+                            dr["ReturnRemark"] = txtRetrned.Text;
+                            break;
+
+                    }
+
+                    dt.Rows.Add(dr);
+                    GVDD.Visible = true;
+                    GVDD.DataSource = dt;
+                    GVDD.DataBind();
+
+
+                    ViewState["DDLEVEL"] = dt;
+
+                    DDLEVEL.Visible = true;
+
+                    ddlDDIncentive.ClearSelection();
+                    ddlStatused.ClearSelection();
+                    txtAmountRe.Text = string.Empty;
+                    txtdescQuery1.Text= string.Empty;
+                    txtIncepctioned.Text= string.Empty;
+                    txtAbeyanceRemar.Text= string.Empty;
+                    txtRetrned.Text= string.Empty;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void GVDD_RowDeleting1(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (GVDD.Rows.Count > 0)
+                {
+                    ((DataTable)ViewState["DDLEVEL"]).Rows.RemoveAt(e.RowIndex);
+                    this.GVDD.DataSource = ((DataTable)ViewState["DDLEVEL"]).DefaultView;
+                    this.GVDD.DataBind();
+                    GVDD.Visible = true;
+                    GVDD.Focus();
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnClerklevel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+                DLOApplication DLODetails = new DLOApplication();
+
+                for (int i = 0; i < GVDLO.Rows.Count; i++)
+                {
+                    Label lblstatus = (Label)GVDLO.Rows[i].FindControl("lblstatus");
+                    Label lblSubIncID = (Label)GVDLO.Rows[i].FindControl("lblSubIncID");
+                    Label lblRecommand = (Label)GVDLO.Rows[i].FindControl("lblRecommand");
+                    Label lblQuery = (Label)GVDLO.Rows[i].FindControl("lblQuery");
+                    Label lblSSCInspection = (Label)GVDLO.Rows[i].FindControl("lblSSCInspection");
+                    Label lblAbeyance = (Label)GVDLO.Rows[i].FindControl("lblAbeyance");
+
+                    DLODetails.INCENTIVEID = ViewState["IncentiveId"].ToString();
+                    DLODetails.SUBINCENTIVEID = lblSubIncID.Text;
+                    DLODetails.ACTIONID = lblstatus.Text;
+                    DLODetails.RECOMMENDEAMOUNT = lblRecommand.Text;
+                    DLODetails.QUERY_REMARKS = lblQuery.Text;
+                    DLODetails.SSCINSP_REMARKS = lblSSCInspection.Text;
+                    DLODetails.ABEYANCE_REMARKS = lblAbeyance.Text;
+                    DLODetails.FORWARDTO = GVDLO.Rows[i].Cells[5].Text;
+                    DLODetails.CREATEDBY = ObjLoginNewvo.uid;
+
+
+                    string result = ObjCAFClass.InsertClerkDetails(DLODetails);
+
+                    if (result == "1")
+                    {
+                        lblmsg.Text = "Application Process Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        ClerkProcess.Visible = true;
+                        BindCoiProcess();
+                    }
+                    else { Failure.Visible = false; }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnSUPDTLevl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+                DLOApplication DLODetails = new DLOApplication();
+
+                for (int i = 0; i < GVSUPDT.Rows.Count; i++)
+                {
+                    Label lblstatus = (Label)GVSUPDT.Rows[i].FindControl("lblstatus");
+                    Label lblSubIncID = (Label)GVSUPDT.Rows[i].FindControl("lblSubIncID");
+                    Label lblRecommand = (Label)GVSUPDT.Rows[i].FindControl("lblRecommand");
+                    Label lblQuery = (Label)GVSUPDT.Rows[i].FindControl("lblQuery");
+                    Label lblSSCInspection = (Label)GVSUPDT.Rows[i].FindControl("lblSSCInspection");
+                    Label lblAbeyance = (Label)GVSUPDT.Rows[i].FindControl("lblAbeyance");
+                    Label lblSend = (Label)GVSUPDT.Rows[i].FindControl("lblSend");
+                    Label lblReturn = (Label)GVSUPDT.Rows[i].FindControl("lblReturn");
+
+                    DLODetails.INCENTIVEID = ViewState["IncentiveId"].ToString();
+                    DLODetails.SUBINCENTIVEID = lblSubIncID.Text;
+                    DLODetails.ACTIONID = lblstatus.Text;
+                    DLODetails.RECOMMENDEAMOUNT = lblRecommand.Text;
+                    DLODetails.QUERY_REMARKS = lblQuery.Text;
+                    DLODetails.SSCINSP_REMARKS = lblSSCInspection.Text;
+                    DLODetails.ABEYANCE_REMARKS = lblAbeyance.Text;
+                    DLODetails.FORWARDTO = lblSend.Text;
+                    DLODetails.RETURN_REMARKS = lblReturn.Text;
+                    DLODetails.CREATEDBY = ObjLoginNewvo.uid;
+
+                    string result = ObjCAFClass.InsertSUPDTLevel(DLODetails);
+
+                    if (result == "1")
+                    {
+                        //success.Visible = true;
+                        //lblmsg.Text = " Details Submitted Successfully";
+                        success.Visible = true;
+                        lblmsg.Text = "Application Process Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        divSupdtlevel.Visible = false;
+                        BindCoiProcess();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public void BindCoiProcess()
         {
             try
@@ -3868,34 +4083,27 @@ namespace TTAP.UI
                 {
                     if (dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
                     {
-                        /*  if (dss.Tables[0].Rows[0]["CLERK_Process_CompleteFlg"] == null && ObjLoginNewvo.Role_Code == "COI-CLERK")
-                          {
-                              divClerklevel.Visible = true;
-                          }
-                          else if (dss.Tables[0].Rows[0]["SUPDT_Process_CompleteFlg"] == null && ObjLoginNewvo.Role_Code == "COI-SUPDT")
-                          {
-                              divSupdtlevel.Visible = true;
-                          }
-                          else if (dss.Tables[0].Rows[0]["AD_Process_CompleteFlg"] == null && ObjLoginNewvo.Role_Code == "COI-AD")
-                          {
-                              divADlevel.Visible = true;
-                          }
-                          else if (dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null && ObjLoginNewvo.Role_Code == "COI-DD")
-                          {
-                              divDDlevel.Visible = true;
-                          } */
-                        // string[] validStageIds = { "61", "64", "67", "70" };
-                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "61" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "64" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "67" ||
-                            dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "70"))
+                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "26" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[0]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
                         {
-                            // divJDVerificationOfapplication.Visible = true;
-                           // TSIPASS.Visible = true;
+                            divClerklevel.Visible = true;                            
                         }
-                        else
+                        else { divClerklevel.Visible = false; }
+                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "58" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "69" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "72" || dss.Tables[0].Rows[0]["SUPDT_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-SUPDT")
                         {
+                            divSupdtlevel.Visible = true;                           
+                        }
+                        else { divSupdtlevel.Visible = false; }
+                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "59"|| dss.Tables[0].Rows[0]["AD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-AD")
+                        {
+                            divADlevel.Visible = true;                           
+                        }
+                        else { divADlevel.Visible = false; }
 
+                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "60"||dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "74"|| dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-DD")
+                        {
+                            divDDlevel.Visible = true;                            
                         }
-                       // else { TSIPASS.Visible = false; }//divJDVerificationOfapplication.Visible = false; }
+                        else { divDDlevel.Visible = false; }
 
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[1].Rows.Count > 0)
@@ -3904,6 +4112,7 @@ namespace TTAP.UI
                         GVRemark.DataBind();
                         ClerkProcess.Visible = true;
                         Rmarkes1.Visible = true;
+                       // divClerklevel.Visible = false;
 
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[2].Rows.Count > 0)
@@ -3912,6 +4121,7 @@ namespace TTAP.UI
                         GVSUPDTPROC.DataBind();
                         SUPDTPROCDET.Visible = true;
                         SupdtDetailsProc.Visible = true;
+                       // divSupdtlevel.Visible = false;
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[3].Rows.Count > 0)
                     {
@@ -3919,6 +4129,7 @@ namespace TTAP.UI
                         GVADPROC.DataBind();
                         ADPROCESSED.Visible = true;
                         ADPROCESS.Visible = true;
+                       // divADlevel.Visible = false;
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[4].Rows.Count > 0)
                     {
@@ -3926,7 +4137,7 @@ namespace TTAP.UI
                         GVDDPROC.DataBind();
                         DDPROCESSEDDET.Visible = true;
                         DDProcessed.Visible = true;
-
+                      //  divDDlevel.Visible = false;
                     }
 
                 }
@@ -3951,7 +4162,108 @@ namespace TTAP.UI
             Dsnew = caf.GenericFillDs("USP_GETCOIOFFICERS_PROCESS", pp);
             return Dsnew;
         }
-    }
 
-     
+        protected void btnAd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+                DLOApplication DLODetails = new DLOApplication();
+
+                for (int i = 0; i < GVAD.Rows.Count; i++)
+                {
+                    Label lblstatus = (Label)GVAD.Rows[i].FindControl("lblstatus");
+                    Label lblSubIncID = (Label)GVAD.Rows[i].FindControl("lblSubIncID");
+                    Label lblRecommand = (Label)GVAD.Rows[i].FindControl("lblRecommand");
+                    Label lblQuery = (Label)GVAD.Rows[i].FindControl("lblQuery");
+                    Label lblSSCInspection = (Label)GVAD.Rows[i].FindControl("lblSSCInspection");
+                    Label lblAbeyance = (Label)GVAD.Rows[i].FindControl("lblAbeyance");
+                    Label lblSend = (Label)GVAD.Rows[i].FindControl("lblSend");
+                    Label lblReturn = (Label)GVAD.Rows[i].FindControl("lblReturn");
+
+                    DLODetails.INCENTIVEID = ViewState["IncentiveId"].ToString();
+                    DLODetails.SUBINCENTIVEID = lblSubIncID.Text;
+                    DLODetails.ACTIONID = lblstatus.Text;
+                    DLODetails.RECOMMENDEAMOUNT = lblRecommand.Text;
+                    DLODetails.QUERY_REMARKS = lblQuery.Text;
+                    DLODetails.SSCINSP_REMARKS = lblSSCInspection.Text;
+                    DLODetails.ABEYANCE_REMARKS = lblAbeyance.Text;
+                    DLODetails.FORWARDTO = lblSend.Text;
+                    DLODetails.RETURN_REMARKS = lblReturn.Text;
+                    DLODetails.CREATEDBY = ObjLoginNewvo.uid;
+
+                    string result = ObjCAFClass.InsertADLevel(DLODetails);
+
+                    if (result == "1")
+                    {
+                        //success.Visible = true;
+                        //lblmsg.Text = " Details Submitted Successfully";
+                        success.Visible = true;
+                        lblmsg.Text = "Application Process Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        divADlevel.Visible = false;
+                        BindCoiProcess();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnDDlevel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+                DLOApplication DLODetails = new DLOApplication();
+
+                for (int i = 0; i < GVDD.Rows.Count; i++)
+                {
+                    Label lblstatus = (Label)GVDD.Rows[i].FindControl("lblstatus");
+                    Label lblSubIncID = (Label)GVDD.Rows[i].FindControl("lblSubIncID");
+                    Label lblRecommand = (Label)GVDD.Rows[i].FindControl("lblRecommand");
+                    Label lblQuery = (Label)GVDD.Rows[i].FindControl("lblQuery");
+                    Label lblSSCInspection = (Label)GVDD.Rows[i].FindControl("lblSSCInspection");
+                    Label lblAbeyance = (Label)GVDD.Rows[i].FindControl("lblAbeyance");
+                    Label lblSend = (Label)GVDD.Rows[i].FindControl("lblSend");
+                    Label lblReturn = (Label)GVDD.Rows[i].FindControl("lblReturn");
+
+                    DLODetails.INCENTIVEID = ViewState["IncentiveId"].ToString();
+                    DLODetails.SUBINCENTIVEID = lblSubIncID.Text;
+                    DLODetails.ACTIONID = lblstatus.Text;
+                    DLODetails.RECOMMENDEAMOUNT = lblRecommand.Text;
+                    DLODetails.QUERY_REMARKS = lblQuery.Text;
+                    DLODetails.SSCINSP_REMARKS = lblSSCInspection.Text;
+                    DLODetails.ABEYANCE_REMARKS = lblAbeyance.Text;
+                    DLODetails.FORWARDTO = lblSend.Text;
+                    DLODetails.RETURN_REMARKS = lblReturn.Text;
+                    DLODetails.CREATEDBY = ObjLoginNewvo.uid;
+
+                    string result = ObjCAFClass.InsertDDLevel(DLODetails);
+
+                    if (result == "1")
+                    {
+                        //success.Visible = true;
+                        //lblmsg.Text = " Details Submitted Successfully";
+                        success.Visible = true;
+                        lblmsg.Text = "Application Process Submitted Successfully";
+                        string message = "alert('" + lblmsg.Text + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                        divDDlevel.Visible = false;
+                        BindCoiProcess();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
 }

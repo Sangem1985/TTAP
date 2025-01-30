@@ -5728,5 +5728,245 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
+
+        public string InsertClerkDetails(DLOApplication DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_UPDATECLERKACTION";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@SUBINCENTIVEID", DLODetails.SUBINCENTIVEID);
+                com.Parameters.AddWithValue("@ACTIONID", DLODetails.ACTIONID);
+                com.Parameters.AddWithValue("@RECOMMENDEAMOUNT", DLODetails.RECOMMENDEAMOUNT);
+                com.Parameters.AddWithValue("@QUERY_REMARKS", DLODetails.QUERY_REMARKS);
+                com.Parameters.AddWithValue("@SSCINSP_REMARKS", DLODetails.SSCINSP_REMARKS);
+                com.Parameters.AddWithValue("@ABEYANCE_REMARKS", DLODetails.ABEYANCE_REMARKS);
+                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.FORWARDTO);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertSUPDTLevel(DLOApplication DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_UPDATESUPDTACTION";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@SUBINCENTIVEID", DLODetails.SUBINCENTIVEID);
+                com.Parameters.AddWithValue("@ACTIONID", DLODetails.ACTIONID);
+                com.Parameters.AddWithValue("@RECOMMENDEAMOUNT", DLODetails.RECOMMENDEAMOUNT);
+                com.Parameters.AddWithValue("@QUERY_REMARKS", DLODetails.QUERY_REMARKS);
+                com.Parameters.AddWithValue("@SSCINSP_REMARKS", DLODetails.SSCINSP_REMARKS);
+                com.Parameters.AddWithValue("@ABEYANCE_REMARKS", DLODetails.ABEYANCE_REMARKS);
+                com.Parameters.AddWithValue("@RETURN_REMARKS", DLODetails.RETURN_REMARKS);
+                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.FORWARDTO);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertADLevel(DLOApplication DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_UPDATEADACTION";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@SUBINCENTIVEID", DLODetails.SUBINCENTIVEID);
+                com.Parameters.AddWithValue("@ACTIONID", DLODetails.ACTIONID);
+                com.Parameters.AddWithValue("@RECOMMENDEAMOUNT", DLODetails.RECOMMENDEAMOUNT);
+                com.Parameters.AddWithValue("@QUERY_REMARKS", DLODetails.QUERY_REMARKS);
+                com.Parameters.AddWithValue("@SSCINSP_REMARKS", DLODetails.SSCINSP_REMARKS);
+                com.Parameters.AddWithValue("@ABEYANCE_REMARKS", DLODetails.ABEYANCE_REMARKS);
+                com.Parameters.AddWithValue("@RETURN_REMARKS", DLODetails.RETURN_REMARKS);
+                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.FORWARDTO);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertDDLevel(DLOApplication DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_UPDATEDDACTION";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@SUBINCENTIVEID", DLODetails.SUBINCENTIVEID);
+                com.Parameters.AddWithValue("@ACTIONID", DLODetails.ACTIONID);
+                com.Parameters.AddWithValue("@RECOMMENDEAMOUNT", DLODetails.RECOMMENDEAMOUNT);
+                com.Parameters.AddWithValue("@QUERY_REMARKS", DLODetails.QUERY_REMARKS);
+                com.Parameters.AddWithValue("@SSCINSP_REMARKS", DLODetails.SSCINSP_REMARKS);
+                com.Parameters.AddWithValue("@ABEYANCE_REMARKS", DLODetails.ABEYANCE_REMARKS);
+                com.Parameters.AddWithValue("@RETURN_REMARKS", DLODetails.RETURN_REMARKS);
+                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.FORWARDTO);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertJDLevel(DLOApplication DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_UPDATEJDACTION";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@SUBINCENTIVEID", DLODetails.SUBINCENTIVEID);
+                com.Parameters.AddWithValue("@ACTIONID", DLODetails.ACTIONID);
+                com.Parameters.AddWithValue("@RECOMMENDEAMOUNT", DLODetails.RECOMMENDEAMOUNT);
+                com.Parameters.AddWithValue("@QUERY_REMARKS", DLODetails.QUERY_REMARKS);
+                com.Parameters.AddWithValue("@SSCINSP_REMARKS", DLODetails.SSCINSP_REMARKS);
+                com.Parameters.AddWithValue("@ABEYANCE_REMARKS", DLODetails.ABEYANCE_REMARKS);
+                com.Parameters.AddWithValue("@RETURN_REMARKS", DLODetails.RETURN_REMARKS);
+                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.FORWARDTO);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

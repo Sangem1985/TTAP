@@ -2785,4 +2785,18 @@ namespace TTAP.Classfiles
         public string TransType { get; set; }
         public string Created_by { get; set; }
     }
+    public class DLOApplication
+    {
+        public string INCENTIVEID { get; set; }
+        public string SUBINCENTIVEID { get; set; }
+        public string ACTIONID { get; set; }
+        public string RECOMMENDEAMOUNT { get; set; }
+        public string QUERY_REMARKS { get; set; }
+        public string SSCINSP_REMARKS { get; set; }
+        public string ABEYANCE_REMARKS { get; set; }
+        public string FORWARDTO { get; set; }
+        public string RETURN_REMARKS { get; set; }
+        public string CREATEDBY { get; set; }
+
+    }
 }
