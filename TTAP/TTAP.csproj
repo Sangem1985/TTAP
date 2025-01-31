@@ -612,6 +612,7 @@
     <Content Include="UI\Pages\frmUserDownloads.aspx" />
     <Content Include="UI\Pages\frmUserPaymentDetails.aspx" />
     <Content Include="UI\Pages\frmViewAttachemnts.aspx" />
+    <Content Include="UI\Pages\HeadOfficeInspectionReport.aspx" />
     <Content Include="UI\Pages\Helpdesk\ApplicantDashBaord.aspx" />
     <Content Include="UI\Pages\Helpdesk\fmUserHdView.aspx" />
     <Content Include="UI\Pages\Helpdesk\frmDashBoard.aspx" />
@@ -1687,6 +1688,13 @@
     </Compile>
     <Compile Include="UI\Pages\frmViewAttachemnts.aspx.designer.cs">
       <DependentUpon>frmViewAttachemnts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\HeadOfficeInspectionReport.aspx.cs">
+      <DependentUpon>HeadOfficeInspectionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\HeadOfficeInspectionReport.aspx.designer.cs">
+      <DependentUpon>HeadOfficeInspectionReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\Helpdesk\ApplicantDashBaord.aspx.cs">
       <DependentUpon>ApplicantDashBaord.aspx</DependentUpon>
