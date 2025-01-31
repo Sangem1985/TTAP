@@ -3320,6 +3320,13 @@ namespace TTAP.UI
                     gvGMForwardtoAppAfterInsp.DataBind();
                     divGMForwardtoAppAfterInsp.Visible = true;
                 }
+                if (dss.Tables[7].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMToCOIHis.DataSource = dss.Tables[7];
+                    gvGMToCOIHis.DataBind();
+                    divGMToCOIHis.Visible = true;
+                }
             }
         }
         public void BindIPOHistory()
@@ -3347,6 +3354,13 @@ namespace TTAP.UI
                     gvFwdAppResptoIPO.DataSource = dss.Tables[0];
                     gvFwdAppResptoIPO.DataBind();
                     divForwardApplicantResponsetoIPO.Visible = true;
+                }
+                if (dss.Tables[1].Rows.Count > 0)
+                {
+                    divGMVerification.Visible = true;
+                    gvdivGMRecommendCOI.DataSource = dss.Tables[1];
+                    gvdivGMRecommendCOI.DataBind();
+                    divGMRecommendCOI.Visible = true;
                 }
             }
         }
@@ -3950,6 +3964,65 @@ namespace TTAP.UI
             pp[0].Value = IncentiveId;
             Dsnew = caf.GenericFillDs("USP_GETCOIOFFICERS_PROCESS", pp);
             return Dsnew;
+        }
+
+        protected void btnGMCOIUpload_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnSubmitGMtoCOI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+
+                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
+
+                string ActionType = ((DropDownList)gvdivGMRecommendCOI.Rows[indexing].FindControl("ddlActionType")).SelectedValue.ToString();
+
+                ObjApplicationStatus.IncentiveId = ((Label)gvdivGMRecommendCOI.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
+                ObjApplicationStatus.SubIncentiveId = ((Label)gvdivGMRecommendCOI.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
+                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
+                ObjApplicationStatus.Remarks = ((TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMRemarksCOI")).Text.ToString();
+                ObjApplicationStatus.GMRecommendedAmount= ((TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMAmount")).Text.ToString();
+                ObjApplicationStatus.TransType = ActionType;
+
+                HyperLink hypconcernedCTo = new HyperLink();
+                hypconcernedCTo = ((HyperLink)gvdivGMRecommendCOI.Rows[indexing].FindControl("hyGMRecFile"));
+
+                string Status = ObjCAFClass.UpdateGMRecommendationtoCoi(ObjApplicationStatus);
+                if (Convert.ToInt32(Status) > 0)
+                {   
+                    string Successmsg = "";
+                    divGMVerification.Visible = false;
+                    if (ActionType == "1") { Successmsg = "Query Raised Successfully"; }
+                    if (ActionType == "2") { Successmsg = "Application Recommend to COI"; }
+                    if (ActionType == "3") { Successmsg = "Application Rejected"; }
+                    if (ActionType == "4") { Successmsg = "Application Rolled back to IO"; }
+                    string message = "alert('" + Successmsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    BindGMHistory();
+
+                }
+                else 
+                {
+                    string msg = "Action Failed";
+                    string message = "alert('" + msg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Errors.ErrorLog(ex);
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                success.Visible = false;
+                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+            }
         }
     }
 

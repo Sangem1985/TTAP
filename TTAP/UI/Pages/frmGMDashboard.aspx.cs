@@ -47,9 +47,9 @@ namespace TTAP.UI.Pages
                             lblIPOQueryFwdtoApp.Text = dss.Tables[0].Rows[0]["IPOQueryForwardtoApplicant"].ToString();
                             lblAppResptoIPOQry.Text = dss.Tables[0].Rows[0]["ApplicantResponsetoIPOQuery"].ToString();
 
-                            lblPendingDIPCWithin.Text = dss.Tables[0].Rows[0]["PendingDIPCWithin"].ToString();
-                            lblPendingDIPCBeyond.Text = dss.Tables[0].Rows[0]["PendingDIPCBeyond"].ToString();
-                            lblDIPCTotal.Text = dss.Tables[0].Rows[0]["ToatlDIPC"].ToString();
+                            //lblPendingDIPCWithin.Text = dss.Tables[0].Rows[0]["PendingDIPCWithin"].ToString();
+                            //lblPendingDIPCBeyond.Text = dss.Tables[0].Rows[0]["PendingDIPCBeyond"].ToString();
+                            //lblDIPCTotal.Text = dss.Tables[0].Rows[0]["ToatlDIPC"].ToString();
 
                         }
                     }

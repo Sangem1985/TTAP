@@ -5968,5 +5968,49 @@ namespace TTAP.Classfiles
             }
             return Result;
         }
+        public string UpdateGMRecommendationtoCoi(ApplicationStatus objApplicationStatus)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "[USP_UPD_GM_VERIFICATION_AFTER_INSP]";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@IncentiveID", objApplicationStatus.IncentiveId);
+                com.Parameters.AddWithValue("@SubIncentiveId", objApplicationStatus.SubIncentiveId);
+                com.Parameters.AddWithValue("@GMAmount", objApplicationStatus.GMRecommendedAmount);
+                com.Parameters.AddWithValue("@Remarks", objApplicationStatus.Remarks);
+                com.Parameters.AddWithValue("@CreatedBy", objApplicationStatus.CreatedBy);
+                com.Parameters.AddWithValue("@AttachmentId", objApplicationStatus.QueryLetterID);
+                com.Parameters.AddWithValue("@Flag", objApplicationStatus.TransType);
+                com.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
+                com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@Valid"].Value.ToString();
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
     }
 }

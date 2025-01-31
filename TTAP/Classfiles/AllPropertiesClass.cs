@@ -2331,6 +2331,7 @@ namespace TTAP.Classfiles
         public string OfficerId { get; set; }
         public string Status { get; set; }
         public string QueryReason { get; set; }
+        public string GMRecommendedAmount { get; set; }
 
     }
 

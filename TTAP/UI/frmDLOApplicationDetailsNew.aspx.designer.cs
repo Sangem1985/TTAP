@@ -915,6 +915,33 @@ namespace TTAP.UI
         protected global::System.Web.UI.WebControls.GridView gvFwdAppResptoIPO;
 
         /// <summary>
+        /// divGMRecommendCOI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMRecommendCOI;
+
+        /// <summary>
+        /// div9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div9;
+
+        /// <summary>
+        /// gvdivGMRecommendCOI control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvdivGMRecommendCOI;
+
+        /// <summary>
         /// divGMHistory control.
         /// </summary>
         /// <remarks>
@@ -1048,6 +1075,24 @@ namespace TTAP.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvGMForwardtoAppAfterInsp;
+
+        /// <summary>
+        /// divGMToCOIHis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMToCOIHis;
+
+        /// <summary>
+        /// gvGMToCOIHis control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvGMToCOIHis;
 
         /// <summary>
         /// divQueries control.
