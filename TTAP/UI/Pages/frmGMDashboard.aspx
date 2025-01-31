@@ -320,19 +320,19 @@
                                         <a id="revisedpending" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=30">
                                             <span><i class="fa fa-fw fa-calendar"></i>Within 3 Days</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblReInspectionPending" runat="server"></asp:Label>
+                                                <asp:Label ID="lblPendingDIPCWithin" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=30">
                                             <span><i class="fa fa-fw fa-calendar"></i>Beyond 3 Days</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label8" runat="server"></asp:Label>
+                                                <asp:Label ID="lblPendingDIPCBeyond" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                          <a  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=30">
                                             <span><i class="fa fa-fw fa-calendar"></i>Rejected Applications</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label9" runat="server"></asp:Label>
+                                                <asp:Label ID="lblDIPCTotal" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>

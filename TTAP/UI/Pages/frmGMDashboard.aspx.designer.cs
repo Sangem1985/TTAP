@@ -429,31 +429,31 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
 
         /// <summary>
-        /// lblReInspectionPending control.
+        /// lblPendingDIPCWithin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblReInspectionPending;
+        protected global::System.Web.UI.WebControls.Label lblPendingDIPCWithin;
 
         /// <summary>
-        /// Label8 control.
+        /// lblPendingDIPCBeyond control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.Label lblPendingDIPCBeyond;
 
         /// <summary>
-        /// Label9 control.
+        /// lblDIPCTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label9;
+        protected global::System.Web.UI.WebControls.Label lblDIPCTotal;
 
         /// <summary>
         /// lblReInspectionCompleted control.
