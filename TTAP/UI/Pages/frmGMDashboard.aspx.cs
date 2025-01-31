@@ -37,19 +37,67 @@ namespace TTAP.UI.Pages
                         {
                             lblAppl.Text = dss.Tables[0].Rows[0]["NoofapplicationsRcvd"].ToString();
                             lblYetotoAssignWithin.Text = dss.Tables[0].Rows[0]["YetToAssignWithIn"].ToString();
-                            lblAssignedWithIn.Text = dss.Tables[0].Rows[0]["AssignedWithIn"].ToString();
-                            lblTotalQueryWithIn.Text = dss.Tables[0].Rows[0]["GMQueryRaisedBeforeAssignWitnin"].ToString();
-                            lblRepliedQueryWithIn.Text = dss.Tables[0].Rows[0]["GMQueryResponded"].ToString();
-                            lblOpenQuery.Text = dss.Tables[0].Rows[0]["GMAwaitingResponse"].ToString();
-                            lblRejectedByGM.Text = dss.Tables[0].Rows[0]["GMRejectedBeforeAssign"].ToString();
+                            lblYetotoAssignBeyond.Text = dss.Tables[0].Rows[0]["YetToAssignBeyond"].ToString();
+                            lblYetotoAssignTotal.Text = dss.Tables[0].Rows[0]["YetToAssignTotal"].ToString();
 
+                            lblGMQueryWithIn.Text = dss.Tables[0].Rows[0]["GMQueryRaisedBeforeAssignWitnin"].ToString();
+                            lblGMQueryBeyond.Text = dss.Tables[0].Rows[0]["GMQueryRaisedBeforeAssignBeyond"].ToString();
+                            lblGMQueryTotal.Text = dss.Tables[0].Rows[0]["GMQueryRaisedBeforeAssignTotal"].ToString();
+                            lblRepliedtoGMQuery.Text = dss.Tables[0].Rows[0]["GMQueryResponded"].ToString();
+                            lblNotRepliedtoGMQuery.Text = dss.Tables[0].Rows[0]["GMAwaitingResponse"].ToString();
+                            //-----------------------------------------------------------------------------------------//
+                            lblAssignedWithIn.Text = dss.Tables[0].Rows[0]["AssignedWithIn"].ToString();
+                            lblAssignedBeyond.Text = dss.Tables[0].Rows[0]["AssignedBeyond"].ToString();
+                            lblAssignedTotal.Text = dss.Tables[0].Rows[0]["AssignedTotal"].ToString();
+
+                            lblAutoRejectedatGM.Text = dss.Tables[0].Rows[0]["AutoRejected_GMQueryBased"].ToString();
+                            lblRejectedByGM.Text = dss.Tables[0].Rows[0]["GMRejectedBeforeAssign"].ToString();
+                            lblTotalRejectedatGM.Text = dss.Tables[0].Rows[0]["TotalRejectedatGM"].ToString();
+                            //-----------------------------------------------------------------------------------------//
                             lblIPOQueries.Text = dss.Tables[0].Rows[0]["IPOQueriesRaised"].ToString();
                             lblIPOQueryFwdtoApp.Text = dss.Tables[0].Rows[0]["IPOQueryForwardtoApplicant"].ToString();
                             lblAppResptoIPOQry.Text = dss.Tables[0].Rows[0]["ApplicantResponsetoIPOQuery"].ToString();
 
-                            //lblPendingDIPCWithin.Text = dss.Tables[0].Rows[0]["PendingDIPCWithin"].ToString();
-                            //lblPendingDIPCBeyond.Text = dss.Tables[0].Rows[0]["PendingDIPCBeyond"].ToString();
-                            //lblDIPCTotal.Text = dss.Tables[0].Rows[0]["ToatlDIPC"].ToString();
+                            lblCOIQueriesTotalRaised.Text = dss.Tables[0].Rows[0]["COIQueriesTotalRaised"].ToString();
+                            lblCOIQueriesYettoRespondByApplicant.Text = dss.Tables[0].Rows[0]["COIQueriesYettoRespondByApplicant"].ToString();
+                            lblCOIQueriesYettoRespondByGM.Text = dss.Tables[0].Rows[0]["COIQueriesYettoRespondByGM"].ToString();
+                            lblCOIQueriesRespondedByGM.Text = dss.Tables[0].Rows[0]["COIQueriesRespondedByGM"].ToString();
+                            lblCOIQueries_QueryRaisedbyGM.Text = dss.Tables[0].Rows[0]["COIQueries_QueryRaisedbyGM"].ToString();
+                            lblSSCInsp_GMyettoForward.Text = dss.Tables[0].Rows[0]["SSCInsp_GMyettoForward"].ToString();
+                            //-----------------------------------------------------------------------------------------//
+                            lblPendingDIPCWithin.Text = dss.Tables[0].Rows[0]["PendingtoDIPCWithin"].ToString();
+                            lblPendingDIPCBeyond.Text = dss.Tables[0].Rows[0]["PendingtoDIPCBeyond"].ToString();
+                            lblPendingDIPCTotal.Text = dss.Tables[0].Rows[0]["PendingtoDIPCTotal"].ToString();
+                            //--------------------------------------------------------------------------------------//
+
+                            lblAfterWithin.Text = dss.Tables[0].Rows[0]["GMQueryRaisedAfterInspWithin"].ToString();
+                            lblAfterBeyond.Text = dss.Tables[0].Rows[0]["GMQueryRaisedAfterInspBeyond"].ToString();
+                            lblAfterTotal.Text = dss.Tables[0].Rows[0]["GMQueryRaisedAfterInspTotal"].ToString();
+                            lblReInspectionCompleted.Text = dss.Tables[0].Rows[0]["GMQueryRespondByApplicant"].ToString();
+                            lblAwaitingResp.Text = dss.Tables[0].Rows[0]["GMQueryYettoRespondByApplicant"].ToString();
+                            //-----------------------------------------------------------------------------------//
+                            lblCOIWithin.Text = dss.Tables[0].Rows[0]["SenttoCOIWithin"].ToString();
+                            lblCOIBeyond.Text = dss.Tables[0].Rows[0]["SenttoCOIBeyond"].ToString();
+                            lblCOITotal.Text = dss.Tables[0].Rows[0]["SenttoCOITotal"].ToString();
+                            //----------------------------------------------------------------------------------//
+
+                            lblWithinDIPC.Text = dss.Tables[0].Rows[0]["SenttoDIPCWithin"].ToString();
+                            lblBeyondDIPC.Text = dss.Tables[0].Rows[0]["SenttoDIPCBeyond"].ToString();
+                            lblDIPCTotal.Text = dss.Tables[0].Rows[0]["SenttoDIPCTotal"].ToString();
+                            //---------------------------------------------------------------------------------//
+
+                            lblRejectedJD.Text = dss.Tables[0].Rows[0]["COIRejectedJD"].ToString();
+                            lblRejectAD.Text = dss.Tables[0].Rows[0]["COIRejectedADDL"].ToString();
+                            lblRejectSVC.Text = dss.Tables[0].Rows[0]["COIRejectedSVC"].ToString();
+                            lblRejectSLC.Text = dss.Tables[0].Rows[0]["COIRejectedSLC"].ToString();
+                            lblAbeyancedJDLevel.Text = dss.Tables[0].Rows[0]["COIAbeyancedJD"].ToString();
+                            lblAbeyancedAD.Text = dss.Tables[0].Rows[0]["COIAbeyancedADDL"].ToString();
+                            lblAnctionedwithin.Text = dss.Tables[0].Rows[0]["SanctionedWithin"].ToString();
+                            lblSanctionedBeyond.Text = dss.Tables[0].Rows[0]["SanctionedBeyond"].ToString();
+                            lblTotalSanctionedINC.Text = dss.Tables[0].Rows[0]["SanctionedTotal"].ToString();
+                            lblReleWithin.Text = dss.Tables[0].Rows[0]["Releasedwithin"].ToString();
+                            lblReleBeyond.Text = dss.Tables[0].Rows[0]["ReleasedBeyond"].ToString();
+                            lblTotalReleINC.Text = dss.Tables[0].Rows[0]["ReleasedTotal"].ToString();
 
                         }
                     }

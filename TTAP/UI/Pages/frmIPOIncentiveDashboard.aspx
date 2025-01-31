@@ -199,6 +199,12 @@
                                                 <asp:Label ID="lblInspectionsBeyond" runat="server"></asp:Label>
                                             </span>
                                         </a>
+                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmIPOApplications.aspx?Stg=6">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Total</span>
+                                            <span class="badge badge-pill badge-warning">
+                                                <asp:Label ID="lblTotalInspection" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                                  <div class="col-sm-6 mb-4">
@@ -289,6 +295,31 @@
                                     </div>
                                 </div>
                             </div>
+
+                              <div class="row" id="Div2" runat="server">
+                                   <div class="col-sm-6 mb-4">
+                                    <div class="list-group">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                            <span><i class="fa fa-fw fa-check"></i>After Inspection Report Uploaded</span>
+                                        </a>
+                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmDLOApplications.aspx?Stg=19">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Recommended to GM</span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblRecommendGM" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmDLOApplications.aspx?Stg=19">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Rollbacked from GM</span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblRollBcakGM" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+
+
+
+                                        </div>
+                                       </div>
+                                  </div>
                            
                             <div id="divline3" runat="server" visible="false">
                                 <h1 class="page-head-linenew" align="left" style="font-size: smaller"></h1>

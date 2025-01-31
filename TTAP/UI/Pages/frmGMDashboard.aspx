@@ -138,13 +138,13 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=2">
                                             <span><i class="fa fa-fw fa-calendar"></i>Beyond 7 Days</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblPendingBeyond" runat="server"></asp:Label>
+                                                <asp:Label ID="lblYetotoAssignBeyond" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=2">
                                             <span><i class="fa fa-fw fa-calendar"></i>Total</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblpendingTotal" runat="server"></asp:Label>
+                                                <asp:Label ID="lblYetotoAssignTotal" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
@@ -157,25 +157,31 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=4">
                                             <span><i class="fa fa-fw fa-calendar"></i>Query Raised With in 7 Days</span>
                                             <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="lblTotalQueryWithIn" runat="server"></asp:Label>
+                                                <asp:Label ID="lblGMQueryWithIn" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                           <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=4">
                                             <span><i class="fa fa-fw fa-calendar"></i>Query Raised Beyond 7 Days</span>
                                             <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="lblTotalQueryBeyond" runat="server"></asp:Label>
+                                                <asp:Label ID="lblGMQueryBeyond" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=4">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Total Query Raised</span>
+                                            <span class="badge badge-pill badge-primary bg-success">
+                                                <asp:Label ID="lblGMQueryTotal" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=5">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Responded</span>
                                             <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="lblRepliedQueryWithIn" runat="server"></asp:Label>
+                                                <asp:Label ID="lblRepliedtoGMQuery" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=6">
                                             <span><i class="fa fa-fw fa-calendar"></i>Awaiting for Response</span>
                                             <span class="badge badge-pill badge-primary bg-warning">
-                                                <asp:Label ID="lblOpenQuery" runat="server"></asp:Label>
+                                                <asp:Label ID="lblNotRepliedtoGMQuery" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
@@ -215,7 +221,7 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=8">
                                             <span><i class="fa fa-fw fa-calendar"></i>Auto Rejected</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                <asp:Label ID="lblAutoRejectedatGM" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=7">
@@ -227,7 +233,7 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=10">
                                             <span><i class="fa fa-fw fa-calendar"></i>Total</span>
                                             <span class="badge badge-pill badge-primary bg-danger">
-                                                <asp:Label ID="Label4" runat="server"></asp:Label>
+                                                <asp:Label ID="lblTotalRejectedatGM" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
@@ -266,43 +272,47 @@
                                 </div>
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
+
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Queries from COI</span>
+                                        </a>
+                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="A2" runat="server" href="frmGMApplications.aspx?Stg=17">
+                                            <span><i class="fa fa-fw fa-calendar"></i> Total - Query Raised </span>
+                                            <span class="badge badge-pill badge-primary bg-success">
+                                                <asp:Label ID="lblCOIQueriesTotalRaised" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="A1" runat="server" href="frmGMApplications.aspx?Stg=17">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Awaiting for Response</span>
+                                            <span class="badge badge-pill badge-primary bg-success">
+                                                <asp:Label ID="lblCOIQueriesYettoRespondByApplicant" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="AnctotalInsCompleted" runat="server" href="frmGMApplications.aspx?Stg=17">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Queries Responded by Applicant(GM yet to Respond)</span>
+                                            <span class="badge badge-pill badge-primary bg-success">
+                                                <asp:Label ID="lblCOIQueriesYettoRespondByGM" runat="server"></asp:Label>
+                                            </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="AncWithInInsCompleted" runat="server" href="frmGMApplications.aspx?Stg=15">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Responded by GM to COI</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblInspectionCompletedWithin" runat="server"></asp:Label>
+                                                <asp:Label ID="lblCOIQueriesRespondedByGM" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="AncBeyondInsCompleted" runat="server" href="frmGMApplications.aspx?Stg=16">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Raised by GM(after Applicant Response)</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblInspectionCompletedBeyond" runat="server"></asp:Label>
+                                                <asp:Label ID="lblCOIQueries_QueryRaisedbyGM" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="AnctotalInsCompleted" runat="server" href="frmGMApplications.aspx?Stg=17">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Queries Responded by Applicant(GM yet to Respond)</span>
-                                            <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="lblInspectionCompletedTotal" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="A1" runat="server" href="frmGMApplications.aspx?Stg=17">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Queries yet to Respond</span>
-                                            <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="Label5" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="A2" runat="server" href="frmGMApplications.aspx?Stg=17">
-                                            <span><i class="fa fa-fw fa-calendar"></i> Total - Query Raised </span>
-                                            <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="Label6" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
+                                       
+                                        
+                                       
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" id="A3" runat="server" href="frmGMApplications.aspx?Stg=17">
                                             <span><i class="fa fa-fw fa-calendar"></i> SSC Inspection Completed (GM yet to Forward) </span>
                                             <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="Label7" runat="server"></asp:Label>
+                                                <asp:Label ID="lblSSCInsp_GMyettoForward" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
@@ -332,7 +342,7 @@
                                          <a  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=30">
                                             <span><i class="fa fa-fw fa-calendar"></i>Rejected Applications</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblDIPCTotal" runat="server"></asp:Label>
+                                                <asp:Label ID="lblPendingDIPCTotal" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
@@ -343,27 +353,34 @@
                                             <span><i class="fa fa-fw fa-check"></i>Query Details - After Inspection</span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=31">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Total-Query Responded</span>
+                                            <span><i class="fa fa-fw fa-calendar"></i>Query Raised Within 7 Days</span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblAfterWithin" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=31">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Query Raised Beyond 7 Days</span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblAfterBeyond" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=31">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Total Query Raised</span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblAfterTotal" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=31">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Query Responded</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblReInspectionCompleted" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=31">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Within 7 Days</span>
-                                            <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label10" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=31">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Beyond 7 Days</span>
-                                            <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label11" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
+                                        
                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=31">
-                                            <span><i class="fa fa-fw fa-calendar"></i>No. of Applications Awaiting Query Response</span>
+                                            <span><i class="fa fa-fw fa-calendar"></i>Awaiting for Response</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label12" runat="server"></asp:Label>
+                                                <asp:Label ID="lblAwaitingResp" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
@@ -381,13 +398,19 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=19">
                                             <span><i class="fa fa-fw fa-calendar"></i>Within 3 Days</span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblpendingtoberefferdW" runat="server"></asp:Label>
+                                                <asp:Label ID="lblCOIWithin" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=20">
                                             <span><i class="fa fa-fw fa-calendar"></i>Beyond 3 Days</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblpendingtoberefferdB" runat="server"></asp:Label>
+                                                <asp:Label ID="lblCOIBeyond" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=20">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Send to COI Total</span>
+                                            <span class="badge badge-pill badge-warning">
+                                                <asp:Label ID="lblCOITotal" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                       
@@ -402,13 +425,19 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=29">
                                             <span><i class="fa fa-fw fa-calendar"></i>Within 3 Days</span>
                                             <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="lblTotalQueryafterInspection" runat="server"></asp:Label>
+                                                <asp:Label ID="lblWithinDIPC" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=27">
                                             <span><i class="fa fa-fw fa-calendar"></i>Beyond 3 Days</span>
                                             <span class="badge badge-pill badge-primary bg-success">
-                                                <asp:Label ID="lblRepliedQueryWITHINafterInspection" runat="server"></asp:Label>
+                                                <asp:Label ID="lblBeyondDIPC" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=27">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Send to DIPC Total</span>
+                                            <span class="badge badge-pill badge-primary bg-success">
+                                                <asp:Label ID="lblDIPCTotal" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
@@ -424,31 +453,29 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=22">
                                             <span><i class="fa fa-fw fa-calendar"></i>Rejected By JD </span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblcompletedtoberefferdW" runat="server"></asp:Label>
+                                                <asp:Label ID="lblRejectedJD" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=23">
                                             <span><i class="fa fa-fw fa-calendar"></i>Rejected by Additional Director </span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblcompletedtoberefferdB" runat="server"></asp:Label>
+                                                <asp:Label ID="lblRejectAD" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=24">
                                             <span><i class="fa fa-fw fa-calendar"></i>Rejected at SVC</span>
                                             <span class="badge badge-pill badge-danger">
-                                                <asp:Label ID="lblrejectedafterinsp" runat="server"></asp:Label>
+                                                <asp:Label ID="lblRejectSVC" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=25">
                                             <span><i class="fa fa-fw fa-calendar"></i>Rejected at SLC</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblCompletedtoreffer" runat="server"></asp:Label>
+                                                <asp:Label ID="lblRejectSLC" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row" id="Div4" runat="server">
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
@@ -457,17 +484,20 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=22">
                                             <span><i class="fa fa-fw fa-calendar"></i>Abeyanced Applications at J.D Level </span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label13" runat="server"></asp:Label>
+                                                <asp:Label ID="lblAbeyancedJDLevel" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=23">
                                             <span><i class="fa fa-fw fa-calendar"></i>Abeyanced Applications at Additional Director </span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="Label14" runat="server"></asp:Label>
+                                                <asp:Label ID="lblAbeyancedAD" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row" id="Div4" runat="server">
+                                
                             </div>
                             <div id="divline4" runat="server">
                                 <h1 class="page-head-linenew" align="left" style="font-size: smaller"></h1>
@@ -481,37 +511,43 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=1">
                                             <span><i class="fa fa-fw fa-calendar"></i>Sanctioned within 30 Days </span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblSVCAgendaWithin" runat="server"></asp:Label>
+                                                <asp:Label ID="lblAnctionedwithin" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=2">
                                             <span><i class="fa fa-fw fa-calendar"></i>Sanctioned Beyond 30 Days</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblSVCAgendaBeyond" runat="server"></asp:Label>
+                                                <asp:Label ID="lblSanctionedBeyond" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=2">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Sanctioned Incentives</span>
+                                            <span><i class="fa fa-fw fa-calendar"></i>Total Sanctioned Incentives</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="Label15" runat="server"></asp:Label>
+                                                <asp:Label ID="lblTotalSanctionedINC" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=2">
+                                        <%--<a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=2">
                                             <span><i class="fa fa-fw fa-calendar"></i>JD Rejected Incentives</span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="Label16" runat="server"></asp:Label>
                                             </span>
-                                        </a>
+                                        </a>--%>
                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=2">
                                             <span><i class="fa fa-fw fa-calendar"></i>Released within 180 Days</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="Label17" runat="server"></asp:Label>
+                                                <asp:Label ID="lblReleWithin" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=2">
                                             <span><i class="fa fa-fw fa-calendar"></i>Released Beyond 180 Days</span>
                                             <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="Label18" runat="server"></asp:Label>
+                                                <asp:Label ID="lblReleBeyond" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DLSVC/frmDLSVCGenerateAgenda.aspx?Stage=2">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Total Released Incentives </span>
+                                            <span class="badge badge-pill badge-warning">
+                                                <asp:Label ID="lblTotalReleINC" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>

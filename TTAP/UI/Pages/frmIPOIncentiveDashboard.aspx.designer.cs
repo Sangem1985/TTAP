@@ -195,6 +195,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblInspectionsBeyond;
 
         /// <summary>
+        /// lblTotalInspection control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalInspection;
+
+        /// <summary>
         /// lblTotalQueryAfter control.
         /// </summary>
         /// <remarks>
@@ -355,6 +364,33 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblInspectionCompletedTotal;
+
+        /// <summary>
+        /// Div2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
+
+        /// <summary>
+        /// lblRecommendGM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRecommendGM;
+
+        /// <summary>
+        /// lblRollBcakGM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRollBcakGM;
 
         /// <summary>
         /// divline3 control.
