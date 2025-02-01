@@ -3237,7 +3237,13 @@ namespace TTAP.UI
                     txtQuery.Text = string.Empty;
                     txtSSCRemarks.Text = string.Empty;
                     txtRemark.Text = string.Empty;
-                    CLERK.Visible = true;
+                    if (GVDLO.Rows.Count > 0)
+                    {
+                        CLERK.Visible = true;
+                        btnClerklevel.Visible = true;
+                    }
+                    else { btnClerklevel.Visible = false; CLERK.Visible = false; }
+
                 }
             }
             catch (Exception ex)
@@ -3265,6 +3271,13 @@ namespace TTAP.UI
                     Failure.Visible = true;
                     lblmsg0.Text = "";
                 }
+
+                if (GVDLO.Rows.Count > 0)
+                {
+                    CLERK.Visible = true;
+                    btnClerklevel.Visible = true;
+                }
+                else { btnClerklevel.Visible = false; CLERK.Visible = false; }
 
             }
             catch (Exception ex)
@@ -3659,10 +3672,10 @@ namespace TTAP.UI
                     ddlADIncentive.ClearSelection();
                     ddlsendstatus.ClearSelection();
                     txtAmounted.Text = string.Empty;
-                        txtQueryDesced.Text= string.Empty;
-                    txtRemarked.Text= string.Empty;
-                    txtAbeyRemark.Text= string.Empty;
-                    txtRemarkReturn.Text= string.Empty;
+                    txtQueryDesced.Text = string.Empty;
+                    txtRemarked.Text = string.Empty;
+                    txtAbeyRemark.Text = string.Empty;
+                    txtRemarkReturn.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -3935,10 +3948,10 @@ namespace TTAP.UI
                     ddlDDIncentive.ClearSelection();
                     ddlStatused.ClearSelection();
                     txtAmountRe.Text = string.Empty;
-                    txtdescQuery1.Text= string.Empty;
-                    txtIncepctioned.Text= string.Empty;
-                    txtAbeyanceRemar.Text= string.Empty;
-                    txtRetrned.Text= string.Empty;
+                    txtdescQuery1.Text = string.Empty;
+                    txtIncepctioned.Text = string.Empty;
+                    txtAbeyanceRemar.Text = string.Empty;
+                    txtRetrned.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -4018,6 +4031,23 @@ namespace TTAP.UI
                 throw ex;
             }
         }
+        public string ValidateControls1()
+        {
+            int slno = 1;
+            string ErrorMsg = "";
+            if (ddlClerkIncentive.SelectedIndex == -1)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please Select Type of Incentive \\n";
+                slno = slno + 1;
+            }
+            if (ddlstatus.SelectedValue == "0")
+            {
+
+            }
+
+            return ErrorMsg;
+        }
+
 
         protected void btnSUPDTLevl_Click(object sender, EventArgs e)
         {
@@ -4085,23 +4115,23 @@ namespace TTAP.UI
                     {
                         if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "26" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[0]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
                         {
-                            divClerklevel.Visible = true;                            
+                            divClerklevel.Visible = true;
                         }
                         else { divClerklevel.Visible = false; }
                         if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "58" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "69" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "72" || dss.Tables[0].Rows[0]["SUPDT_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-SUPDT")
                         {
-                            divSupdtlevel.Visible = true;                           
+                            divSupdtlevel.Visible = true;
                         }
                         else { divSupdtlevel.Visible = false; }
-                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "59"|| dss.Tables[0].Rows[0]["AD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-AD")
+                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "59" || dss.Tables[0].Rows[0]["AD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-AD")
                         {
-                            divADlevel.Visible = true;                           
+                            divADlevel.Visible = true;
                         }
                         else { divADlevel.Visible = false; }
 
-                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "60"||dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "74"|| dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-DD")
+                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "60" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "74" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-DD")
                         {
-                            divDDlevel.Visible = true;                            
+                            divDDlevel.Visible = true;
                         }
                         else { divDDlevel.Visible = false; }
 
@@ -4112,7 +4142,7 @@ namespace TTAP.UI
                         GVRemark.DataBind();
                         ClerkProcess.Visible = true;
                         Rmarkes1.Visible = true;
-                       // divClerklevel.Visible = false;
+                        // divClerklevel.Visible = false;
 
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[2].Rows.Count > 0)
@@ -4121,7 +4151,7 @@ namespace TTAP.UI
                         GVSUPDTPROC.DataBind();
                         SUPDTPROCDET.Visible = true;
                         SupdtDetailsProc.Visible = true;
-                       // divSupdtlevel.Visible = false;
+                        // divSupdtlevel.Visible = false;
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[3].Rows.Count > 0)
                     {
@@ -4129,7 +4159,7 @@ namespace TTAP.UI
                         GVADPROC.DataBind();
                         ADPROCESSED.Visible = true;
                         ADPROCESS.Visible = true;
-                       // divADlevel.Visible = false;
+                        // divADlevel.Visible = false;
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[4].Rows.Count > 0)
                     {
@@ -4137,7 +4167,7 @@ namespace TTAP.UI
                         GVDDPROC.DataBind();
                         DDPROCESSEDDET.Visible = true;
                         DDProcessed.Visible = true;
-                      //  divDDlevel.Visible = false;
+                        //  divDDlevel.Visible = false;
                     }
 
                 }
