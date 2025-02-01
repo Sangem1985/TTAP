@@ -31,12 +31,12 @@ namespace TTAP.UI
         {
             Page.Form.Enctype = "multipart/form-data";
             try
-            {   
+            {
                 if (!IsPostBack)
                 {
                     try
                     {
-                       // lbtnback.PostBackUrl = Request.UrlReferrer.AbsoluteUri;
+                        // lbtnback.PostBackUrl = Request.UrlReferrer.AbsoluteUri;
                     }
                     catch (Exception ex)
                     {
@@ -66,8 +66,8 @@ namespace TTAP.UI
                                     hdnUID.Value = dsnew.Tables[0].Rows[0]["Uid_NO"].ToString();
                                     ViewState["UID"] = dsnew.Tables[0].Rows[0]["Uid_NO"].ToString();
                                     string DistrictName = dsnew.Tables[0].Rows[0]["District_Name"].ToString();
-                                
-                                    mainheading.InnerHtml = "Application - " +dsnew.Tables[0].Rows[0]["UnitName"].ToString().ToUpper() + " ("+ dsnew.Tables[0].Rows[0]["ApplicationNumber"].ToString() + ") - Applied on "+ dsnew.Tables[0].Rows[0]["SubmissionDate"].ToString();
+
+                                    mainheading.InnerHtml = "Application - " + dsnew.Tables[0].Rows[0]["UnitName"].ToString().ToUpper() + " (" + dsnew.Tables[0].Rows[0]["ApplicationNumber"].ToString() + ") - Applied on " + dsnew.Tables[0].Rows[0]["SubmissionDate"].ToString();
                                     //System.Web.UI.HtmlControls.HtmlIframe iframeapplication1 = new System.Web.UI.HtmlControls.HtmlIframe();
                                     //iframeapplication1.ID = "iframeapplication1";
                                     // iframeapplication1.Src = "~/UI/Pages/Application.aspx?EntrpId=" + IncentiveId;
@@ -90,18 +90,21 @@ namespace TTAP.UI
                                     }
 
                                     string IndusType = dsnew.Tables[0].Rows[0]["TypeOfIndustry"].ToString();
-                                    hdnIndusType.Value= dsnew.Tables[0].Rows[0]["TypeOfIndustry"].ToString();
+                                    hdnIndusType.Value = dsnew.Tables[0].Rows[0]["TypeOfIndustry"].ToString();
                                     BindAppliedAnnexures(IncentiveId, ObjLoginNewvo.uid);
-                                    
+
                                     if (GvAnnexures.Rows.Count == 1)
                                     {
-                                        string IncentiveType = DSIncentiveList.Tables[0].Rows[0]["Incentive_Type"].ToString();
-                                        if (IncentiveType == "3")
+                                        if (DSIncentiveList != null && DSIncentiveList.Tables.Count > 0 && DSIncentiveList.Tables[0].Rows.Count > 0)
                                         {
-                                            divplantandmachinaryview.Visible = false;
+                                            string IncentiveType = DSIncentiveList.Tables[0].Rows[0]["Incentive_Type"].ToString();
+                                            if (IncentiveType == "3")
+                                            {
+                                                divplantandmachinaryview.Visible = false;
+                                            }
                                         }
                                     }
-                                    
+
                                     /*if (IncentiveId == "2063")
                                     {
                                         divPMRatio.Visible = true;
@@ -152,12 +155,12 @@ namespace TTAP.UI
                                     }
                                     if (Role_Code == "IPO" || Role_Code == "IND" || Role_Code == "DLO" || Role_Code == "DD" || Role_Code == "AD")
                                     {
-                                        SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC ("+ Role_Code + " - " + DistrictName + ")";
-                                        SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC ("+ Role_Code + " - " + DistrictName + ")";
+                                        SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (" + Role_Code + " - " + DistrictName + ")";
+                                        SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (" + Role_Code + " - " + DistrictName + ")";
 
-                                        SpanDLOApplcation.InnerHtml = "Verification of Applcation ("+ Role_Code + " - " + DistrictName + ")";
-                                        SpanInspectionReport.InnerHtml = "Update Inspection Report ("+ Role_Code + " - " + DistrictName + ")";
-                                        
+                                        SpanDLOApplcation.InnerHtml = "Verification of Applcation (" + Role_Code + " - " + DistrictName + ")";
+                                        SpanInspectionReport.InnerHtml = "Update Inspection Report (" + Role_Code + " - " + DistrictName + ")";
+
                                         BindAppliedIncentives(IncentiveId, Role_Code);
                                         BindPendingInspections(IncentiveId, Role_Code);
                                         BindPendingReInspections(IncentiveId, Role_Code);
@@ -177,8 +180,9 @@ namespace TTAP.UI
                                         //SpnJDVerificationOfapplication.InnerHtml = "Verification of Applcation-After Inspection (DLO - " + DistrictName + ")";
                                         BindDLORecomendedIncentives(IncentiveId, Role_Code);
                                     }
-                                    if (Role_Code == "IND") {
-                                       // gvUpdateInspectionDetails.Columns[7].Visible = false;
+                                    if (Role_Code == "IND")
+                                    {
+                                        // gvUpdateInspectionDetails.Columns[7].Visible = false;
                                         SpanInspectionReport.InnerHtml = "Update Inspection Report (DIC - " + DistrictName + ")";
                                     }
                                     if (Role_Code == "COI-CLERK" || Role_Code == "COI-SUPDT" || Role_Code == "COI-AD" || Role_Code == "COI-DD")
@@ -802,7 +806,8 @@ namespace TTAP.UI
                     slno = slno + 1;
                     row.Cells[0].Text = Convert.ToString(slno);
                 }
-                else {
+                else
+                {
                     row.Cells[0].Text = "";
                 }
             }
@@ -837,7 +842,7 @@ namespace TTAP.UI
 
         public void BindTsipassApprovals(string UIDNumber)
         {
-            
+
             DataSet dsapprovals = new DataSet();
             TSIPASSSERVICE.DepartmentApprovalSystem IpassDataCFE = new TSIPASSSERVICE.DepartmentApprovalSystem();
             ServicePointManager.Expect100Continue = true;
@@ -1001,25 +1006,25 @@ namespace TTAP.UI
             Dsnew = ObjCAFClass.GenericFillDs("USP_GET_INSPECTIONCOMPLETEDINCENTIVES_LIST", pp);
             return Dsnew;
         }
-      /*  public void BindFinancialYears(int IncentiveId, int SubIncentiveId)
-        {
-            ddlHalfyear.Items.Clear();
-            DataSet dsapprovals = new DataSet();
-            dsapprovals = GetFinancialYears(IncentiveId, SubIncentiveId);
-            if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
-            {
-                
-                ddlHalfyear.DataSource = dsapprovals.Tables[0];
-                ddlHalfyear.DataValueField = "TypeOfFinancialYear";
-                ddlHalfyear.DataTextField = "FinancialYearText";
-                ddlHalfyear.DataBind();
-            }
-            else
-            {
-               
-            }
-            AddSelect(ddlHalfyear);
-        }*/
+        /*  public void BindFinancialYears(int IncentiveId, int SubIncentiveId)
+          {
+              ddlHalfyear.Items.Clear();
+              DataSet dsapprovals = new DataSet();
+              dsapprovals = GetFinancialYears(IncentiveId, SubIncentiveId);
+              if (dsapprovals != null && dsapprovals.Tables.Count > 0 && dsapprovals.Tables[0].Rows.Count > 0)
+              {
+
+                  ddlHalfyear.DataSource = dsapprovals.Tables[0];
+                  ddlHalfyear.DataValueField = "TypeOfFinancialYear";
+                  ddlHalfyear.DataTextField = "FinancialYearText";
+                  ddlHalfyear.DataBind();
+              }
+              else
+              {
+
+              }
+              AddSelect(ddlHalfyear);
+          }*/
         public void AddSelect(DropDownList ddl)
         {
             try
@@ -1085,7 +1090,7 @@ namespace TTAP.UI
                         e.Row.FindControl("hplkapprovalsname").Visible = false;
                     }
                     string Text = ((Label)e.Row.FindControl("lblText")).Text.ToString();
-                    string CFEID= ((Label)e.Row.FindControl("lblcfeid")).Text.ToString();
+                    string CFEID = ((Label)e.Row.FindControl("lblcfeid")).Text.ToString();
                     if (Text.Contains("ipass.telangana.gov.in/Attachments") == true)
                     {
                         ((HyperLink)e.Row.FindControl("HyperLinkSubsidy")).Attributes["href"] = "../UI/Pages/FileApi.aspx?filepath=" + HttpUtility.UrlEncode(Text) + "&cfeid=" + CFEID + "&module=CFE";
@@ -1256,14 +1261,14 @@ namespace TTAP.UI
                     {
                         string Successmsg = "";
                         BindYetAssignedIncentives(ViewState["IncentiveId"].ToString(), ObjLoginNewvo.Role_Code);
-                        BindAppliedIncentives(ViewState["IncentiveId"].ToString(), ObjLoginNewvo.Role_Code);                        
+                        BindAppliedIncentives(ViewState["IncentiveId"].ToString(), ObjLoginNewvo.Role_Code);
                         BindQueries();
                         BindInspections();
                         BindReInspections();
                         ddlAppliedIncenties.SelectedValue = "0";
                         txtAppDateofInspection.Text = "";
                         txtQueryRemarks.Text = "";
-                        string TransactionId = "";string SubModule = "";
+                        string TransactionId = ""; string SubModule = "";
                         if (Rbtnstatus.SelectedValue == "1")
                         {
                             Successmsg = "Inspection Date Scheduled Successfully";
@@ -1407,87 +1412,89 @@ namespace TTAP.UI
                     hyperLink.Visible = true;
                     hyperLink1.Visible = true;
                 }
-                if (lblIndDeptFlag.Text == "P" || lblIndDeptFlag.Text == "C") {
+                if (lblIndDeptFlag.Text == "P" || lblIndDeptFlag.Text == "C")
+                {
                     Button1.Enabled = false;
                 }
-                if (lblIndDeptFlag.Text == "C" && hdnUserRole.Value == "IND") {
+                if (lblIndDeptFlag.Text == "C" && hdnUserRole.Value == "IND")
+                {
                     hyperLink.Text = "View Report";
                 }
 
                 HyperLinkDelay.NavigateUrl = "~/UI/Pages//InspectionDelayNotes.aspx?IncentiveId=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart() + "&InspectionId=" + lblInspectionId.Text.Trim().TrimStart();
 
-               /* if (MstIncentiveId.Text.Trim().TrimStart() == "1")
-                {
-                    hyperLink.NavigateUrl = "~/UI/Pages/frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "2")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "3")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "4")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "5")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "6")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "7")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "8")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "9")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "10")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "11")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "12")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "13")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "14")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "15")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "16")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "17")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }
-                else if (MstIncentiveId.Text.Trim().TrimStart() == "18")
-                {
-                    hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                }*/
+                /* if (MstIncentiveId.Text.Trim().TrimStart() == "1")
+                 {
+                     hyperLink.NavigateUrl = "~/UI/Pages/frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "2")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "3")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "4")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "5")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "6")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "7")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "8")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "9")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "10")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "11")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "12")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "13")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "14")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "15")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "16")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "17")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }
+                 else if (MstIncentiveId.Text.Trim().TrimStart() == "18")
+                 {
+                     hyperLink.NavigateUrl = "frmInspectionRpt.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
+                 }*/
             }
         }
 
@@ -1546,7 +1553,7 @@ namespace TTAP.UI
                 Label lblInspflag = (e.Row.FindControl("lblInspflag") as Label);
 
                 hyperLink.NavigateUrl = "~/UI/Pages/Annexures/frmRevisedInspectionRptViewaspx.aspx?IncentiveID=" + IncentiveID.Text + "&SubIncentiveId=" + MstIncentiveId.Text.Trim().TrimStart();
-                
+
                 if (lblInspflag.Text.Trim().TrimStart() == "O")
                 {
                     hyperLink.Visible = false;
@@ -1953,7 +1960,7 @@ namespace TTAP.UI
                     }
                 }
             }
-                return ErrorMsg;
+            return ErrorMsg;
         }
         protected void btnJDHeadOffice_Click(object sender, EventArgs e)
         {
@@ -1979,7 +1986,7 @@ namespace TTAP.UI
                     string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
                     if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
                     {
-                        if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue=="CP")
+                        if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
                         {
                             ObjApplicationStatus.PartialSanction = rdbFullPartial.SelectedValue;
                             ObjApplicationStatus.JDRecommendedAmount = txtPartialRecommendedAmount.Text.Trim();
@@ -1998,7 +2005,7 @@ namespace TTAP.UI
                         {
                             objClsFileUpload.IncentiveFileUploading("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fuJointInspReport, hypconcernedCTo, "JointInspectionReport", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "181112", Session["uid"].ToString(), "JD");
                         }
-                }
+                    }
                     string OutPut = "1";
                     if (OutPut == "1")
                     {
@@ -2356,7 +2363,7 @@ namespace TTAP.UI
                         try
                         {
                             ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
-                            string IncentiveID= ViewState["IncentiveId"].ToString();
+                            string IncentiveID = ViewState["IncentiveId"].ToString();
                             ClsSMSandMailobj.SendSmsEmail(IncentiveID, "", "ADMN", "INFOTODLO", "Incentives");
                         }
                         catch (Exception ex)
@@ -2428,7 +2435,7 @@ namespace TTAP.UI
             {
                 Divcommcompleted.Visible = false;
             }
-            if (dss.Tables[3].Rows[0]["IsPaymentGateway"].ToString() == "Y")
+            if (dss != null && dss.Tables.Count > 3 && dss.Tables[3].Rows.Count > 0 && dss.Tables[3].Rows[0]["IsPaymentGateway"].ToString() == "Y")
             {
                 divcommhistory.Visible = false;
             }
@@ -2442,7 +2449,7 @@ namespace TTAP.UI
                 ds = GetPandM(PMId, IncentiveId, IndusType);
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    PhaseView=ds.Tables[0].Rows[0]["Phase"].ToString();
+                    PhaseView = ds.Tables[0].Rows[0]["Phase"].ToString();
                     grdPandM.DataSource = ds.Tables[0];
                     grdPandM.DataBind();
 
@@ -2810,7 +2817,8 @@ namespace TTAP.UI
         {
             string Incentive_id = ViewState["IncentiveId"].ToString();
             string CheckEligibilitytoReVisedInsp = ObjCAFClass.Check_RevisedInspectionReport(Incentive_id, ddlDLORecommendedIncentives.SelectedValue.ToString());
-            if (CheckEligibilitytoReVisedInsp == "N") {
+            if (CheckEligibilitytoReVisedInsp == "N")
+            {
                 RbtnHeadOfficestatus.Items[3].Attributes.Add("style", "display:none");
             }
             RbtnHeadOfficestatus_SelectedIndexChanged(this, EventArgs.Empty);
@@ -2849,7 +2857,7 @@ namespace TTAP.UI
             {
                 Label lbl = (e.Row.FindControl("lblSubIncentiveId") as Label);
                 HyperLink HyperLinkSubsidy = (e.Row.FindControl("hyQueryReminders") as HyperLink);
-                HyperLinkSubsidy.NavigateUrl = "~/UI/Pages//ReminderQueries.aspx?IncentiveId="+ INCId+"&SubIncentiveId="+ lbl.Text.ToString();
+                HyperLinkSubsidy.NavigateUrl = "~/UI/Pages//ReminderQueries.aspx?IncentiveId=" + INCId + "&SubIncentiveId=" + lbl.Text.ToString();
             }
         }
 
@@ -3029,7 +3037,7 @@ namespace TTAP.UI
             }
             catch (Exception ex)
             {
-                
+
             }
         }
 
@@ -3037,7 +3045,7 @@ namespace TTAP.UI
         {
             try
             {
-                if (ddlOfficer.SelectedValue == "0") 
+                if (ddlOfficer.SelectedValue == "0")
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please select Inspecting Officer');", true);
                     return;
@@ -3148,7 +3156,7 @@ namespace TTAP.UI
         {
             try
             {
-                
+
                 int IncCount = 0;
                 ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
                 UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
@@ -3159,7 +3167,7 @@ namespace TTAP.UI
                     string SubIncentiveId;
                     SubIncentiveId = ((Label)gvrow.FindControl("lblSubIncentiveId")).Text.ToString();
                     string Reason = ((TextBox)gvrow.FindControl("txtReasons")).Text.ToString();
-                    if (Reason == "") 
+                    if (Reason == "")
                     {
                         ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please enter Reject Reason');", true);
                         return;
@@ -3236,7 +3244,7 @@ namespace TTAP.UI
                 foreach (GridViewRow gvrow in GvYetAssign.Rows)
                 {
                     if (SubIncId != "0")
-                    {  
+                    {
                         Label lblMstIncentiveId = (Label)gvrow.FindControl("lblSubIncentiveId");
                         if (lblMstIncentiveId.Text.Trim() == SubIncId)
                         {
@@ -3270,7 +3278,7 @@ namespace TTAP.UI
         {
             dss = GetGMHistoryById(Convert.ToInt32(Request.QueryString["Id"].ToString()));
             if (dss != null && dss.Tables.Count > 0)
-            {   
+            {
                 if (dss.Tables[0].Rows.Count > 0)
                 {
                     divGMHistory.Visible = true;
@@ -3507,7 +3515,7 @@ namespace TTAP.UI
         }
 
         protected void ddlInsOption_SelectedIndexChanged(object sender, EventArgs e)
-        {   
+        {
             int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
 
             DropDownList ddlInsOption = (DropDownList)gvUpdateInspectionDetails.Rows[indexing].FindControl("ddlInsOption");
@@ -3521,7 +3529,7 @@ namespace TTAP.UI
                 txtAfterInspQuery.Visible = false;
                 btnRaiseQuery.Visible = false;
             }
-            else 
+            else
             {
                 anchortaglinkView.Visible = false;
                 txtAfterInspQuery.Visible = true;
@@ -3903,13 +3911,13 @@ namespace TTAP.UI
                             dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "70"))
                         {
                             // divJDVerificationOfapplication.Visible = true;
-                           // TSIPASS.Visible = true;
+                            // TSIPASS.Visible = true;
                         }
                         else
                         {
 
                         }
-                       // else { TSIPASS.Visible = false; }//divJDVerificationOfapplication.Visible = false; }
+                        // else { TSIPASS.Visible = false; }//divJDVerificationOfapplication.Visible = false; }
 
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[1].Rows.Count > 0)
@@ -3987,7 +3995,7 @@ namespace TTAP.UI
                 ObjApplicationStatus.SubIncentiveId = ((Label)gvdivGMRecommendCOI.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
                 ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
                 ObjApplicationStatus.Remarks = ((TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMRemarksCOI")).Text.ToString();
-                ObjApplicationStatus.GMRecommendedAmount= ((TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMAmount")).Text.ToString();
+                ObjApplicationStatus.GMRecommendedAmount = ((TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMAmount")).Text.ToString();
                 ObjApplicationStatus.TransType = ActionType;
 
                 HyperLink hypconcernedCTo = new HyperLink();
@@ -3995,7 +4003,7 @@ namespace TTAP.UI
 
                 string Status = ObjCAFClass.UpdateGMRecommendationtoCoi(ObjApplicationStatus);
                 if (Convert.ToInt32(Status) > 0)
-                {   
+                {
                     string Successmsg = "";
                     divGMVerification.Visible = false;
                     if (ActionType == "1") { Successmsg = "Query Raised Successfully"; }
@@ -4007,7 +4015,7 @@ namespace TTAP.UI
                     BindGMHistory();
 
                 }
-                else 
+                else
                 {
                     string msg = "Action Failed";
                     string message = "alert('" + msg + "')";
@@ -4026,5 +4034,5 @@ namespace TTAP.UI
         }
     }
 
-     
+
 }

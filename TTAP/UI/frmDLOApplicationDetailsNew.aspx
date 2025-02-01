@@ -1205,8 +1205,8 @@
                                                         <asp:TemplateField HeaderText="Action" ItemStyle-HorizontalAlign="Center">
                                                             <ItemTemplate>
                                                                 <asp:RadioButtonList ID="rdbyesno" CssClass="form-check form-check-inline" RepeatLayout="Flow" RepeatDirection="Horizontal" runat="server" AutoPostBack="true" OnSelectedIndexChanged="rdbyesno_SelectedIndexChanged">
-                                                                    <asp:ListItem class="form-check-input" Text="Yes" Value="Y"></asp:ListItem>
-                                                                    <asp:ListItem class="form-check-input" Text="No" Value="N"></asp:ListItem>
+                                                                    <asp:ListItem class="form-check-input" Text="Assign Inspecting Officer" Value="Y"></asp:ListItem>
+                                                                    <asp:ListItem class="form-check-input" Text="Query" Value="N"></asp:ListItem>
                                                                     <asp:ListItem class="form-check-input" Text="Reject" Value="R"></asp:ListItem>
                                                                 </asp:RadioButtonList>
                                                             </ItemTemplate>

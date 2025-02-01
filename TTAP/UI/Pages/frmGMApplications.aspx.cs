@@ -24,10 +24,10 @@ namespace TTAP.UI.Pages
                 {
                     if (Session["uid"] != null)
                     {
-                        int Stg = 0;
+                        string Stg = "";
                         if (Request.QueryString["Stg"] != null)
                         {
-                            Stg = Convert.ToInt32(Request.QueryString["Stg"].ToString());
+                            Stg =Request.QueryString["Stg"].ToString();
                         }
                         if (Session["Search"] != null)
                         {
@@ -48,10 +48,10 @@ namespace TTAP.UI.Pages
 
         public void BindApplicationData()
         {
-            int Stg = 0;
+            string Stg = "";
             if (Request.QueryString["Stg"] != null)
             {
-                Stg = Convert.ToInt32(Request.QueryString["Stg"].ToString());
+                Stg = Request.QueryString["Stg"].ToString();
             }
             dss = GetGMApplications(Convert.ToInt32(Session["DistrictId"].ToString()), Stg, txtsearch.Text.Trim().TrimStart(), Session["uid"].ToString());
             if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
@@ -65,12 +65,12 @@ namespace TTAP.UI.Pages
                 gvdetailsnew.DataBind();
             }
         }
-        public DataSet GetGMApplications(int DistId, int StageId, string UnitName,string UserId)
+        public DataSet GetGMApplications(int DistId, string StageId, string UnitName,string UserId)
         {
             DataSet Dsnew = new DataSet();
             SqlParameter[] pp = new SqlParameter[] {
                new SqlParameter("@DistrictId",SqlDbType.Int),
-               new SqlParameter("@StageId",SqlDbType.Int),
+               new SqlParameter("@Stage",SqlDbType.VarChar),
                new SqlParameter("@UnitName",SqlDbType.VarChar),
                new SqlParameter("@UserId",SqlDbType.VarChar)
            };
@@ -79,7 +79,7 @@ namespace TTAP.UI.Pages
             pp[2].Value = UnitName;
             pp[3].Value = UserId;
 
-            Dsnew = caf.GenericFillDs("USP_GET_GM_APPLICATIONS_DTLS", pp); // //USP_GET_GM_APPLICATIONS_DTLS_NEW
+            Dsnew = caf.GenericFillDs("USP_GET_GM_APPLICATIONS_DTLS_NEW", pp); // //  USP_GET_GM_APPLICATIONS_DTLS OLD PROCEDURE
 
             return Dsnew;
         }
@@ -91,10 +91,10 @@ namespace TTAP.UI.Pages
             Label lblIncentiveID = (Label)row.FindControl("lblIncentiveID");
             Button Button1 = (Button)row.FindControl("btnProcess");
 
-            int Stg = 0;
+            string Stg = "";
             if (Request.QueryString["Stg"] != null)
             {
-                Stg = Convert.ToInt32(Request.QueryString["Stg"].ToString());
+                Stg = Request.QueryString["Stg"].ToString();
             }
             if (txtsearch.Text.Trim().TrimStart() != "")
             {
