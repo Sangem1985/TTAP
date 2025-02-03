@@ -3182,72 +3182,79 @@ namespace TTAP.UI
                     }
                     else
                     {
-                        DataTable dt = new DataTable();
-
-                        if (ViewState["Clerklevel"] == null)
+                        if (ddlstatus.SelectedValue == "1")
                         {
-                            dt.Columns.Add("SubIncentiveID", typeof(string));
-                            dt.Columns.Add("IncentiveName", typeof(string));
-                            dt.Columns.Add("IncentiveId", typeof(string));
-                            dt.Columns.Add("StatusName", typeof(string));
-                            dt.Columns.Add("StatusId", typeof(string));
-                            dt.Columns.Add("CLERK_Forwardto", typeof(string));
-                            dt.Columns.Add("Recommendation", typeof(string));
-                            dt.Columns.Add("Query", typeof(string));
-                            dt.Columns.Add("Inspection", typeof(string));
-                            dt.Columns.Add("Abeyance", typeof(string));
+                            Response.Redirect("~/UI/Pages/HeadOfficeInspectionReport.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                         }
                         else
                         {
-                            dt = (DataTable)ViewState["Clerklevel"];
+                            DataTable dt = new DataTable();
+
+                            if (ViewState["Clerklevel"] == null)
+                            {
+                                dt.Columns.Add("SubIncentiveID", typeof(string));
+                                dt.Columns.Add("IncentiveName", typeof(string));
+                                dt.Columns.Add("IncentiveId", typeof(string));
+                                dt.Columns.Add("StatusName", typeof(string));
+                                dt.Columns.Add("StatusId", typeof(string));
+                                dt.Columns.Add("CLERK_Forwardto", typeof(string));
+                                dt.Columns.Add("Recommendation", typeof(string));
+                                dt.Columns.Add("Query", typeof(string));
+                                dt.Columns.Add("Inspection", typeof(string));
+                                dt.Columns.Add("Abeyance", typeof(string));
+                            }
+                            else
+                            {
+                                dt = (DataTable)ViewState["Clerklevel"];
+                            }
+
+                            DataRow dr = dt.NewRow();
+                            dr["SubIncentiveID"] = ddlClerkIncentive.SelectedValue;
+                            dr["IncentiveName"] = ddlClerkIncentive.SelectedItem.Text;
+                            dr["IncentiveId"] = ViewState["IncentiveId"];
+                            dr["StatusName"] = ddlstatus.SelectedItem.Text;
+                            dr["StatusId"] = ddlstatus.SelectedValue;
+                            dr["CLERK_Forwardto"] = ddlDepartment.SelectedValue;
+
+                            switch (ddlstatus.SelectedValue)
+                            {
+                                case "1":
+                                    dr["Recommendation"] = txtAmount.Text;
+                                    break;
+                                case "2":
+                                    dr["Query"] = txtQuery.Text;
+                                    break;
+                                case "3":
+                                    dr["Inspection"] = txtSSCRemarks.Text;
+                                    break;
+                                case "4":
+                                    dr["Abeyance"] = txtRemark.Text;
+                                    break;
+                            }
+
+                            dt.Rows.Add(dr);
+                            GVDLO.Visible = true;
+                            GVDLO.DataSource = dt;
+                            GVDLO.DataBind();
+
+
+                            ViewState["Clerklevel"] = dt;
+
+                            ddlClerkIncentive.ClearSelection();
+                            ddlstatus.ClearSelection();
+                            ddlDepartment.ClearSelection();
+                            txtAmount.Text = string.Empty;
+                            txtQuery.Text = string.Empty;
+                            txtSSCRemarks.Text = string.Empty;
+                            txtRemark.Text = string.Empty;
+                            if (GVDLO.Rows.Count > 0)
+                            {
+                                CLERK.Visible = true;
+                                btnClerklevel.Visible = true;
+                            }
+                            else { btnClerklevel.Visible = false; CLERK.Visible = false; }
+
                         }
-
-                        DataRow dr = dt.NewRow();
-                        dr["SubIncentiveID"] = ddlClerkIncentive.SelectedValue;
-                        dr["IncentiveName"] = ddlClerkIncentive.SelectedItem.Text;
-                        dr["IncentiveId"] = ViewState["IncentiveId"];
-                        dr["StatusName"] = ddlstatus.SelectedItem.Text;
-                        dr["StatusId"] = ddlstatus.SelectedValue;
-                        dr["CLERK_Forwardto"] = ddlDepartment.SelectedValue;
-
-                        switch (ddlstatus.SelectedValue)
-                        {
-                            case "1":
-                                dr["Recommendation"] = txtAmount.Text;
-                                break;
-                            case "2":
-                                dr["Query"] = txtQuery.Text;
-                                break;
-                            case "3":
-                                dr["Inspection"] = txtSSCRemarks.Text;
-                                break;
-                            case "4":
-                                dr["Abeyance"] = txtRemark.Text;
-                                break;
-                        }
-
-                        dt.Rows.Add(dr);
-                        GVDLO.Visible = true;
-                        GVDLO.DataSource = dt;
-                        GVDLO.DataBind();
-
-
-                        ViewState["Clerklevel"] = dt;
-
-                        ddlClerkIncentive.ClearSelection();
-                        ddlstatus.ClearSelection();
-                        ddlDepartment.ClearSelection();
-                        txtAmount.Text = string.Empty;
-                        txtQuery.Text = string.Empty;
-                        txtSSCRemarks.Text = string.Empty;
-                        txtRemark.Text = string.Empty;
-                        if (GVDLO.Rows.Count > 0)
-                        {
-                            CLERK.Visible = true;
-                            btnClerklevel.Visible = true;
-                        }
-                        else { btnClerklevel.Visible = false; CLERK.Visible = false; }
-
                     }
                 }
                 else

@@ -2276,14 +2276,14 @@
                                 </div>
                             </div>
 
-                            <div class="card" id="divClerklevel" runat="server" visible="false">
+                            <div class="card show" id="divClerklevel" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingsix">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#Clerklevel">
                                         <span>Verification of Applcation(Clerk-Level)</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
-                                <div id="Clerklevel" class="collapse">
+                                <div id="Clerklevel" class="show">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12 mt-3 d-flex" style="margin-top: 20px;">
@@ -2480,14 +2480,14 @@
                                 </div>
                             </div>
 
-                            <div class="card" id="divSupdtlevel" runat="server" visible="false">
+                            <div class="card show" id="divSupdtlevel" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingseven">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#Supdtlevel">
                                         <span id="Span4" runat="server">Verification of Applcation(Superintendent-Level)</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
-                                <div id="Supdtlevel" class="collapse">
+                                <div id="Supdtlevel" class="show">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12 mt-3 d-flex" style="margin-top: 20px;">
@@ -2697,14 +2697,14 @@
                                 </div>
                             </div>
 
-                            <div class="card" id="divADlevel" runat="server" visible="false">
+                            <div class="card show" id="divADlevel" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingEight">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#ADlevel">
                                         <span id="Span5" runat="server">Verification of Applcation(Assistant Director-Level)</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
-                                <div id="ADlevel" class="collapse">
+                                <div id="ADlevel" class="show">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12 mt-3 d-flex" style="margin-top: 20px;">
@@ -2914,14 +2914,14 @@
                                 </div>
                             </div>
 
-                            <div class="card" id="divDDlevel" runat="server" visible="false">
+                            <div class="card show" id="divDDlevel" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingNine">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#DDlevel">
                                         <span id="Span6" runat="server">Verification of Applcation(Deputy  Director-Level)</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
-                                <div id="DDlevel" class="collapse">
+                                <div id="DDlevel" class="show">
                                     <div class="card-body">
                                         <div class="row">
 

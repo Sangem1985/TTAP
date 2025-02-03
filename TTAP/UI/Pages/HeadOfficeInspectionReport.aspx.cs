@@ -871,7 +871,7 @@ namespace TTAP.UI.Pages
             pp[1].Value = SubIncentiveId;
             pp[2].Value = "N";
             pp[3].Value = DistID;
-            Dsnew = ObjCAFClass.GenericFillDs("USP_GET_INSPECTION_DTLS", pp);
+            Dsnew = ObjCAFClass.GenericFillDs("USP_GET_INSPECTION_DTLS_HO", pp);
             return Dsnew;
         }
         public DataSet GetSubsidyApplicationDeatils_Modify(string INCENTIVEID, string SubIncentiveId, string DistID, string Category, string TypeOfTextile)
