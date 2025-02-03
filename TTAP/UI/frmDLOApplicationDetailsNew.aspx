@@ -1179,7 +1179,7 @@
                                 <div id="DivCollapseYettoAssign" class="collapse show">
                                     <div class="card-body">
                                         <div runat="server" id="divBeforeAssign" visible="false">
-                                            <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                 <asp:GridView ID="GvYetAssign" runat="server" AutoGenerateColumns="False"
                                                     CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
                                                     HorizontalAlign="Left" ShowHeader="true">
@@ -1208,9 +1208,16 @@
                                                                     <asp:ListItem class="form-check-input" Text="Assign Inspecting Officer" Value="Y"></asp:ListItem>
                                                                     <asp:ListItem class="form-check-input" Text="Query" Value="N"></asp:ListItem>
                                                                     <asp:ListItem class="form-check-input" Text="Reject" Value="R"></asp:ListItem>
-                                                                </asp:RadioButtonList>
+                                                                </asp:RadioButtonList>                                                                
                                                             </ItemTemplate>
                                                             <ItemStyle HorizontalAlign="Center" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Select/Enter Remarks" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:DropDownList ID="ddlOfficer"  runat="server" Visible="false" />
+                                                                <asp:TextBox runat="server" PlaceHolder="Enter Query Description" ID="txtQueryDescr" Visible="false" TextMode="MultiLine" Height="40px" Width="300px"></asp:TextBox>
+                                                                <asp:TextBox runat="server"  PlaceHolder="Enter Rejection remarks" ID="txtRejectRemarks" Visible="false" TextMode="MultiLine" Height="40px" Width="300px"></asp:TextBox>
+                                                            </ItemTemplate>
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="IncentiveId" Visible="false">
                                                             <ItemTemplate>
@@ -1227,7 +1234,12 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-sm-12 text-center">
-                                                    <asp:Button Text="Next" CssClass="btn btn-blue mx-2" ID="btnNext" OnClick="btnNext_Click" runat="server" />
+                                                    <asp:Button Text="Submit" CssClass="btn btn-blue mx-2" ID="btnGmPreAction" OnClick="btnGmPreAction_Click" runat="server" Visible="true" />
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-sm-12 text-center" id="Next" runat="server" visible="false">
+                                                    <asp:Button Text="Next" CssClass="btn btn-blue mx-2" ID="btnNext" OnClick="btnNext_Click" runat="server" Visible="false" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2" runat="server">
@@ -1272,9 +1284,9 @@
                                                     <asp:DropDownList ID="ddlOfficer" runat="server" class="form-control">
                                                     </asp:DropDownList>
                                                 </div>
-                                                <div class="col-sm-8 text-left" style="margin: -78px 0px 0px 511px;">
+                                                <div class="col-sm-8 text-left" style="margin: -78px 0px 0px 511px;" id="assign" runat="server" visible="false">
                                                     <br />
-                                                    <asp:Button Text="Assign" CssClass="btn btn-blue mx-2" ID="btnAssign" OnClick="btnAssign_Click" runat="server" />
+                                                    <asp:Button Text="Assign" CssClass="btn btn-blue mx-2" ID="btnAssign" OnClick="btnAssign_Click" runat="server" Visible="false" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2" runat="server">
@@ -1321,7 +1333,7 @@
                                             </div>
                                             <div class="row" runat="server" id="divQueryControl" visible="false">
                                                 <div class="col-sm-12 text-center">
-                                                    <asp:Button Text="Raise Query" CssClass="btn btn-blue mx-2" ID="btnQuery" OnClick="btnQuery_Click" runat="server" />
+                                                    <asp:Button Text="Raise Query" CssClass="btn btn-blue mx-2" ID="btnQuery" OnClick="btnQuery_Click" runat="server" Visible="false" />
                                                 </div>
                                             </div>
                                             <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2" runat="server">
@@ -1368,7 +1380,7 @@
                                             </div>
                                             <div class="row" runat="server" id="divRejectControl" visible="false">
                                                 <div class="col-sm-12 text-center">
-                                                    <asp:Button Text="Reject" CssClass="btn btn-blue mx-2" ID="btnReject" OnClick="btnReject_Click" runat="server" />
+                                                    <asp:Button Text="Reject" CssClass="btn btn-blue mx-2" ID="btnReject" OnClick="btnReject_Click" runat="server" Visible="false" />
                                                 </div>
                                             </div>
                                         </div>

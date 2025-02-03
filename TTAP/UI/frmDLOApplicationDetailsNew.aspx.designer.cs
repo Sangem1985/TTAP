@@ -726,6 +726,24 @@ namespace TTAP.UI
         protected global::System.Web.UI.WebControls.GridView GvYetAssign;
 
         /// <summary>
+        /// btnGmPreAction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGmPreAction;
+
+        /// <summary>
+        /// Next control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Next;
+
+        /// <summary>
         /// btnNext control.
         /// </summary>
         /// <remarks>
@@ -769,6 +787,15 @@ namespace TTAP.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOfficer;
+
+        /// <summary>
+        /// assign control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl assign;
 
         /// <summary>
         /// btnAssign control.

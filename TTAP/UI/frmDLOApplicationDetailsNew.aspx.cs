@@ -27,6 +27,7 @@ namespace TTAP.UI
         int NontextileMachines;
         decimal NontextileMachinesValue;
         decimal TotalMachinaryValue;
+        public static DataSet dsnew { set; get; }
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.Form.Enctype = "multipart/form-data";
@@ -3210,19 +3211,51 @@ namespace TTAP.UI
 
         protected void rdbyesno_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RadioButtonList rblAction = (RadioButtonList)sender;
+            GridViewRow row = (GridViewRow)rblAction.NamingContainer;
+            DropDownList ddlOfficer = (DropDownList)row.FindControl("ddlOfficer");
+            TextBox txtQueryDescr = (TextBox)row.FindControl("txtQueryDescr");
+            TextBox txtRejectRemarks = (TextBox)row.FindControl("txtRejectRemarks");
+            ddlOfficer.DataSource = dsnew.Tables[0];
+            ddlOfficer.DataTextField = "Dept_Name";
+            ddlOfficer.DataValueField = "Dept_Id";
+            ddlOfficer.DataBind();
+            AddSelect(ddlOfficer);
+            if (rblAction.SelectedIndex != -1)
+            {
+                GvYetAssign.Columns[3].Visible = true;
+                if (rblAction.SelectedValue == "Y") /////Assign to Inspecting Officer
+                {
+                    ddlOfficer.Visible = true;
+                    txtQueryDescr.Visible = false;
+                    txtRejectRemarks.Visible = false;
+                }
+                else if (rblAction.SelectedValue == "N") /////Query
+                {
+                    ddlOfficer.Visible = false;
+                    txtQueryDescr.Visible = true;
+                    txtRejectRemarks.Visible = false;
+                }
+                if (rblAction.SelectedValue == "R") /////REJECT
+                {
+                    ddlOfficer.Visible = false;
+                    txtQueryDescr.Visible = false;
+                    txtRejectRemarks.Visible = true;
+                }
+            }
             gvYes.Visible = false;
             gvNo.Visible = false;
             gvReject.Visible = false;
             divYesControls.Visible = false;
             divQueryControl.Visible = false;
             divRejectControl.Visible = false;
-            btnNext.Visible = true;
+           // btnNext.Visible = true;
         }
         public void GetInspectingOfficers()
         {
             try
             {
-                DataSet dsnew = new DataSet();
+                //DataSet dsnew = new DataSet();
                 dsnew = GetTSIpassInspectingOfficers(Session["DistrictID"].ToString());
                 ddlOfficer.DataSource = dsnew.Tables[0];
                 ddlOfficer.DataTextField = "Dept_Name";
@@ -4020,6 +4053,97 @@ namespace TTAP.UI
                     string msg = "Action Failed";
                     string message = "alert('" + msg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Errors.ErrorLog(ex);
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                success.Visible = false;
+                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+            }
+        }
+
+        protected void btnGmPreAction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                int IncCount = 0;
+                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+
+                foreach (GridViewRow gvrow in GvYetAssign.Rows)
+                {
+                    string SubIncentiveId = ((Label)gvrow.FindControl("lblSubIncentiveId")).Text.ToString();
+                    RadioButtonList rblAction = (RadioButtonList)gvrow.FindControl("rdbyesno");
+                    DropDownList ddlOfficer = (DropDownList)gvrow.FindControl("ddlOfficer");
+                    TextBox txtQueryDescr = (TextBox)gvrow.FindControl("txtQueryDescr");
+                    TextBox txtRejectRemarks = (TextBox)gvrow.FindControl("txtRejectRemarks");
+                    if (rblAction.SelectedIndex != -1)
+                    {
+                        if (rblAction.SelectedValue == "Y")
+                        {
+                            ObjApplicationStatus.TransType = "1";
+                            if (ddlOfficer.SelectedValue == "0")
+                            {
+                                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please Select Officer to Assign');", true);
+                                return;
+                            }
+                        }
+                        else if (rblAction.SelectedValue == "N")
+                        {
+                            ObjApplicationStatus.TransType = "2";
+                            if (txtQueryDescr.Text.Trim() == "")
+                            {
+                                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please enter Query Description');", true);
+                                return;
+                            }
+                            else
+                                ObjApplicationStatus.QueryReason = txtQueryDescr.Text.Trim();
+                        }
+                        else if (rblAction.SelectedValue == "R")
+                        {
+                            ObjApplicationStatus.TransType = "3";
+                            if (txtRejectRemarks.Text.Trim() == "")
+                            {
+                                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please enter Rejection Remarks');", true);
+                                return;
+                            }
+                            else 
+                                ObjApplicationStatus.QueryReason = txtRejectRemarks.Text.Trim();
+                        }
+                        ObjApplicationStatus.IncentiveId = ViewState["IncentiveId"].ToString();
+                        ObjApplicationStatus.SubIncentiveId = SubIncentiveId;
+                        ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
+                        ObjApplicationStatus.OfficerId = ddlOfficer.SelectedValue;                        
+                       
+                        string Status = ObjCAFClass.AssignInspectingOfficer(ObjApplicationStatus);
+                        if (Convert.ToInt32(Status) > 0)
+                        {
+                            //UpdateYettoAssignGrid(SubIncentiveId);
+                            IncCount = IncCount + 1;
+                        }
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please Select Assign/Query/Reject to Submit');", true);
+                        return;
+                    }
+                }
+                if (gvNo.Rows.Count == IncCount)
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Application Process has been Submitted Successfully');", true);
+                    gvNo.Visible = false;
+                    divQueryControl.Visible = false;
+                    return;
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Action failed');", true);
                     return;
                 }
             }

@@ -3166,84 +3166,95 @@ namespace TTAP.UI
         {
             try
             {
-                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
-                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-
-                if (string.IsNullOrEmpty(ddlClerkIncentive.SelectedItem.Text) ||
-                    string.IsNullOrEmpty(ddlstatus.SelectedItem.Text) ||
-                    string.IsNullOrEmpty(ddlDepartment.SelectedValue))
+                string Erromsg = ValidateControls1();
+                if (Erromsg == "")
                 {
-                    lblmsg0.Text = "Please Enter All Details of Clerk Level";
-                    Failure.Visible = true;
-                }
-                else
-                {
-                    DataTable dt = new DataTable();
 
-                    if (ViewState["Clerklevel"] == null)
+                    UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                    ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+
+                    if (string.IsNullOrEmpty(ddlClerkIncentive.SelectedItem.Text) ||
+                        string.IsNullOrEmpty(ddlstatus.SelectedItem.Text) ||
+                        string.IsNullOrEmpty(ddlDepartment.SelectedValue))
                     {
-                        dt.Columns.Add("SubIncentiveID", typeof(string));
-                        dt.Columns.Add("IncentiveName", typeof(string));
-                        dt.Columns.Add("IncentiveId", typeof(string));
-                        dt.Columns.Add("StatusName", typeof(string));
-                        dt.Columns.Add("StatusId", typeof(string));
-                        dt.Columns.Add("CLERK_Forwardto", typeof(string));
-                        dt.Columns.Add("Recommendation", typeof(string));
-                        dt.Columns.Add("Query", typeof(string));
-                        dt.Columns.Add("Inspection", typeof(string));
-                        dt.Columns.Add("Abeyance", typeof(string));
+                        lblmsg0.Text = "Please Enter All Details of Clerk Level";
+                        Failure.Visible = true;
                     }
                     else
                     {
-                        dt = (DataTable)ViewState["Clerklevel"];
+                        DataTable dt = new DataTable();
+
+                        if (ViewState["Clerklevel"] == null)
+                        {
+                            dt.Columns.Add("SubIncentiveID", typeof(string));
+                            dt.Columns.Add("IncentiveName", typeof(string));
+                            dt.Columns.Add("IncentiveId", typeof(string));
+                            dt.Columns.Add("StatusName", typeof(string));
+                            dt.Columns.Add("StatusId", typeof(string));
+                            dt.Columns.Add("CLERK_Forwardto", typeof(string));
+                            dt.Columns.Add("Recommendation", typeof(string));
+                            dt.Columns.Add("Query", typeof(string));
+                            dt.Columns.Add("Inspection", typeof(string));
+                            dt.Columns.Add("Abeyance", typeof(string));
+                        }
+                        else
+                        {
+                            dt = (DataTable)ViewState["Clerklevel"];
+                        }
+
+                        DataRow dr = dt.NewRow();
+                        dr["SubIncentiveID"] = ddlClerkIncentive.SelectedValue;
+                        dr["IncentiveName"] = ddlClerkIncentive.SelectedItem.Text;
+                        dr["IncentiveId"] = ViewState["IncentiveId"];
+                        dr["StatusName"] = ddlstatus.SelectedItem.Text;
+                        dr["StatusId"] = ddlstatus.SelectedValue;
+                        dr["CLERK_Forwardto"] = ddlDepartment.SelectedValue;
+
+                        switch (ddlstatus.SelectedValue)
+                        {
+                            case "1":
+                                dr["Recommendation"] = txtAmount.Text;
+                                break;
+                            case "2":
+                                dr["Query"] = txtQuery.Text;
+                                break;
+                            case "3":
+                                dr["Inspection"] = txtSSCRemarks.Text;
+                                break;
+                            case "4":
+                                dr["Abeyance"] = txtRemark.Text;
+                                break;
+                        }
+
+                        dt.Rows.Add(dr);
+                        GVDLO.Visible = true;
+                        GVDLO.DataSource = dt;
+                        GVDLO.DataBind();
+
+
+                        ViewState["Clerklevel"] = dt;
+
+                        ddlClerkIncentive.ClearSelection();
+                        ddlstatus.ClearSelection();
+                        ddlDepartment.ClearSelection();
+                        txtAmount.Text = string.Empty;
+                        txtQuery.Text = string.Empty;
+                        txtSSCRemarks.Text = string.Empty;
+                        txtRemark.Text = string.Empty;
+                        if (GVDLO.Rows.Count > 0)
+                        {
+                            CLERK.Visible = true;
+                            btnClerklevel.Visible = true;
+                        }
+                        else { btnClerklevel.Visible = false; CLERK.Visible = false; }
+
                     }
+                }
+                else
+                {
 
-                    DataRow dr = dt.NewRow();
-                    dr["SubIncentiveID"] = ddlClerkIncentive.SelectedValue;
-                    dr["IncentiveName"] = ddlClerkIncentive.SelectedItem.Text;
-                    dr["IncentiveId"] = ViewState["IncentiveId"];
-                    dr["StatusName"] = ddlstatus.SelectedItem.Text;
-                    dr["StatusId"] = ddlstatus.SelectedValue;
-                    dr["CLERK_Forwardto"] = ddlDepartment.SelectedValue;
-
-                    switch (ddlstatus.SelectedValue)
-                    {
-                        case "1":
-                            dr["Recommendation"] = txtAmount.Text;
-                            break;
-                        case "2":
-                            dr["Query"] = txtQuery.Text;
-                            break;
-                        case "3":
-                            dr["Inspection"] = txtSSCRemarks.Text;
-                            break;
-                        case "4":
-                            dr["Abeyance"] = txtRemark.Text;
-                            break;
-                    }
-
-                    dt.Rows.Add(dr);
-                    GVDLO.Visible = true;
-                    GVDLO.DataSource = dt;
-                    GVDLO.DataBind();
-
-
-                    ViewState["Clerklevel"] = dt;
-
-                    ddlClerkIncentive.ClearSelection();
-                    ddlstatus.ClearSelection();
-                    ddlDepartment.ClearSelection();
-                    txtAmount.Text = string.Empty;
-                    txtQuery.Text = string.Empty;
-                    txtSSCRemarks.Text = string.Empty;
-                    txtRemark.Text = string.Empty;
-                    if (GVDLO.Rows.Count > 0)
-                    {
-                        CLERK.Visible = true;
-                        btnClerklevel.Visible = true;
-                    }
-                    else { btnClerklevel.Visible = false; CLERK.Visible = false; }
-
+                    string message = "alert('" + Erromsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 }
             }
             catch (Exception ex)
@@ -3253,7 +3264,63 @@ namespace TTAP.UI
             }
 
         }
+        public string ValidateControls1()
+        {
+            int slno = 1;
+            string ErrorMsg = "";
+            if (ddlClerkIncentive.SelectedIndex == -1 || ddlClerkIncentive.SelectedItem.Text == "--Select--")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please Select Type of Incentive \\n";
+                slno = slno + 1;
+            }
+            if (ddlstatus.SelectedIndex == -1 || ddlstatus.SelectedItem.Text == "--Select--")
+            {
 
+                ErrorMsg = ErrorMsg + slno + ". Please Select Status \\n";
+                slno = slno + 1;
+            }
+
+            if (ddlstatus.SelectedValue == "1")
+            {
+                if (txtAmount.Text == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Fill the Details Recommended Amount \\n";
+                    slno = slno + 1;
+                }
+            }
+            if (ddlstatus.SelectedValue == "2")
+            {
+                if (txtQuery.Text == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Fill the Details Query Description \\n";
+                    slno = slno + 1;
+                }
+            }
+            if (ddlstatus.SelectedValue == "3")
+            {
+                if (txtSSCRemarks.Text == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Fill the Details Remarks \\n";
+                    slno = slno + 1;
+                }
+            }
+            if (ddlstatus.SelectedValue == "4")
+            {
+                if (txtRemark.Text == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Fill the Details  Abeyance Remarks \\n";
+                    slno = slno + 1;
+                }
+            }
+
+            if (ddlDepartment.SelectedIndex == -1 || ddlDepartment.SelectedItem.Text == "--Select--")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please Select Forward To \\n";
+                slno = slno + 1;
+            }
+
+            return ErrorMsg;
+        }
         protected void GVDLO_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             try
@@ -4031,7 +4098,7 @@ namespace TTAP.UI
                 throw ex;
             }
         }
-        public string ValidateControls1()
+        public string ValidateControls2()
         {
             int slno = 1;
             string ErrorMsg = "";
