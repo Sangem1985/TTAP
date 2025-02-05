@@ -24,7 +24,14 @@ namespace TTAP.UI.Pages
         decimal TotalPlintArea = 0, TotalOnetoNineValue = 0, TotalEighttoSeventeenValue = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindISCrrentClaimPeriodDtls("15136");// ("INCTEXT2022080519163");
+            try
+            {
+                BindISCrrentClaimPeriodDtls("15136");// ("INCTEXT2022080519163");
+            }
+            catch(Exception ex)
+            {
+
+            }
         }
         protected void BindISCrrentClaimPeriodDtls(string INCENTIVEID)
         {
