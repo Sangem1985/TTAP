@@ -19,6 +19,10 @@
     <script src="../../../Js/jquery.min.js"></script>
     <script src="../../../Js/table2excel.js"></script>
     <style>
+        div#ContentPlaceHolder1_Receipt, .container.mt-4.pb-4, .col-sm-12.offset-md-1.col-md-10.col-lg-10.offset-lg-1.p-4.pb-0.mt-3.frm-form.box-content {
+            max-width: 1400px !important;
+        }
+
         .main {
             min-height: 595px;
             min-height: 75.4vh;
@@ -39,7 +43,7 @@
 
         .table-responsive {
             display: block;
-            width: 100%;
+            width: 93%;
             /* overflow-x: auto; */
             -webkit-overflow-scrolling: touch;
         }
@@ -357,7 +361,8 @@
                                                                     </th>
                                                                     <th id="trFixedCapitalexpnPercent" runat="server"
                                                                         visible="false">% of increase under
-                                                                            <br />
+                                                                           
+                                                                        <br />
                                                                         Expansion/Diversification/Modification
                                                                     </th>
                                                                 </tr>
@@ -763,12 +768,12 @@
                                                             <img src="../../../images/Excel-icon.png" style="margin: -34px 768px 12px 0px;" width="30px" height="30px"
                                                                 alt="Excel" /></a>
                                                         <%--<div class="row my-4">--%>
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-10 table-responsive">
                                                             <asp:GridView runat="server" ID="grdPandM" AutoGenerateColumns="False" Width="100%" CellPadding="4"
                                                                 CssClass="table table-bordered title6 w-100 NewEnterprise" OnRowDataBound="grdPandM_RowDataBound">
                                                                 <HeaderStyle HorizontalAlign="Center" />
                                                                 <Columns>
-                                                                    <asp:TemplateField HeaderText="S.No" ItemStyle-Width="5%">
+                                                                    <asp:TemplateField HeaderText="S.No">
                                                                         <HeaderStyle HorizontalAlign="Center" />
                                                                         <ItemStyle HorizontalAlign="Center" />
                                                                         <ItemTemplate>
@@ -1586,12 +1591,12 @@
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Left" />
                                                                     </asp:TemplateField>
-                                                                    <%-- <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="View">
+                                                                    <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="View">
                                                                         <ItemTemplate>
                                                                             <asp:HyperLink ID="HyperLinkSubsidy" Text="view" NavigateUrl='<%#Eval("FilePathMerge")%>' Target="_blank" runat="server" />
                                                                         </ItemTemplate>
                                                                         <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                                    </asp:TemplateField>--%>
+                                                                    </asp:TemplateField>
                                                                     <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Uploaded Date <br/> (2)">
                                                                         <ItemTemplate>
                                                                             <asp:Label ID="lblverified" Text='<%#Eval("Verifieddate")%>' runat="server"></asp:Label>
@@ -1617,7 +1622,8 @@
                                                              there is no break-in-production (if not the details of the break- in-production) and
                                                              I recommend the above incentives to the captioned Enterprise/Industry</span>
                                                         <span class="pull-left pt-4" id="divSLCFIle" runat="server" visible="false">We 
-                                                        <asp:Label ID="lblDLORDOName" runat="server" Text=""></asp:Label>, 
+                                                       
+                                                            <asp:Label ID="lblDLORDOName" runat="server" Text=""></asp:Label>, 
                                                         hereby certify that the incentive application has been processed in accordance with the operational 
                                                         guidelines under T-TAP, if any deviation from guidelinesis foundout, 
                                                         we shall be held responsible for any action deemed fit. 

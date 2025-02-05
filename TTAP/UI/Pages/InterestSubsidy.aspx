@@ -583,20 +583,20 @@
                                                 </div>
                                                 <div class="col-sm-4 form-group">
                                                     <label class="control-label label-required">Closing Balance at the End of Half Year</label>
-                                                    <asp:TextBox ID="txtClosingBal" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control" MaxLength="30"></asp:TextBox>
+                                                    <asp:TextBox ID="txtClosingBal" onpaste="return false" ondrop="return false" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control" MaxLength="30"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-4 form-group">
                                                     <label class="control-label label-required">Principal Amount Repaid for the Period(Rs.)</label>
-                                                    <asp:TextBox ID="txtPrincipal" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control" MaxLength="30"></asp:TextBox>
+                                                    <asp:TextBox ID="txtPrincipal" onpaste="return false" ondrop="return false" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control" MaxLength="30"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-4 form-group">
                                                     <label class="control-label label-required">Rate Of Interest (%)</label>
-                                                    <asp:TextBox ID="txtRateofInterest" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control"
+                                                    <asp:TextBox ID="txtRateofInterest" onpaste="return false" ondrop="return false" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control"
                                                         TabIndex="4"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-4 form-group">
                                                     <label class="control-label label-required">Interest Amount Paid for the Period(Rs.)</label>
-                                                    <asp:TextBox ID="txtInterest" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control"
+                                                    <asp:TextBox ID="txtInterest" runat="server" onpaste="return false" ondrop="return false" onkeypress="return inputOnlyDecimals(event)" class="form-control"
                                                         TabIndex="4"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-4 form-group">
@@ -725,39 +725,39 @@
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label8" runat="server">T.L. Amount/ O.B(In Rupees)</label>
-                                                    <asp:TextBox ID="txtTearmLoanAmount" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtTearmLoanAmount" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label9" runat="server">Installment No</label>
-                                                    <asp:TextBox ID="txtNoOfInstallments" class="form-control" onkeypress="return inputOnlyNumbers(event)" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtNoOfInstallments" onpaste="return false" ondrop="return false" class="form-control" onkeypress="return inputOnlyNumbers(event)" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label10" runat="server">Rate of Interest for the Month(%)</label>
-                                                    <asp:TextBox ID="txtRateofInterestAmountDue" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRateofInterestAmountDue" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group" runat="server" visible="false">
                                                     <label class="control-label" id="Label11" runat="server">Interest Due (In Rupees)</label>
-                                                    <asp:TextBox ID="txtInterestDue" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtInterestDue" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label5" runat="server">Interest Paid (In Rupees)</label>
-                                                    <asp:TextBox ID="txtInterstPaid" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtInterstPaid" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group" runat="server" visible="false">
                                                     <label class="control-label" id="Label13" runat="server">Unit Holder Contribution (In Rupees)</label>
-                                                    <asp:TextBox ID="txtUnitHolderContribution" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtUnitHolderContribution" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label21" runat="server">Closing Balance (InRupees)</label>
-                                                    <asp:TextBox ID="txtClosingBalance" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtClosingBalance" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label14" runat="server">Eligible Rate of Interest</label>
-                                                    <asp:TextBox ID="txtEligibleRateInterest" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEligibleRateInterest" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label17" runat="server">Eligible Interest Amount</label>
-                                                    <asp:TextBox ID="txtEligibleInterest" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEligibleInterest" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-12 text-center">
                                                     <asp:Button ID="btnadditionalInformationAdd" runat="server" CssClass="btn btn-blue mx-2"
@@ -881,39 +881,39 @@
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label26" runat="server">T.L. Amount/ O.B(In Rupees)</label>
-                                                    <asp:TextBox ID="txtTearmLoanAmount2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtTearmLoanAmount2" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label27" runat="server">Installment No</label>
-                                                    <asp:TextBox ID="txtNoOfInstallments2" class="form-control" onkeypress="return inputOnlyNumbers(event)" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtNoOfInstallments2" onpaste="return false" ondrop="return false" class="form-control" onkeypress="return inputOnlyNumbers(event)" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label28" runat="server">Rate of Interest for the Month(%)</label>
-                                                    <asp:TextBox ID="txtRateofInterestAmountDue2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRateofInterestAmountDue2" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group" runat="server" visible="false">
                                                     <label class="control-label" id="Label31" runat="server">Interest Due (In Rupees)</label>
-                                                    <asp:TextBox ID="txtInterestDue2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtInterestDue2" class="form-control" onpaste="return false" ondrop="return false" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label32" runat="server">Interest Paid (In Rupees)</label>
-                                                    <asp:TextBox ID="txtInterstPaid2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtInterstPaid2" class="form-control" onpaste="return false" ondrop="return false" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group" runat="server" visible="false">
                                                     <label class="control-label" id="Label33" runat="server">Unit Holder Contribution (In Rupees)</label>
-                                                    <asp:TextBox ID="txtUnitHolderContribution2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtUnitHolderContribution2" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label34" runat="server">Closing Balance (InRupees)</label>
-                                                    <asp:TextBox ID="txtClosingBalance2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtClosingBalance2" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label35" runat="server">Eligible Rate of Interest</label>
-                                                    <asp:TextBox ID="txtEligibleRateInterest2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEligibleRateInterest2" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label36" runat="server">Eligible Interest Amount</label>
-                                                    <asp:TextBox ID="txtEligibleInterest2" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEligibleInterest2" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-12 text-center">
                                                     <asp:Button ID="btnadditionalInformationAdd2" runat="server" CssClass="btn btn-blue mx-2"
@@ -1037,39 +1037,39 @@
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label40" runat="server">T.L. Amount/ O.B(In Rupees)</label>
-                                                    <asp:TextBox ID="txtTearmLoanAmount3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtTearmLoanAmount3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label41" runat="server">Installment No</label>
-                                                    <asp:TextBox ID="txtNoOfInstallments3" class="form-control" onkeypress="return inputOnlyNumbers(event)" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtNoOfInstallments3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="return inputOnlyNumbers(event)" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label42" runat="server">Rate of Interest for the Month(%)</label>
-                                                    <asp:TextBox ID="txtRateofInterestAmountDue3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtRateofInterestAmountDue3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group" runat="server" visible="false">
                                                     <label class="control-label" id="Label43" runat="server">Interest Due (In Rupees)</label>
-                                                    <asp:TextBox ID="txtInterestDue3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtInterestDue3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label44" runat="server">Interest Paid (In Rupees)</label>
-                                                    <asp:TextBox ID="txtInterstPaid3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtInterstPaid3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group" runat="server" visible="false">
                                                     <label class="control-label" id="Label45" runat="server">Unit Holder Contribution (In Rupees)</label>
-                                                    <asp:TextBox ID="txtUnitHolderContribution3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtUnitHolderContribution3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label46" runat="server">Closing Balance (InRupees)</label>
-                                                    <asp:TextBox ID="txtClosingBalance3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtClosingBalance3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label47" runat="server">Eligible Rate of Interest</label>
-                                                    <asp:TextBox ID="txtEligibleRateInterest3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEligibleRateInterest3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-3 form-group">
                                                     <label class="control-label" id="Label48" runat="server">Eligible Interest Amount</label>
-                                                    <asp:TextBox ID="txtEligibleInterest3" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEligibleInterest3" onpaste="return false" ondrop="return false" class="form-control" onkeypress="DecimalOnly()" runat="server"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-12 text-center">
                                                     <asp:Button ID="btnadditionalInformationAdd3" runat="server" CssClass="btn btn-blue mx-2"
@@ -1197,15 +1197,15 @@
                                                 <div class="col-sm-4 form-group">
                                                     <label class="label-required">Total No of Installments</label>
                                                     <asp:TextBox ID="txtInstallments" runat="server" class="form-control" onkeypress="return inputOnlyNumbers(event)"
-                                                        MaxLength="40" TabIndex="5"></asp:TextBox>
+                                                        MaxLength="40" onpaste="return false" ondrop="return false" TabIndex="5"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-4 form-group">
                                                     <label class="control-label label-required">Installment Amount (Rs.)</label>
-                                                    <asp:TextBox ID="txtInstallmentAmount" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control" MaxLength="30"></asp:TextBox>
+                                                    <asp:TextBox ID="txtInstallmentAmount" onpaste="return false" ondrop="return false" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control" MaxLength="30"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-4 form-group">
                                                     <label class="control-label label-required">Total Amount Repaid (Interest + Principal) (Rs.)</label>
-                                                    <asp:TextBox ID="txtTotalAmountRepaid" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control"
+                                                    <asp:TextBox ID="txtTotalAmountRepaid" onpaste="return false" ondrop="return false" runat="server" onkeypress="return inputOnlyDecimals(event)" class="form-control"
                                                         TabIndex="4"></asp:TextBox>
                                                 </div>
                                                 <div class="col-sm-12 text-center">
