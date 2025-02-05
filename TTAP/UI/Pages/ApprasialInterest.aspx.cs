@@ -28,7 +28,8 @@ namespace TTAP.UI.Pages
             {
                 if (!IsPostBack)
                 {
-                    BindISCrrentClaimPeriodDtls("15136");// ("INCTEXT2022080519163");
+                    //BindISCrrentClaimPeriodDtls("15136");// ("INCTEXT2022080519163");
+                    //BindISCrrentClaimPeriodDtls("48333");
                 }
             }
             catch(Exception ex)
@@ -5631,7 +5632,7 @@ namespace TTAP.UI.Pages
 
                                                 #region interest amount check dcp date,5 years from current date
 
-                                                //DateTime fiveyearsdate = dcpdate.AddYears(5);
+                                                //DateTime fiveyearsdate = dcpdate.AddYears(5); chanikya
                                                 if (dat.AddMonths(k).Date <= fiveyearsdate.Date)
                                                 {
                                                     //installment date is less than 5 year date
@@ -6262,6 +6263,10 @@ namespace TTAP.UI.Pages
             return ErrorMsg;
         }
 
+        protected void btnsub_Click(object sender, EventArgs e)
+        {
+            BindISCrrentClaimPeriodDtls(txtIncID.Text.ToString());
+        }
 
         protected void txt_GMrecommendedamount_TextChanged(object sender, EventArgs e)
         {

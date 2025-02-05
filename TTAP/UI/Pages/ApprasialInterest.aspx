@@ -11,6 +11,10 @@
                                 <tr>
                                     <td>
                                         <asp:Label ID="lbl_schemetide" class="form-control txtbox" runat="server"></asp:Label>
+                                        <asp:TextBox ID="txtIncID" runat="server" TextMode="Number"></asp:TextBox>
+                                    </td>
+                                    <td>
+                                        <asp:Button runat="server" Text="Search" CssClass="btn-blue" ID="btnsub" OnClick="btnsub_Click" />
                                     </td>
                                 </tr>
                                 <tr>
