@@ -26,7 +26,10 @@ namespace TTAP.UI.Pages
         {
             try
             {
-                BindISCrrentClaimPeriodDtls("15136");// ("INCTEXT2022080519163");
+                if (!IsPostBack)
+                {
+                    BindISCrrentClaimPeriodDtls("15136");// ("INCTEXT2022080519163");
+                }
             }
             catch(Exception ex)
             {
@@ -44,6 +47,7 @@ namespace TTAP.UI.Pages
                 {
                     GvInterestSubsidyPeriod.DataSource = dsnew.Tables[0];
                     GvInterestSubsidyPeriod.DataBind();
+                    txtDCP_unit.Text = dsnew.Tables[1].Rows[0]["DCP"].ToString();
                 }
                 else
                 {
