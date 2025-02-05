@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Head Office Inspection Report" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="HeadOfficeInspectionReport.aspx.cs" Inherits="TTAP.UI.Pages.HeadOfficeInspectionReport" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <script src="../../js/jquery-latest.min.js" type="text/javascript"></script>
@@ -1200,6 +1201,8 @@
                                                                             </asp:TemplateField>--%>
                                                                             <asp:TemplateField HeaderText="Financial Year </br> (1)">
                                                                                 <ItemTemplate>
+                                                                                    <asp:HiddenField ID="hf_claimperiodofloanaddIncentiveId" Value='<%# Eval("Incentive_id") %>' runat="server" />
+                                                                                    <asp:HiddenField ID="hf_claimperiodofloanadd_ID" Value='<%# Eval("TypeOfFinancialYear") %>' runat="server" />
                                                                                     <asp:Label ID="lblFinancialYear" runat="server" Text='<%#Eval("FinancialYearText") %>'></asp:Label>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
@@ -1213,8 +1216,21 @@
                                                                                     <asp:Label ID="lblAmountPaid" runat="server" Text='<%#Eval("TotalAmount") %>'></asp:Label>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
+                                                                            <asp:TemplateField>
+                                                                                <HeaderTemplate>
+                                                                                    No of Loans Applied for this Claim
+                                                                                </HeaderTemplate>
+                                                                                <ItemTemplate>
+                                                                                    <asp:TextBox ID="txt_claimperiodofloanaddNumber" runat="server" class="form-control txtbox" Height="28px" onkeypress="DecimalOnly()"
+                                                                                        TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator101" runat="server" ControlToValidate="txt_claimperiodofloanaddNumber"
+                                                                                        ErrorMessage="Please Enter No of Loans Applied for this Claim " Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                </ItemTemplate>
+                                                                            </asp:TemplateField>
                                                                         </Columns>
                                                                     </asp:GridView>
+                                                                    <asp:Button ID="btn_savegrdclaimperiodofloanadd" runat="server" CssClass="btn btn-primary" Height="32px"
+                                                                        OnClick="btn_savegrdclaimperiodofloanadd_Click" Text="Submit to Add More Details" Width="180px" />
                                                                 </div>
                                                             </div>
                                                         </td>
@@ -1314,125 +1330,836 @@
                                                     <tr runat="server" visible="true">
                                                         <td align="left" colspan="4">
                                                             <div class="text-blue font-SemiBold col col-sm-12 mt-3">Month wise & Bank wise Details of Current Claim Period</div>
+
                                                             <div class="row">
-                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                                    <asp:GridView runat="server" ID="gvAdditionalInformation" AutoGenerateColumns="False" CellPadding="4"
-                                                                        Width="100%" ShowFooter="true" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise tablesorter" CellSpacing="4" OnRowDataBound="gvAdditionalInformation_RowDataBound">
-                                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                                        <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                                        <RowStyle CssClass="GridviewScrollC1Item" />
-                                                                        <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                                        <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                                        <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                                        <Columns>
-                                                                            <asp:TemplateField HeaderText="S No. </br> (1)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="SNo" runat="server" Text='<%#Container.DataItemIndex + 1 %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Term Loan </br> (2)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblTermloan" runat="server" Text='<%#Eval("TermLoan") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Month </br> (3)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblAmountDueDate" runat="server" Text='<%#Eval("TLMonthName") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Bank Name </br> (4)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblBankName" runat="server" Text='<%#Eval("BankName") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Account No. </br> (5)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblAccountNo" runat="server" Text='<%#Eval("AccountNumber") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <%-- <asp:TemplateField Visible="false" HeaderText="1st/2nd half Year">
+                                                                <table style="width: 100%">
+
+                                                                    <tr>
+                                                                        <td></td>
+                                                                        <td colspan="4">
+                                                                            <asp:GridView ID="grd_eglibilepallavaddi" runat="server" CssClass="table table-small-font table-bordered table-striped" AutoGenerateColumns="false"
+                                                                                AllowPaging="false" ShowHeaderWhenEmpty="true" ShowFooter="true" EmptyDataText="&lt;b&gt;No Data Available&lt;/b&gt;">
+                                                                                <Columns>
+
+                                                                                    <asp:TemplateField>
+                                                                                        <ItemTemplate>
+                                                                                            <asp:HiddenField ID="hf_grdeglibilepallavaddiIncentiveId" Value='<%# Eval("IncentiveId") %>' runat="server" />
+                                                                                            <asp:HiddenField ID="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" Value='<%# Eval("FinancialYear") %>' runat="server" />
+                                                                                            <asp:HiddenField ID="hf_grdeglibilepallavaddiFY_ID" Value='<%# Eval("FinancialYearID") %>' runat="server" />
+                                                                                            <table>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Date of Commencement of activity:</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseDateofCommencementofactivity" Text='<%# Eval("DCPDATE") %>' runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseDateofCommencementofactivity_TextChanged"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator102" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseDateofCommencementofactivity"
+                                                                                                            ErrorMessage="Please Enter Date of Commencement of activity" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Loan installment start Date</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseinstallmentstartdate" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseinstallmentstartdate_TextChanged"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator103" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseinstallmentstartdate"
+                                                                                                            ErrorMessage="Please Enter Month from which installment starts" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Total Term Loan Availed(In Rs.)</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement" runat="server" class="form-control txtbox" Height="28px"
+                                                                                                            onkeypress="DecimalOnly()" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement_TextChanged"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator104" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement"
+                                                                                                            ErrorMessage="Please Enter Total Term Loan Availed(Value in Rs.)" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Period of installment</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:DropDownList ID="ddl_claimeglibleincentivesloanwiseperiodofinstallment" runat="server" class="form-control txtbox" AutoPostBack="true" OnSelectedIndexChanged="ddl_claimeglibleincentivesloanwiseperiodofinstallment_SelectedIndexChanged"
+                                                                                                            TabIndex="4" Height="33px" Width="180px">
+                                                                                                            <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                                                            <asp:ListItem Value="1">Yearly</asp:ListItem>
+                                                                                                            <asp:ListItem Value="2">Halfyearly</asp:ListItem>
+                                                                                                            <asp:ListItem Value="3">Quartely</asp:ListItem>
+                                                                                                            <asp:ListItem Value="4">Monthly</asp:ListItem>
+                                                                                                        </asp:DropDownList>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator105" runat="server" ControlToValidate="ddl_claimeglibleincentivesloanwiseperiodofinstallment"
+                                                                                                            ErrorMessage="Please select Period of installment" Display="Dynamic" InitialValue="0"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>No of installment</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwisenoofinstallment" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwisenoofinstallment_TextChanged"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator106" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwisenoofinstallment"
+                                                                                                            ErrorMessage="Please Enter No of installment" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Installment amount</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseInstallmentamount" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseInstallmentamount_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator109" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseInstallmentamount"
+                                                                                                            ErrorMessage="Please Enter Installment amount" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+
+                                                                                                </tr>
+
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>No of installments completed</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted" runat="server" />
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator110" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted"
+                                                                                                            ErrorMessage="Please Enter No of installments completed" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>PrincipalAmount become DUE before this HALFYEAR</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR" runat="server" />
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR" runat="server" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR_TextChanged"
+                                                                                                            Enabled="false" class="form-control txtbox" Height="28px"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator111" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR"
+                                                                                                            ErrorMessage="Please Enter Principal amount become DUE before this HALF YEAR" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>No of installments completed Months</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths" runat="server" />
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths"
+                                                                                                            ErrorMessage="Please Enter No of installments completed" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>For Previous Financial Year is Moratorium Applicable</b>
+                                                                                                        <asp:CheckBox ID="chk_claimeglibleincenloanwisepreviousfymot" Enabled="false" AutoPostBack="true" OnCheckedChanged="chk_claimeglibleincenloanwisepreviousfymot_CheckedChanged" runat="server" />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <b>Moratorium Applicable for this claim Period</b>
+                                                                                                        <asp:CheckBox ID="chk_moratiumapplforthisclaimperiod" Enabled="false" AutoPostBack="true" OnCheckedChanged="chk_moratiumapplforthisclaimperiod_CheckedChanged" runat="server" />
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <b>Rows Installment is not applicable</b>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:CheckBoxList ID="chk_grdclaimegliblerowstodisable" AutoPostBack="true" Enabled="false" OnSelectedIndexChanged="chk_grdclaimegliblerowstodisable_SelectedIndexChanged" TextAlign="Right" RepeatDirection="Horizontal" runat="server">
+                                                                                                            <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                                                                                            <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                                                                                                        </asp:CheckBoxList>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <th style="font-family: Calibri"><%#Container.DataItemIndex+1 %> Claim Period:   
+                                                                                            <asp:Label ID="lbl_grdeglibilepallavaddiFYname" Text='<%# Eval("FinancialYearName") %>' runat="server"></asp:Label>
+                                                                                                    </th>
+                                                                                                    <th style="font-family: Calibri"></th>
+                                                                                                    <th style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;  Loan-
+                                                                                            <asp:Label ID="lbl_claimeglibleincentivesloanwiseLoanID" Text='<%# Eval("LoanNumber") %>' runat="server"></asp:Label></th>
+                                                                                                    <th style="font-family: Calibri"></th>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <%-- <table border="1" width="100%" align="center" cellpadding="10" cellspacing="5">--%>
+                                                                                                <tr style="column-rule-style: solid">
+                                                                                                    <th style="font-family: Calibri">Sr.#	</th>
+                                                                                                    <th style="font-family: Calibri">Period of Claim</th>
+                                                                                                    <th style="font-family: Calibri">Principal amounnt due</th>
+
+                                                                                                    <th style="font-family: Calibri">No of Installment</th>
+                                                                                                    <th style="font-family: Calibri">Rate of Interest</th>
+                                                                                                    <th style="font-family: Calibri">Interest due</th>
+
+                                                                                                    <th style="font-family: Calibri">Unit Holder  Contribution</th>
+                                                                                                    <th style="font-family: Calibri">Eligible Rate of interest</th>
+                                                                                                    <th style="font-family: Calibri">Eligible Interest Amount</th>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">1</td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hfmonthid1" runat="server" />
+                                                                                                        <asp:Label ID="lblPeriodofClaim1" runat="server"></asp:Label>
+
+                                                                                                    </td>
+
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblPrincipalamounntdue1" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblNoofInstallments1" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txtRateofinterest1" runat="server" AutoPostBack="true"
+                                                                                                            class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RFVRateofinterest1" runat="server" ControlToValidate="txtRateofinterest1"
+                                                                                                            ErrorMessage="Please Enter Rate of interest Month1" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblInterestdue1" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblUnitHolderContribution1" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleRateofinterest1" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleInterestAmount1" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">2</td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hfmonthid2" runat="server" />
+                                                                                                        <asp:Label ID="lblPeriodofClaim2" runat="server"></asp:Label>
+
+                                                                                                    </td>
+
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblPrincipalamounntdue2" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblNoofInstallments2" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txtRateofinterest2" runat="server" AutoPostBack="true"
+                                                                                                            class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RFVRateofinterest2" runat="server" ControlToValidate="txtRateofinterest2"
+                                                                                                            ErrorMessage="Please Enter Rate of interest Month1" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblInterestdue2" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblUnitHolderContribution2" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleRateofinterest2" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleInterestAmount2" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">3</td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hfmonthid3" runat="server" />
+                                                                                                        <asp:Label ID="lblPeriodofClaim3" runat="server"></asp:Label>
+
+                                                                                                    </td>
+
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblPrincipalamounntdue3" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblNoofInstallments3" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txtRateofinterest3" runat="server" AutoPostBack="true"
+                                                                                                            class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RFVtxtRateofinterest3" runat="server" ControlToValidate="txtRateofinterest3"
+                                                                                                            ErrorMessage="Please Enter Rate of interest Month1" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblInterestdue3" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblUnitHolderContribution3" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleRateofinterest3" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleInterestAmount3" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">4</td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hfmonthid4" runat="server" />
+                                                                                                        <asp:Label ID="lblPeriodofClaim4" runat="server"></asp:Label>
+
+                                                                                                    </td>
+
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblPrincipalamounntdue4" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblNoofInstallments4" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txtRateofinterest4" runat="server" AutoPostBack="true"
+                                                                                                            class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RFVRateofinterest4" runat="server" ControlToValidate="txtRateofinterest4"
+                                                                                                            ErrorMessage="Please Enter Rate of interest Month1" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblInterestdue4" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblUnitHolderContribution4" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleRateofinterest4" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleInterestAmount4" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">5</td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hfmonthid5" runat="server" />
+                                                                                                        <asp:Label ID="lblPeriodofClaim5" runat="server"></asp:Label>
+
+                                                                                                    </td>
+
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblPrincipalamounntdue5" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblNoofInstallments5" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txtRateofinterest5" runat="server" AutoPostBack="true"
+                                                                                                            class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RFVtxtRateofinterest5" runat="server" ControlToValidate="txtRateofinterest5"
+                                                                                                            ErrorMessage="Please Enter Rate of interest Month1" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblInterestdue5" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblUnitHolderContribution5" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleRateofinterest5" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleInterestAmount5" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">6</td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:HiddenField ID="hfmonthid6" runat="server" />
+                                                                                                        <asp:Label ID="lblPeriodofClaim6" runat="server"></asp:Label>
+
+                                                                                                    </td>
+
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblPrincipalamounntdue6" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblNoofInstallments6" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txtRateofinterest6" runat="server" AutoPostBack="true"
+                                                                                                            class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RFVRateofinterest6" runat="server" ControlToValidate="txtRateofinterest6"
+                                                                                                            ErrorMessage="Please Enter Rate of interest Month1" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblInterestdue6" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblUnitHolderContribution6" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleRateofinterest6" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lblEligibleInterestAmount6" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri">6</td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri">Total Interest Amount:
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lbl_grd_totmonthsInterestamount" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri">Total Eligible Interest Amount:</td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:Label ID="lbl_grd_totmonthsEligibleInterestAmount" runat="server"></asp:Label>
+                                                                                                    </td>
+                                                                                                </tr>
+                                                                                                <tr>
+
+                                                                                                    <td style="font-family: Calibri"><b>Eligible period in months</b>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <br />
+                                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiEligibleperiodinmonths" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiEligibleperiodinmonths_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator122" runat="server" ControlToValidate="txt_grdeglibilepallavaddiEligibleperiodinmonths"
+                                                                                                            ErrorMessage="Please Enter Eligible period in months" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Insert amount to be paid as per calculations</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator123" runat="server" ControlToValidate="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations"
+                                                                                                            ErrorMessage="Please Enter Insert amount to be paid as per calculations" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Actual interest amount paid</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiActualinterestamountpaid" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiActualinterestamountpaid_TextChanged"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator124" runat="server" ControlToValidate="txt_grdeglibilepallavaddiActualinterestamountpaid"
+                                                                                                            ErrorMessage="Please Enter Actual interest amount paid" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Rate of Interest</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseRateofInterest" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseRateofInterest_TextChanged"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator107" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseRateofInterest"
+                                                                                                            ErrorMessage="Please Enter Rate of Interest" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Eligible rate of reimbursement</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator108" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement"
+                                                                                                            ErrorMessage="Please Enter Eligible rate of reimbursement" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Considered Amount for Interest</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10111" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest"
+                                                                                                            ErrorMessage="Please Enter Considered Amount for Interest" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Interst reimbursement calculated</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiInsertreimbursementcalculated" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiInsertreimbursementcalculated_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator125" runat="server" ControlToValidate="txt_grdeglibilepallavaddiInsertreimbursementcalculated"
+                                                                                                            ErrorMessage="Please Enter Interst reimbursement calculated" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Eligible Type</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:RadioButtonList ID="rbtgrdeglibilepallavaddi_isbelated" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" Height="33px" OnSelectedIndexChanged="rbtgrdeglibilepallavaddi_isbelated_SelectedIndexChanged"
+                                                                                                            TabIndex="1" Width="200px">
+                                                                                                            <asp:ListItem Value="0">>1 Year</asp:ListItem>
+                                                                                                            <asp:ListItem Value="Y">Regular</asp:ListItem>
+                                                                                                            <asp:ListItem Value="N">Belated</asp:ListItem>
+
+                                                                                                        </asp:RadioButtonList>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Interst reimbursement(After selecting the eglible Type)</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype_TextChanged"
+                                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator126" runat="server" ControlToValidate="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype"
+                                                                                                            ErrorMessage="Please Enter Interst reimbursement(After selecting the eglible Type)" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>GM recommended amount</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiGMrecommendedamount" Text='<%# Eval("GM_Rcon_Amount") %>'
+                                                                                                            Enabled="false" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiGMrecommendedamount_TextChanged"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator127" runat="server" ControlToValidate="txt_grdeglibilepallavaddiGMrecommendedamount"
+                                                                                                            ErrorMessage="Please Enter GM recommended amount" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"><b>Eligible amount</b></td>
+                                                                                                    <td style="font-family: Calibri">
+                                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiEligibleamount" runat="server" class="form-control txtbox" Height="28px" Enabled="true"
+                                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator128" runat="server" ControlToValidate="txt_grdeglibilepallavaddiEligibleamount"
+                                                                                                            ErrorMessage="Please Enter Eligible amount" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                                        <br />
+                                                                                                    </td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+
+                                                                                                <tr>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                    <td style="font-family: Calibri"></td>
+                                                                                                </tr>
+                                                                                            </table>
+                                                                                        </ItemTemplate>
+                                                                                    </asp:TemplateField>
+
+                                                                                </Columns>
+                                                                                <PagerStyle CssClass="gridview"></PagerStyle>
+                                                                            </asp:GridView>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="4">
+                                                            <table style="width: 100%">
+                                                                <tr>
+                                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">Insert amount to be paid as per calculations</td>
+                                                                    <td style="padding: 5px; margin: 5px;">:
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                                        <asp:TextBox ID="txt_Insertamounttobepaidaspercalculations" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
+                                                                            TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txt_Insertamounttobepaidaspercalculations"
+                                                                            ErrorMessage="Please Enter Insert amount to be paid as per calculations" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">Actual interest amount paid<font
+                                                                        color="red">*</font></td>
+                                                                    <td style="padding: 5px; margin: 5px;">:
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                                        <asp:TextBox ID="txt_Actualinterestamountpaid" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
+                                                                            TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator49" runat="server" ControlToValidate="txt_Actualinterestamountpaid"
+                                                                            ErrorMessage="Please Enter Actual interest amount paid" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">Considered Amount of Interest<font color="red">*</font></td>
+                                                                    <td style="padding: 5px; margin: 5px;">:
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                                        <asp:TextBox ID="txt_ConsideredAmountofInterest" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
+                                                                            TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txt_ConsideredAmountofInterest"
+                                                                            ErrorMessage="Please Enter Considered Amount of Interest" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">Interst reimbursement calculated<font color="red">*</font></td>
+                                                                    <td style="padding: 5px; margin: 5px;">:
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                                        <asp:TextBox ID="txt_Insertreimbursementcalculated" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
+                                                                            TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator50" runat="server" ControlToValidate="txt_Insertreimbursementcalculated"
+                                                                            ErrorMessage="Please Enter Interst reimbursement calculated" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">Interst reimbursement(After selecting the eglible Type)<font color="red">*</font></td>
+                                                                    <td style="padding: 5px; margin: 5px;">:
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                                        <asp:TextBox ID="txt_eglibleamountofreimbursementbyeglibletype" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
+                                                                            TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txt_eglibleamountofreimbursementbyeglibletype"
+                                                                            ErrorMessage="Please Enter Interst reimbursement(After selecting the eglible Type)" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">GM recommended amount<font color="red">*</font></td>
+                                                                    <td style="padding: 5px; margin: 5px;">:
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                                        <asp:TextBox ID="txt_GMrecommendedamount" runat="server" class="form-control txtbox" Enabled="false" Height="28px" AutoPostBack="true" OnTextChanged="txt_GMrecommendedamount_TextChanged"
+                                                                            TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator51" runat="server" ControlToValidate="txt_GMrecommendedamount"
+                                                                            ErrorMessage="Please Enter GM recommended amount" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">Eligible amount</td>
+                                                                    <td style="padding: 5px; margin: 5px;">:
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                                        <asp:TextBox ID="txt_Eligibleamount" runat="server" class="form-control txtbox" Height="28px"
+                                                                            TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator52" runat="server" ControlToValidate="txt_Eligibleamount"
+                                                                            ErrorMessage="Please Enter Eligible amount" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                                    </td>
+                                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri"><b>Remarks</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_TotalRemarks" runat="server" class="form-control txtbox" Height="28px"
+                                                                            ValidationGroup="group" TabIndex="10" Width="300px"></asp:TextBox>
+                                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txt_TotalRemarks"
+                                                                            ErrorMessage="Please Enter Remarks" ValidationGroup="group" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                        <br />
+                                                                    </td>
+                                                                    <td style="font-family: Calibri"></td>
+                                                                    <td style="font-family: Calibri"></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="style21" style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;"></td>
+                                                                    <td class="style21" style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;">WorkSheet
+                                                                    </td>
+                                                                    <td class="style21" style="padding: 5px; margin: 5px">:
+                                                                    </td>
+                                                                    <td class="style6" style="padding: 5px; margin: 5px; text-align: left;">
+                                                                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="CS" Height="28px" />
+                                                                        <asp:HyperLink ID="lblFileName" runat="server" CssClass="LBLBLACK" Width="165px"
+                                                                            Visible="false" Target="_blank"></asp:HyperLink>
+                                                                        <br />
+                                                                        <asp:Label ID="Label444" runat="server" Visible="False"></asp:Label>
+                                                                        <asp:Button ID="BtnSave3" runat="server" CssClass="btn btn-xs btn-warning" Height="28px"
+                                                                            TabIndex="10" Text="Upload" Width="72px" OnClick="BtnSave3_Click" />
+                                                                    </td>
+                                                                    <td></td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+
+                                                </div>
+                                                <div class="row">
+
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+
+                                                        <asp:GridView runat="server" ID="gvAdditionalInformation" AutoGenerateColumns="False" CellPadding="4" Visible="false"
+                                                            Width="100%" ShowFooter="true" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise tablesorter" CellSpacing="4" OnRowDataBound="gvAdditionalInformation_RowDataBound">
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                            <RowStyle CssClass="GridviewScrollC1Item" />
+                                                            <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                            <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                            <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="S No. </br> (1)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="SNo" runat="server" Text='<%#Container.DataItemIndex + 1 %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Term Loan </br> (2)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblTermloan" runat="server" Text='<%#Eval("TermLoan") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Month </br> (3)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblAmountDueDate" runat="server" Text='<%#Eval("TLMonthName") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Bank Name </br> (4)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblBankName" runat="server" Text='<%#Eval("BankName") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Account No. </br> (5)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblAccountNo" runat="server" Text='<%#Eval("AccountNumber") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <%-- <asp:TemplateField Visible="false" HeaderText="1st/2nd half Year">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblTypeOfFinancialYearText" runat="server" Text='<%#Eval("TypeOfFinancialYearText") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>--%>
-                                                                            <asp:TemplateField HeaderText="Opening Balance (In Rupees) </br> (6)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblTearmLoanAmount" runat="server" Text='<%#Eval("TearmLoanAmount") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Installment Number </br> (7)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblNoOfInstallments" runat="server" Text='<%#Eval("InstallmentNo") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Rate of interest for the Month(%) </br> (8)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblRateofInterestAmountDue" runat="server" Text='<%#Eval("RateofInterestAmountDue") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Interest Paid </br> (9)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblInterestDue" runat="server" Text='<%#Eval("InterestPaid") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Closing Balance (In Rupees) </br> (10)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblClosingBalance" runat="server" Text='<%#Eval("ClosingBalance") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <%-- <asp:TemplateField  Visible="false" HeaderText="Unit holder contribution </br> (9)">
+                                                                <asp:TemplateField HeaderText="Opening Balance (In Rupees) </br> (6)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblTearmLoanAmount" runat="server" Text='<%#Eval("TearmLoanAmount") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Installment Number </br> (7)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblNoOfInstallments" runat="server" Text='<%#Eval("InstallmentNo") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Rate of interest for the Month(%) </br> (8)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblRateofInterestAmountDue" runat="server" Text='<%#Eval("RateofInterestAmountDue") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Interest Paid </br> (9)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblInterestDue" runat="server" Text='<%#Eval("InterestPaid") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Closing Balance (In Rupees) </br> (10)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblClosingBalance" runat="server" Text='<%#Eval("ClosingBalance") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <%-- <asp:TemplateField  Visible="false" HeaderText="Unit holder contribution </br> (9)">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblUnitHolderContribution" runat="server" Text='<%#Eval("UnitHolderContribution") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>--%>
-                                                                            <asp:TemplateField HeaderText="Eligible rate of interest </br> (11)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblEligibleRateInterest" runat="server" Text='<%#Eval("EligibleRateInterest") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Eligible interest Amount Claimed by the Unit</br> (12)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblEligibleInterest" runat="server" Text='<%#Eval("EligibleInterest") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="DLO Recommended Eligible Interest Amount</br> (13)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtDLOEligibleInterest" CssClass="form-control" OnTextChanged="txtDLOEligibleInterest_TextChanged" AutoPostBack="true" runat="server" Text='<%#Eval("DLORecommendedInterest") %>'></asp:TextBox>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                             <asp:TemplateField HeaderText="Head Office Recommended rate of interest </br> (14)">
-                                                                                 <HeaderStyle Width="100%" />
-                                                                                <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtHOEligibleRateInterest" CssClass="form-control"  AutoPostBack="true" runat="server" Text='<%#Eval("EligibleRateInterest") %>'></asp:TextBox>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                             <asp:TemplateField HeaderText="HO Recommended Interest Amount</br> (15)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtHOEligibleInterest" CssClass="form-control" OnTextChanged="txtDLOEligibleInterest_TextChanged" AutoPostBack="true" runat="server" Text='<%#Eval("DLORecommendedInterest") %>'></asp:TextBox>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                             <asp:TemplateField HeaderText="Final Recommended Interest Amount</br> (16)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtFinalEligibleInterest" CssClass="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Remarks</br> (17)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:TextBox ID="txtDLORemarks" TextMode="MultiLine" runat="server"></asp:TextBox>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Additional Id" Visible="false">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblAdditionalinformationId" runat="server" Text='<%#Eval("AdditionalinformationId") %>'></asp:Label>
-                                                                                    <asp:Label ID="lblIncentiveId" runat="server" Text='<%#Eval("Incentive_id") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                        </Columns>
-                                                                    </asp:GridView>
-                                                                </div>
-                                                            </div>
-
-                                                        </td>
+                                                                <asp:TemplateField HeaderText="Eligible rate of interest </br> (11)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEligibleRateInterest" runat="server" Text='<%#Eval("EligibleRateInterest") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Eligible interest Amount Claimed by the Unit</br> (12)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEligibleInterest" runat="server" Text='<%#Eval("EligibleInterest") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="DLO Recommended Eligible Interest Amount</br> (13)">
+                                                                    <ItemTemplate>
+                                                                        <asp:TextBox ID="txtDLOEligibleInterest" CssClass="form-control" OnTextChanged="txtDLOEligibleInterest_TextChanged" AutoPostBack="true" runat="server" Text='<%#Eval("DLORecommendedInterest") %>'></asp:TextBox>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Head Office Recommended rate of interest </br> (14)">
+                                                                    <HeaderStyle Width="100%" />
+                                                                    <ItemTemplate>
+                                                                        <asp:TextBox ID="txtHOEligibleRateInterest" CssClass="form-control" AutoPostBack="true" runat="server" Text='<%#Eval("EligibleRateInterest") %>'></asp:TextBox>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="HO Recommended Interest Amount</br> (15)">
+                                                                    <ItemTemplate>
+                                                                        <asp:TextBox ID="txtHOEligibleInterest" CssClass="form-control" OnTextChanged="txtDLOEligibleInterest_TextChanged" AutoPostBack="true" runat="server" Text='<%#Eval("DLORecommendedInterest") %>'></asp:TextBox>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Final Recommended Interest Amount</br> (16)">
+                                                                    <ItemTemplate>
+                                                                        <asp:TextBox ID="txtFinalEligibleInterest" CssClass="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Remarks</br> (17)">
+                                                                    <ItemTemplate>
+                                                                        <asp:TextBox ID="txtDLORemarks" TextMode="MultiLine" runat="server"></asp:TextBox>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Additional Id" Visible="false">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblAdditionalinformationId" runat="server" Text='<%#Eval("AdditionalinformationId") %>'></asp:Label>
+                                                                        <asp:Label ID="lblIncentiveId" runat="server" Text='<%#Eval("Incentive_id") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
+                                                </div>
+                                                </td>
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2">
@@ -1444,103 +2171,52 @@
                                                             </div>
                                                         </td>
                                                     </tr>
+                                                <tr>
+                                                    <td align="left" colspan="3">
+                                                        <div class="text-blue font-SemiBold col col-sm-12 mt-3">Whether the Unit has availed Interest Subsidy from GOI or any other Agency</div>
+                                                    </td>
+                                                    <td align="left" colspan="1">
+                                                        <asp:Label runat="server" ID="lblGOAgency">Yes</asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <div runat="server" id="divGOAgency" visible="false">
                                                     <tr>
-                                                        <td align="left" colspan="3">
-                                                            <div class="text-blue font-SemiBold col col-sm-12 mt-3">Whether the Unit has availed Interest Subsidy from GOI or any other Agency</div>
+                                                        <td align="left">Amount Availed 
                                                         </td>
-                                                        <td align="left" colspan="1">
-                                                            <asp:Label runat="server" ID="lblGOAgency">Yes</asp:Label>
+                                                        <td>
+                                                            <asp:Label runat="server" ID="lblAmountAvailed"></asp:Label>
                                                         </td>
                                                     </tr>
-                                                    <div runat="server" id="divGOAgency" visible="false">
-                                                        <tr>
-                                                            <td align="left">Amount Availed 
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label runat="server" ID="lblAmountAvailed"></asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="left">Sanction Order No 
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label runat="server" ID="lblSanctionOrderNo"></asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td align="left">Date Availed
-                                                            </td>
-                                                            <td>
-                                                                <asp:Label runat="server" ID="lblDateAvailed">NA</asp:Label>
-                                                            </td>
-                                                        </tr>
-                                                    </div>
                                                     <tr>
-                                                        <td align="left" colspan="3">
-                                                            <div class="text-blue font-SemiBold col col-sm-12 mt-3">Whether the Unit has availed Mortorium period for repayment of Loan</div>
+                                                        <td align="left">Sanction Order No 
                                                         </td>
-                                                        <td align="left">
-                                                            <asp:Label runat="server" ID="lblMoratoriumYesNo">No</asp:Label>
+                                                        <td>
+                                                            <asp:Label runat="server" ID="lblSanctionOrderNo"></asp:Label>
                                                         </td>
                                                     </tr>
-                                                    <tr runat="server" id="trMoratorium" visible="false">
-                                                        <td align="left" colspan="4">
-                                                            <div class="text-blue font-SemiBold col col-sm-12 mt-3">Moratorium Period for RePayment of Loan</div>
-                                                            <div class="row">
-                                                                <div class="col-lg-14 col-md-14 col-sm-14 col-xs-14 table-responsive mt-2">
-                                                                    <asp:GridView ID="GvMoratoriumPeriod" runat="server" CssClass="table table-bordered title6 w-100 NewEnterprise"
-                                                                        AutoGenerateColumns="false">
-                                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                                        <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                                        <RowStyle CssClass="GridviewScrollC1Item" />
-                                                                        <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                                        <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                                        <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                                        <Columns>
-                                                                            <asp:TemplateField HeaderText="S No. </br> (1)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="SNo" runat="server" Text='<%#Container.DataItemIndex + 1 %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="1st/2nd half Year </br> (2)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblHalfYearFlag" runat="server" Text='<%#Eval("TypeOfFinancialYearText") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="From Date </br> (3)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("FromDate") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="To Date </br> (4)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblToDate" runat="server" Text='<%#Eval("ToDate") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Bank Name </br> (5)" HeaderStyle-HorizontalAlign="Center">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblBankName" Text='<%#Eval("BankName") %>' runat="server" />
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="Rate Of Interest (%) </br> (6)">
-                                                                                <ItemTemplate>
-                                                                                    <asp:Label ID="lblMoratoriumRateOfInterest" runat="server" Text='<%# Bind("RateOfInterest") %>'></asp:Label>
-                                                                                </ItemTemplate>
-                                                                            </asp:TemplateField>
-                                                                        </Columns>
-                                                                    </asp:GridView>
-                                                                </div>
-                                                            </div>
+                                                    <tr>
+                                                        <td align="left">Date Availed
+                                                        </td>
+                                                        <td>
+                                                            <asp:Label runat="server" ID="lblDateAvailed">NA</asp:Label>
                                                         </td>
                                                     </tr>
                                                 </div>
-                                                <tr runat="server" id="trSanctionedIncentives">
+                                                <tr>
+                                                    <td align="left" colspan="3">
+                                                        <div class="text-blue font-SemiBold col col-sm-12 mt-3">Whether the Unit has availed Mortorium period for repayment of Loan</div>
+                                                    </td>
+                                                    <td align="left">
+                                                        <asp:Label runat="server" ID="lblMoratoriumYesNo">No</asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr runat="server" id="trMoratorium" visible="false">
                                                     <td align="left" colspan="4">
-                                                        <div class="text-blue font-SemiBold col col-sm-12 mt-3">Details of Incentive Subsidy already Sanctioned</div>
+                                                        <div class="text-blue font-SemiBold col col-sm-12 mt-3">Moratorium Period for RePayment of Loan</div>
                                                         <div class="row">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                                <asp:GridView ID="grdSLCData" runat="server" CssClass="table table-bordered title6 w-75 NewEnterprise" CellSpacing="4"
-                                                                    AutoGenerateColumns="false" CellPadding="4">
+                                                            <div class="col-lg-14 col-md-14 col-sm-14 col-xs-14 table-responsive mt-2">
+                                                                <asp:GridView ID="GvMoratoriumPeriod" runat="server" CssClass="table table-bordered title6 w-100 NewEnterprise"
+                                                                    AutoGenerateColumns="false">
                                                                     <HeaderStyle HorizontalAlign="Center" />
                                                                     <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                                                     <RowStyle CssClass="GridviewScrollC1Item" />
@@ -1553,19 +2229,29 @@
                                                                                 <asp:Label ID="SNo" runat="server" Text='<%#Container.DataItemIndex + 1 %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Period From Date </br> (2)">
+                                                                        <asp:TemplateField HeaderText="1st/2nd half Year </br> (2)">
                                                                             <ItemTemplate>
-                                                                                <asp:Label ID="lblHalfYearFlag" runat="server" Text='<%#Eval("PeriodFromDate") %>'></asp:Label>
+                                                                                <asp:Label ID="lblHalfYearFlag" runat="server" Text='<%#Eval("TypeOfFinancialYearText") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Period To Date </br> (3)">
+                                                                        <asp:TemplateField HeaderText="From Date </br> (3)">
                                                                             <ItemTemplate>
-                                                                                <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("PeriodToDate") %>'></asp:Label>
+                                                                                <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("FromDate") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Slc Approved Amount </br> (4)">
+                                                                        <asp:TemplateField HeaderText="To Date </br> (4)">
                                                                             <ItemTemplate>
-                                                                                <asp:Label ID="lblToDate" runat="server" Text='<%#Eval("Slc_Approved_Amount") %>'></asp:Label>
+                                                                                <asp:Label ID="lblToDate" runat="server" Text='<%#Eval("ToDate") %>'></asp:Label>
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Bank Name </br> (5)" HeaderStyle-HorizontalAlign="Center">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblBankName" Text='<%#Eval("BankName") %>' runat="server" />
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Rate Of Interest (%) </br> (6)">
+                                                                            <ItemTemplate>
+                                                                                <asp:Label ID="lblMoratoriumRateOfInterest" runat="server" Text='<%# Bind("RateOfInterest") %>'></asp:Label>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                     </Columns>
@@ -1574,226 +2260,267 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr id="Form3" runat="server" visible="false">
-                                                    <td align="left" colspan="4">
-                                                        <div class="col-sm-12 text-black font-SemiBold mb-1"> Details of Equipment Purchased for Cleaner Production Measures</div>
-                                                        <div class="row my-4">
-                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                                <asp:GridView runat="server" ID="gvEquipments" AutoGenerateColumns="False" Width="100%" CellPadding="4"
-                                                                    CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise" OnRowDataBound="gvEquipments_RowDataBound">
+                                        </div>
+                                        <tr runat="server" id="trSanctionedIncentives">
+                                            <td align="left" colspan="4">
+                                                <div class="text-blue font-SemiBold col col-sm-12 mt-3">Details of Incentive Subsidy already Sanctioned</div>
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                        <asp:GridView ID="grdSLCData" runat="server" CssClass="table table-bordered title6 w-75 NewEnterprise" CellSpacing="4"
+                                                            AutoGenerateColumns="false" CellPadding="4">
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                            <RowStyle CssClass="GridviewScrollC1Item" />
+                                                            <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                            <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                            <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="S No. </br> (1)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="SNo" runat="server" Text='<%#Container.DataItemIndex + 1 %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Period From Date </br> (2)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblHalfYearFlag" runat="server" Text='<%#Eval("PeriodFromDate") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Period To Date </br> (3)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblFromDate" runat="server" Text='<%#Eval("PeriodToDate") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Slc Approved Amount </br> (4)">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblToDate" runat="server" Text='<%#Eval("Slc_Approved_Amount") %>'></asp:Label>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr id="Form3" runat="server" visible="false">
+                                            <td align="left" colspan="4">
+                                                <div class="col-sm-12 text-black font-SemiBold mb-1">Details of Equipment Purchased for Cleaner Production Measures</div>
+                                                <div class="row my-4">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                        <asp:GridView runat="server" ID="gvEquipments" AutoGenerateColumns="False" Width="100%" CellPadding="4"
+                                                            CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise" OnRowDataBound="gvEquipments_RowDataBound">
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <Columns>
+                                                                <asp:TemplateField HeaderText="S.No" ItemStyle-Width="5%">
                                                                     <HeaderStyle HorizontalAlign="Center" />
-                                                                    <Columns>
-                                                                        <asp:TemplateField HeaderText="S.No" ItemStyle-Width="5%">
-                                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                                            <ItemStyle HorizontalAlign="Center" />
-                                                                            <ItemTemplate>
-                                                                                <%# Container.DataItemIndex + 1%>
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Equipment Id">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label CssClass="pmid" ID="lblEquipment_ID" Text='<%#Eval("Equipment_ID") %>' runat="server" />
-                                                                                <asp:Label ID="lblIncentiveId" Visible="false" Text='<%#Eval("Incentive_id") %>' runat="server" />
-                                                                                <asp:Label ID="lblCategoryId" Visible="false" Text='<%#Eval("Category") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Name of the Equipment" HeaderStyle-Width="5%">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblNameoftheEquipment" Text='<%#Eval("NameoftheEquipment") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                         <asp:TemplateField HeaderText="Category" HeaderStyle-Width="5%">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblCategory" Text='<%#Eval("CategoryName") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Invoice No">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblEquipmentInvoiceNo" Text='<%#Eval("EquipmentInvoiceNo") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Invoice Date">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblEquipmentInvoiceDate" Text='<%#Eval("EquipmentInvoiceDate") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Way Bill Number">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblEquipmentWayBillNumber" Text='<%#Eval("EquipmentWayBillNumber") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Way Bill Date">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblEquipmentDateOfWayBill" Text='<%#Eval("EquipmentDateOfWayBill") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Equipment Total Cost">
-                                                                            <ItemTemplate>
-                                                                                <asp:Label ID="lblTotal" Text='<%#Eval("Total") %>' runat="server" />
-                                                                            </ItemTemplate>
-                                                                        </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Availability of the Equipment in Running Condition & Recommended Amount">
-                                                                            <ItemTemplate>
-                                                                                <asp:RadioButtonList ID="rbtnEquipmentavailableYes" runat="server" AutoPostBack="true" RepeatDirection="Vertical"
-                                                                                    OnSelectedIndexChanged="rbtnEquipmentavailableYes_SelectedIndexChanged" CssClass="radiostyle">
-                                                                                    <asp:ListItem Value="Y" Selected="True" Text="Yes"></asp:ListItem>
-                                                                                    <asp:ListItem Value="N" Text="No"></asp:ListItem>
-                                                                                    <asp:ListItem Value="A" Text="Admissible Amount"></asp:ListItem>
-                                                                                </asp:RadioButtonList>
-                                                                                <asp:TextBox ID="txtAdmissibleAmountEq" Visible="true" Enabled="false" Text='<%#Eval("DLORecommendedEqipmentCost") %>' Style="height: 34px; width: 190px;" class="form-control" OnTextChanged="rbtnEquipmentavailableYes_SelectedIndexChanged" AutoPostBack="true" onkeypress="return DecimalOnly(event)" runat="server" Height="100px"></asp:TextBox>
-                                                                                <asp:Label ID="lblremarksEq" runat="server"> Remarks : </asp:Label>
-                                                                                <asp:TextBox ID="txtremarksEq" Visible="true"  class="form-control" Text='<%#Eval("Remarks") %>' TextMode="MultiLine" runat="server" Height="100px"></asp:TextBox>
-                                                                            </ItemTemplate>
-                                                                            <HeaderStyle CssClass="text-center" />
-                                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="280px" />
-                                                                        </asp:TemplateField>
-                                                                    </Columns>
-                                                                </asp:GridView>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="left" colspan="1" class="font-SemiBold">Remarks of DLO if any</td>
-                                                    <td align="left" colspan="3">
-                                                        <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td align="left" colspan="4">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                            <h6 class="text-blue font-SemiBold col col-sm-12 mt-3">Documents Enclosed by the Applicant</h6>
-                                                            <asp:GridView ID="gvSubsidy" runat="server" AutoGenerateColumns="False"
-                                                                CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                                HorizontalAlign="Left" ShowHeader="true" OnRowDataBound="gvSubsidy_RowDataBound">
+                                                                    <ItemStyle HorizontalAlign="Center" />
+                                                                    <ItemTemplate>
+                                                                        <%# Container.DataItemIndex + 1%>
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Equipment Id">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label CssClass="pmid" ID="lblEquipment_ID" Text='<%#Eval("Equipment_ID") %>' runat="server" />
+                                                                        <asp:Label ID="lblIncentiveId" Visible="false" Text='<%#Eval("Incentive_id") %>' runat="server" />
+                                                                        <asp:Label ID="lblCategoryId" Visible="false" Text='<%#Eval("Category") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Name of the Equipment" HeaderStyle-Width="5%">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblNameoftheEquipment" Text='<%#Eval("NameoftheEquipment") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Category" HeaderStyle-Width="5%">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblCategory" Text='<%#Eval("CategoryName") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Invoice No">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEquipmentInvoiceNo" Text='<%#Eval("EquipmentInvoiceNo") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Invoice Date">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEquipmentInvoiceDate" Text='<%#Eval("EquipmentInvoiceDate") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Way Bill Number">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEquipmentWayBillNumber" Text='<%#Eval("EquipmentWayBillNumber") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Way Bill Date">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblEquipmentDateOfWayBill" Text='<%#Eval("EquipmentDateOfWayBill") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderText="Equipment Total Cost">
+                                                                    <ItemTemplate>
+                                                                        <asp:Label ID="lblTotal" Text='<%#Eval("Total") %>' runat="server" />
+                                                                    </ItemTemplate>
+                                                                </asp:TemplateField>
+                                                                <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Availability of the Equipment in Running Condition & Recommended Amount">
+                                                                    <ItemTemplate>
+                                                                        <asp:RadioButtonList ID="rbtnEquipmentavailableYes" runat="server" AutoPostBack="true" RepeatDirection="Vertical"
+                                                                            OnSelectedIndexChanged="rbtnEquipmentavailableYes_SelectedIndexChanged" CssClass="radiostyle">
+                                                                            <asp:ListItem Value="Y" Selected="True" Text="Yes"></asp:ListItem>
+                                                                            <asp:ListItem Value="N" Text="No"></asp:ListItem>
+                                                                            <asp:ListItem Value="A" Text="Admissible Amount"></asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                        <asp:TextBox ID="txtAdmissibleAmountEq" Visible="true" Enabled="false" Text='<%#Eval("DLORecommendedEqipmentCost") %>' Style="height: 34px; width: 190px;" class="form-control" OnTextChanged="rbtnEquipmentavailableYes_SelectedIndexChanged" AutoPostBack="true" onkeypress="return DecimalOnly(event)" runat="server" Height="100px"></asp:TextBox>
+                                                                        <asp:Label ID="lblremarksEq" runat="server"> Remarks : </asp:Label>
+                                                                        <asp:TextBox ID="txtremarksEq" Visible="true" class="form-control" Text='<%#Eval("Remarks") %>' TextMode="MultiLine" runat="server" Height="100px"></asp:TextBox>
+                                                                    </ItemTemplate>
+                                                                    <HeaderStyle CssClass="text-center" />
+                                                                    <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="280px" />
+                                                                </asp:TemplateField>
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" colspan="1" class="font-SemiBold">Remarks of DLO if any</td>
+                                            <td align="left" colspan="3">
+                                                <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left" colspan="4">
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                    <h6 class="text-blue font-SemiBold col col-sm-12 mt-3">Documents Enclosed by the Applicant</h6>
+                                                    <asp:GridView ID="gvSubsidy" runat="server" AutoGenerateColumns="False"
+                                                        CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                        HorizontalAlign="Left" ShowHeader="true" OnRowDataBound="gvSubsidy_RowDataBound">
+                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                        <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                        <RowStyle CssClass="GridviewScrollC1Item" />
+                                                        <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                        <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                        <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                        <Columns>
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                                <ItemTemplate>
+                                                                    <%# Container.DataItemIndex + 1%>
+                                                                </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Center" />
-                                                                <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                                <RowStyle CssClass="GridviewScrollC1Item" />
-                                                                <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                                <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                                <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                                <Columns>
-                                                                    <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                                        <ItemTemplate>
-                                                                            <%# Container.DataItemIndex + 1%>
-                                                                        </ItemTemplate>
-                                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                                        <ItemStyle Width="60px" CssClass="text-center" />
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Attachments">
-                                                                        <ItemTemplate>
-                                                                            <asp:Label ID="lbl" runat="server" Text='<%# Eval("AttachmentName")%>'></asp:Label>
-                                                                        </ItemTemplate>
-                                                                        <ItemStyle HorizontalAlign="Left" />
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="View">
-                                                                        <ItemTemplate>
-                                                                            <asp:HyperLink ID="HyperLinkSubsidy" Text="view" NavigateUrl='<%#Eval("FilePathMerge")%>' Target="_blank" runat="server" />
-                                                                        </ItemTemplate>
-                                                                        <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Uploaded Date">
-                                                                        <ItemTemplate>
-                                                                            <asp:Label ID="lblverified" Text='<%#Eval("Verifieddate")%>' runat="server"></asp:Label>
-                                                                        </ItemTemplate>
-                                                                        <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Verified or Not">
-                                                                        <ItemTemplate>
-                                                                            <asp:RadioButtonList ID="rbtVerify" runat="server" Visible='<%# Eval("AttachmentName").ToString() == "Y" ? false : true %>' RepeatDirection="Horizontal" RepeatLayout="Flow" CssClass="radiostyle">
-                                                                                <asp:ListItem Value="Y" Selected="True" Text="Yes"></asp:ListItem>
-                                                                                <asp:ListItem Value="N" Text="No"></asp:ListItem>
-                                                                                <asp:ListItem Value="R" Text="N.A"></asp:ListItem>
-                                                                            </asp:RadioButtonList>
-                                                                        </ItemTemplate>
-                                                                        <HeaderStyle CssClass="text-center" />
-                                                                        <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="280px" />
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="Attachment Name" Visible="false">
-                                                                        <ItemTemplate>
-                                                                            <asp:Label ID="lblAttachmentName" Text='<%#Eval("AttachmentName") %>' runat="server" />
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="Attachment Id" Visible="false">
-                                                                        <ItemTemplate>
-                                                                            <asp:Label ID="lblAttachmentId" Text='<%#Eval("AttachmentId") %>' runat="server" />
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="MstIncentiveId" Visible="false">
-                                                                        <ItemTemplate>
-                                                                            <asp:Label ID="lblMstIncentiveId" Text='<%#Eval("MstIncentiveId") %>' runat="server" />
-                                                                        </ItemTemplate>
-                                                                    </asp:TemplateField>
-                                                                </Columns>
-                                                            </asp:GridView>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                                <tr runat="server" id="trInspectionReportFileUpload">
-                                                    <td align="left" class="font-SemiBold">Inspection Report (Including Calculation Work Sheet)</td>
-                                                    <td align="left">
-                                                        <asp:FileUpload ID="fpdSpecimen" runat="server" CssClass="file-browse" />
+                                                                <ItemStyle Width="60px" CssClass="text-center" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Attachments">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lbl" runat="server" Text='<%# Eval("AttachmentName")%>'></asp:Label>
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Left" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="View">
+                                                                <ItemTemplate>
+                                                                    <asp:HyperLink ID="HyperLinkSubsidy" Text="view" NavigateUrl='<%#Eval("FilePathMerge")%>' Target="_blank" runat="server" />
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Uploaded Date">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblverified" Text='<%#Eval("Verifieddate")%>' runat="server"></asp:Label>
+                                                                </ItemTemplate>
+                                                                <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Verified or Not">
+                                                                <ItemTemplate>
+                                                                    <asp:RadioButtonList ID="rbtVerify" runat="server" Visible='<%# Eval("AttachmentName").ToString() == "Y" ? false : true %>' RepeatDirection="Horizontal" RepeatLayout="Flow" CssClass="radiostyle">
+                                                                        <asp:ListItem Value="Y" Selected="True" Text="Yes"></asp:ListItem>
+                                                                        <asp:ListItem Value="N" Text="No"></asp:ListItem>
+                                                                        <asp:ListItem Value="R" Text="N.A"></asp:ListItem>
+                                                                    </asp:RadioButtonList>
+                                                                </ItemTemplate>
+                                                                <HeaderStyle CssClass="text-center" />
+                                                                <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="280px" />
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Attachment Name" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblAttachmentName" Text='<%#Eval("AttachmentName") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Attachment Id" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblAttachmentId" Text='<%#Eval("AttachmentId") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="MstIncentiveId" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblMstIncentiveId" Text='<%#Eval("MstIncentiveId") %>' runat="server" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                        </Columns>
+                                                    </asp:GridView>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr runat="server" id="trInspectionReportFileUpload">
+                                            <td align="left" class="font-SemiBold">Inspection Report (Including Calculation Work Sheet)</td>
+                                            <td align="left">
+                                                <asp:FileUpload ID="fpdSpecimen" runat="server" CssClass="file-browse" />
 
-                                                    </td>
-                                                    <td align="left" colspan="2" style="vertical-align: middle">
-                                                        <asp:HyperLink ID="hyplreportview" Font-Bold="true" runat="server">Click Here to View Uploaded Inspection Report</asp:HyperLink>
-                                                    </td>
-                                                </tr>
-                                                <tr runat="server" id="trIndCheckBox" visible="false">
-                                                    <td align="left" class="font-SemiBold">Check the Checkbox if you are sending the Final Report to DLO</td>
-                                                    <td align="left">
-                                                        <asp:CheckBox ID="chkind" AutoPostBack="true" OnCheckedChanged="chkind_CheckedChanged" runat="server" />
-                                                    </td>
-                                                </tr>
-                                                <tr runat="server" id="trImage1" visible="false">
-                                                    <td align="left" class="font-SemiBold">Photo of Name Plate of Unit </td>
-                                                    <td align="left">
-                                                        <asp:FileUpload ID="fuNamePlate" runat="server" CssClass="file-browse" />
+                                            </td>
+                                            <td align="left" colspan="2" style="vertical-align: middle">
+                                                <asp:HyperLink ID="hyplreportview" Font-Bold="true" runat="server">Click Here to View Uploaded Inspection Report</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr runat="server" id="trIndCheckBox" visible="false">
+                                            <td align="left" class="font-SemiBold">Check the Checkbox if you are sending the Final Report to DLO</td>
+                                            <td align="left">
+                                                <asp:CheckBox ID="chkind" AutoPostBack="true" OnCheckedChanged="chkind_CheckedChanged" runat="server" />
+                                            </td>
+                                        </tr>
+                                        <tr runat="server" id="trImage1" visible="false">
+                                            <td align="left" class="font-SemiBold">Photo of Name Plate of Unit </td>
+                                            <td align="left">
+                                                <asp:FileUpload ID="fuNamePlate" runat="server" CssClass="file-browse" />
 
-                                                    </td>
-                                                    <td align="left" colspan="2" style="vertical-align: middle">
-                                                        <asp:Button ID="btnImgNamePlate" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgNamePlate_Click" />
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td align="left" colspan="2" style="vertical-align: middle">
+                                                <asp:Button ID="btnImgNamePlate" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgNamePlate_Click" />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                  <asp:HyperLink ID="hypNamePlate" runat="server" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
-                                                    </td>
-                                                </tr>
-                                                <tr runat="server" id="trImage2" visible="false">
-                                                    <td align="left" class="font-SemiBold">Photo of Plant & Machinary-1 </td>
-                                                    <td align="left">
-                                                        <asp:FileUpload ID="fuPM1" runat="server" CssClass="file-browse" />
+                                            </td>
+                                        </tr>
+                                        <tr runat="server" id="trImage2" visible="false">
+                                            <td align="left" class="font-SemiBold">Photo of Plant & Machinary-1 </td>
+                                            <td align="left">
+                                                <asp:FileUpload ID="fuPM1" runat="server" CssClass="file-browse" />
 
-                                                    </td>
-                                                    <td align="left" colspan="2" style="vertical-align: middle">
-                                                        <asp:Button ID="btnImgPM1" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgPM1_Click" />
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td align="left" colspan="2" style="vertical-align: middle">
+                                                <asp:Button ID="btnImgPM1" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgPM1_Click" />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                  <asp:HyperLink ID="hypPM1" runat="server" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
-                                                    </td>
-                                                </tr>
-                                                <tr runat="server" id="trImage3" visible="false">
-                                                    <td align="left" class="font-SemiBold">Photo of Plant & Machinary-2 </td>
-                                                    <td align="left">
-                                                        <asp:FileUpload ID="fuPM2" runat="server" CssClass="file-browse" />
+                                            </td>
+                                        </tr>
+                                        <tr runat="server" id="trImage3" visible="false">
+                                            <td align="left" class="font-SemiBold">Photo of Plant & Machinary-2 </td>
+                                            <td align="left">
+                                                <asp:FileUpload ID="fuPM2" runat="server" CssClass="file-browse" />
 
-                                                    </td>
-                                                    <td align="left" colspan="2" style="vertical-align: middle">
-                                                        <asp:Button ID="btnImgPM2" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgPM2_Click" />
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td align="left" colspan="2" style="vertical-align: middle">
+                                                <asp:Button ID="btnImgPM2" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgPM2_Click" />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                  <asp:HyperLink ID="hypPM2" runat="server" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
-                                                    </td>
-                                                </tr>
-                                                <tr runat="server" id="trImage4" visible="false">
-                                                    <td align="left" class="font-SemiBold">Photo of Plant & Machinary-3 </td>
-                                                    <td align="left">
-                                                        <asp:FileUpload ID="fuPM3" runat="server" CssClass="file-browse" />
+                                            </td>
+                                        </tr>
+                                        <tr runat="server" id="trImage4" visible="false">
+                                            <td align="left" class="font-SemiBold">Photo of Plant & Machinary-3 </td>
+                                            <td align="left">
+                                                <asp:FileUpload ID="fuPM3" runat="server" CssClass="file-browse" />
 
-                                                    </td>
-                                                    <td align="left" colspan="2" style="vertical-align: middle">
-                                                        <asp:Button ID="btnImgPM3" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgPM3_Click" />
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </td>
+                                            <td align="left" colspan="2" style="vertical-align: middle">
+                                                <asp:Button ID="btnImgPM3" runat="server" CssClass="btn btn-blue py-1 title7 mt-1" Text="Upload" OnClick="btnImgPM3_Click" />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                                  <asp:HyperLink ID="hypPM3" runat="server" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
-                                                    </td>
-                                                </tr>
-                                                <%--<tr>
+                                            </td>
+                                        </tr>
+                                        <%--<tr>
                                                     <td colspan="4">
                                                         <div class="col-sm-12 mt-sm-3 text-left">
                                                             <p><strong>Note : </strong>File Size should be 1MB only.</p>
@@ -1801,21 +2528,20 @@
                                                     </td>
                                                 </tr>--%>
                                             </table>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 text-center mt-3">
+                                    <asp:Button ID="btndraft" runat="server" Visible="false" CssClass="btn btn-success  m-2" Text="Save Details" OnClick="btndraft_Click" />
+                                    <asp:Button ID="BtnSave" runat="server" Visible="false" CssClass="btn btn-success  m-2" OnClientClick="if (!confirm('Are you sure want Submit the Report?')) return false;" Text="Submit Inspection Report" OnClick="BtnSave_Click" />
+                                </div>
+                                <div>
+                                    <div class="col-sm-12 form-group">
+                                        <div id="success" runat="server" visible="false" class="alert alert-success">
+                                            <a href="AddQualification.aspx" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
                                         </div>
-                                    </div>
-                                    <div class="col-sm-12 text-center mt-3">
-                                        <asp:Button ID="btndraft" runat="server" Visible="false" CssClass="btn btn-success  m-2" Text="Save Details" OnClick="btndraft_Click" />
-                                        <asp:Button ID="BtnSave" runat="server" Visible="false" CssClass="btn btn-success  m-2" OnClientClick="if (!confirm('Are you sure want Submit the Report?')) return false;" Text="Submit Inspection Report" OnClick="BtnSave_Click" />
-                                    </div>
-                                    <div>
-                                        <div class="col-sm-12 form-group">
-                                            <div id="success" runat="server" visible="false" class="alert alert-success">
-                                                <a href="AddQualification.aspx" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Success!</strong><asp:Label ID="lblmsg" runat="server"></asp:Label>
-                                            </div>
-                                            <div id="Failure" runat="server" visible="false" class="alert alert-danger">
-                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
-                                                <asp:Label ID="lblmsg0" runat="server"></asp:Label>
-                                            </div>
+                                        <div id="Failure" runat="server" visible="false" class="alert alert-danger">
+                                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> <strong>Warning!</strong>
+                                            <asp:Label ID="lblmsg0" runat="server"></asp:Label>
                                         </div>
                                     </div>
                                 </div>
@@ -1823,6 +2549,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             <asp:HiddenField runat="server" ID="hdnIncentiveId" />
             <asp:HiddenField runat="server" ID="hdnSubIncentiveId" />
