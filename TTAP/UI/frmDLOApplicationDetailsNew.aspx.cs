@@ -164,7 +164,7 @@ namespace TTAP.UI
 
                                         BindAppliedIncentives(IncentiveId, Role_Code);
                                         BindPendingInspections(IncentiveId, Role_Code);
-                                        BindPendingReInspections(IncentiveId, Role_Code);
+                                        BindPendingReInspections(IncentiveId, Role_Code); 
                                         if (hdnDistId.Value != "6")
                                         {
                                             //gvUpdateInspectionDetails.Columns[7].Visible = false;
