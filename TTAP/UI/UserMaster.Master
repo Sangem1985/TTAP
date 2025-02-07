@@ -134,6 +134,36 @@
                                             <li id="li6" runat="server"><a class="dropdown-item" id="a5" href="~/UI/Pages/QueryGeneration/frmQueryDashboard.aspx" runat="server">DashBoard</a> </li>
                                         </ul>
                                     </li>
+                                     <li class="nav-item dropdown" id="lblClerk" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdownMenuLink8" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-list-ul" aria-hidden="true"></i>Incentives</span> <%--<span class="label label-important">3</span>--%></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                             <li id="lblDahclerk" runat="server"><a class="dropdown-item" id="lblclerkDashboard" runat="server" href="~/UI/Pages/COI/ClerkDashboard.aspx">DashBoard</a> </li>
+
+
+                                            </ul>
+                                         </li>
+                                      <li class="nav-item dropdown" id="lblSUPDT" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdownMenuLink9" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-list-ul" aria-hidden="true"></i>Incentives</span> <%--<span class="label label-important">3</span>--%></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                             <li id="lblDashboardsupdt" runat="server"><a class="dropdown-item" id="lblSupdted" runat="server" href="~/UI/Pages/COI/SuperintendentDashboard.aspx">DashBoard</a> </li>
+
+                                            </ul>
+                                         </li>
+                                      <li class="nav-item dropdown" id="lblAD" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdownMenuLink10" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-list-ul" aria-hidden="true"></i>Incentives</span> <%--<span class="label label-important">3</span>--%></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                             <li id="lblADDASHBOARD" runat="server"><a class="dropdown-item" id="lblDashboard" runat="server" href="~/UI/Pages/COI/AdDashboard.aspx">DashBoard</a> </li>
+
+                                            </ul>
+                                         </li>
+                                     <li class="nav-item dropdown" id="lblDD" runat="server" visible="false">
+                                        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="navbarDropdownMenuLink11" aria-haspopup="true" aria-expanded="false"><span><i class="fa fa-list-ul" aria-hidden="true"></i>Incentives</span> <%--<span class="label label-important">3</span>--%></a>
+                                        <ul class="dropdown-menu title6" aria-labelledby="navbarDropdownMenuLin6">
+                                             <li id="lblDDDASHBOARD" runat="server"><a class="dropdown-item" id="lblDashboarddd" runat="server" href="~/UI/Pages/COI/DdDashboard.aspx">DashBoard</a> </li>
+
+                                            </ul>
+                                         </li>
+
                                     <li class="nav-item" id="lichangepwd" runat="server" visible="false"><a class="nav-link" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmChangePassword.aspx") %>"><i class="fa fa-ticket title7"></i>Change Password</a></li>
                                     <li class="nav-item" id="liDownloads" runat="server"><a class="nav-link" href="<%=Page.ResolveClientUrl("~/UI/Pages/frmUserDownloads.aspx") %>"><i class="fa fa-ticket title7"></i>Downloads</a></li>
                                     <%--<li class="nav-item" id="liIpass" runat="server"><a class="nav-link"><i class="fa fa-ticket title7"></i>Go to TG-iPass</a></li>--%>

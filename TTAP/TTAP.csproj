@@ -638,6 +638,7 @@
     <Content Include="UI\Pages\InscentiveView_AttachmentsNewIncType.aspx" />
     <Content Include="UI\Pages\InspectionDelayNotes.aspx" />
     <Content Include="UI\Pages\InterestSubsidy.aspx" />
+    <Content Include="UI\Pages\InterestSubsidyAppraisalNote.aspx" />
     <Content Include="UI\Pages\MISReports\AdoDistrictWiseAbstract.aspx" />
     <Content Include="UI\Pages\MISReports\CapitalSubsidyDetailedReport.aspx" />
     <Content Include="UI\Pages\MISReports\CapitalSubsiyReportAbstract.aspx" />
@@ -1872,6 +1873,13 @@
     </Compile>
     <Compile Include="UI\Pages\InterestSubsidy.aspx.designer.cs">
       <DependentUpon>InterestSubsidy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\InterestSubsidyAppraisalNote.aspx.cs">
+      <DependentUpon>InterestSubsidyAppraisalNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\InterestSubsidyAppraisalNote.aspx.designer.cs">
+      <DependentUpon>InterestSubsidyAppraisalNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\MISReports\AdoDistrictWiseAbstract.aspx.cs">
       <DependentUpon>AdoDistrictWiseAbstract.aspx</DependentUpon>

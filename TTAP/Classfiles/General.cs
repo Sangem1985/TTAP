@@ -2860,5 +2860,68 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
+        public DataSet GetBasicUnitDetails_Proforma_lettersPSR(string incentiveID, string MstIncentiveID)
+        {
+            con.OpenConnection();
+            SqlDataAdapter da;
+            DataSet ds = new DataSet();
+            try
+            {
+                da = new SqlDataAdapter("USP_GET_UNIT_DTLS_RECOMMENDATION_LETTERS_PSRNEW", con.GetConnection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                if (incentiveID.ToString() != "" || incentiveID.ToString() != null)
+                {
+                    // da.SelectCommand.Parameters.Add("intUserID", SqlDbType.VarChar).Value = userid;
+                    da.SelectCommand.Parameters.Add("@IncentveID", SqlDbType.VarChar).Value = incentiveID;
+                }
+                if (MstIncentiveID.ToString() != "" || MstIncentiveID.ToString() != null)
+                {
+                    da.SelectCommand.Parameters.Add("@MstIncentiveID", SqlDbType.VarChar).Value = MstIncentiveID;
+                }
+
+                da.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
+        public string Encrypt(string strPassword, string EncKey)
+        {
+            byte[] clearBytes = System.Text.Encoding.Unicode.GetBytes(strPassword);
+
+            PasswordDeriveBytes pdb = new PasswordDeriveBytes(EncKey,
+                new byte[] {0x49, 0x76, 0x61, 0x6e, 0x20, 0x4d,
+            0x65, 0x64, 0x76, 0x65, 0x64, 0x65, 0x76});
+
+            byte[] encryptedData = Encrypt(clearBytes, pdb.GetBytes(32), pdb.GetBytes(16));
+
+            return Convert.ToBase64String(encryptedData);
+
+        }
+        private byte[] Encrypt(byte[] clearData, byte[] Key, byte[] IV)
+        {
+            MemoryStream ms = new MemoryStream();
+            Rijndael alg = Rijndael.Create();
+
+            alg.Key = Key;
+            alg.IV = IV;
+
+            CryptoStream cs = new CryptoStream(ms, alg.CreateEncryptor(), CryptoStreamMode.Write);
+
+            cs.Write(clearData, 0, clearData.Length);
+            cs.Close();
+
+            byte[] encryptedData = ms.ToArray();
+            return encryptedData;
+        }
+
+
     }
 }

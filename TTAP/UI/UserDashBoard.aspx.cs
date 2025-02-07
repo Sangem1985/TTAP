@@ -36,7 +36,7 @@ namespace TTAP.UI
                 if (rolecode == "GM")
                 {
                     Response.Redirect("Pages/frmGMDashboard.aspx");
-                }
+                }                
                 if (rolecode == "IPO" || rolecode == "AD" || rolecode == "DD")
                 {
                     Response.Redirect("Pages/frmIPOIncentiveDashboard.aspx");

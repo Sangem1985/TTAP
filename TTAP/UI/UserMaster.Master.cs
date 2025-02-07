@@ -101,6 +101,10 @@ namespace TTAP.UI
                         lireleases.Visible = true;
                         liIncentiveTracker.Visible = true;
                         liAppraisal.Visible = true;
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
 
                     }
                     else if (ObjLoginvo.Role_Code == "ADPP")
@@ -115,6 +119,10 @@ namespace TTAP.UI
                         lichangepwd.Visible = true;
                         liQueryGeneration.Visible = true;
                         liAdmin.Visible = true;
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
                     }
                     else if (ObjLoginvo.Role_Code == "IPOPP")
                     {
@@ -128,6 +136,10 @@ namespace TTAP.UI
                         lichangepwd.Visible = true;
                         liQueryGeneration.Visible = true;
                         liAdmin.Visible = true;
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
                     }
                     else if (ObjLoginvo.Role_Code == "JD")
                     {
@@ -142,7 +154,44 @@ namespace TTAP.UI
                         liSvcEntry.Visible = true;
                         liIncentiveTracker.Visible = true;
                         liAppraisal.Visible = true;
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
 
+                    }
+                    else if (ObjLoginvo.Role_Code == "COI-CLERK")
+                    {                        
+                        lblClerk.Visible = true;
+                        lblclerkDashboard.HRef = "~/UI/Pages/COI/ClerkDashboard.aspx";
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
+
+                    }
+                    else if (ObjLoginvo.Role_Code == "COI-SUPDT")
+                    {
+                        lblSUPDT.Visible = true;
+                        lblSupdted.HRef = "~/UI/Pages/COI/SuperintendentDashboard.aspx";
+                        lblClerk.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
+                    }
+                    else if (ObjLoginvo.Role_Code == "COI-AD")
+                    {
+                        lblAD.Visible = true;
+                        lblDashboard.HRef = "~/UI/Pages/COI/AdDashboard.aspx";
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblDD.Visible = false;
+                    }
+                    else if (ObjLoginvo.Role_Code == "COI-DD")
+                    {
+                        lblDD.Visible = true;
+                        lblDashboarddd.HRef = "~/UI/Pages/COI/DdDashboard.aspx";
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
                     }
                     else if (ObjLoginvo.Role_Code == "COMM")
                     {
@@ -168,6 +217,10 @@ namespace TTAP.UI
                     applicanthd.Visible = true;
                     liApplicantIncentivedashbiard.Visible = true;
                     liIncentiveDeptDashboard.Visible = false;
+                    lblClerk.Visible = false;
+                    lblSUPDT.Visible = false;
+                    lblAD.Visible = false;
+                    lblDD.Visible = false;
                 }
                 else if (ObjLoginvo.userlevel == "10")
                 {
@@ -183,6 +236,10 @@ namespace TTAP.UI
                         liIncentiveReports.Visible = true;
                         lidloWorkingStatus.Visible = true;
                         liApplicationTracker.Visible = false;
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
                     }
                     if (ObjLoginvo.Role_Code == "AD" || ObjLoginvo.Role_Code == "IPO" || ObjLoginvo.Role_Code == "DD")
                     {
@@ -196,6 +253,10 @@ namespace TTAP.UI
                         liIncentiveReports.Visible = true;
                         lidloWorkingStatus.Visible = true;
                         liApplicationTracker.Visible = false;
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
                     }
                     if (ObjLoginvo.Role_Code == "GM")
                     {
@@ -209,6 +270,10 @@ namespace TTAP.UI
                         liIncentiveReports.Visible = true;
                         lidloWorkingStatus.Visible = true;
                         liApplicationTracker.Visible = false;
+                        lblClerk.Visible = false;
+                        lblSUPDT.Visible = false;
+                        lblAD.Visible = false;
+                        lblDD.Visible = false;
                     }
                     else if (ObjLoginvo.Role_Code == "ADPP")
                     {
