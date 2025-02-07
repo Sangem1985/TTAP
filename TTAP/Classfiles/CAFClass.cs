@@ -6012,5 +6012,1587 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
+
+        public string INSERT_PAVALLAVADDICLAIMLOANCOUNT(InterestSubsidyclaimloanproperties OBJPallavaddiclaimloanproperties)
+        {
+            int valid = 0;
+            string resp = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            SqlCommand com = new SqlCommand("PV_insertpallavaddiclaimloancount", connection);
+            com.CommandType = CommandType.StoredProcedure;
+            com.Transaction = transaction;
+            try
+            {
+                //com.Parameters.Add("@ApplicationType_IndusorAgriName", SqlDbType.VarChar).Value = DBNull.Value;
+                //com.Parameters.Add("@ApplicationType_IndusorAgriName", SqlDbType.VarChar).Value = OBJWaltaApplDetails.ApplicationType_IndusorAgriName.Trim();
+                if (OBJPallavaddiclaimloanproperties.Incentiveid == null)
+                {
+                    com.Parameters.Add("@Incentiveid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Incentiveid", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.Incentiveid;
+                }
+                if (OBJPallavaddiclaimloanproperties.APCDPVID == null)
+                {
+                    com.Parameters.Add("@APCDPVID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@APCDPVID", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.APCDPVID;
+                }
+                if (OBJPallavaddiclaimloanproperties.ClaimPeriodID == "" || OBJPallavaddiclaimloanproperties.ClaimPeriodID == null)
+                {
+                    com.Parameters.Add("@ClaimPeriodID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ClaimPeriodID", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.ClaimPeriodID.Trim();
+                }
+                if (OBJPallavaddiclaimloanproperties.ClaimPeriodName == "" || OBJPallavaddiclaimloanproperties.ClaimPeriodName == null)
+                {
+                    com.Parameters.Add("@ClaimPeriodName", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ClaimPeriodName", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.ClaimPeriodName.Trim();
+                }
+                if (OBJPallavaddiclaimloanproperties.@LoanCount == null)
+                {
+                    com.Parameters.Add("@LoanCount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@LoanCount", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.LoanCount;
+                }
+                if (OBJPallavaddiclaimloanproperties.Createdby == "" || OBJPallavaddiclaimloanproperties.Createdby == null)
+                {
+                    com.Parameters.Add("@Createdby", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Createdby", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.Createdby.Trim();
+                }
+                if (OBJPallavaddiclaimloanproperties.CreatedIP == "" || OBJPallavaddiclaimloanproperties.CreatedIP == null)
+                {
+                    com.Parameters.Add("@CreatedIP", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CreatedIP", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.CreatedIP.Trim();
+                }
+                if (OBJPallavaddiclaimloanproperties.FinancialYear == "" || OBJPallavaddiclaimloanproperties.FinancialYear == null)
+                {
+                    com.Parameters.Add("@FinancialYear", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@FinancialYear", SqlDbType.VarChar).Value = OBJPallavaddiclaimloanproperties.FinancialYear.Trim();
+                }
+
+
+                com.Parameters.Add("@Valid", SqlDbType.Int, 500);
+                com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+                //com.ExecuteScalar();
+                valid = (Int32)com.Parameters["@Valid"].Value;
+
+
+                resp = Convert.ToString(valid);
+                //con.CloseConnection();
+                //con.OpenConnection();
+                //com.Connection = con.GetConnection;
+
+                transaction.Commit();
+                connection.Close();
+                //return com.ExecuteNonQuery();
+                //return Convert.ToInt32(com.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+            finally
+            {
+                com.Dispose();
+                //con.CloseConnection();
+                connection.Close();
+            }
+            return resp;
+
+        }
+        public string INSERT_PAVALLAVADDICLAIMPERIODLOANDETAILS(InterestSubsidyclaimLoandetailsproperties OBJPVclaimLoandetailsproperties)
+        {
+            int valid = 0;
+            string resp = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            SqlCommand com = new SqlCommand("PV_insertInterestSubsidyClaimloanFyDetails", connection); 
+            com.CommandType = CommandType.StoredProcedure;
+            com.Transaction = transaction;
+            try
+            {
+                //com.Parameters.Add("@ApplicationType_IndusorAgriName", SqlDbType.VarChar).Value = DBNull.Value;
+                //com.Parameters.Add("@ApplicationType_IndusorAgriName", SqlDbType.VarChar).Value = OBJWaltaApplDetails.ApplicationType_IndusorAgriName.Trim();
+
+                //if (OBJPVclaimLoandetailsproperties.incapplnno == "" || OBJPVclaimLoandetailsproperties.incapplnno == null)
+                //{
+                //    com.Parameters.Add("@incapplnno", SqlDbType.VarChar).Value = DBNull.Value;
+                //}
+                //else
+                //{
+                //    com.Parameters.Add("@incapplnno", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.incapplnno.Trim();
+                //}
+
+                if (OBJPVclaimLoandetailsproperties.Incentiveid == null)
+                {
+                    com.Parameters.Add("@Incentiveid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Incentiveid", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Incentiveid;
+                }
+
+                if (OBJPVclaimLoandetailsproperties.APCDPVID == null)
+                {
+                    com.Parameters.Add("@APCDPVID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@APCDPVID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.APCDPVID;
+                }
+
+                if (OBJPVclaimLoandetailsproperties.ClaimPeriodID == "" || OBJPVclaimLoandetailsproperties.ClaimPeriodID == null)
+                {
+                    com.Parameters.Add("@ClaimPeriodID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ClaimPeriodID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.ClaimPeriodID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.ClaimPeriodName == "" || OBJPVclaimLoandetailsproperties.ClaimPeriodName == null)
+                {
+                    com.Parameters.Add("@ClaimPeriodName", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ClaimPeriodName", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.ClaimPeriodName.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.LoanNumber == null)
+                {
+                    com.Parameters.Add("@LoanNumber", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@LoanNumber", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.LoanNumber;
+                }
+                if (OBJPVclaimLoandetailsproperties.ClaimPeriodFYID == "" || OBJPVclaimLoandetailsproperties.ClaimPeriodFYID == null)
+                {
+                    com.Parameters.Add("@ClaimPeriodFYID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ClaimPeriodFYID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.ClaimPeriodFYID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.ClaimPeriodFYSubID == "" || OBJPVclaimLoandetailsproperties.ClaimPeriodFYSubID == null)
+                {
+                    com.Parameters.Add("@ClaimPeriodFYSubID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ClaimPeriodFYSubID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.ClaimPeriodFYSubID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.IS1st2dhalfyear == "" || OBJPVclaimLoandetailsproperties.IS1st2dhalfyear == null)
+                {
+                    com.Parameters.Add("@IS1st2dhalfyear", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@IS1st2dhalfyear", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.IS1st2dhalfyear.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.dcpdate == null)
+                {
+                    com.Parameters.Add("@dcpdate", SqlDbType.DateTime).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@dcpdate", SqlDbType.DateTime).Value = OBJPVclaimLoandetailsproperties.dcpdate;
+                }
+                if (OBJPVclaimLoandetailsproperties.loaninstallmentstartdate == null)
+                {
+                    com.Parameters.Add("@loaninstallmentstartdate", SqlDbType.DateTime).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@loaninstallmentstartdate", SqlDbType.DateTime).Value = OBJPVclaimLoandetailsproperties.loaninstallmentstartdate;
+                }
+                if (OBJPVclaimLoandetailsproperties.tottermloanavil == null)
+                {
+                    com.Parameters.Add("@tottermloanavil", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@tottermloanavil", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.tottermloanavil;
+                }
+                if (OBJPVclaimLoandetailsproperties.Periodofinstallmentid == "" || OBJPVclaimLoandetailsproperties.Periodofinstallmentid == null)
+                {
+                    com.Parameters.Add("@Periodofinstallmentid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Periodofinstallmentid", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Periodofinstallmentid.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.Periodofinstallmentname == "" || OBJPVclaimLoandetailsproperties.Periodofinstallmentname == null)
+                {
+                    com.Parameters.Add("@Periodofinstallmentname", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Periodofinstallmentname", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Periodofinstallmentname.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.Noofinstallmentforloan == null)
+                {
+                    com.Parameters.Add("@Noofinstallmentforloan", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Noofinstallmentforloan", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Noofinstallmentforloan;
+                }
+                if (OBJPVclaimLoandetailsproperties.Installmentamountforloan == null)
+                {
+                    com.Parameters.Add("@Installmentamountforloan", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Installmentamountforloan", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Installmentamountforloan;
+                }
+
+
+
+                if (OBJPVclaimLoandetailsproperties.Rateofinterestforloan == null)
+                {
+                    com.Parameters.Add("@Rateofinterestforloan", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Rateofinterestforloan", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Rateofinterestforloan;
+                }
+                if (OBJPVclaimLoandetailsproperties.Eligibleratereimbursementforlaon == null)
+                {
+                    com.Parameters.Add("@Eligibleratereimbursementforlaon", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Eligibleratereimbursementforlaon", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Eligibleratereimbursementforlaon;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofinstallmentcompletedfortheloanFY == null)
+                {
+                    com.Parameters.Add("@NoofinstallmentcompletedfortheloanFY", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofinstallmentcompletedfortheloanFY", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofinstallmentcompletedfortheloanFY;
+                }
+                if (OBJPVclaimLoandetailsproperties.principalamountdueforhalfyrFY == null)
+                {
+                    com.Parameters.Add("@principalamountdueforhalfyrFY", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@principalamountdueforhalfyrFY", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.principalamountdueforhalfyrFY;
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth1ID == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth1ID == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth1ID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth1ID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth1ID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth1Name == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth1Name == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth1Name", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth1Name", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth1Name.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth1 == null)
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth1", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth1", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth1;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofInstallmentMonth1 == null)
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth1", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth1", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofInstallmentMonth1;
+                }
+                if (OBJPVclaimLoandetailsproperties.rateofinterestMonth1 == null)
+                {
+                    com.Parameters.Add("@rateofinterestMonth1", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@rateofinterestMonth1", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.rateofinterestMonth1;
+                }
+                if (OBJPVclaimLoandetailsproperties.interestamountMonth1 == null)
+                {
+                    com.Parameters.Add("@interestamountMonth1", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@interestamountMonth1", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.interestamountMonth1;
+                }
+                if (OBJPVclaimLoandetailsproperties.unitholdercontMonth1 == null)
+                {
+                    com.Parameters.Add("@unitholdercontMonth1", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@unitholdercontMonth1", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.unitholdercontMonth1;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth1 == null)
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth1", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth1", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth1;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth1 == null)
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth1", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth1", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth1;
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth2ID == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth2ID == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth2ID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth2ID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth2ID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth2Name == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth2Name == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth2Name", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth2Name", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth2Name.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth2 == null)
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth2", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth2", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth2;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofInstallmentMonth2 == null)
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth2", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth2", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofInstallmentMonth2;
+                }
+                if (OBJPVclaimLoandetailsproperties.rateofinterestMonth2 == null)
+                {
+                    com.Parameters.Add("@rateofinterestMonth2", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@rateofinterestMonth2", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.rateofinterestMonth2;
+                }
+                if (OBJPVclaimLoandetailsproperties.interestamountMonth2 == null)
+                {
+                    com.Parameters.Add("@interestamountMonth2", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@interestamountMonth2", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.interestamountMonth2;
+                }
+                if (OBJPVclaimLoandetailsproperties.unitholdercontMonth2 == null)
+                {
+                    com.Parameters.Add("@unitholdercontMonth2", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@unitholdercontMonth2", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.unitholdercontMonth2;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth2 == null)
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth2", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth2", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth2;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth2 == null)
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth2", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth2", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth2;
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth3ID == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth3ID == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth3ID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth3ID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth3ID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth3Name == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth3Name == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth3Name", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth3Name", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth3Name.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth3 == null)
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth3", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth3", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth3;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofInstallmentMonth3 == null)
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth3", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth3", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofInstallmentMonth3;
+                }
+                if (OBJPVclaimLoandetailsproperties.rateofinterestMonth3 == null)
+                {
+                    com.Parameters.Add("@rateofinterestMonth3", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@rateofinterestMonth3", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.rateofinterestMonth3;
+                }
+                if (OBJPVclaimLoandetailsproperties.interestamountMonth3 == null)
+                {
+                    com.Parameters.Add("@interestamountMonth3", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@interestamountMonth3", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.interestamountMonth3;
+                }
+                if (OBJPVclaimLoandetailsproperties.unitholdercontMonth3 == null)
+                {
+                    com.Parameters.Add("@unitholdercontMonth3", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@unitholdercontMonth3", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.unitholdercontMonth3;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth3 == null)
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth3", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth3", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth3;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth3 == null)
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth3", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth3", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth3;
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth4ID == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth4ID == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth4ID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth4ID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth4ID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth4Name == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth4Name == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth4Name", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth4Name", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth4Name.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth4 == null)
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth4", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth4", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth4;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofInstallmentMonth4 == null)
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth4", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth4", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofInstallmentMonth4;
+                }
+                if (OBJPVclaimLoandetailsproperties.rateofinterestMonth4 == null)
+                {
+                    com.Parameters.Add("@rateofinterestMonth4", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@rateofinterestMonth4", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.rateofinterestMonth4;
+                }
+                if (OBJPVclaimLoandetailsproperties.interestamountMonth4 == null)
+                {
+                    com.Parameters.Add("@interestamountMonth4", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@interestamountMonth4", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.interestamountMonth4;
+                }
+                if (OBJPVclaimLoandetailsproperties.unitholdercontMonth4 == null)
+                {
+                    com.Parameters.Add("@unitholdercontMonth4", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@unitholdercontMonth4", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.unitholdercontMonth4;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth4 == null)
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth4", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth4", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth4;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth4 == null)
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth4", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth4", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth4;
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth5ID == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth5ID == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth5ID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth5ID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth5ID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth5Name == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth5Name == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth5Name", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth5Name", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth5Name.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth5 == null)
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth5", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth5", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth5;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofInstallmentMonth5 == null)
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth5", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth5", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofInstallmentMonth5;
+                }
+                if (OBJPVclaimLoandetailsproperties.rateofinterestMonth5 == null)
+                {
+                    com.Parameters.Add("@rateofinterestMonth5", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@rateofinterestMonth5", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.rateofinterestMonth5;
+                }
+                if (OBJPVclaimLoandetailsproperties.interestamountMonth5 == null)
+                {
+                    com.Parameters.Add("@interestamountMonth5", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@interestamountMonth5", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.interestamountMonth5;
+                }
+                if (OBJPVclaimLoandetailsproperties.unitholdercontMonth5 == null)
+                {
+                    com.Parameters.Add("@unitholdercontMonth5", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@unitholdercontMonth5", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.unitholdercontMonth5;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth5 == null)
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth5", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth5", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth5;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth5 == null)
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth5", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth5", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth5;
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth6ID == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth6ID == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth6ID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth6ID", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth6ID.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PeriodofClaimMonth6Name == "" || OBJPVclaimLoandetailsproperties.PeriodofClaimMonth6Name == null)
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth6Name", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PeriodofClaimMonth6Name", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PeriodofClaimMonth6Name.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth6 == null)
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth6", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@PrincipalamountdueMonth6", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.PrincipalamountdueMonth6;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofInstallmentMonth6 == null)
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth6", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofInstallmentMonth6", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofInstallmentMonth6;
+                }
+                if (OBJPVclaimLoandetailsproperties.rateofinterestMonth6 == null)
+                {
+                    com.Parameters.Add("@rateofinterestMonth6", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@rateofinterestMonth6", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.rateofinterestMonth6;
+                }
+                if (OBJPVclaimLoandetailsproperties.interestamountMonth6 == null)
+                {
+                    com.Parameters.Add("@interestamountMonth6", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@interestamountMonth6", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.interestamountMonth6;
+                }
+                if (OBJPVclaimLoandetailsproperties.unitholdercontMonth6 == null)
+                {
+                    com.Parameters.Add("@unitholdercontMonth6", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@unitholdercontMonth6", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.unitholdercontMonth6;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth6 == null)
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth6", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligiblerateofintersetMonth6", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligiblerateofintersetMonth6;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth6 == null)
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth6", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligibleinterestamountMonth6", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleinterestamountMonth6;
+                }
+                if (OBJPVclaimLoandetailsproperties.totmonthseligibleinterestamount == null)
+                {
+                    com.Parameters.Add("@totmonthseligibleinterestamount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totmonthseligibleinterestamount", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totmonthseligibleinterestamount;
+                }
+                if (OBJPVclaimLoandetailsproperties.totmonthsinterestamountMonth == null)
+                {
+                    com.Parameters.Add("@totmonthsinterestamountMonth", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totmonthsinterestamountMonth", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totmonthsinterestamountMonth;
+                }
+                if (OBJPVclaimLoandetailsproperties.eligibleperiodinmonths == null)
+                {
+                    com.Parameters.Add("@eligibleperiodinmonths", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@eligibleperiodinmonths", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleperiodinmonths;
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_interestamountpaidaspercal == null)
+                {
+                    com.Parameters.Add("@CPL_interestamountpaidaspercal", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_interestamountpaidaspercal", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_interestamountpaidaspercal;
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_actualinterestamountpaid == null)
+                {
+                    com.Parameters.Add("@CPL_actualinterestamountpaid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_actualinterestamountpaid", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_actualinterestamountpaid;
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_Conamountforcalintreimberest == null)
+                {
+                    com.Parameters.Add("@CPL_Conamountforcalintreimberest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_Conamountforcalintreimberest", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_Conamountforcalintreimberest;
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_interestreimbersementcal == null)
+                {
+                    com.Parameters.Add("@CPL_interestreimbersementcal", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_interestreimbersementcal", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_interestreimbersementcal;
+                }
+
+                if (OBJPVclaimLoandetailsproperties.CPL_ELIGIBLETYPE == "" || OBJPVclaimLoandetailsproperties.CPL_ELIGIBLETYPE == null)
+                {
+                    com.Parameters.Add("@CPL_ELIGIBLETYPE", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_ELIGIBLETYPE", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_ELIGIBLETYPE.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_ELIGIBLETYPEName == "" || OBJPVclaimLoandetailsproperties.CPL_ELIGIBLETYPEName == null)
+                {
+                    com.Parameters.Add("@CPL_ELIGIBLETYPEName", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_ELIGIBLETYPEName", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_ELIGIBLETYPEName.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_interestreimbersementcal_finaleligibletype == "" || OBJPVclaimLoandetailsproperties.CPL_interestreimbersementcal_finaleligibletype == null)
+                {
+                    com.Parameters.Add("@CPL_interestreimbersementcal_finaleligibletype", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_interestreimbersementcal_finaleligibletype", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_interestreimbersementcal_finaleligibletype.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_gmrecommendedamount == null)
+                {
+                    com.Parameters.Add("@CPL_gmrecommendedamount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_gmrecommendedamount", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_gmrecommendedamount;
+                }
+                if (OBJPVclaimLoandetailsproperties.CPL_FINALELIGIBLEAMOUNT == null)
+                {
+                    com.Parameters.Add("@CPL_FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CPL_FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CPL_FINALELIGIBLEAMOUNT;
+                }
+                if (OBJPVclaimLoandetailsproperties.totince_interestamountpaidaspercal == null)
+                {
+                    com.Parameters.Add("@totince_interestamountpaidaspercal", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totince_interestamountpaidaspercal", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totince_interestamountpaidaspercal;
+                }
+                if (OBJPVclaimLoandetailsproperties.totince_actualinterestamountpaid == null)
+                {
+                    com.Parameters.Add("@totince_actualinterestamountpaid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totince_actualinterestamountpaid", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totince_actualinterestamountpaid;
+                }
+                if (OBJPVclaimLoandetailsproperties.totince_interestreimbersementcal == null)
+                {
+                    com.Parameters.Add("@totince_interestreimbersementcal", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totince_interestreimbersementcal", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totince_interestreimbersementcal;
+                }
+                if (OBJPVclaimLoandetailsproperties.totince_interestreimbersementcal_finaleligibletype == "" || OBJPVclaimLoandetailsproperties.totince_interestreimbersementcal_finaleligibletype == null)
+                {
+                    com.Parameters.Add("@totince_interestreimbersementcal_finaleligibletype", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totince_interestreimbersementcal_finaleligibletype", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totince_interestreimbersementcal_finaleligibletype.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.totince_gmrecommendedamount == null)
+                {
+                    com.Parameters.Add("@totince_gmrecommendedamount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totince_gmrecommendedamount", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totince_gmrecommendedamount;
+                }
+                if (OBJPVclaimLoandetailsproperties.totince_FINALELIGIBLEAMOUNT == null)
+                {
+                    com.Parameters.Add("@totince_FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totince_FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totince_FINALELIGIBLEAMOUNT;
+                }
+                if (OBJPVclaimLoandetailsproperties.Createdby == "" || OBJPVclaimLoandetailsproperties.Createdby == null)
+                {
+                    com.Parameters.Add("@Createdby", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Createdby", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Createdby.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.CreatedIP == "" || OBJPVclaimLoandetailsproperties.CreatedIP == null)
+                {
+                    com.Parameters.Add("@CreatedIP", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@CreatedIP", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.CreatedIP.Trim();
+                }
+                if (OBJPVclaimLoandetailsproperties.totince_Conamountforcalintreimberest == null)
+                {
+                    com.Parameters.Add("@totince_Conamountforcalintreimberest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@totince_Conamountforcalintreimberest", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.totince_Conamountforcalintreimberest;
+                }
+
+                if (OBJPVclaimLoandetailsproperties.IsMortage == null)
+                {
+                    com.Parameters.Add("@IsMortage", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@IsMortage", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.IsMortage;
+                }
+
+                if (OBJPVclaimLoandetailsproperties.ActualNoofinstallmentsCompleted == null)
+                {
+                    com.Parameters.Add("@ActualNoofinstallmentsCompleted", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ActualNoofinstallmentsCompleted", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.ActualNoofinstallmentsCompleted;
+                }
+
+                if (OBJPVclaimLoandetailsproperties.ActualNoofinstallmentsCompletedMonths == null)
+                {
+                    com.Parameters.Add("@ActualNoofinstallmentsCompletedMonths", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@ActualNoofinstallmentsCompletedMonths", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.ActualNoofinstallmentsCompletedMonths;
+                }
+                if (OBJPVclaimLoandetailsproperties.Actualprincipalamtfornextyrs == null)
+                {
+                    com.Parameters.Add("@Actualprincipalamtfornextyrs", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Actualprincipalamtfornextyrs", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Actualprincipalamtfornextyrs;
+                }
+                if (OBJPVclaimLoandetailsproperties.NoofinstallmentsCompletedMonths == null)
+                {
+                    com.Parameters.Add("@NoofinstallmentsCompletedMonths", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@NoofinstallmentsCompletedMonths", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.NoofinstallmentsCompletedMonths;
+                }
+                if (OBJPVclaimLoandetailsproperties.IsprevMoratorium == null)
+                {
+                    com.Parameters.Add("@IsprevMoratorium", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@IsprevMoratorium", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.IsprevMoratorium;
+                }
+                if (OBJPVclaimLoandetailsproperties.Moratoriumrowone == null)
+                {
+                    com.Parameters.Add("@Moratoriumrowone", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Moratoriumrowone", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Moratoriumrowone;
+                }
+                if (OBJPVclaimLoandetailsproperties.Moratoriumrowtwo == null)
+                {
+                    com.Parameters.Add("@Moratoriumrowtwo", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Moratoriumrowtwo", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Moratoriumrowtwo;
+                }
+                if (OBJPVclaimLoandetailsproperties.Moratoriumrowthree == null)
+                {
+                    com.Parameters.Add("@Moratoriumrowthree", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Moratoriumrowthree", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Moratoriumrowthree;
+                }
+                if (OBJPVclaimLoandetailsproperties.Moratoriumrowfour == null)
+                {
+                    com.Parameters.Add("@Moratoriumrowfour", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Moratoriumrowfour", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Moratoriumrowfour;
+                }
+                if (OBJPVclaimLoandetailsproperties.Moratoriumrowfive == null)
+                {
+                    com.Parameters.Add("@Moratoriumrowfive", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Moratoriumrowfive", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Moratoriumrowfive;
+                }
+                if (OBJPVclaimLoandetailsproperties.Moratoriumrowsix == null)
+                {
+                    com.Parameters.Add("@Moratoriumrowsix", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Moratoriumrowsix", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Moratoriumrowsix;
+                }
+                if (OBJPVclaimLoandetailsproperties.IsMortageRateOfInterest == null)
+                {
+                    com.Parameters.Add("@IsMortageRateOfInterest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@IsMortageRateOfInterest", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.IsMortageRateOfInterest;
+                }
+                com.Parameters.Add("@Valid", SqlDbType.Int, 500);
+                com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+                //com.ExecuteScalar();
+                valid = (Int32)com.Parameters["@Valid"].Value;
+                resp = Convert.ToString(valid);
+                //con.CloseConnection();
+                //con.OpenConnection();
+                //com.Connection = con.GetConnection;
+
+                transaction.Commit();
+                connection.Close();
+                //return com.ExecuteNonQuery();
+                //return Convert.ToInt32(com.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+
+            }
+            finally
+            {
+                com.Dispose();
+                //con.CloseConnection();
+                connection.Close();
+            }
+            return resp;
+
+        }
+        public bool DB_INSERTPVCALIMSDATALOAN(InterestSubsidysubproperties objgriduploads)
+        {
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            bool retValue = false;
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                SqlCommand cmdpacd = new SqlCommand("USP_INS_InterestSubsidyClaimsbyloansid", connection);
+                cmdpacd.CommandType = CommandType.StoredProcedure;
+                cmdpacd.Transaction = transaction;
+
+                //if (objgriduploads.INCENTIVEID == "" || objgriduploads.INCENTIVEID == null)
+                //{
+                //    cmdpacd.Parameters.AddWithValue("@INCENTIVEID", SqlDbType.VarChar).Value = DBNull.Value;
+                //}
+                //else
+                //{
+                //    cmdpacd.Parameters.AddWithValue("@INCENTIVEID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.INCENTIVEID);
+                //}
+
+
+                if (objgriduploads.INCENTIVEID == "" || objgriduploads.INCENTIVEID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@INCENTIVEID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@INCENTIVEID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.INCENTIVEID);
+                }
+                if (objgriduploads.CLAIMPERIOD_Grid == "" || objgriduploads.CLAIMPERIOD_Grid == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CLAIMPERIOD_Grid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CLAIMPERIOD_Grid", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CLAIMPERIOD_Grid);
+                }
+                if (objgriduploads.PERIODOFINSTALMENT_MAINTABLE == "" || objgriduploads.PERIODOFINSTALMENT_MAINTABLE == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@PERIODOFINSTALMENT_MAINTABLE", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@PERIODOFINSTALMENT_MAINTABLE", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.PERIODOFINSTALMENT_MAINTABLE);
+                }
+                if (objgriduploads.NOOFINSTALLMENTS_MAINTABLE == "" || objgriduploads.NOOFINSTALLMENTS_MAINTABLE == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@NOOFINSTALLMENTS_MAINTABLE", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@NOOFINSTALLMENTS_MAINTABLE", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.NOOFINSTALLMENTS_MAINTABLE);
+                }
+                if (objgriduploads.NOOFINSTALMENTSCOMPLETED_Grid == "" || objgriduploads.NOOFINSTALMENTSCOMPLETED_Grid == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@NOOFINSTALMENTSCOMPLETED_Grid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@NOOFINSTALMENTSCOMPLETED_Grid", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.NOOFINSTALMENTSCOMPLETED_Grid);
+                }
+                if (objgriduploads.PERIODOFCLAIM_MONTHWISE_ID_GRID == "" || objgriduploads.PERIODOFCLAIM_MONTHWISE_ID_GRID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@PERIODOFCLAIM_MONTHWISE_ID_GRID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@PERIODOFCLAIM_MONTHWISE_ID_GRID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.PERIODOFCLAIM_MONTHWISE_ID_GRID);
+                }
+                if (objgriduploads.PERIODOFCLAIM_MONTHWISE_VALUE_GRID == "" || objgriduploads.PERIODOFCLAIM_MONTHWISE_VALUE_GRID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@PERIODOFCLAIM_MONTHWISE_VALUE_GRID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@PERIODOFCLAIM_MONTHWISE_VALUE_GRID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.PERIODOFCLAIM_MONTHWISE_VALUE_GRID);
+                }
+                if (objgriduploads.PRINCIPALAMOUNTDUE_GRID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@PRINCIPALAMOUNTDUE_GRID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@PRINCIPALAMOUNTDUE_GRID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.PRINCIPALAMOUNTDUE_GRID);
+                }
+                if (objgriduploads.NOOFINSTALLMENT_GRID == "" || objgriduploads.NOOFINSTALLMENT_GRID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@NOOFINSTALLMENT_GRID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@NOOFINSTALLMENT_GRID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.NOOFINSTALLMENT_GRID);
+                }
+                if (objgriduploads.INTERESTAMOUNT_GRID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTAMOUNT_GRID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTAMOUNT_GRID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.INTERESTAMOUNT_GRID);
+                }
+                if (objgriduploads.InstallmentAmount == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@InstallmentAmount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@InstallmentAmount", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.InstallmentAmount);
+                }
+                if (objgriduploads.INTERESTAMOUNTPAIDASPERCALCULATIONS_GRID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTAMOUNTPAIDASPERCALCULATIONS_GRID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTAMOUNTPAIDASPERCALCULATIONS_GRID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.INTERESTAMOUNTPAIDASPERCALCULATIONS_GRID);
+                }
+                if (objgriduploads.ACTUALINTERESTAMOUNTPAID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@ACTUALINTERESTAMOUNTPAID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@ACTUALINTERESTAMOUNTPAID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.ACTUALINTERESTAMOUNTPAID);
+                }
+                if (objgriduploads.INTERESTREIMBERSEMENTCALCULATED == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTREIMBERSEMENTCALCULATED", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTREIMBERSEMENTCALCULATED", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.INTERESTREIMBERSEMENTCALCULATED);
+                }
+                if (objgriduploads.ELIGIBLETYPE == "" || objgriduploads.ELIGIBLETYPE == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@ELIGIBLETYPE", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@ELIGIBLETYPE", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.ELIGIBLETYPE);
+                }
+                if (objgriduploads.INTERESTREIMBERSEMENTCALCULATED_FINAL == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTREIMBERSEMENTCALCULATED_FINAL", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@INTERESTREIMBERSEMENTCALCULATED_FINAL", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.INTERESTREIMBERSEMENTCALCULATED_FINAL);
+                }
+                if (objgriduploads.GMRECOMMENDEDAMOUNT == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@GMRECOMMENDEDAMOUNT", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@GMRECOMMENDEDAMOUNT", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.GMRECOMMENDEDAMOUNT);
+                }
+                if (objgriduploads.FINALELIGIBLEAMOUNT == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.FINALELIGIBLEAMOUNT);
+                }
+                if (objgriduploads.IPADDRESS == "" || objgriduploads.IPADDRESS == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@IPADDRESS", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@IPADDRESS", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.IPADDRESS);
+                }
+                if (objgriduploads.CREATED_BY == "" || objgriduploads.CREATED_BY == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CREATED_BY", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CREATED_BY", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CREATED_BY);
+                }
+                if (objgriduploads.interestegliblereimbursement == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@interestegliblereimbursement", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@interestegliblereimbursement", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.interestegliblereimbursement);
+                }
+                if (objgriduploads.SUBPallvaid == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@SUBPallvaid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@SUBPallvaid", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.SUBPallvaid);
+                }
+                if (objgriduploads.CLAIMPERIODName_Grid == "" || objgriduploads.CLAIMPERIODName_Grid == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CLAIMPERIODName_Grid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CLAIMPERIODName_Grid", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CLAIMPERIODName_Grid);
+                }
+                if (objgriduploads.PeriodofinstallmentName == "" || objgriduploads.PeriodofinstallmentName == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@PeriodofinstallmentName", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@PeriodofinstallmentName", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.PeriodofinstallmentName);
+                }
+                if (objgriduploads.principalamountduefornexthalfyr_grid == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@principalamountduefornexthalfyr_grid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@principalamountduefornexthalfyr_grid", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.principalamountduefornexthalfyr_grid);
+                }
+                if (objgriduploads.ELIGIBLETYPEName == "" || objgriduploads.ELIGIBLETYPEName == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@ELIGIBLETYPEName", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@ELIGIBLETYPEName", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.ELIGIBLETYPEName);
+                }
+                if (objgriduploads.eligibleperiodinmonths == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@eligibleperiodinmonths", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@eligibleperiodinmonths", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.eligibleperiodinmonths);
+                }
+                if (objgriduploads.dcpdate == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@dcpdate", SqlDbType.DateTime).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@dcpdate", SqlDbType.DateTime).Value = objgriduploads.dcpdate;
+                }
+                if (objgriduploads.installmentstartmonthyear == "" || objgriduploads.installmentstartmonthyear == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@installmentstartmonthyear", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@installmentstartmonthyear", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.installmentstartmonthyear);
+                }
+                if (objgriduploads.LoanNumber == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@LoanNumber", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@LoanNumber", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.LoanNumber);
+                }
+                if (objgriduploads.unitholdercont == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@unitholdercont", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@unitholdercont", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.unitholdercont);
+                }
+                if (objgriduploads.eligiblerateofinterset == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@eligiblerateofinterset", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@eligiblerateofinterset", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.eligiblerateofinterset);
+                }
+                if (objgriduploads.eligibleinterestamount == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@eligibleinterestamount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@eligibleinterestamount", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.eligibleinterestamount);
+                }
+                if (objgriduploads.CPL_interestamountpaidaspercal == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_interestamountpaidaspercal", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_interestamountpaidaspercal", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CPL_interestamountpaidaspercal);
+                }
+                if (objgriduploads.CPL_actualinterestamountpaid == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_actualinterestamountpaid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_actualinterestamountpaid", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CPL_actualinterestamountpaid);
+                }
+                if (objgriduploads.CPL_Conamountforcalintreimberest == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_Conamountforcalintreimberest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_Conamountforcalintreimberest", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CPL_Conamountforcalintreimberest);
+                }
+                if (objgriduploads.CPL_interestreimbersementcal == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_interestreimbersementcal", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_interestreimbersementcal", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CPL_interestreimbersementcal);
+                }
+                if (objgriduploads.CPL_interestreimbersementcal_finaleligibletype == "" || objgriduploads.CPL_interestreimbersementcal_finaleligibletype == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_interestreimbersementcal_finaleligibletype", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_interestreimbersementcal_finaleligibletype", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CPL_interestreimbersementcal_finaleligibletype);
+                }
+                if (objgriduploads.CPL_gmrecommendedamount == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_gmrecommendedamount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_gmrecommendedamount", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CPL_gmrecommendedamount);
+                }
+                if (objgriduploads.CPL_FINALELIGIBLEAMOUNT == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@CPL_FINALELIGIBLEAMOUNT", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.CPL_FINALELIGIBLEAMOUNT);
+                }
+                if (objgriduploads.Conamountforcalintreimberest == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@Conamountforcalintreimberest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@Conamountforcalintreimberest", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.Conamountforcalintreimberest);
+                }
+                if (objgriduploads.PVCPLHFID == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@PVCPLHFID", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@PVCPLHFID", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.PVCPLHFID);
+                }
+                if (objgriduploads.IsMortage == "" || objgriduploads.IsMortage == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@IsMortage", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@IsMortage", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.IsMortage);
+                }
+                if (objgriduploads.ActualNoofinstallmentsCompleted == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@ActualNoofinstallmentsCompleted", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@ActualNoofinstallmentsCompleted", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.ActualNoofinstallmentsCompleted);
+                }
+                if (objgriduploads.tottermloanavil == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@tottermloanavil", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@tottermloanavil", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.tottermloanavil);
+                }
+                if (objgriduploads.totmonthseligibleinterestamount == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@totmonthseligibleinterestamount", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@totmonthseligibleinterestamount", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.totmonthseligibleinterestamount);
+                }
+                if (objgriduploads.totmonthsinterestamountMonth == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@totmonthsinterestamountMonth", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@totmonthsinterestamountMonth", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.totmonthsinterestamountMonth);
+                }
+                if (objgriduploads.Rateofinterestforloan == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@Rateofinterestforloan", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@Rateofinterestforloan", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.Rateofinterestforloan);
+                }
+                if (objgriduploads.Eligibleratereimbursementforlaon == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@Eligibleratereimbursementforlaon", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@Eligibleratereimbursementforlaon", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.Eligibleratereimbursementforlaon);
+                }
+                if (objgriduploads.MonthRateofinterest == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@MonthRateofinterest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@MonthRateofinterest", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.MonthRateofinterest);
+                }
+                if (objgriduploads.IsMortageRateOfInterest == "" || objgriduploads.IsMortageRateOfInterest == null)
+                {
+                    cmdpacd.Parameters.AddWithValue("@IsMortageRateOfInterest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    cmdpacd.Parameters.AddWithValue("@IsMortageRateOfInterest", SqlDbType.VarChar).Value = Convert.ToString(objgriduploads.IsMortageRateOfInterest);
+                }
+                cmdpacd.ExecuteNonQuery();
+                retValue = true;
+                //retValue = cmdpacd.ExecuteNonQuery();
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return retValue;
+        }
+
+        public string InterestSubsidyCommonDetails(ApprasialProperties DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INSAPPRAISALINTRESTSUBSIDY";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INC_INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@INC_NAMEOFINDUSTRIAL", DLODetails.NAMEOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@INC_LOCATIONOFINDUSTRIAL", DLODetails.LOCATIONOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@INC_NAMEOFPROMOTER", DLODetails.NAMEOFPROMOTER);
+                com.Parameters.AddWithValue("@INC_ConstitutionOFINDUSTRIAL", DLODetails.ConstitutionOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@INC_SOCIALSTATUS", DLODetails.SOCIALSTATUS);
+                com.Parameters.AddWithValue("@INC_WOMENENTERPRENEUR", DLODetails.WOMENENTERPRENEUR);
+                com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONNO", DLODetails.PMTSSIREGISTRATIONNO);
+                com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONDATE", DLODetails.PMTSSIREGISTRATIONDATE);
+                com.Parameters.AddWithValue("@INC_NED_UNIT", DLODetails.NED_UNIT);
+                com.Parameters.AddWithValue("@INC_DATEOFPRODUCTION", DLODetails.DATEOFPRODUCTION);
+                com.Parameters.AddWithValue("@INC_DICFILLINGDATE", DLODetails.DICFILLINGDATE);
+                com.Parameters.AddWithValue("@INC_NAMEFINANCINGUNIT", DLODetails.NAMEFINANCINGUNIT);
+                com.Parameters.AddWithValue("@INC_CASTE", DLODetails.CASTE);
+                com.Parameters.AddWithValue("@INC_GENDER", DLODetails.GENDER);
+                com.Parameters.AddWithValue("@INC_CATEGORY", DLODetails.CATEGORY);
+                com.Parameters.AddWithValue("@INC_ENTERPRISE", DLODetails.ENTERPRISE);
+                com.Parameters.AddWithValue("@INC_SECTOR", DLODetails.SECTOR);
+                com.Parameters.AddWithValue("@INC_CREATEDBY", DLODetails.CREATEDBY);
+                com.Parameters.AddWithValue("@INC_CREATEDBYIP", DLODetails.CREATEDBY); 
+                com.Parameters.AddWithValue("@Remarks", DLODetails.Remarks);
+              //  com.Parameters.AddWithValue("@ELIGIBLESANCTIONEDAMOUNT", DLODetails.FINALELIGIBLEAMOUNT);
+              //  com.Parameters.AddWithValue("@CLAIMPERIODID", DLODetails.);
+              //  com.Parameters.AddWithValue("@CLAIMPERIOD", DLODetails.Noofclaimperiods);
+              //  com.Parameters.AddWithValue("@DATEOFCOMMENCEMENTOFACTIVITY", DLODetails.);
+              //  com.Parameters.AddWithValue("@PERIODOFINSTALMENTID", DLODetails.);
+              //  com.Parameters.AddWithValue("@INSTALMENTPERIOD", DLODetails.);
+              //  com.Parameters.AddWithValue("@NOOFINSTALMENTS", DLODetails.); 
+              //com.Parameters.AddWithValue("@INSTALMENTAMOUNT", DLODetails.);
+              //  com.Parameters.AddWithValue("@INSTALMENTSTARTMONTHYEAR_ID", DLODetails.);
+              //  com.Parameters.AddWithValue("@INSTALMENTSTARTMONTHYEAR_VALUE", DLODetails.);
+              //  com.Parameters.AddWithValue("@RATEOFINTEREST", DLODetails.);
+              //  com.Parameters.AddWithValue("@ELIGIBLERATEOFREUMBERSEMENT", DLODetails.);
+              //  com.Parameters.AddWithValue("@NOOFINSTALMENTS_COMPLETED", DLODetails.);
+              //  com.Parameters.AddWithValue("@PRINCIPALAMOUNTBECOMEDUE_BEFORETHISHALFYEAR", DLODetails.);
+              //  com.Parameters.AddWithValue("@INTERESTAMOUNT_TOBEPAIDASPERCALCULATIONS", DLODetails.);
+              //  com.Parameters.AddWithValue("@ACTUALINTERESTAMOUNT_PAID", DLODetails.);
+              //  com.Parameters.AddWithValue("@INTERESTREIMBURSEMENTCALCULATED", DLODetails.);
+              //  com.Parameters.AddWithValue("@ELIGIBLETYPE", DLODetails.);
+              //  com.Parameters.AddWithValue("@INTERESTREIMBURSEMENTCALCULATED_FINAL", DLODetails.);
+              //  com.Parameters.AddWithValue("@GMRECOMMENDEDAMOUNT", DLODetails.);
+              //  com.Parameters.AddWithValue("@FINALELIGIBLEAMOUNT", DLODetails.);
+              //  com.Parameters.AddWithValue("@modified_by", DLODetails.);
+              //  com.Parameters.AddWithValue("@EglibleTypeID", DLODetails.);
+              //  com.Parameters.AddWithValue("@EglibleTypeName varchar(50)=null, 
+               
+              //  com.Parameters.AddWithValue("@INTERESTREIMBURSEMENTCALCULATEDaftereglibletype", DLODetails.);
+              //  com.Parameters.AddWithValue("@PERIODOFINSTALMENTName", DLODetails.);
+              //  com.Parameters.AddWithValue("@Noofclaimperiods", DLODetails.);
+              //  com.Parameters.AddWithValue("@Valid", DLODetails.);
+              //  com.Parameters.AddWithValue("@createdIP", DLODetails.);
+              //  com.Parameters.AddWithValue("@ModifiedIP", DLODetails.);
+              //  com.Parameters.AddWithValue("@Conreburismentamount", DLODetails.);
+              //  com.Parameters.AddWithValue("@Yrsfrmdcpdate", DLODetails.);
+              //  com.Parameters.AddWithValue("@Scheme", DLODetails.);
+              //  com.Parameters.AddWithValue("@caste_IR", DLODetails.);
+              //  com.Parameters.AddWithValue("@gender_IR", DLODetails.);
+              //  com.Parameters.AddWithValue("@category_IR", DLODetails.);
+              //  com.Parameters.AddWithValue("@enterprise_IR", DLODetails.);
+              //  com.Parameters.AddWithValue("@sector_IR", DLODetails.);
+              //  com.Parameters.AddWithValue("@serviceType_IR", DLODetails.);
+              //  com.Parameters.AddWithValue("@transportNonTrans_IR", DLODetails.);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
     }
 }

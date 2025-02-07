@@ -522,6 +522,7 @@
     <Content Include="UI\Pages\ApplicantIncentivesTracker.aspx" />
     <Content Include="UI\Pages\Application.aspx" />
     <Content Include="UI\Pages\ApprasialInterest.aspx" />
+    <Content Include="UI\Pages\ApprasialInterestNew.aspx" />
     <Content Include="UI\Pages\BilldeskPaymentPage.aspx" />
     <Content Include="UI\Pages\BilldeskPaymentResponse.aspx" />
     <Content Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx" />
@@ -1059,6 +1060,13 @@
     </Compile>
     <Compile Include="UI\Pages\ApprasialInterest.aspx.designer.cs">
       <DependentUpon>ApprasialInterest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\ApprasialInterestNew.aspx.cs">
+      <DependentUpon>ApprasialInterestNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\ApprasialInterestNew.aspx.designer.cs">
+      <DependentUpon>ApprasialInterestNew.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\BilldeskPaymentPage.aspx.cs">
       <DependentUpon>BilldeskPaymentPage.aspx</DependentUpon>

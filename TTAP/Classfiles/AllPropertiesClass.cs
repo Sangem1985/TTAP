@@ -2800,4 +2800,266 @@ namespace TTAP.Classfiles
         public string CREATEDBY { get; set; }
 
     }
+    public class ApprasialProperties
+    {
+        public decimal? INTERESTAMOUNT_TOBEPAIDASPERCALCULATIONS { get; set; }
+        public decimal? ACTUALINTERESTAMOUNT_PAID { get; set; }
+        public decimal? INTERESTREIMBURSEMENTCALCULATED { get; set; }
+        public decimal? INTERESTREIMBURSEMENTCALCULATED_FINAL { get; set; }
+        public decimal? GMRECOMMENDEDAMOUNT { get; set; }
+        public decimal? FINALELIGIBLEAMOUNT { get; set; }
+        public int? Valid { get; set; }
+        public string EglibleTypeID { get; set; }
+        public string EglibleTypeName { get; set; }
+        public decimal? INTERESTREIMBURSEMENTCALCULATEDaftereglibletype { get; set; }
+        public string PERIODOFINSTALMENTName { get; set; }
+        public int? Noofclaimperiods { get; set; }
+        public int? IDENTITYCOCUMN { get; set; }
+        public string lblApplicationno { get; set; }
+        public DateTime? created_dt { get; set; }
+        public string createdby { get; set; }
+        public string created_by { get; set; }
+        public string ELIGIBLETYPE { get; set; }
+        public string modified_by { get; set; }
+        public DateTime? modified_dt { get; set; }
+        public string createdIP { get; set; }
+
+        public string ModifiedIP { get; set; }
+
+        public decimal? Conreburismentamount { get; set; }
+
+        public decimal? Conreburismentamount8 { get; set; }
+        public string Scheme { get; set; }
+
+        public decimal? Yrsfrmdcpdate { get; set; }
+
+        public string caste_IR { get; set; }
+        public string gender_IR { get; set; }
+        public string category_IR { get; set; }
+        public string enterprisetype_IR { get; set; }
+        public string sector_IR { get; set; }
+        public string servicetype_IR { get; set; }
+
+        public string transNonTrans_IR { get; set; }
+        public string Remarks { get; set; }
+        public string INCENTIVEID { get; set; }
+        public string NAMEOFINDUSTRIAL { get; set; }
+        public string LOCATIONOFINDUSTRIAL { get; set; }
+        public string NAMEOFPROMOTER { get; set; }
+        public string ConstitutionOFINDUSTRIAL { get; set; }
+        public string SOCIALSTATUS { get; set; }
+        public string WOMENENTERPRENEUR { get; set; }
+        public string PMTSSIREGISTRATIONNO { get; set; }
+        public string PMTSSIREGISTRATIONDATE { get; set; }
+        public string NED_UNIT { get; set; }
+        public string DATEOFPRODUCTION { get; set; }
+        public string DICFILLINGDATE { get; set; }
+        public string NAMEFINANCINGUNIT { get; set; }
+        public string CASTE { get; set; }
+        public string GENDER { get; set; }
+        public string CATEGORY { get; set; }
+        public string ENTERPRISE { get; set; }
+        public string SECTOR { get; set; }
+        public string CREATEDBY { get; set; }
+        public string CREATEDBYIP { get; set; }
+    }
+    public class InterestSubsidyclaimloanproperties
+    {
+        public Int32 PVFYLID { get; set; }
+        public Int32 Incentiveid { get; set; }
+        public Int32 APCDPVID { get; set; }
+        public string ClaimPeriodID { get; set; }
+        public string ClaimPeriodName { get; set; }
+        public Int32 LoanCount { get; set; }
+        public Int32 Isactive { get; set; }
+        public string Createdby { get; set; }
+        public string CreatedIP { get; set; }
+        public DateTime CreatedOn { get; set; }
+        public string Modifiedby { get; set; }
+        public string ModifiedIP { get; set; }
+        public DateTime ModifiedOn { get; set; }
+
+        public string FinancialYear { get; set; }
+    }   
+    public class InterestSubsidysubproperties
+    {
+        public int? PVID { get; set; }
+        public string INCENTIVEID { get; set; }
+        public string CLAIMPERIOD_Grid { get; set; }
+        public string PERIODOFINSTALMENT_MAINTABLE { get; set; }
+        public string NOOFINSTALLMENTS_MAINTABLE { get; set; }
+        public string NOOFINSTALMENTSCOMPLETED_Grid { get; set; }
+        public string PERIODOFCLAIM_MONTHWISE_ID_GRID { get; set; }
+        public string PERIODOFCLAIM_MONTHWISE_VALUE_GRID { get; set; }
+        public decimal? PRINCIPALAMOUNTDUE_GRID { get; set; }
+        public string NOOFINSTALLMENT_GRID { get; set; }
+        public decimal? INTERESTAMOUNT_GRID { get; set; }
+        public decimal? InstallmentAmount { get; set; }
+        public decimal? INTERESTAMOUNTPAIDASPERCALCULATIONS_GRID { get; set; }
+        public decimal? ACTUALINTERESTAMOUNTPAID { get; set; }
+        public decimal? INTERESTREIMBERSEMENTCALCULATED { get; set; }
+        public string ELIGIBLETYPE { get; set; }
+        public decimal? INTERESTREIMBERSEMENTCALCULATED_FINAL { get; set; }
+        public decimal? GMRECOMMENDEDAMOUNT { get; set; }
+        public decimal? FINALELIGIBLEAMOUNT { get; set; }
+        public string IPADDRESS { get; set; }
+        public string CREATED_BY { get; set; }
+        public DateTime? CREATED_DT { get; set; }
+        public string MODIFIED_BY { get; set; }
+        public DateTime? MODIFIED_DT { get; set; }
+        public decimal? interestegliblereimbursement { get; set; }
+        public int? SUBPallvaid { get; set; }
+        public string CLAIMPERIODName_Grid { get; set; }
+        public string PeriodofinstallmentName { get; set; }
+        public decimal? principalamountduefornexthalfyr_grid { get; set; }
+        public string ELIGIBLETYPEName { get; set; }
+        public decimal? eligibleperiodinmonths { get; set; }
+        public string installmentstartmonthyear { get; set; }
+        public DateTime? dcpdate { get; set; }
+        public int? LoanNumber { get; set; }
+        public decimal? unitholdercont { get; set; }
+        public decimal? eligiblerateofinterset { get; set; }
+        public decimal? eligibleinterestamount { get; set; }
+        public decimal? CPL_interestamountpaidaspercal { get; set; }
+        public decimal? CPL_actualinterestamountpaid { get; set; }
+        public decimal? CPL_Conamountforcalintreimberest { get; set; }
+        public decimal? CPL_interestreimbersementcal { get; set; }
+        public string CPL_interestreimbersementcal_finaleligibletype { get; set; }
+        public decimal? CPL_gmrecommendedamount { get; set; }
+        public decimal? CPL_FINALELIGIBLEAMOUNT { get; set; }
+        public decimal? Conamountforcalintreimberest { get; set; }
+        public int PVCPLHFID { get; set; }
+        public string IsMortage { get; set; }
+        public int? ActualNoofinstallmentsCompleted { get; set; }
+
+        public decimal? tottermloanavil { get; set; }
+        public decimal? totmonthseligibleinterestamount { get; set; }
+        public decimal? totmonthsinterestamountMonth { get; set; }
+        public decimal? Rateofinterestforloan { get; set; }
+        public decimal? Eligibleratereimbursementforlaon { get; set; }
+        public decimal? MonthRateofinterest { get; set; }
+
+        public string IsMortageRateOfInterest { get; set; }
+    }
+    public class InterestSubsidyclaimLoandetailsproperties
+    {
+        public Int32? PVCPLHFID { get; set; }
+        public Int32? Incentiveid { get; set; }
+        public Int32? APCDPVID { get; set; }
+        public string ClaimPeriodID { get; set; }
+        public string ClaimPeriodName { get; set; }
+        public Int32? LoanNumber { get; set; }
+        public string ClaimPeriodFYID { get; set; }
+        public string ClaimPeriodFYSubID { get; set; }
+        public string IS1st2dhalfyear { get; set; }
+        public DateTime? dcpdate { get; set; }
+        public DateTime? loaninstallmentstartdate { get; set; }
+        public decimal? tottermloanavil { get; set; }
+        public string Periodofinstallmentid { get; set; }
+        public string Periodofinstallmentname { get; set; }
+        public Int32? Noofinstallmentforloan { get; set; }
+        public decimal? Installmentamountforloan { get; set; }
+        public decimal? Rateofinterestforloan { get; set; }
+        public decimal? Eligibleratereimbursementforlaon { get; set; }
+        public Int32? NoofinstallmentcompletedfortheloanFY { get; set; }
+        public decimal? principalamountdueforhalfyrFY { get; set; }
+        public string PeriodofClaimMonth1ID { get; set; }
+        public string PeriodofClaimMonth1Name { get; set; }
+        public decimal? PrincipalamountdueMonth1 { get; set; }
+        public Int32? NoofInstallmentMonth1 { get; set; }
+        public decimal? rateofinterestMonth1 { get; set; }
+        public decimal? interestamountMonth1 { get; set; }
+        public decimal? unitholdercontMonth1 { get; set; }
+        public decimal? eligiblerateofintersetMonth1 { get; set; }
+        public decimal? eligibleinterestamountMonth1 { get; set; }
+        public string PeriodofClaimMonth2ID { get; set; }
+        public string PeriodofClaimMonth2Name { get; set; }
+        public decimal? PrincipalamountdueMonth2 { get; set; }
+        public Int32? NoofInstallmentMonth2 { get; set; }
+        public decimal? rateofinterestMonth2 { get; set; }
+        public decimal? interestamountMonth2 { get; set; }
+        public decimal? unitholdercontMonth2 { get; set; }
+        public decimal? eligiblerateofintersetMonth2 { get; set; }
+        public decimal? eligibleinterestamountMonth2 { get; set; }
+        public string PeriodofClaimMonth3ID { get; set; }
+        public string PeriodofClaimMonth3Name { get; set; }
+        public decimal? PrincipalamountdueMonth3 { get; set; }
+        public Int32? NoofInstallmentMonth3 { get; set; }
+        public decimal? rateofinterestMonth3 { get; set; }
+        public decimal? interestamountMonth3 { get; set; }
+        public decimal? unitholdercontMonth3 { get; set; }
+        public decimal? eligiblerateofintersetMonth3 { get; set; }
+        public decimal? eligibleinterestamountMonth3 { get; set; }
+        public string PeriodofClaimMonth4ID { get; set; }
+        public string PeriodofClaimMonth4Name { get; set; }
+        public decimal? PrincipalamountdueMonth4 { get; set; }
+        public Int32? NoofInstallmentMonth4 { get; set; }
+        public decimal? rateofinterestMonth4 { get; set; }
+        public decimal? interestamountMonth4 { get; set; }
+        public decimal? unitholdercontMonth4 { get; set; }
+        public decimal? eligiblerateofintersetMonth4 { get; set; }
+        public decimal? eligibleinterestamountMonth4 { get; set; }
+        public string PeriodofClaimMonth5ID { get; set; }
+        public string PeriodofClaimMonth5Name { get; set; }
+        public decimal? PrincipalamountdueMonth5 { get; set; }
+        public Int32? NoofInstallmentMonth5 { get; set; }
+        public decimal? rateofinterestMonth5 { get; set; }
+        public decimal? interestamountMonth5 { get; set; }
+        public decimal? unitholdercontMonth5 { get; set; }
+        public decimal? eligiblerateofintersetMonth5 { get; set; }
+        public decimal? eligibleinterestamountMonth5 { get; set; }
+        public string PeriodofClaimMonth6ID { get; set; }
+        public string PeriodofClaimMonth6Name { get; set; }
+        public decimal? PrincipalamountdueMonth6 { get; set; }
+        public Int32? NoofInstallmentMonth6 { get; set; }
+        public decimal? rateofinterestMonth6 { get; set; }
+        public decimal? interestamountMonth6 { get; set; }
+        public decimal? unitholdercontMonth6 { get; set; }
+        public decimal? eligiblerateofintersetMonth6 { get; set; }
+        public decimal? eligibleinterestamountMonth6 { get; set; }
+        public decimal? totmonthseligibleinterestamount { get; set; }
+        public decimal? totmonthsinterestamountMonth { get; set; }
+        public decimal? eligibleperiodinmonths { get; set; }
+        public decimal? CPL_interestamountpaidaspercal { get; set; }
+        public decimal? CPL_actualinterestamountpaid { get; set; }
+        public decimal? CPL_Conamountforcalintreimberest { get; set; }
+        public decimal? CPL_interestreimbersementcal { get; set; }
+        public string CPL_ELIGIBLETYPE { get; set; }
+        public string CPL_ELIGIBLETYPEName { get; set; }
+        public string CPL_interestreimbersementcal_finaleligibletype { get; set; }
+        public decimal? CPL_gmrecommendedamount { get; set; }
+        public decimal? CPL_FINALELIGIBLEAMOUNT { get; set; }
+        public decimal? totince_interestamountpaidaspercal { get; set; }
+        public decimal? totince_actualinterestamountpaid { get; set; }
+        public decimal? totince_interestreimbersementcal { get; set; }
+        public string totince_interestreimbersementcal_finaleligibletype { get; set; }
+        public decimal? totince_gmrecommendedamount { get; set; }
+        public decimal? totince_FINALELIGIBLEAMOUNT { get; set; }
+
+        public string Createdby { get; set; }
+        public string CreatedIP { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public string Modifiedby { get; set; }
+        public string ModifiedIP { get; set; }
+        public DateTime? ModifiedOn { get; set; }
+
+        public decimal totince_Conamountforcalintreimberest { get; set; }
+
+        public string IsMortage { get; set; }
+        public string IsMortageRateOfInterest { get; set; }
+        public int ActualNoofinstallmentsCompleted { get; set; }
+
+        public int ActualNoofinstallmentsCompletedMonths { get; set; }
+        public decimal Actualprincipalamtfornextyrs { get; set; }
+        public int NoofinstallmentsCompletedMonths { get; set; }
+        public string IsprevMoratorium { get; set; }
+        public bool Moratoriumrowone { get; set; }
+        public bool Moratoriumrowtwo { get; set; }
+        public bool Moratoriumrowthree { get; set; }
+        public bool Moratoriumrowfour { get; set; }
+        public bool Moratoriumrowfive { get; set; }
+        public bool Moratoriumrowsix { get; set; }
+    }
+
+    
 }
