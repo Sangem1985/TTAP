@@ -105,6 +105,10 @@
                                             <label class="control-label" id="Label9" runat="server">Promoter details in case eligible for additional subsidy</label>
                                             <label class="form-control" id="lblcategory" runat="server"></label>
                                         </div>
+                                         <div class="col-sm-4 form-group">
+                                            <label class="control-label" id="Label4" runat="server">GM-Recommended Amount</label>
+                                            <label class="form-control" id="lblRecommended" runat="server"></label>
+                                        </div>
 
                                     </div>
                                     <div class="row">
@@ -1042,7 +1046,7 @@
                                                         <td style="padding: 5px; margin: 5px;">:
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style28">
-                                                            <asp:TextBox ID="txt_GMrecommendedamount" runat="server" class="form-control txtbox" Enabled="false" Height="28px" AutoPostBack="true" OnTextChanged="txt_GMrecommendedamount_TextChanged"
+                                                            <asp:TextBox ID="txt_GMrecommendedamount" runat="server" class="form-control txtbox" Enabled="true" Height="28px" AutoPostBack="true" OnTextChanged="txt_GMrecommendedamount_TextChanged"
                                                                 TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator51" runat="server" ControlToValidate="txt_GMrecommendedamount"
                                                                 ErrorMessage="Please Enter GM recommended amount" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
@@ -1115,7 +1119,7 @@
                                         </tr>
                                     </table>
                                     <table align="center" cellpadding="10" cellspacing="5" style="width: 90%">
-                                        <tr id="trsubmit" runat="server" visible="false">
+                                        <tr id="trsubmit" runat="server" visible="true">
                                             <td align="center" colspan="3" style="padding: 5px; margin: 5px; text-align: center;">
                                                 <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-primary" Height="32px" OnClick="BtnSave_Click" TabIndex="24" Text="Save" ValidationGroup="group" Width="90px" />
                                                 &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="BtnClearall" runat="server" CausesValidation="False" CssClass="btn btn-warning" OnClick="BtnClearall_Click" Height="32px" Text="Clear" ToolTip="To Clear  the Screen" Width="90px" />

@@ -70,6 +70,7 @@ namespace TTAP.UI.Pages
                     lblReceiptDate.InnerHtml = dsnew.Tables[0].Rows[0]["ApplicationFiledDate"].ToString();
                     lblcategory.InnerText = dsnew.Tables[0].Rows[0]["SocialStatusText"].ToString();
                     lblCategoryofUnit.InnerText = dsnew.Tables[0].Rows[0]["Category"].ToString();
+                    lblRecommended.InnerText = "100000";
                     lblActivityoftheUnit.InnerText = dsnew.Tables[0].Rows[0]["TextileProcessName"].ToString();
                     //ddlCategory.SelectedValue = dsnew.Tables[0].Rows[0]["Category"].ToString();
                     hdnActualCategory.Value = dsnew.Tables[0].Rows[0]["Category"].ToString();
@@ -236,7 +237,7 @@ namespace TTAP.UI.Pages
                 {
                     GvInterestSubsidyPeriod.DataSource = dsnew.Tables[0];
                     GvInterestSubsidyPeriod.DataBind();
-                   // txtDCP_unit.Text = dsnew.Tables[1].Rows[0]["DCP"].ToString();
+                    // txtDCP_unit.Text = dsnew.Tables[1].Rows[0]["DCP"].ToString();
                 }
                 else
                 {
@@ -263,7 +264,7 @@ namespace TTAP.UI.Pages
         protected void btn_savegrdclaimperiodofloanadd_Click(object sender, EventArgs e)
         {
             DateTime? DateofCommencementofactivity = null;
-             
+
             if (lblDCPdate.InnerText != null)
             {
                 DateofCommencementofactivity = Convert.ToDateTime(lblDCPdate.InnerText);
@@ -1421,7 +1422,7 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiEligibleperiodinmonths, txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations,
     txt_grdeglibilepallavaddiActualinterestamountpaid, txt_grdeglibilepallavaddiInsertreimbursementcalculated,
     rbtgrdeglibilepallavaddi_isbelated, txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype,
-    txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8    , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
+    txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8, lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
@@ -4218,7 +4219,7 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiActualinterestamountpaid, txt_grdeglibilepallavaddiInsertreimbursementcalculated,
     rbtgrdeglibilepallavaddi_isbelated, txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype,
     txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8
-,    lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
+, lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
@@ -4376,7 +4377,7 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiActualinterestamountpaid, txt_grdeglibilepallavaddiInsertreimbursementcalculated,
     rbtgrdeglibilepallavaddi_isbelated, txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype,
     txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8
-,    lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
+, lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
@@ -4531,7 +4532,7 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiActualinterestamountpaid, txt_grdeglibilepallavaddiInsertreimbursementcalculated,
     rbtgrdeglibilepallavaddi_isbelated, txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype,
     txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8
-,    lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
+, lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
@@ -6413,7 +6414,7 @@ namespace TTAP.UI.Pages
                                 //    interestamountcondisered = actualinterestamountpaid;
                                 //}
                                 interestamountcondisered = (actualinterestamountpaid * 75) / 100;
-                                interestamountcondisered8= (actualinterestamountpaid * egliblerateofinterest)  / rateofinterest;
+                                interestamountcondisered8 = (actualinterestamountpaid * egliblerateofinterest) / rateofinterest;
                                 //interestegliblereimbursement = (interestamountcondisered * egliblerateofinterest) / rateofinterest;
                                 if (interestamountcondisered < interestamountcondisered8)
                                 {
@@ -6423,7 +6424,7 @@ namespace TTAP.UI.Pages
                                 {
                                     interestamounttobeconsider = interestamountcondisered8;
                                 }
-                                if(interestamounttobeconsider < totalgridinterestamount)
+                                if (interestamounttobeconsider < totalgridinterestamount)
                                 {
                                     interestegliblereimbursement = interestamounttobeconsider;
                                 }
@@ -6431,7 +6432,7 @@ namespace TTAP.UI.Pages
                                 {
                                     interestegliblereimbursement = totalgridinterestamount;
                                 }
-                                
+
                             }
                             else
                             {
@@ -6518,7 +6519,7 @@ namespace TTAP.UI.Pages
         {
             try
             {
-                if(rbtclaimtype.SelectedValue=="R")
+                if (rbtclaimtype.SelectedValue == "R")
                 {
                     regulartr.Visible = true;
                 }
@@ -6528,7 +6529,7 @@ namespace TTAP.UI.Pages
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
             }
@@ -6537,7 +6538,7 @@ namespace TTAP.UI.Pages
         public string ValidateControls()
         {
             int slno = 1;
-            string ErrorMsg = ""; 
+            string ErrorMsg = "";
 
             if (GvInterestSubsidyPeriod.Rows.Count == 0)
             {
@@ -7094,7 +7095,7 @@ namespace TTAP.UI.Pages
                 //AssignValuestoVosFromcontrols();
                 objApprasialProperties.INTERESTAMOUNT_TOBEPAIDASPERCALCULATIONS = Convert.ToDecimal(txt_Insertamounttobepaidaspercalculations.Text);
                 objApprasialProperties.ACTUALINTERESTAMOUNT_PAID = Convert.ToDecimal(txt_Actualinterestamountpaid.Text);
-                objApprasialProperties.Conreburismentamount = Convert.ToDecimal(txt_ConsideredAmountofInterest.Text); 
+                objApprasialProperties.Conreburismentamount = Convert.ToDecimal(txt_ConsideredAmountofInterest.Text);
                 objApprasialProperties.INTERESTREIMBURSEMENTCALCULATED = Convert.ToDecimal(txt_Insertreimbursementcalculated.Text);
                 objApprasialProperties.INTERESTREIMBURSEMENTCALCULATED_FINAL = Convert.ToDecimal(txt_Insertreimbursementcalculated.Text);
                 objApprasialProperties.INTERESTREIMBURSEMENTCALCULATEDaftereglibletype = Convert.ToDecimal(txt_eglibleamountofreimbursementbyeglibletype.Text);
@@ -7124,7 +7125,7 @@ namespace TTAP.UI.Pages
 
                 objApprasialProperties.Scheme = "TTAP";
                 string returnval = "0";
-                    //obj_pallavaddi.INSERT_INCENTIVES_DATA_COMMON_appraisal_PAVALLAVADDILoan(oIncentiveVosA);
+                //obj_pallavaddi.INSERT_INCENTIVES_DATA_COMMON_appraisal_PAVALLAVADDILoan(oIncentiveVosA);
 
                 //string returnval = InsertCommonData(oIncentiveVosA);
                 if (!string.IsNullOrEmpty(returnval) && returnval.Trim() != "")
@@ -7132,7 +7133,7 @@ namespace TTAP.UI.Pages
                     //line of activity
                     SaveIncentiveDetailsFromGridViewToTable(Session["incentiveid"].ToString());
                     InsertGridclaimloanNumber(returnval);
-                    insertallgrideachclaimperioddb(returnval); 
+                    insertallgrideachclaimperioddb(returnval);
                     string Role_Code = Session["Role_Code"].ToString().Trim().TrimStart();
                     DLOApplication DLODetails = new DLOApplication();
                     if (txt_Eligibleamount.Text != "")
@@ -7145,8 +7146,8 @@ namespace TTAP.UI.Pages
                     }
 
                     DLODetails.INCENTIVEID = ViewState["IncentiveId"].ToString();
-                    DLODetails.SUBINCENTIVEID ="" ;
-                    DLODetails.ACTIONID = "1"; 
+                    DLODetails.SUBINCENTIVEID = "";
+                    DLODetails.ACTIONID = "1";
                     DLODetails.FORWARDTO = ddlDepartment.SelectedItem.Text;
                     DLODetails.CREATEDBY = ObjLoginNewvo.uid;
 
@@ -7159,9 +7160,9 @@ namespace TTAP.UI.Pages
                         string message = "alert('" + lblmsg.Text + "')";
                         //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Application Process Submitted Successfully.');", true);
-                         
+
                     }
-                    
+
                 }
                 else
                 {
@@ -7219,7 +7220,7 @@ namespace TTAP.UI.Pages
         {
             bool checkstatus = true;
             InterestSubsidyclaimLoandetailsproperties objgriduploads = new InterestSubsidyclaimLoandetailsproperties();
-         
+
 
             objgriduploads.Incentiveid = Convert.ToInt32(Session["incentiveid"]);
             objgriduploads.APCDPVID = Convert.ToInt32(SUBPallvaid);

@@ -2839,7 +2839,20 @@ namespace TTAP.Classfiles
         public string enterprisetype_IR { get; set; }
         public string sector_IR { get; set; }
         public string servicetype_IR { get; set; }
-
+        public string ELIGIBLESANCTIONEDAMOUNT { get; set; }
+        public string CLAIMPERIODID { get; set; }
+        public string DATEOFCOMMENCEMENTOFACTIVITY { get; set; }
+        public string PERIODOFINSTALMENTID { get; set; }
+        public string INSTALMENTPERIOD { get; set; }
+        public string NOOFINSTALMENTS { get; set; }
+        public string INSTALMENTAMOUNT { get; set; }
+        public string INSTALMENTSTARTMONTHYEAR_ID { get; set; }
+        public string INSTALMENTSTARTMONTHYEAR_VALUE { get; set; }
+        public string ELIGIBLERATEOFREUMBERSEMENT { get; set; }
+        public string NOOFINSTALMENTS_COMPLETED { get; set; }
+        public string PRINCIPALAMOUNTBECOMEDUE_BEFORETHISHALFYEAR { get; set; }
+        public string RATEOFINTEREST { get; set; }
+        public string CLAIMPERIOD { get; set; }
         public string transNonTrans_IR { get; set; }
         public string Remarks { get; set; }
         public string INCENTIVEID { get; set; }
