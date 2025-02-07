@@ -3184,7 +3184,7 @@ namespace TTAP.UI
                     {
                         if (ddlstatus.SelectedValue == "1")
                         {
-                            Response.Redirect("~/UI/Pages/HeadOfficeInspectionReport.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            Response.Redirect("~/UI/Pages/ApprasialInterest.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                         }
                         else
                         {
@@ -3287,14 +3287,14 @@ namespace TTAP.UI
                 slno = slno + 1;
             }
 
-            if (ddlstatus.SelectedValue == "1")
-            {
-                if (txtAmount.Text == "")
-                {
-                    ErrorMsg = ErrorMsg + slno + ". Please Fill the Details Recommended Amount \\n";
-                    slno = slno + 1;
-                }
-            }
+            //if (ddlstatus.SelectedValue == "1")
+            //{
+            //    if (txtAmount.Text == "")
+            //    {
+            //        ErrorMsg = ErrorMsg + slno + ". Please Fill the Details Recommended Amount \\n";
+            //        slno = slno + 1;
+            //    }
+            //}
             if (ddlstatus.SelectedValue == "2")
             {
                 if (txtQuery.Text == "")

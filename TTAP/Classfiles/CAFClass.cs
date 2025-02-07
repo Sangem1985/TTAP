@@ -6021,7 +6021,7 @@ namespace TTAP.Classfiles
             SqlTransaction transaction = null;
             connection.Open();
             transaction = connection.BeginTransaction();
-            SqlCommand com = new SqlCommand("PV_insertpallavaddiclaimloancount", connection);
+            SqlCommand com = new SqlCommand("PV_insertInterestSubsidyclaimloancount", connection);
             com.CommandType = CommandType.StoredProcedure;
             com.Transaction = transaction;
             try
@@ -7518,10 +7518,10 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@INC_SOCIALSTATUS", DLODetails.SOCIALSTATUS);
                 com.Parameters.AddWithValue("@INC_WOMENENTERPRENEUR", DLODetails.WOMENENTERPRENEUR);
                 com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONNO", DLODetails.PMTSSIREGISTRATIONNO);
-                com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONDATE", DLODetails.PMTSSIREGISTRATIONDATE);
+               // com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONDATE", DLODetails.PMTSSIREGISTRATIONDATE);
                 com.Parameters.AddWithValue("@INC_NED_UNIT", DLODetails.NED_UNIT);
-                com.Parameters.AddWithValue("@INC_DATEOFPRODUCTION", DLODetails.DATEOFPRODUCTION);
-                com.Parameters.AddWithValue("@INC_DICFILLINGDATE", DLODetails.DICFILLINGDATE);
+                //com.Parameters.AddWithValue("@INC_DATEOFPRODUCTION", DLODetails.DATEOFPRODUCTION);
+                //com.Parameters.AddWithValue("@INC_DICFILLINGDATE", DLODetails.DICFILLINGDATE);
                 com.Parameters.AddWithValue("@INC_NAMEFINANCINGUNIT", DLODetails.NAMEFINANCINGUNIT);
                 com.Parameters.AddWithValue("@INC_CASTE", DLODetails.CASTE);
                 com.Parameters.AddWithValue("@INC_GENDER", DLODetails.GENDER);
@@ -7534,7 +7534,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@ELIGIBLESANCTIONEDAMOUNT", DLODetails.ELIGIBLESANCTIONEDAMOUNT);
                 com.Parameters.AddWithValue("@CLAIMPERIODID", DLODetails.CLAIMPERIODID);
                 com.Parameters.AddWithValue("@CLAIMPERIOD", DLODetails.CLAIMPERIOD);
-                com.Parameters.AddWithValue("@DATEOFCOMMENCEMENTOFACTIVITY", DLODetails.DATEOFCOMMENCEMENTOFACTIVITY);
+                //com.Parameters.AddWithValue("@DATEOFCOMMENCEMENTOFACTIVITY", DLODetails.DATEOFCOMMENCEMENTOFACTIVITY);
                 com.Parameters.AddWithValue("@PERIODOFINSTALMENTID", DLODetails.PERIODOFINSTALMENTID);
                 com.Parameters.AddWithValue("@INSTALMENTPERIOD", DLODetails.INSTALMENTPERIOD);
                 com.Parameters.AddWithValue("@NOOFINSTALMENTS", DLODetails.NOOFINSTALMENTS);

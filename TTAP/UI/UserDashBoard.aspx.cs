@@ -36,7 +36,23 @@ namespace TTAP.UI
                 if (rolecode == "GM")
                 {
                     Response.Redirect("Pages/frmGMDashboard.aspx");
-                }                
+                }
+                if (rolecode == "COI-CLERK")
+                {
+                    Response.Redirect("Pages/coi/clerkDashBoard.aspx");
+                }
+                if (rolecode == "COI-SUPDT")
+                {
+                    Response.Redirect("Pages/coi/SuperintendentDashboard.aspx");
+                }
+                if (rolecode == "COI-AD")
+                {
+                    Response.Redirect("Pages/coi/AdDashboard.aspx");
+                }
+                if (rolecode == "COI-DD")
+                {
+                    Response.Redirect("Pages/coi/DdDashboard.aspx");
+                }
                 if (rolecode == "IPO" || rolecode == "AD" || rolecode == "DD")
                 {
                     Response.Redirect("Pages/frmIPOIncentiveDashboard.aspx");

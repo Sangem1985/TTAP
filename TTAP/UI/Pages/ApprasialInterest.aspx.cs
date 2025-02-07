@@ -23,15 +23,18 @@ namespace TTAP.UI.Pages
         decimal EligibleInterest = 0;
         decimal TotalPlintArea = 0, TotalOnetoNineValue = 0, TotalEighttoSeventeenValue = 0;
         DataTable myDtNewRecdr = new DataTable();
-        CAFClass caf = new CAFClass();
+      
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 if (!IsPostBack)
                 {
-                    BindBesicdata("15136", "3", "");
-                    BindISCrrentClaimPeriodDtls("31233");// ("INCTEXT2022080519163");
+                    string incentiveid = Request.QueryString["IncentiveID"].ToString();
+                    txtIncID.Text = incentiveid;
+                    BindBesicdata(incentiveid, "3", "");
+                    BindISCrrentClaimPeriodDtls(incentiveid);// ("INCTEXT2022080519163");
                     //BindISCrrentClaimPeriodDtls("48333");
                 }
             }
@@ -244,6 +247,11 @@ namespace TTAP.UI.Pages
                     GvInterestSubsidyPeriod.DataSource = null;
                     GvInterestSubsidyPeriod.DataBind();
                 }
+                if (dsnew != null && dsnew.Tables.Count > 1 && dsnew.Tables[1].Rows.Count > 0)
+                {
+                    txt_GMrecommendedamount.Text = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
+                }
+               
             }
             catch (Exception ex)
             {
@@ -7086,13 +7094,34 @@ namespace TTAP.UI.Pages
         {
             UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
             ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+
             ApprasialProperties objApprasialProperties = new ApprasialProperties();
             bool status = true;
             try
             {
-                TextBox txt_Eligibleamount = new TextBox();
-
+               // TextBox txt_Eligibleamount = new TextBox();
+                objApprasialProperties.FINALELIGIBLEAMOUNT = Convert.ToDecimal(txt_Eligibleamount.Text);
                 //AssignValuestoVosFromcontrols();
+                objApprasialProperties.INCENTIVEID = txtIncID.Text;
+                objApprasialProperties.NAMEOFINDUSTRIAL = lblUnitName.InnerText;
+                objApprasialProperties.LOCATIONOFINDUSTRIAL =lblAddress .InnerText;
+                objApprasialProperties.NAMEOFPROMOTER =lblUnitName .InnerText;
+                objApprasialProperties.ConstitutionOFINDUSTRIAL = lblOrganization.InnerText;
+                objApprasialProperties.SOCIALSTATUS = lblSocialStatus.InnerText;
+                objApprasialProperties.WOMENENTERPRENEUR = lblShareofSCSTWomenEnterprenue.InnerText;
+                objApprasialProperties.PMTSSIREGISTRATIONNO =lblRegistrationNumber .InnerText;
+                objApprasialProperties.PMTSSIREGISTRATIONDATE = lblReceiptDate.InnerText;
+                objApprasialProperties.NED_UNIT =lblCategoryofUnit .InnerText;
+                objApprasialProperties.DATEOFPRODUCTION =lblDCPdate .InnerText;
+                objApprasialProperties.DICFILLINGDATE =lblReceiptDate .InnerText;
+                objApprasialProperties.NAMEFINANCINGUNIT =lblUnitName .InnerText;
+                objApprasialProperties.CASTE = lblSocialStatus.InnerText;
+                objApprasialProperties.GENDER = lblSocialStatus.InnerText;
+                objApprasialProperties.CATEGORY =lblCategoryofUnit .InnerText;
+                objApprasialProperties.ENTERPRISE = lblTypeofApplicant.InnerText;
+                objApprasialProperties.SECTOR = lblTypeofSector .InnerText;
+                objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
+
                 objApprasialProperties.INTERESTAMOUNT_TOBEPAIDASPERCALCULATIONS = Convert.ToDecimal(txt_Insertamounttobepaidaspercalculations.Text);
                 objApprasialProperties.ACTUALINTERESTAMOUNT_PAID = Convert.ToDecimal(txt_Actualinterestamountpaid.Text);
                 objApprasialProperties.Conreburismentamount = Convert.ToDecimal(txt_ConsideredAmountofInterest.Text);
@@ -7126,12 +7155,12 @@ namespace TTAP.UI.Pages
                 objApprasialProperties.Scheme = "TTAP";
                 string returnval = "0";
                 //obj_pallavaddi.INSERT_INCENTIVES_DATA_COMMON_appraisal_PAVALLAVADDILoan(oIncentiveVosA);
-
+                returnval = ObjCAFClass.InterestSubsidyCommonDetails(objApprasialProperties);
                 //string returnval = InsertCommonData(oIncentiveVosA);
                 if (!string.IsNullOrEmpty(returnval) && returnval.Trim() != "")
                 {
                     //line of activity
-                    SaveIncentiveDetailsFromGridViewToTable(Session["incentiveid"].ToString());
+                    //SaveIncentiveDetailsFromGridViewToTable(txtIncID.Text);
                     InsertGridclaimloanNumber(returnval);
                     insertallgrideachclaimperioddb(returnval);
                     string Role_Code = Session["Role_Code"].ToString().Trim().TrimStart();
@@ -7145,7 +7174,7 @@ namespace TTAP.UI.Pages
                         DLODetails.RECOMMENDEAMOUNT = Convert.ToString(objApprasialProperties.FINALELIGIBLEAMOUNT);
                     }
 
-                    DLODetails.INCENTIVEID = ViewState["IncentiveId"].ToString();
+                    DLODetails.INCENTIVEID = txtIncID.Text; 
                     DLODetails.SUBINCENTIVEID = "";
                     DLODetails.ACTIONID = "1";
                     DLODetails.FORWARDTO = ddlDepartment.SelectedItem.Text;
@@ -7182,14 +7211,16 @@ namespace TTAP.UI.Pages
 
         public bool InsertGridclaimloanNumber(string SUBPallvaid)
         {
+            UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+            ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
             bool checkstatus = true;
             InterestSubsidyclaimloanproperties objgridclaimloanNumber = new InterestSubsidyclaimloanproperties();
 
-            objgridclaimloanNumber.Incentiveid = Convert.ToInt32(Session["incentiveid"]);
-            objgridclaimloanNumber.APCDPVID = Convert.ToInt32(SUBPallvaid);
-            objgridclaimloanNumber.Createdby = Convert.ToString(Session["uid"]);
+            objgridclaimloanNumber.Incentiveid = Convert.ToInt32(txtIncID.Text);
+            objgridclaimloanNumber.APCDPVID = 3;
+            objgridclaimloanNumber.Createdby = ObjLoginNewvo.uid; //Convert.ToString(Session["uid"]);
             objgridclaimloanNumber.CreatedIP = Request.ServerVariables["Remote_Addr"];
-            objgridclaimloanNumber.Modifiedby = Convert.ToString(Session["uid"]);
+            objgridclaimloanNumber.Modifiedby = ObjLoginNewvo.user_id;// Convert.ToString(Session["uid"]);
             objgridclaimloanNumber.ModifiedIP = Request.ServerVariables["Remote_Addr"];
 
             for (int i = 0; i < GvInterestSubsidyPeriod.Rows.Count; i++)
@@ -7205,7 +7236,7 @@ namespace TTAP.UI.Pages
                 objgridclaimloanNumber.LoanCount = Convert.ToInt32(txt_claimperiodofloanaddNumber.Text);
                 objgridclaimloanNumber.FinancialYear = Convert.ToString(hf_claimperiodofloanaddFinancialYear.Value);
 
-                caf.INSERT_PAVALLAVADDICLAIMLOANCOUNT(objgridclaimloanNumber);
+                ObjCAFClass.INSERT_PAVALLAVADDICLAIMLOANCOUNT(objgridclaimloanNumber);
 
 
 
@@ -7218,15 +7249,17 @@ namespace TTAP.UI.Pages
 
         public bool insertallgrideachclaimperioddb(string SUBPallvaid)
         {
+            UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+            ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
             bool checkstatus = true;
             InterestSubsidyclaimLoandetailsproperties objgriduploads = new InterestSubsidyclaimLoandetailsproperties();
 
 
-            objgriduploads.Incentiveid = Convert.ToInt32(Session["incentiveid"]);
-            objgriduploads.APCDPVID = Convert.ToInt32(SUBPallvaid);
-            objgriduploads.Createdby = Convert.ToString(Session["uid"]);
+            objgriduploads.Incentiveid =Convert.ToInt32(txtIncID.Text);
+            objgriduploads.APCDPVID = 3;
+            objgriduploads.Createdby = ObjLoginNewvo.uid; 
             objgriduploads.CreatedIP = Request.ServerVariables["Remote_Addr"];
-            objgriduploads.Modifiedby = Convert.ToString(Session["uid"]);
+            objgriduploads.Modifiedby = ObjLoginNewvo.uid; 
             objgriduploads.ModifiedIP = Request.ServerVariables["Remote_Addr"];
             objgriduploads.totince_interestamountpaidaspercal = Convert.ToDecimal(txt_Insertamounttobepaidaspercalculations.Text);
             objgriduploads.totince_actualinterestamountpaid = Convert.ToDecimal(txt_Actualinterestamountpaid.Text);
@@ -7505,7 +7538,7 @@ namespace TTAP.UI.Pages
                 objgriduploads.CPL_gmrecommendedamount = Convert.ToDecimal(txt_grdeglibilepallavaddiGMrecommendedamount.Text);
                 objgriduploads.CPL_FINALELIGIBLEAMOUNT = Convert.ToDecimal(txt_grdeglibilepallavaddiEligibleamount.Text);
 
-                string ClaimperiodeachUNID = caf.INSERT_PAVALLAVADDICLAIMPERIODLOANDETAILS(objgriduploads);
+                string ClaimperiodeachUNID = ObjCAFClass.INSERT_PAVALLAVADDICLAIMPERIODLOANDETAILS(objgriduploads);
                 if (!string.IsNullOrEmpty(ClaimperiodeachUNID) && ClaimperiodeachUNID != "")
                 {
                     InterestSubsidysubproperties objgrideachrowmonthwise = new InterestSubsidysubproperties();
@@ -7573,7 +7606,7 @@ namespace TTAP.UI.Pages
                             objgrideachrowmonthwise.eligibleinterestamount = Convert.ToDecimal(lbl_grd_monthoneEligibleInterestAmount.Text);
 
                             objgrideachrowmonthwise.MonthRateofinterest = Convert.ToDecimal(lbl_grd_monthoneRateofinterest.Text);
-                            caf.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
+                            ObjCAFClass.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
                         }
                         if (j == 1)
                         {
@@ -7587,7 +7620,7 @@ namespace TTAP.UI.Pages
                             objgrideachrowmonthwise.eligibleinterestamount = Convert.ToDecimal(lbl_grd_monthtwoEligibleInterestAmount.Text);
 
                             objgrideachrowmonthwise.MonthRateofinterest = Convert.ToDecimal(lbl_grd_monthtwoRateofinterest.Text);
-                            caf.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
+                            ObjCAFClass.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
                         }
                         if (j == 2)
                         {
@@ -7601,7 +7634,7 @@ namespace TTAP.UI.Pages
                             objgrideachrowmonthwise.eligibleinterestamount = Convert.ToDecimal(lbl_grd_monththreeEligibleInterestAmount.Text);
 
                             objgrideachrowmonthwise.MonthRateofinterest = Convert.ToDecimal(lbl_grd_monththreeRateofinterest.Text);
-                            caf.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
+                            ObjCAFClass.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
 
                         }
                         if (j == 3)
@@ -7616,7 +7649,7 @@ namespace TTAP.UI.Pages
                             objgrideachrowmonthwise.eligibleinterestamount = Convert.ToDecimal(lbl_grd_monthfourEligibleInterestAmount.Text);
 
                             objgrideachrowmonthwise.MonthRateofinterest = Convert.ToDecimal(lbl_grd_monthfourRateofinterest.Text);
-                            caf.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
+                            ObjCAFClass.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
                         }
                         if (j == 4)
                         {
@@ -7630,7 +7663,7 @@ namespace TTAP.UI.Pages
                             objgrideachrowmonthwise.eligibleinterestamount = Convert.ToDecimal(lbl_grd_monthfiveEligibleInterestAmount.Text);
 
                             objgrideachrowmonthwise.MonthRateofinterest = Convert.ToDecimal(lbl_grd_monthfiveRateofinterest.Text);
-                            caf.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
+                            ObjCAFClass.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
                         }
                         if (j == 5)
                         {
@@ -7644,7 +7677,7 @@ namespace TTAP.UI.Pages
                             objgrideachrowmonthwise.eligibleinterestamount = Convert.ToDecimal(lbl_grd_monthsixEligibleInterestAmount.Text);
 
                             objgrideachrowmonthwise.MonthRateofinterest = Convert.ToDecimal(lbl_grd_monthsixRateofinterest.Text);
-                            caf.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
+                            ObjCAFClass.DB_INSERTPVCALIMSDATALOAN(objgrideachrowmonthwise);
                         }
 
 

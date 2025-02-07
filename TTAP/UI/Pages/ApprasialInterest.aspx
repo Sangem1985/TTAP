@@ -23,6 +23,20 @@
                                     <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Inspection Report</h5>
                                 </div>
                                 <div class="widget-content nopadding">
+                                    <table>
+                                         <tr>
+                                            <td>
+                                                
+                                                <asp:TextBox ID="txtIncID" runat="server" TextMode="Number"></asp:TextBox>
+                                            </td>
+                                              <td>
+                                                <asp:Label ID="lbl_schemetide" class="form-control txtbox" runat="server"></asp:Label>
+                                            </td>
+                                            <td>
+                                                <asp:Button runat="server" Text="Search" CssClass="btn-blue" ID="btnsub" OnClick="btnsub_Click" />
+                                            </td>
+                                        </tr>
+                                    </table>
                                     <div class="row">
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label12" runat="server">Unit Name</label>
@@ -283,15 +297,7 @@
                                     </div>
 
                                     <table align="center" cellpadding="10" cellspacing="5" style="width: 90%">
-                                        <tr>
-                                            <td>
-                                                <asp:Label ID="lbl_schemetide" class="form-control txtbox" runat="server"></asp:Label>
-                                                <asp:TextBox ID="txtIncID" runat="server" TextMode="Number"></asp:TextBox>
-                                            </td>
-                                            <td>
-                                                <asp:Button runat="server" Text="Search" CssClass="btn-blue" ID="btnsub" OnClick="btnsub_Click" />
-                                            </td>
-                                        </tr>
+                                       
                                         <tr>
                                             <td style="width: 200px;">Type of Claim<font
                                                 color="red">*</font>
