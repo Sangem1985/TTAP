@@ -528,6 +528,7 @@
     <Content Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceNewUnit.aspx" />
+    <Content Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx" />
     <Content Include="UI\Pages\COI\AdApplications.aspx" />
     <Content Include="UI\Pages\COI\AdDashboard.aspx" />
     <Content Include="UI\Pages\COI\ClerkApplications.aspx" />
@@ -788,6 +789,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classfiles\AllPropertiesClass.cs" />
+    <Compile Include="Classfiles\AppraisalClass.cs" />
     <Compile Include="Classfiles\BussinessLogic.cs" />
     <Compile Include="Classfiles\CAF2Class.cs" />
     <Compile Include="Classfiles\CAFClass.cs" />
@@ -1103,6 +1105,13 @@
     </Compile>
     <Compile Include="UI\Pages\CapitalAssistanceNewUnit.aspx.designer.cs">
       <DependentUpon>CapitalAssistanceNewUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx.cs">
+      <DependentUpon>CaptialSubsidyAppraisalNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx.designer.cs">
+      <DependentUpon>CaptialSubsidyAppraisalNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\COI\AdApplications.aspx.cs">
       <DependentUpon>AdApplications.aspx</DependentUpon>

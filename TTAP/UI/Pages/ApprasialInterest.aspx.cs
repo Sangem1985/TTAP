@@ -14,7 +14,7 @@ using System.Xml.Linq;
 namespace TTAP.UI.Pages
 {
     public partial class ApprasialInterest : System.Web.UI.Page
-    {
+    { 
         ClsFileUpload objClsFileUpload = new ClsFileUpload();
         BusinessLogic.DML objDml = new BusinessLogic.DML();
         CAFClass ObjCAFClass = new CAFClass();

@@ -25,6 +25,7 @@ namespace TTAP
         {
             try
             {
+                //Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx");
                 if (!IsPostBack)
                 {
                     string encpassword1 = Objret.Decrypt("6QfQ4MssPzLsabg+d54SsufL+/5DUq+paSIh0pt/iTU=", "SYSTIME");

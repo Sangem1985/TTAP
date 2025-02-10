@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using DataAccessLayer;
+
+namespace TTAP.Classfiles
+{
+    public class AppraisalClass
+    {
+        CAFClass ObjCAFClass = new CAFClass();
+        string str = ConfigurationManager.ConnectionStrings["TTAPDB"].ConnectionString;
+        private SqlConnection ConNew = new SqlConnection(ConfigurationManager.ConnectionStrings["TTAPDB"].ConnectionString);
+        public DataSet GetapplicationDtls(string USERID, string INCENTIVEID)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@CREATEDBY",SqlDbType.VarChar),
+               new SqlParameter("@INCENTIVEID",SqlDbType.VarChar)
+           };
+            pp[0].Value = USERID;
+            pp[1].Value = INCENTIVEID;
+            Dsnew = ObjCAFClass.GenericFillDs("USP_GET_INCENTIVES_CAF_DATA", pp);
+            return Dsnew;
+        }
+    }
+}

@@ -261,7 +261,7 @@ namespace TTAP.UI.Pages
                     Div3.Visible = false;
                     USP_GETDETAILSFORSECTION(Convert.ToString(Request.QueryString["incid"]));
                     //string incid = Request.QueryString["incid"].ToString();
-                    lblSancIncentiveName.Text = "Sanction of Pavala Vaddi";
+                    lblSancIncentiveName.Text = "Reimbursement of Interest Subsidy";
                 }
             }
 

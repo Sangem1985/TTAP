@@ -3184,7 +3184,11 @@ namespace TTAP.UI
                     {
                         if (ddlstatus.SelectedValue == "1")
                         {
-                            Response.Redirect("~/UI/Pages/ApprasialInterest.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            if (ddlClerkIncentive.SelectedValue == "3")
+                            {
+                                Response.Redirect("~/UI/Pages/ApprasialInterest.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            }
+
                         }
                         else
                         {
@@ -3287,14 +3291,17 @@ namespace TTAP.UI
                 slno = slno + 1;
             }
 
-            //if (ddlstatus.SelectedValue == "1")
-            //{
-            //    if (txtAmount.Text == "")
-            //    {
-            //        ErrorMsg = ErrorMsg + slno + ". Please Fill the Details Recommended Amount \\n";
-            //        slno = slno + 1;
-            //    }
-            //}
+            if (ddlstatus.SelectedValue == "1")
+            {
+                if (ddlClerkIncentive.SelectedValue != "3")
+                {
+                    if (txtAmount.Text == "")
+                    {
+                        ErrorMsg = ErrorMsg + slno + ". Please Fill the Details Recommended Amount \\n";
+                        slno = slno + 1;
+                    }
+                }
+            }
             if (ddlstatus.SelectedValue == "2")
             {
                 if (txtQuery.Text == "")
@@ -4222,9 +4229,16 @@ namespace TTAP.UI
                         {
                             Label enterid = (Label)GVRemark.Rows[i].FindControl("lblIncentiveID");
                             Label lblMstIncentiveId = (Label)GVRemark.Rows[i].FindControl("lblSubIncentiveId");
-                            (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
-    "~/UI/Pages/InterestSubsidyAppraisalNote.aspx?incid=" + enterid.Text.Trim() +
-    "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            if (lblMstIncentiveId.Text == "3")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/InterestSubsidyAppraisalNote.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            else
+                            {
+
+                            }
 
                         }
 

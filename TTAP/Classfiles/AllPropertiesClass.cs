@@ -2885,6 +2885,12 @@ namespace TTAP.Classfiles
         public string MORATORIUMMONTH { get; set; }
         public string UPLOAD { get; set; }
         public string SUBINCENTIVEID { get; set; }
+         public string TextBox59 { get; set; }
+        public string txt423guideline { get; set; }
+        public string txtTSSFCnorms423 { get; set; }
+        public string txtvalue424 { get; set; }
+        public string lmv { get; set; }
+        public string womenmen { get; set; } 
     }
     public class InterestSubsidyclaimloanproperties
     {
