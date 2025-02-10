@@ -2642,8 +2642,8 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
-        public string GetCapitalSubsidySelected(string IncentiveID, string SubIncentiveId, string BuildingCalculatedIds, string PMIds, string Category, string TypeOfTextile, string Flag, ApplicationStatus objApplicationStatus, out string CalSystemSubsidy, out string CalSystemAdditionalCapitalSubsidy,out string LandValue,
-            out string BuildingValue,out string PMValue,out string OthersValue)
+        public string GetCapitalSubsidySelected(string IncentiveID, string SubIncentiveId, string BuildingCalculatedIds, string PMIds, string Category, string TypeOfTextile, string Flag, ApplicationStatus objApplicationStatus, out string CalSystemSubsidy, out string CalSystemAdditionalCapitalSubsidy, out string LandValue,
+            out string BuildingValue, out string PMValue, out string OthersValue)
         {
             string valid = "";
             SqlConnection connection = new SqlConnection(str);
@@ -2655,9 +2655,9 @@ namespace TTAP.Classfiles
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
                 com.CommandText = "USP_CALCULATE_RECOMMENDED_AMOUNT";
-               /* if (Flag == "Y") {
-                    com.CommandText = "USP_CALCULATE_RECOMMENDED_AMOUNT_MODIFY";
-                }*/
+                /* if (Flag == "Y") {
+                     com.CommandText = "USP_CALCULATE_RECOMMENDED_AMOUNT_MODIFY";
+                 }*/
 
                 com.Transaction = transaction;
                 com.Connection = connection;
@@ -2697,7 +2697,7 @@ namespace TTAP.Classfiles
                 valid = com.Parameters["@RECOMMENDED_AMOUNT"].Value.ToString();
                 CalSystemSubsidy = com.Parameters["@CalSystemSubsidy"].Value.ToString();
                 CalSystemAdditionalCapitalSubsidy = com.Parameters["@CalSystemAdditionalCapitalSubsidy"].Value.ToString();
-                LandValue= com.Parameters["@TotalLandValueOut"].Value.ToString();
+                LandValue = com.Parameters["@TotalLandValueOut"].Value.ToString();
                 BuildingValue = com.Parameters["@TotalBuildingValueOut"].Value.ToString();
                 PMValue = com.Parameters["@TotalPlantMachinaryValueOut"].Value.ToString();
                 OthersValue = com.Parameters["@TotalOtherCostOut"].Value.ToString();
@@ -2773,7 +2773,7 @@ namespace TTAP.Classfiles
             return valid;
         }
 
-        public string InsertISCurrentCliamDetails(EnergyConsumedBO objEnergyConsumedBO,out string DbErrorMsg)
+        public string InsertISCurrentCliamDetails(EnergyConsumedBO objEnergyConsumedBO, out string DbErrorMsg)
         {
             string valid = "";
             SqlConnection connection = new SqlConnection(str);
@@ -3149,7 +3149,7 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
-        public int UpdateManualPayment(string TTAPBillerID,decimal ApplicationFee, decimal Tax_Amount,string PGRefNo)
+        public int UpdateManualPayment(string TTAPBillerID, decimal ApplicationFee, decimal Tax_Amount, string PGRefNo)
         {
             int valid = 0;
             SqlConnection connection = new SqlConnection(str);
@@ -3632,7 +3632,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@TransType", objApplicationStatus.TransType);
                 com.Parameters.AddWithValue("@CreatedBy", objApplicationStatus.CreatedBy);
                 if (objApplicationStatus.PartialSanction == "P" || objApplicationStatus.PartialSanction == "CP")
-                {   
+                {
                     com.Parameters.AddWithValue("@JDRecommendedAmount", objApplicationStatus.JDRecommendedAmount);
                     com.Parameters.AddWithValue("@PartialRemarks", objApplicationStatus.PartialRemarks);
                     com.Parameters.AddWithValue("@PartialSanction", objApplicationStatus.PartialSanction);
@@ -3672,7 +3672,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLC_ABSTRACT", pp);
             return Dsnew;
         }
-        public DataSet GetSLCYetGenerateAgenda(string DistID, string Stage,string PartialSanction)
+        public DataSet GetSLCYetGenerateAgenda(string DistID, string Stage, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -3700,7 +3700,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLSVC_ABSTRACT", pp);
             return Dsnew;
         }
-        public DataSet GetSVCYetGenerateAgenda(string DistID, string Stage,string PartialSanction)
+        public DataSet GetSVCYetGenerateAgenda(string DistID, string Stage, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -3733,7 +3733,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLC_AGENDA_LIST", pp);
             return Dsnew;
         }
-        public DataSet GetSLCYetGenerateAgendaList(string Cast, string IncetiveID, string distid, string Stage,string PartialSanction)
+        public DataSet GetSLCYetGenerateAgendaList(string Cast, string IncetiveID, string distid, string Stage, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -3948,7 +3948,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_PROPOSED_DLC_DATES", pp);
             return Dsnew;
         }
-        public DataSet GetSLCGenerateDAgendaProposedDates(string DistID, string Stage, string transType,string PartialSanction)
+        public DataSet GetSLCGenerateDAgendaProposedDates(string DistID, string Stage, string transType, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -3980,7 +3980,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_PROPOSED_DLSVC_DATES", pp);
             return Dsnew;
         }
-        public DataSet GetSVCGenerateDAgendaProposedDates(string DistID, string Stage, string transType,string PartialSanction)
+        public DataSet GetSVCGenerateDAgendaProposedDates(string DistID, string Stage, string transType, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -4014,7 +4014,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLC_GENERATED_AGENDA_ABSTRACT", pp);
             return Dsnew;
         }
-        public DataSet GetSLCGeneratedAgenda(string DistID, string Stage, string Date, string TransType,string PartialSanction)
+        public DataSet GetSLCGeneratedAgenda(string DistID, string Stage, string Date, string TransType, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
             SqlParameter[] pp = new SqlParameter[] {
@@ -4049,7 +4049,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLSVC_GENERATED_AGENDA_ABSTRACT", pp);
             return Dsnew;
         }
-        public DataSet GetSVCGeneratedAgenda(string DistID, string Stage, string Date, string TransType,string PartialSanction)
+        public DataSet GetSVCGeneratedAgenda(string DistID, string Stage, string Date, string TransType, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -4089,7 +4089,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLC_GENERATED_AGENDA_LIST", pp);
             return Dsnew;
         }
-        public DataSet GetSLCGeneratedAgendaList(string Cast, string IncetiveID, string distid, string Stage, string Date, string TransType,string PartialSanction)
+        public DataSet GetSLCGeneratedAgendaList(string Cast, string IncetiveID, string distid, string Stage, string Date, string TransType, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -4148,7 +4148,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLSVC_GENERATED_AGENDA_LIST", pp);
             return Dsnew;
         }
-        public DataSet GetSVCGeneratedAgendaList(string Cast, string IncetiveID, string distid, string Stage, string Date, string TransType,string PartialSanction)
+        public DataSet GetSVCGeneratedAgendaList(string Cast, string IncetiveID, string distid, string Stage, string Date, string TransType, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();
 
@@ -4510,7 +4510,7 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
-        public DataSet GetReleaseList(string Stage, string ApplicationMode, string Category, string SubIncentiveID, string GOID,string IncentiveID)
+        public DataSet GetReleaseList(string Stage, string ApplicationMode, string Category, string SubIncentiveID, string GOID, string IncentiveID)
         {
             DataSet Dsnew = new DataSet();
 
@@ -4578,7 +4578,7 @@ namespace TTAP.Classfiles
 
             pp[0].Value = IncentiveId;
             pp[1].Value = SubIncentiveId;
-           
+
             Dsnew = GenericFillDs("USP_GET_INCENTIVES_PARTAIL_RELEASE_DTLS", pp);
             return Dsnew;
         }
@@ -4706,7 +4706,7 @@ namespace TTAP.Classfiles
             return Dsnew;
         }
 
-        public string Check_RegularIncentive(string IncentiveId,string SubIncentiveID, string CreatedBy)
+        public string Check_RegularIncentive(string IncentiveId, string SubIncentiveID, string CreatedBy)
         {
             string valid = "";
             SqlConnection connection = new SqlConnection(str);
@@ -4788,7 +4788,7 @@ namespace TTAP.Classfiles
             return valid;
         }
 
-        public string Check_LandAndBuildingDetailsEntry(string IncentiveId,string IndsType, string CreatedBy)
+        public string Check_LandAndBuildingDetailsEntry(string IncentiveId, string IndsType, string CreatedBy)
         {
             string valid = "";
             SqlConnection connection = new SqlConnection(str);
@@ -4872,7 +4872,7 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
-        public string InsertQueryletterGenerationDetails(QueryGenerationVo ObjQueryGenerationVo,out string MainQueryID)
+        public string InsertQueryletterGenerationDetails(QueryGenerationVo ObjQueryGenerationVo, out string MainQueryID)
         {
             string valid = "";
             MainQueryID = "0";
@@ -5304,7 +5304,7 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
-        public string Check_RevisedInspectionReport(string IncentiveId,string Sub_IncentiveId)
+        public string Check_RevisedInspectionReport(string IncentiveId, string Sub_IncentiveId)
         {
             string valid = "";
             SqlConnection connection = new SqlConnection(str);
@@ -5502,7 +5502,7 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
-        public string UpdateSanctionStatus(string IncentiveId, string SubIncentiveId,string Status,string TISId,string Remarks,string IsPartial,string IsFileUpload,string FilePath)
+        public string UpdateSanctionStatus(string IncentiveId, string SubIncentiveId, string Status, string TISId, string Remarks, string IsPartial, string IsFileUpload, string FilePath)
         {
             string valid = "";
             SqlConnection connection = new SqlConnection(str);
@@ -6134,7 +6134,7 @@ namespace TTAP.Classfiles
             SqlTransaction transaction = null;
             connection.Open();
             transaction = connection.BeginTransaction();
-            SqlCommand com = new SqlCommand("PV_insertInterestSubsidyClaimloanFyDetails", connection); 
+            SqlCommand com = new SqlCommand("PV_insertInterestSubsidyClaimloanFyDetails", connection);
             com.CommandType = CommandType.StoredProcedure;
             com.Transaction = transaction;
             try
@@ -7518,7 +7518,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@INC_SOCIALSTATUS", DLODetails.SOCIALSTATUS);
                 com.Parameters.AddWithValue("@INC_WOMENENTERPRENEUR", DLODetails.WOMENENTERPRENEUR);
                 com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONNO", DLODetails.PMTSSIREGISTRATIONNO);
-               // com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONDATE", DLODetails.PMTSSIREGISTRATIONDATE);
+                // com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONDATE", DLODetails.PMTSSIREGISTRATIONDATE);
                 com.Parameters.AddWithValue("@INC_NED_UNIT", DLODetails.NED_UNIT);
                 //com.Parameters.AddWithValue("@INC_DATEOFPRODUCTION", DLODetails.DATEOFPRODUCTION);
                 //com.Parameters.AddWithValue("@INC_DICFILLINGDATE", DLODetails.DICFILLINGDATE);
@@ -7529,7 +7529,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@INC_ENTERPRISE", DLODetails.ENTERPRISE);
                 com.Parameters.AddWithValue("@INC_SECTOR", DLODetails.SECTOR);
                 com.Parameters.AddWithValue("@INC_CREATEDBY", DLODetails.CREATEDBY);
-                com.Parameters.AddWithValue("@INC_CREATEDBYIP", DLODetails.CREATEDBY); 
+                com.Parameters.AddWithValue("@INC_CREATEDBYIP", DLODetails.CREATEDBY);
                 com.Parameters.AddWithValue("@Remarks", DLODetails.Remarks);
                 com.Parameters.AddWithValue("@ELIGIBLESANCTIONEDAMOUNT", DLODetails.ELIGIBLESANCTIONEDAMOUNT);
                 com.Parameters.AddWithValue("@CLAIMPERIODID", DLODetails.CLAIMPERIODID);
@@ -7554,7 +7554,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@FINALELIGIBLEAMOUNT", DLODetails.FINALELIGIBLEAMOUNT);
                 com.Parameters.AddWithValue("@modified_by", DLODetails.modified_by);
                 com.Parameters.AddWithValue("@EglibleTypeID", DLODetails.EglibleTypeID);
-                com.Parameters.AddWithValue("@EglibleTypeName", DLODetails.EglibleTypeName); 
+                com.Parameters.AddWithValue("@EglibleTypeName", DLODetails.EglibleTypeName);
 
 
                 com.Parameters.AddWithValue("@INTERESTREIMBURSEMENTCALCULATEDaftereglibletype", DLODetails.INTERESTREIMBURSEMENTCALCULATEDaftereglibletype);
@@ -7573,6 +7573,62 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@sector_IR", DLODetails.sector_IR);
                 com.Parameters.AddWithValue("@serviceType_IR", DLODetails.servicetype_IR);
                 com.Parameters.AddWithValue("@transportNonTrans_IR", DLODetails.transNonTrans_IR);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InterestSubsidyMoratoriumDetails(ApprasialProperties DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INS_INTERESTSUBSIDYMORATORIUM";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("IRID", DLODetails.IDENTITYCOCUMN);
+                com.Parameters.AddWithValue("DCPDATE", DLODetails.DATEOFPRODUCTION);
+                com.Parameters.AddWithValue("LOANAMOUNT", DLODetails.LOANAMOUNT);
+                com.Parameters.AddWithValue("RATEOFINT", DLODetails.RATEOFINTEREST);
+                com.Parameters.AddWithValue("INTERESTDUEANNUM", DLODetails.INTERESTDUEANNUM);
+                com.Parameters.AddWithValue("INTERESTDUEMONTH", DLODetails.INTERESTDUEMONTH);
+                com.Parameters.AddWithValue("MONTHLYINT75", DLODetails.MONTHLYINT75);
+                com.Parameters.AddWithValue("MONTHLYINT8", DLODetails.MONTHLYINT8);
+                com.Parameters.AddWithValue("ACTUALINTEREDLOWER", DLODetails.ACTUALINTEREDLOWER);
+                com.Parameters.AddWithValue("MORATORIUMMONTH", DLODetails.MORATORIUMMONTH);
+                com.Parameters.AddWithValue("ELIGIBLEINTEREST", DLODetails.ELIGIBLERATEOFREUMBERSEMENT);
+                com.Parameters.AddWithValue("GMRECOMMENDED", DLODetails.GMRECOMMENDEDAMOUNT);
+                com.Parameters.AddWithValue("FINALELIGIBLEAMOUNT", DLODetails.FINALELIGIBLEAMOUNT);
+                com.Parameters.AddWithValue("Remarks", DLODetails.Remarks);
+                com.Parameters.AddWithValue("UPLOAD", DLODetails.UPLOAD);
+                com.Parameters.AddWithValue("CREATEDBY", DLODetails.CREATEDBY);
+                com.Parameters.AddWithValue("MODIFIEDBY", DLODetails.modified_by);
+                com.Parameters.AddWithValue("INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("SUBINCENTIVEID", DLODetails.SUBINCENTIVEID);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

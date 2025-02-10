@@ -24,12 +24,12 @@
                                 </div>
                                 <div class="widget-content nopadding">
                                     <table>
-                                         <tr>
+                                        <tr>
                                             <td>
-                                                
+
                                                 <asp:TextBox ID="txtIncID" runat="server" TextMode="Number"></asp:TextBox>
                                             </td>
-                                              <td>
+                                            <td>
                                                 <asp:Label ID="lbl_schemetide" class="form-control txtbox" runat="server"></asp:Label>
                                             </td>
                                             <td>
@@ -119,7 +119,7 @@
                                             <label class="control-label" id="Label9" runat="server">Promoter details in case eligible for additional subsidy</label>
                                             <label class="form-control" id="lblcategory" runat="server"></label>
                                         </div>
-                                         <div class="col-sm-4 form-group">
+                                        <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label4" runat="server">GM-Recommended Amount</label>
                                             <label class="form-control" id="lblRecommended" runat="server"></label>
                                         </div>
@@ -297,7 +297,7 @@
                                     </div>
 
                                     <table align="center" cellpadding="10" cellspacing="5" style="width: 90%">
-                                       
+
                                         <tr>
                                             <td style="width: 200px;">Type of Claim<font
                                                 color="red">*</font>
@@ -312,6 +312,73 @@
                                                 ErrorMessage="Please Enter Date of Commencement of Commercial production" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>--%>
                                             </td>
                                             <td style="padding: 5px; margin: 5px"></td>
+                                        </tr>
+                                    </table>
+                                    <table align="center" id="Moratoriumtr" runat="server" visible="false" cellpadding="10" cellspacing="5" style="width: 90%">
+                                        <tr>
+                                            <td>
+                                                <div class="row">
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label8" runat="server">1) Date of Disbursement to DCP Date</label>
+                                                        <asp:TextBox class="form-control" ID="txtDisbtoDCPdate" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label10" runat="server">2) Loan Amount Disbursed</label>
+                                                        <asp:TextBox class="form-control" ID="txtLoanAmount" onkeypress="DecimalOnly()" AutoPostBack="true" runat="server" OnTextChanged="txtLoanAmount_TextChanged"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label11" runat="server">3) Rate of Interest</label>
+                                                        <asp:TextBox class="form-control" ID="txtROI" runat="server" onkeypress="DecimalOnly()" AutoPostBack="true" OnTextChanged="txtROI_TextChanged"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label13" runat="server">4) Interest Due per Annum</label>
+                                                        <asp:TextBox class="form-control" ID="txtInterestDue" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label14" runat="server">5) Interest Due per Month</label>
+                                                        <asp:TextBox class="form-control" ID="txtInterestDuePM" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label15" runat="server">6) 75% of Monthly Interest</label>
+                                                        <asp:TextBox class="form-control" ID="txt75Interest" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label16" runat="server">7) 8% of Monthly Interest of Loan AMount</label>
+                                                        <asp:TextBox class="form-control" ID="txt8InterestforLoan" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label17" runat="server">8) Lower amount among 6 and 7</label>
+                                                        <asp:TextBox class="form-control" ID="txtlowerInterest" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label20" runat="server">9) Moratorium period in months</label>
+                                                        <asp:TextBox class="form-control" ID="txtMortPeriod" runat="server" onkeypress="NumberOnly()" AutoPostBack="true" OnTextChanged="txtMortPeriod_TextChanged"></asp:TextBox>
+                                                    </div>
+
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label21" runat="server">10) Total Eligible Reimbursement of Interest</label>
+                                                        <asp:TextBox class="form-control" ID="txtTotElgbleInterest" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label22" runat="server">11) Recommendation by GM/DLO</label>
+                                                        <asp:TextBox class="form-control" ID="txtGMRecAmount" runat="server"></asp:TextBox>
+                                                    </div>
+
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label23" runat="server">12) Final Eligible Subsidy</label>
+                                                        <asp:TextBox class="form-control" ID="txtFnlElgbleSbsdy" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label24" runat="server">13) Remarks</label>
+                                                        <asp:TextBox class="form-control" ID="txtRemarks" runat="server"></asp:TextBox>
+                                                    </div>
+                                                    <div class="col-sm-4 form-group">
+                                                        <label class="control-label" id="Label25" runat="server">14) Upload Document</label><br />
+                                                        <asp:FileUpload class="form-control" ID="fupDoc" runat="server"></asp:FileUpload>
+                                                    </div>
+
+                                                </div>
+                                            </td>
                                         </tr>
                                     </table>
 
@@ -1084,19 +1151,19 @@
                                                         <td style="padding: 5px; margin: 5px;">&nbsp;
                                                         </td>
                                                     </tr>
-                                                      <tr>
+                                                    <tr>
                                                         <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
-                                                        <td style="padding: 5px; margin: 5px;"> Forward To</td>
+                                                        <td style="padding: 5px; margin: 5px;">Forward To</td>
                                                         <td style="padding: 5px; margin: 5px;">:
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style28">
                                                             <asp:DropDownList ID="ddlDepartment" runat="server" class="form-control txtbox">
-                                                            <asp:ListItem Text="--Select--" Value="Select"></asp:ListItem>
-                                                            <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
-                                                            <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
-                                                            <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
-                                                            <asp:ListItem Text="JD" Value="JD"></asp:ListItem>
-                                                        </asp:DropDownList>
+                                                                <asp:ListItem Text="--Select--" Value="Select"></asp:ListItem>
+                                                                <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
+                                                                <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
+                                                                <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
+                                                                <asp:ListItem Text="JD" Value="JD"></asp:ListItem>
+                                                            </asp:DropDownList>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txt_Eligibleamount"
                                                                 ErrorMessage="Please Enter Eligible amount" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
                                                         </td>

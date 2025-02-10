@@ -2463,14 +2463,18 @@
                                                         <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
                                                         <asp:BoundField DataField="REMARKS" HeaderText="Clerk Query Response" />
                                                         <asp:BoundField DataField="CLERK_ProcessDate" HeaderText="Process Date" />
+                                                        <asp:TemplateField HeaderText="Appraisal Note">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="anchortagGMCertificate" runat="server" Text="Recommendation Letter" Font-Bold="true" ForeColor="Green" Target="_blank" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-
-                                                        <%--                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
                                                                 <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>--%>
+                                                        </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
                                             </div>

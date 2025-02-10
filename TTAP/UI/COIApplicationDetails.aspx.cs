@@ -4212,11 +4212,21 @@ namespace TTAP.UI
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[1].Rows.Count > 0)
                     {
+
+
                         GVRemark.DataSource = dss.Tables[1];
                         GVRemark.DataBind();
                         ClerkProcess.Visible = true;
                         Rmarkes1.Visible = true;
-                        // divClerklevel.Visible = false;
+                        for (int i = 0; i < dss.Tables[1].Rows.Count; i++)
+                        {
+                            Label enterid = (Label)GVRemark.Rows[i].FindControl("lblIncentiveID");
+                            Label lblMstIncentiveId = (Label)GVRemark.Rows[i].FindControl("lblSubIncentiveId");
+                            (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+    "~/UI/Pages/InterestSubsidyAppraisalNote.aspx?incid=" + enterid.Text.Trim() +
+    "&mstid=" + lblMstIncentiveId.Text.Trim();
+
+                        }
 
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[2].Rows.Count > 0)

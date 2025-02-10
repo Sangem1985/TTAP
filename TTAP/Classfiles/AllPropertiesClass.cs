@@ -2123,7 +2123,7 @@ namespace TTAP.Classfiles
         public decimal OpeningBalanceStartofHalfYear { get; set; }
         public decimal ClosingBalanceEndofHalfYear { get; set; }
         public int TermLoanNoId { get; set; }
-        
+
     }
     public class TotalTermLoanRepaid
     {
@@ -2239,7 +2239,7 @@ namespace TTAP.Classfiles
         public string SubIncentiveId { get; set; }
         public string Verifieddt { get; set; }
     }
-    
+
 
     public class AttachmentsQueries
     {
@@ -2252,7 +2252,7 @@ namespace TTAP.Classfiles
         public string Remarks { get; set; }
         public string ActionTaken { get; set; }
         public string CAFFlag { get; set; }
-        
+
     }
     public class AttachmentsQueriesParent
     {
@@ -2291,7 +2291,7 @@ namespace TTAP.Classfiles
 
         public string Actual_CapitalSubsidyAmount { get; set; }
         public string Actual_AdditionalCapitalSubsidyAmount { get; set; }
-                      
+
         public string Actual_SystemCapitalSubsidyAmount { get; set; }
         public string Actual_SystemAdditionalCapitalSubsidyAmount { get; set; }
         public string Actual_RecommendedAmount { get; set; }
@@ -2875,6 +2875,16 @@ namespace TTAP.Classfiles
         public string SECTOR { get; set; }
         public string CREATEDBY { get; set; }
         public string CREATEDBYIP { get; set; }
+
+        public string LOANAMOUNT { get; set; }
+        public string INTERESTDUEANNUM { get; set; }
+        public string INTERESTDUEMONTH { get; set; }
+        public string MONTHLYINT75 { get; set; }
+        public string MONTHLYINT8 { get; set; }
+        public string ACTUALINTEREDLOWER { get; set; }
+        public string MORATORIUMMONTH { get; set; }
+        public string UPLOAD { get; set; }
+        public string SUBINCENTIVEID { get; set; }
     }
     public class InterestSubsidyclaimloanproperties
     {
@@ -2893,7 +2903,7 @@ namespace TTAP.Classfiles
         public DateTime ModifiedOn { get; set; }
 
         public string FinancialYear { get; set; }
-    }   
+    }
     public class InterestSubsidysubproperties
     {
         public int? PVID { get; set; }
@@ -3074,5 +3084,5 @@ namespace TTAP.Classfiles
         public bool Moratoriumrowsix { get; set; }
     }
 
-    
+
 }

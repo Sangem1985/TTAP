@@ -97,7 +97,7 @@
             <div>
                 <div>
                     <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
-                        <tr id="tideaTr" runat="server">
+                        <tr id="tideaTr" runat="server" visible="false">
                             <td style="text-align: left; font-weight: bold;">
                                 <asp:Label ID="lblTideaTpride" runat="server" Visible="false" Text="Label"></asp:Label>
                                 Telangana State Industrial Development and Entrepreneur Advancement - G.O M.S. NO
@@ -106,7 +106,7 @@
                                 Dated : 29/11/2014
                             </td>
                         </tr>
-                        <tr id="tprideTr" runat="server">
+                        <tr id="tprideTr" runat="server" visible="false">
                             <td style="text-align: center; font-weight: bold;">
                                 T-PRIDE -
                                 <asp:Label ID="LBLCASTE" runat="server" Visible="false" Text="Label"></asp:Label>

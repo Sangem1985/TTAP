@@ -2867,7 +2867,8 @@ namespace TTAP.Classfiles
             DataSet ds = new DataSet();
             try
             {
-                da = new SqlDataAdapter("USP_GET_UNIT_DTLS_RECOMMENDATION_LETTERS_PSRNEW", con.GetConnection);
+                //USP_GET_UNIT_DTLS_RECOMMENDATION_LETTERS_PSRNEW
+                da = new SqlDataAdapter("USP_GET_UNIT_DTLS_RECOMMENDATION_LETTERS", con.GetConnection);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
                 if (incentiveID.ToString() != "" || incentiveID.ToString() != null)
