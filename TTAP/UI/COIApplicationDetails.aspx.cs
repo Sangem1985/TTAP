@@ -3188,6 +3188,10 @@ namespace TTAP.UI
                             {
                                 Response.Redirect("~/UI/Pages/ApprasialInterest.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
+                            else if (ddlClerkIncentive.SelectedValue == "1")
+                            {
+                                Response.Redirect("~/UI/Pages/CaptialSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            }
 
                         }
                         else

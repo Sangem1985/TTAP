@@ -6092,6 +6092,11 @@ namespace TTAP.UI.Pages
                                                                     interestamount = (pramountpaidfordays * rateofinterestofdt) / 1200;
                                                                 }
                                                             }
+                                                            else
+                                                            {
+                                                                interestamount = (Totalamount * rateofinterestofdt) / 1200;
+                                                                Principalamountdue = Actualcaltermprincipaldueamount;//added by madhuri
+                                                            }
                                                         }
 
 
