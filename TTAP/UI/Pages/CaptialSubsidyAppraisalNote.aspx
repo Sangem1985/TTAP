@@ -2,6 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="upd1" runat="server">
+         <Triggers>
+            <asp:PostBackTrigger ControlID="btnUpload" />
+        </Triggers>
         <ContentTemplate>
             <div id="content">
                 <div id="content-header">
@@ -668,7 +671,7 @@
                                                     <td class="auto-style48">
 
                                                         <asp:TextBox ID="TextBox59" AutoPostBack="true" runat="server" class="form-control txtbox txtcomn"
-                                                            Height="30px" MaxLength="80" TabIndex="34" onkeypress="DecimalOnly()" Width="150px" OnTextChanged="TextBox59_TextChanged"></asp:TextBox>
+                                                            Height="30px" MaxLength="80" TabIndex="34" Enabled="false" onkeypress="DecimalOnly()" Width="150px" OnTextChanged="TextBox59_TextChanged"></asp:TextBox>
 
                                                     </td>
                                                 </tr>
@@ -758,7 +761,7 @@
                                                             <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
                                                             <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
                                                             <asp:ListItem Text="JD" Value="JD"></asp:ListItem>
-                                                        </asp:DropDownList>                                                      
+                                                        </asp:DropDownList>
                                                     </td>
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
@@ -775,13 +778,13 @@
                                                     <td class="style21" style="padding: 5px; margin: 5px">:
                                                     </td>
                                                     <td class="style6" style="padding: 5px; margin: 5px; text-align: left;">
-                                                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="CS" Height="28px" />
-                                                        <asp:HyperLink ID="lblFileName" runat="server" CssClass="LBLBLACK" Width="165px"
+                                                        <asp:FileUpload ID="fuWorksheet" runat="server" CssClass="CS" Height="28px" />
+                                                        <asp:HyperLink ID="hypWorksheet" runat="server" CssClass="LBLBLACK" Width="165px"
                                                             Visible="false" Target="_blank"></asp:HyperLink>
                                                         <br />
                                                         <asp:Label ID="Label444" runat="server" Visible="False"></asp:Label>
-                                                        <asp:Button ID="BtnSave3" runat="server" CssClass="btn btn-xs btn-warning" Height="28px"
-                                                            TabIndex="10" Text="Upload" Width="72px" OnClick="BtnSave3_Click" />
+                                                        <asp:Button ID="btnUpload" runat="server" CssClass="btn btn-xs btn-warning" Height="28px"
+                                                            TabIndex="10" Text="Upload" Width="72px" OnClick="btnUpload_Click" />
                                                     </td>
                                                     <td></td>
                                                 </tr>

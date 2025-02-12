@@ -548,6 +548,60 @@ namespace TTAP.Classfiles
             }
             return Output.ToString();
         }
+
+        public string WorkSheetFileUploading(string ShortFiledirectory, string FileDirectory, FileUpload FileUploadDoc, HyperLink hlp, string Description, string IncId, string SubIncId, string CreatedUserID, string DocUploadedUserType, string Type)
+        {
+            int Output = 0;
+            string newPath = "";
+            string sFileName = "";
+            try
+            {
+
+                string sFileDir = FileDirectory;
+                if (FileUploadDoc.HasFile && FileUploadDoc.PostedFile != null && FileUploadDoc.PostedFile.ContentLength > 0)
+                {
+                    sFileName = System.IO.Path.GetFileName(FileUploadDoc.PostedFile.FileName);
+                    string fileExtension = Path.GetExtension(sFileName);
+                    string sFileNameonly = Path.GetFileNameWithoutExtension(sFileName);
+                    string Attachmentidnew = IncId + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString() + DateTime.Now.Millisecond.ToString();
+
+                    sFileName = Description + Attachmentidnew + fileExtension;
+
+                    newPath = System.IO.Path.Combine(sFileDir, IncId + "\\" + SubIncId);
+
+                    if (!Directory.Exists(newPath))
+                        System.IO.Directory.CreateDirectory(newPath);
+                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(newPath);
+                    int count = dir.GetFiles().Length;
+                    if (count == 0)
+                    {
+                        FileUploadDoc.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                    }
+                    else
+                    {
+                        if (count == 1)
+                        {
+                            string[] Files = Directory.GetFiles(newPath);
+
+                            foreach (string files in Files)
+                            {
+                                File.Delete(files);
+                            }
+                            FileUploadDoc.PostedFile.SaveAs(newPath + "\\" + sFileName);
+                        }
+                    }
+                    Output = Gen.InsertWorkSheetFile(IncId, SubIncId, sFileName, newPath, Description, DocUploadedUserType, "", "", CreatedUserID, null, Type);
+                    hlp.Text = "View";
+                    hlp.NavigateUrl = ShortFiledirectory + "/" + IncId + "/" + SubIncId + "/" + sFileName;
+                }
+            }
+            catch (Exception)//in case of an error
+            {
+                DeleteFile(newPath + "\\" + sFileName);
+            }
+            return Output.ToString();
+        }
+
         public string DLOImageUploading(string ShortFiledirectory, string FileDirectory, FileUpload FileUploadDoc, HyperLink hlp, string Description, string IncentiveID, string SubIncentiveId, string CreatedUserID, string DocUploadedUserType, string AttachmentId)
         {
             int Output = 0;

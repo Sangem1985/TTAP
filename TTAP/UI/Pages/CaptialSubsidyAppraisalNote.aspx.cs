@@ -21,18 +21,22 @@ namespace TTAP.UI.Pages
         AppraisalClass objappraisalClass = new AppraisalClass();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+            ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+            ViewState["UID"] = ObjLoginNewvo.uid;
             try
             {
                 if (!IsPostBack)
                 {
-                    string incentiveid = "48440";// Request.QueryString["IncentiveID"].ToString();
+                    string incentiveid = "";
+                    //Request.QueryString["IncentiveID"] = incentiveid;
+                    if (Request.QueryString["IncentiveID"] != null) 
+                    {
+                        incentiveid = Request.QueryString["IncentiveID"].ToString();
+                    }
                     txtIncID.Text = incentiveid;
                     BindBesicdata(incentiveid, "1", "");
-                    string SubIncentiveId = "1";
                     DataSet dsnew1 = new DataSet();
-
-
                 }
             }
             catch (Exception ex)
@@ -1206,7 +1210,7 @@ namespace TTAP.UI.Pages
                 //..btn
                 BtnSave.Enabled = false;
                 BtnSave.Visible = false;
-                Response.Redirect("ClerkDashboard.aspx");
+                Response.Redirect("~/ClerkDashboard.aspx");
             }
         }
         public bool save()
@@ -1217,7 +1221,8 @@ namespace TTAP.UI.Pages
             ApprasialProperties objApprasialProperties = new ApprasialProperties();
             bool status = true;
             try
-            {
+            {   
+                //Chanikya
                 // TextBox txt_Eligibleamount = new TextBox();
                 //objApprasialProperties.FINALELIGIBLEAMOUNT = Convert.ToDecimal(txt_Eligibleamount.Text);
                 //AssignValuestoVosFromcontrols();
@@ -1229,29 +1234,49 @@ namespace TTAP.UI.Pages
                 objApprasialProperties.SOCIALSTATUS = lblSocialStatus.InnerText;
                 objApprasialProperties.WOMENENTERPRENEUR = lblShareofSCSTWomenEnterprenue.InnerText;
                 objApprasialProperties.PMTSSIREGISTRATIONNO = lblRegistrationNumber.InnerText;
-                objApprasialProperties.PMTSSIREGISTRATIONDATE = lblReceiptDate.InnerText;
-                objApprasialProperties.NED_UNIT = lblCategoryofUnit.InnerText;
+                objApprasialProperties.TypeOfUnit = lblTypeofApplicant.InnerText;
+                objApprasialProperties.CATEGORY = lblCategoryofUnit.InnerText;
+                objApprasialProperties.SECTOR = lblTypeofSector.InnerText;
+                objApprasialProperties.TextileType = lblTypeofTexttile.InnerText;
+                objApprasialProperties.TechnicalTextileType = lblTechnicalTextileType.InnerText;
+                objApprasialProperties.ActivityOfUnit = lblActivityoftheUnit.InnerText;
+                objApprasialProperties.UID_NO = lblTSIPassUIDNumber.InnerText.ToString();
+                objApprasialProperties.Application_No = lblCommonApplicationNumber.InnerText.ToString();
                 objApprasialProperties.DATEOFPRODUCTION = lblDCPdate.InnerText;
                 objApprasialProperties.DICFILLINGDATE = lblReceiptDate.InnerText;
+                objApprasialProperties.PowerConnectionRlsDate = lblPowerConnectionReleaseDate.InnerText;
                 objApprasialProperties.NAMEFINANCINGUNIT = lblUnitName.InnerText;
-                objApprasialProperties.CASTE = lblSocialStatus.InnerText;
-                objApprasialProperties.GENDER = lblSocialStatus.InnerText;
-                objApprasialProperties.CATEGORY = lblCategoryofUnit.InnerText;
-                objApprasialProperties.ENTERPRISE = lblTypeofApplicant.InnerText;
-                objApprasialProperties.SECTOR = lblTypeofSector.InnerText;
-                objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
-                objApprasialProperties.TextBox59 = TextBox59.Text;
-                objApprasialProperties.txt423guideline = txt423guideline.Text;
-                objApprasialProperties.txtTSSFCnorms423 = txtTSSFCnorms423.Text;
-                objApprasialProperties.txtvalue424 = txtvalue424.Text;
-                objApprasialProperties.lmv = rdlmv.SelectedValue;
-                objApprasialProperties.womenmen = rdmenwomen.SelectedValue;
-                objApprasialProperties.ELIGIBLETYPE = rdeligibility.SelectedValue;
+
+                objApprasialProperties.ApprovedLandCost = TextBox33.Text;
+                objApprasialProperties.ApprovedBuildingCost = TextBox37.Text;
+                objApprasialProperties.ApprovedPMCost = TextBox41.Text;
+                objApprasialProperties.ApprovedKeyCost = TextBox44.Text;
+                objApprasialProperties.ApprovedTotalCost = TextBox1.Text;
+                objApprasialProperties.ComputedLandCost = TextBox56.Text;
+                objApprasialProperties.ComputedBuildingCost = TextBox57.Text;
+                objApprasialProperties.ComputedPMCost = TextBox58.Text;
+                objApprasialProperties.ComputedKeyCost = TextBox45.Text;
+                objApprasialProperties.ComputedTotalCost = TextBox2.Text;
+                objApprasialProperties.EmploymentInspection = txtemployement.Text;
+
+                objApprasialProperties.IndustryStatus = ddlIndustryStatus.SelectedItem.Text.ToString();
+                objApprasialProperties.TextileTypeAsPerInspection = rdcoventinaltech.SelectedValue.ToString();
+                objApprasialProperties.NatureAsPerInspection = ddlTextileProcessType.SelectedItem.Text.ToString();
+                objApprasialProperties.CategoryAsPerInspection = rdcategoryofunit.SelectedValue.ToString();
+                objApprasialProperties.SocialStatusAsPerInspection = rdlmv.SelectedValue.ToString();
+                objApprasialProperties.GenderAsPerInspection = rdmenwomen.SelectedValue.ToString();
+                objApprasialProperties.Type = rdeligibility.SelectedValue.ToString();
+                objApprasialProperties.EligiblePercentage = TextBox59.Text;
+                objApprasialProperties.EligibleSubsidyAmount = txt423guideline.Text;
+                objApprasialProperties.AdditionalSubsidyAmount = txtTSSFCnorms423.Text;
+                objApprasialProperties.TotalSubsidyAmount = txtvalue424.Text;
+                objApprasialProperties.ForwardTo = ddlDepartment.SelectedValue.ToString();
+                objApprasialProperties.WorkSheetPath = hypWorksheet.NavigateUrl.ToString();
                 objApprasialProperties.Remarks = txtremarks.Text;
-                objApprasialProperties.SUBINCENTIVEID = Request.QueryString["MstIncentiveId"].ToString();
+                objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
                 objApprasialProperties.Scheme = "TTAP";
                 string returnval = "0";
-                returnval = ObjCAFClass.InterestSubsidyCommonDetails(objApprasialProperties);
+                returnval = ObjCAFClass.InsertCaptialSubsidyAppraisal(objApprasialProperties);
                 if (!string.IsNullOrEmpty(returnval) && returnval.Trim() != "")
                 {
                     string Role_Code = Session["Role_Code"].ToString().Trim().TrimStart();
@@ -1266,7 +1291,7 @@ namespace TTAP.UI.Pages
                     }
 
                     DLODetails.INCENTIVEID = txtIncID.Text;
-                    DLODetails.SUBINCENTIVEID = "3";
+                    DLODetails.SUBINCENTIVEID = "1";
                     DLODetails.ACTIONID = "1";
                     DLODetails.FORWARDTO = ddlDepartment.SelectedItem.Text;
                     DLODetails.CREATEDBY = ObjLoginNewvo.uid;
@@ -1310,10 +1335,7 @@ namespace TTAP.UI.Pages
 
         }
 
-        protected void BtnSave3_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         protected void rdcoventinaltech_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1413,6 +1435,39 @@ namespace TTAP.UI.Pages
         {
             TTAPCategory();
             CapitalsubsidyCalculation();
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            string IncentiveId = "48440";
+            string SubIncentiveId = "1";
+
+            if (fuWorksheet.HasFile)
+            {
+                string errormsg = objClsFileUpload.CheckFileSize(fuWorksheet);
+                if (errormsg != "")
+                {
+                    string message = "alert('" + errormsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+                string Mimetype = objClsFileUpload.getmimetype(fuWorksheet);
+                if (Mimetype == "application/pdf")
+                {
+                    string OutPut = objClsFileUpload.WorkSheetFileUploading("~\\WorkSheets", Server.MapPath("~\\WorkSheets"), fuWorksheet, hypWorksheet, "WorkSheet", IncentiveId, SubIncentiveId, ViewState["UID"].ToString(), "USER", "WORKSHEET");
+                    if (OutPut != "0")
+                    {
+                        success.Visible = true;
+                        Failure.Visible = false;
+                        hypWorksheet.Visible = true;
+                        lblmsg.Text = "Attachment Successfully Added..!";
+                    }
+                }
+                else
+                {   
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Only pdf files allowed !');", true);
+                }
+            }
         }
     }
 }

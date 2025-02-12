@@ -7651,5 +7651,91 @@ namespace TTAP.Classfiles
             return Result;
         }
 
+        public string InsertCaptialSubsidyAppraisal(ApprasialProperties DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INSAPPRAISAL_CAPITALSUBSIDY";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INC_INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@INC_NAMEOFINDUSTRIAL", DLODetails.NAMEOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@INC_LOCATIONOFINDUSTRIAL", DLODetails.LOCATIONOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@INC_NAMEOFPROMOTER", DLODetails.NAMEOFPROMOTER);
+                com.Parameters.AddWithValue("@INC_CONSTITUTIONOFINDUSTRIAL", DLODetails.ConstitutionOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@INC_SOCIALSTATUS", DLODetails.SOCIALSTATUS);
+                com.Parameters.AddWithValue("@INC_WOMENENTERPRENEUR", DLODetails.WOMENENTERPRENEUR);
+                com.Parameters.AddWithValue("@INC_PMTSSIREGISTRATIONNO", DLODetails.PMTSSIREGISTRATIONNO);
+                com.Parameters.AddWithValue("@INC_TYPEOFUNIT", DLODetails.TypeOfUnit);
+                com.Parameters.AddWithValue("@INC_CATEGORY", DLODetails.CATEGORY);
+                com.Parameters.AddWithValue("@INC_SECTOR", DLODetails.SECTOR);
+                com.Parameters.AddWithValue("@INC_TEXTILETYPE", DLODetails.TextileType);
+                com.Parameters.AddWithValue("@INC_TECHNICALTEXTILETYPE", DLODetails.TechnicalTextileType);
+                com.Parameters.AddWithValue("@INC_ACTIVITYOFUNIT", DLODetails.ActivityOfUnit);
+                com.Parameters.AddWithValue("@UID_NO", DLODetails.UID_NO);
+                com.Parameters.AddWithValue("@APPLICATION_NO", DLODetails.Application_No);
+                com.Parameters.AddWithValue("@DATEOFPRODUCTION", DLODetails.DATEOFPRODUCTION);//
+                com.Parameters.AddWithValue("@DICFILLINGDATE", DLODetails.DICFILLINGDATE);//
+                com.Parameters.AddWithValue("@POWERCONNECTIONRLSDATE", DLODetails.PowerConnectionRlsDate);
+                com.Parameters.AddWithValue("@NAMEFINANCINGUNIT", DLODetails.NAMEFINANCINGUNIT);
+                
+                com.Parameters.AddWithValue("@APPROVEDLANDCOST", DLODetails.ApprovedLandCost);
+                com.Parameters.AddWithValue("@APPROVEDBUILDINGCOST", DLODetails.ApprovedBuildingCost);
+                com.Parameters.AddWithValue("@APPROVEDPMCOST", DLODetails.ApprovedPMCost);
+                com.Parameters.AddWithValue("@APPROVEDKEYCOST", DLODetails.ApprovedKeyCost);
+                com.Parameters.AddWithValue("@APPROVEDTOTALCOST", DLODetails.ApprovedTotalCost);
+                com.Parameters.AddWithValue("@COMPUTEDLANDCOST", DLODetails.ComputedLandCost);
+                com.Parameters.AddWithValue("@COMPUTEDBUILDINGCOST", DLODetails.ComputedBuildingCost);
+                com.Parameters.AddWithValue("@COMPUTEDPMCOST", DLODetails.ComputedPMCost);
+                com.Parameters.AddWithValue("@COMPUTEDKEYCOST", DLODetails.ComputedKeyCost);
+                com.Parameters.AddWithValue("@COMPUTEDTOTALCOST", DLODetails.ComputedTotalCost);
+                com.Parameters.AddWithValue("@EMPLOYMENTINSPECTION", DLODetails.EmploymentInspection);
+                com.Parameters.AddWithValue("@INDUSTRYSTATUS", DLODetails.IndustryStatus);
+                com.Parameters.AddWithValue("@TEXTILETYPEASPERINSPECTION", DLODetails.TextileTypeAsPerInspection);
+                com.Parameters.AddWithValue("@NATUREASPERINSPECTION", DLODetails.NatureAsPerInspection);
+                com.Parameters.AddWithValue("@CATEGORYASPERINSPECTION", DLODetails.CategoryAsPerInspection);
+                com.Parameters.AddWithValue("@SOCIALSTATUSASPERINSPECTION", DLODetails.SocialStatusAsPerInspection);
+                com.Parameters.AddWithValue("@GENDERASPERINSPECTION", DLODetails.GenderAsPerInspection);
+                com.Parameters.AddWithValue("@TYPE", DLODetails.Type);
+                com.Parameters.AddWithValue("@ELIGIBLEPERCENTAGE", DLODetails.EligiblePercentage);
+                com.Parameters.AddWithValue("@ELIGIBLESUBSIDYAMOUNT", DLODetails.EligibleSubsidyAmount);
+                com.Parameters.AddWithValue("@ADDITIONALSUBSIDYAMOUNT", DLODetails.AdditionalSubsidyAmount);
+                com.Parameters.AddWithValue("@TOTALSUBSIDYAMOUNT", DLODetails.TotalSubsidyAmount);
+                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.ForwardTo);
+                com.Parameters.AddWithValue("@WORKSHEETPATH", DLODetails.WorkSheetPath);
+                com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+                com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBY);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
     }
 }

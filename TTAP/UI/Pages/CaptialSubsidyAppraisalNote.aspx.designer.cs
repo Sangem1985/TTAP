@@ -1284,22 +1284,22 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// fuWorksheet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload fuWorksheet;
 
         /// <summary>
-        /// lblFileName control.
+        /// hypWorksheet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lblFileName;
+        protected global::System.Web.UI.WebControls.HyperLink hypWorksheet;
 
         /// <summary>
         /// Label444 control.
@@ -1311,13 +1311,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label Label444;
 
         /// <summary>
-        /// BtnSave3 control.
+        /// btnUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSave3;
+        protected global::System.Web.UI.WebControls.Button btnUpload;
 
         /// <summary>
         /// trsubmit control.

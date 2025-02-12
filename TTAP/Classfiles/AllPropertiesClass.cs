@@ -2890,7 +2890,42 @@ namespace TTAP.Classfiles
         public string txtTSSFCnorms423 { get; set; }
         public string txtvalue424 { get; set; }
         public string lmv { get; set; }
-        public string womenmen { get; set; } 
+        public string womenmen { get; set; }
+        public string UID_NO { get; set; }
+        public string Application_No { get; set; }
+        public string TypeOfUnit { get; set; }
+        public string TextileType { get; set; }
+        public string TechnicalTextileType { get; set; }
+        public string ActivityOfUnit { get; set; }
+        public string PowerConnectionRlsDate { get; set; }
+
+        /*Capital Subsisy Properties*/
+
+        public string ApprovedLandCost { get; set; }
+        public string ApprovedBuildingCost { get; set; }
+        public string ApprovedPMCost { get; set; }
+        public string ApprovedKeyCost { get; set; }
+        public string ApprovedTotalCost { get; set; }
+        public string ComputedLandCost { get; set; }
+        public string ComputedBuildingCost { get; set; }
+        public string ComputedPMCost { get; set; }
+        public string ComputedKeyCost { get; set; }
+        public string ComputedTotalCost { get; set; }
+        public string EmploymentInspection { get; set; }
+        public string IndustryStatus { get; set; }
+        public string TextileTypeAsPerInspection { get; set; }
+        public string NatureAsPerInspection { get; set; }
+        public string CategoryAsPerInspection { get; set; }
+        public string SocialStatusAsPerInspection { get; set; }
+        public string GenderAsPerInspection { get; set; }
+        public string Type { get; set; }
+        public string EligiblePercentage { get; set; }
+        public string EligibleSubsidyAmount { get; set; }
+        public string AdditionalSubsidyAmount { get; set; }
+        public string TotalSubsidyAmount { get; set; }
+        public string ForwardTo { get; set; }
+        public string WorkSheetPath { get; set; }
+
     }
     public class InterestSubsidyclaimloanproperties
     {
