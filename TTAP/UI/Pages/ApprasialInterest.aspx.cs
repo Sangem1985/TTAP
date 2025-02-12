@@ -14,7 +14,7 @@ using System.Xml.Linq;
 namespace TTAP.UI.Pages
 {
     public partial class ApprasialInterest : System.Web.UI.Page
-    { 
+    {
         ClsFileUpload objClsFileUpload = new ClsFileUpload();
         BusinessLogic.DML objDml = new BusinessLogic.DML();
         CAFClass ObjCAFClass = new CAFClass();
@@ -23,8 +23,8 @@ namespace TTAP.UI.Pages
         decimal EligibleInterest = 0;
         decimal TotalPlintArea = 0, TotalOnetoNineValue = 0, TotalEighttoSeventeenValue = 0;
         DataTable myDtNewRecdr = new DataTable();
-      
-        
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -251,7 +251,7 @@ namespace TTAP.UI.Pages
                 {
                     txt_GMrecommendedamount.Text = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
                 }
-               
+
             }
             catch (Exception ex)
             {
@@ -6520,7 +6520,8 @@ namespace TTAP.UI.Pages
 
         protected void btnsub_Click(object sender, EventArgs e)
         {
-            BindISCrrentClaimPeriodDtls(txtIncID.Text.ToString());
+            // BindISCrrentClaimPeriodDtls(txtIncID.Text.ToString());
+            BindBesicdata(txtIncID.Text.ToString(), "3", "");
         }
 
         protected void rbtclaimtype_SelectedIndexChanged(object sender, EventArgs e)
@@ -6550,505 +6551,507 @@ namespace TTAP.UI.Pages
             int slno = 1;
             string ErrorMsg = "";
 
-            if (GvInterestSubsidyPeriod.Rows.Count == 0)
+            if (rbtclaimtype.SelectedValue == "R")
             {
-                ErrorMsg = ErrorMsg + slno + ". Please enter Claim Period Loan for each Claim\\n";
-                slno = slno + 1;
-            }
-            if (grd_eglibilepallavaddi.Rows.Count == 0)
-            {
-                ErrorMsg = ErrorMsg + slno + ". Please enter The Claim Period Details\\n";
-                slno = slno + 1;
-            }
-            if (txt_Insertamounttobepaidaspercalculations.Text.ToString() == "")
-            {
-                ErrorMsg = ErrorMsg + slno + ".Insert amount to be paid as per calculations \\n";
-                slno = slno + 1;
-            }
-            if (txt_Actualinterestamountpaid.Text.ToString() == "")
-            {
-                ErrorMsg = ErrorMsg + slno + ".Actual interest amount paid\\n";
-                slno = slno + 1;
-            }
-            if (txt_ConsideredAmountofInterest.Text.ToString() == "")
-            {
-                ErrorMsg = ErrorMsg + slno + ".Considered Amount of Interest \\n";
-                slno = slno + 1;
-            }
-            if (txt_Insertreimbursementcalculated.Text.ToString() == "")
-            {
-                ErrorMsg = ErrorMsg + slno + ". Interst reimbursement calculated \\n";
-                slno = slno + 1;
-            }
-            if (txt_eglibleamountofreimbursementbyeglibletype.Text.ToString() == "")
-            {
-                ErrorMsg = ErrorMsg + slno + ". Interst reimbursement(After selecting the eglible Type) \\n";
-                slno = slno + 1;
-            }
-            if (txt_GMrecommendedamount.Text.ToString() == "")
-            {
-                ErrorMsg = ErrorMsg + slno + ". GM recommended amount\\n";
-                slno = slno + 1;
-            }
-            if (txt_Eligibleamount.Text.ToString() == "")
-            {
-                ErrorMsg = ErrorMsg + slno + ". Eligible amount\\n";
-                slno = slno + 1;
-            }
-
-            if (GvInterestSubsidyPeriod.Rows.Count > 0)
-            {
-                for (int i = 0; i < GvInterestSubsidyPeriod.Rows.Count; i++)
+                if (GvInterestSubsidyPeriod.Rows.Count == 0)
                 {
-                    HiddenField hf_claimperiodofloanaddIncentiveId = GvInterestSubsidyPeriod.Rows[i].FindControl("hf_claimperiodofloanaddIncentiveId") as HiddenField;
-                    HiddenField hf_claimperiodofloanaddFinancialYear = GvInterestSubsidyPeriod.Rows[i].FindControl("hf_claimperiodofloanaddFinancialYear") as HiddenField;
-                    HiddenField hf_claimperiodofloanadd_ID = GvInterestSubsidyPeriod.Rows[i].FindControl("hf_claimperiodofloanadd_ID") as HiddenField;
-                    Label lbl_claimperiodofloanaddname = GvInterestSubsidyPeriod.Rows[i].FindControl("lbl_claimperiodofloanaddname") as Label;
-                    TextBox txt_claimperiodofloanaddNumber = GvInterestSubsidyPeriod.Rows[i].FindControl("txt_claimperiodofloanaddNumber") as TextBox;
+                    ErrorMsg = ErrorMsg + slno + ". Please enter Claim Period Loan for each Claim\\n";
+                    slno = slno + 1;
+                }
+                if (grd_eglibilepallavaddi.Rows.Count == 0)
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please enter The Claim Period Details\\n";
+                    slno = slno + 1;
+                }
+                if (txt_Insertamounttobepaidaspercalculations.Text.ToString() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ".Insert amount to be paid as per calculations \\n";
+                    slno = slno + 1;
+                }
+                if (txt_Actualinterestamountpaid.Text.ToString() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ".Actual interest amount paid\\n";
+                    slno = slno + 1;
+                }
+                if (txt_ConsideredAmountofInterest.Text.ToString() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ".Considered Amount of Interest \\n";
+                    slno = slno + 1;
+                }
+                if (txt_Insertreimbursementcalculated.Text.ToString() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Interst reimbursement calculated \\n";
+                    slno = slno + 1;
+                }
+                if (txt_eglibleamountofreimbursementbyeglibletype.Text.ToString() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Interst reimbursement(After selecting the eglible Type) \\n";
+                    slno = slno + 1;
+                }
+                if (txt_GMrecommendedamount.Text.ToString() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". GM recommended amount\\n";
+                    slno = slno + 1;
+                }
+                if (txt_Eligibleamount.Text.ToString() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Eligible amount\\n";
+                    slno = slno + 1;
+                }
 
-                    if (lbl_claimperiodofloanaddname.Text.ToString() == "")
+                if (GvInterestSubsidyPeriod.Rows.Count > 0)
+                {
+                    for (int i = 0; i < GvInterestSubsidyPeriod.Rows.Count; i++)
                     {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (i + 1) + ". Enter the Claim  Period" + "\\n";
-                        slno = slno + 1;
-                    }
-                    if (txt_claimperiodofloanaddNumber.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (i + 1) + ". Enter the Claim  Period No of Loan Applied" + "\\n";
-                        slno = slno + 1;
-                    }
-                    else
-                    {
-                        if (Convert.ToInt32(txt_claimperiodofloanaddNumber.Text) <= 0)
+                        HiddenField hf_claimperiodofloanaddIncentiveId = GvInterestSubsidyPeriod.Rows[i].FindControl("hf_claimperiodofloanaddIncentiveId") as HiddenField;
+                        HiddenField hf_claimperiodofloanaddFinancialYear = GvInterestSubsidyPeriod.Rows[i].FindControl("hf_claimperiodofloanaddFinancialYear") as HiddenField;
+                        HiddenField hf_claimperiodofloanadd_ID = GvInterestSubsidyPeriod.Rows[i].FindControl("hf_claimperiodofloanadd_ID") as HiddenField;
+                        Label lbl_claimperiodofloanaddname = GvInterestSubsidyPeriod.Rows[i].FindControl("lbl_claimperiodofloanaddname") as Label;
+                        TextBox txt_claimperiodofloanaddNumber = GvInterestSubsidyPeriod.Rows[i].FindControl("txt_claimperiodofloanaddNumber") as TextBox;
+
+                        if (lbl_claimperiodofloanaddname.Text.ToString() == "")
                         {
-                            ErrorMsg = ErrorMsg + slno + "Claim-" + (i + 1) + ". Enter the Claim  Period No of Loan Applied greatet than zero" + "\\n";
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (i + 1) + ". Enter the Claim  Period" + "\\n";
                             slno = slno + 1;
+                        }
+                        if (txt_claimperiodofloanaddNumber.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (i + 1) + ". Enter the Claim  Period No of Loan Applied" + "\\n";
+                            slno = slno + 1;
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(txt_claimperiodofloanaddNumber.Text) <= 0)
+                            {
+                                ErrorMsg = ErrorMsg + slno + "Claim-" + (i + 1) + ". Enter the Claim  Period No of Loan Applied greatet than zero" + "\\n";
+                                slno = slno + 1;
+                            }
                         }
                     }
                 }
-            }
 
 
-            if (grd_eglibilepallavaddi.Rows.Count > 0)
-            {
-                for (int j = 0; j < grd_eglibilepallavaddi.Rows.Count; j++)
+                if (grd_eglibilepallavaddi.Rows.Count > 0)
                 {
-                    HiddenField hf_grdeglibilepallavaddiIncentiveId = grd_eglibilepallavaddi.Rows[j].FindControl("hf_grdeglibilepallavaddiIncentiveId") as HiddenField;
-                    HiddenField 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 = grd_eglibilepallavaddi.Rows[j].FindControl("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") as HiddenField;
-                    HiddenField hf_grdeglibilepallavaddiFY_ID = grd_eglibilepallavaddi.Rows[j].FindControl("hf_grdeglibilepallavaddiFY_ID") as HiddenField;
+                    for (int j = 0; j < grd_eglibilepallavaddi.Rows.Count; j++)
+                    {
+                        HiddenField hf_grdeglibilepallavaddiIncentiveId = grd_eglibilepallavaddi.Rows[j].FindControl("hf_grdeglibilepallavaddiIncentiveId") as HiddenField;
+                        HiddenField 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 = grd_eglibilepallavaddi.Rows[j].FindControl("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") as HiddenField;
+                        HiddenField hf_grdeglibilepallavaddiFY_ID = grd_eglibilepallavaddi.Rows[j].FindControl("hf_grdeglibilepallavaddiFY_ID") as HiddenField;
 
-                    Label lbl_grdeglibilepallavaddiFYname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grdeglibilepallavaddiFYname") as Label;
-                    Label lbl_claimeglibleincentivesloanwiseLoanID = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_claimeglibleincentivesloanwiseLoanID") as Label;
+                        Label lbl_grdeglibilepallavaddiFYname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grdeglibilepallavaddiFYname") as Label;
+                        Label lbl_claimeglibleincentivesloanwiseLoanID = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_claimeglibleincentivesloanwiseLoanID") as Label;
 
-                    TextBox txt_claimeglibleincentivesloanwiseDateofCommencementofactivity = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseDateofCommencementofactivity") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwiseinstallmentstartdate = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseinstallmentstartdate") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement") as TextBox;
-                    DropDownList ddl_claimeglibleincentivesloanwiseperiodofinstallment = grd_eglibilepallavaddi.Rows[j].FindControl("ddl_claimeglibleincentivesloanwiseperiodofinstallment") as DropDownList;
-                    TextBox txt_claimeglibleincentivesloanwisenoofinstallment = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwisenoofinstallment") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwiseRateofInterest = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseRateofInterest") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseDateofCommencementofactivity = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseDateofCommencementofactivity") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseinstallmentstartdate = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseinstallmentstartdate") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement") as TextBox;
+                        DropDownList ddl_claimeglibleincentivesloanwiseperiodofinstallment = grd_eglibilepallavaddi.Rows[j].FindControl("ddl_claimeglibleincentivesloanwiseperiodofinstallment") as DropDownList;
+                        TextBox txt_claimeglibleincentivesloanwisenoofinstallment = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwisenoofinstallment") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseRateofInterest = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseRateofInterest") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR") as TextBox;
 
-                    HiddenField hfgrd_monthoneid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthoneid") as HiddenField;
-                    Label lbl_grd_monthonename = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthonename") as Label;
-                    Label lbl_grd_monthnonePrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthnonePrincipalamounntdue") as Label;
-                    Label lbl_grd_monthoneNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneNoofInstallment") as Label;
-                    TextBox lbl_grd_monthoneRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneRateofinterest") as TextBox;
-                    Label lbl_grd_monthoneInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneInterestamount") as Label;
-                    Label lbl_grd_monthoneUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneUnitHolderContribution") as Label;
-                    Label lbl_grd_monthoneEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneEligibleRateofinterest") as Label;
-                    Label lbl_grd_monthoneEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneEligibleInterestAmount") as Label;
+                        HiddenField hfgrd_monthoneid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthoneid") as HiddenField;
+                        Label lbl_grd_monthonename = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthonename") as Label;
+                        Label lbl_grd_monthnonePrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthnonePrincipalamounntdue") as Label;
+                        Label lbl_grd_monthoneNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneNoofInstallment") as Label;
+                        TextBox lbl_grd_monthoneRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneRateofinterest") as TextBox;
+                        Label lbl_grd_monthoneInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneInterestamount") as Label;
+                        Label lbl_grd_monthoneUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneUnitHolderContribution") as Label;
+                        Label lbl_grd_monthoneEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneEligibleRateofinterest") as Label;
+                        Label lbl_grd_monthoneEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthoneEligibleInterestAmount") as Label;
 
-                    HiddenField hfgrd_monthtwoid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthtwoid") as HiddenField;
-                    Label lbl_grd_monthtwoname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoname") as Label;
-                    Label lbl_grd_monthtwoPrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoPrincipalamounntdue") as Label;
-                    Label lbl_grd_monthtwoNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoNoofInstallment") as Label;
-                    TextBox lbl_grd_monthtwoRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoRateofinterest") as TextBox;
-                    Label lbl_grd_monthtwoInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoInterestamount") as Label;
-                    Label lbl_grd_monthtwoUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoUnitHolderContribution") as Label;
-                    Label lbl_grd_monthtwoEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoEligibleRateofinterest") as Label;
-                    Label lbl_grd_monthtwoEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoEligibleInterestAmount") as Label;
+                        HiddenField hfgrd_monthtwoid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthtwoid") as HiddenField;
+                        Label lbl_grd_monthtwoname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoname") as Label;
+                        Label lbl_grd_monthtwoPrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoPrincipalamounntdue") as Label;
+                        Label lbl_grd_monthtwoNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoNoofInstallment") as Label;
+                        TextBox lbl_grd_monthtwoRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoRateofinterest") as TextBox;
+                        Label lbl_grd_monthtwoInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoInterestamount") as Label;
+                        Label lbl_grd_monthtwoUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoUnitHolderContribution") as Label;
+                        Label lbl_grd_monthtwoEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoEligibleRateofinterest") as Label;
+                        Label lbl_grd_monthtwoEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthtwoEligibleInterestAmount") as Label;
 
-                    HiddenField hfgrd_monththreeid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monththreeid") as HiddenField;
-                    Label lbl_grd_monththreename = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreename") as Label;
-                    Label lbl_grd_monththreePrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreePrincipalamounntdue") as Label;
-                    Label lbl_grd_monththreeNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeNoofInstallment") as Label;
-                    TextBox lbl_grd_monththreeRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeRateofinterest") as TextBox;
-                    Label lbl_grd_monththreeInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeInterestamount") as Label;
-                    Label lbl_grd_monththreeUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeUnitHolderContribution") as Label;
-                    Label lbl_grd_monththreeEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeEligibleRateofinterest") as Label;
-                    Label lbl_grd_monththreeEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeEligibleInterestAmount") as Label;
+                        HiddenField hfgrd_monththreeid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monththreeid") as HiddenField;
+                        Label lbl_grd_monththreename = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreename") as Label;
+                        Label lbl_grd_monththreePrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreePrincipalamounntdue") as Label;
+                        Label lbl_grd_monththreeNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeNoofInstallment") as Label;
+                        TextBox lbl_grd_monththreeRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeRateofinterest") as TextBox;
+                        Label lbl_grd_monththreeInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeInterestamount") as Label;
+                        Label lbl_grd_monththreeUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeUnitHolderContribution") as Label;
+                        Label lbl_grd_monththreeEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeEligibleRateofinterest") as Label;
+                        Label lbl_grd_monththreeEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monththreeEligibleInterestAmount") as Label;
 
-                    HiddenField hfgrd_monthfourid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthfourid") as HiddenField;
-                    Label lbl_grd_monthfourname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourname") as Label;
-                    Label lbl_grd_monthfourPrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourPrincipalamounntdue") as Label;
-                    Label lbl_grd_monthfourNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourNoofInstallment") as Label;
-                    TextBox lbl_grd_monthfourRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourRateofinterest") as TextBox;
-                    Label lbl_grd_monthfourInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourInterestamount") as Label;
-                    Label lbl_grd_monthfourUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourUnitHolderContribution") as Label;
-                    Label lbl_grd_monthfourEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourEligibleRateofinterest") as Label;
-                    Label lbl_grd_monthfourEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourEligibleInterestAmount") as Label;
+                        HiddenField hfgrd_monthfourid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthfourid") as HiddenField;
+                        Label lbl_grd_monthfourname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourname") as Label;
+                        Label lbl_grd_monthfourPrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourPrincipalamounntdue") as Label;
+                        Label lbl_grd_monthfourNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourNoofInstallment") as Label;
+                        TextBox lbl_grd_monthfourRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourRateofinterest") as TextBox;
+                        Label lbl_grd_monthfourInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourInterestamount") as Label;
+                        Label lbl_grd_monthfourUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourUnitHolderContribution") as Label;
+                        Label lbl_grd_monthfourEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourEligibleRateofinterest") as Label;
+                        Label lbl_grd_monthfourEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfourEligibleInterestAmount") as Label;
 
-                    HiddenField hfgrd_monthfiveid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthfiveid") as HiddenField;
-                    Label lbl_grd_monthfivename = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfivename") as Label;
-                    Label lbl_grd_monthfivePrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfivePrincipalamounntdue") as Label;
-                    Label lbl_grd_monthfiveNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveNoofInstallment") as Label;
-                    TextBox lbl_grd_monthfiveRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveRateofinterest") as TextBox;
-                    Label lbl_grd_monthfiveInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveInterestamount") as Label;
-                    Label lbl_grd_monthfiveUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveUnitHolderContribution") as Label;
-                    Label lbl_grd_monthfiveEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveEligibleRateofinterest") as Label;
-                    Label lbl_grd_monthfiveEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveEligibleInterestAmount") as Label;
+                        HiddenField hfgrd_monthfiveid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthfiveid") as HiddenField;
+                        Label lbl_grd_monthfivename = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfivename") as Label;
+                        Label lbl_grd_monthfivePrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfivePrincipalamounntdue") as Label;
+                        Label lbl_grd_monthfiveNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveNoofInstallment") as Label;
+                        TextBox lbl_grd_monthfiveRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveRateofinterest") as TextBox;
+                        Label lbl_grd_monthfiveInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveInterestamount") as Label;
+                        Label lbl_grd_monthfiveUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveUnitHolderContribution") as Label;
+                        Label lbl_grd_monthfiveEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveEligibleRateofinterest") as Label;
+                        Label lbl_grd_monthfiveEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthfiveEligibleInterestAmount") as Label;
 
-                    HiddenField hfgrd_monthsixid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthsixid") as HiddenField;
-                    Label lbl_grd_monthsixname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixname") as Label;
-                    Label lbl_grd_monthsixPrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixPrincipalamounntdue") as Label;
-                    Label lbl_grd_monthsixNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixNoofInstallment") as Label;
-                    TextBox lbl_grd_monthsixRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixRateofinterest") as TextBox;
-                    Label lbl_grd_monthsixInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixInterestamount") as Label;
-                    Label lbl_grd_monthsixUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixUnitHolderContribution") as Label;
-                    Label lbl_grd_monthsixEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixEligibleRateofinterest") as Label;
-                    Label lbl_grd_monthsixEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixEligibleInterestAmount") as Label;
+                        HiddenField hfgrd_monthsixid = grd_eglibilepallavaddi.Rows[j].FindControl("hfgrd_monthsixid") as HiddenField;
+                        Label lbl_grd_monthsixname = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixname") as Label;
+                        Label lbl_grd_monthsixPrincipalamounntdue = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixPrincipalamounntdue") as Label;
+                        Label lbl_grd_monthsixNoofInstallment = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixNoofInstallment") as Label;
+                        TextBox lbl_grd_monthsixRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixRateofinterest") as TextBox;
+                        Label lbl_grd_monthsixInterestamount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixInterestamount") as Label;
+                        Label lbl_grd_monthsixUnitHolderContribution = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixUnitHolderContribution") as Label;
+                        Label lbl_grd_monthsixEligibleRateofinterest = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixEligibleRateofinterest") as Label;
+                        Label lbl_grd_monthsixEligibleInterestAmount = grd_eglibilepallavaddi.Rows[j].FindControl("lbl_grd_monthsixEligibleInterestAmount") as Label;
 
-                    TextBox txt_grdeglibilepallavaddiEligibleperiodinmonths = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiEligibleperiodinmonths") as TextBox;
-                    TextBox txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations") as TextBox;
-                    TextBox txt_grdeglibilepallavaddiActualinterestamountpaid = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiActualinterestamountpaid") as TextBox;
-                    TextBox txt_grdeglibilepallavaddiInsertreimbursementcalculated = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiInsertreimbursementcalculated") as TextBox;
-                    RadioButtonList rbtgrdeglibilepallavaddi_isbelated = grd_eglibilepallavaddi.Rows[j].FindControl("rbtgrdeglibilepallavaddi_isbelated") as RadioButtonList;
-                    TextBox txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype") as TextBox;
-                    TextBox txt_grdeglibilepallavaddiGMrecommendedamount = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiGMrecommendedamount") as TextBox;
-                    TextBox txt_grdeglibilepallavaddiEligibleamount = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiEligibleamount") as TextBox;
-                    TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseConsideredAmountforInterest") as TextBox;
+                        TextBox txt_grdeglibilepallavaddiEligibleperiodinmonths = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiEligibleperiodinmonths") as TextBox;
+                        TextBox txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations") as TextBox;
+                        TextBox txt_grdeglibilepallavaddiActualinterestamountpaid = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiActualinterestamountpaid") as TextBox;
+                        TextBox txt_grdeglibilepallavaddiInsertreimbursementcalculated = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiInsertreimbursementcalculated") as TextBox;
+                        RadioButtonList rbtgrdeglibilepallavaddi_isbelated = grd_eglibilepallavaddi.Rows[j].FindControl("rbtgrdeglibilepallavaddi_isbelated") as RadioButtonList;
+                        TextBox txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype") as TextBox;
+                        TextBox txt_grdeglibilepallavaddiGMrecommendedamount = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiGMrecommendedamount") as TextBox;
+                        TextBox txt_grdeglibilepallavaddiEligibleamount = grd_eglibilepallavaddi.Rows[j].FindControl("txt_grdeglibilepallavaddiEligibleamount") as TextBox;
+                        TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest = grd_eglibilepallavaddi.Rows[j].FindControl("txt_claimeglibleincentivesloanwiseConsideredAmountforInterest") as TextBox;
 
 
 
-                    if (hf_grdeglibilepallavaddiIncentiveId.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (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.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (hf_grdeglibilepallavaddiFY_ID.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grdeglibilepallavaddiFYname.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_claimeglibleincentivesloanwiseLoanID.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseDateofCommencementofactivity.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseinstallmentstartdate.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (ddl_claimeglibleincentivesloanwiseperiodofinstallment.SelectedIndex < 0)
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwisenoofinstallment.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseInstallmentamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseRateofInterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
+                        if (hf_grdeglibilepallavaddiIncentiveId.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (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.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (hf_grdeglibilepallavaddiFY_ID.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grdeglibilepallavaddiFYname.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_claimeglibleincentivesloanwiseLoanID.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseDateofCommencementofactivity.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseinstallmentstartdate.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (ddl_claimeglibleincentivesloanwiseperiodofinstallment.SelectedIndex < 0)
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwisenoofinstallment.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseInstallmentamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseRateofInterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
 
-                    if (hfgrd_monthoneid.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthonename.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthnonePrincipalamounntdue.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthoneNoofInstallment.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthoneRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthoneInterestamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthoneUnitHolderContribution.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthoneEligibleRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthoneEligibleInterestAmount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
+                        if (hfgrd_monthoneid.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthonename.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthnonePrincipalamounntdue.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthoneNoofInstallment.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthoneRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthoneInterestamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthoneUnitHolderContribution.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthoneEligibleRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthoneEligibleInterestAmount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
 
-                    if (hfgrd_monthtwoid.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoname.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoPrincipalamounntdue.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoNoofInstallment.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoInterestamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoUnitHolderContribution.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoEligibleRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthtwoEligibleInterestAmount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
+                        if (hfgrd_monthtwoid.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoname.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoPrincipalamounntdue.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoNoofInstallment.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoInterestamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoUnitHolderContribution.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoEligibleRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthtwoEligibleInterestAmount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
 
-                    if (hfgrd_monththreeid.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreename.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreePrincipalamounntdue.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreeNoofInstallment.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreeRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreeInterestamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreeUnitHolderContribution.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreeEligibleRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monththreeEligibleInterestAmount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
+                        if (hfgrd_monththreeid.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreename.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreePrincipalamounntdue.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreeNoofInstallment.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreeRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreeInterestamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreeUnitHolderContribution.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreeEligibleRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monththreeEligibleInterestAmount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
 
-                    if (hfgrd_monthfourid.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourname.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourPrincipalamounntdue.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourNoofInstallment.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourInterestamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourUnitHolderContribution.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourEligibleRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfourEligibleInterestAmount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
+                        if (hfgrd_monthfourid.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourname.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourPrincipalamounntdue.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourNoofInstallment.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourInterestamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourUnitHolderContribution.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourEligibleRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfourEligibleInterestAmount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
 
-                    if (hfgrd_monthfiveid.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfivename.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfivePrincipalamounntdue.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfiveNoofInstallment.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfiveRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfiveInterestamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfiveUnitHolderContribution.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfiveEligibleRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthfiveEligibleInterestAmount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
+                        if (hfgrd_monthfiveid.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfivename.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfivePrincipalamounntdue.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfiveNoofInstallment.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfiveRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfiveInterestamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfiveUnitHolderContribution.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfiveEligibleRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthfiveEligibleInterestAmount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
 
-                    if (hfgrd_monthsixid.Value.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixname.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixPrincipalamounntdue.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixNoofInstallment.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixInterestamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixUnitHolderContribution.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixEligibleRateofinterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (lbl_grd_monthsixEligibleInterestAmount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_grdeglibilepallavaddiEligibleperiodinmonths.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_grdeglibilepallavaddiActualinterestamountpaid.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_grdeglibilepallavaddiInsertreimbursementcalculated.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (rbtgrdeglibilepallavaddi_isbelated.SelectedIndex < 0)
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_grdeglibilepallavaddiGMrecommendedamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_grdeglibilepallavaddiEligibleamount.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
-                    }
-                    if (txt_TotalRemarks.Text.ToString() == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Remarks" + "\\n"; slno = slno + 1;
-                    }
+                        if (hfgrd_monthsixid.Value.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixname.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixPrincipalamounntdue.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixNoofInstallment.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixInterestamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixUnitHolderContribution.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixEligibleRateofinterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (lbl_grd_monthsixEligibleInterestAmount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_grdeglibilepallavaddiEligibleperiodinmonths.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_grdeglibilepallavaddiActualinterestamountpaid.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_grdeglibilepallavaddiInsertreimbursementcalculated.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (rbtgrdeglibilepallavaddi_isbelated.SelectedIndex < 0)
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_grdeglibilepallavaddiGMrecommendedamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_grdeglibilepallavaddiEligibleamount.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Claim  Period" + "\\n"; slno = slno + 1;
+                        }
+                        if (txt_TotalRemarks.Text.ToString() == "")
+                        {
+                            ErrorMsg = ErrorMsg + slno + "Claim-" + (j + 1) + ". Enter the Remarks" + "\\n"; slno = slno + 1;
+                        }
 
+                    }
                 }
+
             }
-
-
 
             return ErrorMsg;
         }
@@ -7101,27 +7104,27 @@ namespace TTAP.UI.Pages
             bool status = true;
             try
             {
-               // TextBox txt_Eligibleamount = new TextBox();
+                // TextBox txt_Eligibleamount = new TextBox();
                 objApprasialProperties.FINALELIGIBLEAMOUNT = Convert.ToDecimal(txt_Eligibleamount.Text);
                 //AssignValuestoVosFromcontrols();
                 objApprasialProperties.INCENTIVEID = txtIncID.Text;
                 objApprasialProperties.NAMEOFINDUSTRIAL = lblUnitName.InnerText;
-                objApprasialProperties.LOCATIONOFINDUSTRIAL =lblAddress .InnerText;
-                objApprasialProperties.NAMEOFPROMOTER =lblUnitName .InnerText;
+                objApprasialProperties.LOCATIONOFINDUSTRIAL = lblAddress.InnerText;
+                objApprasialProperties.NAMEOFPROMOTER = lblUnitName.InnerText;
                 objApprasialProperties.ConstitutionOFINDUSTRIAL = lblOrganization.InnerText;
                 objApprasialProperties.SOCIALSTATUS = lblSocialStatus.InnerText;
                 objApprasialProperties.WOMENENTERPRENEUR = lblShareofSCSTWomenEnterprenue.InnerText;
-                objApprasialProperties.PMTSSIREGISTRATIONNO =lblRegistrationNumber .InnerText;
+                objApprasialProperties.PMTSSIREGISTRATIONNO = lblRegistrationNumber.InnerText;
                 objApprasialProperties.PMTSSIREGISTRATIONDATE = lblReceiptDate.InnerText;
-                objApprasialProperties.NED_UNIT =lblCategoryofUnit .InnerText;
-                objApprasialProperties.DATEOFPRODUCTION =lblDCPdate .InnerText;
-                objApprasialProperties.DICFILLINGDATE =lblReceiptDate .InnerText;
-                objApprasialProperties.NAMEFINANCINGUNIT =lblUnitName .InnerText;
+                objApprasialProperties.NED_UNIT = lblCategoryofUnit.InnerText;
+                objApprasialProperties.DATEOFPRODUCTION = lblDCPdate.InnerText;
+                objApprasialProperties.DICFILLINGDATE = lblReceiptDate.InnerText;
+                objApprasialProperties.NAMEFINANCINGUNIT = lblUnitName.InnerText;
                 objApprasialProperties.CASTE = lblSocialStatus.InnerText;
                 objApprasialProperties.GENDER = lblSocialStatus.InnerText;
-                objApprasialProperties.CATEGORY =lblCategoryofUnit .InnerText;
+                objApprasialProperties.CATEGORY = lblCategoryofUnit.InnerText;
                 objApprasialProperties.ENTERPRISE = lblTypeofApplicant.InnerText;
-                objApprasialProperties.SECTOR = lblTypeofSector .InnerText;
+                objApprasialProperties.SECTOR = lblTypeofSector.InnerText;
                 objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
 
                 objApprasialProperties.INTERESTAMOUNT_TOBEPAIDASPERCALCULATIONS = Convert.ToDecimal(txt_Insertamounttobepaidaspercalculations.Text);
@@ -7176,7 +7179,7 @@ namespace TTAP.UI.Pages
                         DLODetails.RECOMMENDEAMOUNT = Convert.ToString(objApprasialProperties.FINALELIGIBLEAMOUNT);
                     }
 
-                    DLODetails.INCENTIVEID = txtIncID.Text; 
+                    DLODetails.INCENTIVEID = txtIncID.Text;
                     DLODetails.SUBINCENTIVEID = "3";
                     DLODetails.ACTIONID = "1";
                     DLODetails.FORWARDTO = ddlDepartment.SelectedItem.Text;
@@ -7257,11 +7260,11 @@ namespace TTAP.UI.Pages
             InterestSubsidyclaimLoandetailsproperties objgriduploads = new InterestSubsidyclaimLoandetailsproperties();
 
 
-            objgriduploads.Incentiveid =Convert.ToInt32(txtIncID.Text);
+            objgriduploads.Incentiveid = Convert.ToInt32(txtIncID.Text);
             objgriduploads.APCDPVID = 3;
-            objgriduploads.Createdby = ObjLoginNewvo.uid; 
+            objgriduploads.Createdby = ObjLoginNewvo.uid;
             objgriduploads.CreatedIP = Request.ServerVariables["Remote_Addr"];
-            objgriduploads.Modifiedby = ObjLoginNewvo.uid; 
+            objgriduploads.Modifiedby = ObjLoginNewvo.uid;
             objgriduploads.ModifiedIP = Request.ServerVariables["Remote_Addr"];
             objgriduploads.totince_interestamountpaidaspercal = Convert.ToDecimal(txt_Insertamounttobepaidaspercalculations.Text);
             objgriduploads.totince_actualinterestamountpaid = Convert.ToDecimal(txt_Actualinterestamountpaid.Text);

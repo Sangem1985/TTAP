@@ -1138,7 +1138,7 @@
                                                         <td style="padding: 5px; margin: 5px;">:
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style28">
-                                                            <asp:TextBox ID="txt_Eligibleamount" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
+                                                            <asp:TextBox ID="txt_Eligibleamount" runat="server" class="form-control txtbox" Height="28px" Enabled="true"
                                                                 TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator52" runat="server" ControlToValidate="txt_Eligibleamount"
                                                                 ErrorMessage="Please Enter Eligible amount" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>

@@ -26,14 +26,173 @@ namespace TTAP.UI.Pages
             {
                 if (!IsPostBack)
                 {
-                    string incentiveid = Request.QueryString["IncentiveID"].ToString();
+                    string incentiveid = "48440";// Request.QueryString["IncentiveID"].ToString();
                     txtIncID.Text = incentiveid;
                     BindBesicdata(incentiveid, "1", "");
+                    string SubIncentiveId = "1";
+                    DataSet dsnew1 = new DataSet();
+
+
                 }
             }
             catch (Exception ex)
             {
 
+            }
+        }
+
+        public void CalculatationEnterprise1(string Step)
+        {
+            try
+            {
+                decimal PlantMachValexisting = 0;
+                decimal PlantMachValexpansion = 0;
+                decimal PlantMachValFinal = 0;
+
+
+                decimal landexisting = 0, landcapacity = 0;
+
+                decimal buildingexisting = 0, buildingcapacity = 0;
+
+                decimal Othernew = 0, OtherExisting = 0;
+
+                decimal PlantMachValPer = 0;
+                decimal landcapacityPer = 0;
+                decimal buildingcapacityPer = 0;
+                decimal OthernewPer = 0;
+
+                if (Step == "1")
+                {
+                    if (txtlandexisting.InnerHtml != null && txtlandexisting.InnerHtml != "" && txtlandexisting.InnerHtml != string.Empty)
+                    {
+                        landexisting = Convert.ToDecimal(txtlandexisting.InnerHtml.Trim());   // exiting Plant Mach value
+                    }
+                    else
+                    {
+                        landexisting = 0;
+                    }
+                    if (txtbuildingexisting.InnerHtml != null && txtbuildingexisting.InnerHtml != "" && txtbuildingexisting.InnerHtml != string.Empty)
+                    {
+                        buildingexisting = Convert.ToDecimal(txtbuildingexisting.InnerHtml.Trim());   // exiting Plant Mach value
+                    }
+                    else
+                    {
+                        buildingexisting = 0;
+                    }
+
+                    if (txtplantexisting.InnerHtml != null && txtplantexisting.InnerHtml != "" && txtplantexisting.InnerHtml != string.Empty)
+                    {
+                        PlantMachValexisting = Convert.ToDecimal(txtplantexisting.InnerHtml.Trim());   // exiting Plant Mach value
+                    }
+                    else
+                    {
+                        PlantMachValexisting = 0;
+                    }
+                    //if (txtnewothers.InnerHtml != null && txtnewothers.InnerHtml != "" && txtnewothers.InnerHtml != string.Empty)
+                    //{
+                    //    Othernew = Convert.ToDecimal(txtnewothers.InnerHtml.Trim());  // expansion Plant Mach value   
+                    //}
+                    //else
+                    //{
+                    //    Othernew = 0;
+                    //}
+
+                    PlantMachValFinal = (PlantMachValexisting + landexisting + buildingexisting + Othernew);
+                    lblnewinv.InnerHtml = PlantMachValFinal.ToString();
+                }
+                else if (Step == "2")
+                {
+                    //--------------------------------
+                    if (txtlandcapacity.InnerHtml != null && txtlandcapacity.InnerHtml != "" && txtlandcapacity.InnerHtml != string.Empty)
+                    {
+                        landcapacity = Convert.ToDecimal(txtlandcapacity.InnerHtml.Trim());   // exiting Plant Mach value
+                    }
+                    else
+                    {
+                        landcapacity = 0;
+                    }
+                    if (txtbuildingcapacity.InnerHtml != null && txtbuildingcapacity.InnerHtml != "" && txtbuildingcapacity.InnerHtml != string.Empty)
+                    {
+                        buildingcapacity = Convert.ToDecimal(txtbuildingcapacity.InnerHtml.Trim());   // exiting Plant Mach value
+                    }
+                    else
+                    {
+                        buildingcapacity = 0;
+                    }
+
+                    // -------------------------------
+
+                    if (txtplantcapacity.InnerHtml != null && txtplantcapacity.InnerHtml != "" && txtplantcapacity.InnerHtml != string.Empty)
+                    {
+                        PlantMachValexpansion = Convert.ToDecimal(txtplantcapacity.InnerHtml.Trim());  // expansion Plant Mach value   
+                    }
+                    else
+                    {
+                        PlantMachValexpansion = 0;
+                    }
+                    //-----------------
+
+
+                    //if (txtexistother.InnerHtml != null && txtexistother.InnerHtml != "" && txtexistother.InnerHtml != string.Empty)
+                    //{
+                    //    OtherExisting = Convert.ToDecimal(txtexistother.InnerHtml.Trim());  // expansion Plant Mach value   
+                    //}
+                    //else
+                    //{
+                    //    OtherExisting = 0;
+                    //}
+                    PlantMachValFinal = (PlantMachValexpansion + landcapacity + buildingcapacity + OtherExisting);
+                    lblexpinv.InnerHtml = PlantMachValFinal.ToString();
+                }
+                else if (Step == "3")
+                {
+                    if (txtlandpercentage.InnerHtml != null && txtlandpercentage.InnerHtml != "" && txtlandpercentage.InnerHtml != string.Empty)
+                    {
+                        landcapacityPer = Convert.ToDecimal(txtlandpercentage.InnerHtml.Trim());  // expansion Plant Mach value   
+                    }
+                    else
+                    {
+                        landcapacityPer = 0;
+                    }
+
+                    if (txtbuildingpercentage.InnerHtml != null && txtbuildingpercentage.InnerHtml != "" && txtbuildingpercentage.InnerHtml != string.Empty)
+                    {
+                        buildingcapacityPer = Convert.ToDecimal(txtbuildingpercentage.InnerHtml.Trim());  // expansion Plant Mach value   
+                    }
+                    else
+                    {
+                        buildingcapacityPer = 0;
+                    }
+
+                    if (txtplantpercentage.InnerHtml != null && txtplantpercentage.InnerHtml != "" && txtplantpercentage.InnerHtml != string.Empty)
+                    {
+                        PlantMachValPer = Convert.ToDecimal(txtplantpercentage.InnerHtml.Trim());  // expansion Plant Mach value   
+                    }
+                    else
+                    {
+                        PlantMachValPer = 0;
+                    }
+
+                    //if (txtotherpersangage.InnerHtml != null && txtotherpersangage.InnerHtml != "" && txtotherpersangage.InnerHtml != string.Empty)
+                    //{
+                    //    OthernewPer = Convert.ToDecimal(txtotherpersangage.InnerHtml.Trim());  // expansion Plant Mach value   
+                    //}
+                    //else
+                    //{
+                    //    OthernewPer = 0;
+                    //}
+
+                    PlantMachValFinal = Convert.ToDecimal((landcapacityPer + buildingcapacityPer + PlantMachValPer + OthernewPer) / 3);
+
+                    lbltotperinv.InnerHtml = PlantMachValFinal.ToString("#.##");
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = ex.Message;
+                //lblmsg0.InnerHtml = ex.Message;
+                //Failure.Visible = true;
+                //success.Visible = false;
             }
         }
         public void BindBesicdata(string IncentiveID, string SubIncentiveId, string DistrictID)
@@ -84,10 +243,185 @@ namespace TTAP.UI.Pages
                     //{
                     //    txt_GMrecommendedamount.Text = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
                     //}
+                    txtlandexisting.InnerHtml = dsnew.Tables[0].Rows[0]["ExistEnterpriseLand"].ToString();
+                    TextBox33.Text = dsnew.Tables[0].Rows[0]["ExistEnterpriseLand"].ToString();
+                    txtlandcapacity.InnerHtml = dsnew.Tables[0].Rows[0]["ExpansionDiversificationLand"].ToString();
+                    txtlandpercentage.InnerHtml = dsnew.Tables[0].Rows[0]["LandFixedCapitalInvestPercentage"].ToString();
+
+                    txtbuildingexisting.InnerHtml = dsnew.Tables[0].Rows[0]["ExistEnterpriseBuilding"].ToString();
+                    TextBox37.Text = dsnew.Tables[0].Rows[0]["ExistEnterpriseBuilding"].ToString();
+                    txtbuildingcapacity.InnerHtml = dsnew.Tables[0].Rows[0]["ExpDiversBuilding"].ToString();
+                    txtbuildingpercentage.InnerHtml = dsnew.Tables[0].Rows[0]["BuildingFixedCapitalInvestPercentage"].ToString();
+
+                    txtplantexisting.InnerHtml = dsnew.Tables[0].Rows[0]["ExistEnterprisePlantMachinery"].ToString();
+                    TextBox41.Text = dsnew.Tables[0].Rows[0]["ExistEnterprisePlantMachinery"].ToString();
+                    txtplantcapacity.InnerHtml = dsnew.Tables[0].Rows[0]["ExpDiversPlantMachinery"].ToString();
+                    txtplantpercentage.InnerHtml = dsnew.Tables[0].Rows[0]["PlantMachFixedCapitalInvestPercentage"].ToString();
+
+                    CalculatationEnterprise1("1");
+                    CalculatationEnterprise1("2");
+                    CalculatationEnterprise1("3");
+
+                    txtcurrInvLandValue.InnerHtml = dsnew.Tables[0].Rows[0]["CurrentInvestmentLandvalue"].ToString();
+                    txtcurrInvBuldvalue.InnerHtml = dsnew.Tables[0].Rows[0]["CurrentInvestmentBuildingvalue"].ToString();
+                    txtcurrInvplantMechValue.InnerHtml = dsnew.Tables[0].Rows[0]["CurrentInvestmentplantMechValue"].ToString();
+                    txtcurrentInvothers.InnerHtml = dsnew.Tables[0].Rows[0]["CurrentInvestmentOtherValue"].ToString();
+
+                    txtExpansionLandValue.InnerHtml = dsnew.Tables[0].Rows[0]["ActualLandvalue"].ToString();
+                    txtExpansionBuildingValue.InnerHtml = dsnew.Tables[0].Rows[0]["ActualBuildingValue"].ToString();
+                    txtExpansionplantMechValue.InnerHtml = dsnew.Tables[0].Rows[0]["ActualPMValue"].ToString();
+                    txtExpansionInvothers.InnerHtml = dsnew.Tables[0].Rows[0]["ActualOtherValue"].ToString();
+
+                    CalculateCurrInvTot(TypeOfIndustry);
+                    DataSet dsnew1 = new DataSet();
+                    dsnew1 = objappraisalClass.GetSubsidyApplicationDeatils(IncentiveID, SubIncentiveId, "");
+                    TextBox56.Text = dsnew1.Tables[0].Rows[0]["DLOLandCalculatedAmount"].ToString();
+                    TextBox56_TextChanged(this, EventArgs.Empty);
+                    TextBox57.Text = dsnew1.Tables[0].Rows[0]["DLOBuildingCalculatedAmount"].ToString();
+                    TextBox57_TextChanged(this, EventArgs.Empty);
+                    TextBox58.Text = dsnew1.Tables[0].Rows[0]["DLOPMCalculatedAmount"].ToString();
+                    TextBox58_TextChanged(this, EventArgs.Empty);
+                    if (dsnew1.Tables[0].Rows[0]["NumberofEmployees_Training_Subsidy"].ToString()  !="")
+                    {
+                        txtemployement.Text = dsnew1.Tables[0].Rows[0]["NumberofEmployees_Training_Subsidy"].ToString();
+                    }
+                    if (!string.IsNullOrEmpty(lblTypeofApplicant.InnerText))
+                    {
+                        ListItem item = ddlIndustryStatus.Items.FindByText(lblTypeofApplicant.InnerText);
+
+                        if (item != null)
+                        {
+                            ddlIndustryStatus.ClearSelection(); // Clear previous selection
+                            item.Selected = true; // Set new selection
+                        }
+                    }
+                    if (lblCategoryofUnit.InnerText != null && lblCategoryofUnit.InnerText != "")
+                    {
+                        rdcategoryofunit.SelectedValue = lblCategoryofUnit.InnerText;
+                    }
+                    if (lblTypeofTexttile.InnerText != null && lblTypeofTexttile.InnerText != "")
+                    {
+                        rdcoventinaltech.SelectedValue = lblTypeofTexttile.InnerText;
+                    }
+                    if (!string.IsNullOrEmpty(lblActivityoftheUnit.InnerText))
+                    {
+                        ListItem item = ddlTextileProcessType.Items.FindByText(lblActivityoftheUnit.InnerText);
+
+                        if (item != null)
+                        {
+                            ddlTextileProcessType.ClearSelection(); // Clear previous selection
+                            item.Selected = true; // Set new selection
+                        }
+                    } 
                 }
             }
             catch (Exception ex)
             { }
+        }
+        public void CalculateCurrInvTot(string TypeOfIndustry)
+        {
+            if (TypeOfIndustry == "1")
+            {
+                // based on entry
+                decimal ExpansionLandValue = Convert.ToDecimal(GetDecimalNullValue(txtExpansionLandValue.InnerHtml.Trim().TrimStart()));
+                decimal ExpansionBuildingValue = Convert.ToDecimal(GetDecimalNullValue(txtExpansionBuildingValue.InnerHtml.Trim().TrimStart()));
+                decimal ExpansionplantMechValue = Convert.ToDecimal(GetDecimalNullValue(txtExpansionplantMechValue.InnerHtml.Trim().TrimStart()));
+                decimal ExpansionInvothers = Convert.ToDecimal(GetDecimalNullValue(txtExpansionInvothers.InnerHtml.Trim().TrimStart()));
+
+                lblExpansionInvTot.InnerHtml = (ExpansionLandValue + ExpansionBuildingValue + ExpansionplantMechValue + ExpansionInvothers).ToString();
+            }
+            else
+            {
+                // common application form values (existing industry)
+                decimal currInvLandValue = Convert.ToDecimal(GetDecimalNullValue(txtcurrInvLandValue.InnerHtml.Trim().TrimStart()));
+                decimal currInvBuldvalue = Convert.ToDecimal(GetDecimalNullValue(txtcurrInvBuldvalue.InnerHtml.Trim().TrimStart()));
+                decimal currInvplantMechValue = Convert.ToDecimal(GetDecimalNullValue(txtcurrInvplantMechValue.InnerHtml.Trim().TrimStart()));
+                decimal currentInvothers = Convert.ToDecimal(GetDecimalNullValue(txtcurrentInvothers.InnerHtml.Trim().TrimStart()));
+
+                // based on entry
+                decimal ExpansionLandValue = Convert.ToDecimal(GetDecimalNullValue(txtExpansionLandValue.InnerHtml.Trim().TrimStart()));
+                decimal ExpansionBuildingValue = Convert.ToDecimal(GetDecimalNullValue(txtExpansionBuildingValue.InnerHtml.Trim().TrimStart()));
+                decimal ExpansionplantMechValue = Convert.ToDecimal(GetDecimalNullValue(txtExpansionplantMechValue.InnerHtml.Trim().TrimStart()));
+                decimal ExpansionInvothers = Convert.ToDecimal(GetDecimalNullValue(txtExpansionInvothers.InnerHtml.Trim().TrimStart()));
+
+                lblExpansionInvTot.InnerHtml = (ExpansionLandValue + ExpansionBuildingValue + ExpansionplantMechValue + ExpansionInvothers).ToString();
+                lblCurrInvTot.InnerHtml = (currInvLandValue + currInvBuldvalue + currInvplantMechValue + currentInvothers).ToString();
+
+                try
+                {
+                    txtExpansionLandPer.InnerHtml = ((float)System.Math.Round((ExpansionLandValue / currInvLandValue) * 100, 2)).ToString();// ("#.##");
+                    if (txtExpansionLandPer.InnerHtml == "∞" || txtExpansionLandPer.InnerHtml == "0")
+                    {
+                        txtExpansionLandPer.InnerHtml = "0";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMsg = ex.Message;
+                    txtExpansionLandPer.InnerHtml = "0";
+                }
+                try
+                {
+                    txtExpansionBuildingPer.InnerHtml = ((float)System.Math.Round((ExpansionBuildingValue / currInvBuldvalue) * 100, 2)).ToString();//("#.##");
+                    if (txtExpansionBuildingPer.InnerHtml == "∞" || txtExpansionBuildingPer.InnerHtml == "0")
+                    {
+                        txtExpansionBuildingPer.InnerHtml = "0";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMsg = ex.Message;
+                }
+                try
+                {
+                    txtExpansionPMPer.InnerHtml = ((float)System.Math.Round((ExpansionplantMechValue / currInvplantMechValue) * 100, 2)).ToString();//("#.##");
+                    if (txtExpansionPMPer.InnerHtml == "∞" || txtExpansionPMPer.InnerHtml == "0")
+                    {
+                        txtExpansionPMPer.InnerHtml = "0";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMsg = ex.Message;
+                    txtExpansionPMPer.InnerHtml = "0";
+                }
+                try
+                {
+                    txtExpansionOthersPer.InnerHtml = ((float)System.Math.Round((ExpansionInvothers / currentInvothers) * 100, 2)).ToString();//("#.##");
+                    if (txtExpansionOthersPer.InnerHtml == "∞" || txtExpansionOthersPer.InnerHtml == "0")
+                    {
+                        txtExpansionOthersPer.InnerHtml = "0";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMsg = ex.Message;
+                    txtExpansionOthersPer.InnerHtml = "0";
+                }
+                decimal ExpansionInvTot = Convert.ToDecimal(GetDecimalNullValue(lblExpansionInvTot.InnerHtml.Trim().TrimStart()));
+                decimal CurrInvTot = Convert.ToDecimal(GetDecimalNullValue(lblCurrInvTot.InnerHtml.Trim().TrimStart()));
+                try
+                {
+                    txtExpansionTotalPer.InnerHtml = ((float)System.Math.Round((ExpansionInvTot / CurrInvTot) * 100, 2)).ToString();//("#.##");
+                    if (txtExpansionTotalPer.InnerHtml == "∞" || txtExpansionTotalPer.InnerHtml == "0")
+                    {
+                        txtExpansionTotalPer.InnerHtml = "0";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    string errorMsg = ex.Message;
+                    txtExpansionTotalPer.InnerHtml = "0";
+                }
+            }
+        }
+        public string GetDecimalNullValue(string Input)
+        {
+            string InputValue = "";
+
+            InputValue = (Input != "") ? Input : "0";
+
+            return InputValue;
         }
         protected void ddlindustryStatus(string SelectedValue, string TextileProcessName)
         {
@@ -372,36 +706,7 @@ namespace TTAP.UI.Pages
             {
             }
         }
-        protected void rdexpansion_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (rdexpansion.SelectedValue != "")
-                {
-
-                    if (rdexpansion.SelectedValue == "Y")
-                    {
-                        txtTSSFCnorms423.Enabled = true;
-                        txt423guideline.Enabled = true;
-                    }
-
-                    else
-                    {
-                        txtTSSFCnorms423.Enabled = false;
-                        txt423guideline.Enabled = false;
-                    }
-                }
-                else
-                {
-
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-            }
-        }
+    
         protected void rdmenwomen_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -434,197 +739,8 @@ namespace TTAP.UI.Pages
         {
             try
             {
-                if (rdeligibility.SelectedValue != "")
-                {
-                    Eligible.Visible = true;
-                    trEligible.Visible = true;
-                    TextBox59.Focus();
-                    if (rdeligibility.SelectedValue == "Regular")
-                    {
-                        if (rdlmv.SelectedValue == "NONLMV")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                if (rdeligibility.SelectedValue == "Regular")
-                                {
-                                    TextBox59.Text = "35";
-                                    txtTSSFCnorms423.Text = "0";
-                                    TextBox59_TextChanged(sender, e);
-                                    //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                }
-
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                if (rdeligibility.SelectedValue == "Regular")
-                                {
-                                    TextBox59.Text = "35";
-                                    txtTSSFCnorms423.Text = "10";
-                                    TextBox59_TextChanged(sender, e);
-                                    //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                }
-                            }
-                        }
-                        else if (rdlmv.SelectedValue == "LMV")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                if (rdeligibility.SelectedValue == "Regular")
-                                {
-                                    TextBox59.Text = "35";
-                                    txtTSSFCnorms423.Text = "0";
-                                    TextBox59_TextChanged(sender, e);
-                                    //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                }
-
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                if (rdeligibility.SelectedValue == "Regular")
-                                {
-                                    TextBox59.Text = "35";
-                                    txtTSSFCnorms423.Text = "10";
-                                    TextBox59_TextChanged(sender, e);
-                                    //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                }
-                            }
-                        }
-                        else if (rdlmv.SelectedValue == "GENERAL")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                if (rdeligibility.SelectedValue == "Regular")
-                                {
-                                    TextBox59.Text = "15";
-                                    txtTSSFCnorms423.Text = "0";
-                                    TextBox59_TextChanged(sender, e);
-                                    //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                }
-
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                if (rdeligibility.SelectedValue == "Regular")
-                                {
-                                    TextBox59.Text = "15";
-                                    txtTSSFCnorms423.Text = "10";
-                                    TextBox59_TextChanged(sender, e);
-                                    //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                }
-                            }
-                        }
-                    }
-                    else if (rdeligibility.SelectedValue == "Belated")
-                    {
-                        if (rdlmv.SelectedValue == "NONLMV")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                // txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "17.5";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                // txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "17.5";
-                                txtTSSFCnorms423.Text = "5";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                        }
-                        else if (rdlmv.SelectedValue == "LMV")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                // txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "17.5";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                // txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "17.5";
-                                txtTSSFCnorms423.Text = "5";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                        }
-                        else if (rdlmv.SelectedValue == "GENERAL")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                // txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "7.5";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                // txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "7.5";
-                                txtTSSFCnorms423.Text = "2.5";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                        }
-                    }
-                    else if (rdeligibility.SelectedValue == "OneYear")
-                    {
-                        if (rdlmv.SelectedValue == "NONLMV")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "0";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "0";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                        }
-                        else if (rdlmv.SelectedValue == "LMV")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "0";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "0";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                        }
-                        else if (rdlmv.SelectedValue == "GENERAL")
-                        {
-                            if (rdmenwomen.SelectedValue == "Men")
-                            {
-                                //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "0";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                            else if (rdmenwomen.SelectedValue == "Women")
-                            {
-                                //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                                TextBox59.Text = "0";
-                                txtTSSFCnorms423.Text = "0";
-                                TextBox59_TextChanged(sender, e);
-                            }
-                        }
-                    }
-
-                }
-
+                TTAPCategory();
+                CapitalsubsidyCalculation();
             }
             catch (Exception ex)
             {
@@ -635,220 +751,8 @@ namespace TTAP.UI.Pages
         {
             if (TextBox59.Text != "" && TextBox57.Text != "" && TextBox58.Text != "" && TextBox45.Text != "")
             {
-                if (rdlmv.SelectedValue == "NONLMV")
-                {
-                    if (rdmenwomen.SelectedValue == "Men")
-                    {
-                        if (rdeligibility.SelectedValue == "Regular")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                        }
-                        if (rdeligibility.SelectedValue == "Belated")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                        }
-                        if (rdeligibility.SelectedValue == "OneYear")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                        }
-                    }
-                    else if (rdmenwomen.SelectedValue == "Women")
-                    {
-                        if (rdeligibility.SelectedValue == "Regular")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 10) / 100).ToString();
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 1000000)
-                            {
-                                txtTSSFCnorms423.Text = "1000000";
-                            }
-
-                        }
-                        if (rdeligibility.SelectedValue == "Belated")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 1000000)
-                            {
-                                txtTSSFCnorms423.Text = "500000";
-                            }
-                        }
-                        if (rdeligibility.SelectedValue == "OneYear")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 10) / 100).ToString();
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 1000000)
-                            {
-                                txtTSSFCnorms423.Text = "0";
-                            }
-                        }
-                    }
-                }
-                else if (rdlmv.SelectedValue == "LMV")
-                {
-                    if (rdmenwomen.SelectedValue == "Men")
-                    {
-                        if (rdeligibility.SelectedValue == "Regular")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                        }
-                        if (rdeligibility.SelectedValue == "Belated")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                        }
-                        if (rdeligibility.SelectedValue == "OneYear")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                        }
-                    }
-                    else if (rdmenwomen.SelectedValue == "Women")
-                    {
-                        if (rdeligibility.SelectedValue == "Regular")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 10) / 100).ToString();
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 1000000)
-                            {
-                                txtTSSFCnorms423.Text = "1000000";
-                            }
-                        }
-                        if (rdeligibility.SelectedValue == "Belated")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 800000)
-                            {
-                                txtTSSFCnorms423.Text = "1000000";
-                            }
-                        }
-                        if (rdeligibility.SelectedValue == "OneYear")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 10) / 100).ToString();
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 800000)
-                            {
-                                txtTSSFCnorms423.Text = "0";
-                            }
-                        }
-                    }
-
-                }
-                else if (rdlmv.SelectedValue == "GENERAL")
-                {
-                    if (rdmenwomen.SelectedValue == "Men")
-                    {
-                        if (rdeligibility.SelectedValue == "Regular")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                            if (Convert.ToDecimal(txt423guideline.Text) >= 2000000)
-                            {
-                                txt423guideline.Text = "2000000";
-                            }
-                        }
-                        if (rdeligibility.SelectedValue == "Belated")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                            if (Convert.ToDecimal(txt423guideline.Text) >= 1000000)
-                            {
-                                txt423guideline.Text = "1000000";
-                            }
-                        }
-                        if (rdeligibility.SelectedValue == "OneYear")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = "0";
-                        }
-                    }
-                    else if (rdmenwomen.SelectedValue == "Women")
-                    {
-                        if (rdeligibility.SelectedValue == "Regular")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 10) / 100).ToString();
-                            if (Convert.ToDecimal(txt423guideline.Text) >= 2000000)
-                            {
-                                txt423guideline.Text = "2000000";
-                            }
-
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 1000000)
-                            {
-                                txtTSSFCnorms423.Text = "1000000";
-                            }
-                        }
-                        if (rdeligibility.SelectedValue == "Belated")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
-                            if (Convert.ToDecimal(txt423guideline.Text) >= 1000000)
-                            {
-                                txt423guideline.Text = "1000000";
-                            }
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 500000)
-                            {
-                                txtTSSFCnorms423.Text = "500000";
-                            }
-                        }
-                        if (rdeligibility.SelectedValue == "OneYear")
-                        {
-                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-                            txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 10) / 100).ToString();
-                            if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 800000)
-                            {
-                                txtTSSFCnorms423.Text = "0";
-                            }
-                        }
-                    }
-
-                }
-                //txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
-
-                //if (lblAllwomen.Value.ToString() == "Y")
-                //{
-                //    txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 10) / 100).ToString();
-                //    if (Convert.ToDecimal(txtTSSFCnorms423.Text) >= 1000000)
-                //    {
-                //        txtTSSFCnorms423.Text = "1000000";
-                //    }
-                //}
-                //else
-                //{
-                //    txtTSSFCnorms423.Text = "0";
-                //}
-
-
-                txtvalue424.Text = (Convert.ToDecimal(txtTSSFCnorms423.Text) + Convert.ToDecimal(txt423guideline.Text)).ToString();
-                if (rdlmv.SelectedValue == "LMV")
-                {
-                    if (Convert.ToDecimal(txtvalue424.Text) >= 800000)
-                    {
-                        txtvalue424.Text = "800000";
-                        txtvalue424.Enabled = false;
-                    }
-                }
-                else if (rdlmv.SelectedValue == "NONLMV")
-                {
-                    if (Convert.ToDecimal(txtvalue424.Text) >= 7500000)
-                    {
-                        txtvalue424.Text = "7500000";
-                    }
-                }
-                else if (rdlmv.SelectedValue == "GENERAL")
-                {
-                    if (Convert.ToDecimal(txtvalue424.Text) >= 3000000)
-                    {
-                        txtvalue424.Text = "3000000";
-                    }
-                }
-
-
+                TTAPCategory();
+                CapitalsubsidyCalculation();   
             }
             else
             {
@@ -856,11 +760,380 @@ namespace TTAP.UI.Pages
                 TextBox59.Text = "";
             }
         }
+
+        public void CapitalsubsidyCalculation()
+        {
+            try
+            {
+                if (TextBox57.Text != "" && TextBox58.Text != "" && TextBox45.Text != "")
+                {
+                    Eligible.Visible = true;
+                    trEligible.Visible = true;
+                    tr4231.Visible = true;
+                    tr4232.Visible = true;
+                    tr4233.Visible = true;
+                    if (ddlIndustryStatus.SelectedValue=="1")
+                    {
+                        if (rdcoventinaltech.SelectedValue == "Conventional Textile Unit")
+                        {
+                            if(rdcategoryofunit.SelectedValue=="A1")
+                            {
+                                if (rdlmv.SelectedValue == "GENERAL")
+                                {
+                                    if(rdmenwomen.SelectedValue== "Men")
+                                    {
+                                        trEligible.Visible = true;
+                                        TextBox59.Text = "25";
+                                        txtTSSFCnorms423.Text = "0";
+                                        if (rdeligibility.SelectedValue == "Regular")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 10000000)
+                                            {
+                                                txt423guideline.Text = "10000000";
+                                            }
+                                        }
+                                        if (rdeligibility.SelectedValue == "Belated")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 5000000)
+                                            {
+                                                txt423guideline.Text = "5000000";
+                                            }
+
+                                        }
+                                        if (rdeligibility.SelectedValue == "OneYear")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            
+                                        }
+                                    }                                   
+                                }
+                                else
+                                {
+                                    TextBox59.Text = "25";
+                                    txtTSSFCnorms423.Text = "5";
+                                    if (rdeligibility.SelectedValue == "Regular")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString(); 
+                                    }
+                                    if (rdeligibility.SelectedValue == "Belated")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                    if (rdeligibility.SelectedValue == "OneYear")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                }
+                            }
+                            txtvalue424.Text = (Convert.ToDecimal(txtTSSFCnorms423.Text) + Convert.ToDecimal(txt423guideline.Text)).ToString();
+                        }
+                        else
+                        {
+                            if (rdcategoryofunit.SelectedValue == "A1")
+                            {
+                                if (rdlmv.SelectedValue == "GENERAL")
+                                {
+                                    if (rdmenwomen.SelectedValue == "Men")
+                                    {
+                                        
+                                        TextBox59.Text = "35";
+                                        txtTSSFCnorms423.Text = "0";
+                                        if (rdeligibility.SelectedValue == "Regular")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 20000000)
+                                            {
+                                                txt423guideline.Text = "20000000";
+                                            }
+                                        }
+                                        if (rdeligibility.SelectedValue == "Belated")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 10000000)
+                                            {
+                                                txt423guideline.Text = "10000000";
+                                            }
+
+                                        }
+                                        if (rdeligibility.SelectedValue == "OneYear")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    TextBox59.Text = "35";
+                                    txtTSSFCnorms423.Text = "5";
+                                    if (rdeligibility.SelectedValue == "Regular")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
+                                    }
+                                    if (rdeligibility.SelectedValue == "Belated")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                    if (rdeligibility.SelectedValue == "OneYear")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                }
+                            }
+                            else if (rdcategoryofunit.SelectedValue == "A2")
+                            {
+                                if (rdlmv.SelectedValue == "GENERAL")
+                                {
+                                    if (rdmenwomen.SelectedValue == "Men")
+                                    {
+                                        trEligible.Visible = true;
+                                        TextBox59.Text = "35";
+                                        txtTSSFCnorms423.Text = "0";
+                                        if (rdeligibility.SelectedValue == "Regular")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 50000000)
+                                            {
+                                                txt423guideline.Text = "50000000";
+                                            }
+                                        }
+                                        if (rdeligibility.SelectedValue == "Belated")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 25000000)
+                                            {
+                                                txt423guideline.Text = "25000000";
+                                            }
+
+                                        }
+                                        if (rdeligibility.SelectedValue == "OneYear")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    TextBox59.Text = "35";
+                                    txtTSSFCnorms423.Text = "5";
+                                    if (rdeligibility.SelectedValue == "Regular")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
+                                    }
+                                    if (rdeligibility.SelectedValue == "Belated")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                    if (rdeligibility.SelectedValue == "OneYear")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                }
+                            }
+                            else if (rdcategoryofunit.SelectedValue == "A3")
+                            {
+                                if (rdlmv.SelectedValue == "GENERAL")
+                                {
+                                    if (rdmenwomen.SelectedValue == "Men")
+                                    {
+                                        trEligible.Visible = true;
+                                        TextBox59.Text = "35";
+                                        txtTSSFCnorms423.Text = "0";
+                                        if (rdeligibility.SelectedValue == "Regular")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 100000000)
+                                            {
+                                                txt423guideline.Text = "100000000";
+                                            }
+                                        }
+                                        if (rdeligibility.SelectedValue == "Belated")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 50000000)
+                                            {
+                                                txt423guideline.Text = "50000000";
+                                            }
+
+                                        }
+                                        if (rdeligibility.SelectedValue == "OneYear")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    TextBox59.Text = "35";
+                                    txtTSSFCnorms423.Text = "5";
+                                    if (rdeligibility.SelectedValue == "Regular")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
+                                    }
+                                    if (rdeligibility.SelectedValue == "Belated")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                    if (rdeligibility.SelectedValue == "OneYear")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                }
+                            }
+                            else if (rdcategoryofunit.SelectedValue == "A4")
+                            {
+                                if (rdlmv.SelectedValue == "GENERAL")
+                                {
+                                    if (rdmenwomen.SelectedValue == "Men")
+                                    {
+                                        trEligible.Visible = true;
+                                        TextBox59.Text = "35";
+                                        txtTSSFCnorms423.Text = "0";
+                                        if (rdeligibility.SelectedValue == "Regular")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 200000000)
+                                            {
+                                                txt423guideline.Text = "200000000";
+                                            }
+                                        }
+                                        if (rdeligibility.SelectedValue == "Belated")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 100000000)
+                                            {
+                                                txt423guideline.Text = "100000000";
+                                            }
+
+                                        }
+                                        if (rdeligibility.SelectedValue == "OneYear")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    TextBox59.Text = "35";
+                                    txtTSSFCnorms423.Text = "5";
+                                    if (rdeligibility.SelectedValue == "Regular")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
+                                    }
+                                    if (rdeligibility.SelectedValue == "Belated")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                    if (rdeligibility.SelectedValue == "OneYear")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                }
+                            }
+                            else if (rdcategoryofunit.SelectedValue == "A5")
+                            {
+                                if (rdlmv.SelectedValue == "GENERAL")
+                                {
+                                    if (rdmenwomen.SelectedValue == "Men")
+                                    {
+                                        trEligible.Visible = true;
+                                        TextBox59.Text = "35";
+                                        txtTSSFCnorms423.Text = "0";
+                                        if (rdeligibility.SelectedValue == "Regular")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 400000000)
+                                            {
+                                                txt423guideline.Text = "400000000";
+                                            }
+                                        }
+                                        if (rdeligibility.SelectedValue == "Belated")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                            if (Convert.ToDecimal(txt423guideline.Text) >= 200000000)
+                                            {
+                                                txt423guideline.Text = "200000000";
+                                            }
+
+                                        }
+                                        if (rdeligibility.SelectedValue == "OneYear")
+                                        {
+                                            txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    TextBox59.Text = "35";
+                                    txtTSSFCnorms423.Text = "5";
+                                    if (rdeligibility.SelectedValue == "Regular")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = (((Convert.ToDecimal(TextBox2.Text)) * 5) / 100).ToString();
+                                    }
+                                    if (rdeligibility.SelectedValue == "Belated")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                    if (rdeligibility.SelectedValue == "OneYear")
+                                    {
+                                        txt423guideline.Text = (((Convert.ToDecimal(TextBox2.Text)) * Convert.ToDecimal(TextBox59.Text)) / 100).ToString();
+                                        txtTSSFCnorms423.Text = "5";
+                                    }
+                                }
+                            }
+                            txtvalue424.Text = (Convert.ToDecimal(txtTSSFCnorms423.Text) + Convert.ToDecimal(txt423guideline.Text)).ToString();
+                        }
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+        protected void txtTSSFCnorms423_TextChanged(object sender, EventArgs e)
+        {
+            if (txtTSSFCnorms423.Text == "" || txtTSSFCnorms423.Text == null)
+            {
+                txtTSSFCnorms423.Text = "0";
+            }
+
+            txtvalue424.Text = (Convert.ToDecimal(txtTSSFCnorms423.Text) + Convert.ToDecimal(txt423guideline.Text)).ToString();
+        }
+        protected void btnsub_Click(object sender, EventArgs e)
+        {
+            // BindISCrrentClaimPeriodDtls(txtIncID.Text.ToString());
+            BindBesicdata(txtIncID.Text.ToString(), "3", "");
+        }
         public string ValidateControls()
         {
             int slno = 1;
             string ErrorMsg = "";
-             
+
             if (TextBox33.Text.TrimStart().TrimEnd().Trim() == "")
             {
                 ErrorMsg = ErrorMsg + slno + ". Please Enter Landas per approved costs \\n";
@@ -900,7 +1173,7 @@ namespace TTAP.UI.Pages
             {
                 ErrorMsg = ErrorMsg + slno + ". Please Enter all values of Computed as eligible Investment \\n";
                 slno = slno + 1;
-            } 
+            }
 
 
             if (rdlmv.SelectedValue.TrimStart().TrimEnd().Trim() == "" || rdlmv.SelectedValue.TrimStart().TrimEnd().Trim() == "0" || rdlmv.SelectedValue.TrimStart().TrimEnd().Trim() == null)
@@ -980,7 +1253,7 @@ namespace TTAP.UI.Pages
                 string returnval = "0";
                 returnval = ObjCAFClass.InterestSubsidyCommonDetails(objApprasialProperties);
                 if (!string.IsNullOrEmpty(returnval) && returnval.Trim() != "")
-                { 
+                {
                     string Role_Code = Session["Role_Code"].ToString().Trim().TrimStart();
                     DLOApplication DLODetails = new DLOApplication();
                     if (txtvalue424.Text != "")
@@ -1040,6 +1313,106 @@ namespace TTAP.UI.Pages
         protected void BtnSave3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        protected void rdcoventinaltech_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TTAPCategory();
+            CapitalsubsidyCalculation();
+        }
+
+        protected void rdcategoryofunit_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TTAPCategory();
+            CapitalsubsidyCalculation();
+
+        }
+
+        protected void txtemployement_TextChanged(object sender, EventArgs e)
+        {
+            TTAPCategory();
+            CapitalsubsidyCalculation();
+        }
+        public void TTAPCategory()
+        {
+            int TotalEmployement = 0;
+            double totalinvestment = 0.00;
+            if (txtemployement.Text != "" && txtemployement.Text != null)
+            {
+                TotalEmployement = Convert.ToInt32(txtemployement.Text);
+            }
+            if (TextBox2.Text != "" && TextBox2.Text != null)
+            {
+                totalinvestment = Convert.ToDouble(TextBox2.Text);
+            }
+
+            if (totalinvestment > 0)
+            {
+                totalinvestment = ((totalinvestment + 0.00) / 10000000);
+            }
+
+            string NatureOfIndustry = "";
+            string Category = "";
+            if (ddlIndustryStatus.SelectedValue == "1")
+            {
+                NatureOfIndustry = ddlTextileProcessType.SelectedValue;
+            }
+            else
+            {
+                NatureOfIndustry = ddlTextileProcessType.SelectedValue;
+            }
+
+            if (totalinvestment > 200 || TotalEmployement >= 1000)
+            {
+                Category = "A5";
+                rdcategoryofunit.SelectedValue = "A5";
+            }
+            else if ((totalinvestment > 100 && totalinvestment <= 200) || TotalEmployement >= 500)
+            {
+                Category = "A4";
+                rdcategoryofunit.SelectedValue = "A4";
+            }
+            else if ((totalinvestment > 50 && totalinvestment <= 100) || TotalEmployement >= 300)
+            {
+                Category = "A3";
+                rdcategoryofunit.SelectedValue = "A3";
+            }
+            else if ((totalinvestment > 10 && totalinvestment <= 50) && (TotalEmployement > 50) && NatureOfIndustry != "3")
+            {
+                Category = "A2";
+                rdcategoryofunit.SelectedValue = "A2";
+            }
+            else if (((totalinvestment > 10 && totalinvestment <= 50) || (TotalEmployement > 50)) && NatureOfIndustry == "3")
+            {
+                Category = "A2";
+                rdcategoryofunit.SelectedValue = "A2";
+            }
+            else if (totalinvestment <= 10 && TotalEmployement >= 50 && NatureOfIndustry != "3")
+            {
+                Category = "A1";
+                rdcategoryofunit.SelectedValue = "A1";
+            }
+            else if ((totalinvestment <= 10 || TotalEmployement >= 50) && NatureOfIndustry == "3")
+            {
+                Category = "A1";
+                rdcategoryofunit.SelectedValue = "A1";
+            }
+
+            // lblEnterpriseCategory.Text = Category;
+            HiddenFieldEnterpriseCategory.Value = Category;
+            //Session["SCategoryofUnit"] = Category;
+        }
+
+        protected void ddlIndustryStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TTAPCategory();
+            CapitalsubsidyCalculation();
+        }
+
+        protected void ddlTextileProcessType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TTAPCategory();
+            CapitalsubsidyCalculation();
         }
     }
 }

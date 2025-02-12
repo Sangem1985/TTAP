@@ -59,24 +59,24 @@
                                             <asp:BoundField DataField="ApplicationNumber" ItemStyle-HorizontalAlign="Center" HeaderText="Application Number">
                                                 <ItemStyle CssClass="text-left" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="UnitName" ItemStyle-HorizontalAlign="Center" HeaderText="Unit Name">
+                                            <asp:BoundField DataField="Address" ItemStyle-HorizontalAlign="Center" HeaderText="Unit Name">
                                                 <ItemStyle CssClass="text-left" />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="Category" ItemStyle-HorizontalAlign="Center" HeaderText="Category">
                                                 <ItemStyle CssClass="text-left" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="ApplicantName" ItemStyle-HorizontalAlign="Center" HeaderText="Applicant Name">
+                                         <%--   <asp:BoundField DataField="ApplicantName" ItemStyle-HorizontalAlign="Center" HeaderText="Applicant Name">
                                                 <ItemStyle CssClass="text-left" />
-                                            </asp:BoundField>
+                                            </asp:BoundField>--%>
                                             <asp:BoundField DataField="SocialStatusText" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center" HeaderText="Social Status">
                                                 <ItemStyle CssClass="text-left" />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="TypeOfIndustryText" ItemStyle-HorizontalAlign="Center" HeaderText="Type Of Industry">
                                                 <ItemStyle CssClass="text-left" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="Address" ItemStyle-HorizontalAlign="Center" HeaderText="Address">
+                                            <%--<asp:BoundField DataField="Address" ItemStyle-HorizontalAlign="Center" HeaderText="Address">
                                                 <ItemStyle CssClass="text-left" />
-                                            </asp:BoundField>
+                                            </asp:BoundField>--%>
                                             <asp:BoundField DataField="ApplicationFiledDate" ItemStyle-HorizontalAlign="Center" HeaderText="Application Date" DataFormatString="{0:dd-M-yyyy}">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
@@ -86,6 +86,9 @@
                                             <asp:BoundField DataField="IncentiveCount" ItemStyle-HorizontalAlign="Center" HeaderText="No. of Incentives">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
+                                          <%--    <asp:BoundField DataField="IncentiveName" ItemStyle-HorizontalAlign="Center" HeaderText="Type of Incentive">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>--%>
                                             <asp:TemplateField HeaderText="Process Application" ItemStyle-HorizontalAlign="Center">
                                                 <ItemTemplate>
                                                     <asp:Button ID="btnProcess" runat="server" Text="Process" CssClass="btn btn-blue py-1 title7" OnClick="btnProcess_Click"></asp:Button>

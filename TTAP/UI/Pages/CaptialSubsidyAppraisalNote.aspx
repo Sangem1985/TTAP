@@ -431,6 +431,21 @@
                                                 </td>
                                             </tr>
 
+                                            <tr>
+                                                <td class="auto-style14" style="padding: 5px; margin: 5px;" valign="top">&nbsp;</td>
+                                                <td class="auto-style10" style="padding: 5px; margin: 5px;">Employment</td>
+                                                <td class="auto-style18" style="margin: 5px;">&nbsp;</td>
+                                                <td class="auto-style5" style="margin: 5px;">
+                                                    <asp:TextBox ID="txtemployement" runat="server" AutoPostBack="true" class="form-control txtbox" Height="28px" MaxLength="100" onkeypress="DecimalOnly()" OnTextChanged="txtemployement_TextChanged" TabIndex="6" Text="0" Width="150px"></asp:TextBox>
+                                                </td>
+                                                <td class="auto-style20" style="margin: 5px;">&nbsp;</td>
+                                                <td class="auto-style24" style="margin: 5px;" valign="top">&nbsp;</td>
+                                                <td class="auto-style4" style="margin: 5px;">&nbsp;</td>
+                                                <td style="margin: 5px;">&nbsp;</td>
+                                                <td style="margin: 5px;">&nbsp;</td>
+                                                <td>&nbsp;</td>
+                                            </tr>
+
                                         </table>
                                     </div>
                                     <div class="row">
@@ -445,8 +460,120 @@
                                                     <b>ELEGIBLE INCENTIVES</b></td>
 
                                             </tr>
+                                            <tr id="trIndustryStatus" runat="server" visible="true">
+                                                <td class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Industry Status</td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
+                    </td>--%>
+                                                <td class="auto-style56">
 
-                                            <tr id="trlmv" runat="server" visible="true">
+                                                    <asp:DropDownList ID="ddlIndustryStatus" runat="server" class="form-control"
+                                                        TabIndex="5" AutoPostBack="true"
+                                                        OnSelectedIndexChanged="ddlIndustryStatus_SelectedIndexChanged">
+                                                        <asp:ListItem Value="0">-- Select --</asp:ListItem>
+                                                        <asp:ListItem Value="1">New Industry</asp:ListItem>
+                                                        <asp:ListItem Value="2">Expansion</asp:ListItem>
+                                                        <asp:ListItem Value="3">Diversification</asp:ListItem>
+                                                        <asp:ListItem Value="4">Modernization</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txtPlintharea423" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="35" onkeypress="return inputOnlyNumbers(event)"  Width="150px"></asp:TextBox>
+                    </td>--%>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr id="trCONVENTIONALTECHNICAL" runat="server">
+                                                <td class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Select</td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
+                    </td>--%>
+                                                <td class="auto-style56">
+
+                                                    <asp:RadioButtonList ID="rdcoventinaltech" runat="server" RepeatDirection="Horizontal"
+                                                        AutoPostBack="True" OnSelectedIndexChanged="rdcoventinaltech_SelectedIndexChanged">
+                                                        <asp:ListItem Value="Conventional Textile Unit">Conventional Textile Unit</asp:ListItem>
+                                                        <asp:ListItem Value="Technical Textile Unit">Technical Textile Unit</asp:ListItem>
+                                                    </asp:RadioButtonList>
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txtPlintharea423" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="35" onkeypress="return inputOnlyNumbers(event)"  Width="150px"></asp:TextBox>
+                    </td>--%>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr id="tr1" runat="server" visible="true">
+                                                <td class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Nature Of Industry</td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
+                    </td>--%>
+                                                <td class="auto-style56">
+                                                    <asp:DropDownList ID="ddlTextileProcessType" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlTextileProcessType_SelectedIndexChanged">
+                                                        <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
+                                                        <asp:ListItem Value="1" Text="Ginning"></asp:ListItem>
+                                                        <asp:ListItem Value="2" Text="Spinning"></asp:ListItem>
+                                                        <asp:ListItem Value="3" Text="Weaving"></asp:ListItem>
+                                                        <asp:ListItem Value="4" Text="Garmenting"></asp:ListItem>
+                                                        <asp:ListItem Value="5" Text="Processing"></asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txtPlintharea423" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="35" onkeypress="return inputOnlyNumbers(event)"  Width="150px"></asp:TextBox>
+                    </td>--%>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr id="trCATEORY" runat="server" visible="true">
+                                                <td class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Category of Unit</td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
+                    </td>--%>
+                                                <td class="auto-style56">
+
+                                                    <asp:RadioButtonList ID="rdcategoryofunit" runat="server" RepeatDirection="Horizontal"
+                                                        AutoPostBack="True" OnSelectedIndexChanged="rdcategoryofunit_SelectedIndexChanged">
+                                                        <asp:ListItem Value="A1">A1</asp:ListItem>
+                                                        <asp:ListItem Value="A2">A2</asp:ListItem>
+                                                        <asp:ListItem Value="A3">A3</asp:ListItem>
+                                                        <asp:ListItem Value="A4">A4</asp:ListItem>
+                                                        <asp:ListItem Value="A5">A5</asp:ListItem>
+                                                    </asp:RadioButtonList>
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txtPlintharea423" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="35" onkeypress="return inputOnlyNumbers(event)"  Width="150px"></asp:TextBox>
+                    </td>--%>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                </td>
+                                            </tr>
+                                            <tr id="trcaste" runat="server" visible="true">
                                                 <td class="auto-style56"></td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style57">Select</td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
@@ -458,6 +585,9 @@
                                                     <asp:RadioButtonList ID="rdlmv" runat="server" RepeatDirection="Horizontal"
                                                         AutoPostBack="True" OnSelectedIndexChanged="rdlmv_SelectedIndexChanged">
                                                         <asp:ListItem Value="GENERAL">GENERAL</asp:ListItem>
+                                                        <asp:ListItem Value="SC">SC</asp:ListItem>
+                                                        <asp:ListItem Value="ST">SC</asp:ListItem>
+                                                        <asp:ListItem Value="PHC">PWD</asp:ListItem>
                                                     </asp:RadioButtonList>
                                                 </td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
@@ -473,7 +603,7 @@
                                             </tr>
 
 
-                                            <tr id="trmenwomen" runat="server" visible="false">
+                                            <tr id="trmenwomen" runat="server">
                                                 <td class="auto-style56"></td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Men/Women</td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
@@ -500,7 +630,7 @@
                                                 </td>
                                             </tr>
 
-                                            <tr id="treligibility" runat="server" visible="false">
+                                            <tr id="treligibility" runat="server">
                                                 <td class="auto-style56"></td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Type</td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
@@ -528,35 +658,9 @@
                                                 </td>
                                             </tr>
 
-                                            <tr id="trexpansion" runat="server" visible="false">
-                                                <td class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Expansion Unit Yes/No</td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
-                                                <%--  <td style="padding: 5px; margin: 5px; ">
-                        <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
-                    </td>--%>
-                                                <td class="auto-style56">
 
-                                                    <asp:RadioButtonList ID="rdexpansion" runat="server" RepeatDirection="Horizontal"
-                                                        AutoPostBack="true" OnSelectedIndexChanged="rdexpansion_SelectedIndexChanged">
-                                                        <asp:ListItem Value="Y">Yes</asp:ListItem>
-                                                        <asp:ListItem Value="N" Selected="True">No</asp:ListItem>
-
-                                                    </asp:RadioButtonList>
-                                                </td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
-                                                </td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
-                                                <%--  <td style="padding: 5px; margin: 5px; ">
-                        <asp:TextBox ID="txtPlintharea423" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="35" onkeypress="return inputOnlyNumbers(event)"  Width="150px"></asp:TextBox>
-                    </td>--%>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
-                                                </td>
-                                            </tr>
-                                            <div id="Eligible" runat="server" visible="false">
-                                                <tr id="trEligible" runat="server" visible="false">
+                                            <div id="Eligible" runat="server">
+                                                <tr id="trEligible" runat="server">
                                                     <td class="auto-style48"></td>
                                                     <td class="auto-style48">Eligible %
                                                     </td>
@@ -643,29 +747,27 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                        <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
-                                                        <td style="padding: 5px; margin: 5px;">Forward To</td>
-                                                        <td style="padding: 5px; margin: 5px;">:
-                                                        </td>
-                                                        <td style="padding: 5px; margin: 5px;" class="auto-style28">
-                                                            <asp:DropDownList ID="ddlDepartment" runat="server" class="form-control txtbox">
-                                                                <asp:ListItem Text="--Select--" Value="Select"></asp:ListItem>
-                                                                <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
-                                                                <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
-                                                                <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
-                                                                <asp:ListItem Text="JD" Value="JD"></asp:ListItem>
-                                                            </asp:DropDownList>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txt_Eligibleamount"
-                                                                ErrorMessage="Please Enter Eligible amount" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
-                                                        </td>
-                                                        <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
-                                                        <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
-                                                        <td style="padding: 5px; margin: 5px;"></td>
-                                                        <td style="padding: 5px; margin: 5px;">&nbsp; 
-                                                        </td>
-                                                        <td style="padding: 5px; margin: 5px;">&nbsp;
-                                                        </td>
-                                                    </tr>
+                                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                    <td style="padding: 5px; margin: 5px;">Forward To</td>
+                                                    <td style="padding: 5px; margin: 5px;">:
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                                        <asp:DropDownList ID="ddlDepartment" runat="server" class="form-control txtbox">
+                                                            <asp:ListItem Text="--Select--" Value="Select"></asp:ListItem>
+                                                            <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
+                                                            <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
+                                                            <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
+                                                            <asp:ListItem Text="JD" Value="JD"></asp:ListItem>
+                                                        </asp:DropDownList>                                                      
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                    <td style="padding: 5px; margin: 5px;"></td>
+                                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <td class="style21" style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;"></td>
                                                     <td class="style21" style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;">WorkSheet
@@ -716,6 +818,7 @@
             <asp:HiddenField runat="server" ID="hdnActualCategory" />
             <asp:HiddenField runat="server" ID="hdnActualTextile" />
             <asp:HiddenField runat="server" ID="hdnTypeOfIndustry" />
+            <asp:HiddenField ID="HiddenFieldEnterpriseCategory" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>
