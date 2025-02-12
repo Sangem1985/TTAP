@@ -5829,7 +5829,8 @@ namespace TTAP.UI.Pages
                                                                         {
                                                                             gridquotientCompleted = 0;
                                                                             noofinstallment = (gridquotientCompleted);
-                                                                            Principalamountdue = 0;
+                                                                            ///Principalamountdue = 0; Commented by madhuri on 12/02/2025
+                                                                            Principalamountdue = Totalamount;
                                                                         }
 
                                                                     }
@@ -5952,6 +5953,15 @@ namespace TTAP.UI.Pages
                                                                     decimal pramountpaidfordays = (Totalamount / daysinamonth) * daystopaid;
                                                                     interestamount = (pramountpaidfordays * rateofinterestofdt) / 1200;
                                                                 }
+                                                            }
+                                                            /// dcp date less than emi start date added by madhuri on 12/02/2025
+                                                            else
+                                                            {
+                                                                int daysinamonth = DateTime.DaysInMonth(dat.AddMonths(k).Year, dat.AddMonths(k).Month);
+                                                                int daystopaid = (daysinamonth - dcpdate.Day) + 1;
+                                                                decimal pramountpaidfordays = (Totalamount / daysinamonth) * daystopaid;
+                                                                interestamount = (pramountpaidfordays * rateofinterestofdt) / 1200;
+
                                                             }
                                                         }
 
