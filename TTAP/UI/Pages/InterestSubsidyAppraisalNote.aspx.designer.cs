@@ -249,13 +249,40 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.HyperLink hylinkattachment;
 
         /// <summary>
-        /// gvInstalledCap control.
+        /// divLineNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvInstalledCap;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLineNew;
+
+        /// <summary>
+        /// GvLineOfactivityDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GvLineOfactivityDetails;
+
+        /// <summary>
+        /// divLineExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLineExp;
+
+        /// <summary>
+        /// GvLineOfactivityExpnsionDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GvLineOfactivityExpnsionDetails;
 
         /// <summary>
         /// lblLand_ProjectCost control.
@@ -364,114 +391,6 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPlantMachry_GMRec;
-
-        /// <summary>
-        /// lblFeasibilityStudyCharges_ProjectCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeasibilityStudyCharges_ProjectCost;
-
-        /// <summary>
-        /// lblFeasibilityStudyCharges_ValueRecommendedByGM control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeasibilityStudyCharges_ValueRecommendedByGM;
-
-        /// <summary>
-        /// lblFeasibilityStudyChargesComputed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeasibilityStudyChargesComputed;
-
-        /// <summary>
-        /// lblFeasibilityStudyCharges_GMRec control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeasibilityStudyCharges_GMRec;
-
-        /// <summary>
-        /// lblVehicles_ProjectCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehicles_ProjectCost;
-
-        /// <summary>
-        /// lblVehicles_ValueRecommendedByGM control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehicles_ValueRecommendedByGM;
-
-        /// <summary>
-        /// lblVehiclesComputed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehiclesComputed;
-
-        /// <summary>
-        /// lblVehicles_GMRec control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVehicles_GMRec;
-
-        /// <summary>
-        /// lblOthersEligible_ProjectCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOthersEligible_ProjectCost;
-
-        /// <summary>
-        /// lblOthersEligible_ValueRecommendedByGM control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOthersEligible_ValueRecommendedByGM;
-
-        /// <summary>
-        /// lblOthersEligibleComputed control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOthersEligibleComputed;
-
-        /// <summary>
-        /// lblOthersEligible_GMRec control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOthersEligible_GMRec;
 
         /// <summary>
         /// lblTotal_ProjectCost control.

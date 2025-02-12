@@ -17,19 +17,43 @@ namespace TTAP.UI.Pages
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TTAPDB"].ConnectionString);
         General Gen = new General();
+        CAFClass ObjCAFClass = new CAFClass();
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             getDetails();
             string incid = Request.QueryString["incid"].ToString();
+            string Type = "New";
+            getLOAData(incid,Type);
         }
-        public void getLOAData(DataSet ds1)
+        public void getLOAData(string incid,string Type)
         {
-            if (ds1 != null && ds1.Tables.Count > 1 && ds1.Tables[1].Rows.Count > 0)
+            try
             {
-                gvInstalledCap.DataSource = ds1.Tables[1];
-                gvInstalledCap.DataBind();
+                DataSet dsnew = new DataSet();
+                dsnew = GetLineofActivityDtls(incid, Type);
+
+                if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
+                {
+                    if (Type == "New")
+                    {
+                        GvLineOfactivityDetails.DataSource = dsnew.Tables[0];
+                        GvLineOfactivityDetails.DataBind();
+                        divLineNew.Visible = true;
+
+                    }
+                    else
+                    {
+                        GvLineOfactivityExpnsionDetails.DataSource = dsnew.Tables[0];
+                        GvLineOfactivityExpnsionDetails.DataBind();
+                        divLineExp.Visible = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
         }
@@ -42,7 +66,7 @@ namespace TTAP.UI.Pages
             if (MasterIncentiveId == "1" || MasterIncentiveId == "3" || MasterIncentiveId == "5")
             {
                 TRCLAIMPERIOD.Visible = true;
-                lblclaimperiod.Text = ds2.Tables[1].Rows[0]["GMclaimedfinyear"].ToString();
+                lblclaimperiod.Text = ds2.Tables[0].Rows[0]["GMclaimedfinyear"].ToString();
 
             }
             SqlConnection osqlConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["TTAPDB"].ConnectionString);
@@ -55,7 +79,7 @@ namespace TTAP.UI.Pages
             da.SelectCommand.Parameters.Add("@mstincentiveid", SqlDbType.VarChar).Value = MasterIncentiveId;
             da.Fill(ds);
 
-            getLOAData(ds);
+            //getLOAData(ds);
 
             if (ds.Tables[0].Rows.Count > 0)
             {
@@ -409,6 +433,19 @@ namespace TTAP.UI.Pages
             {
                 con.Close();
             }
+        }
+        public DataSet GetLineofActivityDtls(string INCENTIVEID, string LOAType)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@LOAType",SqlDbType.VarChar),
+               new SqlParameter("@INCENTIVEID",SqlDbType.VarChar)
+           };
+            pp[0].Value = LOAType;
+            pp[1].Value = INCENTIVEID;
+            Dsnew = ObjCAFClass.GenericFillDs("USP_INCENTIVE_LOA_DTLS", pp);
+            return Dsnew;
         }
     }
 }
