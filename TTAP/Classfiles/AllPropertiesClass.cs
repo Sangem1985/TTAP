@@ -2925,6 +2925,7 @@ namespace TTAP.Classfiles
         public string TotalSubsidyAmount { get; set; }
         public string ForwardTo { get; set; }
         public string WorkSheetPath { get; set; }
+        public string GMRecommendedAmount { get; set; }
 
     }
     public class InterestSubsidyclaimloanproperties

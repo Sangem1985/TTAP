@@ -1274,6 +1274,8 @@ namespace TTAP.UI.Pages
                 objApprasialProperties.WorkSheetPath = hypWorksheet.NavigateUrl.ToString();
                 objApprasialProperties.Remarks = txtremarks.Text;
                 objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
+                objApprasialProperties.GMRecommendedAmount = txtGMAmount.Text.ToString();
+
                 objApprasialProperties.Scheme = "TTAP";
                 string returnval = "0";
                 returnval = ObjCAFClass.InsertCaptialSubsidyAppraisal(objApprasialProperties);

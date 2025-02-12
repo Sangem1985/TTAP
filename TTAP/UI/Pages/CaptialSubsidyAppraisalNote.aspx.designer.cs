@@ -420,24 +420,6 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblcategory;
 
         /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label4;
-
-        /// <summary>
-        /// lblRecommended control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRecommended;
-
-        /// <summary>
         /// trApprovedProjectCost control.
         /// </summary>
         /// <remarks>
@@ -1255,6 +1237,24 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtvalue424;
+
+        /// <summary>
+        /// tr2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr2;
+
+        /// <summary>
+        /// txtGMAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtGMAmount;
 
         /// <summary>
         /// tradremarks control.

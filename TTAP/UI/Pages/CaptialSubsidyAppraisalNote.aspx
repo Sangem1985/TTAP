@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:UpdatePanel ID="upd1" runat="server">
-         <Triggers>
+        <Triggers>
             <asp:PostBackTrigger ControlID="btnUpload" />
         </Triggers>
         <ContentTemplate>
@@ -122,11 +122,6 @@
                                             <label class="control-label" id="Label9" runat="server">Promoter details in case eligible for additional subsidy</label>
                                             <label class="form-control" id="lblcategory" runat="server"></label>
                                         </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label4" runat="server">GM-Recommended Amount</label>
-                                            <label class="form-control" id="lblRecommended" runat="server"></label>
-                                        </div>
-
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 table-responsive">
@@ -677,7 +672,7 @@
                                                 </tr>
 
                                                 <tr id="tr4231" runat="server" visible="true">
-                                                    <td class="auto-style56">4.1</td>
+                                                    <td class="auto-style56"></td>
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style57">State Investment Subsidy in Rs.</td>
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                                     <%--  <td style="padding: 5px; margin: 5px; ">
@@ -700,7 +695,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr id="tr4232" runat="server" visible="true">
-                                                    <td class="auto-style55">4.2</td>
+                                                    <td class="auto-style55"></td>
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style55">Addl Sub. for Women in Rs.</td>
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style55">:</td>
                                                     <td class="auto-style55">
@@ -717,8 +712,8 @@
                                                     </td>
                                                 </tr>
                                                 <tr id="tr4233" runat="server" visible="true">
-                                                    <td>4.3</td>
-                                                    <td style="padding: 5px; margin: 5px;">TOTAL SUBSIDY(4.1 + 4.2)</td>
+                                                    <td></td>
+                                                    <td style="padding: 5px; margin: 5px;">TOTAL SUBSIDY</td>
                                                     <td style="padding: 5px; margin: 5px;">:</td>
                                                     <td>&nbsp;
                             <asp:TextBox ID="txtvalue424" runat="server" class="form-control txtbox txtcomn"
@@ -733,6 +728,24 @@
                                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                                     </td>
                                                 </tr>
+                                                <tr id="tr2" runat="server" visible="true">
+                                                    <td></td>
+                                                    <td style="padding: 5px; margin: 5px;">GM-Recommended Amount</td>
+                                                    <td style="padding: 5px; margin: 5px;">:</td>
+                                                    <td>&nbsp;
+                            <asp:TextBox ID="txtGMAmount" runat="server" class="form-control txtbox txtcomn"
+                                Height="30px" MaxLength="80" onkeypress="return inputOnlyNumbers(event)"  TabIndex="37" Width="150px"></asp:TextBox>
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;">&nbsp;</td>
+                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;">&nbsp;</td>
+                                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                    </td>
+                                                </tr>
+                                               
                                                 <tr id="tradremarks" runat="server" visible="true">
                                                     <td>4.4</td>
                                                     <td style="padding: 5px; margin: 5px;">Remarks</td>

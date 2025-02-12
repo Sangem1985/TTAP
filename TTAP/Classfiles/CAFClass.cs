@@ -7713,6 +7713,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@FORWARDTO", DLODetails.ForwardTo);
                 com.Parameters.AddWithValue("@WORKSHEETPATH", DLODetails.WorkSheetPath);
                 com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
+                com.Parameters.AddWithValue("@GMAMOUNT", DLODetails.GMRecommendedAmount);
                 com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
                 com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBY);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
