@@ -21,6 +21,8 @@ namespace TTAP.UI.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string IncentiveId = Request.QueryString["incid"].ToString();
+            string MasterIncentiveId = Request.QueryString["mstid"].ToString();
             getDetails();
             // string incid = Request.QueryString["incid"].ToString();
             //string Type = "New";
@@ -59,8 +61,8 @@ namespace TTAP.UI.Pages
         }
         public void getDetails()
         {
-            // string IncentiveId = Request.QueryString["incid"];
-            string IncentiveId = "48440";
+            string IncentiveId = Request.QueryString["incid"];
+            //string IncentiveId = "48440";
             int INC_QDID = 4;
 
             if (string.IsNullOrEmpty(IncentiveId))

@@ -25,8 +25,10 @@ namespace TTAP.UI.Pages
         {
             try
             {
+                string IncentiveId = Request.QueryString["incid"].ToString();
+                string MasterIncentiveId = Request.QueryString["mstid"].ToString();
                 DataSet dsnew = new DataSet();
-                dsnew = GetSalesTaxDtls("22183", "161017"); //IncentiveID
+                dsnew = GetSalesTaxDtls(IncentiveId, MasterIncentiveId); //IncentiveID
 
                 if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
                 {
@@ -73,16 +75,16 @@ namespace TTAP.UI.Pages
                 throw ex;
             }
         }
-        public DataSet GetSalesTaxDtls(string INCENTIVEID, string USERID)
+        public DataSet GetSalesTaxDtls(string INCENTIVEID, string MasterIncentiveId)
         {
             DataSet Dsnew = new DataSet();
 
             SqlParameter[] pp = new SqlParameter[] {
                new SqlParameter("@INCENTIVEID",SqlDbType.VarChar),
-               new SqlParameter("@CREATEDBY",SqlDbType.VarChar)
+               new SqlParameter("@MasterIncentiveId",SqlDbType.VarChar)
            };
             pp[0].Value = INCENTIVEID;
-            pp[1].Value = USERID;
+            pp[1].Value = MasterIncentiveId;
             Dsnew = ObjCAFClass.GenericFillDs("USP_GET_APPRAISAL_TAX", pp);
             return Dsnew;
         }

@@ -3192,9 +3192,9 @@ namespace TTAP.UI
                             {
                                 Response.Redirect("~/UI/Pages/CaptialSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
-                            else if (ddlClerkIncentive.SelectedValue == "4")
+                            else if (ddlClerkIncentive.SelectedValue == "6")
                             {
-                                Response.Redirect("~/UI/Pages/CaptialSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                                Response.Redirect("~/UI/Pages/TaxAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
 
                         }
@@ -4269,6 +4269,18 @@ namespace TTAP.UI
                             {
                                 (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
         "~/UI/Pages/InterestSubsidyAppraisalNote.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "1")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/CapitalSubsidy.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "6")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/TaxAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
         "&mstid=" + lblMstIncentiveId.Text.Trim();
                             }
                             else
