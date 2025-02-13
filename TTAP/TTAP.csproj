@@ -707,6 +707,7 @@
     <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaAbstract.aspx" />
     <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaPrint.aspx" />
     <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaUpdate.aspx" />
+    <Content Include="UI\Pages\TaxAppraisalNote.aspx" />
     <Content Include="UI\Pages\TypeOfIncentivesNew.aspx" />
     <Content Include="UI\Pages\TypeOfIncentivesNew1.aspx" />
     <Content Include="UI\Pages\VisitorRegistration.aspx" />
@@ -2359,6 +2360,13 @@
     </Compile>
     <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaUpdate.aspx.designer.cs">
       <DependentUpon>frmSVCGeneratedAgendaUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\TaxAppraisalNote.aspx.cs">
+      <DependentUpon>TaxAppraisalNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\TaxAppraisalNote.aspx.designer.cs">
+      <DependentUpon>TaxAppraisalNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\TypeOfIncentivesNew.aspx.cs">
       <DependentUpon>TypeOfIncentivesNew.aspx</DependentUpon>

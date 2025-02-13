@@ -7738,5 +7738,81 @@ namespace TTAP.Classfiles
             return Result;
         }
 
+        public string InsertTaxAppraisal(ApprasialProperties DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INS_APPRAISAL_TAX";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@UNITNAME", DLODetails.NAMEOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@ADDRESS", DLODetails.LOCATIONOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@PROPRIETOR_NAME", DLODetails.NAMEOFPROMOTER);
+                com.Parameters.AddWithValue("@CONSTITUTION_ORGANIZATION", DLODetails.ConstitutionOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@SOCIAL_STATUS", DLODetails.SOCIALSTATUS);
+                com.Parameters.AddWithValue("@SHARE_OF_SC_ST_WOMEN", DLODetails.WOMENENTERPRENEUR);
+                com.Parameters.AddWithValue("@REGISTRATION_NO", DLODetails.PMTSSIREGISTRATIONNO);
+                com.Parameters.AddWithValue("@TYPE_OF_UNIT", DLODetails.TypeOfUnit);
+                com.Parameters.AddWithValue("@CATEGORY", DLODetails.CATEGORY);
+                com.Parameters.AddWithValue("@TYPE_OF_SECTOR", DLODetails.SECTOR);
+                com.Parameters.AddWithValue("@TYPE_OF_TEXTILE", DLODetails.TextileType);
+                com.Parameters.AddWithValue("@TECHNICAL_TEXTILE_TYPE", DLODetails.TechnicalTextileType);
+                com.Parameters.AddWithValue("@ACTIVITY", DLODetails.ActivityOfUnit);
+                com.Parameters.AddWithValue("@UID_NO", DLODetails.UID_NO);
+                com.Parameters.AddWithValue("@APPLICATION_NO", DLODetails.Application_No);
+                com.Parameters.AddWithValue("@POWER_CONNECTION_RELEASE_DT", DLODetails.PowerConnectionRlsDate);
+                com.Parameters.AddWithValue("@DCP", DLODetails.DATEOFPRODUCTION);
+                com.Parameters.AddWithValue("@APPLIEDDATE", DLODetails.DICFILLINGDATE);
+                com.Parameters.AddWithValue("@TYPE_OF_UNIT_INS", DLODetails.TypeOfUnitIns);
+                
+                com.Parameters.AddWithValue("@PRODUCTION", DLODetails.Production);
+                com.Parameters.AddWithValue("@TAX_PAID_SGST", DLODetails.TaxPaidSGST);
+                com.Parameters.AddWithValue("@BASE_PRODUCTION", DLODetails.BaseProduction);
+                com.Parameters.AddWithValue("@ELIGIBLE_PRODUCTION_QTY", DLODetails.EligibleProductionQty);
+                com.Parameters.AddWithValue("@PROPORTINATE_SGST", DLODetails.ProportinateSGST);
+                com.Parameters.AddWithValue("@CAPITAL_ELIGIBLE_INV", DLODetails.CapitalEligibleInv);
+                com.Parameters.AddWithValue("@ALREADY_SANCTIONED_AMOUNT", DLODetails.AlreadySanctionedAmount);
+                com.Parameters.AddWithValue("@CATEGORY_INS", DLODetails.CategoryAsPerInspection);
+                com.Parameters.AddWithValue("@AMOUNT", DLODetails.AMOUNT);
+                com.Parameters.AddWithValue("@ELIGIBILITY_TYPE", DLODetails.Type);
+                com.Parameters.AddWithValue("@GM_REC_AMOUNT", DLODetails.GMRecommendedAmount);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT", DLODetails.EligibleSubsidyAmount);
+                com.Parameters.AddWithValue("@FINAL_SUBSIDY_AMOUNT", DLODetails.TotalSubsidyAmount);
+                com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
+                com.Parameters.AddWithValue("@WORKSHEET_PATH", DLODetails.WorkSheetPath);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+                com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBYIP);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+
     }
 }

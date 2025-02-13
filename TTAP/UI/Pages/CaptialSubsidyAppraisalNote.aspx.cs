@@ -29,7 +29,7 @@ namespace TTAP.UI.Pages
                 if (!IsPostBack)
                 {
                     string incentiveid = "";
-                    Request.QueryString["IncentiveID"] = incentiveid;
+                    
                     if (Request.QueryString["IncentiveID"] != null)
                     {
                         incentiveid = Request.QueryString["IncentiveID"].ToString();
@@ -1239,7 +1239,7 @@ namespace TTAP.UI.Pages
         }
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            ;
+            
             string errormsg = ValidateControls();
             if (errormsg.Trim().TrimStart() != "")
             {
@@ -1267,7 +1267,7 @@ namespace TTAP.UI.Pages
             ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
 
             ApprasialProperties objApprasialProperties = new ApprasialProperties();
-            bool status = true;
+            bool status = false;
             try
             {   
                 //Chanikya
@@ -1333,7 +1333,7 @@ namespace TTAP.UI.Pages
                     DLOApplication DLODetails = new DLOApplication();
                     if (txtvalue424.Text != "")
                     {
-                        DLODetails.RECOMMENDEAMOUNT = objApprasialProperties.txtvalue424;
+                        DLODetails.RECOMMENDEAMOUNT = txtvalue424.Text.ToString();
                     }
                     else
                     {
@@ -1351,11 +1351,10 @@ namespace TTAP.UI.Pages
 
                     if (result == "1")
                     {
-                        lblmsg.Text = "Application Process Submitted Successfully";
+                        status = true;
+                        /*lblmsg.Text = "Application Process Submitted Successfully";
                         string message = "alert('" + lblmsg.Text + "')";
-                        //ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Application Process Submitted Successfully.');", true);
-
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Application Process Submitted Successfully.');", true);*/
                     }
 
                 }
@@ -1489,7 +1488,7 @@ namespace TTAP.UI.Pages
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            string IncentiveId = "48440";
+            string IncentiveId = txtIncID.Text;
             string SubIncentiveId = "1";
 
             if (fuWorksheet.HasFile)

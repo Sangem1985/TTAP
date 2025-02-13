@@ -2927,6 +2927,17 @@ namespace TTAP.Classfiles
         public string WorkSheetPath { get; set; }
         public string GMRecommendedAmount { get; set; }
 
+        /* Reimbursement of TAX */
+
+        public string TypeOfUnitIns { get; set; }
+        public string Production { get; set; }
+        public string TaxPaidSGST { get; set; }
+        public string BaseProduction { get; set; }
+        public string EligibleProductionQty { get; set; }
+        public string ProportinateSGST { get; set; }
+        public string CapitalEligibleInv { get; set; }
+        public string AlreadySanctionedAmount { get; set; }
+        public string AMOUNT { get; set; }
     }
     public class InterestSubsidyclaimloanproperties
     {
