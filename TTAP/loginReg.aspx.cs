@@ -49,6 +49,7 @@ namespace TTAP
                         else
                         {
                             ViewState["IPASSFlg"] = "Y";
+                            Session["IPASSFlag"] = "Y";
                             //txtpsw.TextMode = TextBoxMode.SingleLine;
                             txtpsw.TextMode = TextBoxMode.Password;
                             txtuname.Text = UserId;

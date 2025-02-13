@@ -1347,13 +1347,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Button BtnClearall;
 
         /// <summary>
-        /// btm_previous control.
+        /// btnDashBoard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btm_previous;
+        protected global::System.Web.UI.WebControls.Button btnDashBoard;
 
         /// <summary>
         /// success control.

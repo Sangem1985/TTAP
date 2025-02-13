@@ -364,7 +364,12 @@ namespace TTAP.UI
             {
                 if (Session["IPASSFlag"].ToString() == "Y")
                 {
-                    Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx");
+                    string IntUserId = Session["uid"].ToString();
+                    string UserName = Session["user_id"].ToString();
+                    string Password = Session["password"].ToString();
+                    string PwdEncryflag = Session["PwdEncryflag"].ToString();
+                    Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx?IntUserId=" + IntUserId + "&UserName=" + UserName + "&Password=" +
+                                        Password + "&PwdEncryflag=" + PwdEncryflag + "&IsTtap=Y");
                 }
             }
             else

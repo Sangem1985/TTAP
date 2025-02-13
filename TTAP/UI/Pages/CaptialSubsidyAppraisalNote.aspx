@@ -26,7 +26,7 @@
                                     <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Inspection Report</h5>
                                 </div>
                                 <div class="widget-content nopadding">
-                                    <table>
+                                    <table runat="server" visible="false">
                                         <tr>
                                             <td>
 
@@ -300,8 +300,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td style="padding: 5px; margin: 5px; font-weight: bold;" valign="top" class="auto-style12">D<b>. </b>
-                                                </td>
+                                                
                                                 <td colspan="4" style="padding: 5px; margin: 5px;">
                                                     <b>ABSTRACT</b> </td>
 
@@ -452,8 +451,8 @@
                                                 <td colspan="10" style="height: 20px"></td>
                                             </tr>
                                             <tr>
-                                                <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px">4.2.3
-                                                </td>
+                                               <%-- <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px">4.2.3
+                                                </td>--%>
                                                 <td colspan="4" style="padding: 5px; margin: 5px;">
                                                     <b>ELEGIBLE INCENTIVES</b></td>
 
@@ -490,7 +489,7 @@
                                             </tr>
                                             <tr id="trCONVENTIONALTECHNICAL" runat="server">
                                                 <td class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Select</td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Textile Type</td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                                 <%--  <td style="padding: 5px; margin: 5px; ">
                         <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
@@ -573,7 +572,7 @@
                                             </tr>
                                             <tr id="trcaste" runat="server" visible="true">
                                                 <td class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Select</td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Social Status</td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                                 <%--  <td style="padding: 5px; margin: 5px; ">
                         <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
@@ -603,7 +602,7 @@
 
                                             <tr id="trmenwomen" runat="server">
                                                 <td class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Men/Women</td>
+                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Gender</td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                                 <%--  <td style="padding: 5px; margin: 5px; ">
                         <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
@@ -713,11 +712,11 @@
                                                 </tr>
                                                 <tr id="tr4233" runat="server" visible="true">
                                                     <td></td>
-                                                    <td style="padding: 5px; margin: 5px;">TOTAL SUBSIDY</td>
+                                                    <td style="padding: 5px; margin: 5px;">Total Subsidy Amount</td>
                                                     <td style="padding: 5px; margin: 5px;">:</td>
                                                     <td>&nbsp;
                             <asp:TextBox ID="txtvalue424" runat="server" class="form-control txtbox txtcomn"
-                                Height="30px" MaxLength="80" onkeypress="return inputOnlyNumbers(event)" TabIndex="37" Width="150px"></asp:TextBox>
+                                Height="30px" MaxLength="80" Enabled="false" onkeypress="return inputOnlyNumbers(event)" TabIndex="37" Width="150px"></asp:TextBox>
                                                     </td>
                                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                                     </td>
@@ -730,7 +729,7 @@
                                                 </tr>
                                                 <tr id="tr2" runat="server" visible="true">
                                                     <td></td>
-                                                    <td style="padding: 5px; margin: 5px;">GM-Recommended Amount</td>
+                                                    <td style="padding: 5px; margin: 5px;">GM Recommended Amount</td>
                                                     <td style="padding: 5px; margin: 5px;">:</td>
                                                     <td>&nbsp;
                             <asp:TextBox ID="txtGMAmount" runat="server" class="form-control txtbox txtcomn"
@@ -747,7 +746,7 @@
                                                 </tr>
                                                
                                                 <tr id="tradremarks" runat="server" visible="true">
-                                                    <td>4.4</td>
+                                                    <td></td>
                                                     <td style="padding: 5px; margin: 5px;">Remarks</td>
                                                     <td style="padding: 5px; margin: 5px;">:</td>
                                                     <td>&nbsp;
@@ -769,7 +768,7 @@
                                                     </td>
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style28">
                                                         <asp:DropDownList ID="ddlDepartment" runat="server" class="form-control txtbox">
-                                                            <asp:ListItem Text="--Select--" Value="Select"></asp:ListItem>
+                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
                                                             <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
                                                             <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
@@ -796,10 +795,10 @@
                                                             Visible="false" Target="_blank"></asp:HyperLink>
                                                         <br />
                                                         <asp:Label ID="Label444" runat="server" Visible="False"></asp:Label>
-                                                        <asp:Button ID="btnUpload" runat="server" CssClass="btn btn-xs btn-warning" Height="28px"
-                                                            TabIndex="10" Text="Upload" Width="72px" OnClick="btnUpload_Click" />
+                                                        
                                                     </td>
-                                                    <td></td>
+                                                    <td><asp:Button ID="btnUpload" runat="server" CssClass="btn btn-xs btn-warning" Height="35px"
+                                                            TabIndex="10" Text="Upload" Width="85px" OnClick="btnUpload_Click" /></td>
                                                 </tr>
                                             </div>
                                         </table>
@@ -808,7 +807,7 @@
                                                 <td align="center" colspan="3" style="padding: 5px; margin: 5px; text-align: center;">
                                                     <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-primary" Height="32px" OnClick="BtnSave_Click" TabIndex="24" Text="Save" ValidationGroup="group" Width="90px" />
                                                     &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="BtnClearall" runat="server" CausesValidation="False" CssClass="btn btn-warning" OnClick="BtnClearall_Click" Height="32px" Text="Clear" ToolTip="To Clear  the Screen" Width="90px" />
-                                                    &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btm_previous" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="btm_previous_Click" Height="32px" TabIndex="25" Text="Previous" ToolTip="Payment" Width="90px" />
+                                                    &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btnDashBoard" runat="server"  CssClass="btn btn-primary" OnClick="btm_previous_Click" Height="32px" TabIndex="25" Text="Go to Dashboard"   />
                                                 </td>
                                             </tr>
                                             <tr>

@@ -29,13 +29,14 @@ namespace TTAP.UI.Pages
                 if (!IsPostBack)
                 {
                     string incentiveid = "";
-                    //Request.QueryString["IncentiveID"] = incentiveid;
-                    if (Request.QueryString["IncentiveID"] != null) 
+                    Request.QueryString["IncentiveID"] = incentiveid;
+                    if (Request.QueryString["IncentiveID"] != null)
                     {
                         incentiveid = Request.QueryString["IncentiveID"].ToString();
                     }
                     txtIncID.Text = incentiveid;
                     BindBesicdata(incentiveid, "1", "");
+                    TextBox41_TextChanged(null, EventArgs.Empty);
                     DataSet dsnew1 = new DataSet();
                 }
             }
@@ -1140,7 +1141,7 @@ namespace TTAP.UI.Pages
 
             if (TextBox33.Text.TrimStart().TrimEnd().Trim() == "")
             {
-                ErrorMsg = ErrorMsg + slno + ". Please Enter Landas per approved costs \\n";
+                ErrorMsg = ErrorMsg + slno + ". Please Enter Land as per approved costs \\n";
                 slno = slno + 1;
             }
             if (TextBox37.Text.TrimStart().TrimEnd().Trim() == "")
@@ -1178,23 +1179,59 @@ namespace TTAP.UI.Pages
                 ErrorMsg = ErrorMsg + slno + ". Please Enter all values of Computed as eligible Investment \\n";
                 slno = slno + 1;
             }
-
-
+            if (txtemployement.Text.TrimStart().TrimEnd().Trim() == "")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please Enter Employment \\n";
+                slno = slno + 1;
+            }
+            if (ddlIndustryStatus.SelectedValue == "0")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please select Industry Status \\n";
+                slno = slno + 1;
+            }
+            if (rdcoventinaltech.SelectedValue == "0" || rdcoventinaltech.SelectedValue == "" || rdcoventinaltech.SelectedValue == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please select Textile Type \\n";
+                slno = slno + 1;
+            }
+            if (ddlTextileProcessType.SelectedValue == "0" || ddlTextileProcessType.SelectedValue == "" || ddlTextileProcessType.SelectedValue == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please select Nature of Industry \\n";
+                slno = slno + 1;
+            }
+            if (rdcategoryofunit.SelectedValue == "0" || rdcategoryofunit.SelectedValue == "" || rdcategoryofunit.SelectedValue == null)
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please select Category of Unit \\n";
+                slno = slno + 1;
+            }
             if (rdlmv.SelectedValue.TrimStart().TrimEnd().Trim() == "" || rdlmv.SelectedValue.TrimStart().TrimEnd().Trim() == "0" || rdlmv.SelectedValue.TrimStart().TrimEnd().Trim() == null)
             {
-                ErrorMsg = ErrorMsg + slno + ". Please Select LMV/Non LMV \\n";
+                ErrorMsg = ErrorMsg + slno + ". Please Select Social Status \\n";
                 slno = slno + 1;
             }
-
-            if (rdmenwomen.SelectedValue.TrimStart().TrimEnd().Trim() == "")
+            if (rdmenwomen.SelectedValue.TrimStart().TrimEnd().Trim() == "" || rdmenwomen.SelectedValue.TrimStart().TrimEnd().Trim() == "0" || rdmenwomen.SelectedValue.TrimStart().TrimEnd().Trim() == null)
             {
-                ErrorMsg = ErrorMsg + slno + ". Please Select Men or Women \\n";
+                ErrorMsg = ErrorMsg + slno + ". Please Select Gender \\n";
                 slno = slno + 1;
             }
-
-            if (rdeligibility.SelectedValue.TrimStart().TrimEnd().Trim() == "")
+            if (rdeligibility.SelectedValue.TrimStart().TrimEnd().Trim() == "" || rdeligibility.SelectedValue.TrimStart().TrimEnd().Trim() == "0"|| rdeligibility.SelectedValue.TrimStart().TrimEnd().Trim() == null)
             {
                 ErrorMsg = ErrorMsg + slno + ". Please Select type of Eligiblity \\n";
+                slno = slno + 1;
+            }
+            if (txtGMAmount.Text.TrimStart().TrimEnd().Trim() == "")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please Enter GM Recommended Amount \\n";
+                slno = slno + 1;
+            }
+            if (ddlDepartment.SelectedValue.TrimStart().TrimEnd().Trim() == "0")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please select whom you want to forward this to. \\n";
+                slno = slno + 1;
+            }
+            if (hypWorksheet.NavigateUrl=="")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please Upload Worksheet Pdf File \\n";
                 slno = slno + 1;
             }
 
@@ -1202,15 +1239,26 @@ namespace TTAP.UI.Pages
         }
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            ValidateControls();
-            if (save())
+            ;
+            string errormsg = ValidateControls();
+            if (errormsg.Trim().TrimStart() != "")
             {
-                string message = "alert('Appraisal note submitted successfully')";
+                string message = "alert('" + errormsg + "')";
                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                //..btn
-                BtnSave.Enabled = false;
-                BtnSave.Visible = false;
-                Response.Redirect("~/ClerkDashboard.aspx");
+                return;
+            }
+            else
+            {
+                if (save())
+                {
+                    string message = "alert('Appraisal note submitted successfully')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    //..btn
+                    BtnSave.Enabled = false;
+                    BtnSave.Visible = false;
+                    BtnClearall.Visible = false;
+                    //Response.Redirect("~/ClerkDashboard.aspx");
+                }
             }
         }
         public bool save()
@@ -1333,7 +1381,7 @@ namespace TTAP.UI.Pages
 
         protected void btm_previous_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ClerkDashboard.aspx");
+            Response.Redirect("COI/ClerkDashboard.aspx");
 
         }
 
