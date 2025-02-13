@@ -686,6 +686,7 @@
     <Content Include="UI\Pages\Releases\frmReleases.aspx" />
     <Content Include="UI\Pages\Releases\frmReleasesList.aspx" />
     <Content Include="UI\Pages\ReminderQueries.aspx" />
+    <Content Include="UI\Pages\SalesTaxAppraisal.aspx" />
     <Content Include="UI\Pages\SendMail.aspx" />
     <Content Include="UI\Pages\SLC\FormIssueSanctionLetter.aspx" />
     <Content Include="UI\Pages\SLC\frmIssueSanctionedLetter.aspx" />
@@ -2211,6 +2212,13 @@
     </Compile>
     <Compile Include="UI\Pages\ReminderQueries.aspx.designer.cs">
       <DependentUpon>ReminderQueries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SalesTaxAppraisal.aspx.cs">
+      <DependentUpon>SalesTaxAppraisal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SalesTaxAppraisal.aspx.designer.cs">
+      <DependentUpon>SalesTaxAppraisal.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\SendMail.aspx.cs">
       <DependentUpon>SendMail.aspx</DependentUpon>
