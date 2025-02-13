@@ -3192,6 +3192,10 @@ namespace TTAP.UI
                             {
                                 Response.Redirect("~/UI/Pages/CaptialSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
+                            else if (ddlClerkIncentive.SelectedValue == "4")
+                            {
+                                Response.Redirect("~/UI/Pages/CaptialSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            }
 
                         }
                         else
@@ -3297,7 +3301,7 @@ namespace TTAP.UI
 
             if (ddlstatus.SelectedValue == "1")
             {
-                if (ddlClerkIncentive.SelectedValue != "3")
+                if (ddlClerkIncentive.SelectedValue != "3" && ddlClerkIncentive.SelectedValue != "1")
                 {
                     if (txtAmount.Text == "")
                     {
@@ -4196,30 +4200,58 @@ namespace TTAP.UI
 
                 if (dss != null && dss.Tables.Count > 0)
                 {
+                    //if (dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
+                    //{
+                    //    if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "26" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[0]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
+                    //    {
+                    //        divClerklevel.Visible = true;
+                    //    }
+                    //    else { divClerklevel.Visible = false; }
+                    //    if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "58" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "69" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "72" || dss.Tables[0].Rows[0]["SUPDT_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-SUPDT")
+                    //    {
+                    //        divSupdtlevel.Visible = true;
+                    //    }
+                    //    else { divSupdtlevel.Visible = false; }
+                    //    if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "59" || dss.Tables[0].Rows[0]["AD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-AD")
+                    //    {
+                    //        divADlevel.Visible = true;
+                    //    }
+                    //    else { divADlevel.Visible = false; }
+
+                    //    if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "60" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "74" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-DD")
+                    //    {
+                    //        divDDlevel.Visible = true;
+                    //    }
+                    //    else { divDDlevel.Visible = false; }
+
+                    //}
                     if (dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
                     {
-                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "26" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[0]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
+                        for (int i = 0; i < dss.Tables[0].Rows.Count; i++)
                         {
-                            divClerklevel.Visible = true;
-                        }
-                        else { divClerklevel.Visible = false; }
-                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "58" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "69" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "72" || dss.Tables[0].Rows[0]["SUPDT_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-SUPDT")
-                        {
-                            divSupdtlevel.Visible = true;
-                        }
-                        else { divSupdtlevel.Visible = false; }
-                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "59" || dss.Tables[0].Rows[0]["AD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-AD")
-                        {
-                            divADlevel.Visible = true;
-                        }
-                        else { divADlevel.Visible = false; }
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "26" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[i]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
+                            {
+                                divClerklevel.Visible = true;
+                            }
 
-                        if ((dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "60" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "74" || dss.Tables[0].Rows[0]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-DD")
-                        {
-                            divDDlevel.Visible = true;
-                        }
-                        else { divDDlevel.Visible = false; }
+                            // else { divClerklevel.Visible = false; }
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "58" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "69" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "72" || dss.Tables[0].Rows[i]["SUPDT_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-SUPDT")
+                            {
+                                divSupdtlevel.Visible = true;
+                            }
+                            //else { divSupdtlevel.Visible = false; }
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "59" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[i]["AD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-AD")
+                            {
+                                divADlevel.Visible = true;
+                            }
+                            // else { divADlevel.Visible = false; }
 
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "60" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "77" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-DD")
+                            {
+                                divDDlevel.Visible = true;
+                            }
+                            //else { divDDlevel.Visible = false; }
+                        }
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[1].Rows.Count > 0)
                     {

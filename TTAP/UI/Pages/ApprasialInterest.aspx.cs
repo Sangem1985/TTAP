@@ -6565,7 +6565,11 @@ namespace TTAP.UI.Pages
         {
             int slno = 1;
             string ErrorMsg = "";
-
+            if(ddlDepartment.SelectedValue== "Select")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please Select officer to whom you want to forward \\n";
+                slno = slno + 1;
+            }
             if (rbtclaimtype.SelectedValue == "R")
             {
                 if (GvInterestSubsidyPeriod.Rows.Count == 0)

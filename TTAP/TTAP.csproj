@@ -528,6 +528,7 @@
     <Content Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceNewUnit.aspx" />
+    <Content Include="UI\Pages\CapitalSubsidy.aspx" />
     <Content Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx" />
     <Content Include="UI\Pages\COI\AdApplications.aspx" />
     <Content Include="UI\Pages\COI\AdDashboard.aspx" />
@@ -665,6 +666,7 @@
     <Content Include="UI\Pages\MISReports\SubmittedAppsDetailedReport.aspx" />
     <Content Include="UI\Pages\PaymentFailedTransactions.aspx" />
     <Content Include="UI\Pages\PlantandMachinerySearch.aspx" />
+    <Content Include="UI\Pages\PowerSubsidyApprasial.aspx" />
     <Content Include="UI\Pages\PowerTariffSubsidy.aspx" />
     <Content Include="UI\Pages\QueryGeneration\frmApllicationsforQuery.aspx" />
     <Content Include="UI\Pages\QueryGeneration\frmApllicationsforQueryDrill.aspx" />
@@ -1106,6 +1108,13 @@
     </Compile>
     <Compile Include="UI\Pages\CapitalAssistanceNewUnit.aspx.designer.cs">
       <DependentUpon>CapitalAssistanceNewUnit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalSubsidy.aspx.cs">
+      <DependentUpon>CapitalSubsidy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalSubsidy.aspx.designer.cs">
+      <DependentUpon>CapitalSubsidy.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx.cs">
       <DependentUpon>CaptialSubsidyAppraisalNote.aspx</DependentUpon>
@@ -2065,6 +2074,13 @@
     </Compile>
     <Compile Include="UI\Pages\PlantandMachinerySearch.aspx.designer.cs">
       <DependentUpon>PlantandMachinerySearch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\PowerSubsidyApprasial.aspx.cs">
+      <DependentUpon>PowerSubsidyApprasial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\PowerSubsidyApprasial.aspx.designer.cs">
+      <DependentUpon>PowerSubsidyApprasial.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\PowerTariffSubsidy.aspx.cs">
       <DependentUpon>PowerTariffSubsidy.aspx</DependentUpon>
