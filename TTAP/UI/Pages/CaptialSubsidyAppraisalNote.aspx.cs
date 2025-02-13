@@ -23,13 +23,13 @@ namespace TTAP.UI.Pages
         {
             UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
             ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
-            ViewState["UID"] = ObjLoginNewvo.uid;
+            
             try
             {
                 if (!IsPostBack)
                 {
                     string incentiveid = "";
-                    
+                    ViewState["UID"] = ObjLoginNewvo.uid;
                     if (Request.QueryString["IncentiveID"] != null)
                     {
                         incentiveid = Request.QueryString["IncentiveID"].ToString();
@@ -1229,11 +1229,11 @@ namespace TTAP.UI.Pages
                 ErrorMsg = ErrorMsg + slno + ". Please select whom you want to forward this to. \\n";
                 slno = slno + 1;
             }
-            if (hypWorksheet.NavigateUrl=="")
+           /* if (hypWorksheet.NavigateUrl=="")
             {
                 ErrorMsg = ErrorMsg + slno + ". Please Upload Worksheet Pdf File \\n";
                 slno = slno + 1;
-            }
+            }*/
 
             return ErrorMsg;
         }
