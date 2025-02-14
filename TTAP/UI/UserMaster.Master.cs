@@ -357,9 +357,7 @@ namespace TTAP.UI
         {
             //Userdtls = (UserLoginDtls)Session["UserDetails"];
             //Objins.UserLogOut(Userdtls.UserName);
-            Killsession();
-            Session["UserDetails"] = null;
-            Session.Abandon();
+            
             if (Session["IPASSFlag"] != null)
             {
                 if (Session["IPASSFlag"].ToString() == "Y")
@@ -368,12 +366,18 @@ namespace TTAP.UI
                     string UserName = Session["user_id"].ToString();
                     string Password = Session["password"].ToString();
                     string PwdEncryflag = Session["PwdEncryflag"].ToString();
+                    Killsession();
+                    Session["UserDetails"] = null;
+                    Session.Abandon();
                     Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx?IntUserId=" + IntUserId + "&UserName=" + UserName + "&Password=" +
                                         Password + "&PwdEncryflag=" + PwdEncryflag + "&IsTtap=Y");
                 }
             }
             else
             {
+                Killsession();
+                Session["UserDetails"] = null;
+                Session.Abandon();
                 Response.Redirect("~/loginReg.aspx");
             }
         }
