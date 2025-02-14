@@ -61,8 +61,8 @@ namespace TTAP.UI.Pages
         }
         public void getDetails()
         {
-            string IncentiveId = Request.QueryString["incid"];
-            //string IncentiveId = "48440";
+            // string IncentiveId = Request.QueryString["incid"];
+            string IncentiveId = "48440";
             int INC_QDID = 4;
 
             if (string.IsNullOrEmpty(IncentiveId))

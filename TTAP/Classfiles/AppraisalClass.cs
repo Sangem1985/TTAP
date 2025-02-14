@@ -67,5 +67,18 @@ namespace TTAP.Classfiles
             Dsnew = ObjCAFClass.GenericFillDs(ProcName, pp);
             return Dsnew;
         }
+        public DataSet GetCliamPeroid(string IncentiveId, string SubIncentiveId)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@INCENTIVEID",SqlDbType.VarChar),
+               new SqlParameter("@SUBINCENTIVEID",SqlDbType.VarChar)
+           };
+            pp[0].Value = IncentiveId;
+            pp[1].Value = SubIncentiveId;
+            Dsnew = ObjCAFClass.GenericFillDs("USP_GET_CURRENT_CLAIMPERIOD", pp);
+            return Dsnew;
+        }
     }
 }

@@ -3301,7 +3301,7 @@ namespace TTAP.UI
 
             if (ddlstatus.SelectedValue == "1")
             {
-                if (ddlClerkIncentive.SelectedValue != "3" && ddlClerkIncentive.SelectedValue != "1")
+                if (ddlClerkIncentive.SelectedValue != "3" && ddlClerkIncentive.SelectedValue != "1" && ddlClerkIncentive.SelectedValue != "6")
                 {
                     if (txtAmount.Text == "")
                     {
