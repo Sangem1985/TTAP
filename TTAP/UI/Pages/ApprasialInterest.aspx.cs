@@ -6042,10 +6042,14 @@ namespace TTAP.UI.Pages
                                                                         }
                                                                         else
                                                                         {
-                                                                            int daysinamonth = DateTime.DaysInMonth(dat.AddMonths(k).Year, dat.AddMonths(k).Month);
-                                                                            int daystopaid = (daysinamonth - dcpdate.Day) + 1;
-                                                                            decimal pramountpaidfordays = (Totalamount / daysinamonth) * daystopaid;
-                                                                            interestamount = (pramountpaidfordays * rateofinterestofdt) / 1200;
+
+                                                                            //int daysinamonth = DateTime.DaysInMonth(dat.AddMonths(k).Year, dat.AddMonths(k).Month);
+                                                                            //int daystopaid = (daysinamonth - dcpdate.Day) + 1;
+                                                                            //decimal pramountpaidfordays = (Totalamount / daysinamonth) * daystopaid;
+                                                                            //interestamount = (pramountpaidfordays * rateofinterestofdt) / 1200;
+                                                                            //Principalamountdue = Actualcaltermprincipaldueamount;//added by madhuri
+
+                                                                            interestamount = (Totalamount * rateofinterestofdt) / 1200;
                                                                             Principalamountdue = Actualcaltermprincipaldueamount;//added by madhuri
                                                                         }
                                                                     }
