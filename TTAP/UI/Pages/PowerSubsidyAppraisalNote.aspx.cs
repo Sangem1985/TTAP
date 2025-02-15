@@ -30,12 +30,12 @@ namespace TTAP.UI.Pages
                 {
                     if (!IsPostBack)
                     {
-                        string incentiveid = "";
+                        string incentiveid = "11122";
                         ViewState["UID"] = ObjLoginNewvo.uid;
-                        if (Request.QueryString["IncentiveID"] != null)
-                        {
-                            incentiveid = Request.QueryString["IncentiveID"].ToString();
-                        }
+                        //if (Request.QueryString["IncentiveID"] != null)
+                        //{
+                        //    incentiveid = Request.QueryString["IncentiveID"].ToString();
+                        //}
                         txtIncID.Text = incentiveid;
                         BindBesicdata(incentiveid, "4", "");
                         GetClaimPeriod(incentiveid, "4");
@@ -260,14 +260,14 @@ namespace TTAP.UI.Pages
                 txtEligibleAmount5.Text = (Convert.ToDecimal(EUnits5) * (Convert.ToDecimal(txtEligibleRate5.Text.ToString()))).ToString();
                 txtEligibleAmount6.Text = (Convert.ToDecimal(EUnits6) * (Convert.ToDecimal(txtEligibleRate6.Text.ToString()))).ToString();
 
-                lblTotalAmount.InnerText = (Convert.ToDecimal(txtEligibleAmount1.Text.ToString()) + Convert.ToDecimal(txtEligibleAmount2.Text.ToString()) + Convert.ToDecimal(txtEligibleAmount3.Text.ToString()) +
+                lblTotalAmount.Text = (Convert.ToDecimal(txtEligibleAmount1.Text.ToString()) + Convert.ToDecimal(txtEligibleAmount2.Text.ToString()) + Convert.ToDecimal(txtEligibleAmount3.Text.ToString()) +
                     Convert.ToDecimal(txtEligibleAmount4.Text.ToString()) + Convert.ToDecimal(txtEligibleAmount5.Text.ToString()) + Convert.ToDecimal(txtEligibleAmount6.Text.ToString())).ToString();
             }
         }
 
         protected void rdbEligibleType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lblTotalAmount.InnerText == "")
+            if (lblTotalAmount.Text == "")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Please Calculate Total Amount !');", true);
                 return;
@@ -278,22 +278,22 @@ namespace TTAP.UI.Pages
                 {
                     if (rdbEligibleType.SelectedValue.ToString() == "1")
                     {
-                        lblEligibleAmount.InnerText = lblTotalAmount.InnerText.ToString();
+                        lblEligibleAmount.Text = lblTotalAmount.Text.ToString();
                     }
                     if (rdbEligibleType.SelectedValue.ToString() == "2")
                     {
                         string ElgAmount = "";
-                        ElgAmount = (Convert.ToDecimal(lblTotalAmount.InnerText.ToString()) / 2).ToString();
-                        lblEligibleAmount.InnerText = ElgAmount;
+                        ElgAmount = (Convert.ToDecimal(lblTotalAmount.Text.ToString()) / 2).ToString();
+                        lblEligibleAmount.Text = ElgAmount;
                     }
                     if (rdbEligibleType.SelectedValue.ToString() == "3")
                     {
-                        lblEligibleAmount.InnerText = "0";
+                        lblEligibleAmount.Text = "0";
                     }
-                    decimal Val1 = (decimal)Convert.ToDecimal(lblEligibleAmount.InnerText.ToString());
+                    decimal Val1 = (decimal)Convert.ToDecimal(lblEligibleAmount.Text.ToString());
                     decimal Val2 = (decimal)Convert.ToDecimal(lblGMAmount.InnerText.ToString());
                     decimal minValue = Math.Min(Val1, Val2);
-                    lblFinalElgAmount.InnerText = minValue.ToString();
+                    lblFinalElgAmount.Text = minValue.ToString();
                 }
             }
         }
@@ -371,7 +371,7 @@ namespace TTAP.UI.Pages
                 ErrorMsg = ErrorMsg + slno + ". Please enter all Months of Eligible Amount Re-Imbursement  \\n";
                 slno = slno + 1;
             }
-            if (lblTotalAmount.InnerText == "" || lblEligibleAmount.InnerText == "" || lblGMAmount.InnerText == "" || lblFinalElgAmount.InnerText == "")
+            if (lblTotalAmount.Text == "" || lblEligibleAmount.Text == "" || lblGMAmount.InnerText == "" || lblFinalElgAmount.Text == "")
             {
                 ErrorMsg = ErrorMsg + slno + ". Please calculate Eligible Subsidy Amount By entering all required Details \\n";
                 slno = slno + 1;
@@ -455,11 +455,11 @@ namespace TTAP.UI.Pages
                 objApprasialProperties.EligibleAmount5 = txtEligibleAmount5.Text.ToString();
                 objApprasialProperties.EligibleAmount6 = txtEligibleAmount6.Text.ToString();
 
-                objApprasialProperties.ComputedTotalCost = lblTotalAmount.InnerText.ToString();
+                objApprasialProperties.ComputedTotalCost = lblTotalAmount.Text.ToString();
                 objApprasialProperties.Type = rdbEligibleType.SelectedItem.Text.ToString();
-                objApprasialProperties.EligibleSubsidyAmount = lblEligibleAmount.InnerText.ToString();
+                objApprasialProperties.EligibleSubsidyAmount = lblEligibleAmount.Text.ToString();
                 objApprasialProperties.GMRecommendedAmount = lblGMAmount.InnerText.ToString();
-                objApprasialProperties.TotalSubsidyAmount = lblFinalElgAmount.InnerText.ToString();
+                objApprasialProperties.TotalSubsidyAmount = lblFinalElgAmount.Text.ToString();
                 objApprasialProperties.Remarks = txtRemarks.Text.ToString();
                 objApprasialProperties.WorkSheetPath = hypWorksheet.NavigateUrl.ToString();
                 objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
@@ -471,9 +471,9 @@ namespace TTAP.UI.Pages
                 {
                     string Role_Code = Session["Role_Code"].ToString().Trim().TrimStart();
                     DLOApplication DLODetails = new DLOApplication();
-                    if (lblFinalElgAmount.InnerText != "")
+                    if (lblFinalElgAmount.Text != "")
                     {
-                        DLODetails.RECOMMENDEAMOUNT = lblFinalElgAmount.InnerText;
+                        DLODetails.RECOMMENDEAMOUNT = lblFinalElgAmount.Text;
                     }
                     else
                     {

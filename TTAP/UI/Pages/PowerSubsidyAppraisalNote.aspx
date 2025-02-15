@@ -144,7 +144,7 @@
                                             <asp:RadioButtonList ID="rdbTypeofTextile" runat="server" RepeatDirection="Horizontal"
                                                 AutoPostBack="True" OnSelectedIndexChanged="rdbTypeofTextile_SelectedIndexChanged">
                                                 <asp:ListItem Value="1">Conventional</asp:ListItem>
-                                                <asp:ListItem Value="2">Textile</asp:ListItem>
+                                                <asp:ListItem Value="2">Technical</asp:ListItem>
                                             </asp:RadioButtonList>
                                         </div>
                                         <div class="col-sm-3 form-group">
@@ -184,6 +184,98 @@
                                             </tr>
                                         </table>
                                     </div>
+                                    <div class="row" runat="server" id="divLastThreeDtls" visible="false">
+                                        <table style="width: 100%">
+                                             <tr>
+                                                <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px"></td>
+                                                <td colspan="4" style="padding: 5px; margin: 5px;">
+                                                    <b>Last Three Years Details</b></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td colspan="6">
+                                                    <table runat="server" bgcolor="White" width="100%" style="font-family: Verdana;border:solid;">
+                                                        <tr>
+                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">Financial Year
+                                                            </th>
+                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">No of Units Utilised
+                                                            </th>
+                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">Rate per Unit
+                                                            </th>
+                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">Total Paid by the unit in Rs
+                                                            </th>
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:DropDownList ID="ddlFinYear1" CssClass="form-control" runat="server">
+                                                                    <asp:ListItem Value="1" Text="2024-2025"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtUtilizedUnits1" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtRatePerUnit1" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtTotalPaid1" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:DropDownList ID="ddlFinYear2" CssClass="form-control" runat="server">
+                                                                    <asp:ListItem Value="1" Text="2024-2025"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtUtilizedUnits2" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtRatePerUnit2" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtTotalPaid2" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                         <tr>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:DropDownList ID="ddlFinYear3" CssClass="form-control" runat="server">
+                                                                    <asp:ListItem Value="1" Text="2024-2025"></asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </td>
+                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtUtilizedUnits3" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtRatePerUnit3" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtTotalPaid3" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="row" runat="server" visible="false">
+                                        <div class="col-sm-4 form-group">
+                                            <label class="control-label" id="Label21" runat="server">Total units consumed prior to 3 Years </label>
+                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtPrior3Yrs"></asp:TextBox>
+                                        </div>
+                                        <div class="col-sm-4 form-group">
+                                            <label class="control-label" id="Label22" runat="server">Average units EM </label>
+                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtAvgUnitsEM"></asp:TextBox>
+                                        </div>
+                                        <div class="col-sm-4 form-group">
+                                            <label class="control-label" id="Label23" runat="server">Base power consumption fixed per year </label>
+                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtBasePower"></asp:TextBox>
+                                        </div>
+                                         <div class="col-sm-4 form-group">
+                                            <label class="control-label" id="Label24" runat="server"> Per month</label>
+                                            <asp:TextBox runat="server" CssClass="form-control" ID="txtPerMonth"></asp:TextBox>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <table style="width: 100%">
                                             <tr style="height: 30px">
@@ -197,7 +289,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="8">
-                                                    <table id="tblNewUnit" runat="server" bgcolor="White" width="100%" style="font-family: Verdana;">
+                                                    <table id="tblNewUnit" runat="server" bgcolor="White" width="100%" style="font-family: Verdana;border:solid;">
                                                         <tr>
                                                             <th style="padding: 10px; margin: 5px; font-weight: bold;">Month
                                                             </th>
@@ -232,10 +324,10 @@
                                                             </td>
 
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleRate1" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRate1"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleAmount1" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmount1"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -253,10 +345,10 @@
                                                                 <asp:TextBox ID="txtAmountPaid2"  onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleRate2" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRate2"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleAmount2" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmount2" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
 
                                                         </tr>
@@ -268,17 +360,17 @@
                                                                 <asp:TextBox ID="txtYear3" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtUnitsConsumed3" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUnitsConsumed3"  onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
 
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
                                                                 <asp:TextBox ID="txtAmountPaid3" CssClass="form-control"  onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleRate3" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRate3"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleAmount3" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmount3"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
 
                                                         </tr>
@@ -296,10 +388,10 @@
                                                                 <asp:TextBox ID="txtAmountPaid4" CssClass="form-control" onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleRate4" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRate4"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleAmount4" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmount4"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -316,10 +408,10 @@
                                                                 <asp:TextBox ID="txtAmountPaid5" CssClass="form-control"  onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleRate5" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRate5"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleAmount5" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmount5"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -336,19 +428,21 @@
                                                                 <asp:TextBox ID="txtAmountPaid6" CssClass="form-control" onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleRate6" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRate6"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtEligibleAmount6" Enabled="false" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmount6" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </table>
+                                                    </td></tr>
                                         </table>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label4" runat="server">Total Amount</label>
-                                            <label class="form-control" id="lblTotalAmount" runat="server"></label>
+                                            <%--<label class="form-control" id="lblTotalAmount" runat="server"></label>--%>
+                                             <asp:TextBox ID="lblTotalAmount" Enabled="true" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label10" runat="server">Eligibility Type</label>
@@ -361,7 +455,8 @@
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label14" runat="server">Total Eligible Amount</label>
-                                            <label class="form-control" id="lblEligibleAmount" runat="server"></label>
+                                           
+                                            <asp:TextBox ID="lblEligibleAmount" Enabled="true" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label11" runat="server">GM Recommended Amount</label>
@@ -369,7 +464,8 @@
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label16" runat="server">Final Eligible Subsidy Amount in Rs</label>
-                                            <label class="form-control" id="lblFinalElgAmount" runat="server"></label>
+                                           
+                                            <asp:TextBox ID="lblFinalElgAmount" Enabled="true" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label17" runat="server">Remarks</label>

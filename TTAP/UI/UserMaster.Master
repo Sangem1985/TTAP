@@ -48,7 +48,7 @@
                 <div class="row">
                     <%--<div class="col-sm-1 pl-md-0"></div>--%>
                     <div class="col-sm-12">
-                        <img src="<%=Page.ResolveUrl("~/images/innerheader.JPEG")%>" alt="" class="img-fluid" />
+                        <img src="<%=Page.ResolveUrl("~/images/innerheader.jpg")%>" alt="" class="img-fluid" />
                     </div>
                     <%--<div class="col-sm-1 pl-md-0"></div>--%>
                 </div>
