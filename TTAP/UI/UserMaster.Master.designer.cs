@@ -501,6 +501,51 @@ namespace TTAP.UI
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lblDashboarddd;
 
         /// <summary>
+        /// LiTrackers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LiTrackers;
+
+        /// <summary>
+        /// liApplicationTrack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liApplicationTrack;
+
+        /// <summary>
+        /// a14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor a14;
+
+        /// <summary>
+        /// liIncentiveTrack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liIncentiveTrack;
+
+        /// <summary>
+        /// a13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor a13;
+
+        /// <summary>
         /// lichangepwd control.
         /// </summary>
         /// <remarks>

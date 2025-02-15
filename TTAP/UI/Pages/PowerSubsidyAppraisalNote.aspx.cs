@@ -105,6 +105,7 @@ namespace TTAP.UI.Pages
                     lblRegistrationNumber.InnerText = dsnew.Tables[0].Rows[0]["IncorpRegistranNumber"].ToString();
                     lblTechnicalTextileType.InnerText = dsnew.Tables[0].Rows[0]["TechnicalTextile"].ToString();
                     lblPowerConnectionReleaseDate.InnerText = dsnew.Tables[0].Rows[0]["NewPowerReleaseDate"].ToString();
+                    lblGMAmount.InnerText= dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
 
                 }
             }

@@ -167,6 +167,8 @@ namespace TTAP.UI
                         lblSUPDT.Visible = false;
                         lblAD.Visible = false;
                         lblDD.Visible = false;
+                        liApplicationTracker.Visible = true;
+                        LiTrackers.Visible = true;
 
                     }
                     else if (ObjLoginvo.Role_Code == "COI-SUPDT")
@@ -176,6 +178,8 @@ namespace TTAP.UI
                         lblClerk.Visible = false;
                         lblAD.Visible = false;
                         lblDD.Visible = false;
+                        LiTrackers.Visible = true;
+
                     }
                     else if (ObjLoginvo.Role_Code == "COI-AD")
                     {
@@ -184,6 +188,8 @@ namespace TTAP.UI
                         lblClerk.Visible = false;
                         lblSUPDT.Visible = false;
                         lblDD.Visible = false;
+                        LiTrackers.Visible = true;
+
                     }
                     else if (ObjLoginvo.Role_Code == "COI-DD")
                     {
@@ -192,6 +198,7 @@ namespace TTAP.UI
                         lblClerk.Visible = false;
                         lblSUPDT.Visible = false;
                         lblAD.Visible = false;
+                        LiTrackers.Visible = true;
                     }
                     else if (ObjLoginvo.Role_Code == "COMM")
                     {
@@ -252,7 +259,8 @@ namespace TTAP.UI
                         liQueryGeneration.Visible = true;
                         liIncentiveReports.Visible = true;
                         lidloWorkingStatus.Visible = true;
-                        liApplicationTracker.Visible = false;
+                        liApplicationTracker.Visible = true;
+                        liIncentiveTracker.Visible = true;
                         lblClerk.Visible = false;
                         lblSUPDT.Visible = false;
                         lblAD.Visible = false;
@@ -269,7 +277,8 @@ namespace TTAP.UI
                         liQueryGeneration.Visible = true;
                         liIncentiveReports.Visible = true;
                         lidloWorkingStatus.Visible = true;
-                        liApplicationTracker.Visible = false;
+                        liApplicationTracker.Visible = true;
+                        liIncentiveTracker.Visible = true;
                         lblClerk.Visible = false;
                         lblSUPDT.Visible = false;
                         lblAD.Visible = false;
