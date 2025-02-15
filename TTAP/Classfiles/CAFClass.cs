@@ -7813,6 +7813,105 @@ namespace TTAP.Classfiles
             }
             return Result;
         }
+        public string InsertPowerAppraisal(ApprasialProperties DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INS_APPRAISAL_POWER";
 
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@UNITNAME", DLODetails.NAMEOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@ADDRESS", DLODetails.LOCATIONOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@PROPRIETOR_NAME", DLODetails.NAMEOFPROMOTER);
+                com.Parameters.AddWithValue("@CONSTITUTION_ORGANIZATION", DLODetails.ConstitutionOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@SOCIAL_STATUS", DLODetails.SOCIALSTATUS);
+                com.Parameters.AddWithValue("@SHARE_OF_SC_ST_WOMEN", DLODetails.WOMENENTERPRENEUR);
+                com.Parameters.AddWithValue("@REGISTRATION_NO", DLODetails.PMTSSIREGISTRATIONNO);
+                com.Parameters.AddWithValue("@TYPE_OF_UNIT", DLODetails.TypeOfUnit);
+                com.Parameters.AddWithValue("@CATEGORY", DLODetails.CATEGORY);
+                com.Parameters.AddWithValue("@TYPE_OF_SECTOR", DLODetails.SECTOR);
+                com.Parameters.AddWithValue("@TYPE_OF_TEXTILE", DLODetails.TextileType);
+                com.Parameters.AddWithValue("@TECHNICAL_TEXTILE_TYPE", DLODetails.TechnicalTextileType);
+                com.Parameters.AddWithValue("@ACTIVITY", DLODetails.ActivityOfUnit);
+                com.Parameters.AddWithValue("@UID_NO", DLODetails.UID_NO);
+                com.Parameters.AddWithValue("@APPLICATION_NO", DLODetails.Application_No);
+                com.Parameters.AddWithValue("@POWER_CONNECTION_RELEASE_DT", DLODetails.PowerConnectionRlsDate);
+                com.Parameters.AddWithValue("@DCP", DLODetails.DATEOFPRODUCTION);
+                com.Parameters.AddWithValue("@APPLIEDDATE", DLODetails.DICFILLINGDATE);
+                com.Parameters.AddWithValue("@TYPE_OF_TEXTILE_INS", DLODetails.TextileTypeAsPerInspection);
+                com.Parameters.AddWithValue("@CATEGORY_INS", DLODetails.CategoryAsPerInspection);
+                com.Parameters.AddWithValue("@NATURE_OF_INDUSTRY_INS", DLODetails.NatureAsPerInspection);
+                com.Parameters.AddWithValue("@CLAIM_PERIOD", DLODetails.CLAIMPERIOD);
+                com.Parameters.AddWithValue("@FINANCIAL_YEAR", DLODetails.FinancialYear);
+                com.Parameters.AddWithValue("@MONTH1", DLODetails.Month1);
+                com.Parameters.AddWithValue("@MONTH2", DLODetails.Month2);
+                com.Parameters.AddWithValue("@MONTH3", DLODetails.Month3);
+                com.Parameters.AddWithValue("@MONTH4", DLODetails.Month4);
+                com.Parameters.AddWithValue("@MONTH5", DLODetails.Month5);
+                com.Parameters.AddWithValue("@MONTH6", DLODetails.Month6);
+                com.Parameters.AddWithValue("@UNITS_CONSUMED1", DLODetails.UnitsConsumed1);
+                com.Parameters.AddWithValue("@UNITS_CONSUMED2", DLODetails.UnitsConsumed2);
+                com.Parameters.AddWithValue("@UNITS_CONSUMED3", DLODetails.UnitsConsumed3);
+                com.Parameters.AddWithValue("@UNITS_CONSUMED4", DLODetails.UnitsConsumed4);
+                com.Parameters.AddWithValue("@UNITS_CONSUMED5", DLODetails.UnitsConsumed5);
+                com.Parameters.AddWithValue("@UNITS_CONSUMED6", DLODetails.UnitsConsumed6);
+                com.Parameters.AddWithValue("@PAID_BILL_AMOUNT1", DLODetails.PaidBillAmount1);
+                com.Parameters.AddWithValue("@PAID_BILL_AMOUNT2", DLODetails.PaidBillAmount2);
+                com.Parameters.AddWithValue("@PAID_BILL_AMOUNT3", DLODetails.PaidBillAmount3);
+                com.Parameters.AddWithValue("@PAID_BILL_AMOUNT4", DLODetails.PaidBillAmount4);
+                com.Parameters.AddWithValue("@PAID_BILL_AMOUNT5", DLODetails.PaidBillAmount5);
+                com.Parameters.AddWithValue("@PAID_BILL_AMOUNT6", DLODetails.PaidBillAmount6);
+                com.Parameters.AddWithValue("@ELIGIBLE_RATE1", DLODetails.EligibleRate1);
+                com.Parameters.AddWithValue("@ELIGIBLE_RATE2", DLODetails.EligibleRate2);
+                com.Parameters.AddWithValue("@ELIGIBLE_RATE3", DLODetails.EligibleRate3);
+                com.Parameters.AddWithValue("@ELIGIBLE_RATE4", DLODetails.EligibleRate4);
+                com.Parameters.AddWithValue("@ELIGIBLE_RATE5", DLODetails.EligibleRate5);
+                com.Parameters.AddWithValue("@ELIGIBLE_RATE6", DLODetails.EligibleRate6);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT1", DLODetails.EligibleAmount1);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT2", DLODetails.EligibleAmount2);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT3", DLODetails.EligibleAmount3);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT4", DLODetails.EligibleAmount4);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT5", DLODetails.EligibleAmount5);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT6", DLODetails.EligibleAmount6);
+                com.Parameters.AddWithValue("@TOTAL_AMOUNT", DLODetails.ComputedTotalCost);
+                com.Parameters.AddWithValue("@ELIGIBILITY_TYPE", DLODetails.Type);
+                com.Parameters.AddWithValue("@TOTAL_ELIGIBLE_AMOUNT", DLODetails.EligibleSubsidyAmount);
+                com.Parameters.AddWithValue("@GM_REC_AMOUNT", DLODetails.GMRecommendedAmount);
+                com.Parameters.AddWithValue("@FINAL_ELIGIBLE_AMOUNT", DLODetails.TotalSubsidyAmount);
+                com.Parameters.AddWithValue("@REMARKS", "");
+                com.Parameters.AddWithValue("@WORKSHEET_PATH", DLODetails.WorkSheetPath);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+                com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBYIP);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
     }
 }

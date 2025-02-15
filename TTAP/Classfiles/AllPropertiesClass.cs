@@ -2938,6 +2938,44 @@ namespace TTAP.Classfiles
         public string CapitalEligibleInv { get; set; }
         public string AlreadySanctionedAmount { get; set; }
         public string AMOUNT { get; set; }
+
+        /*POWER*/
+
+        public string Month1 { get; set; }
+        public string Month2 { get; set; }
+        public string Month3 { get; set; }
+        public string Month4 { get; set; }
+        public string Month5 { get; set; }
+        public string Month6 { get; set; }
+        public string UnitsConsumed1 { get; set; }
+        public string UnitsConsumed2 { get; set; }
+        public string UnitsConsumed3 { get; set; }
+        public string UnitsConsumed4 { get; set; }
+        public string UnitsConsumed5 { get; set; }
+        public string UnitsConsumed6 { get; set; }
+
+        public string PaidBillAmount1 { get; set; }
+        public string PaidBillAmount2 { get; set; }
+        public string PaidBillAmount3 { get; set; }
+        public string PaidBillAmount4 { get; set; }
+        public string PaidBillAmount5 { get; set; }
+        public string PaidBillAmount6 { get; set; }
+
+        public string EligibleRate1 { get; set; }
+        public string EligibleRate2 { get; set; }
+        public string EligibleRate3 { get; set; }
+        public string EligibleRate4 { get; set; }
+        public string EligibleRate5 { get; set; }
+        public string EligibleRate6 { get; set; }
+
+        public string EligibleAmount1 { get; set; }
+        public string EligibleAmount2 { get; set; }
+        public string EligibleAmount3 { get; set; }
+        public string EligibleAmount4 { get; set; }
+        public string EligibleAmount5 { get; set; }
+        public string EligibleAmount6 { get; set; }
+        public string FinancialYear { get; set; }
+
     }
     public class InterestSubsidyclaimloanproperties
     {

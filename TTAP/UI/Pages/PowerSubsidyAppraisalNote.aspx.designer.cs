@@ -420,6 +420,60 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblcategory;
 
         /// <summary>
+        /// Label8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label8;
+
+        /// <summary>
+        /// rdbTypeofTextile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbTypeofTextile;
+
+        /// <summary>
+        /// Label13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label13;
+
+        /// <summary>
+        /// rdbCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbCategory;
+
+        /// <summary>
+        /// Label15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label15;
+
+        /// <summary>
+        /// ddlNature control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlNature;
+
+        /// <summary>
         /// lblClaimPeroid control.
         /// </summary>
         /// <remarks>
@@ -438,274 +492,328 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlTable tblNewUnit;
 
         /// <summary>
-        /// txt_grdmonthyear1New control.
+        /// txtMonth1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear1New;
+        protected global::System.Web.UI.WebControls.TextBox txtMonth1;
 
         /// <summary>
-        /// txt_grdmonthyear1NewFinyear control.
+        /// txtYear1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear1NewFinyear;
+        protected global::System.Web.UI.WebControls.TextBox txtYear1;
 
         /// <summary>
-        /// TextBox23 control.
+        /// txtUnitsConsumed1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox23;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumed1;
 
         /// <summary>
-        /// TextBox25 control.
+        /// txtAmountPaid1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox25;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaid1;
 
         /// <summary>
-        /// TextBox21 control.
+        /// txtEligibleRate1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox21;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRate1;
 
         /// <summary>
-        /// txt_grdmonthyear2New control.
+        /// txtEligibleAmount1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear2New;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmount1;
 
         /// <summary>
-        /// txt_grdmonthyear2NewFinyear control.
+        /// txtMonth2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear2NewFinyear;
+        protected global::System.Web.UI.WebControls.TextBox txtMonth2;
 
         /// <summary>
-        /// TextBox51 control.
+        /// txtYear2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox51;
+        protected global::System.Web.UI.WebControls.TextBox txtYear2;
 
         /// <summary>
-        /// TextBox52 control.
+        /// txtUnitsConsumed2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox52;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumed2;
 
         /// <summary>
-        /// TextBox22 control.
+        /// txtAmountPaid2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox22;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaid2;
 
         /// <summary>
-        /// txt_grdmonthyear3New control.
+        /// txtEligibleRate2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear3New;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRate2;
 
         /// <summary>
-        /// txt_grdmonthyear3NewFinyear control.
+        /// txtEligibleAmount2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear3NewFinyear;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmount2;
 
         /// <summary>
-        /// TextBox64 control.
+        /// txtMonth3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox64;
+        protected global::System.Web.UI.WebControls.TextBox txtMonth3;
 
         /// <summary>
-        /// TextBox65 control.
+        /// txtYear3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox65;
+        protected global::System.Web.UI.WebControls.TextBox txtYear3;
 
         /// <summary>
-        /// TextBox26 control.
+        /// txtUnitsConsumed3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox26;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumed3;
 
         /// <summary>
-        /// txt_grdmonthyear4New control.
+        /// txtAmountPaid3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear4New;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaid3;
 
         /// <summary>
-        /// txt_grdmonthyear4NewFinyear control.
+        /// txtEligibleRate3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear4NewFinyear;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRate3;
 
         /// <summary>
-        /// TextBox71 control.
+        /// txtEligibleAmount3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox71;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmount3;
 
         /// <summary>
-        /// TextBox73 control.
+        /// txtMonth4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox73;
+        protected global::System.Web.UI.WebControls.TextBox txtMonth4;
 
         /// <summary>
-        /// TextBox27 control.
+        /// txtYear4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox27;
+        protected global::System.Web.UI.WebControls.TextBox txtYear4;
 
         /// <summary>
-        /// txt_grdmonthyear5New control.
+        /// txtUnitsConsumed4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear5New;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumed4;
 
         /// <summary>
-        /// txt_grdmonthyear5NewFinyear control.
+        /// txtAmountPaid4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear5NewFinyear;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaid4;
 
         /// <summary>
-        /// TextBox79 control.
+        /// txtEligibleRate4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox79;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRate4;
 
         /// <summary>
-        /// TextBox81 control.
+        /// txtEligibleAmount4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox81;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmount4;
 
         /// <summary>
-        /// TextBox95 control.
+        /// txtMonth5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox95;
+        protected global::System.Web.UI.WebControls.TextBox txtMonth5;
 
         /// <summary>
-        /// txt_grdmonthyear6New control.
+        /// txtYear5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear6New;
+        protected global::System.Web.UI.WebControls.TextBox txtYear5;
 
         /// <summary>
-        /// txt_grdmonthyear6NewFinyear control.
+        /// txtUnitsConsumed5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txt_grdmonthyear6NewFinyear;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumed5;
 
         /// <summary>
-        /// TextBox87 control.
+        /// txtAmountPaid5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox87;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaid5;
 
         /// <summary>
-        /// TextBox89 control.
+        /// txtEligibleRate5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox89;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRate5;
 
         /// <summary>
-        /// TextBox96 control.
+        /// txtEligibleAmount5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox96;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmount5;
+
+        /// <summary>
+        /// txtMonth6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMonth6;
+
+        /// <summary>
+        /// txtYear6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtYear6;
+
+        /// <summary>
+        /// txtUnitsConsumed6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumed6;
+
+        /// <summary>
+        /// txtAmountPaid6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaid6;
+
+        /// <summary>
+        /// txtEligibleRate6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRate6;
+
+        /// <summary>
+        /// txtEligibleAmount6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmount6;
 
         /// <summary>
         /// Label4 control.
@@ -717,13 +825,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label4;
 
         /// <summary>
-        /// Label8 control.
+        /// lblTotalAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label8;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotalAmount;
 
         /// <summary>
         /// Label10 control.
@@ -735,13 +843,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label10;
 
         /// <summary>
-        /// RadioButtonList1 control.
+        /// rdbEligibleType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbEligibleType;
 
         /// <summary>
         /// Label14 control.
@@ -753,13 +861,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label14;
 
         /// <summary>
-        /// Label15 control.
+        /// lblEligibleAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label15;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEligibleAmount;
 
         /// <summary>
         /// Label11 control.
@@ -771,13 +879,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label11;
 
         /// <summary>
-        /// Label13 control.
+        /// lblGMAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label13;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblGMAmount;
 
         /// <summary>
         /// Label16 control.
@@ -789,6 +897,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label16;
 
         /// <summary>
+        /// lblFinalElgAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblFinalElgAmount;
+
+        /// <summary>
         /// Label17 control.
         /// </summary>
         /// <remarks>
@@ -796,6 +913,69 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label17;
+
+        /// <summary>
+        /// txtRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
+
+        /// <summary>
+        /// Label20 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label20;
+
+        /// <summary>
+        /// ddlDepartment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
+
+        /// <summary>
+        /// fuWorksheet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuWorksheet;
+
+        /// <summary>
+        /// hypWorksheet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hypWorksheet;
+
+        /// <summary>
+        /// Label444 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label444;
+
+        /// <summary>
+        /// btnUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpload;
 
         /// <summary>
         /// trsubmit control.

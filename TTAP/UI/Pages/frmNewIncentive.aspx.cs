@@ -223,13 +223,13 @@ namespace TTAP.UI.Pages
                             fuDocuments1.Enabled = true;
                             btnUpload1.Enabled = true;
                         }
-                        IsFirstTime = ObjCAFClass.Check_IsFirstTime(hdnUserID.Value.ToString());
+                        /*IsFirstTime = ObjCAFClass.Check_IsFirstTime(hdnUserID.Value.ToString());
                         if (IsFirstTime == "Y")
                         {
                             divOtp.Visible = true;
                             txtOTP.Enabled = false;
                             hdnIsFirstTime.Value = "Y";
-                        }
+                        }*/
                     }
 
 
@@ -2450,12 +2450,11 @@ namespace TTAP.UI.Pages
                     ErrorMsg = ErrorMsg + slno + ". Please Enter Email ID Under Office Address\\n";
                     slno = slno + 1;
                 }
-                if (hdnIsFirstTime.Value == "Y" && (hdnVerified.Value == "" || hdnVerified.Value == null || hdnVerified.Value == "N"))
+                /*if (hdnIsFirstTime.Value == "Y" && (hdnVerified.Value == "" || hdnVerified.Value == null || hdnVerified.Value == "N"))
                 {
-                    /*ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please Verify your Mobile Number with OTP');", true);*/
                     ErrorMsg = ErrorMsg + slno + ". Please Verify Authorised Person Mobile Number with OTP\\n";
                     slno = slno + 1;
-                }
+                }*/
 
                 //if (rdIaLa_Lst.SelectedIndex <= -1 && divIsIALA.Visible == true)
                 //{
