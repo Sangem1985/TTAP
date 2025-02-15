@@ -7888,7 +7888,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@TOTAL_ELIGIBLE_AMOUNT", DLODetails.EligibleSubsidyAmount);
                 com.Parameters.AddWithValue("@GM_REC_AMOUNT", DLODetails.GMRecommendedAmount);
                 com.Parameters.AddWithValue("@FINAL_ELIGIBLE_AMOUNT", DLODetails.TotalSubsidyAmount);
-                com.Parameters.AddWithValue("@REMARKS", "");
+                com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
                 com.Parameters.AddWithValue("@WORKSHEET_PATH", DLODetails.WorkSheetPath);
                 com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
                 com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBYIP);

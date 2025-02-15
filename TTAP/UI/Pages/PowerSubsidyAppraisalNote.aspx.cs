@@ -459,6 +459,7 @@ namespace TTAP.UI.Pages
                 objApprasialProperties.EligibleSubsidyAmount = lblEligibleAmount.InnerText.ToString();
                 objApprasialProperties.GMRecommendedAmount = lblGMAmount.InnerText.ToString();
                 objApprasialProperties.TotalSubsidyAmount = lblFinalElgAmount.InnerText.ToString();
+                objApprasialProperties.Remarks = txtRemarks.Text.ToString();
                 objApprasialProperties.WorkSheetPath = hypWorksheet.NavigateUrl.ToString();
                 objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
                 objApprasialProperties.CREATEDBYIP = "";
