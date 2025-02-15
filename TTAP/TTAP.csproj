@@ -667,6 +667,7 @@
     <Content Include="UI\Pages\PaymentFailedTransactions.aspx" />
     <Content Include="UI\Pages\PlantandMachinerySearch.aspx" />
     <Content Include="UI\Pages\PowerSubsidyAppraisalNote.aspx" />
+    <Content Include="UI\Pages\PowerSubsidyAppraisalPrint.aspx" />
     <Content Include="UI\Pages\PowerSubsidyApprasial.aspx" />
     <Content Include="UI\Pages\PowerTariffSubsidy.aspx" />
     <Content Include="UI\Pages\QueryGeneration\frmApllicationsforQuery.aspx" />
@@ -2083,6 +2084,13 @@
     </Compile>
     <Compile Include="UI\Pages\PowerSubsidyAppraisalNote.aspx.designer.cs">
       <DependentUpon>PowerSubsidyAppraisalNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\PowerSubsidyAppraisalPrint.aspx.cs">
+      <DependentUpon>PowerSubsidyAppraisalPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\PowerSubsidyAppraisalPrint.aspx.designer.cs">
+      <DependentUpon>PowerSubsidyAppraisalPrint.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\PowerSubsidyApprasial.aspx.cs">
       <DependentUpon>PowerSubsidyApprasial.aspx</DependentUpon>
