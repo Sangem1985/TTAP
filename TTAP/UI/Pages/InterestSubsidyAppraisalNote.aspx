@@ -2538,9 +2538,9 @@
                                                                             </th>
                                                                             <th style="font-family: Calibri">Interest due
                                                                             </th>
-                                                                            <th style="font-family: Calibri">Unit Holder Contribution
+                                                                            <th style="font-family: Calibri">75% on interest due
                                                                             </th>
-                                                                            <th style="font-family: Calibri">Eligible Rate of interest
+                                                                            <th style="font-family: Calibri">interest due @ 8%
                                                                             </th>
                                                                             <th style="font-family: Calibri">Eligible Interest Amount
                                                                             </th>

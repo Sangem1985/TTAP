@@ -2465,7 +2465,7 @@
                                                         <asp:BoundField DataField="CLERK_ProcessDate" HeaderText="Process Date" />
                                                         <asp:TemplateField HeaderText="Appraisal Note">
                                                             <ItemTemplate>
-                                                                <asp:HyperLink ID="anchortagGMCertificate" runat="server" Text="Recommendation Letter" Font-Bold="true" ForeColor="Green" Target="_blank" />
+                                                                <asp:HyperLink ID="anchortagGMCertificate" runat="server" Text="Appraisal Note" Font-Bold="true" ForeColor="Green" Target="_blank" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
 

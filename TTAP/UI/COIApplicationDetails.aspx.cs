@@ -3196,6 +3196,10 @@ namespace TTAP.UI
                             {
                                 Response.Redirect("~/UI/Pages/TaxAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
+                            else if (ddlClerkIncentive.SelectedValue == "4")
+                            {
+                                Response.Redirect("~/UI/Pages/PowerSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            }
 
                         }
                         else
@@ -3301,7 +3305,7 @@ namespace TTAP.UI
 
             if (ddlstatus.SelectedValue == "1")
             {
-                if (ddlClerkIncentive.SelectedValue != "3" && ddlClerkIncentive.SelectedValue != "1" && ddlClerkIncentive.SelectedValue != "6")
+                if (ddlClerkIncentive.SelectedValue != "3" && ddlClerkIncentive.SelectedValue != "1" && ddlClerkIncentive.SelectedValue != "6" && ddlClerkIncentive.SelectedValue != "4")
                 {
                     if (txtAmount.Text == "")
                     {
@@ -4281,6 +4285,12 @@ namespace TTAP.UI
                             {
                                 (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
         "~/UI/Pages/TaxAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "4")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/PowerSubsidyAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
         "&mstid=" + lblMstIncentiveId.Text.Trim();
                             }
                             else
