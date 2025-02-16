@@ -30,12 +30,12 @@ namespace TTAP.UI.Pages
                 {
                     if (!IsPostBack)
                     {
-                        string incentiveid = "11122";
+                        string incentiveid = "";
                         ViewState["UID"] = ObjLoginNewvo.uid;
-                        //if (Request.QueryString["IncentiveID"] != null)
-                        //{
-                        //    incentiveid = Request.QueryString["IncentiveID"].ToString();
-                        //}
+                        if (Request.QueryString["IncentiveID"] != null)
+                        {
+                            incentiveid = Request.QueryString["IncentiveID"].ToString();
+                        }
                         txtIncID.Text = incentiveid;
                         BindBesicdata(incentiveid, "4", "");
                         GetClaimPeriod(incentiveid, "4");
