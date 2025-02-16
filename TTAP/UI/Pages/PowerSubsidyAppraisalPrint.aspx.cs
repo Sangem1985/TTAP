@@ -87,6 +87,13 @@ namespace TTAP.UI.Pages
                     lblEligibletotal.Text = dsnew.Tables[0].Rows[0]["TOTAL_ELIGIBLE_AMOUNT"].ToString();
                     lblGMRecommend.Text = dsnew.Tables[0].Rows[0]["GM_REC_AMOUNT"].ToString();
                     lblDepartment.Text = dsnew.Tables[0].Rows[0]["FINAL_ELIGIBLE_AMOUNT"].ToString();
+
+                    lblMonth1.Text= dsnew.Tables[0].Rows[0]["MONTH1"].ToString();
+                    lblMonth2.Text = dsnew.Tables[0].Rows[0]["MONTH2"].ToString();
+                    lblMonth3.Text = dsnew.Tables[0].Rows[0]["MONTH3"].ToString();
+                    lblMonth4.Text = dsnew.Tables[0].Rows[0]["MONTH4"].ToString();
+                    lblMonth5.Text = dsnew.Tables[0].Rows[0]["MONTH5"].ToString();
+                    lblMonth6.Text = dsnew.Tables[0].Rows[0]["MONTH6"].ToString();
                 }
             }
             catch(Exception ex)

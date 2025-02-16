@@ -66,23 +66,7 @@
             height: 50px;
         }
 
-        .auto-style4 {
-            height: 34px;
-        }
-
-        .auto-style8 {
-            width: 38%;
-        }
-
-        .auto-style18 {
-            height: 34px;
-            width: 38%;
-        }
-
-        .auto-style19 {
-            width: 142px;
-        }
-    </style>
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -90,7 +74,7 @@
             <div align="center" style="text-align: center">
                 <div align="center">
                     <center>
-                        <img src="viewpdf.aspx?filepathnew=D:/TS-iPASSFinal/telanganalogo.png" width="75px" height="75px" />
+                        <img src="../../../images/logo.png" width="75px" height="75px" />
                     </center>
                     <%--<h3>TTAP CAPITAL APPRAISAL NOTE FORM</h3>--%>
                 </div>
@@ -350,7 +334,7 @@
                                 </tr>
                                 <tr>
 
-                                    <td colspan="1px">April
+                                    <td colspan="1px"><asp:Label runat="server" ID="lblMonth1"></asp:Label>
                                     </td>
                                     <td class="auto-style2">
                                         <asp:Label runat="server" ID="lblLand_ProjectCost"></asp:Label>
@@ -368,7 +352,7 @@
                                 </tr>
                                 <tr>
 
-                                    <td>May
+                                    <td><asp:Label runat="server" ID="lblMonth2"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblBuilding_ProjectCost"></asp:Label>
@@ -386,7 +370,7 @@
                                 </tr>
                                 <tr>
 
-                                    <td>June
+                                    <td><asp:Label runat="server" ID="lblMonth3"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblPlantMachry_ProjectCost"></asp:Label>
@@ -404,7 +388,7 @@
                                 </tr>
                                 <tr>
 
-                                    <td colspan="1.5px">July
+                                    <td colspan="1.5px"><asp:Label runat="server" ID="lblMonth4"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblFeasibilityStudyCharges_ProjectCost"></asp:Label>
@@ -422,7 +406,7 @@
                                 </tr>
                                 <tr>
 
-                                    <td>August
+                                    <td><asp:Label runat="server" ID="lblMonth5"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblVehicles_ProjectCost"></asp:Label>
@@ -440,7 +424,7 @@
                                 </tr>
                                 <tr>
 
-                                    <td>September
+                                    <td><asp:Label runat="server" ID="lblMonth6"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblOthersEligible_ProjectCost"></asp:Label>
@@ -548,8 +532,7 @@
                                     </td>
                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                     </td>
-                                </tr>
-
+                                </tr> 
                             </table>
                         </div>
                     </div>
