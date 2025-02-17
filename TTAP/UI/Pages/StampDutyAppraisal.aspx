@@ -32,23 +32,23 @@
 
                                                 <asp:TextBox ID="txtIncID" runat="server" TextMode="Number"></asp:TextBox>
                                             </td>
-                            </tr>
-                        </table>
-                        <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
+                                        </tr>
+                                    </table>
+                                    <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
 
-                            <tr>
-                                <td style="width: 2%"></td>
-                                <td style="font: bolder; font-size: small" class="auto-style1">
-                                    <b>1. Unit Name</b>
-                                </td>
+                                        <tr>
+                                            <td style="width: 2%"></td>
+                                            <td style="font: bolder; font-size: small" class="auto-style1">
+                                                <b>1. Unit Name</b>
+                                            </td>
                                             <td>
                                                 <asp:Label ID="lbl_schemetide" class="form-control txtbox" runat="server"></asp:Label>
                                             </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 2%"></td>
-                                <td class="auto-style1">2. Address
-                                </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="width: 2%"></td>
+                                            <td class="auto-style1">2. Address
+                                            </td>
                                             <td>
                                                 <asp:Button runat="server" Text="Search" CssClass="btn-blue" ID="btnsub" />
                                             </td>
@@ -171,9 +171,6 @@
                                                                     <td id="txtbuildcapacityPercet" runat="server" align="center" visible="false">
                                                                         <label id="txtlandpercentage" runat="server" cssclass="control-label"></label>
                                                                     </td>
-                                <td>
-                                    <asp:Label ID="lblSocialStatus" runat="server"></asp:Label>
-                                </td>
                                                                 </tr>
                                                                 <tr class="GridviewScrollC1Item2">
                                                                     <td>2</td>
@@ -181,9 +178,6 @@
                                                                     <td align="center">
                                                                         <label id="txtbuildingexisting" runat="server" cssclass="control-label"></label>
                                                                     </td>
-                                <td>
-                                    <span>
-                                        <asp:Label ID="lblShareofSCSTWomenEnterprenue" runat="server"></asp:Label>
 
                                                                     <td id="trFixedCapitalBuilding" runat="server" align="center" visible="false">
                                                                         <label id="txtbuildingcapacity" runat="server" cssclass="control-label"></label>
@@ -192,11 +186,6 @@
                                                                     <td id="trFixedCapitBuildPercent" runat="server" align="center" visible="false">
                                                                         <label id="txtbuildingpercentage" runat="server" cssclass="control-label"></label>
                                                                     </td>
-                                <td>
-                                    <span>
-                                        <asp:Label ID="lblRegistrationNumber" runat="server"></asp:Label>
-                                    </span>
-                                </td>
                                                                 </tr>
                                                                 <tr class="GridviewScrollC1Item">
                                                                     <td>3</td>
@@ -225,20 +214,10 @@
                                                                     <td id="Td5" runat="server" align="center" visible="false">
                                                                         <label id="lbltotperinv" runat="server" font-bold="True"></label>
                                                                     </td>
-                                <td>
-                                    <span>
-                                        <asp:Label ID="lblTypeofTexttile" runat="server"></asp:Label>
-                                    </span>
-                                </td>
                                                                 </tr>
                                                             </table>
                                                         </div>
                                                     </td>
-                                <td>
-                                    <span>
-                                        <asp:Label ID="lblTechnicalTextileType" runat="server"></asp:Label>
-                                    </span>
-                                </td>
                                                 </tr>
                                                 <tr runat="server" visible="false" id="trActualInvestment">
                                                     <td align="left" colspan="4">
@@ -267,11 +246,11 @@
                                                                     <td id="thExpansionLandActualPer" runat="server" align="center">
                                                                         <label id="txtExpansionLandPer" runat="server" class="control-label"></label>
                                                                     </td>
-                                <td>
-                                    <span>
-                                        <asp:Label ID="lblUIDNumber" runat="server"></asp:Label>
-                                    </span>
-                                </td>
+                                                                    <td>
+                                                                        <span>
+                                                                            <asp:Label ID="lblUIDNumber" runat="server"></asp:Label>
+                                                                        </span>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr class="GridviewScrollC1Item2">
                                                                     <td>2</td>
@@ -412,14 +391,14 @@
                                                         Height="30px" MaxLength="80" TabIndex="34" Width="150px" AutoPostBack="true" OnTextChanged="txtland_TextChanged"></asp:TextBox>
 
                                                 </td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;
-                                    </td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;</td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;
-                                    </td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;</td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;
-                                    </td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;</td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;</td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td class="auto-style48">&nbsp;</td>
@@ -431,14 +410,14 @@
                                                         Height="30px" MaxLength="80" TabIndex="34" Width="150px" AutoPostBack="true" OnTextChanged="txtstampduty_TextChanged"></asp:TextBox>
 
                                                 </td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;
-                                    </td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;</td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;
-                                    </td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;</td>
-                                    <td style="padding: 5px; margin: 5px;">&nbsp;
-                                    </td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;</td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                </td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;</td>
+                                                <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td class="auto-style48">&nbsp;</td>
@@ -648,13 +627,13 @@
 
                                         </table>
                                     </div>
-                    </div>
-
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             <asp:HiddenField runat="server" ID="hdnApplication" />
             <asp:HiddenField runat="server" ID="hdnActualCategory" />

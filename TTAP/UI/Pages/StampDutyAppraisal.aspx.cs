@@ -59,8 +59,8 @@ namespace TTAP.UI.Pages
         {
             try
             {
-                string IncentiveId = Request.QueryString["incid"].ToString();
-                string MasterIncentiveId = Request.QueryString["mstid"].ToString();
+                //string IncentiveId = Request.QueryString["incid"].ToString();
+                //string MasterIncentiveId = Request.QueryString["mstid"].ToString();
                 DataSet dsnew = new DataSet();
                 dsnew = objappraisalClass.GetapplicationDtls("0", IncentiveID);
                 if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
