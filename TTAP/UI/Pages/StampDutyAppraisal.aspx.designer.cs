@@ -492,6 +492,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtlandpercentage;
 
         /// <summary>
+        /// lblSocialStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSocialStatus;
+
+        /// <summary>
         /// txtbuildingexisting control.
         /// </summary>
         /// <remarks>
@@ -499,6 +508,15 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtbuildingexisting;
+
+        /// <summary>
+        /// lblShareofSCSTWomenEnterprenue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblShareofSCSTWomenEnterprenue;
 
         /// <summary>
         /// trFixedCapitalBuilding control.
@@ -535,6 +553,15 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtbuildingpercentage;
+
+        /// <summary>
+        /// lblRegistrationNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegistrationNumber;
 
         /// <summary>
         /// txtplantexisting control.
@@ -627,6 +654,24 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lbltotperinv;
 
         /// <summary>
+        /// lblTypeofTexttile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTypeofTexttile;
+
+        /// <summary>
+        /// lblTechnicalTextileType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTechnicalTextileType;
+
+        /// <summary>
         /// trActualInvestment control.
         /// </summary>
         /// <remarks>
@@ -715,6 +760,15 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtExpansionLandPer;
+
+        /// <summary>
+        /// lblUIDNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblUIDNumber;
 
         /// <summary>
         /// thExistingBuildingActual control.
