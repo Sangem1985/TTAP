@@ -3175,5 +3175,44 @@ namespace TTAP.Classfiles
         public bool Moratoriumrowsix { get; set; }
     }
 
+    public class StampDutyAprsl
+    {
+        public int IncentiveId { get; set; }
+        public string UnitName { get; set; }
+        public string UnitAddress { get; set; }
+        public string ProprietorName { get; set; }
+        public string OrganizationConstitution { get; set; }
+        public string SocialStatus { get; set; }
+        public string SC_ST_Women { get; set; }
+        public string RegNumber { get; set; }
+        public string TypeOfUnit { get; set; }
+        public string Category { get; set; }
+        public string TypeOfSector { get; set; }
+        public string TypeOfTextile { get; set; }
+        public string TechnicalTextileType { get; set; }
+        public string ActivityOfUnit { get; set; }
+        public string UIDNo { get; set; }
+        public string ApplicationNo { get; set; }
+        public DateTime? PowerConReleaseDt { get; set; }
+        public DateTime? DCP { get; set; }
+        public DateTime? AppliedDate { get; set; }
+        public string PromoterDetEligibleSubsidy { get; set; }
+        public string Scheme { get; set; }
+        public string SelectType { get; set; }
+        public string LandMeasure { get; set; }
+        public string StampDuty { get; set; }
+        public string BuildingPlantArea { get; set; }
+        public string BuildingPlinthArea { get; set; }
+        public string ProportionateArea { get; set; }
+        public string GMRecommendedDIC { get; set; }
+        public string ComputedRS { get; set; }
+        public string SelectedType { get; set; }
+        public string EligibleAmount { get; set; }
+        public string Remarks { get; set; }
+        public string ForwardTo { get; set; }
+        public int CreatedBy { get; set; }
+        public string CreatedByIP { get; set; }
+    }
+
 
 }

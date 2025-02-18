@@ -18,6 +18,7 @@ namespace TTAP.UI.Pages
     public partial class StampDutyAppraisal : System.Web.UI.Page
     {
         ClsFileUpload objClsFileUpload = new ClsFileUpload();
+        
         BusinessLogic.DML objDml = new BusinessLogic.DML();
         CAFClass ObjCAFClass = new CAFClass();
         AppraisalClass objappraisalClass = new AppraisalClass();
@@ -40,8 +41,8 @@ namespace TTAP.UI.Pages
                         {
                             incentiveid = Request.QueryString["IncentiveID"].ToString();
                         }
-                        txtIncID.Text = incentiveid;
-                        BindBesicdata(incentiveid, "6", "");
+                        txtIncID.Text = "29193";
+                        BindBesicdata("29193", "6", "");
                         DataSet dsnew1 = new DataSet();
                     }
                 }
@@ -131,6 +132,7 @@ namespace TTAP.UI.Pages
                     txtExpansionplantMechValue.InnerHtml = dsnew.Tables[0].Rows[0]["ActualPMValue"].ToString();
                     txtExpansionInvothers.InnerHtml = dsnew.Tables[0].Rows[0]["ActualOtherValue"].ToString();
                     txtGmRecom.Text = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
+                    
 
                     CalculateCurrInvTot(TypeOfIndustry);
 
@@ -444,6 +446,70 @@ namespace TTAP.UI.Pages
 
         protected void btnsubmit_Click(object sender, EventArgs e)
         {
+            string result = "";
+            
+            StampDutyAprsl stampDutyAprsl = new StampDutyAprsl
+            {
+                UnitName = lblUnitName.InnerText,
+                UIDNo = lblTSIPassUIDNumber.InnerText,
+                ApplicationNo = lblCommonApplicationNumber.InnerText,
+                TypeOfUnit = lblTypeofApplicant.InnerText,
+                DCP = DateTime.TryParse(lblDCPdate.InnerText, out DateTime dcpDate) ? dcpDate : (DateTime?)null,
+                AppliedDate = DateTime.TryParse(lblReceiptDate.InnerHtml, out DateTime appliedDate) ? appliedDate : (DateTime?)null,
+                Category = lblCategoryofUnit.InnerText,
+                ActivityOfUnit = lblActivityoftheUnit.InnerText,
+                TypeOfTextile = lblTypeofSector.InnerText,
+                UnitAddress = lblAddress.InnerText,
+                ProprietorName = lblProprietor.InnerText,
+                OrganizationConstitution = lblOrganization.InnerText,
+                SocialStatus = lblSocialStatus.InnerText,
+                RegNumber = lblRegistrationNumber.InnerText,
+                TechnicalTextileType = lblTechnicalTextileType.InnerText,
+                PowerConReleaseDt = DateTime.TryParse(lblPowerConnectionReleaseDate.InnerText, out DateTime powerReleaseDate) ? powerReleaseDate : (DateTime?)null,
+                SC_ST_Women = lblShareofSCSTWomenEnterprenue.InnerText,
+                Scheme=DDLSCHEME.SelectedValue,
+                SelectType= RBTTYPE.SelectedValue,
+                LandMeasure = txtlandexisting.InnerText,
+                StampDuty = txtstampduty.Text,
+                BuildingPlantArea = txtbuildingexisting.InnerHtml,
+                BuildingPlinthArea = txtplinth.Text,
+                ProportionateArea = txtproportionate.Text,
+                ComputedRS = txtvaluecomputed.Text,
+                GMRecommendedDIC = txtGmRecom.Text,
+                PromoterDetEligibleSubsidy = lblcategory.InnerText,           
+                
+                SelectedType = rdeligibility.SelectedValue, // Example mapping
+                EligibleAmount = txtEligible.Text,
+                Remarks=txtremarks.Text,
+                ForwardTo=ddlDepartment.SelectedValue,
+                // Populate CreatedBy and CreatedByIP if needed
+                CreatedBy = 0, // Replace with the actual user ID
+                IncentiveId = int.TryParse(txtIncID.Text, out int incentiveId) ? incentiveId : 0,
+                CreatedByIP = Request.UserHostAddress
+            };
+            try
+            {
+                result = ObjCAFClass.InsertAppraisalStampDuty(stampDutyAprsl);
+                if (result != "")
+                {
+                    success.Visible = true;
+                    Failure.Visible = false;
+                    
+                    lblmsg.Text = "Details Successfully Submitted..!";
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    success.Visible = false;
+                    lblmsg0.Text = "Error While Saving...!";
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+            }
 
         }
 
@@ -523,5 +589,9 @@ namespace TTAP.UI.Pages
                 }
             }
         }
+
+
+
+
     }
 }

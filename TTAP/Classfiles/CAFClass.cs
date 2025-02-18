@@ -7913,5 +7913,85 @@ namespace TTAP.Classfiles
             }
             return Result;
         }
+
+        public string InsertAppraisalStampDuty(StampDutyAprsl appraisalStampDutyDetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INSAPPRAISAL_STAMPDUTY";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                // Add parameters
+                com.Parameters.AddWithValue("@INCENTIVE_ID", appraisalStampDutyDetails.IncentiveId);
+                com.Parameters.AddWithValue("@UNIT_NAME", appraisalStampDutyDetails.UnitName);
+                com.Parameters.AddWithValue("@UNIT_ADDRESS", appraisalStampDutyDetails.UnitAddress);
+                com.Parameters.AddWithValue("@PROPRIETOR_NAME", appraisalStampDutyDetails.ProprietorName);
+                com.Parameters.AddWithValue("@ORGANIZATION_CONSTITUTION", appraisalStampDutyDetails.OrganizationConstitution);
+                com.Parameters.AddWithValue("@SOCIAL_STATUS", appraisalStampDutyDetails.SocialStatus);
+                com.Parameters.AddWithValue("@SC_ST_WOMEN", appraisalStampDutyDetails.SC_ST_Women);
+                com.Parameters.AddWithValue("@REG_NUMBER", appraisalStampDutyDetails.RegNumber);
+                com.Parameters.AddWithValue("@TYPE_OF_UNIT", appraisalStampDutyDetails.TypeOfUnit);
+                com.Parameters.AddWithValue("@CATEGORY", appraisalStampDutyDetails.Category);
+                com.Parameters.AddWithValue("@TYPE_OF_SECTOR", appraisalStampDutyDetails.TypeOfSector);
+                com.Parameters.AddWithValue("@TYPE_OF_TEXTILE", appraisalStampDutyDetails.TypeOfTextile);
+                com.Parameters.AddWithValue("@TECHNICAL_TEXTILE_TYPE", appraisalStampDutyDetails.TechnicalTextileType);
+                com.Parameters.AddWithValue("@ACTIVITYOFUNIT", appraisalStampDutyDetails.ActivityOfUnit);
+                com.Parameters.AddWithValue("@UID_NO", appraisalStampDutyDetails.UIDNo);
+                com.Parameters.AddWithValue("@APPLICATION_NO", appraisalStampDutyDetails.ApplicationNo);
+                com.Parameters.AddWithValue("@POWER_CON_RELEASE_DT", appraisalStampDutyDetails.PowerConReleaseDt);
+                com.Parameters.AddWithValue("@DCP", appraisalStampDutyDetails.DCP);
+                com.Parameters.AddWithValue("@APPLIED_DATE", appraisalStampDutyDetails.AppliedDate);
+                com.Parameters.AddWithValue("@PROMOTERDETELIGIBLESUBSIDY", appraisalStampDutyDetails.PromoterDetEligibleSubsidy);
+                com.Parameters.AddWithValue("@SCHEME", appraisalStampDutyDetails.Scheme);
+                com.Parameters.AddWithValue("@SELECT_TYPE", appraisalStampDutyDetails.SelectType);
+                com.Parameters.AddWithValue("@LANDMEASURE", appraisalStampDutyDetails.LandMeasure);
+                com.Parameters.AddWithValue("@STAMP_DUTY", appraisalStampDutyDetails.StampDuty);
+                com.Parameters.AddWithValue("@BUILDING_PLANTAREA", appraisalStampDutyDetails.BuildingPlantArea);
+                com.Parameters.AddWithValue("@BUILDING_PLINTHAREA", appraisalStampDutyDetails.BuildingPlinthArea);
+                com.Parameters.AddWithValue("@PROPORTIONATEAREA", appraisalStampDutyDetails.ProportionateArea);
+                com.Parameters.AddWithValue("@GMRECOMMENDED_DIC", appraisalStampDutyDetails.GMRecommendedDIC);
+                com.Parameters.AddWithValue("@COMPUTED_RS", appraisalStampDutyDetails.ComputedRS);
+                com.Parameters.AddWithValue("@SELECTED_TYPE", appraisalStampDutyDetails.SelectedType);
+                com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT", appraisalStampDutyDetails.EligibleAmount);
+                com.Parameters.AddWithValue("@REMARKS", appraisalStampDutyDetails.Remarks);
+                com.Parameters.AddWithValue("@FORWARD_TO", appraisalStampDutyDetails.ForwardTo);
+                com.Parameters.AddWithValue("@CREATEDBY", appraisalStampDutyDetails.CreatedBy);
+                com.Parameters.AddWithValue("@CREATEDBYIP", appraisalStampDutyDetails.CreatedByIP);
+
+                // Output parameter for result
+                com.Parameters.Add("@RESULT", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                com.ExecuteNonQuery();
+                // Get the result
+                Result = com.Parameters["@RESULT"].Value.ToString();
+
+                // Commit the transaction
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+
+            return Result;
+        }
+
     }
+
 }
