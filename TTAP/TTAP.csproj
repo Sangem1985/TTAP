@@ -704,6 +704,7 @@
     <Content Include="UI\Pages\SLC\frmSLCSactionedApplications.aspx" />
     <Content Include="UI\Pages\SLVUploadsEntry.aspx" />
     <Content Include="UI\Pages\StampDutyAppraisal.aspx" />
+    <Content Include="UI\Pages\StampDutyAppraisalPrint.aspx" />
     <Content Include="UI\Pages\SVC\frmSLSVCSactionedApplications.aspx" />
     <Content Include="UI\Pages\SVC\frmSVCAllApplicationst.aspx" />
     <Content Include="UI\Pages\SVC\frmSVCGenerateAgenda.aspx" />
@@ -2344,6 +2345,13 @@
     </Compile>
     <Compile Include="UI\Pages\StampDutyAppraisal.aspx.designer.cs">
       <DependentUpon>StampDutyAppraisal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\StampDutyAppraisalPrint.aspx.cs">
+      <DependentUpon>StampDutyAppraisalPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\StampDutyAppraisalPrint.aspx.designer.cs">
+      <DependentUpon>StampDutyAppraisalPrint.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\SVC\frmSLSVCSactionedApplications.aspx.cs">
       <DependentUpon>frmSLSVCSactionedApplications.aspx</DependentUpon>
