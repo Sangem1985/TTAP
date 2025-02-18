@@ -4023,13 +4023,27 @@ namespace TTAP.UI
                 int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
 
                 string ActionType = ((DropDownList)gvdivGMRecommendCOI.Rows[indexing].FindControl("ddlActionType")).SelectedValue.ToString();
-
                 ObjApplicationStatus.IncentiveId = ((Label)gvdivGMRecommendCOI.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
                 ObjApplicationStatus.SubIncentiveId = ((Label)gvdivGMRecommendCOI.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
                 ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
                 ObjApplicationStatus.Remarks = ((TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMRemarksCOI")).Text.ToString();
                 ObjApplicationStatus.GMRecommendedAmount = ((TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMAmount")).Text.ToString();
                 ObjApplicationStatus.TransType = ActionType;
+
+                if (ObjApplicationStatus.TransType == "" || ObjApplicationStatus.TransType == "0" || ObjApplicationStatus.TransType == null)
+                {
+                    string info = "Please select Action Type";
+                    string message = "alert('" + info + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+                if (ObjApplicationStatus.GMRecommendedAmount == "" || ObjApplicationStatus.TransType == "0" || ObjApplicationStatus.TransType == null)
+                {
+                    string info = "Please enter G.M Recommended Amount";
+                    string message = "alert('" + info + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
 
                 HyperLink hypconcernedCTo = new HyperLink();
                 hypconcernedCTo = ((HyperLink)gvdivGMRecommendCOI.Rows[indexing].FindControl("hyGMRecFile"));
