@@ -716,7 +716,7 @@
                                                     <td style="padding: 5px; margin: 5px;">:</td>
                                                     <td>&nbsp;
                             <asp:TextBox ID="txtvalue424" runat="server" class="form-control txtbox txtcomn"
-                                Height="30px" MaxLength="80" Enabled="false" onkeypress="return inputOnlyNumbers(event)" TabIndex="37" Width="150px"></asp:TextBox>
+                                Height="30px" MaxLength="80" Enabled="true" onkeypress="return inputOnlyNumbers(event)" TabIndex="37" Width="150px"></asp:TextBox>
                                                     </td>
                                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                                     </td>
@@ -806,7 +806,7 @@
                                             <tr id="trsubmit" runat="server" visible="true">
                                                 <td align="center" colspan="3" style="padding: 5px; margin: 5px; text-align: center;">
                                                     <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-primary" Height="32px" OnClick="BtnSave_Click" TabIndex="24" Text="Save" ValidationGroup="group" Width="90px" />
-                                                    &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="BtnClearall" runat="server" CausesValidation="False" CssClass="btn btn-warning" OnClick="BtnClearall_Click" Height="32px" Text="Clear" ToolTip="To Clear  the Screen" Width="90px" />
+                                                    &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="BtnClearall" Visible="false" runat="server" CausesValidation="False" CssClass="btn btn-warning" OnClick="BtnClearall_Click" Height="32px" Text="Clear" ToolTip="To Clear  the Screen" Width="90px" />
                                                     &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btnDashBoard" runat="server"  CssClass="btn btn-primary" OnClick="btm_previous_Click" Height="32px" TabIndex="25" Text="Go to Dashboard"   />
                                                 </td>
                                             </tr>

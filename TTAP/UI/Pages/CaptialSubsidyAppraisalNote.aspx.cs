@@ -244,10 +244,10 @@ namespace TTAP.UI.Pages
                     lblRegistrationNumber.InnerText = dsnew.Tables[0].Rows[0]["IncorpRegistranNumber"].ToString();
                     lblTechnicalTextileType.InnerText = dsnew.Tables[0].Rows[0]["TechnicalTextile"].ToString();
                     lblPowerConnectionReleaseDate.InnerText = dsnew.Tables[0].Rows[0]["NewPowerReleaseDate"].ToString();
-                    //if (dsnew != null && dsnew.Tables.Count > 1 && dsnew.Tables[1].Rows.Count > 0)
-                    //{
-                    //    txt_GMrecommendedamount.Text = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
-                    //}
+                    if (dsnew != null && dsnew.Tables.Count > 1 && dsnew.Tables[1].Rows.Count > 0)
+                    {
+                        txtGMAmount.Text = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
+                    }
                     txtlandexisting.InnerHtml = dsnew.Tables[0].Rows[0]["ExistEnterpriseLand"].ToString();
                     TextBox33.Text = dsnew.Tables[0].Rows[0]["ExistEnterpriseLand"].ToString();
                     txtlandcapacity.InnerHtml = dsnew.Tables[0].Rows[0]["ExpansionDiversificationLand"].ToString();
