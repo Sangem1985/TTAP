@@ -26,7 +26,7 @@
                     <div class="breadcrumb-bg">
                         <ul class="breadcrumb font-medium title5 container">
                             <li class="breadcrumb-item"><a href="frmDashBoard.aspx">Home</a></li>
-                            <li class="breadcrumb-item" id="Sublinkname" runat="server">Inspection Report</li>
+                            <li class="breadcrumb-item" id="Sublinkname" runat="server">Reimbursement of TAX Inspection Report</li>
                         </ul>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                                     <span class="icon">
                                         <i class="icon-info-sign"></i>
                                     </span>
-                                    <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Inspection Report</h5>
+                                    <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading"> Reimbursement of TAX Inspection Report</h5>
                                 </div>
                                 <div class="widget-content nopadding">
                                     <table runat="server" visible="false">
@@ -212,10 +212,10 @@
                                                                 </asp:DropDownList>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtUtilizedUnits1" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUtilizedUnits1" AutoPostBack="true" OnTextChanged="CalLastThree" CssClass="form-control"  runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtRatePerUnit1" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRatePerUnit1" AutoPostBack="true" OnTextChanged="CalLastThree" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
                                                                 <asp:TextBox ID="txtTotalPaid1" CssClass="form-control" runat="server"></asp:TextBox>
@@ -228,10 +228,10 @@
                                                                 </asp:DropDownList>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtUtilizedUnits2" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUtilizedUnits2" AutoPostBack="true" OnTextChanged="CalLastThree" CssClass="form-control"  runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtRatePerUnit2" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRatePerUnit2" AutoPostBack="true" OnTextChanged="CalLastThree" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
                                                                 <asp:TextBox ID="txtTotalPaid2" CssClass="form-control" runat="server"></asp:TextBox>
@@ -244,10 +244,10 @@
                                                                 </asp:DropDownList>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtUtilizedUnits3" CssClass="form-control"  runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUtilizedUnits3" AutoPostBack="true" OnTextChanged="CalLastThree" CssClass="form-control"  runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtRatePerUnit3" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtRatePerUnit3" AutoPostBack="true" OnTextChanged="CalLastThree" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
                                                                 <asp:TextBox ID="txtTotalPaid3" CssClass="form-control" runat="server"></asp:TextBox>
@@ -258,7 +258,8 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="row" runat="server" visible="false">
+                                    <br />
+                                    <div class="row" runat="server" id="divExpansionDtls" visible="false">
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label21" runat="server">Total units consumed prior to 3 Years </label>
                                             <asp:TextBox runat="server" CssClass="form-control" ID="txtPrior3Yrs"></asp:TextBox>
@@ -276,7 +277,7 @@
                                             <asp:TextBox runat="server" CssClass="form-control" ID="txtPerMonth"></asp:TextBox>
                                         </div>
                                     </div>
-                                    <div class="row" id="divNewUnit" runat="server" visible="true">
+                                    <div class="row" id="divNewUnit" runat="server" visible="false">
                                         <table style="width: 100%">
                                             <tr style="height: 30px">
                                                 <td colspan="9" style="height: 20px"></td>
@@ -477,162 +478,162 @@
                                                         </tr>
                                                         <tr>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox1" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtMonthExp1" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox2" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtYearExp1" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox3" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUnitsConsumedExp1" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox4" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtAmountPaidExp1" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox37" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtBaseFixedExp1" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" AutoPostBack="true" CssClass="form-control"  runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox38" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleUnitsBaseExp1" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" AutoPostBack="true" CssClass="form-control"  runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox5"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRateExp1"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox6"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmountExp1"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox7" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtMonthExp2" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox8" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtYearExp2" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox9" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUnitsConsumedExp2" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
 
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox10"  onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtAmountPaidExp2"  onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox39" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtBaseFixedExp2" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox40" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleUnitsBaseExp2" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true"  runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox11"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRateExp2"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox12" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox13" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox14" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox15"  onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
-                                                            </td>
-
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox16" CssClass="form-control"  onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
-                                                            </td>
-                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox41" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
-                                                            </td>
-                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox42" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox17"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox18"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmountExp2" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
 
                                                         </tr>
                                                         <tr>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox19" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtMonthExp3" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox20" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtYearExp3" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox21" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUnitsConsumedExp3"  onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
+
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox22" CssClass="form-control" onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtAmountPaidExp3" CssClass="form-control"  onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox43" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtBaseFixedExp3" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox44" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleUnitsBaseExp3" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox23"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRateExp3"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox24"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmountExp3"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtMonthExp4" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtYearExp4" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtUnitsConsumedExp4" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtAmountPaidExp4" CssClass="form-control" onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
+                                                            </td>
+                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtBaseFixedExp4" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                            </td>
+                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtEligibleUnitsBaseExp4" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtEligibleRateExp4"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                            </td>
+                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
+                                                                <asp:TextBox ID="txtEligibleAmountExp4"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox25" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtMonthExp5" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox26" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtYearExp5" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox27" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUnitsConsumedExp5" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox28" CssClass="form-control"  onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtAmountPaidExp5" CssClass="form-control"  onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox45" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtBaseFixedExp5" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox46" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleUnitsBaseExp5" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox29"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRateExp5"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox30"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmountExp5"  onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox31" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtMonthExp6" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox32" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtYearExp6" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox33" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtUnitsConsumedExp6" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox34" CssClass="form-control" onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtAmountPaidExp6" CssClass="form-control" onkeypress="return isDecimal(event)" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox47" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtBaseFixedExp6" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                              <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox48" CssClass="form-control" Enabled="false" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleUnitsBaseExp6" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" CssClass="form-control" AutoPostBack="true" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox35"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleRateExp6"  AutoPostBack="true" OnTextChanged="CalculateElgibleAmount" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                             <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="TextBox36" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtEligibleAmountExp6" onkeypress="return isDecimal(event)" Enabled="true" CssClass="form-control" runat="server"></asp:TextBox>
                                                             </td>
                                                         </tr>
                                                     </table>
@@ -736,6 +737,7 @@
                                             <tr>
                                                 <td>
                                                     <asp:HiddenField ID="lblAllwomen" runat="server" />
+                                                    
                                                     <%--<asp:Label ID="lblAllwomen" runat="server" Visible="true" Text="Industry Status"></asp:Label>--%>
                                                 </td>
 

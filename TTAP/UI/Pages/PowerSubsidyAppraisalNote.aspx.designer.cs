@@ -600,6 +600,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.TextBox txtTotalPaid3;
 
         /// <summary>
+        /// divExpansionDtls control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpansionDtls;
+
+        /// <summary>
         /// Label21 control.
         /// </summary>
         /// <remarks>
@@ -1032,436 +1041,436 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlTable Table1;
 
         /// <summary>
-        /// TextBox1 control.
+        /// txtMonthExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtMonthExp1;
 
         /// <summary>
-        /// TextBox2 control.
+        /// txtYearExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox txtYearExp1;
 
         /// <summary>
-        /// TextBox3 control.
+        /// txtUnitsConsumedExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumedExp1;
 
         /// <summary>
-        /// TextBox4 control.
+        /// txtAmountPaidExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaidExp1;
 
         /// <summary>
-        /// TextBox37 control.
+        /// txtBaseFixedExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox37;
+        protected global::System.Web.UI.WebControls.TextBox txtBaseFixedExp1;
 
         /// <summary>
-        /// TextBox38 control.
+        /// txtEligibleUnitsBaseExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox38;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleUnitsBaseExp1;
 
         /// <summary>
-        /// TextBox5 control.
+        /// txtEligibleRateExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRateExp1;
 
         /// <summary>
-        /// TextBox6 control.
+        /// txtEligibleAmountExp1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmountExp1;
 
         /// <summary>
-        /// TextBox7 control.
+        /// txtMonthExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.TextBox txtMonthExp2;
 
         /// <summary>
-        /// TextBox8 control.
+        /// txtYearExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox txtYearExp2;
 
         /// <summary>
-        /// TextBox9 control.
+        /// txtUnitsConsumedExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumedExp2;
 
         /// <summary>
-        /// TextBox10 control.
+        /// txtAmountPaidExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaidExp2;
 
         /// <summary>
-        /// TextBox39 control.
+        /// txtBaseFixedExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox39;
+        protected global::System.Web.UI.WebControls.TextBox txtBaseFixedExp2;
 
         /// <summary>
-        /// TextBox40 control.
+        /// txtEligibleUnitsBaseExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox40;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleUnitsBaseExp2;
 
         /// <summary>
-        /// TextBox11 control.
+        /// txtEligibleRateExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox11;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRateExp2;
 
         /// <summary>
-        /// TextBox12 control.
+        /// txtEligibleAmountExp2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox12;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmountExp2;
 
         /// <summary>
-        /// TextBox13 control.
+        /// txtMonthExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox13;
+        protected global::System.Web.UI.WebControls.TextBox txtMonthExp3;
 
         /// <summary>
-        /// TextBox14 control.
+        /// txtYearExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox14;
+        protected global::System.Web.UI.WebControls.TextBox txtYearExp3;
 
         /// <summary>
-        /// TextBox15 control.
+        /// txtUnitsConsumedExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox15;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumedExp3;
 
         /// <summary>
-        /// TextBox16 control.
+        /// txtAmountPaidExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox16;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaidExp3;
 
         /// <summary>
-        /// TextBox41 control.
+        /// txtBaseFixedExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox41;
+        protected global::System.Web.UI.WebControls.TextBox txtBaseFixedExp3;
 
         /// <summary>
-        /// TextBox42 control.
+        /// txtEligibleUnitsBaseExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox42;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleUnitsBaseExp3;
 
         /// <summary>
-        /// TextBox17 control.
+        /// txtEligibleRateExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox17;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRateExp3;
 
         /// <summary>
-        /// TextBox18 control.
+        /// txtEligibleAmountExp3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox18;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmountExp3;
 
         /// <summary>
-        /// TextBox19 control.
+        /// txtMonthExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox19;
+        protected global::System.Web.UI.WebControls.TextBox txtMonthExp4;
 
         /// <summary>
-        /// TextBox20 control.
+        /// txtYearExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox20;
+        protected global::System.Web.UI.WebControls.TextBox txtYearExp4;
 
         /// <summary>
-        /// TextBox21 control.
+        /// txtUnitsConsumedExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox21;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumedExp4;
 
         /// <summary>
-        /// TextBox22 control.
+        /// txtAmountPaidExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox22;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaidExp4;
 
         /// <summary>
-        /// TextBox43 control.
+        /// txtBaseFixedExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox43;
+        protected global::System.Web.UI.WebControls.TextBox txtBaseFixedExp4;
 
         /// <summary>
-        /// TextBox44 control.
+        /// txtEligibleUnitsBaseExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox44;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleUnitsBaseExp4;
 
         /// <summary>
-        /// TextBox23 control.
+        /// txtEligibleRateExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox23;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRateExp4;
 
         /// <summary>
-        /// TextBox24 control.
+        /// txtEligibleAmountExp4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox24;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmountExp4;
 
         /// <summary>
-        /// TextBox25 control.
+        /// txtMonthExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox25;
+        protected global::System.Web.UI.WebControls.TextBox txtMonthExp5;
 
         /// <summary>
-        /// TextBox26 control.
+        /// txtYearExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox26;
+        protected global::System.Web.UI.WebControls.TextBox txtYearExp5;
 
         /// <summary>
-        /// TextBox27 control.
+        /// txtUnitsConsumedExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox27;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumedExp5;
 
         /// <summary>
-        /// TextBox28 control.
+        /// txtAmountPaidExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox28;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaidExp5;
 
         /// <summary>
-        /// TextBox45 control.
+        /// txtBaseFixedExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox45;
+        protected global::System.Web.UI.WebControls.TextBox txtBaseFixedExp5;
 
         /// <summary>
-        /// TextBox46 control.
+        /// txtEligibleUnitsBaseExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox46;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleUnitsBaseExp5;
 
         /// <summary>
-        /// TextBox29 control.
+        /// txtEligibleRateExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox29;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRateExp5;
 
         /// <summary>
-        /// TextBox30 control.
+        /// txtEligibleAmountExp5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox30;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmountExp5;
 
         /// <summary>
-        /// TextBox31 control.
+        /// txtMonthExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox31;
+        protected global::System.Web.UI.WebControls.TextBox txtMonthExp6;
 
         /// <summary>
-        /// TextBox32 control.
+        /// txtYearExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox32;
+        protected global::System.Web.UI.WebControls.TextBox txtYearExp6;
 
         /// <summary>
-        /// TextBox33 control.
+        /// txtUnitsConsumedExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox33;
+        protected global::System.Web.UI.WebControls.TextBox txtUnitsConsumedExp6;
 
         /// <summary>
-        /// TextBox34 control.
+        /// txtAmountPaidExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox34;
+        protected global::System.Web.UI.WebControls.TextBox txtAmountPaidExp6;
 
         /// <summary>
-        /// TextBox47 control.
+        /// txtBaseFixedExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox47;
+        protected global::System.Web.UI.WebControls.TextBox txtBaseFixedExp6;
 
         /// <summary>
-        /// TextBox48 control.
+        /// txtEligibleUnitsBaseExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox48;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleUnitsBaseExp6;
 
         /// <summary>
-        /// TextBox35 control.
+        /// txtEligibleRateExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox35;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleRateExp6;
 
         /// <summary>
-        /// TextBox36 control.
+        /// txtEligibleAmountExp6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox36;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmountExp6;
 
         /// <summary>
         /// Label4 control.

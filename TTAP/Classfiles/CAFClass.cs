@@ -3452,6 +3452,19 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_LASTTHREE_FINANCIALYEARS", pp);
             return Dsnew;
         }
+        public DataSet GetFinancialYearsAppraisal(string Date,string Date2)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@DCP",SqlDbType.VarChar),
+               new SqlParameter("@DT",SqlDbType.VarChar)
+           };
+            pp[0].Value = Date;
+            pp[1].Value = Date2;
+            Dsnew = GenericFillDs("USP_GET_LASTTHREE_FINANCIALYEARS", pp);
+            return Dsnew;
+        }
         public DataSet GetClaimFinancialYear(string Count, string incentiveid, string SubIncentiveID)
         {
             DataSet Dsnew = new DataSet();
@@ -7884,6 +7897,35 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT4", DLODetails.EligibleAmount4);
                 com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT5", DLODetails.EligibleAmount5);
                 com.Parameters.AddWithValue("@ELIGIBLE_AMOUNT6", DLODetails.EligibleAmount6);
+
+                com.Parameters.AddWithValue("@BASEFIXEDPERMONTH1", DLODetails.BasefixedPerMonth1);
+                com.Parameters.AddWithValue("@BASEFIXEDPERMONTH2", DLODetails.BasefixedPerMonth2);
+                com.Parameters.AddWithValue("@BASEFIXEDPERMONTH3", DLODetails.BasefixedPerMonth3);
+                com.Parameters.AddWithValue("@BASEFIXEDPERMONTH4", DLODetails.BasefixedPerMonth4);
+                com.Parameters.AddWithValue("@BASEFIXEDPERMONTH5", DLODetails.BasefixedPerMonth5);
+                com.Parameters.AddWithValue("@BASEFIXEDPERMONTH6", DLODetails.BasefixedPerMonth6);
+                com.Parameters.AddWithValue("@ELIGIBLEUNITSABOVEBASE1", DLODetails.EligibleUnitsAboveBase1);
+                com.Parameters.AddWithValue("@ELIGIBLEUNITSABOVEBASE2", DLODetails.EligibleUnitsAboveBase2);
+                com.Parameters.AddWithValue("@ELIGIBLEUNITSABOVEBASE3", DLODetails.EligibleUnitsAboveBase3);
+                com.Parameters.AddWithValue("@ELIGIBLEUNITSABOVEBASE4", DLODetails.EligibleUnitsAboveBase4);
+                com.Parameters.AddWithValue("@ELIGIBLEUNITSABOVEBASE5", DLODetails.EligibleUnitsAboveBase5);
+                com.Parameters.AddWithValue("@ELIGIBLEUNITSABOVEBASE6", DLODetails.EligibleUnitsAboveBase6);
+                com.Parameters.AddWithValue("@LAST3FINANCIALYEAR1", DLODetails.Last3FinancialYear1);
+                com.Parameters.AddWithValue("@LAST3FINANCIALYEAR2", DLODetails.Last3FinancialYear2);
+                com.Parameters.AddWithValue("@LAST3FINANCIALYEAR3", DLODetails.Last3FinancialYear3);
+                com.Parameters.AddWithValue("@LAST3UTILISEDUNITS1", DLODetails.Last3UtilisedUnits1);
+                com.Parameters.AddWithValue("@LAST3UTILISEDUNITS2", DLODetails.Last3UtilisedUnits2);
+                com.Parameters.AddWithValue("@LAST3UTILISEDUNITS3", DLODetails.Last3UtilisedUnits3);
+                com.Parameters.AddWithValue("@LAST3RATEPERUNIT1", DLODetails.Last3RatePerUnit1);
+                com.Parameters.AddWithValue("@LAST3RATEPERUNIT2", DLODetails.Last3RatePerUnit2);
+                com.Parameters.AddWithValue("@LAST3RATEPERUNIT3", DLODetails.Last3RatePerUnit3);
+                com.Parameters.AddWithValue("@LAST3TOTALPAID1", DLODetails.Last3TotalPaid1);
+                com.Parameters.AddWithValue("@LAST3TOTALPAID2", DLODetails.Last3TotalPaid2);
+                com.Parameters.AddWithValue("@LAST3TOTALPAID3", DLODetails.Last3TotalPaid3);
+                com.Parameters.AddWithValue("@UNITSCONSUMEDPRIOR3YRS", DLODetails.UnitsConsumedPrior3Yrs);
+                com.Parameters.AddWithValue("@AVGUNITSEM", DLODetails.AvgUnitsEM);
+                com.Parameters.AddWithValue("@BASEPOWERCONSUMPTION", DLODetails.BasePowerConsumption);
+                com.Parameters.AddWithValue("@PERMONTH", DLODetails.PerMonth);
                 com.Parameters.AddWithValue("@TOTAL_AMOUNT", DLODetails.ComputedTotalCost);
                 com.Parameters.AddWithValue("@ELIGIBILITY_TYPE", DLODetails.Type);
                 com.Parameters.AddWithValue("@TOTAL_ELIGIBLE_AMOUNT", DLODetails.EligibleSubsidyAmount);

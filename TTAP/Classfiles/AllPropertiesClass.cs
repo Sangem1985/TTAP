@@ -2976,6 +2976,43 @@ namespace TTAP.Classfiles
         public string EligibleAmount4 { get; set; }
         public string EligibleAmount5 { get; set; }
         public string EligibleAmount6 { get; set; }
+
+        public string BasefixedPerMonth1 { get; set; }
+        public string BasefixedPerMonth2 { get; set; }
+        public string BasefixedPerMonth3 { get; set; }
+        public string BasefixedPerMonth4 { get; set; }
+        public string BasefixedPerMonth5 { get; set; }
+        public string BasefixedPerMonth6 { get; set; }
+
+        public string EligibleUnitsAboveBase1 { get; set; }
+        public string EligibleUnitsAboveBase2 { get; set; }
+        public string EligibleUnitsAboveBase3 { get; set; }
+        public string EligibleUnitsAboveBase4 { get; set; }
+        public string EligibleUnitsAboveBase5 { get; set; }
+        public string EligibleUnitsAboveBase6 { get; set; }
+
+        public string Last3FinancialYear1 { get; set; }
+        public string Last3FinancialYear2 { get; set; }
+        public string Last3FinancialYear3 { get; set; }
+
+        public string Last3UtilisedUnits1 { get; set; }
+        public string Last3UtilisedUnits2 { get; set; }
+        public string Last3UtilisedUnits3 { get; set; }
+
+        public string Last3RatePerUnit1 { get; set; }
+        public string Last3RatePerUnit2 { get; set; }
+        public string Last3RatePerUnit3 { get; set; }
+
+        public string Last3TotalPaid1 { get; set; }
+        public string Last3TotalPaid2 { get; set; }
+        public string Last3TotalPaid3 { get; set; }
+
+        public string UnitsConsumedPrior3Yrs { get; set; }
+        public string AvgUnitsEM { get; set; }
+        public string BasePowerConsumption { get; set; }
+        public string PerMonth { get; set; }
+
+
         public string FinancialYear { get; set; }
 
     }
