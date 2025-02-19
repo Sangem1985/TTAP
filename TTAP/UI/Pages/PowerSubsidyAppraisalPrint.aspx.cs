@@ -24,8 +24,8 @@ namespace TTAP.UI.Pages
         {
             try
             {
-                string IncentiveId = Request.QueryString["incid"].ToString();
-                //string IncentiveId = "18157";
+               // string IncentiveId = Request.QueryString["incid"].ToString();
+                string IncentiveId = "18157";
                 DataSet dsnew = new DataSet();
                 dsnew = GetPowerSubsidyDtls(IncentiveId);
 
@@ -59,10 +59,22 @@ namespace TTAP.UI.Pages
                     lblEligibletotal.Text = dsnew.Tables[0].Rows[0]["TOTAL_ELIGIBLE_AMOUNT"].ToString();
                     lblGMRecommend.Text = dsnew.Tables[0].Rows[0]["GM_REC_AMOUNT"].ToString();
                     lblDepartment.Text = dsnew.Tables[0].Rows[0]["FINAL_ELIGIBLE_AMOUNT"].ToString();
-                    hypworksheet.NavigateUrl = dsnew.Tables[0].Rows[0]["WORKSHEET_PATH"].ToString();
+                    string worksheetPath = dsnew.Tables[0].Rows[0]["WORKSHEET_PATH"].ToString().Trim();
+                  //  hypworksheet.NavigateUrl = dsnew.Tables[0].Rows[0]["WORKSHEET_PATH"].ToString();
 
+                    if (string.IsNullOrEmpty(worksheetPath))
+                    {
+                        worksheet.Visible = false;
+                        hypworksheet.Visible = false;
+                    }
+                    else
+                    {
+                        worksheet.Visible = true;
+                        hypworksheet.NavigateUrl = worksheetPath;
+                        hypworksheet.Visible = true;
+                    }
 
-                   if (lblTypeofApplicant.Text == "New Industry")
+                    if (lblTypeofApplicant.Text == "New Industry")
                    {
                         Claimperiod.Visible = true;
                         units.Visible = true;
