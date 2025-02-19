@@ -282,7 +282,7 @@
                                 </td>
                                 <td>
                                     <span>
-                                        <asp:HyperLink ID="hylinkattachment" runat="server" Visible="false">Attachment</asp:HyperLink>
+                                        <asp:HyperLink ID="hylinkattachment" Text="View" runat="server" Visible="false"></asp:HyperLink>
                                     </span>
                                 </td>
                             </tr>
@@ -679,7 +679,8 @@
                                     </td>
                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                     </td>
-                                </tr>
+                                </tr>                            
+
                                 
                             </table>
                         </div>

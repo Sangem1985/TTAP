@@ -59,8 +59,11 @@ namespace TTAP.UI.Pages
         }
         public void getDetails()
         {
-            string IncentiveId = Request.QueryString["incid"].ToString();
-            string MasterIncentiveId = Request.QueryString["mstid"].ToString();
+            //  string IncentiveId = Request.QueryString["incid"].ToString();
+            // string MasterIncentiveId = Request.QueryString["mstid"].ToString();
+            string IncentiveId = "";
+            string MasterIncentiveId = "";
+
             DataSet ds2 = new DataSet();
             ds2 = Gen.GetBasicUnitDetails_Proforma_lettersPSR(IncentiveId, MasterIncentiveId);
             if (MasterIncentiveId == "1" || MasterIncentiveId == "3" || MasterIncentiveId == "5")

@@ -61,7 +61,7 @@ namespace TTAP.UI.Pages
         }
         public void getDetails()
         {
-             string IncentiveId = Request.QueryString["incid"];
+            string IncentiveId = Request.QueryString["incid"];
             int INC_QDID = 4;
 
             if (string.IsNullOrEmpty(IncentiveId))
@@ -135,22 +135,38 @@ namespace TTAP.UI.Pages
                         lblTotalSubAmt.Text = row["TOTAL_SUBSIDY_AMOUNT"].ToString();
                         lblRemarks.Text = row["REMARKS"].ToString();
                         lblDepartment.Text = row["FORWARD_TO"].ToString(); //forwardedto
-                        hylinkattachment.Text = row["WORKSHEET_PATH"].ToString();
+                                                                           // hylinkattachment.Text = row["WORKSHEET_PATH"].ToString();
+                        string worksheetPath = row["WORKSHEET_PATH"].ToString().Trim();
 
                         lblDetailsConfirmed.Text = string.IsNullOrEmpty(row["REMARKS"].ToString()) ? "NA" : row["REMARKS"].ToString();
 
                         // Handling attachment download link
-                        if (!string.IsNullOrEmpty(row["WORKSHEET_PATH"].ToString()))
-                        {
-                            clerkattachment.Visible = true;
-                            hylinkattachment.Visible = true;
-                            string encpassword = Gen.Encrypt(row["WORKSHEET_PATH"].ToString(), "SYSTIME");
-                            hylinkattachment.NavigateUrl = "CS.aspx?filepathnew=" + encpassword;
-                        }
-                        else
+                        //if (!string.IsNullOrEmpty(row["WORKSHEET_PATH"].ToString()))
+                        //{
+                        //    clerkattachment.Visible = true;
+                        //    hylinkattachment.Visible = true;
+                        //    string encpassword = Gen.Encrypt(row["WORKSHEET_PATH"].ToString(), "SYSTIME");
+                        //    hylinkattachment.NavigateUrl = "CS.aspx?filepathnew=" + encpassword;
+                        //}
+                        //else
+                        //{
+                        //    clerkattachment.Visible = false;
+                        //    hylinkattachment.Visible = false;
+                        //}
+
+
+
+
+                        if (string.IsNullOrEmpty(worksheetPath))
                         {
                             clerkattachment.Visible = false;
                             hylinkattachment.Visible = false;
+                        }
+                        else
+                        {
+                            clerkattachment.Visible = true;
+                            hylinkattachment.NavigateUrl = worksheetPath;
+                            hylinkattachment.Visible = true;
                         }
                     }
                 }

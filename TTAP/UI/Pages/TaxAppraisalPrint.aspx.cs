@@ -13,7 +13,6 @@ namespace TTAP.UI.Pages
     public partial class TaxAppraisalPrint : System.Web.UI.Page
     {
         CAFClass ObjCAFClass = new CAFClass();
-        string IncentiveID;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -26,9 +25,10 @@ namespace TTAP.UI.Pages
             try
             {
                 string IncentiveId = Request.QueryString["incid"].ToString();
-                string MasterIncentiveId = Request.QueryString["mstid"].ToString();
+                // string IncentiveId = "22183";
+                // string MasterIncentiveId = Request.QueryString["mstid"].ToString();
                 DataSet dsnew = new DataSet();
-                dsnew = GetSalesTaxDtls(IncentiveId, MasterIncentiveId); //IncentiveID
+                dsnew = GetSalesTaxDtls(IncentiveId); //IncentiveID MasterIncentiveId
 
                 if (dsnew != null && dsnew.Tables.Count > 0 && dsnew.Tables[0].Rows.Count > 0)
                 {
@@ -66,7 +66,22 @@ namespace TTAP.UI.Pages
                     lblEligibleamount.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_AMOUNT"].ToString();
                     lblSubsidyAmount.Text = dsnew.Tables[0].Rows[0]["FINAL_SUBSIDY_AMOUNT"].ToString();
                     lblRemark.Text = dsnew.Tables[0].Rows[0]["REMARKS"].ToString();
-                    hypsheet.Text = dsnew.Tables[0].Rows[0]["WORKSHEET_PATH"].ToString();
+                    // hypsheet.Text = dsnew.Tables[0].Rows[0][""].ToString();
+
+                    string worksheetPath = dsnew.Tables[0].Rows[0]["WORKSHEET_PATH"].ToString().Trim();
+
+                    if (string.IsNullOrEmpty(worksheetPath))
+                    {
+                        worksheet.Visible = false;
+                        hypsheet.Visible = false;
+                    }
+                    else
+                    {
+                        worksheet.Visible = true;
+                        hypsheet.NavigateUrl = worksheetPath;
+                        hypsheet.Visible = true;
+                    }
+
 
                 }
             }
@@ -75,16 +90,16 @@ namespace TTAP.UI.Pages
                 throw ex;
             }
         }
-        public DataSet GetSalesTaxDtls(string INCENTIVEID, string MasterIncentiveId)
+        public DataSet GetSalesTaxDtls(string INCENTIVEID)
         {
             DataSet Dsnew = new DataSet();
 
             SqlParameter[] pp = new SqlParameter[] {
-               new SqlParameter("@INCENTIVEID",SqlDbType.VarChar),
+              // new SqlParameter("@INCENTIVEID",SqlDbType.VarChar),
                new SqlParameter("@MasterIncentiveId",SqlDbType.VarChar)
            };
             pp[0].Value = INCENTIVEID;
-            pp[1].Value = MasterIncentiveId;
+            //  pp[1].Value = MasterIncentiveId;
             Dsnew = ObjCAFClass.GenericFillDs("USP_GET_APPRAISAL_TAX", pp);
             return Dsnew;
         }

@@ -625,13 +625,13 @@
                                         <asp:Label ID="lblRemark" runat="server"></asp:Label>
                                     </td>
                                 </tr>
-                                  <tr runat="server" visible="false">
+                                  <tr id="worksheet" runat="server" visible="false">
                                      
                                     <td class="auto-style18">n) Works Sheet
                                     </td>
                                     <td class="auto-style4">
                                         <%--<asp:Label ID="lblSheet" runat="server"></asp:Label>--%>
-                                        <asp:HyperLink ID="hypsheet" runat="server"></asp:HyperLink>
+                                        <asp:HyperLink ID="hypsheet" Text="View" runat="server"></asp:HyperLink>
                                     </td>
                                 </tr>
 
