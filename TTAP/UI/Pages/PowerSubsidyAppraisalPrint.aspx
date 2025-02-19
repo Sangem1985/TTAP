@@ -65,8 +65,7 @@
         .auto-style2 {
             height: 50px;
         }
-
-        </style>
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -305,11 +304,9 @@
                         </table>
 
 
-                        <div align="center">
+                        <div align="center" id="EligibleINC" runat="server" visible="false">
                             <table style="font-family: Verdana; font-size: small; width: 60%" border="1">
-                                <tr>
-                                    <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px">20.
-                                    </td>
+                                <tr>                                   
                                     <td colspan="4" style="padding: 5px; margin: 5px;">
                                         <b>ELEGIBLE INCENTIVES</b></td>
 
@@ -334,7 +331,8 @@
                                 </tr>
                                 <tr>
 
-                                    <td colspan="1px"><asp:Label runat="server" ID="lblMonth1"></asp:Label>
+                                    <td colspan="1px">
+                                        <asp:Label runat="server" ID="lblMonth1"></asp:Label>
                                     </td>
                                     <td class="auto-style2">
                                         <asp:Label runat="server" ID="lblLand_ProjectCost"></asp:Label>
@@ -352,7 +350,8 @@
                                 </tr>
                                 <tr>
 
-                                    <td><asp:Label runat="server" ID="lblMonth2"></asp:Label>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblMonth2"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblBuilding_ProjectCost"></asp:Label>
@@ -370,7 +369,8 @@
                                 </tr>
                                 <tr>
 
-                                    <td><asp:Label runat="server" ID="lblMonth3"></asp:Label>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblMonth3"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblPlantMachry_ProjectCost"></asp:Label>
@@ -388,7 +388,8 @@
                                 </tr>
                                 <tr>
 
-                                    <td colspan="1.5px"><asp:Label runat="server" ID="lblMonth4"></asp:Label>
+                                    <td colspan="1.5px">
+                                        <asp:Label runat="server" ID="lblMonth4"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblFeasibilityStudyCharges_ProjectCost"></asp:Label>
@@ -406,7 +407,8 @@
                                 </tr>
                                 <tr>
 
-                                    <td><asp:Label runat="server" ID="lblMonth5"></asp:Label>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblMonth5"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblVehicles_ProjectCost"></asp:Label>
@@ -424,7 +426,8 @@
                                 </tr>
                                 <tr>
 
-                                    <td><asp:Label runat="server" ID="lblMonth6"></asp:Label>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblMonth6"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblOthersEligible_ProjectCost"></asp:Label>
@@ -443,6 +446,362 @@
 
                             </table>
                         </div>
+
+                        <br />
+                        <div align="center" id="Claimperiod" runat="server" visible="false">
+                            <table style="font-family: Verdana; font-size: small; width: 60%" border="1">
+                                <tr>
+                                    <td colspan="4" style="padding: 5px; margin: 5px;">
+                                        <b>Last Three Years Details</b>
+                                    </td>
+
+
+                                </tr>
+
+                                <tr>
+
+                                    <td>
+                                        <b>Financial Year </b>
+                                    </td>
+                                    <td>
+                                        <b>No of Units Utilised</b>
+                                    </td>
+                                    <td>
+                                        <b>Rate per Unit</b>
+                                    </td>
+                                    <td>
+                                        <b>Total Paid by the unit in Rs</b>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="Year1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="Unit1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="RateUnit1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="Total1"></asp:Label>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label runat="server" ID="Year2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Unit2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="RateUnit2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Total2"></asp:Label>
+                                    </td>
+
+                                </tr>
+                                <tr>
+
+                                    <td>
+                                        <asp:Label runat="server" ID="Year3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Unit3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="RateUnit3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Total3"></asp:Label>
+                                    </td>
+
+                                </tr>
+                              
+                            </table>
+                        </div>
+
+                        <div class="row" id="units" runat="server" visible="false">
+                            <table style="width: 100%">
+                                <tr id="tr1" runat="server" visible="true">                                   
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Total units consumed prior to 3 Years</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                    <td class="auto-style56">
+                                        <asp:Label ID="lblConsume3year" runat="server" Text="[Total Unit]"
+                                            Height="30px" MaxLength="80" Enabled="false" TabIndex="34" Width="150px"></asp:Label>
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                </tr>
+                                <tr id="tr2" runat="server" visible="true">                                   
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Average units EM</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                    <td class="auto-style56">
+                                        <asp:Label ID="lblEMUnits" runat="server" Text="[Average units EM]"
+                                            Height="30px" MaxLength="80" Enabled="false" TabIndex="34" Width="150px"></asp:Label>
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                </tr>
+                                <tr id="tr3" runat="server" visible="true">                                   
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Base power consumption fixed per year</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                    <td class="auto-style56">
+                                        <asp:Label ID="lblFixedYear" runat="server" Text="[Base power consumption fixed per year]"
+                                            Height="30px" MaxLength="80" Enabled="false" TabIndex="34" Width="150px"></asp:Label>
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                </tr>
+                                <tr id="tr4" runat="server" visible="true">                                   
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Per month</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                    <td class="auto-style56">
+                                        <asp:Label ID="lblMonth" runat="server" Text="[Per month]"
+                                            Height="30px" MaxLength="80" Enabled="false" TabIndex="34" Width="150px"></asp:Label>
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                </tr>
+
+
+
+                            </table>
+                        </div>
+
+                        <div align="center" id="MonthWise" runat="server" visible="false">
+                            <table style="font-family: Verdana; font-size: small; width: 60%" border="1">
+                                <tr>
+                                    <td colspan="4" style="padding: 5px; margin: 5px;">
+                                        <b>Month Wise Details</b></td>
+
+                                </tr>
+                                <tr>
+                                    <td>Month
+                                    </td>
+                                    <td>
+                                        <b>Financial Year </b>
+                                    </td>
+                                    <td>
+                                        <b>Units Consumed in Nos.</b>
+                                    </td>
+                                    <td>
+                                        <b>Amount Paid as per Bill in Rs.</b>
+                                    </td>
+                                    <td>
+                                        <b>Base fixed per month in units</b>
+                                    </td>
+                                    <td>
+                                        <b>Eligible Units i.e over & above Base</b>
+                                    </td>
+                                    <td>
+                                        <b>Eligible rate Re-imbursement per units</b>
+                                    </td>
+                                    <td>
+                                        <b>Eligible amount Re-imbursement per units</b>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+                                       <td class="auto-style2">
+                                        <asp:Label runat="server" ID="Month1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="Financial1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="ConsumedNO1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="AmountBill1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="FixedMonth1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="EligibleUnits1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="Reimbursement1"></asp:Label>
+                                    </td>
+                                    <td class="auto-style2">
+                                        <asp:Label runat="server" ID="Eligibleamount1"></asp:Label>
+                                    </td>
+                                 
+
+                                </tr>
+                                <tr>
+                                     <td>
+                                        <asp:Label runat="server" ID="Month2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Financial2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="ConsumedNO2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="AmountBill2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="FixedMonth2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="EligibleUnits2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Reimbursement2"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Eligibleamount2"></asp:Label>
+                                    </td>
+                                   
+
+                                </tr>
+                                <tr>
+                                      <td>
+                                        <asp:Label runat="server" ID="Month3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Financial3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="ConsumedNO3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="AmountBill3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="FixedMonth3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="EligibleUnits3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Reimbursement3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Eligibleamount3"></asp:Label>
+                                    </td>
+                                  
+
+                                </tr>
+                                <tr>
+                                     <td>
+                                        <asp:Label runat="server" ID="Month4"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Financial4"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="ConsumedNO4"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="AmountBill4"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="FixedMonth4"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="EligibleUnits4"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Reimbursement4"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Eligibleamount4"></asp:Label>
+                                    </td>
+                                   
+
+                                </tr>
+                                <tr>
+                                     <td>
+                                        <asp:Label runat="server" ID="Month5"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Financial5"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="ConsumedNO5"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="AmountBill5"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="FixedMont5"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="EligibleUnits5"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Reimbursement5"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Eligibleamount5"></asp:Label>
+                                    </td>
+                                   
+
+                                </tr>
+                                <tr>
+                                      <td>
+                                        <asp:Label runat="server" ID="Month6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Financial6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="ConsumedNO6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="AmountBill6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="FixedMonth6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="EligibleUnits6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Reimbursement6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="Eligibleamount6"></asp:Label>
+                                    </td>
+                                  
+
+                                </tr>
+
+
+
+
+
+                            </table>
+                        </div>
+
 
                         <div class="row">
                             <table style="width: 100%">
@@ -532,7 +891,24 @@
                                     </td>
                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                     </td>
-                                </tr> 
+                                </tr>
+                                <tr>
+                                     <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">25.</td>
+                                    <td style="padding: 5px; margin: 5px;">Work Sheet </td>
+                                    <td style="padding: 5px; margin: 5px;">:
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style28">
+                                        <asp:HyperLink ID="hypworksheet" Text="View" runat="server"></asp:HyperLink>
+                                    </td>
+
+                                     <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                    <td style="padding: 5px; margin: 5px;"></td>
+                                    <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;">&nbsp;
+                                    </td>
+                                </tr>
                             </table>
                         </div>
                     </div>
