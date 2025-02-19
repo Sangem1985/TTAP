@@ -81,7 +81,7 @@ namespace TTAP.UI.Pages
                         divLastThreeDtls.Visible = true;
                         divExpansionDtls.Visible = true;
                         dixExpansion.Visible = true;
-                        BindLastThreeYrs(dsnew.Tables[0].Rows[0]["DCP"].ToString());
+                        BindLastThreeYrs(Convert.ToDateTime(dsnew.Tables[0].Rows[0]["DCPExp"].ToString()).ToString("yyyy/MM/dd"));
                     }
 
                     lblReceiptDate.InnerHtml = dsnew.Tables[0].Rows[0]["ApplicationFiledDate"].ToString();
