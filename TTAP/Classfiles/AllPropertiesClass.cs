@@ -2799,6 +2799,8 @@ namespace TTAP.Classfiles
         public string RETURN_REMARKS { get; set; }
         public string CREATEDBY { get; set; }
 
+        public string REJECTION_REMARKS { get; set; }
+
     }
     public class ApprasialProperties
     {

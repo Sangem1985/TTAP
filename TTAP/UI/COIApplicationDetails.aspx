@@ -3119,16 +3119,257 @@
                                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
                                                             <ItemTemplate>
                                                                 <%# Container.DataItemIndex + 1%>
+                                                                <asp:Label ID="lblSubIncID" runat="server" Text='<%# Eval("SubIncentiveID") %>' Visible="false"></asp:Label>
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <ItemStyle Width="60px" />
                                                         </asp:TemplateField>
-                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentive Names" />
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Incentive Names">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                                <asp:Label ID="lblIncentiveName" runat="server" Text='<%# Eval("IncentiveName") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Status">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                                <asp:Label ID="lblREMARKS_TYPE" runat="server" Text='<%# Eval("REMARKS_TYPE") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Remarks/Recommended Amount">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                                <asp:Label ID="lblREMARKS" runat="server" Text='<%# Eval("REMARKS") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+
+                                                        <%--<asp:BoundField DataField="IncentiveName" HeaderText="Incentive Names" />
                                                         <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
-                                                        <asp:BoundField DataField="REMARKS" HeaderText="DD Query Response" />
+                                                        <asp:BoundField DataField="REMARKS" HeaderText="DD Query Response" />--%>
                                                         <asp:BoundField DataField="DD_ProcessDate" HeaderText="Process Date" />
 
 
+                                                    </Columns>
+
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card show" id="divJDlevel" runat="server" visible="false">
+                                <div class="card-header p-0" id="JDlevelheading">
+                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#JDlevel">
+                                        <span id="Span3" runat="server">Verification of Applcation(Joint Director-Level)</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                                <div id="JDlevel" class="show">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-md-12 mt-3 d-flex" style="margin-top: 20px;">
+                                                <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Type of Incentive                           
+                                                        </div>
+                                                        <asp:DropDownList ID="ddlJDlevelInc" runat="server" class="form-control">
+                                                            <asp:ListItem Text="--select--" Value="select"></asp:ListItem>
+                                                            <asp:ListItem Text="incentive" Value="in"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Status                           
+                                                        </div>
+                                                        <asp:DropDownList ID="ddlJDAction" runat="server" class="form-control txtbox" AutoPostBack="true" OnSelectedIndexChanged="ddlJDAction_SelectedIndexChanged">
+                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                            <asp:ListItem Text="File in full shape" Value="1"></asp:ListItem>
+                                                            <asp:ListItem Text="Query" Value="2"></asp:ListItem>
+                                                            <asp:ListItem Text="SSC inspection" Value="3"></asp:ListItem>
+                                                            <asp:ListItem Text="Abeyance Application" Value="4"></asp:ListItem>
+                                                            <asp:ListItem Text="Return" Value="5"></asp:ListItem>
+                                                            <asp:ListItem Text="Reject" Value="6"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mt-3 d-flex" style="margin-top: 20px;">
+                                                <div class="col-md-4" runat="server" id="divJDRecmnd" visible="false">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Recommended Amount                           
+                                                        </div>
+                                                        <asp:TextBox ID="txtJDRecAmount" onkeypress="return DecimalOnly();" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-8" runat="server" id="divJDQuery" visible="false">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Please Enter Query Description                           
+                                                        </div>
+                                                        <asp:TextBox ID="txtJDQueryRemarks" runat="server" class="form-control" TextMode="MultiLine" Height="50px" Width="70px" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-8" runat="server" id="divJDSSCinsp" visible="false">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Please Enter Remarks	                           
+                                                        </div>
+                                                        <asp:TextBox ID="txtJDSSCRemarks" runat="server" class="form-control txtbox" TextMode="MultiLine" Height="50px" Width="70px" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8" runat="server" id="divJDAbeyance" visible="false">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Please Enter Abeyance Remarks                           
+                                                        </div>
+                                                        <asp:TextBox ID="txtJDAbeyanceRemarks" runat="server" class="form-control txtbox" TextMode="MultiLine" Height="50px" Width="70px" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8" runat="server" id="divJDReject" visible="false">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Please Enter Abeyance Remarks                           
+                                                        </div>
+                                                        <asp:TextBox ID="txtJDRejectRemarks" runat="server" class="form-control txtbox" TextMode="MultiLine" Height="50px" Width="70px" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 mt-3 d-flex" style="margin-top: 20px;" id="divJDreturn" runat="server" visible="false">
+                                                <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Please Select Officer to Return                              
+                                                        </div>
+                                                        <asp:DropDownList ID="ddlJDReturnto" runat="server" class="form-control txtbox">
+                                                            <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
+                                                            <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
+                                                            <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
+                                                            <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
+                                                            <asp:ListItem Text="CLERK" Value="CLERK"></asp:ListItem>
+                                                        </asp:DropDownList>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
+                                                            Return Remarks                           
+                                                        </div>
+                                                        <asp:TextBox ID="txtJDReturnRemarks" runat="server" class="form-control" TextMode="MultiLine" Height="50px" Width="70px" TabIndex="1"></asp:TextBox>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                                                <div class="col-sm-12">
+                                                    <asp:Button Text="ADD" CssClass="btn btn-blue mx-2" ID="btnJDActionAdd" runat="server" OnClick="btnJDActionAdd_Click" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 d-flex justify-content-center mb-3">
+                                                <div class="col-md-8">
+                                                    <asp:GridView ID="grdJDAction" runat="server" AutoGenerateColumns="False" BorderColor="#003399"
+                                                        BorderStyle="Solid" BorderWidth="1px" CellPadding="4" CssClass="GRD" ForeColor="#333333"
+                                                        GridLines="Both" Width="100%" EnableModelValidation="True" Visible="false" OnRowDeleting="grdJDAction_RowDeleting"
+                                                        OnRowDataBound="grdJDAction_RowDataBound">
+                                                        <Columns>
+                                                            <asp:BoundField HeaderText="Incentive Id" DataField="IncentiveId" ItemStyle-BackColor="Wheat"
+                                                                ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:BoundField HeaderText="Incentive Type" DataField="IncentiveName" ItemStyle-BackColor="Wheat"
+                                                                ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                            <asp:TemplateField HeaderText="Status" Visible="false">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblstatus" runat="server"
+                                                                        Text='<%# Eval("StatusId") %>'></asp:Label>
+                                                                    <br />
+                                                                    <asp:Label ID="lblSubIncID" runat="server"
+                                                                        Text='<%# Eval("SubIncentiveID") %>'></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+
+                                                            <asp:BoundField HeaderText="Status" DataField="StatusName" ItemStyle-BackColor="Wheat"
+                                                                ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+
+                                                            <asp:TemplateField HeaderText="Recommended Amount /Remarks" Visible="true" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblRecommand" runat="server" Text='<%# Eval("RecmndAmount") %>' Visible="true"></asp:Label>
+                                                                    <asp:Label ID="lblQuery" runat="server" Text='<%# Eval("QueryRemarks") %>' Visible="true"></asp:Label>
+                                                                    <asp:Label ID="lblSSCInspection" runat="server" Text='<%# Eval("SSCRemarks") %>' Visible="true"></asp:Label>
+                                                                    <asp:Label ID="lblAbeyance" runat="server" Text='<%# Eval("AbeyanceRemarks") %>' Visible="true"></asp:Label>
+                                                                    <asp:Label ID="lblReturn" runat="server" Text='<%# Eval("ReturnRemarks") %>' Visible="true"></asp:Label>
+                                                                    <asp:Label ID="lblReject" runat="server" Text='<%# Eval("RejectRemarks") %>' Visible="true"></asp:Label>
+
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderText="Return To" Visible="false" ItemStyle-BackColor="Wheat" ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center">
+                                                                <ItemTemplate>
+                                                                    <asp:Label ID="lblSend" runat="server" Text='<%# Eval("JD_Returnto") %>' Visible="true"></asp:Label>
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>
+                                                            <asp:CommandField HeaderText="Delete" ShowDeleteButton="True" ItemStyle-BackColor="Wheat"
+                                                                ItemStyle-ForeColor="WindowText" ItemStyle-HorizontalAlign="Center" />
+                                                        </Columns>
+                                                        <HeaderStyle BackColor="#013161" Font-Bold="True" ForeColor="White" />
+                                                        <AlternatingRowStyle BackColor="White" />
+                                                    </asp:GridView>
+
+                                                </div>
+                                            </div>
+                                            <div class="row" style="display: flex; justify-content: center; align-items: center;">
+                                                <div class="col-sm-12">
+                                                    <asp:Button Text="Submit" CssClass="btn btn-blue mx-2" ID="btnJDSubmitAction" Visible="false" runat="server" OnClick="btnJDSubmitAction_Click" />
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card" id="divJDProcess" runat="server" visible="false">
+                                <div class="card-header p-0">
+                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#JDProcessView">
+                                        <span id="Span10" runat="server">JD Process</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                                <div id="JDProcessView" class="collapse">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Joint Director Processed Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="grdJDProcess" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentive Name" />
+                                                        <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
+                                                        <asp:BoundField DataField="REMARKS" HeaderText="Remarks/Recommended Amount" />
+                                                        <asp:BoundField DataField="JD_ProcessDate" HeaderText="Process Date" />
                                                     </Columns>
                                                 </asp:GridView>
                                             </div>

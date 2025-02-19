@@ -148,7 +148,7 @@ namespace TTAP.UI
                         applicanthd.Visible = false;
                         liApplicantIncentivedashbiard.Visible = false;
                         liIncentiveDeptDashboard.Visible = true;
-                        anchdeptincdashboard.HRef = "~/UI/Pages/frmJDDashboard.aspx";
+                        anchdeptincdashboard.HRef = "~/UI/Pages/COI/JdDashboard.aspx";
                         lichangepwd.Visible = true;
                         liQueryGeneration.Visible = true;
                         liSvcEntry.Visible = true;

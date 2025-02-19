@@ -177,7 +177,7 @@ namespace TTAP.UI
                                         //SpnJDVerificationOfapplication.InnerHtml = "Verification of Applcation-After Inspection (DLO - " + DistrictName + ")";
                                         //  BindDLORecomendedIncentives(IncentiveId, Role_Code);
                                     }
-                                    if (Role_Code == "COI-CLERK" || Role_Code == "COI-SUPDT" || Role_Code == "COI-AD" || Role_Code == "COI-DD")
+                                    if (Role_Code == "COI-CLERK" || Role_Code == "COI-SUPDT" || Role_Code == "COI-AD" || Role_Code == "COI-DD" || Role_Code == "JD")
                                     {
 
                                         BindRecomendedIncentivesDetails(IncentiveId, Role_Code);
@@ -1584,6 +1584,16 @@ namespace TTAP.UI
                         divDDlevel.Visible = true;
                     }
                     else { divDDlevel.Visible = false; }
+                    if (RoleCode == "JD")
+                    {
+                        ViewState["divInspectionCompleted"] = dsapprovals;
+                        ddlJDlevelInc.DataSource = dsapprovals.Tables["Table"];
+                        ddlJDlevelInc.DataValueField = "SubIncentiveID";
+                        ddlJDlevelInc.DataTextField = "IncentiveName";
+                        ddlJDlevelInc.DataBind();
+                        ddlJDlevelInc.Visible = true;
+                    }
+                    else { divJDlevel.Visible = false; }
 
                 }
                 else
@@ -1595,6 +1605,7 @@ namespace TTAP.UI
                 AddSelect(ddlSupdtIncentive);
                 AddSelect(ddlADIncentive);
                 AddSelect(ddlDDIncentive);
+                AddSelect(ddlJDlevelInc);
             }
             catch (Exception ex)
             {
@@ -4259,6 +4270,10 @@ namespace TTAP.UI
                             {
                                 divDDlevel.Visible = true;
                             }
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "70" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "67" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "64" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "61" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "JD")
+                            {
+                                divJDlevel.Visible = true;
+                            }
                             //else { divDDlevel.Visible = false; }
                         }
                     }
@@ -4329,6 +4344,14 @@ namespace TTAP.UI
                         DDPROCESSEDDET.Visible = true;
                         DDProcessed.Visible = true;
                         //  divDDlevel.Visible = false;
+                    }
+                    ////sowjanya
+                    if (dss != null && dss.Tables.Count > 0 && dss.Tables[5].Rows.Count > 0)
+                    {
+                        grdJDProcess.DataSource = dss.Tables[5];
+                        grdJDProcess.DataBind();
+                        divJDProcess.Visible = true;
+
                     }
 
                 }
@@ -4455,6 +4478,415 @@ namespace TTAP.UI
             {
                 throw ex;
             }
+        }
+
+        // ------------------------------sowjanya-----------------------------------
+        protected void ddlJDAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlJDAction.SelectedValue != "0")
+                {
+
+                    if (ddlJDAction.SelectedValue == "1")
+                    {
+                        divJDRecmnd.Visible = true;
+                        if (GVDDPROC.Rows.Count > 0)
+                        {
+                            foreach (GridViewRow gvrow in GVDDPROC.Rows)
+                            {
+                                int rowIndex = gvrow.RowIndex;
+                                string SubIncentiveID = ((Label)gvrow.FindControl("lblSubIncID")).Text.ToString();
+                                string Remarkstype = ((Label)gvrow.FindControl("lblREMARKS_TYPE")).Text.ToString();
+                                string Remarks = ((Label)gvrow.FindControl("lblREMARKS")).Text.ToString();
+                                if (ddlJDlevelInc.SelectedValue == SubIncentiveID && Remarkstype == "RECOMMENDED")
+                                {
+                                    txtJDRecAmount.Text = Remarks;
+                                    break;
+                                }
+                            }
+
+                        }
+                        divJDQuery.Visible = false;
+                        divJDreturn.Visible = false;
+                        divJDSSCinsp.Visible = false;
+                        divJDAbeyance.Visible = false;
+                        divJDReject.Visible = false;
+
+                        txtJDQueryRemarks.Text = ""; txtJDRejectRemarks.Text = "";
+                        txtJDReturnRemarks.Text = ""; ddlJDReturnto.SelectedValue = "0";
+                        txtJDSSCRemarks.Text = "";
+                        txtJDAbeyanceRemarks.Text = "";
+                    }
+                    else if (ddlJDAction.SelectedValue == "2")
+                    {
+                        divJDRecmnd.Visible = false;
+                        divJDQuery.Visible = true;
+                        if (GVDDPROC.Rows.Count > 0)
+                        {
+                            foreach (GridViewRow gvrow in GVDDPROC.Rows)
+                            {
+                                int rowIndex = gvrow.RowIndex;
+                                string SubIncentiveID = ((Label)gvrow.FindControl("lblSubIncID")).Text.ToString();
+                                string Remarkstype = ((Label)gvrow.FindControl("lblREMARKS_TYPE")).Text.ToString();
+                                string Remarks = ((Label)gvrow.FindControl("lblREMARKS")).Text.ToString();
+                                if (ddlJDlevelInc.SelectedValue == SubIncentiveID && Remarkstype == "QUERY")
+                                {
+                                    txtJDQueryRemarks.Text = Remarks;
+                                    break;
+                                }
+                            }
+                        }
+                        divJDreturn.Visible = false;
+                        divJDSSCinsp.Visible = false;
+                        divJDAbeyance.Visible = false;
+                        divJDReject.Visible = false;
+
+                        txtJDRecAmount.Text = ""; txtJDRejectRemarks.Text = "";
+                        txtJDReturnRemarks.Text = ""; ddlJDReturnto.SelectedValue = "0";
+                        txtJDSSCRemarks.Text = "";
+                        txtJDAbeyanceRemarks.Text = "";
+                    }
+                    else if (ddlJDAction.SelectedValue == "3")
+                    {
+                        divJDRecmnd.Visible = false;
+                        divJDQuery.Visible = false;
+                        divJDreturn.Visible = false;
+                        divJDSSCinsp.Visible = true;
+                        if (GVDDPROC.Rows.Count > 0)
+                        {
+                            foreach (GridViewRow gvrow in GVDDPROC.Rows)
+                            {
+                                int rowIndex = gvrow.RowIndex;
+                                string SubIncentiveID = ((Label)gvrow.FindControl("lblSubIncID")).Text.ToString();
+                                string Remarkstype = ((Label)gvrow.FindControl("lblREMARKS_TYPE")).Text.ToString();
+                                string Remarks = ((Label)gvrow.FindControl("lblREMARKS")).Text.ToString();
+                                if (ddlJDlevelInc.SelectedValue == SubIncentiveID && Remarkstype == "SSC INSPECTION")
+                                {
+                                    txtJDSSCRemarks.Text = Remarks;
+                                    break;
+                                }
+                            }
+                        }
+                        divJDAbeyance.Visible = false;
+                        divJDReject.Visible = false;
+
+
+                        txtJDRecAmount.Text = ""; txtJDQueryRemarks.Text = "";
+                        txtJDReturnRemarks.Text = ""; ddlJDReturnto.ClearSelection();
+                        txtJDAbeyanceRemarks.Text = ""; txtJDRejectRemarks.Text = "";
+                    }
+                    else if (ddlJDAction.SelectedValue == "4")
+                    {
+                        divJDRecmnd.Visible = false;
+                        divJDQuery.Visible = false;
+                        divJDreturn.Visible = false;
+                        divJDSSCinsp.Visible = false;
+                        divJDAbeyance.Visible = true;
+                        if (GVDDPROC.Rows.Count > 0)
+                        {
+                            foreach (GridViewRow gvrow in GVDDPROC.Rows)
+                            {
+                                int rowIndex = gvrow.RowIndex;
+                                string SubIncentiveID = ((Label)gvrow.FindControl("lblSubIncID")).Text.ToString();
+                                string Remarkstype = ((Label)gvrow.FindControl("lblREMARKS_TYPE")).Text.ToString();
+                                string Remarks = ((Label)gvrow.FindControl("lblREMARKS")).Text.ToString();
+                                if (ddlJDlevelInc.SelectedValue == SubIncentiveID && Remarkstype == "ABEYANCE")
+                                {
+                                    txtJDAbeyanceRemarks.Text = Remarks;
+                                    break;
+                                }
+                            }
+                        }
+                        divJDReject.Visible = false;
+
+                        txtJDRecAmount.Text = ""; txtJDQueryRemarks.Text = "";
+                        txtJDReturnRemarks.Text = ""; ddlJDReturnto.ClearSelection();
+                        txtJDSSCRemarks.Text = ""; txtJDRejectRemarks.Text = "";
+                    }
+                    else if (ddlJDAction.SelectedValue == "5")
+                    {
+                        divJDRecmnd.Visible = false;
+                        divJDQuery.Visible = false;
+                        divJDreturn.Visible = true;
+                        divJDSSCinsp.Visible = false;
+                        divJDAbeyance.Visible = false;
+                        divJDReject.Visible = false;
+                        txtJDRecAmount.Text = ""; txtJDQueryRemarks.Text = "";
+                        txtJDSSCRemarks.Text = ""; txtJDAbeyanceRemarks.Text = "";
+                        txtJDRejectRemarks.Text = "";
+                    }
+                    else if (ddlJDAction.SelectedValue == "6")
+                    {
+                        divJDReject.Visible = true;
+                        divJDRecmnd.Visible = false;
+                        divJDQuery.Visible = false;
+                        divJDreturn.Visible = false;
+                        divJDSSCinsp.Visible = false;
+                        divJDAbeyance.Visible = false;
+                        txtJDRecAmount.Text = ""; txtJDQueryRemarks.Text = "";
+                        txtJDReturnRemarks.Text = ""; ddlJDReturnto.ClearSelection();
+                        txtJDSSCRemarks.Text = ""; txtJDAbeyanceRemarks.Text = "";
+                    }
+                }
+                else
+                {
+                    divJDRecmnd.Visible = false;
+                    divJDQuery.Visible = false;
+                    divJDreturn.Visible = false;
+                    divJDSSCinsp.Visible = false;
+                    divJDAbeyance.Visible = false;
+                    txtJDRecAmount.Text = ""; txtJDQueryRemarks.Text = "";
+                    txtJDReturnRemarks.Text = ""; ddlJDReturnto.ClearSelection();
+                    txtJDSSCRemarks.Text = ""; txtJDAbeyanceRemarks.Text = "";
+                    txtJDRejectRemarks.Text = "";
+                }
+            }
+            catch (Exception ex) { throw ex; }
+
+        }
+
+        protected void btnJDActionAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlJDlevelInc.Items.Count != 1)
+                {
+                    if (ddlJDlevelInc.SelectedValue == "0")
+                    {
+                        lblmsg0.Text = "Please Select Incentive Type";
+                        Failure.Visible = true;
+                    }
+                    if (ddlJDAction.SelectedValue == "0")
+                    {
+                        lblmsg0.Text = "Please Select Option to Process";
+                        Failure.Visible = true;
+                    }
+                    else if (ddlJDAction.SelectedValue == "1" && txtJDRecAmount.Text.Trim() == "")
+                    {
+                        lblmsg0.Text = "Please Enter Recommended Amount";
+                        Failure.Visible = true;
+
+                    }
+                    else if (ddlJDAction.SelectedValue == "2" && txtJDQueryRemarks.Text.Trim() == "")
+                    {
+                        lblmsg0.Text = "Please Enter Query Remarks";
+                        Failure.Visible = true;
+
+                    }
+                    else if (ddlJDAction.SelectedValue == "3" && txtJDSSCRemarks.Text.Trim() == "")
+                    {
+                        lblmsg0.Text = "Please Enter SSC Inspection Remarks";
+                        Failure.Visible = true;
+
+                    }
+                    else if (ddlJDAction.SelectedValue == "4" && txtJDAbeyanceRemarks.Text.Trim() == "")
+                    {
+                        lblmsg0.Text = "Please Enter Abeyance Remarks";
+                        Failure.Visible = true;
+
+                    }
+                    else if (ddlJDAction.SelectedValue == "5" && (txtJDReturnRemarks.Text.Trim() == "" || ddlJDReturnto.SelectedValue == "0"))
+                    {
+                        if (txtJDReturnRemarks.Text.Trim() == "")
+                        {
+                            lblmsg0.Text = "Please Enter Return Remarks";
+                            Failure.Visible = true;
+                        }
+                        if (ddlJDReturnto.SelectedValue == "0")
+                        {
+                            lblmsg0.Text = lblmsg0.Text + " \n" + "Please select officer to Return";
+                            Failure.Visible = true;
+                        }
+                    }
+                    else if (ddlJDAction.SelectedValue == "6" && txtJDRejectRemarks.Text.Trim() == "")
+                    {
+                        lblmsg0.Text = "Please Enter Rejection Remarks";
+                        Failure.Visible = true;
+
+                    }
+                    else
+                    {
+                        DataTable dt = new DataTable();
+
+                        if (ViewState["JDLEVEL"] == null)
+                        {
+
+                            dt.Columns.Add("SubIncentiveID", typeof(string));
+                            dt.Columns.Add("IncentiveName", typeof(string));
+                            dt.Columns.Add("IncentiveId", typeof(string));
+                            dt.Columns.Add("StatusName", typeof(string));
+                            dt.Columns.Add("StatusId", typeof(string));
+                            dt.Columns.Add("JD_Returnto", typeof(string));
+                            dt.Columns.Add("RecmndAmount", typeof(string));
+                            dt.Columns.Add("QueryRemarks", typeof(string));
+                            dt.Columns.Add("SSCRemarks", typeof(string));
+                            dt.Columns.Add("AbeyanceRemarks", typeof(string));
+                            dt.Columns.Add("ReturnRemarks", typeof(string));
+                            dt.Columns.Add("RejectRemarks", typeof(string));
+
+                        }
+                        else
+                        {
+                            dt = (DataTable)ViewState["JDLEVEL"];
+                        }
+
+                        DataRow dr = dt.NewRow();
+
+                        dr["SubIncentiveID"] = ddlJDlevelInc.SelectedValue;
+                        dr["IncentiveName"] = ddlJDlevelInc.SelectedItem.Text;
+                        dr["IncentiveId"] = ViewState["IncentiveId"];
+                        dr["StatusName"] = ddlJDAction.SelectedItem.Text;
+                        dr["StatusId"] = ddlJDAction.SelectedValue;
+                        dr["RecmndAmount"] = txtJDRecAmount.Text;
+                        dr["QueryRemarks"] = txtJDQueryRemarks.Text;
+                        dr["SSCRemarks"] = txtJDSSCRemarks.Text;
+                        dr["AbeyanceRemarks"] = txtJDAbeyanceRemarks.Text;
+                        dr["ReturnRemarks"] = txtJDReturnRemarks.Text;
+                        dr["RejectRemarks"] = txtJDRejectRemarks.Text;
+                        if (ddlJDAction.SelectedValue == "5")
+                        {
+                            dr["JD_Returnto"] = ddlJDReturnto.SelectedValue;
+                        }
+
+
+                        dt.Rows.Add(dr);
+                        grdJDAction.Visible = true;
+                        grdJDAction.DataSource = dt;
+                        grdJDAction.DataBind();
+                        btnJDSubmitAction.Visible = true;
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            if (Convert.ToString(dr["StatusId"]) == "5")
+                            {
+                                grdJDAction.Columns[5].Visible = true;
+                                break;
+                            }
+                        }
+                        ViewState["JDLEVEL"] = dt;
+
+
+                        ddlJDlevelInc.Items.Remove(ddlJDlevelInc.Items.FindByValue(ddlJDlevelInc.SelectedValue));
+                        ddlJDlevelInc.ClearSelection();
+                        ddlJDAction.ClearSelection();
+                        ddlJDAction_SelectedIndexChanged(sender, e);
+
+                        txtJDRecAmount.Text = string.Empty;
+                        txtJDQueryRemarks.Text = string.Empty;
+                        txtJDSSCRemarks.Text = string.Empty;
+                        txtJDReturnRemarks.Text = string.Empty;
+                        txtJDRejectRemarks.Text = string.Empty;
+                        ddlJDReturnto.ClearSelection();
+
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnJDSubmitAction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (grdJDAction.Rows.Count > 0)
+                {
+                    UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                    ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+                    DLOApplication DLODetails = new DLOApplication();
+
+                    for (int i = 0; i < grdJDAction.Rows.Count; i++)
+                    {
+                        Label lblstatus = (Label)grdJDAction.Rows[i].FindControl("lblstatus");
+                        Label lblSubIncID = (Label)grdJDAction.Rows[i].FindControl("lblSubIncID");
+                        Label lblRecommand = (Label)grdJDAction.Rows[i].FindControl("lblRecommand");
+                        Label lblQuery = (Label)grdJDAction.Rows[i].FindControl("lblQuery");
+                        Label lblSSCInspection = (Label)grdJDAction.Rows[i].FindControl("lblSSCInspection");
+                        Label lblAbeyance = (Label)grdJDAction.Rows[i].FindControl("lblAbeyance");
+                        Label lblSend = (Label)grdJDAction.Rows[i].FindControl("lblSend");
+                        Label lblReturn = (Label)grdJDAction.Rows[i].FindControl("lblReturn");
+                        Label lblReject = (Label)grdJDAction.Rows[i].FindControl("lblReject");
+
+                        DLODetails.INCENTIVEID = ViewState["IncentiveId"].ToString();
+                        DLODetails.SUBINCENTIVEID = lblSubIncID.Text;
+                        DLODetails.ACTIONID = lblstatus.Text;
+                        DLODetails.RECOMMENDEAMOUNT = lblRecommand.Text;
+                        DLODetails.QUERY_REMARKS = lblQuery.Text;
+                        DLODetails.SSCINSP_REMARKS = lblSSCInspection.Text;
+                        DLODetails.ABEYANCE_REMARKS = lblAbeyance.Text;
+                        DLODetails.FORWARDTO = lblSend.Text;
+                        DLODetails.RETURN_REMARKS = lblReturn.Text;
+                        DLODetails.REJECTION_REMARKS = lblReject.Text;
+                        DLODetails.CREATEDBY = ObjLoginNewvo.uid;
+
+                        string result = ObjCAFClass.InsertJDLevel(DLODetails);
+
+                        if (result == "1")
+                        {
+                            success.Visible = true;
+                            lblmsg.Text = "Application Process Submitted Successfully";
+                            string message = "alert('" + lblmsg.Text + "')";
+                            ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+
+                            btnJDSubmitAction.Enabled = false;
+
+                        }
+                    }
+                    BindCoiProcess();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        protected void grdJDAction_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            try
+            {
+                if (grdJDAction.Rows.Count > 0)
+                {
+                    string IncentiveName = grdJDAction.Rows[e.RowIndex].Cells[1].Text;
+                    string lblSubIncID = ((Label)grdJDAction.Rows[e.RowIndex].FindControl("lblSubIncID")).Text.ToString().Trim();
+                    ListItem li = new ListItem();
+                    li.Text = IncentiveName;
+                    li.Value = lblSubIncID;
+                    ddlJDlevelInc.Items.Add(li);
+
+                    ((DataTable)ViewState["JDLEVEL"]).Rows.RemoveAt(e.RowIndex);
+                    this.grdJDAction.DataSource = ((DataTable)ViewState["JDLEVEL"]).DefaultView;
+                    this.grdJDAction.DataBind();
+                    grdJDAction.Visible = true;
+                    grdJDAction.Focus();
+                    if (grdJDAction.Rows.Count > 0)
+                        btnJDSubmitAction.Visible = true;
+                    else
+                        btnJDSubmitAction.Visible = false;
+
+                }
+                else
+                {
+                    Failure.Visible = true;
+                    lblmsg0.Text = "";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void grdJDAction_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
         }
     }
 }

@@ -204,19 +204,19 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Scrutiny Completed & Forwarded to Additional Director</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JDApplications.aspx?Stg=4">
                                             <span><i class="fa fa-fw fa-calendar"></i>Within 7 Days </span>
                                             <span class="badge badge-pill badge-primary bg-success">
                                                 <asp:Label ID="lblScrtnyCompFwdtoAddlWithin" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=6">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JDApplications.aspx?Stg=6">
                                             <span><i class="fa fa-fw fa-calendar"></i>Beyond 7 Days</span>
                                             <span class="badge badge-pill badge-primary bg-success">
                                                 <asp:Label ID="lblScrtnyCompFwdtoAddlBeyond" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=11">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JDApplications.aspx?Stg=11">
                                             <span><i class="fa fa-fw fa-calendar"></i>Total</span>
                                             <span class="badge badge-pill badge-primary bg-warning">
                                                 <asp:Label ID="lblTotScrtnyCompFwdtoAddl" runat="server"></asp:Label>

@@ -5944,9 +5944,10 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@SSCINSP_REMARKS", DLODetails.SSCINSP_REMARKS);
                 com.Parameters.AddWithValue("@ABEYANCE_REMARKS", DLODetails.ABEYANCE_REMARKS);
                 com.Parameters.AddWithValue("@RETURN_REMARKS", DLODetails.RETURN_REMARKS);
-                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.FORWARDTO);
+                com.Parameters.AddWithValue("@RETURNTO", DLODetails.FORWARDTO);
                 com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
-
+                com.Parameters.AddWithValue("@REJECTION_REMARKS", DLODetails.REJECTION_REMARKS);
+                
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
