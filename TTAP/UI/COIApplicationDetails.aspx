@@ -3126,7 +3126,7 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Incentive Names">
                                                             <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
+                                                              
                                                                 <asp:Label ID="lblIncentiveName" runat="server" Text='<%# Eval("IncentiveName") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Center" />
@@ -3134,7 +3134,7 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Status">
                                                             <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
+                                                               
                                                                 <asp:Label ID="lblREMARKS_TYPE" runat="server" Text='<%# Eval("REMARKS_TYPE") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Center" />
@@ -3142,7 +3142,7 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="Remarks/Recommended Amount">
                                                             <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
+                                                              
                                                                 <asp:Label ID="lblREMARKS" runat="server" Text='<%# Eval("REMARKS") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Center" />
