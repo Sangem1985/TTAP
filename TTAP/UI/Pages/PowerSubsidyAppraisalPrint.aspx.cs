@@ -24,8 +24,8 @@ namespace TTAP.UI.Pages
         {
             try
             {
-               // string IncentiveId = Request.QueryString["incid"].ToString();
-                string IncentiveId = "18157";
+                string IncentiveId = Request.QueryString["incid"].ToString();
+               // string IncentiveId = "18157";
                 DataSet dsnew = new DataSet();
                 dsnew = GetPowerSubsidyDtls(IncentiveId);
 
@@ -74,7 +74,7 @@ namespace TTAP.UI.Pages
                         hypworksheet.Visible = true;
                     }
 
-                    if (lblTypeofApplicant.Text == "New Industry")
+                    if (lblTypeofApplicant.Text != "New Industry")
                    {
                         Claimperiod.Visible = true;
                         units.Visible = true;

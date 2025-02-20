@@ -3129,43 +3129,58 @@ namespace TTAP.UI
         {
             try
             {
-                if (ddlstatus.SelectedValue == "1")
+                if (ddlstatus.SelectedValue != "Select")
                 {
-                    Remarks.Visible = false;
-                    Amount.Visible = true;
-                    Query.Visible = false;
-                    Div7.Visible = false;
-                }
-                else if (ddlstatus.SelectedValue == "Select")
-                {
-                    Remarks.Visible = false;
-                    Query.Visible = false;
-                    Amount.Visible = false;
-                    Div7.Visible = false;
-                }
-                else if (ddlstatus.SelectedValue == "2")
-                {
-                    Query.Visible = true;
-                    Remarks.Visible = false;
-                    Amount.Visible = false;
-                    Div7.Visible = false;
-                }
-                else if (ddlstatus.SelectedValue == "3")
-                {
-                    Div7.Visible = true;
-                    Query.Visible = false;
-                    Remarks.Visible = false;
-                    Amount.Visible = false;
+
+                    if (ddlstatus.SelectedValue == "1")
+                    {
+                        Remarks.Visible = false;
+                        Amount.Visible = true;
+                        Query.Visible = false;
+                        Div7.Visible = false;
+
+                        txtSSCRemarks.Text = ""; txtQuery.Text = "";
+                        txtRemark.Text = "";
+
+                    }
+                    else if (ddlstatus.SelectedValue == "2")
+                    {
+                        Query.Visible = true;
+                        Remarks.Visible = false;
+                        Amount.Visible = false;
+                        Div7.Visible = false;
+
+                        txtAmount.Text = ""; txtSSCRemarks.Text = ""; txtRemark.Text = "";
+                    }
+                    else if (ddlstatus.SelectedValue == "3")
+                    {
+                        Div7.Visible = true;
+                        Query.Visible = false;
+                        Remarks.Visible = false;
+                        Amount.Visible = false;
+
+                        txtAmount.Text = ""; txtQuery.Text = ""; txtRemark.Text = "";
+                    }
+                    else
+                    {
+                        Remarks.Visible = true;
+                        Query.Visible = false;
+                        Amount.Visible = false;
+                        Div7.Visible = false;
+                        txtSSCRemarks.Text = ""; txtQuery.Text = ""; txtAmount.Text = "";
+                    }
                 }
                 else
                 {
-                    Remarks.Visible = true;
+                    Remarks.Visible = false;
                     Query.Visible = false;
                     Amount.Visible = false;
                     Div7.Visible = false;
+
+                    txtAmount.Text = ""; txtSSCRemarks.Text = ""; txtQuery.Text = ""; txtRemark.Text = "";
                 }
 
-
+              
             }
             catch (Exception ex)
             {
@@ -3215,7 +3230,7 @@ namespace TTAP.UI
                             {
                                 Response.Redirect("~/UI/Pages/StampDutyAppraisal.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
-                            
+
 
                         }
                         else
@@ -4505,7 +4520,6 @@ namespace TTAP.UI
                                     break;
                                 }
                             }
-
                         }
                         divJDQuery.Visible = false;
                         divJDreturn.Visible = false;
