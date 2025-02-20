@@ -522,6 +522,7 @@ namespace TTAP.UI.Pages
             {
                 SqlCommand com = new SqlCommand();
                 com.CommandType = CommandType.StoredProcedure;
+                com.CommandTimeout = 3600;
                 com.CommandText = "[USP_INSERT_INCENTIVES_ALL_COMMON_DATA_BY_USERID_2ND_TIME]";
 
                 com.Transaction = transaction;
