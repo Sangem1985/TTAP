@@ -25,9 +25,9 @@ namespace TTAP.UI.Pages
             getDetails();
             string incid = Request.QueryString["incid"].ToString();
             string Type = "New";
-            getLOAData(incid,Type);
+            getLOAData(incid, Type);
         }
-        public void getLOAData(string incid,string Type)
+        public void getLOAData(string incid, string Type)
         {
             try
             {
@@ -59,10 +59,10 @@ namespace TTAP.UI.Pages
         }
         public void getDetails()
         {
-            //  string IncentiveId = Request.QueryString["incid"].ToString();
-            // string MasterIncentiveId = Request.QueryString["mstid"].ToString();
-            string IncentiveId = "";
-            string MasterIncentiveId = "";
+            string IncentiveId = Request.QueryString["incid"].ToString();
+            string MasterIncentiveId = Request.QueryString["mstid"].ToString();
+            //string IncentiveId = "";
+            //string MasterIncentiveId = "";
 
             DataSet ds2 = new DataSet();
             ds2 = Gen.GetBasicUnitDetails_Proforma_lettersPSR(IncentiveId, MasterIncentiveId);
@@ -106,7 +106,7 @@ namespace TTAP.UI.Pages
                     LBLSCHEME.Text = ds.Tables[0].Rows[0]["Scheme"].ToString();
 
                 }
-          
+
                 if (ds.Tables[0].Rows[0]["DetailsGm"].ToString() != "")
                     lblDetailsConfirmed.Text = ds.Tables[0].Rows[0]["DetailsGm"].ToString();
                 else
@@ -271,7 +271,7 @@ namespace TTAP.UI.Pages
                 //lblAddlSubWomen.Text = ds.Tables[0].Rows[0]["txtTSSFCnorms423"].ToString();
                 //lblEligi_TotalSubsidy.Text = ds.Tables[0].Rows[0]["txtvalue424"].ToString();
 
-               
+
                 //
                 lblFinalSchemeName.Text = ds.Tables[0].Rows[0]["Scheme"].ToString();
                 //distName
@@ -292,7 +292,7 @@ namespace TTAP.UI.Pages
                 }
             }
 
-          
+
         }
 
 
