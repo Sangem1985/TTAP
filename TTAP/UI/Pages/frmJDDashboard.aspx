@@ -56,7 +56,7 @@
                                     <div class="list-group">
                                         <%--  <a class="list-group-item"><i class="fa fa-fw fa-check"></i><b>Incentive (Application Stage)</b> </a>--%>
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold list-group-item-action" href="frmJDApplications.aspx?Stg=1">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Total Proposals Received From DLO</span>
+                                            <span><i class="fa fa-fw fa-calendar"></i>Total Proposals Received From JD</span>
                                             <span class="badge badge-pill badge-primary bg-blue">
                                                 <asp:Label ID="lblAppl" runat="server"></asp:Label>
                                             </span>

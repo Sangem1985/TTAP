@@ -1657,14 +1657,14 @@ namespace TTAP.UI
                     divJointInspReport.Visible = true;
                 }
                 string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-                if (SubIncId == "3" || SubIncId == "4" || SubIncId == "9" || SubIncId == "6" || SubIncId == "14")
-                {
-                    divrdbHalfyear.Visible = true;
-                }
-                else
-                {
-                    divrdbHalfyear.Visible = false;
-                }
+                //if (SubIncId == "3" || SubIncId == "4" || SubIncId == "9" || SubIncId == "6" || SubIncId == "14")
+                //{
+                //    divrdbHalfyear.Visible = true;
+                //}
+                //else
+                //{
+                //    divrdbHalfyear.Visible = false;
+                //}
                 //divAfterInspectionRecommended.Visible = true;
             }
             else if (RbtnHeadOfficestatus.SelectedValue == "2")
@@ -1870,22 +1870,22 @@ namespace TTAP.UI
                 slno = slno + 1;
             }
             string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-            if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
-            {
-                if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
-                {
-                    if (txtPartialRecommendedAmount.Text == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + ". Please enter JD Recommended amount \\n";
-                        slno = slno + 1;
-                    }
-                    if (txtFullPartialRemarks.Text == "")
-                    {
-                        ErrorMsg = ErrorMsg + slno + ". Please enter Remarks of Partial Process \\n";
-                        slno = slno + 1;
-                    }
-                }
-            }
+            //if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
+            //{
+            //    if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
+            //    {
+            //        if (txtPartialRecommendedAmount.Text == "")
+            //        {
+            //            ErrorMsg = ErrorMsg + slno + ". Please enter JD Recommended amount \\n";
+            //            slno = slno + 1;
+            //        }
+            //        if (txtFullPartialRemarks.Text == "")
+            //        {
+            //            ErrorMsg = ErrorMsg + slno + ". Please enter Remarks of Partial Process \\n";
+            //            slno = slno + 1;
+            //        }
+            //    }
+            //}
 
             if (RbtnHeadOfficestatus.SelectedValue == "1")
             {
@@ -1985,15 +1985,15 @@ namespace TTAP.UI
                     ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
                     ObjApplicationStatus.TransType = RbtnHeadOfficestatus.SelectedValue;
                     string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-                    if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
-                    {
-                        if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
-                        {
-                            ObjApplicationStatus.PartialSanction = rdbFullPartial.SelectedValue;
-                            ObjApplicationStatus.JDRecommendedAmount = txtPartialRecommendedAmount.Text.Trim();
-                            ObjApplicationStatus.PartialRemarks = txtFullPartialRemarks.Text;
-                        }
-                    }
+                    //if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
+                    //{
+                    //    if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
+                    //    {
+                    //        ObjApplicationStatus.PartialSanction = rdbFullPartial.SelectedValue;
+                    //        ObjApplicationStatus.JDRecommendedAmount = txtPartialRecommendedAmount.Text.Trim();
+                    //        ObjApplicationStatus.PartialRemarks = txtFullPartialRemarks.Text;
+                    //    }
+                    //}
                     ObjApplicationStatus.Remarks = txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart();
                     HyperLink hypconcernedCTo = new HyperLink();
                     if (RbtnHeadOfficestatus.SelectedValue == "4")
@@ -3983,7 +3983,13 @@ namespace TTAP.UI
                         DDProcessed.Visible = true;
 
                     }
+                    if (dss != null && dss.Tables.Count > 0 && dss.Tables[5].Rows.Count > 0)
+                    {
+                        grdJDProcess.DataSource = dss.Tables[5];
+                        grdJDProcess.DataBind();
+                        divJDProcess.Visible = true;
 
+                    }
                 }
                 else
                 {

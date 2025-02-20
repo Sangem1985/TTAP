@@ -1923,6 +1923,33 @@ namespace TTAP.UI
         protected global::System.Web.UI.WebControls.GridView GVDDPROC;
 
         /// <summary>
+        /// divJDProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divJDProcess;
+
+        /// <summary>
+        /// Span10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span10;
+
+        /// <summary>
+        /// grdJDProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdJDProcess;
+
+        /// <summary>
         /// divQueriesJD control.
         /// </summary>
         /// <remarks>

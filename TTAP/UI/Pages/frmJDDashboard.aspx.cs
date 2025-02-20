@@ -48,9 +48,13 @@ namespace TTAP.UI.Pages
                         if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
                         {
                             lblAppl.Text = dss.Tables[0].Rows[0]["NoofapplicationsRcvd"].ToString();
-                            lblPendingWithin.Text = dss.Tables[0].Rows[0]["PendingWithin"].ToString();
-                            lblPendingBeyond.Text = dss.Tables[0].Rows[0]["PendingBeyond"].ToString();
-                            lblpendingTotal.Text = dss.Tables[0].Rows[0]["PendingTotal"].ToString();
+                            //lblPendingWithin.Text = dss.Tables[0].Rows[0]["PendingWithin"].ToString();
+                            //lblPendingBeyond.Text = dss.Tables[0].Rows[0]["PendingBeyond"].ToString();
+                            //lblpendingTotal.Text = dss.Tables[0].Rows[0]["PendingTotal"].ToString();
+
+                            lblPendingWithin.Text = dss.Tables[0].Rows[0]["ADDLPendingWithin"].ToString();
+                            lblPendingBeyond.Text = dss.Tables[0].Rows[0]["ADDLPendingBeyond"].ToString();
+                            lblpendingTotal.Text = dss.Tables[0].Rows[0]["ADDLPendingTotal"].ToString();
 
                             lblcomWithin.Text = dss.Tables[0].Rows[0]["CompletdWithin"].ToString();
                             lblcombeyond.Text = dss.Tables[0].Rows[0]["CompletdBeyond"].ToString();

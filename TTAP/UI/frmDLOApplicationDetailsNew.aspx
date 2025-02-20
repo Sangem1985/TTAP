@@ -3306,6 +3306,47 @@
                                 </div>
                             </div>
 
+                            <div class="card" id="divJDProcess" runat="server" visible="false">
+                                <div class="card-header p-0">
+                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#JDProcessView">
+                                        <span id="Span10" runat="server">JD Process</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                                <div id="JDProcessView" class="collapse">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Joint Director Processed Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="grdJDProcess" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentive Name" />
+                                                        <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
+                                                        <asp:BoundField DataField="REMARKS" HeaderText="Remarks/Recommended Amount" />
+                                                        <asp:BoundField DataField="JD_ProcessDate" HeaderText="Process Date" />
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="card" id="divQueriesJD" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingQueryHistoryJD">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapseJD">
@@ -3527,7 +3568,7 @@
                             <div class="card" id="divJDVerificationOfapplication" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingfive">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapsejdStage2">
-                                        <span id="SpnJDVerificationOfapplication" runat="server">Verification of Applcation(JD)- Head Office</span>
+                                        <span id="SpnJDVerificationOfapplication" runat="server">Verification of Applcation(Additional Director)- Head Office</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
@@ -3535,7 +3576,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-4 form-group">
-                                                <label class="control-label label-required" id="lblDLORecommended" runat="server">DLO Recommended Incentives</label>
+                                                <label class="control-label label-required" id="lblDLORecommended" runat="server">JD Recommended Incentives</label>
                                                 <asp:DropDownList ID="ddlDLORecommendedIncentives" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlDLORecommendedIncentives_SelectedIndexChanged">
                                                 </asp:DropDownList>
                                             </div>

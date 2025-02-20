@@ -4249,7 +4249,7 @@ namespace TTAP.UI
                     {
                         for (int i = 0; i < dss.Tables[0].Rows.Count; i++)
                         {
-                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "26" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[i]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[i]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
                             {
                                 divClerklevel.Visible = true;
                             }

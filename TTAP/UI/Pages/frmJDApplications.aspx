@@ -66,7 +66,7 @@
                                             <asp:BoundField DataField="Category" ItemStyle-HorizontalAlign="Center" HeaderText="Category">
                                                 <ItemStyle CssClass="text-left" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="ApplicantName" ItemStyle-HorizontalAlign="Center" HeaderText="Applicant Name">
+                                            <asp:BoundField DataField="ApplicantName" Visible="false" ItemStyle-HorizontalAlign="Center" HeaderText="Applicant Name">
                                                 <ItemStyle CssClass="text-left" />
                                             </asp:BoundField>
                                             <asp:BoundField DataField="SocialStatusText" ItemStyle-Width="10%" ItemStyle-HorizontalAlign="Center" HeaderText="Social Status">
@@ -84,7 +84,16 @@
                                             <asp:BoundField DataField="RecommendTo_HO_Date" ItemStyle-HorizontalAlign="Center" HeaderText="DLO Recommended Date" DataFormatString="{0:dd-M-yyyy}">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="IncentiveCount" ItemStyle-HorizontalAlign="Center" HeaderText="No. of Incentives">
+                                            <asp:BoundField DataField="IncentiveCount" Visible="false" ItemStyle-HorizontalAlign="Center" HeaderText="No. of Incentives">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                             <asp:BoundField DataField="IncentiveName" ItemStyle-HorizontalAlign="Center" HeaderText="Incentive Name">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                             <asp:BoundField DataField="JD_RecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="JD Recommended Amount (Rs.)">
+                                                <ItemStyle HorizontalAlign="Center" />
+                                            </asp:BoundField>
+                                             <asp:BoundField DataField="JD_Process_CompleteDate" ItemStyle-HorizontalAlign="Center" HeaderText="JD Recommended Date">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
                                             <asp:TemplateField HeaderText="Process Application" ItemStyle-HorizontalAlign="Center">
