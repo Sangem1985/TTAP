@@ -2335,7 +2335,7 @@
                                                         <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
                                                             Recommended Amount
                                                         </div>
-                                                        <asp:TextBox ID="txtAmount" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAmount" runat="server" onkeypress="return DecimalOnly();" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
 
@@ -2561,7 +2561,7 @@
                                                         <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
                                                             Recommended Amount
                                                         </div>
-                                                        <asp:TextBox ID="txtRecomAmount" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtRecomAmount" runat="server" onkeypress="return DecimalOnly();" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
 
@@ -2777,7 +2777,7 @@
                                                         <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
                                                             Recommended Amount
                                                         </div>
-                                                        <asp:TextBox ID="txtAmounted" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAmounted" runat="server" onkeypress="return DecimalOnly();" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
 
@@ -2995,7 +2995,7 @@
                                                         <div class="input-group-addon mr-2" style="align-items: center; display: flex;">
                                                             Recommended Amount
                                                         </div>
-                                                        <asp:TextBox ID="txtAmountRe" runat="server" class="form-control" TabIndex="1"></asp:TextBox>
+                                                        <asp:TextBox ID="txtAmountRe" runat="server" onkeypress="return DecimalOnly();" class="form-control" TabIndex="1"></asp:TextBox>
                                                     </div>
                                                 </div>
 
