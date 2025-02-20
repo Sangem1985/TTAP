@@ -23,7 +23,7 @@
                                     <span class="icon">
                                         <i class="icon-info-sign"></i>
                                     </span>
-                                    <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Inspection Report</h5>
+                                    <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Captial Subsidy Appraisal Note</h5>
                                 </div>
                                 <div class="widget-content nopadding">
                                     <table runat="server" visible="false">

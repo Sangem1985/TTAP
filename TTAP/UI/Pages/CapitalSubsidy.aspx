@@ -119,7 +119,7 @@
                                 <td style="text-align: center; vertical-align: middle">
                                     <u><b>
                                         <%--Telangana State Industrial Development and Entrepreneur Advancement - GO MS. NO 28, Industries & Commerce (IP & INF) Department, Dated : 29/11/2014--%>
-                                    Appraisal Note<br />
+                                  Reimbursement of Capital Subsidy	<br />
 
                                         <asp:Label ID="lblSancIncentiveName" runat="server"></asp:Label>
                                     </b></u>
