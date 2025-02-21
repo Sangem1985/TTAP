@@ -7935,6 +7935,8 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@WORKSHEET_PATH", DLODetails.WorkSheetPath);
                 com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
                 com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBYIP);
+                com.Parameters.AddWithValue("@FINYEAR_TYPE", DLODetails.FinancialYearId);
+                com.Parameters.AddWithValue("@HALFYEAR_TYPE", DLODetails.HalfYearId);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

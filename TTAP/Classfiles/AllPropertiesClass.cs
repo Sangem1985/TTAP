@@ -2941,8 +2941,10 @@ namespace TTAP.Classfiles
         public string AlreadySanctionedAmount { get; set; }
         public string AMOUNT { get; set; }
 
+
         /*POWER*/
 
+       
         public string Month1 { get; set; }
         public string Month2 { get; set; }
         public string Month3 { get; set; }
@@ -3014,6 +3016,8 @@ namespace TTAP.Classfiles
 
 
         public string FinancialYear { get; set; }
+        public string FinancialYearId { get; set; }
+        public string HalfYearId { get; set; }
 
     }
     public class InterestSubsidyclaimloanproperties

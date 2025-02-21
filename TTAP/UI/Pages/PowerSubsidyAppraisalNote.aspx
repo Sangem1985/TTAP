@@ -663,7 +663,7 @@
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label11" runat="server">GM Recommended Amount</label>
-                                            <label class="form-control" id="lblGMAmount" runat="server"></label>
+                                            <label class="form-control" id="lblGMAmount" runat="server">1000</label>
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label16" runat="server">Final Eligible Subsidy Amount in Rs</label>
