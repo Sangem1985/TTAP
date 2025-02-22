@@ -677,6 +677,7 @@
     <Content Include="UI\Pages\QueryGeneration\frmQueryDashboard.aspx" />
     <Content Include="UI\Pages\RecommendationLetters\DLOCoveringLetter.aspx" />
     <Content Include="UI\Pages\RecommendationLetters\frmIntimationLetter.aspx" />
+    <Content Include="UI\Pages\RecommendationLetters\GMCoveringLetter.aspx" />
     <Content Include="UI\Pages\Releases\CompleteReleasedList.aspx" />
     <Content Include="UI\Pages\Releases\FormUnitWorkingStatusHO.aspx" />
     <Content Include="UI\Pages\Releases\FormWorkingStatusDashboard.aspx" />
@@ -2157,6 +2158,13 @@
     </Compile>
     <Compile Include="UI\Pages\RecommendationLetters\frmIntimationLetter.aspx.designer.cs">
       <DependentUpon>frmIntimationLetter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\GMCoveringLetter.aspx.cs">
+      <DependentUpon>GMCoveringLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\GMCoveringLetter.aspx.designer.cs">
+      <DependentUpon>GMCoveringLetter.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\Releases\CompleteReleasedList.aspx.cs">
       <DependentUpon>CompleteReleasedList.aspx</DependentUpon>

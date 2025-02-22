@@ -3386,6 +3386,23 @@ namespace TTAP.UI
                     gvGMToCOIHis.DataSource = dss.Tables[7];
                     gvGMToCOIHis.DataBind();
                     divGMToCOIHis.Visible = true;
+                    divGMtoCOIRcmnd.Visible = true;
+                }
+                if (dss.Tables[8].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMtoCOIQuery.DataSource = dss.Tables[8];
+                    gvGMtoCOIQuery.DataBind();
+                    divGMToCOIHis.Visible = true;
+                    divGMtoCOIQuery.Visible = true;
+                }
+                if (dss.Tables[9].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMtoCOIReject.DataSource = dss.Tables[9];
+                    gvGMtoCOIReject.DataBind();
+                    divGMToCOIHis.Visible = true;
+                    divGMtoCOIReject.Visible = true;
                 }
             }
         }
@@ -4062,15 +4079,28 @@ namespace TTAP.UI
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     return;
                 }
-                if (ObjApplicationStatus.GMRecommendedAmount == "" || ObjApplicationStatus.TransType == "0" || ObjApplicationStatus.TransType == null)
+                if (ObjApplicationStatus.TransType == "2")
                 {
-                    string info = "Please enter G.M Recommended Amount";
-                    string message = "alert('" + info + "')";
-                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
-                    return;
+                    if (ObjApplicationStatus.GMRecommendedAmount == "" || ObjApplicationStatus.TransType == "0" || ObjApplicationStatus.TransType == null)
+                    {
+                        string info = "Please enter G.M Recommended Amount";
+                        string message = "alert('" + info + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+                    }
+                }
+                if (ObjApplicationStatus.TransType == "1" || ObjApplicationStatus.TransType == "3" || ObjApplicationStatus.TransType == "4")
+                {
+                    if (ObjApplicationStatus.Remarks == "") 
+                    {
+                        string info = "Please enter Query/Reason";
+                        string message = "alert('" + info + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+                    }
                 }
 
-                HyperLink hypconcernedCTo = new HyperLink();
+                    HyperLink hypconcernedCTo = new HyperLink();
                 hypconcernedCTo = ((HyperLink)gvdivGMRecommendCOI.Rows[indexing].FindControl("hyGMRecFile"));
 
                 string Status = ObjCAFClass.UpdateGMRecommendationtoCoi(ObjApplicationStatus);
@@ -4193,6 +4223,19 @@ namespace TTAP.UI
                 Failure.Visible = true;
                 success.Visible = false;
                 LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+            }
+        }
+
+        protected void ddlActionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
+
+            DropDownList ddlActionType = (DropDownList)gvdivGMRecommendCOI.Rows[indexing].FindControl("ddlActionType");
+            TextBox txtGMAmount = (TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMAmount");
+
+            if (ddlActionType.SelectedValue == "1" || ddlActionType.SelectedValue == "3" || ddlActionType.SelectedValue == "4") 
+            {
+                txtGMAmount.Enabled = false;
             }
         }
     }

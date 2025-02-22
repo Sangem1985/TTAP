@@ -1113,6 +1113,15 @@ namespace TTAP.UI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMToCOIHis;
 
         /// <summary>
+        /// divGMtoCOIRcmnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMtoCOIRcmnd;
+
+        /// <summary>
         /// gvGMToCOIHis control.
         /// </summary>
         /// <remarks>
@@ -1120,6 +1129,42 @@ namespace TTAP.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvGMToCOIHis;
+
+        /// <summary>
+        /// divGMtoCOIQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMtoCOIQuery;
+
+        /// <summary>
+        /// gvGMtoCOIQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvGMtoCOIQuery;
+
+        /// <summary>
+        /// divGMtoCOIReject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMtoCOIReject;
+
+        /// <summary>
+        /// gvGMtoCOIReject control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvGMtoCOIReject;
 
         /// <summary>
         /// divQueries control.

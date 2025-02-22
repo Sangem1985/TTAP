@@ -3224,7 +3224,7 @@ namespace TTAP.UI
                             }
                             else if (ddlClerkIncentive.SelectedValue == "4")
                             {
-                                Response.Redirect("~/UI/Pages/PowerSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                                Response.Redirect("~/UI/Pages/PowerCostAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
                             else if (ddlClerkIncentive.SelectedValue == "5")
                             {
