@@ -2756,6 +2756,7 @@
                                                             Return To
                                                         </div>
                                                         <asp:DropDownList ID="ddlsupdt" runat="server" class="form-control txtbox">
+                                                             <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
                                                             <asp:ListItem Text="CLERK" Value="CLERK"></asp:ListItem>
                                                             <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
                                                         </asp:DropDownList>

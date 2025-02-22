@@ -1699,6 +1699,13 @@ namespace TTAP.UI
                 divrdbHalfyear.Visible = false;
                 divFullPartialRemarks.Visible = false;
             }
+            else if (RbtnHeadOfficestatus.SelectedValue == "6")
+            {
+                divHeadOfficeJdQuery.Visible = true;
+                lblvHeadOfficeJdQueryStatus.InnerHtml = "Return Remarks";
+                divrdbHalfyear.Visible = false;
+                divFullPartialRemarks.Visible = false;
+            }
             btnJDHeadOffice.Enabled = true;
         }
 
@@ -1961,7 +1968,15 @@ namespace TTAP.UI
                     }
                 }
             }
-            return ErrorMsg;
+            else if (RbtnHeadOfficestatus.SelectedValue == "6")
+            {
+                if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
+                {
+                    ErrorMsg = ErrorMsg + slno + ". Please Enter Return Remarks/Reason \\n";
+                    slno = slno + 1;
+                }
+            }
+                return ErrorMsg;
         }
         protected void btnJDHeadOffice_Click(object sender, EventArgs e)
         {
@@ -2041,6 +2056,10 @@ namespace TTAP.UI
                             else if (RbtnHeadOfficestatus.SelectedValue == "5")
                             {
                                 Successmsg = "Application Sent to DLC Successfully";
+                            }
+                            else if (RbtnHeadOfficestatus.SelectedValue == "6")
+                            {
+                                Successmsg = "Application Return to JD Successfully";
                             }
                             RbtnHeadOfficestatus.SelectedIndex = -1;
 

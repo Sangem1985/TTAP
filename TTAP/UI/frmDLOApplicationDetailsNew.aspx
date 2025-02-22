@@ -3600,6 +3600,7 @@
                                                     <asp:ListItem Text="Recommend to SVC" Value="1"></asp:ListItem>
                                                     <asp:ListItem Text="Raise Query" Value="2"></asp:ListItem>
                                                     <asp:ListItem Text="Reject" Value="3"></asp:ListItem>
+                                                     <asp:ListItem Text="Return to JD" Value="6"></asp:ListItem>
                                                     <asp:ListItem Text="Send to DLO for Revised Inspection Report" Value="4"></asp:ListItem>
                                                     <asp:ListItem Text="Send to DLC" Value="5"></asp:ListItem>
                                                 </asp:RadioButtonList>

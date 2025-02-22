@@ -240,6 +240,24 @@ namespace TTAP.UI.Pages.COI
         protected global::System.Web.UI.WebControls.Label lblAbeyance;
 
         /// <summary>
+        /// Div6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div6;
+
+        /// <summary>
+        /// lblADDLReturned control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblADDLReturned;
+
+        /// <summary>
         /// Div2 control.
         /// </summary>
         /// <remarks>

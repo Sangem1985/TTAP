@@ -198,6 +198,18 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row" id="Div6" runat="server">
+                                <div class="col-sm-6 mb-4">
+                                    <div class="list-group">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg" href="JDApplications.aspx?Stg=ADDLReturned">
+                                            <span><i class="fa fa-fw fa-check"></i>Applications Returned from ADDL</span>
+                                             <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblADDLReturned" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row" id="Div2" runat="server">
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
@@ -327,7 +339,7 @@
                                             </span>
                                         </a>
                                         <br />
-                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Working Status</span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
@@ -353,7 +365,7 @@
                                             </span>
                                         </a>
                                         <br />
-                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Releases</span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
@@ -381,7 +393,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="row" id="Div5" runat="server">
+                            <div class="row" id="Div5" runat="server">
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
@@ -393,14 +405,14 @@
                                                 <asp:Label ID="lblPndngGenCheque" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
                                             <span><i class="fa fa-fw fa-calendar"></i>Generated Cheque Preparation</span>
                                             <span class="badge badge-pill badge-primary bg-success">
                                                 <asp:Label ID="lblGenCheque" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                         <br />
-                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Update Cheque Details</span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
@@ -416,7 +428,7 @@
                                             </span>
                                         </a>
                                         <br />
-                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Update Cheque Details New</span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
@@ -441,7 +453,7 @@
                                 </div>
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
-                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Cheque Preparation</span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">

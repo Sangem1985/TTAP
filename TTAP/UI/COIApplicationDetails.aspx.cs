@@ -3161,7 +3161,7 @@ namespace TTAP.UI
 
                         txtAmount.Text = ""; txtQuery.Text = ""; txtRemark.Text = "";
                     }
-                    else
+                    else if (ddlstatus.SelectedValue == "4")
                     {
                         Remarks.Visible = true;
                         Query.Visible = false;
@@ -3180,7 +3180,7 @@ namespace TTAP.UI
                     txtAmount.Text = ""; txtSSCRemarks.Text = ""; txtQuery.Text = ""; txtRemark.Text = "";
                 }
 
-              
+
             }
             catch (Exception ex)
             {
@@ -3458,7 +3458,81 @@ namespace TTAP.UI
         {
             try
             {
-                if (ddlStatus1.SelectedValue == "Select")
+                if (ddlStatus1.SelectedValue != "Select")
+                {
+
+                    if (ddlStatus1.SelectedValue == "1")
+                    {
+                        Div5.Visible = true;
+                        Forward.Visible = true;
+                        Return.Visible = false;
+                        Div8.Visible = false;
+                        Div9.Visible = false;
+                        Div10.Visible = false;
+                        ReturnRemarks.Visible = false;
+
+                        txtReturnRemark.Text = ""; ddlreturn.SelectedValue = "Select";
+                        txtDescQuery.Text = ""; txtRemarkes.Text = ""; txtAbeyanceRemark.Text = "";
+                    }
+                    else if (ddlStatus1.SelectedValue == "2")
+                    {
+                        Div8.Visible = true;
+                        Forward.Visible = true;
+                        Div5.Visible = false;
+                        Div9.Visible = false;
+                        Div10.Visible = false;
+                        Return.Visible = false;
+                        ReturnRemarks.Visible = false;
+
+                        txtRecomAmount.Text = ""; txtReturnRemark.Text = ""; ddlreturn.SelectedValue = "Select";
+                        txtRemarkes.Text = ""; txtAbeyanceRemark.Text = "";
+                    }
+                    else if (ddlStatus1.SelectedValue == "3")
+                    {
+                        Div9.Visible = true;
+                        Forward.Visible = true;
+                        Return.Visible = false;
+                        Div8.Visible = false;
+                        Div10.Visible = false;
+                        Div5.Visible = false;
+                        ReturnRemarks.Visible = false;
+
+                        txtRecomAmount.Text = ""; txtReturnRemark.Text = ""; ddlreturn.SelectedValue = "Select";
+                        txtAbeyanceRemark.Text = ""; txtDescQuery.Text = "";
+                    }
+                    else if (ddlStatus1.SelectedValue == "4")
+                    {
+                        Div10.Visible = true;
+                        Forward.Visible = true;
+                        Div9.Visible = false;
+                        Return.Visible = false;
+                        Div8.Visible = false;
+                        Div5.Visible = false;
+                        ReturnRemarks.Visible = false;
+
+                        txtRecomAmount.Text = ""; txtReturnRemark.Text = ""; ddlreturn.SelectedValue = "Select";
+                        txtDescQuery.Text = ""; txtRemarkes.Text = "";
+                    }
+
+                    else if (ddlStatus1.SelectedValue == "5")
+                    {
+                        Return.Visible = true;
+                        ReturnRemarks.Visible = true;
+                        Forward.Visible = false;
+                        Div5.Visible = false;
+                        Div8.Visible = false;
+                        Div9.Visible = false;
+                        Div10.Visible = false;
+
+
+                        ddlForward.SelectedValue = "Select"; txtRecomAmount.Text = "";
+                        txtDescQuery.Text = ""; txtRemarkes.Text = ""; txtAbeyanceRemark.Text = "";
+
+                        //  ddlreturn txtReturnRemark
+                    }
+
+                }
+                else
                 {
                     Forward.Visible = false;
                     Return.Visible = false;
@@ -3467,56 +3541,10 @@ namespace TTAP.UI
                     Div9.Visible = false;
                     Div10.Visible = false;
                     ReturnRemarks.Visible = false;
-                }
-                else if (ddlStatus1.SelectedValue == "5")
-                {
-                    Return.Visible = true;
-                    ReturnRemarks.Visible = true;
-                    Forward.Visible = false;
-                    Div5.Visible = false;
-                    Div8.Visible = false;
-                    Div9.Visible = false;
-                    Div10.Visible = false;
-                }
-                else if (ddlStatus1.SelectedValue == "1")
-                {
-                    Div5.Visible = true;
-                    Forward.Visible = true;
-                    Return.Visible = false;
-                    Div8.Visible = false;
-                    Div9.Visible = false;
-                    Div10.Visible = false;
-                    ReturnRemarks.Visible = false;
-                }
-                else if (ddlStatus1.SelectedValue == "2")
-                {
-                    Div8.Visible = true;
-                    Forward.Visible = true;
-                    Div5.Visible = false;
-                    Div9.Visible = false;
-                    Div10.Visible = false;
-                    Return.Visible = false;
-                    ReturnRemarks.Visible = false;
-                }
-                else if (ddlStatus1.SelectedValue == "3")
-                {
-                    Div9.Visible = true;
-                    Forward.Visible = true;
-                    Return.Visible = false;
-                    Div8.Visible = false;
-                    Div10.Visible = false;
-                    Div5.Visible = false;
-                    ReturnRemarks.Visible = false;
-                }
-                else if (ddlStatus1.SelectedValue == "4")
-                {
-                    Div10.Visible = true;
-                    Forward.Visible = true;
-                    Div9.Visible = false;
-                    Return.Visible = false;
-                    Div8.Visible = false;
-                    Div5.Visible = false;
-                    ReturnRemarks.Visible = false;
+
+                    ddlForward.SelectedValue = "Select"; txtRecomAmount.Text = "";
+                    txtDescQuery.Text = ""; txtRemarkes.Text = ""; txtAbeyanceRemark.Text = "";
+                    ddlreturn.SelectedValue = "Select"; txtReturnRemark.Text = "";
                 }
 
             }
@@ -3812,66 +3840,92 @@ namespace TTAP.UI
         {
             try
             {
-                if (ddlsendstatus.SelectedValue == "Select")
+                if (ddlsendstatus.SelectedValue != "Select")
+                {
+
+                    if (ddlsendstatus.SelectedValue == "1")
+                    {
+                        Div11.Visible = true;
+                        Div13.Visible = true;
+                        Div12.Visible = false;
+                        Div14.Visible = false;
+                        lblReturnto.Visible = false;
+                        Div15.Visible = false;
+                        Div16.Visible = false;
+
+                        ddlsupdt.SelectedValue = "0"; txtRemarkReturn.Text = ""; txtQueryDesced.Text = "";
+                        txtRemarked.Text=""; txtAbeyRemark.Text = ""; 
+
+                    }
+                    else if (ddlsendstatus.SelectedValue == "2")
+                    {
+                        Div14.Visible = true;
+                        Div11.Visible = true;
+                        Div12.Visible = false;
+                        lblReturnto.Visible = false;
+                        Div13.Visible = false;
+                        Div15.Visible = false;
+                        Div16.Visible = false;
+
+                        ddlsupdt.SelectedValue = "0"; txtRemarkReturn.Text = ""; txtAmounted.Text = "";
+                        txtRemarked.Text = ""; txtAbeyRemark.Text = "";
+                    }
+                    else if (ddlsendstatus.SelectedValue == "3")
+                    {
+                        Div15.Visible = true;
+                        Div11.Visible = true;
+                        Div12.Visible = false;
+                        lblReturnto.Visible = false;
+                        Div13.Visible = false;
+                        Div16.Visible = false;
+                        Div14.Visible = false;
+
+
+                        txtAbeyRemark.Text = ""; txtQueryDesced.Text = ""; txtAmounted.Text = ""; 
+                        txtRemarkReturn.Text = ""; ddlsupdt.SelectedValue = "0";
+                    }
+                    else if (ddlsendstatus.SelectedValue == "4")
+                    {
+                        Div16.Visible = true;
+                        Div11.Visible = true;
+                        Div12.Visible = false;
+                        lblReturnto.Visible = false;
+                        Div13.Visible = false;
+                        Div15.Visible = false;
+                        Div14.Visible = false;
+
+                        ddlsupdt.SelectedValue = "0"; txtRemarkReturn.Text = ""; txtAmounted.Text = "";
+                        txtQueryDesced.Text = ""; txtRemarked.Text = "";
+                    }
+                    else if (ddlsendstatus.SelectedValue == "5")
+                    {
+                        Div12.Visible = true;
+                        lblReturnto.Visible = true;
+                        Div11.Visible = false;
+                        Div13.Visible = false;
+                        Div14.Visible = false;
+                        Div15.Visible = false;
+                        Div16.Visible = false;
+
+
+                        txtAmounted.Text = ""; ddlsend.SelectedValue = "Select";
+                        txtQueryDesced.Text = ""; txtRemarked.Text = ""; txtAbeyRemark.Text = "";
+
+                    }
+                }
+                else
                 {
                     Div11.Visible = false;
                     Div12.Visible = false;
                     lblReturnto.Visible = false;
                     Div13.Visible = false;
                     Div14.Visible = false;
-                    Div15.Visible = false;
-                    Div16.Visible = false;
-                }
-                else if (ddlsendstatus.SelectedValue == "1")
-                {
-                    Div11.Visible = true;
-                    Div13.Visible = true;
-                    Div12.Visible = false;
-                    Div14.Visible = false;
-                    lblReturnto.Visible = false;
                     Div15.Visible = false;
                     Div16.Visible = false;
 
-                }
-                else if (ddlsendstatus.SelectedValue == "2")
-                {
-                    Div14.Visible = true;
-                    Div11.Visible = true;
-                    Div12.Visible = false;
-                    lblReturnto.Visible = false;
-                    Div13.Visible = false;
-                    Div15.Visible = false;
-                    Div16.Visible = false;
-                }
-                else if (ddlsendstatus.SelectedValue == "3")
-                {
-                    Div15.Visible = true;
-                    Div11.Visible = true;
-                    Div12.Visible = false;
-                    lblReturnto.Visible = false;
-                    Div13.Visible = false;
-                    Div16.Visible = false;
-                    Div14.Visible = false;
-                }
-                else if (ddlsendstatus.SelectedValue == "4")
-                {
-                    Div16.Visible = true;
-                    Div11.Visible = true;
-                    Div12.Visible = false;
-                    lblReturnto.Visible = false;
-                    Div13.Visible = false;
-                    Div15.Visible = false;
-                    Div14.Visible = false;
-                }
-                else if (ddlsendstatus.SelectedValue == "5")
-                {
-                    Div12.Visible = true;
-                    lblReturnto.Visible = true;
-                    Div11.Visible = false;
-                    Div13.Visible = false;
-                    Div14.Visible = false;
-                    Div15.Visible = false;
-                    Div16.Visible = false;
+                    txtAmounted.Text = ""; ddlsend.SelectedValue = "Select"; ddlsupdt.SelectedValue = "Select"; txtRemarkReturn.Text = "";
+                    txtQueryDesced.Text = ""; txtRemarked.Text = ""; txtAbeyRemark.Text = "";
+
                 }
             }
             catch (Exception ex)
@@ -4264,28 +4318,28 @@ namespace TTAP.UI
                     {
                         for (int i = 0; i < dss.Tables[0].Rows.Count; i++)
                         {
-                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[i]["CLERK_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-CLERK")
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "54" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "65" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "68" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "71" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "80") && ObjLoginNewvo.Role_Code == "COI-CLERK")
                             {
                                 divClerklevel.Visible = true;
                             }
 
                             // else { divClerklevel.Visible = false; }
-                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "58" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "69" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "72" || dss.Tables[0].Rows[i]["SUPDT_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-SUPDT")
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "58" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "69" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "72" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "79") && ObjLoginNewvo.Role_Code == "COI-SUPDT")
                             {
                                 divSupdtlevel.Visible = true;
                             }
                             //else { divSupdtlevel.Visible = false; }
-                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "59" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[i]["AD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-AD")
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "59" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "62" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "73" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "78") && ObjLoginNewvo.Role_Code == "COI-AD")
                             {
                                 divADlevel.Visible = true;
                             }
                             // else { divADlevel.Visible = false; }
 
-                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "60" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "77" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "COI-DD")
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "60" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "63" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "66" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "77"  ) && ObjLoginNewvo.Role_Code == "COI-DD")
                             {
                                 divDDlevel.Visible = true;
                             }
-                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "70" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "67" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "64" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "61" || dss.Tables[0].Rows[0]["DD_Process_CompleteFlg"] == null) && ObjLoginNewvo.Role_Code == "JD")
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "70" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "67" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "64" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "61" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "86") && ObjLoginNewvo.Role_Code == "JD")
                             {
                                 divJDlevel.Visible = true;
                             }

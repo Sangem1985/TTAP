@@ -60,23 +60,28 @@ namespace TTAP.UI.Pages.COI
                 lblScrntyPendingWithin.Text = dss.Tables[0].Rows[0]["ScrutinyPendingWithin"].ToString();
                 lblScrntyPendingBeyond.Text = dss.Tables[0].Rows[0]["ScrutinyPendingBeyond"].ToString();
                 lblScrntypendingTotal.Text = (Convert.ToInt32(dss.Tables[0].Rows[0]["ScrutinyPendingWithin"].ToString()) + Convert.ToInt32(dss.Tables[0].Rows[0]["ScrutinyPendingBeyond"].ToString())).ToString();
-                lblQueryYettoRspnd.Text = dss.Tables[0].Rows[0]["QueriesYettoRespond"].ToString();
-                lblRepliedQueryWITHIN.Text = dss.Tables[0].Rows[0]["QueriesRespondedWithin"].ToString();
-                lblRepliedQueryBEYOND.Text = dss.Tables[0].Rows[0]["QueriesRespondedBeyond"].ToString();
-                lblTotalQueryRspnd.Text = (Convert.ToInt32(dss.Tables[0].Rows[0]["QueriesRespondedWithin"].ToString()) + Convert.ToInt32(dss.Tables[0].Rows[0]["QueriesRespondedBeyond"].ToString())).ToString();
+
                 lblFwdFrmADDDWithin.Text = dss.Tables[0].Rows[0]["FwdFromAD_DDWithin"].ToString();
                 lblFwdFrmADDDbeyond.Text = dss.Tables[0].Rows[0]["FwdFromAD_DDBeyond"].ToString();
                 lblTotalFwdFrmADDD.Text = (Convert.ToInt32(dss.Tables[0].Rows[0]["FwdFromAD_DDWithin"].ToString()) + Convert.ToInt32(dss.Tables[0].Rows[0]["FwdFromAD_DDBeyond"].ToString())).ToString();
                 lblDeptRtrndAppsSVC.Text = dss.Tables[0].Rows[0]["DeptRtrndAppsSVC"].ToString();
                 lblDeptPrcsdAppsSVC.Text = dss.Tables[0].Rows[0]["DeptProcessedSVC"].ToString();
-                lblQueriesRespWithin.Text = dss.Tables[0].Rows[0]["DQueriesRespondedWithin"].ToString();
-                lblQueriesRespBeyond.Text = dss.Tables[0].Rows[0]["DQueriesRespondedBeyond"].ToString();
-                lblTotalQueriesRspndd.Text = (Convert.ToInt32(dss.Tables[0].Rows[0]["DQueriesRespondedWithin"].ToString()) + Convert.ToInt32(dss.Tables[0].Rows[0]["DQueriesRespondedBeyond"].ToString())).ToString();
-                lblAbeyance.Text = dss.Tables[0].Rows[0]["AbeyancedAtSPDNT"].ToString();
+                lblADDLReturned.Text = dss.Tables[0].Rows[0]["AddlReturned"].ToString();
+
                 lblScrtnyCompFwdtoAddlWithin.Text = dss.Tables[0].Rows[0]["FwdtoAddlWithin"].ToString();
                 lblScrtnyCompFwdtoAddlBeyond.Text = dss.Tables[0].Rows[0]["FwdtoAddlBeyond"].ToString();
                 lblTotScrtnyCompFwdtoAddl.Text = (Convert.ToInt32(dss.Tables[0].Rows[0]["FwdtoAddlWithin"].ToString()) + Convert.ToInt32(dss.Tables[0].Rows[0]["FwdtoAddlBeyond"].ToString())).ToString();
                 lblRejected.Text = dss.Tables[0].Rows[0]["JDRejected"].ToString();
+
+                lblQueryYettoRspnd.Text = dss.Tables[0].Rows[0]["QueriesYettoRespond"].ToString();
+                lblRepliedQueryWITHIN.Text = dss.Tables[0].Rows[0]["QueriesRespondedWithin"].ToString();
+                lblRepliedQueryBEYOND.Text = dss.Tables[0].Rows[0]["QueriesRespondedBeyond"].ToString();
+                lblTotalQueryRspnd.Text = (Convert.ToInt32(dss.Tables[0].Rows[0]["QueriesRespondedWithin"].ToString()) + Convert.ToInt32(dss.Tables[0].Rows[0]["QueriesRespondedBeyond"].ToString())).ToString();
+                lblQueriesRespWithin.Text = dss.Tables[0].Rows[0]["DQueriesRespondedWithin"].ToString();
+                lblQueriesRespBeyond.Text = dss.Tables[0].Rows[0]["DQueriesRespondedBeyond"].ToString();
+                lblTotalQueriesRspndd.Text = (Convert.ToInt32(dss.Tables[0].Rows[0]["DQueriesRespondedWithin"].ToString()) + Convert.ToInt32(dss.Tables[0].Rows[0]["DQueriesRespondedBeyond"].ToString())).ToString();
+
+                lblAbeyance.Text = dss.Tables[0].Rows[0]["AbeyancedAtSPDNT"].ToString();
                 lblTotalAbeyance.Text = dss.Tables[0].Rows[0]["AbeyancedAtAddl"].ToString();
                 lblRjctedpreSVC.Text = dss.Tables[0].Rows[0]["RejectedAtPreSVC"].ToString();
                 lblRjctedSVC.Text = dss.Tables[0].Rows[0]["RejectedAtSVC"].ToString();

@@ -72,10 +72,10 @@ namespace TTAP
             {
                 string CreateBy = "";
                 string Role = "";
-                string User_level= "";
+                string User_level = "";
                 string User_Type = "";
                 string Fromname = "";
-                string DistrictID= "";
+                string DistrictID = "";
                 if (String.IsNullOrEmpty(txtuname.Text) || String.IsNullOrEmpty(txtpsw.Text))
                 {
                     lblmsg0.Text = "Please provide User Name and Password";
@@ -106,18 +106,20 @@ namespace TTAP
                     {
                         CaptchaResult = ValidateCaptcha(out CErrormsg);
                     }*/
-                     string encpassword1 = Objret.Decrypt("4qVgJQDe+uOrnltk568zv4aTNkIhpP8TKUqSR8wyfc0=", "SYSTIME");
+                    string encpassword1 = Objret.Decrypt("4qVgJQDe+uOrnltk568zv4aTNkIhpP8TKUqSR8wyfc0=", "SYSTIME");
                     if (CaptchaResult)
                     {
                         string encpassword = Objret.Encrypt(Password, "SYSTIME");
-                        if (Request.QueryString.Count > 3) {
-                            if (Request.QueryString["CreateBy"] != null) {
+                        if (Request.QueryString.Count > 3)
+                        {
+                            if (Request.QueryString["CreateBy"] != null)
+                            {
                                 CreateBy = Request.QueryString["CreateBy"].ToString();
                                 Role = Request.QueryString["Role"].ToString();
                                 User_level = Request.QueryString["User_level"].ToString();
                                 Fromname = Request.QueryString["Fromname"].ToString();
                                 DistrictID = Request.QueryString["DistrictID"].ToString();
-                                User_Type= Request.QueryString["User_type"].ToString();
+                                User_Type = Request.QueryString["User_type"].ToString();
                             }
                         }
                         DataSet ds = Objret.ValidateLoginNew(UserID, Password, encpassword, CreateBy, Role, User_level,
@@ -158,7 +160,7 @@ namespace TTAP
                                 {
                                     ObjLoginNewvo.DistrictID = Session["DistrictId"].ToString();
                                 }
-                                else 
+                                else
                                 {
                                     Session["DistrictId"] = GetDistrictIdofDLO(ObjLoginNewvo.uid);
                                 }
@@ -167,8 +169,25 @@ namespace TTAP
                                 ObjLoginNewvo.LastName = dv.Table.Rows[0]["Lastname"].ToString();
                                 Session["Encpassword"] = ObjLoginNewvo.Encpassword = dv.Table.Rows[0]["Encpassword"].ToString();
 
-                                Session["ObjLoginvo"] = ObjLoginNewvo;
-                                Response.Redirect("UI/UserDashBoard.aspx");
+                                Session["ObjLoginvo"] = ObjLoginNewvo; //ObjLoginvo.Role_Code == "GM"
+                                if (ObjLoginvo.Role_Code == "GM")
+                                    Response.Redirect("/UI/Pages/frmGMDashboard.aspx");
+                                else if (ObjLoginvo.Role_Code == "AD" || ObjLoginvo.Role_Code == "IPO" || ObjLoginvo.Role_Code == "DD")
+                                    Response.Redirect("/UI/Pages/COI/frmIPOIncentiveDashboard.aspx");
+                                else if (ObjLoginvo.Role_Code == "COI-CLERK")
+                                    Response.Redirect("/UI/Pages/COI/ClerkDashboard.aspx");
+                                else if (ObjLoginvo.Role_Code == "COI-SUPDT")
+                                    Response.Redirect("/UI/Pages/COI/SuperintendentDashboard.aspx");
+                                else if (ObjLoginvo.Role_Code == "COI-AD")
+                                    Response.Redirect("/UI/Pages/COI/AdDashboard.aspx");
+                                else if (ObjLoginvo.Role_Code == "COI-DD")
+                                    Response.Redirect("/UI/Pages/COI/DDDashboard.aspx");
+                                else if (ObjLoginvo.Role_Code == "JD")
+                                    Response.Redirect("/UI/Pages/COI/JdDashboard.aspx");
+                                else if (ObjLoginvo.Role_Code == "ADDL")
+                                    Response.Redirect("/UI/Pages/frmJDDashboard.aspx");
+                                else
+                                    Response.Redirect("UI/UserDashBoard.aspx");
                                 //Response.Redirect("UI/preaproval/ca_home.aspx");
 
                             }
