@@ -3404,6 +3404,22 @@ namespace TTAP.UI
                     divGMToCOIHis.Visible = true;
                     divGMtoCOIReject.Visible = true;
                 }
+                if (dss.Tables[10].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMFwdJD.DataSource = dss.Tables[10];
+                    gvGMFwdJD.DataBind();
+                    divGMFwdJD.Visible = true;
+                    divGMtoJDQuery.Visible = true;
+                }
+                if (dss.Tables[11].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMQueryJDQuery.DataSource = dss.Tables[11];
+                    gvGMQueryJDQuery.DataBind();
+                    divGMQueryJDQuery.Visible = true;
+                    divGMtoJDQuery.Visible = true;
+                }
             }
         }
         public void BindIPOHistory()
@@ -3438,6 +3454,13 @@ namespace TTAP.UI
                     gvdivGMRecommendCOI.DataSource = dss.Tables[1];
                     gvdivGMRecommendCOI.DataBind();
                     divGMRecommendCOI.Visible = true;
+                }
+                if (dss.Tables[2].Rows.Count > 0)
+                {
+                    divGMVerification.Visible = true;
+                    gvGMtoJD.DataSource = dss.Tables[2];
+                    gvGMtoJD.DataBind();
+                    divGMtoJD.Visible = true;
                 }
             }
         }
@@ -4236,6 +4259,72 @@ namespace TTAP.UI
             if (ddlActionType.SelectedValue == "1" || ddlActionType.SelectedValue == "3" || ddlActionType.SelectedValue == "4") 
             {
                 txtGMAmount.Enabled = false;
+            }
+        }
+
+        protected void btnSubmitGMtoJD_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ApplicationStatus ObjApplicationStatus = new ApplicationStatus();
+                UserLoginNewVo ObjLoginNewvo = new UserLoginNewVo();
+                ObjLoginNewvo = (UserLoginNewVo)Session["ObjLoginvo"];
+
+                int indexing = ((GridViewRow)((Control)sender).NamingContainer).RowIndex;
+
+                string ActionType = ((DropDownList)gvGMtoJD.Rows[indexing].FindControl("ddlActionType")).SelectedValue.ToString();
+                ObjApplicationStatus.IncentiveId = ((Label)gvGMtoJD.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
+                ObjApplicationStatus.SubIncentiveId = ((Label)gvGMtoJD.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
+                ObjApplicationStatus.QueryId = ((Label)gvGMtoJD.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
+                ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
+                ObjApplicationStatus.Remarks = ((TextBox)gvGMtoJD.Rows[indexing].FindControl("txtGMRemarkstoJD")).Text.ToString();
+                ObjApplicationStatus.TransType = ActionType;
+
+                if (ObjApplicationStatus.TransType == "" || ObjApplicationStatus.TransType == "0" || ObjApplicationStatus.TransType == null)
+                {
+                    string info = "Please select Action Type";
+                    string message = "alert('" + info + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+                if (ObjApplicationStatus.TransType == "1")
+                {
+                    if (ObjApplicationStatus.Remarks == "")
+                    {
+                        string info = "Please enter Query/Reason";
+                        string message = "alert('" + info + "')";
+                        ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                        return;
+                    }
+                }
+                
+                string Status = ObjCAFClass.FwdApplicantResponsetoJD(ObjApplicationStatus);
+                if (Convert.ToInt32(Status) > 0)
+                {
+                    string Successmsg = "";
+                    divGMVerification.Visible = false;
+                    if (ActionType == "1") { Successmsg = "Query Raised Successfully"; }
+                    if (ActionType == "2") { Successmsg = "Application Forwarded to JD"; }
+                    string message = "alert('" + Successmsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    BindGMHistory();
+
+                }
+                else
+                {
+                    string msg = "Action Failed";
+                    string message = "alert('" + msg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Errors.ErrorLog(ex);
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                success.Visible = false;
+                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
             }
         }
     }
