@@ -1657,6 +1657,10 @@ namespace TTAP.UI
                     divJointInspReport.Visible = true;
                 }
                 string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
+                string Amount = ObjCAFClass.GetJDRecommededAmount(ViewState["IncentiveId"].ToString(),SubIncId.ToString());
+                txtAddlAmount.Text = Amount.Trim();
+                divAddlRecAmount.Visible = true;
+                
                 //if (SubIncId == "3" || SubIncId == "4" || SubIncId == "9" || SubIncId == "6" || SubIncId == "14")
                 //{
                 //    divrdbHalfyear.Visible = true;
@@ -1998,6 +2002,7 @@ namespace TTAP.UI
                     ObjApplicationStatus.IncentiveId = ViewState["IncentiveId"].ToString();
                     ObjApplicationStatus.SubIncentiveId = ddlDLORecommendedIncentives.SelectedValue;
                     ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
+                    ObjApplicationStatus.RecommendedAmount = txtAddlAmount.Text.Trim().ToString();
                     ObjApplicationStatus.TransType = RbtnHeadOfficestatus.SelectedValue;
                     string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
                     //if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
@@ -2096,6 +2101,13 @@ namespace TTAP.UI
             else
             {
                 DivRefferedApplicationDetailsJD.Visible = false;
+            }
+            if (dss != null && dss.Tables.Count > 0 && dss.Tables[1].Rows.Count > 0)
+            {
+                gvAddlDirProcess.DataSource = dss.Tables[1];
+                gvAddlDirProcess.DataBind();
+                divAddlDirProcess.Visible = true;
+                divQueriesJD.Visible = true;
             }
         }
         public void BindJDSenttoDLOIncentives()

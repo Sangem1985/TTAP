@@ -3675,7 +3675,7 @@
                             <div class="card" id="divQueriesJD" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingQueryHistoryJD">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapseJD">
-                                        <span id="SpanApplcationStatusHistoryJD" runat="server">Applcation Status History - Head Office (JD)</span>
+                                        <span id="SpanApplcationStatusHistoryJD" runat="server">Applcation Status History - Head Office (Additional Director)</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
@@ -3705,6 +3705,41 @@
                                                         <asp:BoundField DataField="RefferedTo" HeaderText="Reffered To" />
                                                         <asp:BoundField DataField="Emp_Name" HeaderText="Reffered By" />
                                                         <asp:BoundField DataField="RefferedDate" HeaderText="Reffered Date" />
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                         <div class="row" id="divAddlDirProcess" runat="server" visible="false">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1"> Application Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="gvAddlDirProcess" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
+                                                        <asp:BoundField DataField="RefferedTo" HeaderText="Reffered To" />
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Reffered By" />
+                                                        <asp:BoundField DataField="RefferedDate" HeaderText="Reffered Date" />
+                                                        <asp:BoundField DataField="AddlDirector_Rec_Amount" HeaderText="Recommended Amount" />
                                                         <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
@@ -3922,20 +3957,25 @@
                                             <div class="col-sm-4 form-group">
                                                 <label class="control-label label-required" id="lblHeadOfficestatus" runat="server">Status</label>
                                                 <asp:RadioButtonList ID="RbtnHeadOfficestatus" runat="server" AutoPostBack="True" class="custom-radio" OnSelectedIndexChanged="RbtnHeadOfficestatus_SelectedIndexChanged">
-                                                    <asp:ListItem Text="Recommend to SVC" Value="1"></asp:ListItem>
-                                                    <asp:ListItem Text="Raise Query" Value="2"></asp:ListItem>
+                                                    <asp:ListItem Text="Recommend to Commissioner" Value="1"></asp:ListItem>
+                                                    <%--<asp:ListItem Text="Raise Query" Value="2"></asp:ListItem>--%>
                                                     <asp:ListItem Text="Reject" Value="3"></asp:ListItem>
                                                      <asp:ListItem Text="Return to JD" Value="6"></asp:ListItem>
-                                                    <asp:ListItem Text="Send to DLO for Revised Inspection Report" Value="4"></asp:ListItem>
-                                                    <asp:ListItem Text="Send to DLC" Value="5"></asp:ListItem>
+                                                    <%--<asp:ListItem Text="Send to DLO for Revised Inspection Report" Value="4"></asp:ListItem>
+                                                    <asp:ListItem Text="Send to DLC" Value="5"></asp:ListItem>--%>
                                                 </asp:RadioButtonList>
                                             </div>
                                         </div>
                                         <div class="row">
+                                             <div class="col-sm-7 form-group" id="divAddlRecAmount" runat="server" visible="false">
+                                                <label class="control-label label-required" id="Label16" runat="server">Additional Director Recommended Amount</label>
+                                                <asp:TextBox ID="txtAddlAmount" Width="30%" runat="server" class="form-control"></asp:TextBox>
+                                            </div>
                                             <div class="col-sm-7 form-group" id="divHeadOfficeJdQuery" runat="server" visible="false">
                                                 <label class="control-label label-required" id="lblvHeadOfficeJdQueryStatus" runat="server">Query</label>
                                                 <asp:TextBox ID="txtvHeadOfficeJdQueryRemarks" runat="server" Rows="6" TextMode="MultiLine" class="form-control"></asp:TextBox>
                                             </div>
+                                           
                                             <div class="row" id="divMemoLetter" runat="server" visible="false">
                                                 <div class="col-sm-4 form-group">
                                                     <label class="control-label label-required" id="Label9" runat="server">Any Memo Letter</label>

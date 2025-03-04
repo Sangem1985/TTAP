@@ -534,6 +534,8 @@
     <Content Include="UI\Pages\COI\AdDashboard.aspx" />
     <Content Include="UI\Pages\COI\ClerkApplications.aspx" />
     <Content Include="UI\Pages\COI\ClerkDashboard.aspx" />
+    <Content Include="UI\Pages\COI\CommissionerApplications.aspx" />
+    <Content Include="UI\Pages\COI\CommissionerDashBoard.aspx" />
     <Content Include="UI\Pages\COI\DdApplications.aspx" />
     <Content Include="UI\Pages\COI\DdDashboard.aspx" />
     <Content Include="UI\Pages\COI\JdApplications.aspx" />
@@ -1157,6 +1159,20 @@
     </Compile>
     <Compile Include="UI\Pages\COI\ClerkDashboard.aspx.designer.cs">
       <DependentUpon>ClerkDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\CommissionerApplications.aspx.cs">
+      <DependentUpon>CommissionerApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\CommissionerApplications.aspx.designer.cs">
+      <DependentUpon>CommissionerApplications.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\CommissionerDashBoard.aspx.cs">
+      <DependentUpon>CommissionerDashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\CommissionerDashBoard.aspx.designer.cs">
+      <DependentUpon>CommissionerDashBoard.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\COI\DdApplications.aspx.cs">
       <DependentUpon>DdApplications.aspx</DependentUpon>

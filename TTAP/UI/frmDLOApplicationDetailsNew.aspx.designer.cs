@@ -2103,6 +2103,24 @@ namespace TTAP.UI
         protected global::System.Web.UI.WebControls.GridView gvRefferedApplicationStatusJD;
 
         /// <summary>
+        /// divAddlDirProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAddlDirProcess;
+
+        /// <summary>
+        /// gvAddlDirProcess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvAddlDirProcess;
+
+        /// <summary>
         /// divJDSenttoDLOforReInspect control.
         /// </summary>
         /// <remarks>
@@ -2317,6 +2335,33 @@ namespace TTAP.UI
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList RbtnHeadOfficestatus;
+
+        /// <summary>
+        /// divAddlRecAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAddlRecAmount;
+
+        /// <summary>
+        /// Label16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label16;
+
+        /// <summary>
+        /// txtAddlAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAddlAmount;
 
         /// <summary>
         /// divHeadOfficeJdQuery control.

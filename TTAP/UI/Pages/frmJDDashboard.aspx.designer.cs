@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TTAP.UI.Pages {
-    
-    
-    public partial class frmJDDashboard {
-        
+namespace TTAP.UI.Pages
+{
+
+
+    public partial class frmJDDashboard
+    {
+
         /// <summary>
         /// updatepanel1 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel updatepanel1;
-        
+
         /// <summary>
         /// ehome control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor ehome;
-        
+
         /// <summary>
         /// acurrentpage control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor acurrentpage;
-        
+
         /// <summary>
         /// Receipt control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Receipt;
-        
+
         /// <summary>
         /// divdashboardheadername control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divdashboardheadername;
-        
+
         /// <summary>
         /// HyperLink1 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
-        
+
         /// <summary>
         /// trsection1 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trsection1;
-        
+
         /// <summary>
         /// lblAppl control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblAppl;
-        
+
         /// <summary>
         /// lblPendingWithin control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPendingWithin;
-        
+
         /// <summary>
         /// lblPendingBeyond control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPendingBeyond;
-        
+
         /// <summary>
         /// lblpendingTotal control.
         /// </summary>
@@ -110,52 +112,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblpendingTotal;
-        
-        /// <summary>
-        /// lblTotalQuery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalQuery;
-        
-        /// <summary>
-        /// lblRepliedQueryWITHIN control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepliedQueryWITHIN;
-        
-        /// <summary>
-        /// lblRepliedQueryBEYOND control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepliedQueryBEYOND;
-        
-        /// <summary>
-        /// lblOpenQuery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOpenQuery;
-        
-        /// <summary>
-        /// Div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-        
+
         /// <summary>
         /// lblcomWithin control.
         /// </summary>
@@ -164,7 +121,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcomWithin;
-        
+
         /// <summary>
         /// lblcombeyond control.
         /// </summary>
@@ -173,7 +130,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblcombeyond;
-        
+
         /// <summary>
         /// lblDLrejected control.
         /// </summary>
@@ -182,7 +139,52 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDLrejected;
-        
+
+        /// <summary>
+        /// lblTotalQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalQuery;
+
+        /// <summary>
+        /// lblRepliedQueryWITHIN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRepliedQueryWITHIN;
+
+        /// <summary>
+        /// lblRepliedQueryBEYOND control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRepliedQueryBEYOND;
+
+        /// <summary>
+        /// lblOpenQuery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOpenQuery;
+
+        /// <summary>
+        /// Div1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+
         /// <summary>
         /// TableSVC control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl TableSVC;
-        
+
         /// <summary>
         /// lblSVCReceived control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCReceived;
-        
+
         /// <summary>
         /// lblSVCAgendaWithin control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCAgendaWithin;
-        
+
         /// <summary>
         /// lblSVCAgendaBeyond control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCAgendaBeyond;
-        
+
         /// <summary>
         /// lblSVCTotalYettogenerateAgenda control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCTotalYettogenerateAgenda;
-        
+
         /// <summary>
         /// lblSVCPrintGeneratedDLCAgenda control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCPrintGeneratedDLCAgenda;
-        
+
         /// <summary>
         /// lblSVCUploadProcWithin control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCUploadProcWithin;
-        
+
         /// <summary>
         /// lblSVCUploadProcBeyond control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCUploadProcBeyond;
-        
+
         /// <summary>
         /// lblSVCUploadProc control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCUploadProc;
-        
+
         /// <summary>
         /// lblSVCReleasePendingsWithin control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCReleasePendingsWithin;
-        
+
         /// <summary>
         /// lblSVCReleasePendingsBeyond control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCReleasePendingsBeyond;
-        
+
         /// <summary>
         /// lblSVCrejected control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCrejected;
-        
+
         /// <summary>
         /// lblSVCCompleted control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSVCCompleted;
-        
+
         /// <summary>
         /// Table2 control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Table2;
-        
+
         /// <summary>
         /// lblDLCReceived control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDLCReceived;
-        
+
         /// <summary>
         /// lblDIPCAgendaWithin control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDIPCAgendaWithin;
-        
+
         /// <summary>
         /// lblDIPCAgendaBeyond control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDIPCAgendaBeyond;
-        
+
         /// <summary>
         /// lblTotalYettogenerateAgenda control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalYettogenerateAgenda;
-        
+
         /// <summary>
         /// lblPrintGeneratedDLCAgenda control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrintGeneratedDLCAgenda;
-        
+
         /// <summary>
         /// lblDIPCUploadProcWithin control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDIPCUploadProcWithin;
-        
+
         /// <summary>
         /// lblDIPCUploadProcBeyond control.
         /// </summary>
@@ -371,7 +373,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDIPCUploadProcBeyond;
-        
+
         /// <summary>
         /// lblDIPCUploadProc control.
         /// </summary>
@@ -380,7 +382,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDIPCUploadProc;
-        
+
         /// <summary>
         /// lblDIPCReleasePendingsWithin control.
         /// </summary>
@@ -389,7 +391,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDIPCReleasePendingsWithin;
-        
+
         /// <summary>
         /// lblDIPCReleasePendingsBeyond control.
         /// </summary>
@@ -398,7 +400,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDIPCReleasePendingsBeyond;
-        
+
         /// <summary>
         /// DLCrejected control.
         /// </summary>
@@ -407,7 +409,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label DLCrejected;
-        
+
         /// <summary>
         /// lblDLCCompleted control.
         /// </summary>
@@ -416,7 +418,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDLCCompleted;
-        
+
         /// <summary>
         /// lblPendingIssueSanctions control.
         /// </summary>
@@ -425,7 +427,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPendingIssueSanctions;
-        
+
         /// <summary>
         /// lblIssuedSanctionLetters control.
         /// </summary>
@@ -434,7 +436,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIssuedSanctionLetters;
-        
+
         /// <summary>
         /// hdfID control.
         /// </summary>
@@ -443,7 +445,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdfID;
-        
+
         /// <summary>
         /// hdfFlagID control.
         /// </summary>

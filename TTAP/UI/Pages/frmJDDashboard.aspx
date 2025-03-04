@@ -84,8 +84,33 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="col-sm-6 mb-4">
+                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                            <span><i class="fa fa-fw fa-check"></i>Scrutiny Completed and Forwarded To Commissioner</span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=8">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Within  Days</span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblcomWithin" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=9">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Beyond  Days</span>
+                                            <span class="badge badge-pill badge-warning">
+                                                <asp:Label ID="lblcombeyond" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=10">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Rejected</span>
+                                            <span class="badge badge-pill badge-primary bg-danger">
+                                                <asp:Label ID="lblDLrejected" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-4">
+                                    <div class="list-group" runat="server" visible="false">
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Queries</span>
                                         </a>
@@ -117,31 +142,7 @@
                                 </div>
                             </div>
                             <div class="row" id="Div1" runat="server">
-                                <div class="col-sm-6 mb-4">
-                                    <div class="list-group">
-                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
-                                            <span><i class="fa fa-fw fa-check"></i>Scrutiny Completed and Forwarded To SVC</span>
-                                        </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=8">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Within  Days</span>
-                                            <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="lblcomWithin" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=9">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Beyond  Days</span>
-                                            <span class="badge badge-pill badge-warning">
-                                                <asp:Label ID="lblcombeyond" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=10">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Rejected</span>
-                                            <span class="badge badge-pill badge-primary bg-danger">
-                                                <asp:Label ID="lblDLrejected" runat="server"></asp:Label>
-                                            </span>
-                                        </a>
-                                    </div>
-                                </div>
+                               
                             </div>
                             
                             <div>
@@ -341,7 +342,7 @@
                                         <h5 class="page-head-linenew" align="left" style="font-size: smaller"></h5>
                                     </div>
                                      
-                                    <div class="list-group">
+                                    <div class="list-group" runat="server" visible="false">
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Sanction Letters</span>
                                         </a>

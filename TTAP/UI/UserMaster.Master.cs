@@ -202,14 +202,30 @@ namespace TTAP.UI
                     }
                     else if (ObjLoginvo.Role_Code == "COMM")
                     {
-                        anchoetag.HRef = "~/UI/Pages/frmDashBoard.aspx";
+                        if (Session["IPASSFlag"] != null)
+                        {
+                            if (Session["IPASSFlag"].ToString() == "Y") 
+                            {
+                                anchoetag.HRef = "~/UI/Pages/frmDashBoard.aspx";
 
-                        applicanthd.Visible = false;
-                        liApplicantIncentivedashbiard.Visible = false;
-                        liSvcEntry.Visible = true;
-                        liIncentiveDeptDashboard.Visible = true;
-                        
-                        anchdeptincdashboard.HRef = "~/UI/Pages/frmCommissionerDashboard.aspx";
+                                applicanthd.Visible = false;
+                                liApplicantIncentivedashbiard.Visible = false;
+                                liSvcEntry.Visible = true;
+                                liIncentiveDeptDashboard.Visible = true;
+                                anchdeptincdashboard.HRef = "~/UI/Pages/COI/CommissionerDashBoard.aspx";
+                            }
+                        }
+                        else
+                        {
+                            anchoetag.HRef = "~/UI/Pages/frmDashBoard.aspx";
+
+                            applicanthd.Visible = false;
+                            liApplicantIncentivedashbiard.Visible = false;
+                            liSvcEntry.Visible = true;
+                            liIncentiveDeptDashboard.Visible = true;
+
+                            anchdeptincdashboard.HRef = "~/UI/Pages/frmCommissionerDashboard.aspx";
+                        }
                     }
                     else
                     {

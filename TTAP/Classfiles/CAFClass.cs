@@ -3644,6 +3644,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@Remarks", objApplicationStatus.Remarks);
                 com.Parameters.AddWithValue("@TransType", objApplicationStatus.TransType);
                 com.Parameters.AddWithValue("@CreatedBy", objApplicationStatus.CreatedBy);
+                com.Parameters.AddWithValue("@Amount", objApplicationStatus.RecommendedAmount);
                 if (objApplicationStatus.PartialSanction == "P" || objApplicationStatus.PartialSanction == "CP")
                 {
                     com.Parameters.AddWithValue("@JDRecommendedAmount", objApplicationStatus.JDRecommendedAmount);
@@ -5278,6 +5279,43 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
+        public string GetJDRecommededAmount(string IncentiveId, string SubIncentiveId)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_GET_JD_RECOMMENDED_AMOUNT";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+                com.Parameters.AddWithValue("@IncentiveId", IncentiveId);
+                com.Parameters.AddWithValue("@SubIncentiveId", SubIncentiveId);
+                com.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
+                com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+                valid = com.Parameters["@Valid"].Value.ToString();
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
         public string Check_IsFirstTime(string UnitId)
         {
             string valid = "";
@@ -6047,6 +6085,48 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@Remarks", objApplicationStatus.Remarks);
                 com.Parameters.AddWithValue("@QueryId", objApplicationStatus.QueryId);
                 com.Parameters.AddWithValue("@CreatedBy", objApplicationStatus.CreatedBy);
+                com.Parameters.AddWithValue("@Flag", objApplicationStatus.TransType);
+                com.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
+                com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@Valid"].Value.ToString();
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
+        public string CommissionerAction(ApplicationStatus objApplicationStatus)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "[USP_UPD_COMMISSIONER_VERIFICATION]";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@IncentiveID", objApplicationStatus.IncentiveId);
+                com.Parameters.AddWithValue("@SubIncentiveId", objApplicationStatus.SubIncentiveId);
+                com.Parameters.AddWithValue("@CreatedBy", objApplicationStatus.CreatedBy);
+                com.Parameters.AddWithValue("@Remarks", objApplicationStatus.Remarks);
                 com.Parameters.AddWithValue("@Flag", objApplicationStatus.TransType);
                 com.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
                 com.Parameters["@Valid"].Direction = ParameterDirection.Output;
