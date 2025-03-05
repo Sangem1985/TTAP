@@ -617,6 +617,7 @@ namespace TTAP.Classfiles
 
                 com.Parameters.AddWithValue("@AccountauthorizedPerson", objvo1.AccountauthorizedPerson);
                 com.Parameters.AddWithValue("@DesignationOfAccountauthorizedPerson", objvo1.DesignationOfAccountauthorizedPerson);
+                com.Parameters.AddWithValue("@OtherBankName", objvo1.OtherBankName);
 
                 com.Parameters.AddWithValue("@CreatedBy", objvo1.User_Id);
                 com.Parameters.AddWithValue("@AppsLevel", objvo1.AppsLevel);
@@ -1167,7 +1168,10 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@ClaimApplicationsubmitted", objConcessionSGST.ClaimApplicationsubmitted);
                 com.Parameters.AddWithValue("@Taxpaid", objConcessionSGST.Taxpaid);
                 com.Parameters.AddWithValue("@CurrentClaimAmountRs", objConcessionSGST.CurrentClaimAmountRs);
-
+                com.Parameters.AddWithValue("@ClaimFinYear", objConcessionSGST.FinancialYear);
+                com.Parameters.AddWithValue("@ClaimFinYearText", objConcessionSGST.FinancialYearText);
+                com.Parameters.AddWithValue("@ClaimHalfYear", objConcessionSGST.HalfYear);
+                com.Parameters.AddWithValue("@ClaimHalfYearText", objConcessionSGST.HalfYearText);
                 com.Parameters.AddWithValue("@MoratoriumFrom", objConcessionSGST.MoratoriumFrom);
                 com.Parameters.AddWithValue("@MoratoriumTo", objConcessionSGST.MoratoriumTo);
                 com.Parameters.AddWithValue("@MoratoriumInvestmentAmount", objConcessionSGST.MoratoriumInvestmentAmount);

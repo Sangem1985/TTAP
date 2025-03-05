@@ -524,6 +524,7 @@ public class comFunctions
 
     public void BindCtlto(bool showSelect, DropDownList ddl, DataTable dt, int displayMember, int valueMember, bool defaultselection)
     {
+        int count = 0;
         if (dt != null && dt.Rows.Count > 0)
         {
             ddl.DataTextField = dt.Columns[displayMember].ColumnName;
@@ -532,6 +533,7 @@ public class comFunctions
             ddl.DataBind();
             if (dt.Rows.Count > 1)
             {
+                count = dt.Rows.Count;
                 showSelect = true;
             }
         }
@@ -544,7 +546,9 @@ public class comFunctions
         }
 
         ListItem li = new ListItem("-- SELECT --", "0");
+        ListItem li1 = new ListItem("OTHERS", "999");
         if (showSelect) ddl.Items.Insert(0, li);
+        if (ddl.ID == "ddlBank") { if (showSelect) ddl.Items.Insert(count+1, li1); }
 
         if (defaultselection && dt != null && dt.Rows.Count == 1) ddl.SelectedIndex = 1;
     }

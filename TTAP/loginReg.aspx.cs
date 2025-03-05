@@ -171,25 +171,25 @@ namespace TTAP
 
                                 Session["ObjLoginvo"] = ObjLoginNewvo; //ObjLoginvo.Role_Code == "GM"
                                 if (ObjLoginNewvo.Role_Code == "GM")
-                                    Response.Redirect("/UI/Pages/frmGMDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/frmGMDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "AD" || ObjLoginvo.Role_Code == "IPO" || ObjLoginvo.Role_Code == "DD")
-                                    Response.Redirect("/UI/Pages/COI/frmIPOIncentiveDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/COI/frmIPOIncentiveDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COI-CLERK")
-                                    Response.Redirect("/UI/Pages/COI/ClerkDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/COI/ClerkDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COI-SUPDT")
-                                    Response.Redirect("/UI/Pages/COI/SuperintendentDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/COI/SuperintendentDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COI-AD")
-                                    Response.Redirect("/UI/Pages/COI/AdDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/COI/AdDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COI-DD")
-                                    Response.Redirect("/UI/Pages/COI/DDDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/COI/DDDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "JD")
-                                    Response.Redirect("/UI/Pages/COI/JdDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/COI/JdDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "ADDL")
-                                    Response.Redirect("/UI/Pages/frmJDDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/frmJDDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COMM")
-                                    Response.Redirect("/UI/Pages//COI/CommissionerDashBoard.aspx");
+                                    Response.Redirect("~/UI/Pages/COI/CommissionerDashBoard.aspx");
                                 else
-                                    Response.Redirect("UI/UserDashBoard.aspx");
+                                    Response.Redirect("~/UI/UserDashBoard.aspx");
                                 //Response.Redirect("UI/preaproval/ca_home.aspx");
 
                             }

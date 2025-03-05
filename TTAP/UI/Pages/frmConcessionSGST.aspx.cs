@@ -62,6 +62,7 @@ namespace TTAP.UI.Pages
                                 //dsnew =
                                 BindUnitMasterData();
                                 BindFinancialYears(ddlFinYear, "7", Session["IncentiveID"].ToString());
+                                BindFinancialYears(ddlClaimFinYear, "7", Session["IncentiveID"].ToString());
                                 GetConcessionSGSTDetails(userid, IncentveID);
                                 BindSGSTReimbursementAvailedDtls(Session["IncentiveID"].ToString());
                                 BindSGSTSaleDtls(Session["IncentiveID"].ToString());
@@ -183,6 +184,16 @@ namespace TTAP.UI.Pages
                 ErrorMsg = ErrorMsg + slno + ". Please Enter Tax paid by the Enterprise during the 1st Half Year/2nd half year as certified by the Commercial Tax Department (In Rs)  \\n";
                 slno = slno + 1;
             }
+            if (ddlClaimFinYear.SelectedValue == "0") 
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please select Current Claim's Financial Year \\n";
+                slno = slno + 1;
+            }
+            if (ddlHalfYear.SelectedValue == "0")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please select Current Claim's Type of Year(1st/2nd Half Year) \\n";
+                slno = slno + 1;
+            }
             if (txtCurrentClaim.Text.TrimStart().Trim() == "")
             {
                 ErrorMsg = ErrorMsg + slno + ". Please Enter Current Claim Amount \\n";
@@ -264,6 +275,10 @@ namespace TTAP.UI.Pages
 
                 objConcessionSGST.ClaimApplicationsubmitted = txtClaimApplicationsubmitted.Text.Trim().TrimStart();
                 objConcessionSGST.Taxpaid = GetDecimalNullValue(txtTaxpaid.Text.Trim().TrimStart());
+                objConcessionSGST.FinancialYear = ddlClaimFinYear.SelectedValue.ToString();
+                objConcessionSGST.FinancialYearText = ddlClaimFinYear.SelectedItem.Text.ToString();
+                objConcessionSGST.HalfYear = ddlHalfYear.SelectedValue.ToString();
+                objConcessionSGST.HalfYearText = ddlHalfYear.SelectedItem.Text.ToString();
                 objConcessionSGST.CurrentClaimAmountRs = GetDecimalNullValue(txtCurrentClaim.Text.Trim().TrimStart());
 
                 objConcessionSGST.MoratoriumFrom = GetFromatedDateDDMMYYYY(txtMoratoriumFrom.Text.Trim().TrimStart());
@@ -489,21 +504,21 @@ namespace TTAP.UI.Pages
                     txtDateofEstablishmentofUnit.Text = ds.Tables[0].Rows[0]["DateofEstablishmentofUnit"].ToString();
 
                     txtInstalledcapacity.Text = ds.Tables[0].Rows[0]["Installedcapacity"].ToString();
-                    if (txtYear1.Text.Trim().TrimStart() != "")
+                    if (txtYear1.Text.Trim().TrimStart() == "")
                     {
                         txtYear1.Text = ds.Tables[0].Rows[0]["Year1"].ToString();
                     }
 
                     txtEnterprises1.Text = ds.Tables[0].Rows[0]["Enterprises1"].ToString();
                     txtTotalProduction1.Text = ds.Tables[0].Rows[0]["TotalProduction1"].ToString();
-                    if (txtYear2.Text.Trim().TrimStart() != "")
+                    if (txtYear2.Text.Trim().TrimStart() == "")
                     {
                         txtYear2.Text = ds.Tables[0].Rows[0]["Year2"].ToString();
                     }
                         
                     txtEnterprises2.Text = ds.Tables[0].Rows[0]["Enterprises2"].ToString();
                     txtTotalProduction2.Text = ds.Tables[0].Rows[0]["TotalProduction2"].ToString();
-                    if (txtYear3.Text.Trim().TrimStart() != "")
+                    if (txtYear3.Text.Trim().TrimStart() == "")
                     {
                         txtYear3.Text = ds.Tables[0].Rows[0]["Year3"].ToString();
                     }
@@ -513,6 +528,14 @@ namespace TTAP.UI.Pages
                     txtClaimApplicationsubmitted.Text = ds.Tables[0].Rows[0]["ClaimApplicationsubmitted"].ToString();
                     txtTaxpaid.Text = ds.Tables[0].Rows[0]["Taxpaid"].ToString();
                     txtCurrentClaim.Text = ds.Tables[0].Rows[0]["CurrentClaimAmountRs"].ToString();
+                    if(ds.Tables[0].Rows[0]["ClaimFinancialYear"].ToString()!=null && ds.Tables[0].Rows[0]["ClaimFinancialYear"].ToString() != "") 
+                    {
+                        ddlClaimFinYear.SelectedValue = ds.Tables[0].Rows[0]["ClaimFinancialYear"].ToString();
+                    }
+                    if (ds.Tables[0].Rows[0]["ClaimHalfYear"].ToString() != null && ds.Tables[0].Rows[0]["ClaimHalfYear"].ToString() != "")
+                    {
+                        ddlHalfYear.SelectedValue = ds.Tables[0].Rows[0]["ClaimHalfYear"].ToString();
+                    }
 
                     txtMoratoriumFrom.Text = ds.Tables[0].Rows[0]["MoratoriumFrom"].ToString();
                     txtMoratoriumTo.Text = ds.Tables[0].Rows[0]["MoratoriumTo"].ToString();

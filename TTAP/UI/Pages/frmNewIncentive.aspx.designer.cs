@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TTAP.UI.Pages {
-    
-    
-    public partial class frmNewIncentive {
-        
+namespace TTAP.UI.Pages
+{
+
+
+    public partial class frmNewIncentive
+    {
+
         /// <summary>
         /// UpdatePanel4 control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel4;
-        
+
         /// <summary>
         /// anchbreadgrrom control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor anchbreadgrrom;
-        
+
         /// <summary>
         /// lblindustryTypeHeader control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblindustryTypeHeader;
-        
+
         /// <summary>
         /// Tab1 control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tab1;
-        
+
         /// <summary>
         /// AnchTab1 control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AnchTab1;
-        
+
         /// <summary>
         /// Tab2 control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tab2;
-        
+
         /// <summary>
         /// AnchTab2 control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AnchTab2;
-        
+
         /// <summary>
         /// Tab3 control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tab3;
-        
+
         /// <summary>
         /// AnchTab3 control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AnchTab3;
-        
+
         /// <summary>
         /// Tab4 control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tab4;
-        
+
         /// <summary>
         /// AnchTab4 control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AnchTab4;
-        
+
         /// <summary>
         /// Tab5 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tab5;
-        
+
         /// <summary>
         /// AnchTab5 control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AnchTab5;
-        
+
         /// <summary>
         /// Tab6 control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Tab6;
-        
+
         /// <summary>
         /// AnchTab6 control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor AnchTab6;
-        
+
         /// <summary>
         /// MainView control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.MultiView MainView;
-        
+
         /// <summary>
         /// View1 control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View1;
-        
+
         /// <summary>
         /// IEMorUdyog control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl IEMorUdyog;
-        
+
         /// <summary>
         /// TxtUidNumber control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtUidNumber;
-        
+
         /// <summary>
         /// Label1 control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
-        
+
         /// <summary>
         /// rblSector control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList rblSector;
-        
+
         /// <summary>
         /// Label2 control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
-        
+
         /// <summary>
         /// txtUnitName control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUnitName;
-        
+
         /// <summary>
         /// Label3 control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label3;
-        
+
         /// <summary>
         /// txtCountryofOrigin control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCountryofOrigin;
-        
+
         /// <summary>
         /// Label5 control.
         /// </summary>
@@ -245,7 +247,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label5;
-        
+
         /// <summary>
         /// txtDateOfIncorporation control.
         /// </summary>
@@ -254,7 +256,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateOfIncorporation;
-        
+
         /// <summary>
         /// Label6 control.
         /// </summary>
@@ -263,7 +265,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label6;
-        
+
         /// <summary>
         /// txtIncorpRegistranNumber control.
         /// </summary>
@@ -272,7 +274,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIncorpRegistranNumber;
-        
+
         /// <summary>
         /// txtTinNO control.
         /// </summary>
@@ -281,7 +283,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTinNO;
-        
+
         /// <summary>
         /// txtPanNo control.
         /// </summary>
@@ -290,7 +292,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPanNo;
-        
+
         /// <summary>
         /// txtEINIEMILNumber control.
         /// </summary>
@@ -299,7 +301,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEINIEMILNumber;
-        
+
         /// <summary>
         /// txtEINIEMILDate control.
         /// </summary>
@@ -308,7 +310,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEINIEMILDate;
-        
+
         /// <summary>
         /// ddlOrgType control.
         /// </summary>
@@ -317,7 +319,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOrgType;
-        
+
         /// <summary>
         /// rblCaste control.
         /// </summary>
@@ -326,7 +328,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList rblCaste;
-        
+
         /// <summary>
         /// divsubcaste control.
         /// </summary>
@@ -335,7 +337,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divsubcaste;
-        
+
         /// <summary>
         /// ddlsubcaste control.
         /// </summary>
@@ -344,7 +346,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlsubcaste;
-        
+
         /// <summary>
         /// txtApplciantName control.
         /// </summary>
@@ -353,7 +355,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApplciantName;
-        
+
         /// <summary>
         /// ddlgender control.
         /// </summary>
@@ -362,7 +364,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlgender;
-        
+
         /// <summary>
         /// txtYearsOfExpinTexttile control.
         /// </summary>
@@ -371,7 +373,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtYearsOfExpinTexttile;
-        
+
         /// <summary>
         /// ddlDifferentlyabled control.
         /// </summary>
@@ -380,7 +382,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDifferentlyabled;
-        
+
         /// <summary>
         /// rdl_TypeofUnit control.
         /// </summary>
@@ -389,7 +391,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rdl_TypeofUnit;
-        
+
         /// <summary>
         /// ddlUnitstate control.
         /// </summary>
@@ -398,7 +400,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUnitstate;
-        
+
         /// <summary>
         /// ddlUnitDIst control.
         /// </summary>
@@ -407,7 +409,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUnitDIst;
-        
+
         /// <summary>
         /// ddlUnitMandal control.
         /// </summary>
@@ -416,7 +418,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlUnitMandal;
-        
+
         /// <summary>
         /// ddlVillageunit control.
         /// </summary>
@@ -425,7 +427,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlVillageunit;
-        
+
         /// <summary>
         /// lblzonename control.
         /// </summary>
@@ -434,7 +436,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblzonename;
-        
+
         /// <summary>
         /// txtUnitStreet control.
         /// </summary>
@@ -443,7 +445,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUnitStreet;
-        
+
         /// <summary>
         /// txtUnitHNO control.
         /// </summary>
@@ -452,7 +454,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUnitHNO;
-        
+
         /// <summary>
         /// txtadhar1 control.
         /// </summary>
@@ -461,7 +463,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtadhar1;
-        
+
         /// <summary>
         /// txtadhar2 control.
         /// </summary>
@@ -470,7 +472,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtadhar2;
-        
+
         /// <summary>
         /// txtadhar3 control.
         /// </summary>
@@ -479,7 +481,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtadhar3;
-        
+
         /// <summary>
         /// txtunitmobileno control.
         /// </summary>
@@ -488,7 +490,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtunitmobileno;
-        
+
         /// <summary>
         /// txtunitemailid control.
         /// </summary>
@@ -497,7 +499,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtunitemailid;
-        
+
         /// <summary>
         /// ddloffcstate control.
         /// </summary>
@@ -506,7 +508,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddloffcstate;
-        
+
         /// <summary>
         /// ddlOffcDIst control.
         /// </summary>
@@ -515,7 +517,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOffcDIst;
-        
+
         /// <summary>
         /// txtofficedist control.
         /// </summary>
@@ -524,7 +526,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtofficedist;
-        
+
         /// <summary>
         /// ddlOffcMandal control.
         /// </summary>
@@ -533,7 +535,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOffcMandal;
-        
+
         /// <summary>
         /// txtoffcicemandal control.
         /// </summary>
@@ -542,7 +544,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtoffcicemandal;
-        
+
         /// <summary>
         /// ddlOffcVil control.
         /// </summary>
@@ -551,7 +553,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOffcVil;
-        
+
         /// <summary>
         /// txtofficeviiage control.
         /// </summary>
@@ -560,7 +562,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtofficeviiage;
-        
+
         /// <summary>
         /// txtOffcStreet control.
         /// </summary>
@@ -569,7 +571,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOffcStreet;
-        
+
         /// <summary>
         /// txtOffSurveyNo control.
         /// </summary>
@@ -578,7 +580,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOffSurveyNo;
-        
+
         /// <summary>
         /// txtOffcMobileNO control.
         /// </summary>
@@ -587,7 +589,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOffcMobileNO;
-        
+
         /// <summary>
         /// txtOffcEmail control.
         /// </summary>
@@ -596,7 +598,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOffcEmail;
-        
+
         /// <summary>
         /// divOtp control.
         /// </summary>
@@ -605,7 +607,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOtp;
-        
+
         /// <summary>
         /// txtVerifiedMobile control.
         /// </summary>
@@ -614,7 +616,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVerifiedMobile;
-        
+
         /// <summary>
         /// divSendOTPBtn control.
         /// </summary>
@@ -623,7 +625,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSendOTPBtn;
-        
+
         /// <summary>
         /// btnSendOTP control.
         /// </summary>
@@ -632,7 +634,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSendOTP;
-        
+
         /// <summary>
         /// divOTPTBox control.
         /// </summary>
@@ -641,7 +643,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOTPTBox;
-        
+
         /// <summary>
         /// txtOTP control.
         /// </summary>
@@ -650,7 +652,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtOTP;
-        
+
         /// <summary>
         /// divVerifiedLabel control.
         /// </summary>
@@ -659,7 +661,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVerifiedLabel;
-        
+
         /// <summary>
         /// lblOTPVerified control.
         /// </summary>
@@ -668,7 +670,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblOTPVerified;
-        
+
         /// <summary>
         /// divVerifyOtpBtn control.
         /// </summary>
@@ -677,7 +679,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divVerifyOtpBtn;
-        
+
         /// <summary>
         /// btnVerifyOTP control.
         /// </summary>
@@ -686,7 +688,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnVerifyOTP;
-        
+
         /// <summary>
         /// btntab1next control.
         /// </summary>
@@ -695,7 +697,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btntab1next;
-        
+
         /// <summary>
         /// View2 control.
         /// </summary>
@@ -704,7 +706,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View2;
-        
+
         /// <summary>
         /// divIndustryTSIPASS control.
         /// </summary>
@@ -713,7 +715,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divIndustryTSIPASS;
-        
+
         /// <summary>
         /// lblIndustryStatusTsipassOld control.
         /// </summary>
@@ -722,7 +724,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblIndustryStatusTsipassOld;
-        
+
         /// <summary>
         /// ddlIndustryStatus control.
         /// </summary>
@@ -731,7 +733,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlIndustryStatus;
-        
+
         /// <summary>
         /// trIndustryExpansionType control.
         /// </summary>
@@ -740,7 +742,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trIndustryExpansionType;
-        
+
         /// <summary>
         /// ddlInustryExpansionType control.
         /// </summary>
@@ -749,7 +751,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlInustryExpansionType;
-        
+
         /// <summary>
         /// DivIndsStatusNote control.
         /// </summary>
@@ -758,7 +760,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivIndsStatusNote;
-        
+
         /// <summary>
         /// Div3 control.
         /// </summary>
@@ -767,7 +769,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
-        
+
         /// <summary>
         /// ddlSpecialIncentive control.
         /// </summary>
@@ -776,7 +778,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlSpecialIncentive;
-        
+
         /// <summary>
         /// DivSpecialIncentive control.
         /// </summary>
@@ -785,7 +787,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivSpecialIncentive;
-        
+
         /// <summary>
         /// txtGovermentOrderNumber control.
         /// </summary>
@@ -794,7 +796,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGovermentOrderNumber;
-        
+
         /// <summary>
         /// txtGovermentOrderDate control.
         /// </summary>
@@ -803,7 +805,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGovermentOrderDate;
-        
+
         /// <summary>
         /// fuGovermentOrder control.
         /// </summary>
@@ -812,7 +814,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuGovermentOrder;
-        
+
         /// <summary>
         /// btnGovermentOrder control.
         /// </summary>
@@ -821,7 +823,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGovermentOrder;
-        
+
         /// <summary>
         /// hyGovermentOrder control.
         /// </summary>
@@ -830,7 +832,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hyGovermentOrder;
-        
+
         /// <summary>
         /// DivNewIndustry control.
         /// </summary>
@@ -839,7 +841,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivNewIndustry;
-        
+
         /// <summary>
         /// headingNewIndustry control.
         /// </summary>
@@ -848,7 +850,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl headingNewIndustry;
-        
+
         /// <summary>
         /// txtDateofCommencement control.
         /// </summary>
@@ -857,7 +859,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateofCommencement;
-        
+
         /// <summary>
         /// Label4 control.
         /// </summary>
@@ -866,7 +868,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label4;
-        
+
         /// <summary>
         /// ddlTextileProcessType control.
         /// </summary>
@@ -875,7 +877,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTextileProcessType;
-        
+
         /// <summary>
         /// divNewOtherTextileProcessType control.
         /// </summary>
@@ -884,7 +886,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNewOtherTextileProcessType;
-        
+
         /// <summary>
         /// txtNewOtherTextileProcessType control.
         /// </summary>
@@ -893,7 +895,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewOtherTextileProcessType;
-        
+
         /// <summary>
         /// divTechnicalNatureOfIndustry control.
         /// </summary>
@@ -902,7 +904,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divTechnicalNatureOfIndustry;
-        
+
         /// <summary>
         /// Label24 control.
         /// </summary>
@@ -911,7 +913,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label24;
-        
+
         /// <summary>
         /// ddlTechnicalNatureOfIndustry control.
         /// </summary>
@@ -920,7 +922,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTechnicalNatureOfIndustry;
-        
+
         /// <summary>
         /// DivExpIndustry control.
         /// </summary>
@@ -929,7 +931,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivExpIndustry;
-        
+
         /// <summary>
         /// headingExpIndustry control.
         /// </summary>
@@ -938,7 +940,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl headingExpIndustry;
-        
+
         /// <summary>
         /// txtDateofCommencementExp control.
         /// </summary>
@@ -947,7 +949,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDateofCommencementExp;
-        
+
         /// <summary>
         /// Label7 control.
         /// </summary>
@@ -956,7 +958,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label7;
-        
+
         /// <summary>
         /// ddlTextileProcessTypeExp control.
         /// </summary>
@@ -965,7 +967,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTextileProcessTypeExp;
-        
+
         /// <summary>
         /// divExistOtherTextileProcessType control.
         /// </summary>
@@ -974,7 +976,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExistOtherTextileProcessType;
-        
+
         /// <summary>
         /// txtExistOtherTextileProcessType control.
         /// </summary>
@@ -983,7 +985,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExistOtherTextileProcessType;
-        
+
         /// <summary>
         /// trNewIndustry control.
         /// </summary>
@@ -992,7 +994,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trNewIndustry;
-        
+
         /// <summary>
         /// lblIndustryHeading control.
         /// </summary>
@@ -1001,7 +1003,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIndustryHeading;
-        
+
         /// <summary>
         /// trlineofactivityNew control.
         /// </summary>
@@ -1010,7 +1012,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trlineofactivityNew;
-        
+
         /// <summary>
         /// txtLOActivity control.
         /// </summary>
@@ -1019,7 +1021,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLOActivity;
-        
+
         /// <summary>
         /// ddlquantityin control.
         /// </summary>
@@ -1028,7 +1030,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlquantityin;
-        
+
         /// <summary>
         /// txtunit control.
         /// </summary>
@@ -1037,7 +1039,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtunit;
-        
+
         /// <summary>
         /// txtinstalledccap control.
         /// </summary>
@@ -1046,7 +1048,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtinstalledccap;
-        
+
         /// <summary>
         /// txtValuePerUnit control.
         /// </summary>
@@ -1055,7 +1057,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtValuePerUnit;
-        
+
         /// <summary>
         /// txtvalue control.
         /// </summary>
@@ -1064,7 +1066,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtvalue;
-        
+
         /// <summary>
         /// btnInstalledcap control.
         /// </summary>
@@ -1073,7 +1075,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnInstalledcap;
-        
+
         /// <summary>
         /// Button2 control.
         /// </summary>
@@ -1082,7 +1084,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button2;
-        
+
         /// <summary>
         /// GvLineOfactivityDetails control.
         /// </summary>
@@ -1091,7 +1093,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvLineOfactivityDetails;
-        
+
         /// <summary>
         /// trexpansionnew control.
         /// </summary>
@@ -1100,7 +1102,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trexpansionnew;
-        
+
         /// <summary>
         /// lblexpansionnewHeading control.
         /// </summary>
@@ -1109,7 +1111,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblexpansionnewHeading;
-        
+
         /// <summary>
         /// trlineofactivityexpansion control.
         /// </summary>
@@ -1118,7 +1120,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trlineofactivityexpansion;
-        
+
         /// <summary>
         /// txtLOActivityExpan control.
         /// </summary>
@@ -1127,7 +1129,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLOActivityExpan;
-        
+
         /// <summary>
         /// ddlquantityinExpan control.
         /// </summary>
@@ -1136,7 +1138,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlquantityinExpan;
-        
+
         /// <summary>
         /// txtunitExpan control.
         /// </summary>
@@ -1145,7 +1147,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtunitExpan;
-        
+
         /// <summary>
         /// txtinstalledccapExpan control.
         /// </summary>
@@ -1154,7 +1156,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtinstalledccapExpan;
-        
+
         /// <summary>
         /// txtvalueExpanPerUnit control.
         /// </summary>
@@ -1163,7 +1165,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtvalueExpanPerUnit;
-        
+
         /// <summary>
         /// txtvalueExpan control.
         /// </summary>
@@ -1172,7 +1174,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtvalueExpan;
-        
+
         /// <summary>
         /// btnInstalledcapExpan control.
         /// </summary>
@@ -1181,7 +1183,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnInstalledcapExpan;
-        
+
         /// <summary>
         /// Button3 control.
         /// </summary>
@@ -1190,7 +1192,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Button3;
-        
+
         /// <summary>
         /// GvLineOfactivityExpnsionDetails control.
         /// </summary>
@@ -1199,7 +1201,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvLineOfactivityExpnsionDetails;
-        
+
         /// <summary>
         /// lblDetailsofPatners control.
         /// </summary>
@@ -1208,7 +1210,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDetailsofPatners;
-        
+
         /// <summary>
         /// DivDirectorDetails control.
         /// </summary>
@@ -1217,7 +1219,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivDirectorDetails;
-        
+
         /// <summary>
         /// txtNameofDirector control.
         /// </summary>
@@ -1226,7 +1228,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNameofDirector;
-        
+
         /// <summary>
         /// ddlDirectorDesignation control.
         /// </summary>
@@ -1235,7 +1237,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDirectorDesignation;
-        
+
         /// <summary>
         /// ddlEducationalQualificationPatners control.
         /// </summary>
@@ -1244,7 +1246,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEducationalQualificationPatners;
-        
+
         /// <summary>
         /// txtEducationalQual control.
         /// </summary>
@@ -1253,7 +1255,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEducationalQual;
-        
+
         /// <summary>
         /// txtYearsOfExpinTexttileDirector control.
         /// </summary>
@@ -1262,7 +1264,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtYearsOfExpinTexttileDirector;
-        
+
         /// <summary>
         /// txtshare control.
         /// </summary>
@@ -1271,7 +1273,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtshare;
-        
+
         /// <summary>
         /// txtPanNoDirector control.
         /// </summary>
@@ -1280,7 +1282,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPanNoDirector;
-        
+
         /// <summary>
         /// txtunitmobilenoDirector control.
         /// </summary>
@@ -1289,7 +1291,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtunitmobilenoDirector;
-        
+
         /// <summary>
         /// txtunitemailidDirector control.
         /// </summary>
@@ -1298,7 +1300,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtunitemailidDirector;
-        
+
         /// <summary>
         /// btnSaveDirectorDtls control.
         /// </summary>
@@ -1307,7 +1309,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSaveDirectorDtls;
-        
+
         /// <summary>
         /// btnClearDirectorDtls control.
         /// </summary>
@@ -1316,7 +1318,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnClearDirectorDtls;
-        
+
         /// <summary>
         /// GvPartnerDetails control.
         /// </summary>
@@ -1325,7 +1327,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvPartnerDetails;
-        
+
         /// <summary>
         /// Div2 control.
         /// </summary>
@@ -1334,7 +1336,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
-        
+
         /// <summary>
         /// Label9 control.
         /// </summary>
@@ -1343,7 +1345,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label9;
-        
+
         /// <summary>
         /// txtAuthorisedPerson control.
         /// </summary>
@@ -1352,7 +1354,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAuthorisedPerson;
-        
+
         /// <summary>
         /// Label8 control.
         /// </summary>
@@ -1361,7 +1363,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label8;
-        
+
         /// <summary>
         /// ddlAuthorisedSignDesignation control.
         /// </summary>
@@ -1370,7 +1372,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAuthorisedSignDesignation;
-        
+
         /// <summary>
         /// txtPanNoAuthorised control.
         /// </summary>
@@ -1379,7 +1381,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPanNoAuthorised;
-        
+
         /// <summary>
         /// txtMobileNumberAuthorised control.
         /// </summary>
@@ -1388,7 +1390,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMobileNumberAuthorised;
-        
+
         /// <summary>
         /// txtemailAuthorised control.
         /// </summary>
@@ -1397,7 +1399,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtemailAuthorised;
-        
+
         /// <summary>
         /// txtCorrespondenceAddress control.
         /// </summary>
@@ -1406,7 +1408,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCorrespondenceAddress;
-        
+
         /// <summary>
         /// fpdSpecimen control.
         /// </summary>
@@ -1415,7 +1417,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fpdSpecimen;
-        
+
         /// <summary>
         /// btnUpload control.
         /// </summary>
@@ -1424,7 +1426,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload;
-        
+
         /// <summary>
         /// hySpecimenproject control.
         /// </summary>
@@ -1433,7 +1435,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hySpecimenproject;
-        
+
         /// <summary>
         /// btnPrevious2 control.
         /// </summary>
@@ -1442,7 +1444,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrevious2;
-        
+
         /// <summary>
         /// btnNext2 control.
         /// </summary>
@@ -1451,7 +1453,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext2;
-        
+
         /// <summary>
         /// View3 control.
         /// </summary>
@@ -1460,7 +1462,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View3;
-        
+
         /// <summary>
         /// txtstaffMale control.
         /// </summary>
@@ -1469,7 +1471,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtstaffMale;
-        
+
         /// <summary>
         /// txtfemale control.
         /// </summary>
@@ -1478,7 +1480,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtfemale;
-        
+
         /// <summary>
         /// txtstaffMaleNonLocal control.
         /// </summary>
@@ -1487,7 +1489,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtstaffMaleNonLocal;
-        
+
         /// <summary>
         /// txtfemaleNonLocal control.
         /// </summary>
@@ -1496,7 +1498,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtfemaleNonLocal;
-        
+
         /// <summary>
         /// txtsupermalecount control.
         /// </summary>
@@ -1505,7 +1507,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtsupermalecount;
-        
+
         /// <summary>
         /// txtsuperfemalecount control.
         /// </summary>
@@ -1514,7 +1516,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtsuperfemalecount;
-        
+
         /// <summary>
         /// txtsupermalecountNonLocal control.
         /// </summary>
@@ -1523,7 +1525,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtsupermalecountNonLocal;
-        
+
         /// <summary>
         /// txtsuperfemalecountNonLocal control.
         /// </summary>
@@ -1532,7 +1534,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtsuperfemalecountNonLocal;
-        
+
         /// <summary>
         /// txtSkilledWorkersMale control.
         /// </summary>
@@ -1541,7 +1543,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSkilledWorkersMale;
-        
+
         /// <summary>
         /// txtSkilledWorkersFemale control.
         /// </summary>
@@ -1550,7 +1552,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSkilledWorkersFemale;
-        
+
         /// <summary>
         /// txtSkilledWorkersMaleNonLocal control.
         /// </summary>
@@ -1559,7 +1561,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSkilledWorkersMaleNonLocal;
-        
+
         /// <summary>
         /// txtSkilledWorkersFemaleNonLocal control.
         /// </summary>
@@ -1568,7 +1570,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSkilledWorkersFemaleNonLocal;
-        
+
         /// <summary>
         /// txtSemiSkilledWorkersMale control.
         /// </summary>
@@ -1577,7 +1579,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSemiSkilledWorkersMale;
-        
+
         /// <summary>
         /// txtSemiSkilledWorkersFemale control.
         /// </summary>
@@ -1586,7 +1588,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSemiSkilledWorkersFemale;
-        
+
         /// <summary>
         /// txtSemiSkilledWorkersMaleNonLocal control.
         /// </summary>
@@ -1595,7 +1597,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSemiSkilledWorkersMaleNonLocal;
-        
+
         /// <summary>
         /// txtSemiSkilledWorkersFemaleNonLocal control.
         /// </summary>
@@ -1604,7 +1606,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSemiSkilledWorkersFemaleNonLocal;
-        
+
         /// <summary>
         /// txtEmpDirectLocalMaleOther control.
         /// </summary>
@@ -1613,7 +1615,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmpDirectLocalMaleOther;
-        
+
         /// <summary>
         /// txtEmpDirectLocalFemaleOther control.
         /// </summary>
@@ -1622,7 +1624,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmpDirectLocalFemaleOther;
-        
+
         /// <summary>
         /// txtEmpDirectNonLocalMaleOther control.
         /// </summary>
@@ -1631,7 +1633,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmpDirectNonLocalMaleOther;
-        
+
         /// <summary>
         /// txtEmpDirectNonLocalFemaleOther control.
         /// </summary>
@@ -1640,7 +1642,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmpDirectNonLocalFemaleOther;
-        
+
         /// <summary>
         /// lblDirectMale control.
         /// </summary>
@@ -1649,7 +1651,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDirectMale;
-        
+
         /// <summary>
         /// lblDirectFeMale control.
         /// </summary>
@@ -1658,7 +1660,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDirectFeMale;
-        
+
         /// <summary>
         /// lblDirectMaleNonLocal control.
         /// </summary>
@@ -1667,7 +1669,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDirectMaleNonLocal;
-        
+
         /// <summary>
         /// lblDirectFeMaleNonLocal control.
         /// </summary>
@@ -1676,7 +1678,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDirectFeMaleNonLocal;
-        
+
         /// <summary>
         /// DivIndirectEmployment control.
         /// </summary>
@@ -1685,7 +1687,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivIndirectEmployment;
-        
+
         /// <summary>
         /// txtCategory control.
         /// </summary>
@@ -1694,7 +1696,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCategory;
-        
+
         /// <summary>
         /// txtIndirectMale control.
         /// </summary>
@@ -1703,7 +1705,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIndirectMale;
-        
+
         /// <summary>
         /// txtIndirectFemale control.
         /// </summary>
@@ -1712,7 +1714,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIndirectFemale;
-        
+
         /// <summary>
         /// btnIndirectEmploymentadd control.
         /// </summary>
@@ -1721,7 +1723,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIndirectEmploymentadd;
-        
+
         /// <summary>
         /// btnIndirectEmploymentclear control.
         /// </summary>
@@ -1730,7 +1732,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIndirectEmploymentclear;
-        
+
         /// <summary>
         /// gvIndirectEmployment control.
         /// </summary>
@@ -1739,7 +1741,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvIndirectEmployment;
-        
+
         /// <summary>
         /// chkApproveCost control.
         /// </summary>
@@ -1748,7 +1750,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkApproveCost;
-        
+
         /// <summary>
         /// trFixedcap control.
         /// </summary>
@@ -1757,7 +1759,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trFixedcap;
-        
+
         /// <summary>
         /// Th1 control.
         /// </summary>
@@ -1766,7 +1768,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Th1;
-        
+
         /// <summary>
         /// thIpassExp control.
         /// </summary>
@@ -1775,7 +1777,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thIpassExp;
-        
+
         /// <summary>
         /// thApprovedProjectCost control.
         /// </summary>
@@ -1784,7 +1786,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thApprovedProjectCost;
-        
+
         /// <summary>
         /// trFixedCapitalexpansion control.
         /// </summary>
@@ -1793,7 +1795,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trFixedCapitalexpansion;
-        
+
         /// <summary>
         /// trFixedCapitalexpnPercent control.
         /// </summary>
@@ -1802,7 +1804,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trFixedCapitalexpnPercent;
-        
+
         /// <summary>
         /// Td1 control.
         /// </summary>
@@ -1811,7 +1813,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Td1;
-        
+
         /// <summary>
         /// txtIpassLand control.
         /// </summary>
@@ -1820,7 +1822,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIpassLand;
-        
+
         /// <summary>
         /// tdIpassLandExp control.
         /// </summary>
@@ -1829,7 +1831,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdIpassLandExp;
-        
+
         /// <summary>
         /// txtIpassLandExp control.
         /// </summary>
@@ -1838,7 +1840,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIpassLandExp;
-        
+
         /// <summary>
         /// txtlandexisting control.
         /// </summary>
@@ -1847,7 +1849,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtlandexisting;
-        
+
         /// <summary>
         /// trFixedCapitalland control.
         /// </summary>
@@ -1856,7 +1858,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trFixedCapitalland;
-        
+
         /// <summary>
         /// txtlandcapacity control.
         /// </summary>
@@ -1865,7 +1867,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtlandcapacity;
-        
+
         /// <summary>
         /// txtbuildcapacityPercet control.
         /// </summary>
@@ -1874,7 +1876,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell txtbuildcapacityPercet;
-        
+
         /// <summary>
         /// txtlandpercentage control.
         /// </summary>
@@ -1883,7 +1885,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtlandpercentage;
-        
+
         /// <summary>
         /// Td2 control.
         /// </summary>
@@ -1892,7 +1894,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Td2;
-        
+
         /// <summary>
         /// txtIpassBuilding control.
         /// </summary>
@@ -1901,7 +1903,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIpassBuilding;
-        
+
         /// <summary>
         /// tdIpassBuildingExp control.
         /// </summary>
@@ -1910,7 +1912,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdIpassBuildingExp;
-        
+
         /// <summary>
         /// txtIpassBuildingExp control.
         /// </summary>
@@ -1919,7 +1921,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIpassBuildingExp;
-        
+
         /// <summary>
         /// txtbuildingexisting control.
         /// </summary>
@@ -1928,7 +1930,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbuildingexisting;
-        
+
         /// <summary>
         /// trFixedCapitalBuilding control.
         /// </summary>
@@ -1937,7 +1939,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trFixedCapitalBuilding;
-        
+
         /// <summary>
         /// txtbuildingcapacity control.
         /// </summary>
@@ -1946,7 +1948,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbuildingcapacity;
-        
+
         /// <summary>
         /// trFixedCapitBuildPercent control.
         /// </summary>
@@ -1955,7 +1957,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trFixedCapitBuildPercent;
-        
+
         /// <summary>
         /// txtbuildingpercentage control.
         /// </summary>
@@ -1964,7 +1966,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbuildingpercentage;
-        
+
         /// <summary>
         /// Td5 control.
         /// </summary>
@@ -1973,7 +1975,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Td5;
-        
+
         /// <summary>
         /// txtIpassPlantMachine control.
         /// </summary>
@@ -1982,7 +1984,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIpassPlantMachine;
-        
+
         /// <summary>
         /// tdIpassPlantMachineExp control.
         /// </summary>
@@ -1991,7 +1993,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdIpassPlantMachineExp;
-        
+
         /// <summary>
         /// txtIpassPlantMachineExp control.
         /// </summary>
@@ -2000,7 +2002,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIpassPlantMachineExp;
-        
+
         /// <summary>
         /// txtplantexisting control.
         /// </summary>
@@ -2009,7 +2011,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtplantexisting;
-        
+
         /// <summary>
         /// trFixedCapitalMach control.
         /// </summary>
@@ -2018,7 +2020,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trFixedCapitalMach;
-        
+
         /// <summary>
         /// txtplantcapacity control.
         /// </summary>
@@ -2027,7 +2029,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtplantcapacity;
-        
+
         /// <summary>
         /// trFixedCapitMachPercent control.
         /// </summary>
@@ -2036,7 +2038,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell trFixedCapitMachPercent;
-        
+
         /// <summary>
         /// txtplantpercentage control.
         /// </summary>
@@ -2045,7 +2047,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtplantpercentage;
-        
+
         /// <summary>
         /// Td6 control.
         /// </summary>
@@ -2054,7 +2056,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Td6;
-        
+
         /// <summary>
         /// lbltotIpass control.
         /// </summary>
@@ -2063,7 +2065,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotIpass;
-        
+
         /// <summary>
         /// tdtotIpassExp control.
         /// </summary>
@@ -2072,7 +2074,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdtotIpassExp;
-        
+
         /// <summary>
         /// lbltotIpassExp control.
         /// </summary>
@@ -2081,7 +2083,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotIpassExp;
-        
+
         /// <summary>
         /// lblnewinv control.
         /// </summary>
@@ -2090,7 +2092,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblnewinv;
-        
+
         /// <summary>
         /// Td3 control.
         /// </summary>
@@ -2099,7 +2101,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Td3;
-        
+
         /// <summary>
         /// lblexpinv control.
         /// </summary>
@@ -2108,7 +2110,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblexpinv;
-        
+
         /// <summary>
         /// Td4 control.
         /// </summary>
@@ -2117,7 +2119,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell Td4;
-        
+
         /// <summary>
         /// lbltotperinv control.
         /// </summary>
@@ -2126,7 +2128,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotperinv;
-        
+
         /// <summary>
         /// lblEnterpriseCategory control.
         /// </summary>
@@ -2135,7 +2137,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEnterpriseCategory;
-        
+
         /// <summary>
         /// HiddenFieldEnterpriseCategory control.
         /// </summary>
@@ -2144,7 +2146,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenFieldEnterpriseCategory;
-        
+
         /// <summary>
         /// ddlIspowApplicable control.
         /// </summary>
@@ -2153,7 +2155,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlIspowApplicable;
-        
+
         /// <summary>
         /// ddlWaterSource control.
         /// </summary>
@@ -2162,7 +2164,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlWaterSource;
-        
+
         /// <summary>
         /// Div_CurrentInvestment1 control.
         /// </summary>
@@ -2171,7 +2173,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div_CurrentInvestment1;
-        
+
         /// <summary>
         /// Div_CurrentInvestment control.
         /// </summary>
@@ -2180,7 +2182,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div_CurrentInvestment;
-        
+
         /// <summary>
         /// txtcurrInvLandValue control.
         /// </summary>
@@ -2189,7 +2191,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcurrInvLandValue;
-        
+
         /// <summary>
         /// txtcurrInvBuldvalue control.
         /// </summary>
@@ -2198,7 +2200,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcurrInvBuldvalue;
-        
+
         /// <summary>
         /// txtcurrInvplantMechValue control.
         /// </summary>
@@ -2207,7 +2209,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcurrInvplantMechValue;
-        
+
         /// <summary>
         /// txtcurrentInvothers control.
         /// </summary>
@@ -2216,7 +2218,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcurrentInvothers;
-        
+
         /// <summary>
         /// lblCurrInvTot control.
         /// </summary>
@@ -2225,7 +2227,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCurrInvTot;
-        
+
         /// <summary>
         /// trpower control.
         /// </summary>
@@ -2234,7 +2236,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl trpower;
-        
+
         /// <summary>
         /// tblpower1 control.
         /// </summary>
@@ -2243,7 +2245,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblpower1;
-        
+
         /// <summary>
         /// lblpowerHEAD control.
         /// </summary>
@@ -2252,7 +2254,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblpowerHEAD;
-        
+
         /// <summary>
         /// txtNewPowerUniqueID control.
         /// </summary>
@@ -2261,7 +2263,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewPowerUniqueID;
-        
+
         /// <summary>
         /// txtNewPowerCompany control.
         /// </summary>
@@ -2270,7 +2272,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewPowerCompany;
-        
+
         /// <summary>
         /// txtNewPowerReleaseDate control.
         /// </summary>
@@ -2279,7 +2281,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewPowerReleaseDate;
-        
+
         /// <summary>
         /// txtPowerConnectedLoad control.
         /// </summary>
@@ -2288,7 +2290,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPowerConnectedLoad;
-        
+
         /// <summary>
         /// txtNewContractedLoad control.
         /// </summary>
@@ -2297,7 +2299,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNewContractedLoad;
-        
+
         /// <summary>
         /// txtServiceRateUnit control.
         /// </summary>
@@ -2306,7 +2308,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtServiceRateUnit;
-        
+
         /// <summary>
         /// tblpower2 control.
         /// </summary>
@@ -2315,7 +2317,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblpower2;
-        
+
         /// <summary>
         /// lblexistingpower control.
         /// </summary>
@@ -2324,7 +2326,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblexistingpower;
-        
+
         /// <summary>
         /// txtExistingPowerUniqueID control.
         /// </summary>
@@ -2333,7 +2335,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExistingPowerUniqueID;
-        
+
         /// <summary>
         /// txtExistingPowerCompany control.
         /// </summary>
@@ -2342,7 +2344,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExistingPowerCompany;
-        
+
         /// <summary>
         /// txtExistingPowerReleaseDate control.
         /// </summary>
@@ -2351,7 +2353,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExistingPowerReleaseDate;
-        
+
         /// <summary>
         /// txtExistingPowerConnectedLoad control.
         /// </summary>
@@ -2360,7 +2362,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExistingPowerConnectedLoad;
-        
+
         /// <summary>
         /// txtExistingContractedLoad control.
         /// </summary>
@@ -2369,7 +2371,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExistingContractedLoad;
-        
+
         /// <summary>
         /// txtExistingRateUnit control.
         /// </summary>
@@ -2378,7 +2380,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExistingRateUnit;
-        
+
         /// <summary>
         /// lblexpandiverpower control.
         /// </summary>
@@ -2387,7 +2389,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblexpandiverpower;
-        
+
         /// <summary>
         /// txtExpanDiverPowerUniqueID control.
         /// </summary>
@@ -2396,7 +2398,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExpanDiverPowerUniqueID;
-        
+
         /// <summary>
         /// txtExpanDiverPowerCompany control.
         /// </summary>
@@ -2405,7 +2407,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExpanDiverPowerCompany;
-        
+
         /// <summary>
         /// txtExpanDiverPowerReleaseDate control.
         /// </summary>
@@ -2414,7 +2416,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExpanDiverPowerReleaseDate;
-        
+
         /// <summary>
         /// txtExpanDiverPowerConnectedLoad control.
         /// </summary>
@@ -2423,7 +2425,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExpanDiverPowerConnectedLoad;
-        
+
         /// <summary>
         /// txtExpanDiverContractedLoad control.
         /// </summary>
@@ -2432,7 +2434,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExpanDiverContractedLoad;
-        
+
         /// <summary>
         /// txtExpanDiverRateUnit control.
         /// </summary>
@@ -2441,7 +2443,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtExpanDiverRateUnit;
-        
+
         /// <summary>
         /// DivWater control.
         /// </summary>
@@ -2450,7 +2452,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivWater;
-        
+
         /// <summary>
         /// DivWater1 control.
         /// </summary>
@@ -2459,7 +2461,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivWater1;
-        
+
         /// <summary>
         /// txtwaterSource control.
         /// </summary>
@@ -2468,7 +2470,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtwaterSource;
-        
+
         /// <summary>
         /// txtwaterRequirement control.
         /// </summary>
@@ -2477,7 +2479,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtwaterRequirement;
-        
+
         /// <summary>
         /// txtwaterRateperunit control.
         /// </summary>
@@ -2486,7 +2488,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtwaterRateperunit;
-        
+
         /// <summary>
         /// card control.
         /// </summary>
@@ -2495,7 +2497,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl card;
-        
+
         /// <summary>
         /// hAbstractheader control.
         /// </summary>
@@ -2504,7 +2506,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hAbstractheader;
-        
+
         /// <summary>
         /// Div5 control.
         /// </summary>
@@ -2513,7 +2515,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div5;
-        
+
         /// <summary>
         /// txtTypeOfMachinery control.
         /// </summary>
@@ -2522,7 +2524,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTypeOfMachinery;
-        
+
         /// <summary>
         /// txtNoofmachines control.
         /// </summary>
@@ -2531,7 +2533,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNoofmachines;
-        
+
         /// <summary>
         /// fuPhotographMachinary control.
         /// </summary>
@@ -2540,7 +2542,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuPhotographMachinary;
-        
+
         /// <summary>
         /// hyPmAbstractLink control.
         /// </summary>
@@ -2549,7 +2551,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hyPmAbstractLink;
-        
+
         /// <summary>
         /// btnabstractadd control.
         /// </summary>
@@ -2558,7 +2560,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnabstractadd;
-        
+
         /// <summary>
         /// btnabstractclear control.
         /// </summary>
@@ -2567,7 +2569,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnabstractclear;
-        
+
         /// <summary>
         /// gvPMAbstract control.
         /// </summary>
@@ -2576,7 +2578,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvPMAbstract;
-        
+
         /// <summary>
         /// card_PMD control.
         /// </summary>
@@ -2585,7 +2587,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl card_PMD;
-        
+
         /// <summary>
         /// btnShowPlantMachine control.
         /// </summary>
@@ -2594,7 +2596,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnShowPlantMachine;
-        
+
         /// <summary>
         /// divpmnote control.
         /// </summary>
@@ -2603,7 +2605,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divpmnote;
-        
+
         /// <summary>
         /// DivInvoiceTypes control.
         /// </summary>
@@ -2612,7 +2614,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivInvoiceTypes;
-        
+
         /// <summary>
         /// rbtnInvoiceTypes control.
         /// </summary>
@@ -2621,7 +2623,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbtnInvoiceTypes;
-        
+
         /// <summary>
         /// DivMachineryDetails control.
         /// </summary>
@@ -2630,7 +2632,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivMachineryDetails;
-        
+
         /// <summary>
         /// txtMachineName control.
         /// </summary>
@@ -2639,7 +2641,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMachineName;
-        
+
         /// <summary>
         /// txtVendorName control.
         /// </summary>
@@ -2648,7 +2650,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVendorName;
-        
+
         /// <summary>
         /// rdlMachineType control.
         /// </summary>
@@ -2657,7 +2659,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rdlMachineType;
-        
+
         /// <summary>
         /// txtManufacturerName control.
         /// </summary>
@@ -2666,7 +2668,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtManufacturerName;
-        
+
         /// <summary>
         /// divImported control.
         /// </summary>
@@ -2675,7 +2677,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divImported;
-        
+
         /// <summary>
         /// RdlMachinaryParts control.
         /// </summary>
@@ -2684,7 +2686,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList RdlMachinaryParts;
-        
+
         /// <summary>
         /// txtCustomCountryName control.
         /// </summary>
@@ -2693,7 +2695,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCustomCountryName;
-        
+
         /// <summary>
         /// txtCustomPaid control.
         /// </summary>
@@ -2702,7 +2704,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCustomPaid;
-        
+
         /// <summary>
         /// txtImportduty control.
         /// </summary>
@@ -2711,7 +2713,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtImportduty;
-        
+
         /// <summary>
         /// txtportcharges control.
         /// </summary>
@@ -2720,7 +2722,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtportcharges;
-        
+
         /// <summary>
         /// txtstatutorytaxesetc control.
         /// </summary>
@@ -2729,7 +2731,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtstatutorytaxesetc;
-        
+
         /// <summary>
         /// txtCostoftheMachineforeign control.
         /// </summary>
@@ -2738,7 +2740,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCostoftheMachineforeign;
-        
+
         /// <summary>
         /// ddlForeignCurrency control.
         /// </summary>
@@ -2747,7 +2749,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlForeignCurrency;
-        
+
         /// <summary>
         /// RbtnInstalledMachinery control.
         /// </summary>
@@ -2756,7 +2758,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList RbtnInstalledMachinery;
-        
+
         /// <summary>
         /// divInstalledMachinerytype control.
         /// </summary>
@@ -2765,7 +2767,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstalledMachinerytype;
-        
+
         /// <summary>
         /// divInstalledMachinerytype1 control.
         /// </summary>
@@ -2774,7 +2776,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInstalledMachinerytype1;
-        
+
         /// <summary>
         /// rbtnInstalledMachinerytype control.
         /// </summary>
@@ -2783,7 +2785,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButtonList rbtnInstalledMachinerytype;
-        
+
         /// <summary>
         /// txtInvoiceNo control.
         /// </summary>
@@ -2792,7 +2794,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInvoiceNo;
-        
+
         /// <summary>
         /// txtInvoiceDate control.
         /// </summary>
@@ -2801,7 +2803,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInvoiceDate;
-        
+
         /// <summary>
         /// txtInitiationDate control.
         /// </summary>
@@ -2810,7 +2812,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInitiationDate;
-        
+
         /// <summary>
         /// txtMachineLoadingDate control.
         /// </summary>
@@ -2819,7 +2821,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMachineLoadingDate;
-        
+
         /// <summary>
         /// txtVaivleNo control.
         /// </summary>
@@ -2828,7 +2830,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVaivleNo;
-        
+
         /// <summary>
         /// txtVaivleDate control.
         /// </summary>
@@ -2837,7 +2839,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtVaivleDate;
-        
+
         /// <summary>
         /// txtActMachineCost control.
         /// </summary>
@@ -2846,7 +2848,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtActMachineCost;
-        
+
         /// <summary>
         /// txtFreightCharges control.
         /// </summary>
@@ -2855,7 +2857,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFreightCharges;
-        
+
         /// <summary>
         /// txtTransportCharges control.
         /// </summary>
@@ -2864,7 +2866,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTransportCharges;
-        
+
         /// <summary>
         /// txtcgst control.
         /// </summary>
@@ -2873,7 +2875,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtcgst;
-        
+
         /// <summary>
         /// txtsgst control.
         /// </summary>
@@ -2882,7 +2884,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtsgst;
-        
+
         /// <summary>
         /// txtigst control.
         /// </summary>
@@ -2891,7 +2893,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtigst;
-        
+
         /// <summary>
         /// txttotalGst control.
         /// </summary>
@@ -2900,7 +2902,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txttotalGst;
-        
+
         /// <summary>
         /// txtCostofMachine control.
         /// </summary>
@@ -2909,7 +2911,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCostofMachine;
-        
+
         /// <summary>
         /// ddlEligibility control.
         /// </summary>
@@ -2918,7 +2920,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlEligibility;
-        
+
         /// <summary>
         /// divPMunitType control.
         /// </summary>
@@ -2927,7 +2929,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPMunitType;
-        
+
         /// <summary>
         /// divPMunitType1 control.
         /// </summary>
@@ -2936,7 +2938,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPMunitType1;
-        
+
         /// <summary>
         /// ddlpmtype control.
         /// </summary>
@@ -2945,7 +2947,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlpmtype;
-        
+
         /// <summary>
         /// txtReqRemarks control.
         /// </summary>
@@ -2954,7 +2956,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReqRemarks;
-        
+
         /// <summary>
         /// divPrevcost control.
         /// </summary>
@@ -2963,7 +2965,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPrevcost;
-        
+
         /// <summary>
         /// divPrevcosttxt control.
         /// </summary>
@@ -2972,7 +2974,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPrevcosttxt;
-        
+
         /// <summary>
         /// txtPrvCostOftheMachine control.
         /// </summary>
@@ -2981,7 +2983,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrvCostOftheMachine;
-        
+
         /// <summary>
         /// fuInvoiceBills control.
         /// </summary>
@@ -2990,7 +2992,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuInvoiceBills;
-        
+
         /// <summary>
         /// hyInvoiceBills control.
         /// </summary>
@@ -2999,7 +3001,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hyInvoiceBills;
-        
+
         /// <summary>
         /// btnPandMAdd control.
         /// </summary>
@@ -3008,7 +3010,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPandMAdd;
-        
+
         /// <summary>
         /// btnmachinaryclear control.
         /// </summary>
@@ -3017,7 +3019,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnmachinaryclear;
-        
+
         /// <summary>
         /// A2 control.
         /// </summary>
@@ -3026,7 +3028,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor A2;
-        
+
         /// <summary>
         /// DivMachineryDetails1 control.
         /// </summary>
@@ -3035,7 +3037,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivMachineryDetails1;
-        
+
         /// <summary>
         /// grdPandM control.
         /// </summary>
@@ -3044,7 +3046,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdPandM;
-        
+
         /// <summary>
         /// DivMachineryDetails2 control.
         /// </summary>
@@ -3053,7 +3055,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivMachineryDetails2;
-        
+
         /// <summary>
         /// Label10 control.
         /// </summary>
@@ -3062,7 +3064,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label10;
-        
+
         /// <summary>
         /// lblTotalValueofNewMachinery control.
         /// </summary>
@@ -3071,7 +3073,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotalValueofNewMachinery;
-        
+
         /// <summary>
         /// Label12 control.
         /// </summary>
@@ -3080,7 +3082,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label12;
-        
+
         /// <summary>
         /// lblSecondhandmachinery control.
         /// </summary>
@@ -3089,7 +3091,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblSecondhandmachinery;
-        
+
         /// <summary>
         /// Label22 control.
         /// </summary>
@@ -3098,7 +3100,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label22;
-        
+
         /// <summary>
         /// lblTotalvaluemachinery control.
         /// </summary>
@@ -3107,7 +3109,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotalvaluemachinery;
-        
+
         /// <summary>
         /// Label23 control.
         /// </summary>
@@ -3116,7 +3118,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label23;
-        
+
         /// <summary>
         /// lblsechandmachineryPer control.
         /// </summary>
@@ -3125,7 +3127,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblsechandmachineryPer;
-        
+
         /// <summary>
         /// divPMRatio control.
         /// </summary>
@@ -3134,7 +3136,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPMRatio;
-        
+
         /// <summary>
         /// Label25 control.
         /// </summary>
@@ -3143,7 +3145,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label25;
-        
+
         /// <summary>
         /// lblTotalValueofTextileProducts control.
         /// </summary>
@@ -3152,7 +3154,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotalValueofTextileProducts;
-        
+
         /// <summary>
         /// Label27 control.
         /// </summary>
@@ -3161,7 +3163,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label27;
-        
+
         /// <summary>
         /// lblTotalValueofNonTextileProducts control.
         /// </summary>
@@ -3170,7 +3172,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotalValueofNonTextileProducts;
-        
+
         /// <summary>
         /// Label29 control.
         /// </summary>
@@ -3179,7 +3181,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label29;
-        
+
         /// <summary>
         /// lblTotalValueofAllTextileProducts control.
         /// </summary>
@@ -3188,7 +3190,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTotalValueofAllTextileProducts;
-        
+
         /// <summary>
         /// Label26 control.
         /// </summary>
@@ -3197,7 +3199,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label26;
-        
+
         /// <summary>
         /// lblValueofTextileProductsPercentage control.
         /// </summary>
@@ -3206,7 +3208,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblValueofTextileProductsPercentage;
-        
+
         /// <summary>
         /// Label30 control.
         /// </summary>
@@ -3215,7 +3217,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label30;
-        
+
         /// <summary>
         /// lblValueofNonTextileProductsPercentage control.
         /// </summary>
@@ -3224,7 +3226,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblValueofNonTextileProductsPercentage;
-        
+
         /// <summary>
         /// DivGrossMachineryDetails control.
         /// </summary>
@@ -3233,7 +3235,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivGrossMachineryDetails;
-        
+
         /// <summary>
         /// txtAuditedBalanceYear control.
         /// </summary>
@@ -3242,7 +3244,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAuditedBalanceYear;
-        
+
         /// <summary>
         /// txtAmountGrossBlock control.
         /// </summary>
@@ -3251,7 +3253,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAmountGrossBlock;
-        
+
         /// <summary>
         /// txtCertifiedBy control.
         /// </summary>
@@ -3260,7 +3262,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCertifiedBy;
-        
+
         /// <summary>
         /// txtCertifiedDate control.
         /// </summary>
@@ -3269,7 +3271,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCertifiedDate;
-        
+
         /// <summary>
         /// fuGrossBlock control.
         /// </summary>
@@ -3278,7 +3280,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuGrossBlock;
-        
+
         /// <summary>
         /// HyGrossBlock control.
         /// </summary>
@@ -3287,7 +3289,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HyGrossBlock;
-        
+
         /// <summary>
         /// btnGrossPandMAdd control.
         /// </summary>
@@ -3296,7 +3298,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGrossPandMAdd;
-        
+
         /// <summary>
         /// btnGrossmachinaryclear control.
         /// </summary>
@@ -3305,7 +3307,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGrossmachinaryclear;
-        
+
         /// <summary>
         /// DivGrossblockMachineryDetails1 control.
         /// </summary>
@@ -3314,7 +3316,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivGrossblockMachineryDetails1;
-        
+
         /// <summary>
         /// gvGrossblockPandM control.
         /// </summary>
@@ -3323,7 +3325,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvGrossblockPandM;
-        
+
         /// <summary>
         /// divPMPaymentDetails control.
         /// </summary>
@@ -3332,7 +3334,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPMPaymentDetails;
-        
+
         /// <summary>
         /// btnShowPayments control.
         /// </summary>
@@ -3341,7 +3343,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnShowPayments;
-        
+
         /// <summary>
         /// divPMPaymentDetails1 control.
         /// </summary>
@@ -3350,7 +3352,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPMPaymentDetails1;
-        
+
         /// <summary>
         /// Label28 control.
         /// </summary>
@@ -3359,7 +3361,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label28;
-        
+
         /// <summary>
         /// ddlPlantMachinaryPayment control.
         /// </summary>
@@ -3368,7 +3370,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPlantMachinaryPayment;
-        
+
         /// <summary>
         /// lblPMMachinaryCost control.
         /// </summary>
@@ -3377,7 +3379,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPMMachinaryCost;
-        
+
         /// <summary>
         /// lblPMCostUpdated control.
         /// </summary>
@@ -3386,7 +3388,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPMCostUpdated;
-        
+
         /// <summary>
         /// lblYetPMCostUpdate control.
         /// </summary>
@@ -3395,7 +3397,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblYetPMCostUpdate;
-        
+
         /// <summary>
         /// divRegistredTrnsactionID control.
         /// </summary>
@@ -3404,7 +3406,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRegistredTrnsactionID;
-        
+
         /// <summary>
         /// Label31 control.
         /// </summary>
@@ -3413,7 +3415,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label31;
-        
+
         /// <summary>
         /// ddlPMTrnsactionIDPayment control.
         /// </summary>
@@ -3422,7 +3424,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPMTrnsactionIDPayment;
-        
+
         /// <summary>
         /// divRegistredTrnsactionID1 control.
         /// </summary>
@@ -3431,7 +3433,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRegistredTrnsactionID1;
-        
+
         /// <summary>
         /// lblUsedTransactionAmount control.
         /// </summary>
@@ -3440,7 +3442,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUsedTransactionAmount;
-        
+
         /// <summary>
         /// divRegistredTrnsactionID2 control.
         /// </summary>
@@ -3449,7 +3451,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divRegistredTrnsactionID2;
-        
+
         /// <summary>
         /// lblPendingTransactionAmount control.
         /// </summary>
@@ -3458,7 +3460,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPendingTransactionAmount;
-        
+
         /// <summary>
         /// txtTrnsactionID control.
         /// </summary>
@@ -3467,7 +3469,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTrnsactionID;
-        
+
         /// <summary>
         /// txtPMPaymentTrnsactionDate control.
         /// </summary>
@@ -3476,7 +3478,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPMPaymentTrnsactionDate;
-        
+
         /// <summary>
         /// txtremittingbank control.
         /// </summary>
@@ -3485,7 +3487,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtremittingbank;
-        
+
         /// <summary>
         /// txtbeneficiarybank control.
         /// </summary>
@@ -3494,7 +3496,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtbeneficiarybank;
-        
+
         /// <summary>
         /// txtPmtransactionAmount control.
         /// </summary>
@@ -3503,7 +3505,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPmtransactionAmount;
-        
+
         /// <summary>
         /// txtPMMachinaryCost control.
         /// </summary>
@@ -3512,7 +3514,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPMMachinaryCost;
-        
+
         /// <summary>
         /// FUPMPaymentProof control.
         /// </summary>
@@ -3521,7 +3523,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FUPMPaymentProof;
-        
+
         /// <summary>
         /// HypmPaymentProof control.
         /// </summary>
@@ -3530,7 +3532,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HypmPaymentProof;
-        
+
         /// <summary>
         /// btnpmpaymentAdd control.
         /// </summary>
@@ -3539,7 +3541,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnpmpaymentAdd;
-        
+
         /// <summary>
         /// btnpmpaymentclear control.
         /// </summary>
@@ -3548,7 +3550,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnpmpaymentclear;
-        
+
         /// <summary>
         /// GvPMPaymentDtls control.
         /// </summary>
@@ -3557,7 +3559,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GvPMPaymentDtls;
-        
+
         /// <summary>
         /// divNewExpInvDetails control.
         /// </summary>
@@ -3566,7 +3568,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNewExpInvDetails;
-        
+
         /// <summary>
         /// divNewExpInvDetails1 control.
         /// </summary>
@@ -3575,7 +3577,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNewExpInvDetails1;
-        
+
         /// <summary>
         /// HplNewExpInvDetails control.
         /// </summary>
@@ -3584,7 +3586,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink HplNewExpInvDetails;
-        
+
         /// <summary>
         /// btnPrevious3 control.
         /// </summary>
@@ -3593,7 +3595,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrevious3;
-        
+
         /// <summary>
         /// btnNext3 control.
         /// </summary>
@@ -3602,7 +3604,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext3;
-        
+
         /// <summary>
         /// View4 control.
         /// </summary>
@@ -3611,7 +3613,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View4;
-        
+
         /// <summary>
         /// Div1 control.
         /// </summary>
@@ -3620,7 +3622,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-        
+
         /// <summary>
         /// thYear1 control.
         /// </summary>
@@ -3629,7 +3631,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thYear1;
-        
+
         /// <summary>
         /// thYear2 control.
         /// </summary>
@@ -3638,7 +3640,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thYear2;
-        
+
         /// <summary>
         /// thYear3 control.
         /// </summary>
@@ -3647,7 +3649,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thYear3;
-        
+
         /// <summary>
         /// txtTurnoverYear1 control.
         /// </summary>
@@ -3656,7 +3658,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTurnoverYear1;
-        
+
         /// <summary>
         /// txtTurnoverYear2 control.
         /// </summary>
@@ -3665,7 +3667,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTurnoverYear2;
-        
+
         /// <summary>
         /// txtTurnoverYear3 control.
         /// </summary>
@@ -3674,7 +3676,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTurnoverYear3;
-        
+
         /// <summary>
         /// txtEBITDAYear1 control.
         /// </summary>
@@ -3683,7 +3685,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEBITDAYear1;
-        
+
         /// <summary>
         /// txtEBITDAYear2 control.
         /// </summary>
@@ -3692,7 +3694,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEBITDAYear2;
-        
+
         /// <summary>
         /// txtEBITDAYear3 control.
         /// </summary>
@@ -3701,7 +3703,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEBITDAYear3;
-        
+
         /// <summary>
         /// txtNetworthYear1 control.
         /// </summary>
@@ -3710,7 +3712,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNetworthYear1;
-        
+
         /// <summary>
         /// txtNetworthYear2 control.
         /// </summary>
@@ -3719,7 +3721,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNetworthYear2;
-        
+
         /// <summary>
         /// txtNetworthYear3 control.
         /// </summary>
@@ -3728,7 +3730,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNetworthYear3;
-        
+
         /// <summary>
         /// txtReservesYear1 control.
         /// </summary>
@@ -3737,7 +3739,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReservesYear1;
-        
+
         /// <summary>
         /// txtReservesYear2 control.
         /// </summary>
@@ -3746,7 +3748,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReservesYear2;
-        
+
         /// <summary>
         /// txtReservesYear3 control.
         /// </summary>
@@ -3755,7 +3757,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReservesYear3;
-        
+
         /// <summary>
         /// txtShareCapitalYear1 control.
         /// </summary>
@@ -3764,7 +3766,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtShareCapitalYear1;
-        
+
         /// <summary>
         /// txtShareCapitalYear2 control.
         /// </summary>
@@ -3773,7 +3775,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtShareCapitalYear2;
-        
+
         /// <summary>
         /// txtShareCapitalYear3 control.
         /// </summary>
@@ -3782,7 +3784,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtShareCapitalYear3;
-        
+
         /// <summary>
         /// Div4 control.
         /// </summary>
@@ -3791,7 +3793,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div4;
-        
+
         /// <summary>
         /// lblProductionYear1 control.
         /// </summary>
@@ -3800,7 +3802,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProductionYear1;
-        
+
         /// <summary>
         /// txtProductionQuantity1 control.
         /// </summary>
@@ -3809,7 +3811,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProductionQuantity1;
-        
+
         /// <summary>
         /// txtProductionValue1 control.
         /// </summary>
@@ -3818,7 +3820,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProductionValue1;
-        
+
         /// <summary>
         /// lblProductionYear2 control.
         /// </summary>
@@ -3827,7 +3829,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProductionYear2;
-        
+
         /// <summary>
         /// txtProductionQuantity2 control.
         /// </summary>
@@ -3836,7 +3838,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProductionQuantity2;
-        
+
         /// <summary>
         /// txtProductionValue2 control.
         /// </summary>
@@ -3845,7 +3847,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProductionValue2;
-        
+
         /// <summary>
         /// lblProductionYear3 control.
         /// </summary>
@@ -3854,7 +3856,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProductionYear3;
-        
+
         /// <summary>
         /// txtProductionQuantity3 control.
         /// </summary>
@@ -3863,7 +3865,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProductionQuantity3;
-        
+
         /// <summary>
         /// txtProductionValue3 control.
         /// </summary>
@@ -3872,7 +3874,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProductionValue3;
-        
+
         /// <summary>
         /// txtPromoterEquity control.
         /// </summary>
@@ -3881,7 +3883,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPromoterEquity;
-        
+
         /// <summary>
         /// txtInstitutionsEquity control.
         /// </summary>
@@ -3890,7 +3892,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInstitutionsEquity;
-        
+
         /// <summary>
         /// txtTearmLoans control.
         /// </summary>
@@ -3899,7 +3901,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTearmLoans;
-        
+
         /// <summary>
         /// txtSeedCapital control.
         /// </summary>
@@ -3908,7 +3910,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSeedCapital;
-        
+
         /// <summary>
         /// txtSubsidyagencies control.
         /// </summary>
@@ -3917,7 +3919,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSubsidyagencies;
-        
+
         /// <summary>
         /// txtMeansFinanceOthers control.
         /// </summary>
@@ -3926,7 +3928,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMeansFinanceOthers;
-        
+
         /// <summary>
         /// ddlIsTermLoanAvailed control.
         /// </summary>
@@ -3935,7 +3937,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlIsTermLoanAvailed;
-        
+
         /// <summary>
         /// tblTermLoanDtls control.
         /// </summary>
@@ -3944,7 +3946,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tblTermLoanDtls;
-        
+
         /// <summary>
         /// ddlTermLoanNo control.
         /// </summary>
@@ -3953,7 +3955,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlTermLoanNo;
-        
+
         /// <summary>
         /// txtTermLoanDate control.
         /// </summary>
@@ -3962,7 +3964,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTermLoanDate;
-        
+
         /// <summary>
         /// ddltermloanbank control.
         /// </summary>
@@ -3971,7 +3973,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddltermloanbank;
-        
+
         /// <summary>
         /// txtsactionedloanreferenceNo control.
         /// </summary>
@@ -3980,7 +3982,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtsactionedloanreferenceNo;
-        
+
         /// <summary>
         /// txtTeamloanSanctionedDate control.
         /// </summary>
@@ -3989,7 +3991,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTeamloanSanctionedDate;
-        
+
         /// <summary>
         /// txtTermLoanReleasedDatea control.
         /// </summary>
@@ -3998,7 +4000,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTermLoanReleasedDatea;
-        
+
         /// <summary>
         /// txtInstallments control.
         /// </summary>
@@ -4007,7 +4009,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtInstallments;
-        
+
         /// <summary>
         /// txttermloanRateOfInterest control.
         /// </summary>
@@ -4016,7 +4018,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txttermloanRateOfInterest;
-        
+
         /// <summary>
         /// txtSanctionedAmount control.
         /// </summary>
@@ -4025,7 +4027,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtSanctionedAmount;
-        
+
         /// <summary>
         /// txtTermLoanPeriodFromDate control.
         /// </summary>
@@ -4034,7 +4036,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTermLoanPeriodFromDate;
-        
+
         /// <summary>
         /// txtTermLoanPeriodToDate control.
         /// </summary>
@@ -4043,7 +4045,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTermLoanPeriodToDate;
-        
+
         /// <summary>
         /// btnTermloanAdd control.
         /// </summary>
@@ -4052,7 +4054,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnTermloanAdd;
-        
+
         /// <summary>
         /// btnTermLoanClear control.
         /// </summary>
@@ -4061,7 +4063,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnTermLoanClear;
-        
+
         /// <summary>
         /// GVTermLoandtls control.
         /// </summary>
@@ -4070,7 +4072,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GVTermLoandtls;
-        
+
         /// <summary>
         /// Label17 control.
         /// </summary>
@@ -4079,7 +4081,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label17;
-        
+
         /// <summary>
         /// thLoanSanctioned control.
         /// </summary>
@@ -4088,7 +4090,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thLoanSanctioned;
-        
+
         /// <summary>
         /// thLoanAmount control.
         /// </summary>
@@ -4097,7 +4099,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thLoanAmount;
-        
+
         /// <summary>
         /// thLoanassetsfinancial control.
         /// </summary>
@@ -4106,7 +4108,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell thLoanassetsfinancial;
-        
+
         /// <summary>
         /// txtLand2 control.
         /// </summary>
@@ -4115,7 +4117,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLand2;
-        
+
         /// <summary>
         /// tdLand3 control.
         /// </summary>
@@ -4124,7 +4126,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdLand3;
-        
+
         /// <summary>
         /// txtLand3 control.
         /// </summary>
@@ -4133,7 +4135,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLand3;
-        
+
         /// <summary>
         /// txtLand4 control.
         /// </summary>
@@ -4142,7 +4144,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLand4;
-        
+
         /// <summary>
         /// tdLand5 control.
         /// </summary>
@@ -4151,7 +4153,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdLand5;
-        
+
         /// <summary>
         /// txtLand5 control.
         /// </summary>
@@ -4160,7 +4162,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLand5;
-        
+
         /// <summary>
         /// tdLand6 control.
         /// </summary>
@@ -4169,7 +4171,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdLand6;
-        
+
         /// <summary>
         /// txtLand6 control.
         /// </summary>
@@ -4178,7 +4180,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLand6;
-        
+
         /// <summary>
         /// txtLand7 control.
         /// </summary>
@@ -4187,7 +4189,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLand7;
-        
+
         /// <summary>
         /// txtBuilding2 control.
         /// </summary>
@@ -4196,7 +4198,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuilding2;
-        
+
         /// <summary>
         /// tdBuilding3 control.
         /// </summary>
@@ -4205,7 +4207,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdBuilding3;
-        
+
         /// <summary>
         /// txtBuilding3 control.
         /// </summary>
@@ -4214,7 +4216,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuilding3;
-        
+
         /// <summary>
         /// txtBuilding4 control.
         /// </summary>
@@ -4223,7 +4225,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuilding4;
-        
+
         /// <summary>
         /// tdBuilding5 control.
         /// </summary>
@@ -4232,7 +4234,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdBuilding5;
-        
+
         /// <summary>
         /// txtBuilding5 control.
         /// </summary>
@@ -4241,7 +4243,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuilding5;
-        
+
         /// <summary>
         /// tdBuilding6 control.
         /// </summary>
@@ -4250,7 +4252,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdBuilding6;
-        
+
         /// <summary>
         /// txtBuilding6 control.
         /// </summary>
@@ -4259,7 +4261,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuilding6;
-        
+
         /// <summary>
         /// txtBuilding7 control.
         /// </summary>
@@ -4268,7 +4270,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuilding7;
-        
+
         /// <summary>
         /// txtPM2 control.
         /// </summary>
@@ -4277,7 +4279,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPM2;
-        
+
         /// <summary>
         /// tdPM3 control.
         /// </summary>
@@ -4286,7 +4288,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdPM3;
-        
+
         /// <summary>
         /// txtPM3 control.
         /// </summary>
@@ -4295,7 +4297,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPM3;
-        
+
         /// <summary>
         /// txtPM4 control.
         /// </summary>
@@ -4304,7 +4306,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPM4;
-        
+
         /// <summary>
         /// tdPM5 control.
         /// </summary>
@@ -4313,7 +4315,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdPM5;
-        
+
         /// <summary>
         /// txtPM5 control.
         /// </summary>
@@ -4322,7 +4324,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPM5;
-        
+
         /// <summary>
         /// tdPM6 control.
         /// </summary>
@@ -4331,7 +4333,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdPM6;
-        
+
         /// <summary>
         /// txtPM6 control.
         /// </summary>
@@ -4340,7 +4342,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPM6;
-        
+
         /// <summary>
         /// txtPM7 control.
         /// </summary>
@@ -4349,7 +4351,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPM7;
-        
+
         /// <summary>
         /// txtMCont2 control.
         /// </summary>
@@ -4358,7 +4360,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMCont2;
-        
+
         /// <summary>
         /// tdMCont3 control.
         /// </summary>
@@ -4367,7 +4369,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdMCont3;
-        
+
         /// <summary>
         /// txtMCont3 control.
         /// </summary>
@@ -4376,7 +4378,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMCont3;
-        
+
         /// <summary>
         /// txtMCont4 control.
         /// </summary>
@@ -4385,7 +4387,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMCont4;
-        
+
         /// <summary>
         /// tdMCont5 control.
         /// </summary>
@@ -4394,7 +4396,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdMCont5;
-        
+
         /// <summary>
         /// txtMCont5 control.
         /// </summary>
@@ -4403,7 +4405,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMCont5;
-        
+
         /// <summary>
         /// tdMCont6 control.
         /// </summary>
@@ -4412,7 +4414,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdMCont6;
-        
+
         /// <summary>
         /// txtMCont6 control.
         /// </summary>
@@ -4421,7 +4423,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMCont6;
-        
+
         /// <summary>
         /// txtMCont7 control.
         /// </summary>
@@ -4430,7 +4432,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMCont7;
-        
+
         /// <summary>
         /// txtErec2 control.
         /// </summary>
@@ -4439,7 +4441,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtErec2;
-        
+
         /// <summary>
         /// tdErec3 control.
         /// </summary>
@@ -4448,7 +4450,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdErec3;
-        
+
         /// <summary>
         /// txtErec3 control.
         /// </summary>
@@ -4457,7 +4459,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtErec3;
-        
+
         /// <summary>
         /// txtErec4 control.
         /// </summary>
@@ -4466,7 +4468,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtErec4;
-        
+
         /// <summary>
         /// tdErec5 control.
         /// </summary>
@@ -4475,7 +4477,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdErec5;
-        
+
         /// <summary>
         /// txtErec5 control.
         /// </summary>
@@ -4484,7 +4486,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtErec5;
-        
+
         /// <summary>
         /// tdErec6 control.
         /// </summary>
@@ -4493,7 +4495,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdErec6;
-        
+
         /// <summary>
         /// txtErec6 control.
         /// </summary>
@@ -4502,7 +4504,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtErec6;
-        
+
         /// <summary>
         /// txtErec7 control.
         /// </summary>
@@ -4511,7 +4513,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtErec7;
-        
+
         /// <summary>
         /// txtTFS2 control.
         /// </summary>
@@ -4520,7 +4522,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTFS2;
-        
+
         /// <summary>
         /// tdTFS3 control.
         /// </summary>
@@ -4529,7 +4531,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdTFS3;
-        
+
         /// <summary>
         /// txtTFS3 control.
         /// </summary>
@@ -4538,7 +4540,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTFS3;
-        
+
         /// <summary>
         /// txtTFS4 control.
         /// </summary>
@@ -4547,7 +4549,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTFS4;
-        
+
         /// <summary>
         /// tdTFS5 control.
         /// </summary>
@@ -4556,7 +4558,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdTFS5;
-        
+
         /// <summary>
         /// txtTFS5 control.
         /// </summary>
@@ -4565,7 +4567,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTFS5;
-        
+
         /// <summary>
         /// tdTFS6 control.
         /// </summary>
@@ -4574,7 +4576,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdTFS6;
-        
+
         /// <summary>
         /// txtTFS6 control.
         /// </summary>
@@ -4583,7 +4585,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTFS6;
-        
+
         /// <summary>
         /// txtTFS7 control.
         /// </summary>
@@ -4592,7 +4594,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTFS7;
-        
+
         /// <summary>
         /// txtWC2 control.
         /// </summary>
@@ -4601,7 +4603,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWC2;
-        
+
         /// <summary>
         /// tdWC3 control.
         /// </summary>
@@ -4610,7 +4612,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdWC3;
-        
+
         /// <summary>
         /// txtWC3 control.
         /// </summary>
@@ -4619,7 +4621,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWC3;
-        
+
         /// <summary>
         /// txtWC4 control.
         /// </summary>
@@ -4628,7 +4630,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWC4;
-        
+
         /// <summary>
         /// tdWC5 control.
         /// </summary>
@@ -4637,7 +4639,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdWC5;
-        
+
         /// <summary>
         /// txtWC5 control.
         /// </summary>
@@ -4646,7 +4648,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWC5;
-        
+
         /// <summary>
         /// tdWC6 control.
         /// </summary>
@@ -4655,7 +4657,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdWC6;
-        
+
         /// <summary>
         /// txtWC6 control.
         /// </summary>
@@ -4664,7 +4666,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWC6;
-        
+
         /// <summary>
         /// txtWC7 control.
         /// </summary>
@@ -4673,7 +4675,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWC7;
-        
+
         /// <summary>
         /// lbltotal2 control.
         /// </summary>
@@ -4682,7 +4684,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal2;
-        
+
         /// <summary>
         /// tdtotal3 control.
         /// </summary>
@@ -4691,7 +4693,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdtotal3;
-        
+
         /// <summary>
         /// lbltotal3 control.
         /// </summary>
@@ -4700,7 +4702,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal3;
-        
+
         /// <summary>
         /// lbltotal4 control.
         /// </summary>
@@ -4709,7 +4711,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal4;
-        
+
         /// <summary>
         /// tdtotal5 control.
         /// </summary>
@@ -4718,7 +4720,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdtotal5;
-        
+
         /// <summary>
         /// lbltotal5 control.
         /// </summary>
@@ -4727,7 +4729,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal5;
-        
+
         /// <summary>
         /// tdtotal6 control.
         /// </summary>
@@ -4736,7 +4738,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdtotal6;
-        
+
         /// <summary>
         /// lbltotal6 control.
         /// </summary>
@@ -4745,7 +4747,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal6;
-        
+
         /// <summary>
         /// lbltotal7 control.
         /// </summary>
@@ -4754,7 +4756,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbltotal7;
-        
+
         /// <summary>
         /// btnPrevious4 control.
         /// </summary>
@@ -4763,7 +4765,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrevious4;
-        
+
         /// <summary>
         /// btnNext4 control.
         /// </summary>
@@ -4772,7 +4774,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext4;
-        
+
         /// <summary>
         /// View5 control.
         /// </summary>
@@ -4781,7 +4783,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View5;
-        
+
         /// <summary>
         /// divbank control.
         /// </summary>
@@ -4790,7 +4792,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divbank;
-        
+
         /// <summary>
         /// Label16 control.
         /// </summary>
@@ -4799,7 +4801,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label16;
-        
+
         /// <summary>
         /// txtAccountName control.
         /// </summary>
@@ -4808,7 +4810,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAccountName;
-        
+
         /// <summary>
         /// Label14 control.
         /// </summary>
@@ -4817,7 +4819,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label14;
-        
+
         /// <summary>
         /// ddlBank control.
         /// </summary>
@@ -4826,7 +4828,34 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlBank;
-        
+
+        /// <summary>
+        /// divBankName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBankName;
+
+        /// <summary>
+        /// Label32 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label32;
+
+        /// <summary>
+        /// txtBankName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBankName;
+
         /// <summary>
         /// Label15 control.
         /// </summary>
@@ -4835,7 +4864,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label15;
-        
+
         /// <summary>
         /// txtBranchName control.
         /// </summary>
@@ -4844,7 +4873,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBranchName;
-        
+
         /// <summary>
         /// Label19 control.
         /// </summary>
@@ -4853,7 +4882,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label19;
-        
+
         /// <summary>
         /// txtAccNumber control.
         /// </summary>
@@ -4862,7 +4891,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAccNumber;
-        
+
         /// <summary>
         /// Label18 control.
         /// </summary>
@@ -4871,7 +4900,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label18;
-        
+
         /// <summary>
         /// ddlAccountType control.
         /// </summary>
@@ -4880,7 +4909,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlAccountType;
-        
+
         /// <summary>
         /// Label20 control.
         /// </summary>
@@ -4889,7 +4918,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label20;
-        
+
         /// <summary>
         /// txtIfscCode control.
         /// </summary>
@@ -4898,7 +4927,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIfscCode;
-        
+
         /// <summary>
         /// Label13 control.
         /// </summary>
@@ -4907,7 +4936,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label13;
-        
+
         /// <summary>
         /// txtaccountauthorizedPerson control.
         /// </summary>
@@ -4916,7 +4945,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtaccountauthorizedPerson;
-        
+
         /// <summary>
         /// Label21 control.
         /// </summary>
@@ -4925,7 +4954,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label21;
-        
+
         /// <summary>
         /// txtaccountauthorizedPersonDesignation control.
         /// </summary>
@@ -4934,7 +4963,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtaccountauthorizedPersonDesignation;
-        
+
         /// <summary>
         /// FuSpecimenSignatureOperation control.
         /// </summary>
@@ -4943,7 +4972,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload FuSpecimenSignatureOperation;
-        
+
         /// <summary>
         /// btnSpecimenSignatureOperation control.
         /// </summary>
@@ -4952,7 +4981,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSpecimenSignatureOperation;
-        
+
         /// <summary>
         /// hySpecimenSignatureOperation control.
         /// </summary>
@@ -4961,7 +4990,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink hySpecimenSignatureOperation;
-        
+
         /// <summary>
         /// btnPrevious5 control.
         /// </summary>
@@ -4970,7 +4999,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrevious5;
-        
+
         /// <summary>
         /// btnNext5 control.
         /// </summary>
@@ -4979,7 +5008,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext5;
-        
+
         /// <summary>
         /// View6 control.
         /// </summary>
@@ -4988,7 +5017,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.View View6;
-        
+
         /// <summary>
         /// grdDetails control.
         /// </summary>
@@ -4997,7 +5026,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdDetails;
-        
+
         /// <summary>
         /// Label11 control.
         /// </summary>
@@ -5006,7 +5035,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label11;
-        
+
         /// <summary>
         /// ddltypeofDocuments control.
         /// </summary>
@@ -5015,7 +5044,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddltypeofDocuments;
-        
+
         /// <summary>
         /// fuDocuments1 control.
         /// </summary>
@@ -5024,7 +5053,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fuDocuments1;
-        
+
         /// <summary>
         /// btnUpload1 control.
         /// </summary>
@@ -5033,7 +5062,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpload1;
-        
+
         /// <summary>
         /// gvSubsidy control.
         /// </summary>
@@ -5042,7 +5071,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvSubsidy;
-        
+
         /// <summary>
         /// btnPrevious6 control.
         /// </summary>
@@ -5051,7 +5080,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnPrevious6;
-        
+
         /// <summary>
         /// btnNext6 control.
         /// </summary>
@@ -5060,7 +5089,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext6;
-        
+
         /// <summary>
         /// success control.
         /// </summary>
@@ -5069,7 +5098,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
-        
+
         /// <summary>
         /// lblmsg control.
         /// </summary>
@@ -5078,7 +5107,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmsg;
-        
+
         /// <summary>
         /// Failure control.
         /// </summary>
@@ -5087,7 +5116,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
-        
+
         /// <summary>
         /// lblmsg0 control.
         /// </summary>
@@ -5096,7 +5125,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblmsg0;
-        
+
         /// <summary>
         /// hdnfldtsiic control.
         /// </summary>
@@ -5105,7 +5134,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnfldtsiic;
-        
+
         /// <summary>
         /// hdfID control.
         /// </summary>
@@ -5114,7 +5143,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdfID;
-        
+
         /// <summary>
         /// ValidationSummary1 control.
         /// </summary>
@@ -5123,7 +5152,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
-        
+
         /// <summary>
         /// ValidationSummary2 control.
         /// </summary>
@@ -5132,7 +5161,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary2;
-        
+
         /// <summary>
         /// hdfFlagID control.
         /// </summary>
@@ -5141,7 +5170,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdfFlagID;
-        
+
         /// <summary>
         /// ValidationSummary3 control.
         /// </summary>
@@ -5150,7 +5179,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary3;
-        
+
         /// <summary>
         /// hdnUserID control.
         /// </summary>
@@ -5159,7 +5188,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnUserID;
-        
+
         /// <summary>
         /// hdnShowGrid control.
         /// </summary>
@@ -5168,7 +5197,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnShowGrid;
-        
+
         /// <summary>
         /// hdnPMEdit control.
         /// </summary>
@@ -5177,7 +5206,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnPMEdit;
-        
+
         /// <summary>
         /// hdnPMCostEdit control.
         /// </summary>
@@ -5186,7 +5215,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnPMCostEdit;
-        
+
         /// <summary>
         /// hdnMachineCostN control.
         /// </summary>
@@ -5195,7 +5224,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnMachineCostN;
-        
+
         /// <summary>
         /// hdnIsFirstTime control.
         /// </summary>
@@ -5204,7 +5233,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnIsFirstTime;
-        
+
         /// <summary>
         /// hdnVerified control.
         /// </summary>
@@ -5213,7 +5242,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnVerified;
-        
+
         /// <summary>
         /// hdnApprovedLand control.
         /// </summary>
@@ -5222,7 +5251,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnApprovedLand;
-        
+
         /// <summary>
         /// hdnApprovedBuilding control.
         /// </summary>
@@ -5231,7 +5260,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnApprovedBuilding;
-        
+
         /// <summary>
         /// hdnApprovedPlant control.
         /// </summary>
@@ -5240,7 +5269,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnApprovedPlant;
-        
+
         /// <summary>
         /// hdnApprovedLandExp control.
         /// </summary>
@@ -5249,7 +5278,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnApprovedLandExp;
-        
+
         /// <summary>
         /// hdnApprovedBuildingExp control.
         /// </summary>
@@ -5258,7 +5287,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnApprovedBuildingExp;
-        
+
         /// <summary>
         /// hdnApprovedPlantExp control.
         /// </summary>
@@ -5267,7 +5296,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnApprovedPlantExp;
-        
+
         /// <summary>
         /// mp1 control.
         /// </summary>
@@ -5276,7 +5305,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender mp1;
-        
+
         /// <summary>
         /// Panl1 control.
         /// </summary>
@@ -5285,7 +5314,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel Panl1;
-        
+
         /// <summary>
         /// irm1 control.
         /// </summary>
@@ -5294,7 +5323,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlIframe irm1;
-        
+
         /// <summary>
         /// btnPopupClose control.
         /// </summary>
@@ -5303,7 +5332,7 @@ namespace TTAP.UI.Pages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton btnPopupClose;
-        
+
         /// <summary>
         /// UpdateProgress control.
         /// </summary>

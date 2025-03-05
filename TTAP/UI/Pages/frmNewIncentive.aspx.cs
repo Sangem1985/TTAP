@@ -1161,7 +1161,7 @@ namespace TTAP.UI.Pages
                     objvo.BankAccName = txtAccountName.Text.Trim().TrimStart();
                     objvo.AccNo = txtAccNumber.Text.Trim().TrimStart();
                     objvo.IFSCCode = (txtIfscCode.Text.Trim().TrimStart() != "") ? txtIfscCode.Text.Trim().TrimStart() : null;
-
+                    objvo.OtherBankName = txtBankName.Text.Trim().TrimStart();
                     objvo.AccountauthorizedPerson = (txtaccountauthorizedPerson.Text.Trim().TrimStart() != "") ? txtaccountauthorizedPerson.Text.Trim().TrimStart() : null;
                     objvo.DesignationOfAccountauthorizedPerson = (txtaccountauthorizedPersonDesignation.Text.Trim().TrimStart() != "") ? txtaccountauthorizedPersonDesignation.Text.Trim().TrimStart() : null;
                     try
@@ -3238,6 +3238,15 @@ namespace TTAP.UI.Pages
                     ddlBank.Enabled = true;
                     ddlAccountType.Enabled = true;
                 }
+                if (ddlBank.SelectedValue == "999") 
+                {
+                    if (txtBankName.Text.TrimStart().Trim() == "")
+                    {
+                        ErrorMsg = ErrorMsg + slno + ". Please Enter Name of The Bank \\n";
+                        slno = slno + 1;
+                        txtBankName.Focus();
+                    }
+                }
                 if (txtBranchName.Text.TrimStart().Trim() == "")
                 {
                     ErrorMsg = ErrorMsg + slno + ". Please Enter Name of The Branch \\n";
@@ -3934,6 +3943,14 @@ namespace TTAP.UI.Pages
                     if (ds.Tables[0].Rows[0]["BankName"].ToString() != "")
                     {
                         ddlBank.SelectedValue = ds.Tables[0].Rows[0]["BankName"].ToString();
+                    }
+                    if (ds.Tables[0].Rows[0]["BankName"].ToString() != "") 
+                    {
+                        if (ds.Tables[0].Rows[0]["BankName"].ToString() == "999") 
+                        {
+                            txtBankName.Text = ds.Tables[0].Rows[0]["OtherBankName"].ToString();
+                            divBankName.Visible = true;
+                        }
                     }
                     if (ds.Tables[0].Rows[0]["BranchName"].ToString() != "")
                     {
@@ -9355,6 +9372,11 @@ namespace TTAP.UI.Pages
         protected void txtMobileNumberAuthorised_TextChanged(object sender, EventArgs e)
         {
             txtVerifiedMobile.Text = txtMobileNumberAuthorised.Text;
+        }
+
+        protected void ddlBank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlBank.SelectedValue == "999") { divBankName.Visible = true; }
         }
     }
 }

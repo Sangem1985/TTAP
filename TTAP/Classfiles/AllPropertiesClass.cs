@@ -839,6 +839,7 @@ namespace TTAP.Classfiles
         public string IpassBuildingExp { get; set; }
         public string IpassPlantMachine { get; set; }
         public string IpassPlantMachineExp { get; set; }
+        public string OtherBankName { get; set; }
     }
 
     public class AppliedIncentiveStatus
@@ -1859,6 +1860,10 @@ namespace TTAP.Classfiles
         public string TaxPaid1 { get; set; }
         public string TaxPaid2 { get; set; }
         public string TaxPaid3 { get; set; }
+        public string FinancialYear { get; set; }
+        public string FinancialYearText { get; set; }
+        public string HalfYear { get; set; }
+        public string HalfYearText { get; set; }
     }
     public class ProductDevelopment
     {

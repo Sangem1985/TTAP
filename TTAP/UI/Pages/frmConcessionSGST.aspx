@@ -452,16 +452,31 @@
                                             <label class="control-label label-required">Investment  Amount</label>
                                             <asp:TextBox ID="txtMoratoriumInvestmentAmount" onkeypress="DecimalOnly()" class="form-control" runat="server"></asp:TextBox>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label8" runat="server">Claim Application submitted by the Enterprise/Industry for the 1st Half Yare/2nd Half Year</label>
-                                            <asp:TextBox ID="txtClaimApplicationsubmitted" class="form-control" runat="server"></asp:TextBox>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
+                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label9" runat="server">Tax paid by the Enterprise during the 1st Half Year/2nd half year as certified by the Commercial Tax Department (In Rs)</label>
                                             <asp:TextBox ID="txtTaxpaid" onkeypress="DecimalOnly()" class="form-control" runat="server"></asp:TextBox>
                                         </div>
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="text-blue font-SemiBold col col-sm-12 mt-3">Current Claim Peroid and Amount Details</h6>
+                                        <div class="col-sm-4 form-group" runat="server" visible="false">
+                                            <label class="control-label" id="Label8" runat="server">Financial Year</label>
+                                            <asp:TextBox ID="txtClaimApplicationsubmitted" class="form-control" runat="server"></asp:TextBox>
+                                        </div>
+                                        <div class="col-sm-4 form-group">
+                                                <label class="control-label" id="Label17" runat="server">Financial Year</label>
+                                                <asp:DropDownList ID="ddlClaimFinYear" runat="server" class="form-control txtbox">
+                                                    <asp:ListItem>--Select--</asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                         <div class="col-sm-4 form-group">
+                                                <label class="control-label" id="Label14" runat="server">Half Year</label>
+                                                <asp:DropDownList ID="ddlHalfYear" runat="server" class="form-control txtbox">
+                                                    <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
+                                                    <asp:ListItem Value="1" Text="1st half Year"></asp:ListItem>
+                                                    <asp:ListItem Value="2" Text="2nd half Year"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label10" runat="server">Current Claim Amount (In Rs)</label>
                                             <asp:TextBox ID="txtCurrentClaim" onkeypress="DecimalOnly()" class="form-control" runat="server"></asp:TextBox>

@@ -3510,9 +3510,13 @@
                                                             </div>
                                                             <div class="col-sm-4 form-group">
                                                                 <label class="control-label label-required" id="Label14" runat="server">Name of the Bank</label>
-                                                                <asp:DropDownList ID="ddlBank" runat="server" RepeatDirection="Horizontal" Enabled="false" class="form-control" AutoPostBack="true">
+                                                                <asp:DropDownList ID="ddlBank" runat="server" RepeatDirection="Horizontal" Enabled="false" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlBank_SelectedIndexChanged">
                                                                     <asp:ListItem Value="0">Select</asp:ListItem>
                                                                 </asp:DropDownList>
+                                                            </div>
+                                                             <div class="col-sm-4 form-group" runat="server" visible="false" id="divBankName">
+                                                                <label class="control-label label-required" id="Label32" runat="server">Bank Name</label>
+                                                                <asp:TextBox ID="txtBankName" runat="server" class="form-control" ></asp:TextBox>
                                                             </div>
                                                             <div class="col-sm-4 form-group">
                                                                 <label class="control-label label-required" id="Label15" runat="server">Branch Name</label>

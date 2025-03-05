@@ -403,7 +403,7 @@ namespace TTAP.UI
                 Killsession();
                 Session["UserDetails"] = null;
                 Session.Abandon();
-                Response.Redirect("~/loginReg.aspx");
+                Response.Redirect("https://ipass.telangana.gov.in");
             }
         }
         public void Killsession()
