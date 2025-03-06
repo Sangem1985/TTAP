@@ -3067,8 +3067,12 @@
                                                         </div>
                                                         <div class="col-sm-3 form-group">
                                                             <label class="label-required">Name of the Institution</label>
-                                                            <asp:DropDownList ID="ddltermloanbank" runat="server" class="form-control" TabIndex="5">
+                                                            <asp:DropDownList ID="ddltermloanbank" runat="server" class="form-control" TabIndex="5" AutoPostBack="true" OnSelectedIndexChanged="ddltermloanbank_SelectedIndexChanged">
                                                             </asp:DropDownList>
+                                                        </div>
+                                                        <div class="col-sm-3 form-group" runat="server" id="divBankName1" visible="false">
+                                                            <label class="label-required">Name of the Institution</label>
+                                                            <asp:TextBox ID="txtInstitution" CssClass="form-control" runat="server"></asp:TextBox>
                                                         </div>
                                                         <div class="col-sm-3 form-group" runat="server">
                                                             <label class="label-required">Term Loan Sanctioned reference No.</label>

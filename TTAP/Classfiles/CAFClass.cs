@@ -307,6 +307,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@AvailedTermLoan", VoTermLoandtls.AvailedTermLoan);
                 com.Parameters.AddWithValue("@TermLoanApplDate", VoTermLoandtls.TermLoanApplDate);
                 com.Parameters.AddWithValue("@InstitutionName", VoTermLoandtls.InstitutionName);
+                com.Parameters.AddWithValue("@BankName", VoTermLoandtls.BankName);
                 com.Parameters.AddWithValue("@TermLoanSancRefNo", VoTermLoandtls.TermLoanSancRefNo);
                 com.Parameters.AddWithValue("@TermloanSandate", VoTermLoandtls.TermloanSandate);
                 com.Parameters.AddWithValue("@TermLoanReleaseddate", VoTermLoandtls.TermLoanReleaseddate);

@@ -548,7 +548,7 @@ public class comFunctions
         ListItem li = new ListItem("-- SELECT --", "0");
         ListItem li1 = new ListItem("OTHERS", "999");
         if (showSelect) ddl.Items.Insert(0, li);
-        if (ddl.ID == "ddlBank") { if (showSelect) ddl.Items.Insert(count+1, li1); }
+        if (ddl.ID == "ddlBank" || ddl.ID == "ddltermloanbank") { if (showSelect) ddl.Items.Insert(count + 1, li1); }
 
         if (defaultselection && dt != null && dt.Rows.Count == 1) ddl.SelectedIndex = 1;
     }

@@ -5107,8 +5107,16 @@ namespace TTAP.UI.Pages
                 }
                 if (ddltermloanbank.SelectedValue == "--Select--" || ddltermloanbank.SelectedValue == "0")
                 {
-                    ErrorMsg = ErrorMsg + slno + ".Please select name of the institution" + "\\n";
+                    ErrorMsg = ErrorMsg + slno + ".Please select Name of the Institution" + "\\n";
                     slno = slno + 1;
+                }
+                if (ddltermloanbank.SelectedValue == "999") 
+                {
+                    if (txtInstitution.Text == "") 
+                    {
+                        ErrorMsg = ErrorMsg + slno + ".Please Enter Name of the Institution" + "\\n";
+                        slno = slno + 1;
+                    }
                 }
                 if (txtsactionedloanreferenceNo.Text == "")
                 {
@@ -6243,6 +6251,7 @@ namespace TTAP.UI.Pages
                     }
 
                     VoTermLoandtls.InstitutionName = ddltermloanbank.SelectedValue;
+                    VoTermLoandtls.BankName = txtInstitution.Text.ToString();
                     VoTermLoandtls.TermLoanSancRefNo = txtsactionedloanreferenceNo.Text.Trim().TrimStart();
 
                     Ld6 = null;
@@ -6288,6 +6297,8 @@ namespace TTAP.UI.Pages
                         ddlTermLoanNo.SelectedValue = "0";
                         txtTermLoanDate.Text = "";
                         ddltermloanbank.SelectedValue = "0";
+                        txtInstitution.Text = "";
+                        txtInstitution.Visible = false;
                         txtsactionedloanreferenceNo.Text = "";
                         txtTeamloanSanctionedDate.Text = "";
                         txtTermLoanReleasedDatea.Text = "";
@@ -6329,6 +6340,11 @@ namespace TTAP.UI.Pages
                 ddlTermLoanNo.SelectedValue = ((Label)(gr.FindControl("lblAvailedTermLoan"))).Text;
                 txtTermLoanDate.Text = ((Label)(gr.FindControl("lblTermLoanApplDate"))).Text;
                 ddltermloanbank.SelectedValue = ((Label)(gr.FindControl("lblInstitutionNameid"))).Text;
+                if (((Label)(gr.FindControl("lblInstitutionNameid"))).Text == "999")
+                {
+                    txtInstitution.Text = ((Label)(gr.FindControl("lblInstitutionName"))).Text;
+                    txtInstitution.Visible = true;
+                }
                 txtsactionedloanreferenceNo.Text = ((Label)(gr.FindControl("lblTermLoanSancRefNo"))).Text;
                 txtTeamloanSanctionedDate.Text = ((Label)(gr.FindControl("lblTermloanSandate"))).Text;
                 txtTermLoanReleasedDatea.Text = ((Label)(gr.FindControl("lblTermLoanReleaseddate"))).Text;
@@ -9377,6 +9393,19 @@ namespace TTAP.UI.Pages
         protected void ddlBank_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddlBank.SelectedValue == "999") { divBankName.Visible = true; }
+        }
+
+        protected void ddltermloanbank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtInstitution.Text = "";
+            if (ddltermloanbank.SelectedValue == "999")
+            {
+                divBankName1.Visible = true;
+            }
+            else 
+            {
+                txtInstitution.Text = ddltermloanbank.SelectedItem.Text.ToString();
+            }
         }
     }
 }

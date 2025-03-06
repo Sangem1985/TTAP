@@ -1102,6 +1102,7 @@ namespace TTAP.Classfiles
         public string AvailedTermLoan { get; set; }
         public string TermLoanApplDate { get; set; }
         public string InstitutionName { get; set; }
+        public string BankName { get; set; }
         public string TermLoanSancRefNo { get; set; }
         public string TermloanSandate { get; set; }
         public string TermLoanReleaseddate { get; set; }
