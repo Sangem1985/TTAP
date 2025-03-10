@@ -173,7 +173,7 @@ namespace TTAP
                                 if (ObjLoginNewvo.Role_Code == "GM")
                                     Response.Redirect("~/UI/Pages/frmGMDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "AD" || ObjLoginvo.Role_Code == "IPO" || ObjLoginvo.Role_Code == "DD")
-                                    Response.Redirect("~/UI/Pages/COI/frmIPOIncentiveDashboard.aspx");
+                                    Response.Redirect("~/UI/Pages/frmIPOIncentiveDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COI-CLERK")
                                     Response.Redirect("~/UI/Pages/COI/ClerkDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COI-SUPDT")
