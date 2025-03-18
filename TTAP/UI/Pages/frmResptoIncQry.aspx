@@ -55,7 +55,7 @@
                     <div class="breadcrumb-bg">
                         <ul class="breadcrumb font-medium title5 container">
                             <li class="breadcrumb-item"><a href="frmDashBoard.aspx">Home</a></li>
-                            <li class="breadcrumb-item">Stamp Duty Reimbursement</li>
+                            <li class="breadcrumb-item">Response to the Query</li>
                         </ul>
                     </div>
                 </div>

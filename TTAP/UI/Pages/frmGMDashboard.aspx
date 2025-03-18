@@ -340,9 +340,15 @@
                                             </span>
                                         </a>
                                          <a  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=PendingtoDIPCTotal">
-                                            <span><i class="fa fa-fw fa-calendar"></i>Rejected Applications</span>
+                                            <span><i class="fa fa-fw fa-calendar"></i>Total Applications</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblPendingDIPCTotal" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                         <a  class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmGMApplications.aspx?Stg=GMRejectedAfterInsp">
+                                            <span><i class="fa fa-fw fa-calendar"></i>GM Rejected After Inspection Applications</span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblGMRejectedAfterInsp" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>

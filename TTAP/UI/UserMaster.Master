@@ -212,7 +212,7 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12 text-white title5 font-medium">
-                        For any technical assistance in using the software please contact :+91-8008705787
+                       <%-- For any technical assistance in using the software please contact :+91-8008705787--%>
                     </div>
                 </div>
             </div>

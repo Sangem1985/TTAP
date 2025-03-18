@@ -79,6 +79,7 @@ namespace TTAP.UI.Pages
                             lblCOIWithin.Text = dss.Tables[0].Rows[0]["SenttoCOIWithin"].ToString();
                             lblCOIBeyond.Text = dss.Tables[0].Rows[0]["SenttoCOIBeyond"].ToString();
                             lblCOITotal.Text = dss.Tables[0].Rows[0]["SenttoCOITotal"].ToString();
+                            lblGMRejectedAfterInsp.Text = dss.Tables[0].Rows[0]["GMRejectedAfterInsp"].ToString();
                             //----------------------------------------------------------------------------------//
 
                             lblWithinDIPC.Text = dss.Tables[0].Rows[0]["SenttoDIPCWithin"].ToString();

@@ -1194,6 +1194,24 @@ namespace TTAP.UI
         protected global::System.Web.UI.WebControls.GridView gvGMtoCOIReject;
 
         /// <summary>
+        /// divGMRollBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGMRollBack;
+
+        /// <summary>
+        /// gvGMRollBack control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvGMRollBack;
+
+        /// <summary>
         /// divGMtoJDQuery control.
         /// </summary>
         /// <remarks>

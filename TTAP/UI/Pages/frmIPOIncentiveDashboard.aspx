@@ -308,7 +308,7 @@
                                                 <asp:Label ID="lblRecommendGM" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmDLOApplications.aspx?Stg=19">
+                                          <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmIPOApplications.aspx?Stg=12">
                                             <span><i class="fa fa-fw fa-calendar"></i>Rollbacked from GM</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblRollBcakGM" runat="server"></asp:Label>

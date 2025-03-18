@@ -213,7 +213,7 @@ namespace TTAP.UI.Pages
                 slno = slno + 1;
             }
 
-            if (hdnTypeOfIndustry.Value == "1")
+            if (hdnTypeOfIndustry.Value != "1")
             {
                 if (ddlFinYear1.SelectedValue == "0" || ddlFinYear2.SelectedValue == "0" || ddlFinYear3.SelectedValue == "0")
                 {

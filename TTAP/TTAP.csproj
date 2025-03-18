@@ -639,6 +639,7 @@
     <Content Include="UI\Pages\Helpdesk\ViewHDAttachments.aspx" />
     <Content Include="UI\Pages\IncentiveFormDraftView.aspx" />
     <Content Include="UI\Pages\IncentivesTracker.aspx" />
+    <Content Include="UI\Pages\IneterestSubsidyAppraisalNoteNew.aspx" />
     <Content Include="UI\Pages\InscentiveView_AttachmentsNewIncType.aspx" />
     <Content Include="UI\Pages\InspectionDelayNotes.aspx" />
     <Content Include="UI\Pages\InterestSubsidy.aspx" />
@@ -694,6 +695,7 @@
     <Content Include="UI\Pages\Releases\frmReleases.aspx" />
     <Content Include="UI\Pages\Releases\frmReleasesList.aspx" />
     <Content Include="UI\Pages\ReminderQueries.aspx" />
+    <Content Include="UI\Pages\SampleInterest.aspx" />
     <Content Include="UI\Pages\SendMail.aspx" />
     <Content Include="UI\Pages\SLC\FormIssueSanctionLetter.aspx" />
     <Content Include="UI\Pages\SLC\frmIssueSanctionedLetter.aspx" />
@@ -1895,6 +1897,13 @@
     <Compile Include="UI\Pages\IncentivesTracker.aspx.designer.cs">
       <DependentUpon>IncentivesTracker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\IneterestSubsidyAppraisalNoteNew.aspx.cs">
+      <DependentUpon>IneterestSubsidyAppraisalNoteNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\IneterestSubsidyAppraisalNoteNew.aspx.designer.cs">
+      <DependentUpon>IneterestSubsidyAppraisalNoteNew.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\InscentiveView_AttachmentsNewIncType.aspx.cs">
       <DependentUpon>InscentiveView_AttachmentsNewIncType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2279,6 +2288,13 @@
     </Compile>
     <Compile Include="UI\Pages\ReminderQueries.aspx.designer.cs">
       <DependentUpon>ReminderQueries.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SampleInterest.aspx.cs">
+      <DependentUpon>SampleInterest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SampleInterest.aspx.designer.cs">
+      <DependentUpon>SampleInterest.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\SendMail.aspx.cs">
       <DependentUpon>SendMail.aspx</DependentUpon>

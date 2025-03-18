@@ -3122,6 +3122,82 @@ namespace TTAP.UI
                     gvGMReject.DataBind();
                     divGMReject.Visible = true;
                 }
+                if (dss.Tables[3].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMResponseIPOQuery.DataSource = dss.Tables[3];
+                    gvGMResponseIPOQuery.DataBind();
+                    divGMResponseIPOQuery.Visible = true;
+                }
+                if (dss.Tables[4].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMForwardtoApplicant.DataSource = dss.Tables[4];
+                    gvGMForwardtoApplicant.DataBind();
+                    divGMForwardtoApplicant.Visible = true;
+                }
+                if (dss.Tables[5].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMResponseIPOQueryAfterInsp.DataSource = dss.Tables[5];
+                    gvGMResponseIPOQueryAfterInsp.DataBind();
+                    divGMResponseIPOQueryAfterInsp.Visible = true;
+                }
+                if (dss.Tables[6].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMForwardtoAppAfterInsp.DataSource = dss.Tables[6];
+                    gvGMForwardtoAppAfterInsp.DataBind();
+                    divGMForwardtoAppAfterInsp.Visible = true;
+                }
+                if (dss.Tables[7].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMToCOIHis.DataSource = dss.Tables[7];
+                    gvGMToCOIHis.DataBind();
+                    divGMToCOIHis.Visible = true;
+                    divGMtoCOIRcmnd.Visible = true;
+                }
+                if (dss.Tables[8].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMtoCOIQuery.DataSource = dss.Tables[8];
+                    gvGMtoCOIQuery.DataBind();
+                    divGMToCOIHis.Visible = true;
+                    divGMtoCOIQuery.Visible = true;
+                }
+                if (dss.Tables[9].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMtoCOIReject.DataSource = dss.Tables[9];
+                    gvGMtoCOIReject.DataBind();
+                    divGMToCOIHis.Visible = true;
+                    divGMtoCOIReject.Visible = true;
+                }
+                if (dss.Tables[10].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMFwdJD.DataSource = dss.Tables[10];
+                    gvGMFwdJD.DataBind();
+                    divGMFwdJD.Visible = true;
+                    divGMtoJDQuery.Visible = true;
+                }
+                if (dss.Tables[11].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMQueryJDQuery.DataSource = dss.Tables[11];
+                    gvGMQueryJDQuery.DataBind();
+                    divGMQueryJDQuery.Visible = true;
+                    divGMtoJDQuery.Visible = true;
+                }
+                if (dss.Tables[12].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMRollBack.DataSource = dss.Tables[12];
+                    gvGMRollBack.DataBind();
+                    divGMToCOIHis.Visible = true;
+                    divGMRollBack.Visible = true;
+                }
             }
         }
 

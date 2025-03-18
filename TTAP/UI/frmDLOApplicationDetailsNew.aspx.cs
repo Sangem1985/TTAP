@@ -3432,6 +3432,14 @@ namespace TTAP.UI
                     divGMQueryJDQuery.Visible = true;
                     divGMtoJDQuery.Visible = true;
                 }
+                if (dss.Tables[12].Rows.Count > 0)
+                {
+                    divGMHistory.Visible = true;
+                    gvGMRollBack.DataSource = dss.Tables[12];
+                    gvGMRollBack.DataBind();
+                    divGMToCOIHis.Visible = true;
+                    divGMRollBack.Visible = true;
+                }
             }
         }
         public void BindIPOHistory()
@@ -4128,7 +4136,11 @@ namespace TTAP.UI
                 {
                     if (ObjApplicationStatus.Remarks == "") 
                     {
-                        string info = "Please enter Query/Reason";
+                        string info = "";
+                        if (ObjApplicationStatus.TransType == "1") { info = "Please enter Query"; }
+                        if (ObjApplicationStatus.TransType == "2") { info = "Please enter Remarks"; }
+                        if (ObjApplicationStatus.TransType == "3") { info = "Please enter Reject Reason"; }
+                        if (ObjApplicationStatus.TransType == "4") { info = "Please enter Rollback Reason"; } 
                         string message = "alert('" + info + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         return;
@@ -4146,7 +4158,7 @@ namespace TTAP.UI
                     if (ActionType == "1") { Successmsg = "Query Raised Successfully"; }
                     if (ActionType == "2") { Successmsg = "Application Recommend to COI"; }
                     if (ActionType == "3") { Successmsg = "Application Rejected"; }
-                    if (ActionType == "4") { Successmsg = "Application Rolled back to IO"; }
+                    if (ActionType == "4") { Successmsg = "Application Rollbacked to IO"; }
                     string message = "alert('" + Successmsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     BindGMHistory();
@@ -4268,9 +4280,13 @@ namespace TTAP.UI
             DropDownList ddlActionType = (DropDownList)gvdivGMRecommendCOI.Rows[indexing].FindControl("ddlActionType");
             TextBox txtGMAmount = (TextBox)gvdivGMRecommendCOI.Rows[indexing].FindControl("txtGMAmount");
 
-            if (ddlActionType.SelectedValue == "1" || ddlActionType.SelectedValue == "3" || ddlActionType.SelectedValue == "4") 
+            if (ddlActionType.SelectedValue == "1" || ddlActionType.SelectedValue == "3" || ddlActionType.SelectedValue == "4")
             {
                 txtGMAmount.Enabled = false;
+            }
+            else 
+            {
+                txtGMAmount.Enabled = true;
             }
         }
 
