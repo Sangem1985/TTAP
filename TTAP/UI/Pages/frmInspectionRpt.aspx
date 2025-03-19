@@ -264,7 +264,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label4" runat="server">Category of Unit as per DLO Verifcation</label>
+                                            <label class="control-label" id="Label4" runat="server">Category of Unit as per IPO Verifcation</label>
                                             <%--<label class="form-control" id="lblCategoryofUnit" runat="server"></label>--%>
                                             <asp:DropDownList class="form-control" Enabled="true" AutoPostBack="true" ID="ddlCategory" runat="server" OnSelectedIndexChanged="ddlCategory_SelectedIndexChanged">
                                                 <asp:ListItem Value="A1">A1</asp:ListItem>
@@ -275,7 +275,7 @@
                                             </asp:DropDownList>
                                         </div>
                                         <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label8" runat="server">Type of Textile as per DLO Verifcation</label>
+                                            <label class="control-label" id="Label8" runat="server">Type of Textile as per IPO Verifcation</label>
                                             <%--<label class="form-control" id="TypeofTexttile" runat="server"></label>--%>
                                             <asp:DropDownList class="form-control" Enabled="true" AutoPostBack="true" ID="ddlTypeofTextile" runat="server" OnSelectedIndexChanged="ddlTypeofTextile_SelectedIndexChanged">
                                                 <asp:ListItem Value="0">Conventional Textile Unit</asp:ListItem>
@@ -329,6 +329,11 @@
                                                     <td align="left" class="font-SemiBold" id="tdIORecommended" runat="server" visible="false">Amount of Subsidy Recommended</td>
                                                     <td align="left" id="tdIORecommended1" runat="server" visible="false">
                                                         <asp:TextBox ID="txtAmountSubsidyRecommended" onkeypress="DecimalOnly()" runat="server" class="form-control"></asp:TextBox>
+                                                    </td>
+                                                    <td align="left" class="font-SemiBold" id="td6" runat="server" visible="true">Inspecting Officer Recommended Amount</td>
+                                                    <td align="left" id="td7" runat="server" visible="true">
+                                                        <asp:TextBox ID="txtIPORecommendedAmount" onkeypress="DecimalOnly()" Style="border: darkolivegreen; border-style: solid;"
+                                                            runat="server" class="form-control"></asp:TextBox>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -631,9 +636,9 @@
                                                                         <th>Extent in Acre</th>
                                                                         <th>Cost Per Acre (In Rs)</th>
                                                                         <th>Value Of Land (In Rs)</th>
-                                                                        <th>Extent in Acre as per DLO Verification</th>
-                                                                        <th>Cost Per Acre as Per DLO Verification(In Rs)</th>
-                                                                        <th>DLO Remarks</th>
+                                                                        <th>Extent in Acre as per IPO Verification</th>
+                                                                        <th>Cost Per Acre as Per IPO Verification(In Rs)</th>
+                                                                        <th>IPO Remarks</th>
                                                                     </tr>
                                                                     <tr class="GridviewScrollC1Item">
                                                                         <td align="center" style="width: 5%">1</td>
@@ -777,17 +782,17 @@
                                                                             <asp:Label ID="lblValueRs" runat="server" Text='<%# Bind("Value") %>'></asp:Label>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="DLO Recommended Plinth Area as per Verification">
+                                                                    <asp:TemplateField HeaderText="IPO Recommended Plinth Area as per Verification">
                                                                         <ItemTemplate>
                                                                             <asp:TextBox ID="txtDLOPlinthArea" CssClass="form-control" OnTextChanged="txtDLOPlinthArea_TextChanged" AutoPostBack="true" runat="server" onkeypress="return DecimalOnly(event)" Text='<%# Bind("DLORecommendedPlinthArea") %>'></asp:TextBox>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="DLO Recommended Amount/Sq.Meter as per Verification">
+                                                                    <asp:TemplateField HeaderText="IPO Recommended Amount/Sq.Meter as per Verification">
                                                                         <ItemTemplate>
                                                                             <asp:TextBox ID="txtDLOSqmterValue" CssClass="form-control" OnTextChanged="txtDLOPlinthArea_TextChanged" AutoPostBack="true" runat="server" onkeypress="return DecimalOnly(event)" Text='<%# Bind("DLOSqmterValue") %>'></asp:TextBox>
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
-                                                                    <asp:TemplateField HeaderText="DLO Recommended Amount as per Verification(in Rs.)">
+                                                                    <asp:TemplateField HeaderText="IPO Recommended Amount as per Verification(in Rs.)">
                                                                         <ItemTemplate>
                                                                             <asp:TextBox ID="txtDLOAmount" CssClass="form-control" Enabled="false" OnTextChanged="txtDLOPlinthArea_TextChanged" AutoPostBack="true" runat="server" Text='<%# Bind("DLORecommendedAmount") %>'></asp:TextBox>
                                                                         </ItemTemplate>
@@ -1396,7 +1401,7 @@
                                                                                     <asp:Label ID="lblEligibleInterest" runat="server" Text='<%#Eval("EligibleInterest") %>'></asp:Label>
                                                                                 </ItemTemplate>
                                                                             </asp:TemplateField>
-                                                                            <asp:TemplateField HeaderText="DLO Recommended Eligible interest Amount</br> (13)">
+                                                                            <asp:TemplateField HeaderText="IPO Recommended Eligible interest Amount</br> (13)">
                                                                                 <ItemTemplate>
                                                                                     <asp:TextBox ID="txtDLOEligibleInterest" OnTextChanged="txtDLOEligibleInterest_TextChanged" AutoPostBack="true" runat="server" Text='<%#Eval("DLORecommendedInterest") %>'></asp:TextBox>
                                                                                 </ItemTemplate>
@@ -1421,7 +1426,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td align="left" colspan="2">
-                                                            <div class="text-blue font-SemiBold col col-sm-12 mt-3">DLO Manual Recommended Amount : </div>
+                                                            <div class="text-blue font-SemiBold col col-sm-12 mt-3">IPO Manual Recommended Amount : </div>
                                                         </td>
                                                         <td>
                                                             <div class="font-SemiBold col col-sm-12 mt-3">
@@ -1561,7 +1566,7 @@
                                                 </tr>
                                                 <tr id="Form3" runat="server" visible="false">
                                                     <td align="left" colspan="4">
-                                                        <div class="col-sm-12 text-black font-SemiBold mb-1"> Details of Equipment Purchased for Cleaner Production Measures</div>
+                                                        <div class="col-sm-12 text-black font-SemiBold mb-1">Details of Equipment Purchased for Cleaner Production Measures</div>
                                                         <div class="row my-4">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                                 <asp:GridView runat="server" ID="gvEquipments" AutoGenerateColumns="False" Width="100%" CellPadding="4"
@@ -1587,7 +1592,7 @@
                                                                                 <asp:Label ID="lblNameoftheEquipment" Text='<%#Eval("NameoftheEquipment") %>' runat="server" />
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                         <asp:TemplateField HeaderText="Category" HeaderStyle-Width="5%">
+                                                                        <asp:TemplateField HeaderText="Category" HeaderStyle-Width="5%">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblCategory" Text='<%#Eval("CategoryName") %>' runat="server" />
                                                                             </ItemTemplate>
@@ -1627,7 +1632,7 @@
                                                                                 </asp:RadioButtonList>
                                                                                 <asp:TextBox ID="txtAdmissibleAmountEq" Visible="true" Enabled="false" Text='<%#Eval("DLORecommendedEqipmentCost") %>' Style="height: 34px; width: 190px;" class="form-control" OnTextChanged="rbtnEquipmentavailableYes_SelectedIndexChanged" AutoPostBack="true" onkeypress="return DecimalOnly(event)" runat="server" Height="100px"></asp:TextBox>
                                                                                 <asp:Label ID="lblremarksEq" runat="server"> Remarks : </asp:Label>
-                                                                                <asp:TextBox ID="txtremarksEq" Visible="true"  class="form-control" Text='<%#Eval("Remarks") %>' TextMode="MultiLine" runat="server" Height="100px"></asp:TextBox>
+                                                                                <asp:TextBox ID="txtremarksEq" Visible="true" class="form-control" Text='<%#Eval("Remarks") %>' TextMode="MultiLine" runat="server" Height="100px"></asp:TextBox>
                                                                             </ItemTemplate>
                                                                             <HeaderStyle CssClass="text-center" />
                                                                             <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="280px" />
@@ -1639,7 +1644,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td align="left" colspan="1" class="font-SemiBold">Remarks of DLO if any</td>
+                                                    <td align="left" colspan="1" class="font-SemiBold">Remarks of IPO if any</td>
                                                     <td align="left" colspan="3">
                                                         <asp:TextBox ID="txtRemarks" runat="server" TextMode="MultiLine" class="form-control"></asp:TextBox>
                                                     </td>

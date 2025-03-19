@@ -138,146 +138,8 @@
                                             <label class="form-control" id="lblcategory" runat="server"></label>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-sm-3 form-group">
-                                            <label class="control-label" id="Label8" runat="server">Type of Textile as Per Inspection</label>
-                                            <asp:RadioButtonList ID="rdbTypeofTextile" runat="server" RepeatDirection="Horizontal"
-                                                AutoPostBack="True" OnSelectedIndexChanged="rdbTypeofTextile_SelectedIndexChanged">
-                                                <asp:ListItem Value="1">Conventional</asp:ListItem>
-                                                <asp:ListItem Value="2">Technical</asp:ListItem>
-                                            </asp:RadioButtonList>
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="control-label" id="Label13" runat="server">Category as Per Inspection</label>
-                                            <asp:RadioButtonList ID="rdbCategory" runat="server" RepeatDirection="Horizontal"
-                                                AutoPostBack="True" OnSelectedIndexChanged="rdbTypeofTextile_SelectedIndexChanged">
-                                                <asp:ListItem Value="A1">A1</asp:ListItem>
-                                                <asp:ListItem Value="A2">A2</asp:ListItem>
-                                                <asp:ListItem Value="A3">A3</asp:ListItem>
-                                                <asp:ListItem Value="A4">A4</asp:ListItem>
-                                                <asp:ListItem Value="A5">A5</asp:ListItem>
-                                            </asp:RadioButtonList>
-                                        </div>
-                                        <div class="col-sm-3 form-group">
-                                            <label class="control-label" id="Label15" runat="server">Nature of Industry as per Inspection</label>
-                                            <asp:DropDownList ID="ddlNature" runat="server" AutoPostBack="true" class="form-control txtbox" OnSelectedIndexChanged="rdbTypeofTextile_SelectedIndexChanged">
-                                                <asp:ListItem Text="Ginning" Value="Ginning"></asp:ListItem>
-                                                <asp:ListItem Text="Spinning" Value="Spinning"></asp:ListItem>
-                                                <asp:ListItem Text="Weaving" Value="Weaving"></asp:ListItem>
-                                                <asp:ListItem Text="Garmenting" Value="Garmenting"></asp:ListItem>
-                                                <asp:ListItem Text="Processing" Value="Processing"></asp:ListItem>
-                                                <asp:ListItem Text="Pressing Mills" Value="Pressing Mills"></asp:ListItem>
-                                                <asp:ListItem Text="Others" Value="Others"></asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <table tyle="width: 100%">
-
-                                            <tr>
-                                                <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px"></td>
-                                                <td colspan="4" style="padding: 5px; margin: 5px;">
-                                                    <b>CLAIM PERIOD : </b></td>
-                                                <td colspan="4" style="padding: 5px; margin: 5px;">
-                                                    <asp:Label runat="server" ID="lblClaimPeroid" Style="font-weight: bold;">Cliam Peroid</asp:Label>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <div class="row" runat="server" id="divLastThreeDtls" visible="false">
-                                        <table style="width: 100%">
-                                            <tr>
-                                                <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px"></td>
-                                                <td colspan="4" style="padding: 5px; margin: 5px;">
-                                                    <b>Last Three Years Details</b></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td colspan="6">
-                                                    <table runat="server" bgcolor="White" width="100%" style="font-family: Verdana; border: solid;">
-                                                        <tr>
-                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">Financial Year
-                                                            </th>
-                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">No of Units Utilised
-                                                            </th>
-                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">Rate per Unit
-                                                            </th>
-                                                            <th style="padding: 10px; margin: 5px; font-weight: bold;">Total Paid by the unit in Rs
-                                                            </th>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:DropDownList ID="ddlFinYear1" CssClass="form-control" runat="server">
-                                                                    <asp:ListItem Value="1" Text="2024-2025"></asp:ListItem>
-                                                                </asp:DropDownList>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtUtilizedUnits1" onkeypress="return isDecimal(event)" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtRatePerUnit1" onkeypress="return isDecimal(event)" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtTotalPaid1" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:DropDownList ID="ddlFinYear2" CssClass="form-control" runat="server">
-                                                                    <asp:ListItem Value="1" Text="2024-2025"></asp:ListItem>
-                                                                </asp:DropDownList>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtUtilizedUnits2" AutoPostBack="true" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtRatePerUnit2" onkeypress="return isDecimal(event)" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtTotalPaid2" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:DropDownList ID="ddlFinYear3" CssClass="form-control" runat="server">
-                                                                    <asp:ListItem Value="1" Text="2024-2025"></asp:ListItem>
-                                                                </asp:DropDownList>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtUtilizedUnits3" onkeypress="return isDecimal(event)" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtRatePerUnit3" onkeypress="return isDecimal(event)" AutoPostBack="true" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                            <td style="padding: 10px; margin: 5px; font-weight: bold;">
-                                                                <asp:TextBox ID="txtTotalPaid3" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                    <br />
-                                    <div class="row" runat="server" id="divExpansionDtls" visible="false">
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label21" runat="server">Total units consumed prior to 3 Years </label>
-                                            <asp:TextBox runat="server" CssClass="form-control" onkeypress="return isDecimal(event)" ID="txtPrior3Yrs"></asp:TextBox>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label22" runat="server">Average units EM </label>
-                                            <asp:TextBox runat="server" CssClass="form-control" onkeypress="return isDecimal(event)" ID="txtAvgUnitsEM"></asp:TextBox>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label23" runat="server">Base power consumption fixed per year </label>
-                                            <asp:TextBox runat="server" onkeypress="return isDecimal(event)" CssClass="form-control" ID="txtBasePower"></asp:TextBox>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label24" runat="server">Per month</label>
-                                            <asp:TextBox runat="server" onkeypress="return isDecimal(event)" CssClass="form-control" ID="txtPerMonth"></asp:TextBox>
-                                        </div>
-                                    </div>
                                     <div class="row" id="divClaimPeroid" runat="server" visible="false">
+                                       <%-- <h5><b>Claim Period Details</b></h5>--%>
                                         <table style="width: 100%">
                                             <tr>
                                                 <asp:GridView ID="GvInterestSubsidyPeriod" runat="server" CssClass="table table-small-font table-bordered table-striped" AutoGenerateColumns="false"
@@ -332,28 +194,112 @@
                                     <div class="row" id="divNewMonth" runat="server">
                                         <table style="width: 100%">
                                             <tr>
-                                                <td></td>
+
                                                 <td colspan="4">
                                                     <asp:Repeater ID="rpt_eglibilepallavaddi" runat="server">
                                                         <ItemTemplate>
-                                                            <table>
+                                                            <table runat="server" class="table table-small-font table-bordered table-striped">
                                                                 <tr>
                                                                     <th>
-                                                                        <%# Container.ItemIndex + 1 %> Claim Period:
-                                <asp:Label ID="lbl_FYname" runat="server"></asp:Label>
+                                                                        <%# Container.ItemIndex + 1 %> .Claim Period :
+                                                                        <asp:Label ID="lbl_FYname" Text='<%# Eval("FinancialYearName") %>' runat="server"></asp:Label>
                                                                     </th>
-                                                                    <th style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp; Loan-
-                                <asp:Label ID="lbl_LoanID" runat="server"></asp:Label>
+                                                                    <th style="font-family: Calibri">&nbsp;</th>
+                                                                    <th style="font-family: Calibri">Loan -
+                                                                    <asp:Label ID="lbl_LoanID" Text='<%# Eval("LoanNumber") %>' runat="server"></asp:Label>
                                                                     </th>
+                                                                    <th style="font-family: Calibri"></th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="font-family: Calibri"><b>Total Term Loan Availed (In Rs.)</b></td>
+                                                                    <td style="font-family: Calibri"><b>Date of Commencement of activity</b></td>
                                                                     <td style="font-family: Calibri">
-                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement" runat="server"
-                                                                            class="form-control txtbox" Height="28px" onkeypress="DecimalOnly()"
-                                                                            AutoPostBack="true" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                        <asp:TextBox ID="txtRptDCP" runat="server"
+                                                                            class="form-control txtbox" Height="28px"
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
                                                                     </td>
-                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Period of installment</b></td>
+                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Loan installment start Date</b></td>
+                                                                    <td>
+                                                                        <asp:TextBox ID="txtRptLoanInstallmentStartDt" runat="server"
+                                                                            class="form-control txtbox" Height="28px"
+                                                                            AutoPostBack="true" TabIndex="10" Width="180px"></asp:TextBox></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri"><b>Total Term Loan Availed(In Rs.)</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txtRptTermLoanAvailedDt" runat="server"
+                                                                            class="form-control txtbox" Height="28px"
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b> Period of installment</b></td>
+                                                                    <td>
+                                                                        <asp:DropDownList ID="ddlRptPeriodOfInstallment" runat="server" class="form-control txtbox" AutoPostBack="true"
+                                                                            TabIndex="4" Height="33px" Width="180px">
+                                                                            <asp:ListItem Value="0">--Select--</asp:ListItem>
+                                                                            <asp:ListItem Value="1">Yearly</asp:ListItem>
+                                                                            <asp:ListItem Value="2">Halfyearly</asp:ListItem>
+                                                                            <asp:ListItem Value="3">Quartely</asp:ListItem>
+                                                                            <asp:ListItem Value="4">Monthly</asp:ListItem>
+                                                                        </asp:DropDownList>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri"><b>No of installment</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txtRptNoofInstallment" runat="server"
+                                                                            class="form-control txtbox" Height="28px"
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b> Installment amount</b></td>
+                                                                    <td>
+                                                                        <asp:TextBox ID="txtRptInstallmentAmount" runat="server"
+                                                                            class="form-control txtbox" Height="28px"
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri"><b>No of installments completed</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txtRptNoofInstallmentsCompleted" runat="server"
+                                                                            class="form-control txtbox" Height="28px"
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b> PrincipalAmount become DUE before this HALFYEAR</b></td>
+                                                                    <td>
+                                                                        <asp:TextBox ID="txtRptPrincipalAmountDUE" runat="server"
+                                                                            class="form-control txtbox" Height="28px"
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri"><b>No of installments completed Months</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:HiddenField ID="txtRptInstallmentsCompletedMonths" runat="server" />
+                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true"
+                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                        <br />
+                                                                    </td>
+                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>For Previous Financial Year is Moratorium Applicable</b>
+                                                                        <asp:CheckBox ID="chkRptClaimEglibleIncenloanwisepreviousfymot" Enabled="false" AutoPostBack="true" runat="server" />
+                                                                    </td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <b>Moratorium Applicable for this claim Period</b>
+                                                                        <asp:CheckBox ID="chkRptMoratiumApplforthisclaimperiod" Enabled="false" AutoPostBack="true" runat="server" />
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri">
+                                                                        <b>Rows Installment is not applicable</b>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri" colspan="3">
+                                                                        <asp:CheckBoxList ID="chkRptClaimegliblerowstodisable" AutoPostBack="true" Enabled="false" TextAlign="Right" RepeatDirection="Horizontal" runat="server">
+                                                                            <asp:ListItem Text="1" Value="1"></asp:ListItem>
+                                                                            <asp:ListItem Text="2" Value="2"></asp:ListItem>
+                                                                            <asp:ListItem Text="3" Value="3"></asp:ListItem>
+                                                                            <asp:ListItem Text="4" Value="4"></asp:ListItem>
+                                                                            <asp:ListItem Text="5" Value="5"></asp:ListItem>
+                                                                            <asp:ListItem Text="6" Value="6"></asp:ListItem>
+                                                                        </asp:CheckBoxList>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td colspan="4">
@@ -374,7 +320,7 @@
                                                                             <ItemTemplate>
                                                                                 <tr>
                                                                                     <td>
-                                                                                        <asp:Label ID="lblPeriodofClaim" Enabled="false" runat="server" Text='<%# Eval("Month") +" - " + Eval("FinancialYear") %>' CssClass="form-control"></asp:Label></td>
+                                                                                        <asp:Label ID="lblPeriodofClaim" Enabled="false" runat="server" Text='<%# Eval("MonthYear") %>' CssClass="form-control"></asp:Label></td>
                                                                                     <td>
                                                                                         <asp:Label ID="lblPrincipalAmountDue" ReadOnly="true" runat="server" CssClass="form-control"></asp:Label></td>
                                                                                     <td>
@@ -382,14 +328,14 @@
                                                                                     <td>
                                                                                         <asp:TextBox ID="txtRateofInterest" runat="server" CssClass="form-control"></asp:TextBox></td>
                                                                                     <td>
-                                                                                        <asp:Label ID="lblInterestDue" CssClass="form-control"  runat="server"></asp:Label></td>
+                                                                                        <asp:Label ID="lblInterestDue" CssClass="form-control" runat="server"></asp:Label></td>
                                                                                     <td>
                                                                                         <asp:Label ID="lbl75onInterestDue" CssClass="form-control" runat="server"></asp:Label>
                                                                                     </td>
                                                                                     <td>
                                                                                         <asp:Label ID="lblInterestDue8" CssClass="form-control" AutoPostBack="true" runat="server"></asp:Label></td>
                                                                                     <td>
-                                                                                        <asp:Label ID="lblEligibleInterestAmount" runat="server"  CssClass="form-control"></asp:Label></td>
+                                                                                        <asp:Label ID="lblEligibleInterestAmount" runat="server" CssClass="form-control"></asp:Label></td>
                                                                                 </tr>
                                                                             </ItemTemplate>
                                                                             <FooterTemplate>
@@ -405,26 +351,80 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><b>Eligible period in months</b></td>
-                                                                    <td>
-                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiEligibleperiodinmonths" runat="server"
-                                                                            class="form-control txtbox" Height="28px" AutoPostBack="true"
+                                                                    <td style="font-family: Calibri"><b>Eligible period in months</b>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiEligibleperiodinmonths" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri"><b>Intrest Amount to be paid as per calculations</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><b>Insert amount to be paid as per calculations</b></td>
-                                                                    <td>
-                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations" runat="server"
-                                                                            class="form-control txtbox" Height="28px" AutoPostBack="true"
+                                                                    <td style="font-family: Calibri"><b>Actual interest amount paid</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiActualinterestamountpaid" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri"><b>Rate of Interest</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseRateofInterest" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                        </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Eligible rate of reimbursement</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri"><b>Considered Amount for Interest 75%</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td><b>Actual interest amount paid</b></td>
-                                                                    <td>
-                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiActualinterestamountpaid" runat="server"
-                                                                            class="form-control txtbox" Height="28px" AutoPostBack="true"
+                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Considered Amount for Interest 8%</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri"><b>Interst reimbursement calculated</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiInsertreimbursementcalculated" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri"><b>Eligible Type</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:RadioButtonList ID="rbtgrdeglibilepallavaddi_isbelated" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" Height="33px" 
+                                                                            TabIndex="1" Width="200px">
+                                                                            <asp:ListItem Value="Y">Regular</asp:ListItem>
+                                                                            <asp:ListItem Value="N">Belated</asp:ListItem>
+                                                                            <asp:ListItem Value="0">1 Year</asp:ListItem>
+                                                                        </asp:RadioButtonList>
+                                                                    </td>
+                                                                     <td style="font-family: Calibri"><b>Interst reimbursement(After selecting the eglible Type)</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="font-family: Calibri"><b>GM recommended amount</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiGMrecommendedamount" 
+                                                                            Enabled="false" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
+                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                    </td>
+                                                                    <td style="font-family: Calibri"><b>Eligible amount</b></td>
+                                                                    <td style="font-family: Calibri">
+                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiEligibleamount" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
                                                                             TabIndex="10" Width="180px"></asp:TextBox>
                                                                     </td>
                                                                 </tr>
@@ -434,47 +434,6 @@
                                                 </td>
                                             </tr>
                                         </table>
-
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label10" runat="server">Eligibility Type</label>
-                                            <asp:RadioButtonList ID="rdbEligibleType" CssClass="form-control" AutoPostBack="true"
-                                                RepeatDirection="Horizontal" runat="server">
-                                                <asp:ListItem Text="Regular" Value="1"></asp:ListItem>
-                                                <asp:ListItem Text="Belated" Value="2"></asp:ListItem>
-                                                <asp:ListItem Text="One year" Value="3"></asp:ListItem>
-                                            </asp:RadioButtonList>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label14" runat="server">Total Eligible Amount</label>
-
-                                            <asp:TextBox ID="lblEligibleAmount" Enabled="true" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label11" runat="server">GM Recommended Amount</label>
-                                            <label class="form-control" id="lblGMAmount" runat="server"></label>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label16" runat="server">Final Eligible Subsidy Amount in Rs</label>
-
-                                            <asp:TextBox ID="lblFinalElgAmount" Enabled="true" onkeypress="return isDecimal(event)" CssClass="form-control" runat="server"></asp:TextBox>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label17" runat="server">Remarks</label>
-                                            <asp:TextBox ID="txtRemarks" runat="server" class="form-control" TextMode="MultiLine"></asp:TextBox>
-                                        </div>
-                                        <div class="col-sm-4 form-group">
-                                            <label class="control-label" id="Label20" runat="server">Forward To</label>
-                                            <asp:DropDownList ID="ddlDepartment" runat="server" class="form-control txtbox">
-                                                <asp:ListItem Text="--Select--" Value="0"></asp:ListItem>
-                                                <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
-                                                <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
-                                                <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
-                                                <asp:ListItem Text="JD" Value="JD"></asp:ListItem>
-                                            </asp:DropDownList>
-                                        </div>
                                     </div>
                                     <div class="row">
                                         <table>

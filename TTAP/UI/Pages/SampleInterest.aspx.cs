@@ -82,28 +82,15 @@ namespace TTAP.UI.Pages
                     else
                     {
                         lblDCPdate.InnerText = dsnew.Tables[0].Rows[0]["DCPExp"].ToString();
-                        divLastThreeDtls.Visible = true;
-                        divExpansionDtls.Visible = true;
                         divNewMonth.Visible = true;
                     }
 
                     lblReceiptDate.InnerHtml = dsnew.Tables[0].Rows[0]["ApplicationFiledDate"].ToString();
                     lblcategory.InnerText = dsnew.Tables[0].Rows[0]["SocialStatusText"].ToString();
                     lblCategoryofUnit.InnerText = dsnew.Tables[0].Rows[0]["Category"].ToString();
-                    rdbCategory.SelectedValue = dsnew.Tables[0].Rows[0]["Category"].ToString();
                     lblActivityoftheUnit.InnerText = dsnew.Tables[0].Rows[0]["TextileProcessName"].ToString();
-                    ddlNature.SelectedValue = dsnew.Tables[0].Rows[0]["TextileProcessName"].ToString();
                     hdnActualCategory.Value = dsnew.Tables[0].Rows[0]["Category"].ToString();
                     lblTypeofTexttile.InnerText = dsnew.Tables[0].Rows[0]["TypeofTexttileText"].ToString();
-                    if (dsnew.Tables[0].Rows[0]["TypeofTexttile"].ToString() == "0")
-                    {
-                        rdbTypeofTextile.SelectedValue = "1";
-                    }
-                    else
-                    {
-                        rdbTypeofTextile.SelectedValue = "2";
-                    }
-
                     hdnActualTextile.Value = dsnew.Tables[0].Rows[0]["TypeofTexttile"].ToString();
 
                     lblAddress.InnerText = dsnew.Tables[0].Rows[0]["UnitTotalAddress"].ToString();
@@ -113,7 +100,6 @@ namespace TTAP.UI.Pages
                     lblRegistrationNumber.InnerText = dsnew.Tables[0].Rows[0]["IncorpRegistranNumber"].ToString();
                     lblTechnicalTextileType.InnerText = dsnew.Tables[0].Rows[0]["TechnicalTextile"].ToString();
                     lblPowerConnectionReleaseDate.InnerText = dsnew.Tables[0].Rows[0]["NewPowerReleaseDate"].ToString();
-                    lblGMAmount.InnerText = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
 
                 }
             }
@@ -141,7 +127,7 @@ namespace TTAP.UI.Pages
                 }
                 if (dsnew != null && dsnew.Tables.Count > 1 && dsnew.Tables[1].Rows.Count > 0)
                 {
-                    lblGMAmount.InnerText = dsnew.Tables[1].Rows[0]["OfficerRecommendedAmount"].ToString();
+                    
                 }
 
             }
@@ -257,7 +243,8 @@ namespace TTAP.UI.Pages
                     months.Add(new MonthDetail
                     {
                         Month = reader["Month"].ToString(),
-                        FinancialYear = reader["FinancialYear"].ToString()
+                        FinancialYear = reader["FinancialYear"].ToString(),
+                        MonthYear = reader["MonthYear"].ToString()
                     });
                 }
             }
@@ -277,6 +264,7 @@ namespace TTAP.UI.Pages
         {
             public string Month { get; set; }
             public string FinancialYear { get; set; }
+            public string MonthYear { get; set; }
             public int UnitsConsumed { get; set; }
             public decimal AmountPaid { get; set; }
             public decimal EligibleRate { get; set; }

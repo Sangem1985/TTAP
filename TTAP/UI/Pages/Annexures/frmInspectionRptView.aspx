@@ -87,8 +87,8 @@
                                         <h4 class="text-black mb-3 col font-SemiBold text-center" runat="server" id="HMainheading"></h4>
                                     </div>
                                 </div>
-                                <div id="divChk">
-                                    <asp:CheckBox runat="server" ID="chkShow" onclick="return ShowHide(this);" Text="Show System Calculted" />
+                                <div id="divChk" runat="server" visible="false">
+                                    <asp:CheckBox runat="server" ID="chkShow" Checked="true" onclick="return ShowHide(this);" Text="Show System Calculted" />
                                 </div>
 
                                 <div class="widget-content nopadding" style="width: 100%;">
@@ -293,7 +293,7 @@
                                                     <td align="left">
                                                         <label class="control-label" id="lblSubsidyClaimedUnit" runat="server"></label>
                                                     </td>
-                                                    <td align="left" class="font-SemiBold" id="tdsysSubsidy" style="display: none;" runat="server">Amount of Subsidy Recommended(System Calculated) as per DLO Inspection</td>
+                                                    <td align="left" class="font-SemiBold" id="tdsysSubsidy" style="display: none;" runat="server">System Calculated Recommended</td>
                                                     <td align="left" id="tdsysSubsidy1" style="display: none;" runat="server">
                                                         <label class="control-label" id="SubsidySystemRecommended" runat="server"></label>
                                                     </td>
@@ -310,9 +310,9 @@
                                                         <label class="control-label" id="lblInsAmount" runat="server"></label>
                                                     </td>
                                                 </tr>
-                                                <tr id="trInspectingRecomAmount" runat="server" visible="false">
+                                                <tr id="trInspectingRecomAmount" runat="server" visible="true">
                                                     <td align="left" class="font-SemiBold">Amount of Subsidy Recommended by Inspecting Officer</td>
-                                                    <td align="left">
+                                                    <td align="left" colspan="3">
                                                         <label id="txtAmountSubsidyRecommended" runat="server" class="control-label"></label>
                                                     </td>
                                                 </tr>
@@ -1621,7 +1621,7 @@
                                                              and there is no change in line of activity and capacity. Further, the Enterprise/Industry is in continuous operation, 
                                                              there is no break-in-production (if not the details of the break- in-production) and
                                                              I recommend the above incentives to the captioned Enterprise/Industry</span>
-                                                        <span class="pull-left pt-4" id="divSLCFIle" runat="server" visible="false">We 
+                                                        <span class="pull-left pt-4" id="divSLCFIle" runat="server" visible="false">I 
                                                        
                                                             <asp:Label ID="lblDLORDOName" runat="server" Text=""></asp:Label>, 
                                                         hereby certify that the incentive application has been processed in accordance with the operational 
@@ -1634,11 +1634,11 @@
                                                             <asp:Label ID="lblplace" runat="server">Date</asp:Label><br />
 
                                                         </span>
-                                                        <span id="spnRDD" runat="server" visible="false" class="pull-right pt-5  pl-3"><span style="font-weight: bold" id="spnRDDname" runat="server">Yours faithfully,</span><br />
+                                                        <span id="spnRDD" runat="server" visible="false" class="pull-right pt-5  pl-3"><span style="font-weight: bold" id="spnRDDname" runat="server">Yours faithfullyf,</span><br />
                                                             <asp:Label ID="lblRDDname" runat="server"></asp:Label><br />
                                                         </span>
 
-                                                        <span class="pull-right pt-5 pr-3"><span style="font-weight: bold; padding-left: 150px;" id="spnDLO" runat="server">Yours faithfully,</span><br />
+                                                        <span class="pull-right pt-5 pr-3"><span style="font-weight: bold;" id="spnDLO" runat="server">Yours faithfully,</span><br />
                                                             <asp:Label ID="lblGMname" runat="server"></asp:Label><br />
                                                         </span>
                                                     </td>
@@ -1706,8 +1706,9 @@
     <script src="../../../AssetsNew/js/bootstrap.min.js"></script>
     <script src="../../../AssetsNew/js/floating.js"></script>
     <script type="text/javascript">
-
+        ShowHide();
         $(document).ready(function () {
+            ShowHide();
             $(function () {
                 var url = window.location.pathname,
                     urlRegExp = new RegExp(url.replace(/\/$/, '') + "$");
@@ -1721,7 +1722,7 @@
             });
         });
         function ShowHide(res) {
-            if (res.checked == true) {
+            /*if (res.checked == true) {
                 $('#tdsysSubsidy').show();
                 $('#tdsysSubsidy1').show();
                 if ($('#hdnSubIncentiveId').val() == "1") {
@@ -1732,6 +1733,11 @@
                 $('#tdsysSubsidy').hide();
                 $('#tdsysSubsidy1').hide();
                 $('#trcapitalsubsidy').hide();
+            }*/
+            $('#tdsysSubsidy').show();
+            $('#tdsysSubsidy1').show();
+            if ($('#hdnSubIncentiveId').val() == "1") {
+                $('#trcapitalsubsidy').show();
             }
         }
         function Print() {

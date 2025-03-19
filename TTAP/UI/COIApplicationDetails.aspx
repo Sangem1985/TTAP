@@ -3128,6 +3128,7 @@
                                                             Return To
                                                         </div>
                                                         <asp:DropDownList ID="ddlreturn" runat="server" class="form-control txtbox">
+                                                            <asp:ListItem Text="-Select-" Value="Select">-Select-</asp:ListItem>
                                                             <asp:ListItem Text="Clerk" Value="Clerk"></asp:ListItem>
                                                         </asp:DropDownList>
                                                     </div>

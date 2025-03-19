@@ -2340,7 +2340,6 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@DLOLandPerAcreRemarks", objApplicationStatus.DLOLandPerAcreRemarks);
                 com.Parameters.AddWithValue("@DLORecommendedLandExtent", objApplicationStatus.DLORecommendedLandExtent);
                 com.Parameters.AddWithValue("@CreatedBy", objApplicationStatus.CreatedBy);
-
                 com.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
                 com.Parameters["@Valid"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();

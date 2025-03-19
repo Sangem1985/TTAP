@@ -344,6 +344,7 @@ namespace TTAP.UI.Pages
                         txtDateofIndustriesDept.Text = dsnew1.Tables[0].Rows[0]["IndustryDeptUpdatedOn"].ToString();
                         txtIndustryDepartmentReportStatus.Text = dsnew1.Tables[0].Rows[0]["IndustryDeptReportStatus"].ToString();
                         hyplreportview.NavigateUrl = dsnew1.Tables[0].Rows[0]["UploadReportLink"].ToString();
+                        txtIPORecommendedAmount.Text= dsnew1.Tables[0].Rows[0]["OfficerRecommendedAmount"].ToString();
                         if (dsnew1.Tables[0].Rows[0]["Ins_Flag"].ToString() == "Y")
                         {
                             ChkChangeReqest.Checked = true;
@@ -987,7 +988,13 @@ namespace TTAP.UI.Pages
             //        slno = slno + 1;
             //    }
             //}
-            if (txtIndustryPersonName.Text.Trim().TrimStart().TrimEnd() == "")// && (Request.QueryString["SubIncentiveId"] == "1" || Request.QueryString["SubIncentiveId"] == "19"))
+
+            if (txtIPORecommendedAmount.Text == "")
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please enter Inspecting Officer Recommended Amount \\n";
+                slno = slno + 1;
+            }
+            if (txtIndustryPersonName.Text.Trim().TrimStart().TrimEnd() == "")
             {
                 ErrorMsg = ErrorMsg + slno + ". Please Enter Person from the Industry present at the time of Inspection \\n";
                 slno = slno + 1;
@@ -1226,7 +1233,7 @@ namespace TTAP.UI.Pages
                         ObjApplicationStatus.DLORecommendedLandExtent = txtDLOExtent.Text.Trim();
                         ObjApplicationStatus.DLOLandPerAcreRemarks = txtDLOLandRemarks.Text;
 
-                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(lblInspectingOfficerTotal.InnerHtml.Trim().TrimStart());
+                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(txtIPORecommendedAmount.Text.Trim().TrimStart());
                         ObjApplicationStatus.CapitalSubsidyAmount = GetDecimalNullValue(txtInspectingOfficerSubsidy.Text.Trim().TrimStart());
                         ObjApplicationStatus.AdditionalCapitalSubsidyAmount = GetDecimalNullValue(txtInspectingOfficerAdditionalCapitalSubsidy.Text.Trim().TrimStart());
 
@@ -1243,7 +1250,7 @@ namespace TTAP.UI.Pages
                     }
                     else
                     {
-                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(txtAmountSubsidyRecommended.Text.Trim().TrimStart());
+                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(txtIPORecommendedAmount.Text.Trim().TrimStart());
                         ObjApplicationStatus.Actual_RecommendedAmount = GetDecimalNullValue(hdnSubsidySystemRecommended.Value.Trim().TrimStart());
                     }
                     if (SubIncentiveId == "1" || SubIncentiveId == "19")
@@ -1410,6 +1417,7 @@ namespace TTAP.UI.Pages
                     ObjApplicationStatus.Ins_Category = ddlCategory.SelectedValue;
                     ObjApplicationStatus.Ins_TypeOfTextile = ddlTypeofTextile.SelectedValue;
                     ObjApplicationStatus.DLOManualRecommendAmount = lblDLOSuggestedAmount.Text;
+                    ObjApplicationStatus.IPORecommendedAmount = txtIPORecommendedAmount.Text;
 
                     //HyperLink HylUpload1 = new HyperLink();
                     objClsFileUpload.IncentiveFileUploading("~\\IncentivesAttachmentsNew", Server.MapPath("~\\IncentivesAttachmentsNew"), fpdSpecimen, hyplreportview, "DLOInspectionReport", ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "161111", Session["uid"].ToString(), "INSPECTINGOFFICER");
@@ -2107,7 +2115,11 @@ namespace TTAP.UI.Pages
                     slno = slno + 1;
                 }
             }
-
+            if (txtIPORecommendedAmount.Text == "") 
+            {
+                ErrorMsg = ErrorMsg + slno + ". Please enter Inspecting Officer Recommended Amount \\n";
+                slno = slno + 1;
+            }
 
             if (Request.QueryString["SubIncentiveId"] == "1" || Request.QueryString["SubIncentiveId"] == "19")
             {
@@ -2225,7 +2237,7 @@ namespace TTAP.UI.Pages
                         ObjApplicationStatus.DLORecommendedLandExtent = txtDLOExtent.Text.Trim();
                         ObjApplicationStatus.DLOLandPerAcreRemarks = txtDLOLandRemarks.Text;
 
-                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(lblInspectingOfficerTotal.InnerHtml.Trim().TrimStart());
+                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(txtIPORecommendedAmount.Text.Trim().TrimStart());
                         ObjApplicationStatus.CapitalSubsidyAmount = GetDecimalNullValue(txtInspectingOfficerSubsidy.Text.Trim().TrimStart());
                         ObjApplicationStatus.AdditionalCapitalSubsidyAmount = GetDecimalNullValue(txtInspectingOfficerAdditionalCapitalSubsidy.Text.Trim().TrimStart());
 
@@ -2240,7 +2252,7 @@ namespace TTAP.UI.Pages
                     }
                     else
                     {
-                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(txtAmountSubsidyRecommended.Text.Trim().TrimStart());
+                        ObjApplicationStatus.RecommendedAmount = GetDecimalNullValue(txtIPORecommendedAmount.Text.Trim().TrimStart());
                         ObjApplicationStatus.Actual_RecommendedAmount = GetDecimalNullValue(hdnSubsidySystemRecommended.Value.Trim().TrimStart());
                     }
                     if (SubIncentiveId == "1" || SubIncentiveId == "19")

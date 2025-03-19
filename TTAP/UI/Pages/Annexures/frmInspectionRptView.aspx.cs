@@ -279,13 +279,13 @@ namespace TTAP.UI.Pages.Annexures
                         }
                         if (DIPCFlag != "Y")
                         {
-                            spnRDD.Visible = true;
-                            spnRDDname.Visible = false;
+                            //spnRDD.Visible = true;
+                            //spnRDDname.Visible = false;
                             divSLCFIle.Visible = true;
                         }
                         else
                         {
-                            spnRDD.Visible = false;
+                            //spnRDD.Visible = false;
                             divSLCFIle.Visible = false;
                             spnDLO.Style.Clear();
                             //spnDLO.Style.Remove("padding-left");
@@ -314,8 +314,7 @@ namespace TTAP.UI.Pages.Annexures
 
                     lblRDDname.Text = Dsofficer.Tables[0].Rows[0]["RDDOfficerName"].ToString() + "</br>" + Dsofficer.Tables[0].Rows[0]["RDDDesignation"].ToString() + "</br>" + "" + Dsofficer.Tables[0].Rows[0]["RDDWorkingDistrict"].ToString();
 
-                    lblDLORDOName.Text = "<b>" + Dsofficer.Tables[0].Rows[0]["OfficerName"].ToString() + "</b>," + Dsofficer.Tables[0].Rows[0]["Designation"].ToString() + "," + "" + Dsofficer.Tables[0].Rows[0]["WorkingDistrict"].ToString() + " and " +
-                    "<b>" + Dsofficer.Tables[0].Rows[0]["RDDOfficerName"].ToString() + "</b>," + Dsofficer.Tables[0].Rows[0]["RDDDesignation"].ToString() + "," + "" + Dsofficer.Tables[0].Rows[0]["RDDWorkingDistrict"].ToString();
+                    lblDLORDOName.Text = "<b>" + Dsofficer.Tables[0].Rows[0]["OfficerName"].ToString() + "</b>," + Dsofficer.Tables[0].Rows[0]["Designation"].ToString() + "," + "" + Dsofficer.Tables[0].Rows[0]["WorkingDistrict"].ToString();
                 }
             }
             catch (Exception ex)

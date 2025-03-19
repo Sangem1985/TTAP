@@ -2338,6 +2338,7 @@ namespace TTAP.Classfiles
         public string Status { get; set; }
         public string QueryReason { get; set; }
         public string GMRecommendedAmount { get; set; }
+        public string IPORecommendedAmount { get; set; }
 
     }
 

@@ -1676,7 +1676,7 @@
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="G.M Recommended Amount(in Rs.)">
                                                                 <ItemTemplate>
-                                                                    <asp:TextBox runat="server" CssClass="form-control" ID="txtGMAmount"></asp:TextBox>
+                                                                    <asp:TextBox runat="server" onkeypress="DecimalOnly()" CssClass="form-control" ID="txtGMAmount"></asp:TextBox>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="Remarks/Query/Reason" ItemStyle-HorizontalAlign="Center">
