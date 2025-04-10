@@ -79,7 +79,7 @@
                                                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                                     <asp:TextBox ID="txtProposedDLCDate" class="form-control" runat="server"></asp:TextBox>
                                                 </div>
-                                                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12" runat="server" visible="false">
                                                     <asp:CheckBox runat="server" ID="chkPartial" OnCheckedChanged="chkPartial_CheckedChanged" AutoPostBack="true" CssClass="form-group" Text="Partial Sanctions" />
                                                 </div>
                                             </div>

@@ -203,6 +203,7 @@
                                                                     <th>
                                                                         <%# Container.ItemIndex + 1 %> .Claim Period :
                                                                         <asp:Label ID="lbl_FYname" Text='<%# Eval("FinancialYearName") %>' runat="server"></asp:Label>
+                                                                        <asp:HiddenField ID="hf_grdeglibilepallavaddiFY_ID" Value='<%# Eval("FinancialYearId") %>' runat="server" />
                                                                     </th>
                                                                     <th style="font-family: Calibri">&nbsp;</th>
                                                                     <th style="font-family: Calibri">Loan -
@@ -213,14 +214,14 @@
                                                                 <tr>
                                                                     <td style="font-family: Calibri"><b>Date of Commencement of activity</b></td>
                                                                     <td style="font-family: Calibri">
-                                                                        <asp:TextBox ID="txtRptDCP" runat="server"
+                                                                        <asp:TextBox ID="txtRptDCP" runat="server" Text='<%# Eval("Dcp") %>'
                                                                             class="form-control txtbox" Height="28px"
                                                                             TabIndex="10" Width="180px"></asp:TextBox>
                                                                     </td>
                                                                     <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Loan installment start Date</b></td>
                                                                     <td>
                                                                         <asp:TextBox ID="txtRptLoanInstallmentStartDt" runat="server"
-                                                                            class="form-control txtbox" Height="28px"
+                                                                            class="form-control txtbox" Height="28px" OnTextChanged="txtRptLoanInstallmentStartDt_TextChanged"
                                                                             AutoPostBack="true" TabIndex="10" Width="180px"></asp:TextBox></td>
                                                                 </tr>
                                                                 <tr>
@@ -376,7 +377,7 @@
                                                                         </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Eligible rate of reimbursement</b></td>
+                                                                    <td style="font-family: Calibri"><b>Eligible rate of reimbursement</b></td>
                                                                     <td style="font-family: Calibri">
                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
@@ -388,7 +389,7 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Considered Amount for Interest 8%</b></td>
+                                                                    <td style="font-family: Calibri"><b>Considered Amount for Interest 8%</b></td>
                                                                     <td style="font-family: Calibri">
                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
@@ -416,12 +417,12 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="font-family: Calibri"><b>GM recommended amount</b></td>
+                                                                    <%--<td style="font-family: Calibri"><b>GM recommended amount</b></td>
                                                                     <td style="font-family: Calibri">
                                                                         <asp:TextBox ID="txt_grdeglibilepallavaddiGMrecommendedamount" 
                                                                             Enabled="false" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" 
                                                                             TabIndex="10" Width="180px"></asp:TextBox>
-                                                                    </td>
+                                                                    </td>--%>
                                                                     <td style="font-family: Calibri"><b>Eligible amount</b></td>
                                                                     <td style="font-family: Calibri">
                                                                         <asp:TextBox ID="txt_grdeglibilepallavaddiEligibleamount" runat="server" class="form-control txtbox" Height="28px" Enabled="false"

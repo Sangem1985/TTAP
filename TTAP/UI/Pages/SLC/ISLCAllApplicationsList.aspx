@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="frmSLCGenerateAgendaList.aspx.cs" Inherits="TTAP.UI.Pages.SLC.frmSLCGenerateAgendaList" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="ISLCAllApplicationsList.aspx.cs" Inherits="TTAP.UI.Pages.SLC.ISLCAllApplicationsList" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../../js/jquery-latest.min.js" type="text/javascript"></script>
     <script src="../../../js/jquery-ui.min.js" type="text/javascript"></script>
@@ -114,7 +113,7 @@
                     <div class="breadcrumb-bg">
                         <ul class="breadcrumb font-medium title5 container">
                             <li class="breadcrumb-item"><a href="frmDashBoard.aspx">Home</a></li>
-                            <li class="breadcrumb-item">Generate SLC Agenda</li>
+                            <li class="breadcrumb-item">Generated SLC Agenda</li>
                         </ul>
                     </div>
                 </div>
@@ -136,20 +135,45 @@
                                         <div class="col-sm-12 form-group">
                                             <h6 align="left" style="color: blue; font-weight: normal" runat="server" id="tdinvestments"></h6>
                                         </div>
-                                        <div class="col-sm-12 form-group">
+
+                                        <%--<div class="col-sm-12 form-group">
                                             <div class="row py-1">
                                                 <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                                                    <label class="control-label" id="Label10" runat="server">Proposed SLC Date </label>
+                                                    <label class="control-label" id="Label10" runat="server">Proposed DLC Date </label>
                                                 </div>
                                                 <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
                                                     <asp:Label ID="lblProposedDLCDate" class="form-control" runat="server"></asp:Label>
                                                 </div>
                                             </div>
+                                        </div>--%>
+                                        <div class="row col-sm-12">
+                                            <div class="col-sm-6 col-md-3 form-group">
+                                                <label runat="server" id="tdworkstatus">Applicaton Status</label>
+                                                <asp:DropDownList runat="server" ID="ddlworkingstatus" CssClass="form-control" TabIndex="1" Enabled="false">
+                                                    <asp:ListItem Value="0" Selected="True" Text="--All--"></asp:ListItem>
+                                                    <asp:ListItem Value="1" Text="SLC Approved Applications"></asp:ListItem>
+                                                    <%--<asp:ListItem Value="2" Text="Released Applications"></asp:ListItem>--%>
+                                                    <asp:ListItem Value="3" Text="Rejected"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-sm-6 col-md-3 form-group">
+                                                <label>Application Timelines</label>
+                                                <asp:DropDownList runat="server" ID="DropDownList1" class="form-control" TabIndex="1" Enabled="false">
+                                                    <asp:ListItem Value="0" Text="--All--"></asp:ListItem>
+                                                    <asp:ListItem Value="1" Text="Within - Timelines"></asp:ListItem>
+                                                    <asp:ListItem Value="2" Text="Beyond - Timelines"></asp:ListItem>
+                                                </asp:DropDownList>
+                                            </div>
+                                            <div class="col-sm-6 col-md-3 form-group">
+                                                <label runat="server" id="td1">SLC No</label>
+                                                <asp:Label runat="server" ID="ddlDIPCno" class="form-control" TabIndex="1">
+                                                </asp:Label>
+                                            </div>
                                         </div>
                                         <div class="col-sm-12 table-responsive">
                                             <asp:GridView ID="gvdetailsnew" runat="server" AllowPaging="false" AutoGenerateColumns="False"
                                                 CssClass="table table-bordered mb-0 title6 alternet-table w-100 NewEnterprise"
-                                                PageSize="20" GridLines="Both">
+                                                PageSize="20" GridLines="Both" >
                                                 <HeaderStyle VerticalAlign="Middle" CssClass="text-center" />
                                                 <RowStyle CssClass="GridviewScrollC1Item" />
                                                 <PagerStyle CssClass="GridviewScrollC1Pager" />
@@ -161,12 +185,6 @@
                                                             <%# Container.DataItemIndex + 1%>
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Center" />
-                                                        <ItemStyle Width="50px" />
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Select">
-                                                        <ItemTemplate>
-                                                            <asp:CheckBox ID="chkRow" runat="server" Checked="true" />
-                                                        </ItemTemplate>
                                                         <ItemStyle Width="50px" />
                                                     </asp:TemplateField>
                                                     <asp:BoundField DataField="ApplicationNumber" ItemStyle-HorizontalAlign="Center" HeaderText="Application Number">
@@ -196,24 +214,39 @@
                                                     <asp:BoundField DataField="ApplicationFiledDate" ItemStyle-HorizontalAlign="Center" HeaderText="Application Date" DataFormatString="{0:dd-M-yyyy}">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="SLCDLCRecommended_date" ItemStyle-HorizontalAlign="Center" HeaderText="JD Recommended Date to SVC">
+                                                     <asp:BoundField DataField="ActualRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended Amount">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="ActualRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="JD Recommended Amount to SVC">
+                                                    <asp:BoundField DataField="SVC_Sanctioned_Date" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended to SLC Date">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="SVC_FinalSanctionedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended Amount to SLC">
+                                                    <asp:BoundField DataField="FinalSanctionedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="SLC Sanctioned Amount">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="SVC_Sanctioned_Date" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended Date to SLC">
+                                                    <asp:BoundField DataField="Meeting_No" ItemStyle-HorizontalAlign="Center" HeaderText="SLC Meeting No">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
+                                                    <asp:BoundField DataField="Actual_Meeting_Date" ItemStyle-HorizontalAlign="Center" HeaderText="SLC Meeting Date">
+                                                        <ItemStyle HorizontalAlign="Center" />
+                                                    </asp:BoundField>
+                                                    <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Intimation Letter">
+                                                        <ItemTemplate>
+                                                            <asp:HyperLink ID="hyIntimationLetterPath" Text="View" NavigateUrl='<%#Eval("IntimationLetterPath")%>' Target="_blank" runat="server" />
+                                                        </ItemTemplate>
+                                                        <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                    </asp:TemplateField>
+                                                     <asp:TemplateField HeaderStyle-CssClass="text-center" Visible="false" HeaderText="Sanctioned Letter">
+                                                        <ItemTemplate>
+                                                            <asp:HyperLink ID="hyIssueLetterPath" Text="Issue" NavigateUrl='<%#Eval("SanctionLetterPath")%>'  Target="_blank" runat="server" />
+                                                        </ItemTemplate>
+                                                        <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                    </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Incentiveid" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
                                                             <asp:Label ID="lblSubIncentiveID" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
+                                                            <asp:Label ID="lblSanctionStatus" Text='<%#Eval("Sanctioned_Status") %>' runat="server" />
                                                             <asp:Label ID="lblPartialSanction" Text='<%#Eval("PartialSanction") %>' runat="server" />
-                                                            <asp:Label ID="lblTISId" Text='<%#Eval("TISId") %>' runat="server" />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>
@@ -222,8 +255,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12 text-center" id="tblselection" runat="server">
-                                            <asp:Button ID="btnGenerateProposedAgenda" CssClass="btn btn-primary m-2" runat="server" Text="Generate Proposed SLC Agenda" OnClick="btnGenerateProposedAgenda_Click" />
-                                            <asp:Button ID="btnprint" runat="server" CssClass="btn btn-blue m-2" Visible="false" Text="Print Agenda" OnClientClick="javascript:Panel1()" />
+                                            <asp:Button ID="btnprint" runat="server" CssClass="btn btn-blue m-2" Text="Print" OnClientClick="javascript:Panel1()" />
                                             <asp:Button ID="btnDownloadPdf" CssClass="btn btn-primary m-2" Visible="false" runat="server" Text="Download PDF" OnClick="btnDownloadPdf_Click" />
                                         </div>
                                     </div>

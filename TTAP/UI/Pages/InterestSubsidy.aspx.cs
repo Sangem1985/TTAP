@@ -1218,7 +1218,12 @@ namespace TTAP.UI.Pages
                 {
                     ViewState["TLRId"] = "0";
                 }
-                
+                if (GvInterestSubsidyPeriod.Rows.Count < 1)
+                {
+                    string message = "alert('Please Add Current Claim Period Details')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
                 string errormsg = ValidateTLRControls();
                 if (errormsg.Trim().TrimStart() != "")
                 {
@@ -1293,7 +1298,7 @@ namespace TTAP.UI.Pages
                         ddlTermLoan.Items.Clear();
                         BindTearmLoanDtlsDDL(Session["IncentiveID"].ToString(), "I");
                         /*BindMonthWise(grdTermLoanRepaid.Rows.Count);*/
-                        
+
                     }
                 }
             }

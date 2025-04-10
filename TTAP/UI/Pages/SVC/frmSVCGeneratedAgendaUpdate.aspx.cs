@@ -248,11 +248,12 @@ namespace TTAP.UI.Pages.SVC
                     objApplicationStatus.IncentiveId = ((Label)gvrow.FindControl("lblIncentiveID")).Text.ToString();
                     objApplicationStatus.SubIncentiveId = ((Label)gvrow.FindControl("lblSubIncentiveID")).Text.ToString();
                     objApplicationStatus.ApproveStatus = ((RadioButtonList)gvrow.FindControl("rbtnLstApprove")).SelectedValue;
-                    objApplicationStatus.PartialSanction = ((Label)gvrow.FindControl("lblPartialSanction")).Text.ToString();
-                    objApplicationStatus.TISId = ((Label)gvrow.FindControl("lblTISId")).Text.ToString();
                     string SactionnedAmount = ((TextBox)gvrow.FindControl("txtsactionnedAmount")).Text.Trim();
-                    string TextileSanctionedAmount= ((TextBox)gvrow.FindControl("txtsactionnedAmountHand")).Text.Trim();
-                    string IndustriesSanctionedAmount = ((TextBox)gvrow.FindControl("txtsactionnedAmountInd")).Text.Trim();
+
+                    //objApplicationStatus.PartialSanction = ((Label)gvrow.FindControl("lblPartialSanction")).Text.ToString();
+                    //objApplicationStatus.TISId = ((Label)gvrow.FindControl("lblTISId")).Text.ToString();
+                    //string TextileSanctionedAmount= ((TextBox)gvrow.FindControl("txtsactionnedAmountHand")).Text.Trim();
+                    //string IndustriesSanctionedAmount = ((TextBox)gvrow.FindControl("txtsactionnedAmountInd")).Text.Trim();
 
                     string rejectedRemarks = ((TextBox)gvrow.FindControl("txtIncQueryFnl2")).Text.Trim();
 
@@ -267,8 +268,8 @@ namespace TTAP.UI.Pages.SVC
                     }
 
                     objApplicationStatus.RecommendedAmount = SactionnedAmount;
-                    objApplicationStatus.TextileSanctionedAmount = TextileSanctionedAmount;
-                    objApplicationStatus.IndustriesSanctionedAmount = IndustriesSanctionedAmount;
+                    objApplicationStatus.TextileSanctionedAmount = "";
+                    objApplicationStatus.IndustriesSanctionedAmount = "";
 
                     objApplicationStatus.FilePath = ViewState["SavedFileLocation"].ToString();
 
@@ -284,7 +285,7 @@ namespace TTAP.UI.Pages.SVC
             valid = ObjCAFClass.UpdateGeneratedSVCProposedAgenda(lstApplicationStatus);
             if (valid == "1")
             {
-                btnSubmit.Enabled = false;
+                btnSubmit.Visible = false;
                 string message = "alert('SVC Application Details Updated Successfully')";
                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 btnDownloadPdf.Visible = false;

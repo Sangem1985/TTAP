@@ -195,7 +195,9 @@ namespace TTAP.UI.Pages
                     {
                         LoanNumber = Convert.ToInt32(i + 1).ToString(),
                         FinancialYearName = Convert.ToString(lbl_claimperiodofloanaddname.Text),
-                        Months = GetMonthWiseDetails(hf_claimperiodofloanaddFinancialYear.Value, hf_Fin1stOr2ndHalfYear.Value),
+                        FinancialYearId = Convert.ToString(hf_claimperiodofloanadd_ID.Value),
+                        Dcp = Convert.ToDateTime(lblDCPdate.InnerText.ToString()),
+                    Months = GetMonthWiseDetails(hf_claimperiodofloanaddFinancialYear.Value, hf_Fin1stOr2ndHalfYear.Value),
                     });
                 }
             }
@@ -254,6 +256,7 @@ namespace TTAP.UI.Pages
         {
             public string FinancialYearText { get; set; }
             public string LoanNumber { get; set; }
+            public DateTime Dcp { get; set; }
             public string FinancialYearName { get; set; }
             public string HalfYearType { get; set; }
             public string FinancialYearId { get; set; }
@@ -269,6 +272,94 @@ namespace TTAP.UI.Pages
             public decimal AmountPaid { get; set; }
             public decimal EligibleRate { get; set; }
             public decimal EligibleAmount { get; set; }
+        }
+
+        protected void txtRptLoanInstallmentStartDt_TextChanged(object sender, EventArgs e)
+        {
+
+            TextBox txt = (TextBox)sender;
+            RepeaterItem item = (RepeaterItem)txt.NamingContainer;
+
+            TextBox txtRptLoanInstallmentStartDt = (TextBox)item.FindControl("txtRptLoanInstallmentStartDt");
+            HiddenField hf_grdeglibilepallavaddiFY_ID = (HiddenField)item.FindControl("hf_grdeglibilepallavaddiFY_ID");
+            /*TextBox txtEligibleAmount = (TextBox)item.FindControl("txtEligibleAmount");
+            TextBox txtBaseFixed = (TextBox)item.FindControl("txtBaseFixed");
+            TextBox txtEligibleUnitsBase = (TextBox)item.FindControl("txtEligibleUnitsBase");*/
+            int slno = 1;
+            string ErrorMsg = "";
+
+            //txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted.Enabled = false;
+            //txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths.Enabled = false;
+            //chk_claimeglibleincenloanwisepreviousfymot.Enabled = false;
+            //chk_moratiumapplforthisclaimperiod.Enabled = false;
+            //chk_grdclaimegliblerowstodisable.Enabled = false;
+
+            DateTime dcpdate = DateTime.Now; DateTime installmentstartdate = DateTime.Now;
+            decimal Totalamount = 0; int periodofinstallment = 0;
+            int Totalinstallment = 0; decimal installmentamount = 0; int noofinstallmentcompleted = 0; decimal termprincipaldueamount = 0;
+            int noofinstallmentcompletedMonths = 0;
+            int Actualcalnoofinstallmentcompleted = 0; decimal Actualcaltermprincipaldueamount = 0; int ActualcalnoofinstallmentcompletedMonths = 0;
+            int FYSlnoofIncentiveID = 0;
+            int firstsecondhalfyearclaimtype = 0;
+            int fyStartyear = 0;
+            int fystartmonth = 0;
+            int fyendyear = 0;
+            int fyendmonth = 0;
+            int totalclaimperiod = 6;
+            bool previousmotrage = false;
+            bool motrageforclaim = false;
+            bool noofrowsdisablesel = false;
+            int numSelected = 0; int unselectednumber = 0;
+            decimal Toteglibleperiodinmonths = 0; decimal totalinterestforallfy = 0; decimal totaleglibleinterestforallfy = 0;
+
+            decimal rateofinterestMonthone = 0, rateofinterestMonthtwo = 0, rateofinterestMonththree = 0, rateofinterestMonthfour = 0,
+                rateofinterestMonthfive = 0, rateofinterestMonthsix = 0;
+
+            //int InstallmentNoMonthone = 0,InstallmentNoMonthtwo = 0,InstallmentNoMonththree = 0,InstallmentNoMonthfour = 0,InstallmentNoMonthfive = 0,InstallmentNoMonthsix = 0;
+
+            int dcpyearsofdate = 6;
+            //if (Convert.ToString(lbl_schemetide.Text) == "TTAP")
+            //{
+            //    dcpyearsofdate = 6;
+            //}
+
+            //DateTime fiveyearsdate = dcpdate.AddYears(dcpyearsofdate);
+
+
+            if (!string.IsNullOrEmpty(hf_grdeglibilepallavaddiFY_ID.Value) || hf_grdeglibilepallavaddiFY_ID.Value != "")
+            {
+                string claimperiodddlvalue = hf_grdeglibilepallavaddiFY_ID.Value;
+                string[] argclaimperiod = new string[5];
+                argclaimperiod = claimperiodddlvalue.Split('/'); //32012/1/2016-2017
+                FYSlnoofIncentiveID = Convert.ToInt32(argclaimperiod[0]);
+                firstsecondhalfyearclaimtype = Convert.ToInt16(argclaimperiod[1]);
+                string yeardata = Convert.ToString(argclaimperiod[2]);
+                string[] argyearclaimperiod = new string[5];
+                argyearclaimperiod = yeardata.Split('-');
+                fyStartyear = Convert.ToInt32(argyearclaimperiod[0]);
+                fyendyear = Convert.ToInt32(argyearclaimperiod[1]);
+                if (firstsecondhalfyearclaimtype > 0)
+                {
+                    if (firstsecondhalfyearclaimtype == 1)
+                    {
+                        fystartmonth = 4;
+                        fyendmonth = 9;
+                        totalclaimperiod = 6;
+                    }
+                    if (firstsecondhalfyearclaimtype == 2)
+                    {
+                        fystartmonth = 10;
+                        fyendmonth = 3;
+                        totalclaimperiod = 6;
+                    }
+                    if (firstsecondhalfyearclaimtype == 3)
+                    {
+                        fystartmonth = 4;
+                        fyendmonth = 3;
+                        totalclaimperiod = 12;
+                    }
+                }
+            }
         }
     }
 }

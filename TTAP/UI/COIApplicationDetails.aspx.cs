@@ -127,8 +127,8 @@ namespace TTAP.UI
                                     BindJDSenttoDLOIncentives();
                                     BindJDSenttoDLCIncentives();
                                     // ----------------
-                                    SpanApplcationStatusHistory.InnerHtml = "Applcation Status History (DLO - " + DistrictName + ")";
-                                    SpanApplcationStatusHistoryAfterInspection.InnerHtml = "Applcation Status History - After Inspection (DLO - " + DistrictName + ")";
+                                    SpanApplcationStatusHistory.InnerHtml = "Applcation Status History (Inspecting Officer - " + DistrictName + ")";
+                                    SpanApplcationStatusHistoryAfterInspection.InnerHtml = "Applcation Status History - After Inspection (Inspecting Officer - " + DistrictName + ")";
 
                                     SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (DLO - " + DistrictName + ")";
                                     SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (DLO - " + DistrictName + ")";
@@ -4415,7 +4415,7 @@ namespace TTAP.UI
                             {
                                 divDDlevel.Visible = true;
                             }
-                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "70" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "67" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "64" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "61" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "86") && ObjLoginNewvo.Role_Code == "JD")
+                            if ((dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "70" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "67" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "64" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "61" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "86" || dss.Tables[0].Rows[i]["Stageid"]?.ToString() == "89") && ObjLoginNewvo.Role_Code == "JD")
                             {
                                 divJDlevel.Visible = true;
                             }
@@ -4972,6 +4972,23 @@ namespace TTAP.UI
                         if (result == "1")
                         {
                             success.Visible = true;
+                                ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
+                            try
+                            {
+                                if (lblstatus.Text == "2")
+                                {
+                                    ClsSMSandMailobj.SendMailIncentive(ViewState["IncentiveId"].ToString(), lblSubIncID.Text, "JDQUERY");
+                                    ClsSMSandMailobj.SendSMSIncentive(ViewState["IncentiveId"].ToString(), lblSubIncID.Text, "JDQUERY");
+                                }
+                                if (lblstatus.Text == "6")
+                                {
+                                    ClsSMSandMailobj.SendMailIncentive(ViewState["IncentiveId"].ToString(), lblSubIncID.Text, "JDREJECT");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                            }
                             lblmsg.Text = "Application Process Submitted Successfully";
                             string message = "alert('" + lblmsg.Text + "')";
                             ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);

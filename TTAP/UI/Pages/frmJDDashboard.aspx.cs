@@ -25,6 +25,7 @@ namespace TTAP.UI.Pages
                 
                 if (!IsPostBack)
                 {
+                    Session["IPASSFlag"] = "Y";
                     UserLoginNewVo ObjLoginvo = new UserLoginNewVo();
                     ObjLoginvo = (UserLoginNewVo)Session["ObjLoginvo"];
 
@@ -42,7 +43,17 @@ namespace TTAP.UI.Pages
                     if (Session["uid"] != null)
                     {
                         string userid = Session["uid"].ToString();
-
+                        if (Session["IPASSFlag"] != null)
+                        {
+                            if (ObjLoginvo.Role_Code == "ADDL" && Session["IPASSFlag"].ToString() == "Y")
+                            {
+                                divNew.Visible = true;
+                            }
+                            else
+                            {
+                                divOld.Visible = true;
+                            }
+                        }
                         DistId = Convert.ToInt32(Session["DistrictId"].ToString());
                         dss = GetJDDashboard(userid.ToString());
                         if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
@@ -84,7 +95,7 @@ namespace TTAP.UI.Pages
                             lblDIPCReleasePendingsBeyond.Text = dss.Tables[0].Rows[0]["CompletedAgendaBeyond"].ToString();
                             DLCrejected.Text = dss.Tables[0].Rows[0]["RejectedAgenda"].ToString();
                             lblDLCCompleted.Text = dss.Tables[0].Rows[0]["CompletedAgendaTotal"].ToString();
-                            
+
 
                             //---------------------------------SVC DASHBAORD -----------------------------------------------
 
@@ -103,7 +114,51 @@ namespace TTAP.UI.Pages
                             lblSVCCompleted.Text = dss.Tables[0].Rows[0]["SVCCompletedAgendaTotal"].ToString();
                             lblIssuedSanctionLetters.Text = dss.Tables[0].Rows[0]["SanctionedLettersIssued"].ToString();
                             lblPendingIssueSanctions.Text = dss.Tables[0].Rows[0]["SanctionedLettersPending"].ToString();
-                            
+
+                        }
+
+                        dss = new DataSet();
+                        dss = GetSVCSLCDashboard(DistId);
+                        if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
+                        {
+                            lblNoofSVCRcvd.Text = dss.Tables[0].Rows[0]["SVCTotalApplicationsRcvd"].ToString();
+                            lblSVCGenerateAgendaWithin.Text = dss.Tables[0].Rows[0]["SVCYetTogenerateAgendaWithin"].ToString();
+                            lblSVCGenerateAgendaBeyond.Text = dss.Tables[0].Rows[0]["SVCYetTogenerateAgendaBeyond"].ToString();
+                            int TotalSVCAgenda = (Convert.ToInt32(dss.Tables[0].Rows[0]["SVCYetTogenerateAgendaWithin"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SVCYetTogenerateAgendaBeyond"].ToString()));
+                            lblSVCGenerateAgendaTotal.Text = TotalSVCAgenda.ToString();
+                            lblSVCUploadProceedingWithin.Text = dss.Tables[0].Rows[0]["SVCYetToUpdateAgendaWithin"].ToString();
+                            lblSVCUploadProceedingBeyond.Text = dss.Tables[0].Rows[0]["SVCYetToUpdateAgendaBeyond"].ToString();
+                            int TotalSVCProceeding = (Convert.ToInt32(dss.Tables[0].Rows[0]["SVCYetToUpdateAgendaWithin"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SVCYetToUpdateAgendaBeyond"].ToString()));
+                            lblSVCUploadProceedingTotal.Text = TotalSVCProceeding.ToString();
+                            lblSVCCompletedWithin.Text = dss.Tables[0].Rows[0]["SVCCompletedAgendaWithin"].ToString();
+                            lblSVCCompletedBeyond.Text = dss.Tables[0].Rows[0]["SVCCompletedAgendaBeyond"].ToString();
+                            lblSVCRejectedList.Text = dss.Tables[0].Rows[0]["SVCRejectedAgenda"].ToString();
+                            int TotalSVCCompleted = (Convert.ToInt32(dss.Tables[0].Rows[0]["SVCCompletedAgendaWithin"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SVCCompletedAgendaBeyond"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SVCRejectedAgenda"].ToString()));
+                            lblSVCTotal.Text = TotalSVCCompleted.ToString();
+
+                            lblNoofSLCRcvd.Text = dss.Tables[0].Rows[0]["TotalApplicationsRcvdToSLC"].ToString();
+                            lblSLCGenerateAgendaWithin.Text = dss.Tables[0].Rows[0]["SLCYetTogenerateAgendaWithin"].ToString();
+                            lblSLCGenerateAgendaBeyond.Text = dss.Tables[0].Rows[0]["SLCYetTogenerateAgendaBeyond"].ToString();
+                            int TotalSLCAgenda = (Convert.ToInt32(dss.Tables[0].Rows[0]["SLCYetTogenerateAgendaWithin"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SLCYetTogenerateAgendaBeyond"].ToString()));
+                            lblSLCGenerateAgendaTotal.Text = TotalSLCAgenda.ToString();
+                            lblSLCUploadProceedingWithin.Text = dss.Tables[0].Rows[0]["SLCYetToUpdateAgendaWithin"].ToString();
+                            lblSLCUploadProceedingBeyond.Text = dss.Tables[0].Rows[0]["SLCYetToUpdateAgendaBeyond"].ToString();
+                            int TotalSLCProceeding = (Convert.ToInt32(dss.Tables[0].Rows[0]["SLCYetToUpdateAgendaWithin"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SLCYetToUpdateAgendaBeyond"].ToString()));
+                            lblSLCUploadProceedingTotal.Text = TotalSLCProceeding.ToString();
+                            lblSLCCompletedWithin.Text = dss.Tables[0].Rows[0]["SLCCompletedAgendaWithin"].ToString();
+                            lblSLCCompletedBeyond.Text = dss.Tables[0].Rows[0]["SLCCompletedAgendaBeyond"].ToString();
+                            lblSLCRejected.Text = dss.Tables[0].Rows[0]["SLCRejectedAgenda"].ToString();
+                            int TotalSLCCompleted = (Convert.ToInt32(dss.Tables[0].Rows[0]["SLCCompletedAgendaWithin"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SLCCompletedAgendaBeyond"].ToString()) +
+                                Convert.ToInt32(dss.Tables[0].Rows[0]["SLCRejectedAgenda"].ToString()));
+                            lblSLCTotal.Text = TotalSLCCompleted.ToString();
+
                         }
                     }
                 }
@@ -139,6 +194,16 @@ namespace TTAP.UI.Pages
 
             //Dsnew = caf.GenericFillDs("getDLODashboard", pp);
             Dsnew = caf.GenericFillDs("USP_GET_SVC_SLC_DASHBOARD", pp);
+            return Dsnew;
+        }
+        public DataSet GetSVCSLCDashboard(int UserID)
+        {
+            DataSet Dsnew = new DataSet();
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@USERID",SqlDbType.Int),
+           };
+            pp[0].Value = UserID;
+            Dsnew = caf.GenericFillDs("USP_GET_SVC_SLC_DASHBOARD_NEW", pp);
             return Dsnew;
         }
     }

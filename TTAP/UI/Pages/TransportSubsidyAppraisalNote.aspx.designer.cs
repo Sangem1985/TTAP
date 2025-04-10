@@ -11,35 +11,26 @@ namespace TTAP.UI.Pages
 {
 
 
-    public partial class frmJDDashboard
+    public partial class TransportSubsidyAppraisalNote
     {
 
         /// <summary>
-        /// updatepanel1 control.
+        /// upd1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel updatepanel1;
+        protected global::System.Web.UI.UpdatePanel upd1;
 
         /// <summary>
-        /// ehome control.
+        /// Sublinkname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor ehome;
-
-        /// <summary>
-        /// acurrentpage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor acurrentpage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Sublinkname;
 
         /// <summary>
         /// Receipt control.
@@ -51,642 +42,696 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Receipt;
 
         /// <summary>
-        /// divdashboardheadername control.
+        /// HMainheading control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divdashboardheadername;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HMainheading;
 
         /// <summary>
-        /// HyperLink1 control.
+        /// txtIncID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.TextBox txtIncID;
 
         /// <summary>
-        /// trsection1 control.
+        /// lbl_schemetide control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl trsection1;
+        protected global::System.Web.UI.WebControls.Label lbl_schemetide;
 
         /// <summary>
-        /// lblAppl control.
+        /// btnsub control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAppl;
+        protected global::System.Web.UI.WebControls.Button btnsub;
 
         /// <summary>
-        /// lblPendingWithin control.
+        /// Label12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPendingWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label12;
 
         /// <summary>
-        /// lblPendingBeyond control.
+        /// lblUnitName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPendingBeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblUnitName;
 
         /// <summary>
-        /// lblpendingTotal control.
+        /// Label26 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblpendingTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label26;
 
         /// <summary>
-        /// lblcomWithin control.
+        /// lblAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcomWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAddress;
 
         /// <summary>
-        /// lblcombeyond control.
+        /// Label27 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblcombeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label27;
 
         /// <summary>
-        /// lblDLrejected control.
+        /// lblProprietor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDLrejected;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblProprietor;
 
         /// <summary>
-        /// lblTotalQuery control.
+        /// Label28 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalQuery;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label28;
 
         /// <summary>
-        /// lblRepliedQueryWITHIN control.
+        /// lblOrganization control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepliedQueryWITHIN;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblOrganization;
 
         /// <summary>
-        /// lblRepliedQueryBEYOND control.
+        /// Label29 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepliedQueryBEYOND;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label29;
 
         /// <summary>
-        /// lblOpenQuery control.
+        /// lblSocialStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblOpenQuery;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblSocialStatus;
 
         /// <summary>
-        /// Div1 control.
+        /// Label30 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label30;
 
         /// <summary>
-        /// divNew control.
+        /// lblShareofSCSTWomenEnterprenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNew;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblShareofSCSTWomenEnterprenue;
 
         /// <summary>
-        /// Div3 control.
+        /// Label31 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label31;
 
         /// <summary>
-        /// lblNoofSVCRcvd control.
+        /// lblRegistrationNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoofSVCRcvd;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblRegistrationNumber;
 
         /// <summary>
-        /// lblSVCGenerateAgendaWithin control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCGenerateAgendaWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label3;
 
         /// <summary>
-        /// lblSVCGenerateAgendaBeyond control.
+        /// lblTypeofApplicant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCGenerateAgendaBeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTypeofApplicant;
 
         /// <summary>
-        /// lblSVCGenerateAgendaTotal control.
+        /// Label19 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCGenerateAgendaTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label19;
 
         /// <summary>
-        /// lblSVCUploadProceedingWithin control.
+        /// lblCategoryofUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCUploadProceedingWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCategoryofUnit;
 
         /// <summary>
-        /// lblSVCUploadProceedingBeyond control.
+        /// Label32 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCUploadProceedingBeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label32;
 
         /// <summary>
-        /// lblSVCUploadProceedingTotal control.
+        /// lblTypeofSector control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCUploadProceedingTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTypeofSector;
 
         /// <summary>
-        /// lblSVCCompletedWithin control.
+        /// Label18 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCCompletedWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label18;
 
         /// <summary>
-        /// lblSVCCompletedBeyond control.
+        /// lblTypeofTexttile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCCompletedBeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTypeofTexttile;
 
         /// <summary>
-        /// lblSVCRejectedList control.
+        /// Label33 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCRejectedList;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label33;
 
         /// <summary>
-        /// lblSVCTotal control.
+        /// lblTechnicalTextileType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTechnicalTextileType;
 
         /// <summary>
-        /// Div4 control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div4;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label5;
 
         /// <summary>
-        /// lblNoofSLCRcvd control.
+        /// lblActivityoftheUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoofSLCRcvd;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblActivityoftheUnit;
 
         /// <summary>
-        /// lblSLCGenerateAgendaWithin control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCGenerateAgendaWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label1;
 
         /// <summary>
-        /// lblSLCGenerateAgendaBeyond control.
+        /// lblTSIPassUIDNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCGenerateAgendaBeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblTSIPassUIDNumber;
 
         /// <summary>
-        /// lblSLCGenerateAgendaTotal control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCGenerateAgendaTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label2;
 
         /// <summary>
-        /// lblSLCUploadProceedingWithin control.
+        /// lblCommonApplicationNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCUploadProceedingWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCommonApplicationNumber;
 
         /// <summary>
-        /// lblSLCUploadProceedingBeyond control.
+        /// Label34 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCUploadProceedingBeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label34;
 
         /// <summary>
-        /// lblSLCUploadProceedingTotal control.
+        /// lblPowerConnectionReleaseDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCUploadProceedingTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblPowerConnectionReleaseDate;
 
         /// <summary>
-        /// lblSLCCompletedWithin control.
+        /// Label7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCCompletedWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label7;
 
         /// <summary>
-        /// lblSLCCompletedBeyond control.
+        /// lblDCPdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCCompletedBeyond;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDCPdate;
 
         /// <summary>
-        /// lblSLCRejected control.
+        /// Label6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCRejected;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label6;
 
         /// <summary>
-        /// lblSLCTotal control.
+        /// lblReceiptDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSLCTotal;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblReceiptDate;
 
         /// <summary>
-        /// divOld control.
+        /// Label9 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divOld;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Label9;
 
         /// <summary>
-        /// TableSVC control.
+        /// lblcategory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl TableSVC;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblcategory;
 
         /// <summary>
-        /// lblSVCReceived control.
+        /// divNewUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCReceived;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNewUnit;
 
         /// <summary>
-        /// lblSVCAgendaWithin control.
+        /// txtRevenueOfUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCAgendaWithin;
+        protected global::System.Web.UI.WebControls.TextBox txtRevenueOfUnit;
 
         /// <summary>
-        /// lblSVCAgendaBeyond control.
+        /// txtExportValueOfUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCAgendaBeyond;
+        protected global::System.Web.UI.WebControls.TextBox txtExportValueOfUnit;
 
         /// <summary>
-        /// lblSVCTotalYettogenerateAgenda control.
+        /// divExpansion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCTotalYettogenerateAgenda;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpansion;
 
         /// <summary>
-        /// lblSVCPrintGeneratedDLCAgenda control.
+        /// txtAverageRevenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCPrintGeneratedDLCAgenda;
+        protected global::System.Web.UI.WebControls.TextBox txtAverageRevenue;
 
         /// <summary>
-        /// lblSVCUploadProcWithin control.
+        /// txtRevenueAfterExpansion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCUploadProcWithin;
+        protected global::System.Web.UI.WebControls.TextBox txtRevenueAfterExpansion;
 
         /// <summary>
-        /// lblSVCUploadProcBeyond control.
+        /// txtIncrementalRevenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCUploadProcBeyond;
+        protected global::System.Web.UI.WebControls.TextBox txtIncrementalRevenue;
 
         /// <summary>
-        /// lblSVCUploadProc control.
+        /// txtAverageFrightCharges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCUploadProc;
+        protected global::System.Web.UI.WebControls.TextBox txtAverageFrightCharges;
 
         /// <summary>
-        /// lblSVCReleasePendingsWithin control.
+        /// txtFreightChargesAfterExpansion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCReleasePendingsWithin;
+        protected global::System.Web.UI.WebControls.TextBox txtFreightChargesAfterExpansion;
 
         /// <summary>
-        /// lblSVCReleasePendingsBeyond control.
+        /// txtCalcSubsidyAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCReleasePendingsBeyond;
+        protected global::System.Web.UI.WebControls.TextBox txtCalcSubsidyAmount;
 
         /// <summary>
-        /// lblSVCrejected control.
+        /// txtGMRecommendedAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCrejected;
+        protected global::System.Web.UI.WebControls.TextBox txtGMRecommendedAmount;
 
         /// <summary>
-        /// lblSVCCompleted control.
+        /// div3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSVCCompleted;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div3;
 
         /// <summary>
-        /// Table2 control.
+        /// txtEligibleAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Table2;
+        protected global::System.Web.UI.WebControls.TextBox txtEligibleAmount;
 
         /// <summary>
-        /// lblDLCReceived control.
+        /// rdbEligbleType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDLCReceived;
+        protected global::System.Web.UI.WebControls.RadioButtonList rdbEligbleType;
 
         /// <summary>
-        /// lblDIPCAgendaWithin control.
+        /// txtFinalSubsidyAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDIPCAgendaWithin;
+        protected global::System.Web.UI.WebControls.TextBox txtFinalSubsidyAmount;
 
         /// <summary>
-        /// lblDIPCAgendaBeyond control.
+        /// ddlDepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDIPCAgendaBeyond;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
 
         /// <summary>
-        /// lblTotalYettogenerateAgenda control.
+        /// txtRemarks control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalYettogenerateAgenda;
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
 
         /// <summary>
-        /// lblPrintGeneratedDLCAgenda control.
+        /// fuWorksheet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrintGeneratedDLCAgenda;
+        protected global::System.Web.UI.WebControls.FileUpload fuWorksheet;
 
         /// <summary>
-        /// lblDIPCUploadProcWithin control.
+        /// hypWorksheet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDIPCUploadProcWithin;
+        protected global::System.Web.UI.WebControls.HyperLink hypWorksheet;
 
         /// <summary>
-        /// lblDIPCUploadProcBeyond control.
+        /// Label444 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDIPCUploadProcBeyond;
+        protected global::System.Web.UI.WebControls.Label Label444;
 
         /// <summary>
-        /// lblDIPCUploadProc control.
+        /// btnUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDIPCUploadProc;
+        protected global::System.Web.UI.WebControls.Button btnUpload;
 
         /// <summary>
-        /// lblDIPCReleasePendingsWithin control.
+        /// trsubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDIPCReleasePendingsWithin;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trsubmit;
 
         /// <summary>
-        /// lblDIPCReleasePendingsBeyond control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDIPCReleasePendingsBeyond;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
-        /// DLCrejected control.
+        /// btnback control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DLCrejected;
+        protected global::System.Web.UI.WebControls.Button btnback;
 
         /// <summary>
-        /// lblDLCCompleted control.
+        /// success control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDLCCompleted;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl success;
 
         /// <summary>
-        /// lblPendingIssueSanctions control.
+        /// lblmsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPendingIssueSanctions;
+        protected global::System.Web.UI.WebControls.Label lblmsg;
 
         /// <summary>
-        /// lblIssuedSanctionLetters control.
+        /// Failure control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIssuedSanctionLetters;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Failure;
 
         /// <summary>
-        /// hdfID control.
+        /// lblmsg0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfID;
+        protected global::System.Web.UI.WebControls.Label lblmsg0;
 
         /// <summary>
-        /// hdfFlagID control.
+        /// lblAllwomen control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdfFlagID;
+        protected global::System.Web.UI.WebControls.HiddenField lblAllwomen;
+
+        /// <summary>
+        /// hdnApplication control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnApplication;
+
+        /// <summary>
+        /// hdnActualCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnActualCategory;
+
+        /// <summary>
+        /// hdnActualTextile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnActualTextile;
+
+        /// <summary>
+        /// hdnTypeOfIndustry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnTypeOfIndustry;
+
+        /// <summary>
+        /// HiddenFieldEnterpriseCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldEnterpriseCategory;
+
+        /// <summary>
+        /// hdnAlert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnAlert;
     }
 }

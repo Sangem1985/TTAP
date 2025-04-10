@@ -2201,6 +2201,7 @@ namespace TTAP.Classfiles
         public string Remarks { get; set; }
         public string EquipmentCost { get; set; }
         public string Category { get; set; }
+        public string CategoryName { get; set; }
     }
     public class InspectionBuildingDetails
     {
@@ -3025,6 +3026,23 @@ namespace TTAP.Classfiles
         public string FinancialYear { get; set; }
         public string FinancialYearId { get; set; }
         public string HalfYearId { get; set; }
+
+        /* Capital Assistance for Creation of Energy, Water and Environmental Conservation Infrastructure */
+
+        public string EquipmentXml { get; set; }
+
+
+        /*Transport Subsidy*/
+
+        public string TotalRevenueofUnit { get; set; }
+        public string ExportValueofUnit { get; set; }
+        public string AverageRevenue { get; set; }
+        public string RevenueAfterExpansion { get; set; }
+        public string IncrementalRevenue { get; set; }
+        public string AverageFrightCharges { get; set; }
+        public string FreightChargesAfterExpansion { get; set; }
+        public string CalculatedSubsisdyAmount { get; set; }
+
 
     }
     public class InterestSubsidyclaimloanproperties

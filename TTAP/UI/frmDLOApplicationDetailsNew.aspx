@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script type="text/javascript" src="http://code.jquery.com/Jquery.min.js" charset="utf-8"></script>
+    <script src="../Js/validations.js"></script>
 
     <script src="../../Js/validations.js" type="text/javascript"></script>
 
@@ -1581,7 +1582,7 @@
                                                             <asp:TemplateField HeaderText="Query/Remarks" ItemStyle-HorizontalAlign="Center">
                                                                 <ItemTemplate>
                                                                     <asp:TextBox ID="txtIPOQueryReplyInsp" runat="server" TextMode="MultiLine"></asp:TextBox><br />
-                                                                    <asp:FileUpload ID="fuGMFwdAppRespInsp" runat="server" CssClass="file-browse" />
+                                                                    <asp:FileUpload ID="fuGMFwdAppRespInsp" Visible="false" runat="server" CssClass="file-browse" />
                                                                 </ItemTemplate>
                                                                 <ItemStyle HorizontalAlign="Center" />
                                                             </asp:TemplateField>
@@ -1676,7 +1677,7 @@
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="G.M Recommended Amount(in Rs.)">
                                                                 <ItemTemplate>
-                                                                    <asp:TextBox runat="server" onkeypress="DecimalOnly()" CssClass="form-control" ID="txtGMAmount"></asp:TextBox>
+                                                                    <asp:TextBox runat="server" onkeypress="return DecimalOnly();" CssClass="form-control" ID="txtGMAmount"></asp:TextBox>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="Remarks/Query/Reason" ItemStyle-HorizontalAlign="Center">
@@ -2482,27 +2483,42 @@
                                                                 <asp:Label ID="lblIncentiveName" Text='<%#Eval("IncentiveName") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="GM Recommended Amount">
+                                                        <asp:TemplateField HeaderText="JD Query">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblGM_Recommended_Amount" Text='<%#Eval("GM_Recommended_Amount") %>' runat="server" />
+                                                                <asp:Label ID="lblQuery" Text='<%#Eval("Query") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Remarks">
+                                                        <asp:TemplateField HeaderText="JD Raised Date">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblGM_Recommended_Remarks" Text='<%#Eval("GM_Recommended_Remarks") %>' runat="server" />
+                                                                <asp:Label ID="lblCreatedDate" Text='<%#Eval("CreatedDate") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="GM Forward to Applicant Date">
+                                                        <asp:TemplateField HeaderText="Applicant Response">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblActionDate" Text='<%#Eval("ActionDate") %>' runat="server" />
+                                                                <asp:Label ID="lblResponce" Text='<%#Eval("Responce") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Covering Letter">
+                                                        <asp:TemplateField HeaderText="Response Date">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblResponseDate" Text='<%#Eval("ResponseDate") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="GM Forward to JD Remarks">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblGMFwdAppResptoJD_Remarks" Text='<%#Eval("GMFwdAppResptoJD_Remarks") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="GM Forward to JD Date">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblActionDate" Text='<%#Eval("GMForwardDate") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <%--<asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Covering Letter">
                                                             <ItemTemplate>
                                                                 <asp:HyperLink ID="hyQueryLetter" Text="View" NavigateUrl='<%#Eval("LetterPath")%>' Target="_blank" runat="server" />
                                                             </ItemTemplate>
                                                             <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                                         <asp:TemplateField HeaderText="IncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
@@ -2738,7 +2754,7 @@
                                                         <asp:BoundField DataField="InspectionDoneOn" HeaderText="Inspection Completed Date" />
                                                         <asp:BoundField DataField="ReportUpdateDate" HeaderText="Inspection Report Uploaded Date" />
                                                         <asp:BoundField DataField="SystemRecommended" HeaderText="System Recommended Amount" />
-                                                        <%-- <asp:BoundField DataField="OfficerRecommendedAmount" HeaderText="Officer Recommended Amount" />--%>
+                                                        <asp:BoundField DataField="OfficerRecommendedAmount" HeaderText="Officer Recommended Amount" />
                                                         <asp:BoundField DataField="Status" HeaderText="Status of Inspection" />
                                                         <asp:TemplateField HeaderText="Inspection Report">
                                                             <ItemTemplate>
@@ -3410,6 +3426,13 @@
                                                         <asp:BoundField DataField="Query" HeaderText="Query" />
                                                         <asp:BoundField DataField="Emp_Name" HeaderText="Query Raised By" />
                                                         <asp:BoundField DataField="CreatedDate" HeaderText="Query Raised Date" />
+                                                        <asp:BoundField DataField="GMResponce" HeaderText="GMResponce" />
+                                                        <asp:BoundField DataField="GMResponceDate" HeaderText="GM Responce Date" />
+                                                        <asp:BoundField DataField="Responce" HeaderText="Applicant Responce" />
+                                                        <asp:BoundField DataField="ResponseDate" HeaderText="Applicant Responce Date" />
+                                                        <asp:BoundField DataField="GMForwardAppResptoIpo" HeaderText="GM Remarks after Applicant Response" />
+                                                        <asp:BoundField DataField="GMForwardAppResptoIpoDt" HeaderText="GM Forward to IPO Date" />
+
                                                         <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
@@ -4362,7 +4385,7 @@
                 return decodeURIComponent(results[1].replace(/\+/g, ' '));
         }
         function mydata() {
-            alert('Jai Balayya');
+           
         }
     </script>
     <style type="text/css">

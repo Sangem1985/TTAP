@@ -164,7 +164,7 @@ namespace TTAP.UI
 
                                         BindAppliedIncentives(IncentiveId, Role_Code);
                                         BindPendingInspections(IncentiveId, Role_Code);
-                                        BindPendingReInspections(IncentiveId, Role_Code); 
+                                        BindPendingReInspections(IncentiveId, Role_Code);
                                         if (hdnDistId.Value != "6")
                                         {
                                             //gvUpdateInspectionDetails.Columns[7].Visible = false;
@@ -1296,10 +1296,24 @@ namespace TTAP.UI
                         try
                         {
                             ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
-                            /*msg = ClsSMSandMailobj.SendSmsWebService(IncentiveId, SubIncentiveId, "Incentives", TransactionId, SubModule);*/
-                            if (Rbtnstatus.SelectedValue == "3")
+                            if (Rbtnstatus.SelectedValue == "1")
                             {
-                                /*msg = ClsSMSandMailobj.SendSmsWebService(IncentiveId, SubIncentiveId, "Incentives", "8", SubModule);*/
+                                try
+                                {
+                                    ClsSMSandMailobj.SendMailIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "INSPECTION");
+                                }
+                                catch (Exception ex)
+                                {
+                                    LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                                }
+                                try
+                                {
+                                    ClsSMSandMailobj.SendSMSIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "INSPECTION");
+                                }
+                                catch (Exception ex)
+                                {
+                                    LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                                }
                             }
                         }
                         catch (Exception ex)
@@ -1657,10 +1671,10 @@ namespace TTAP.UI
                     divJointInspReport.Visible = true;
                 }
                 string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-                string Amount = ObjCAFClass.GetJDRecommededAmount(ViewState["IncentiveId"].ToString(),SubIncId.ToString());
+                string Amount = ObjCAFClass.GetJDRecommededAmount(ViewState["IncentiveId"].ToString(), SubIncId.ToString());
                 txtAddlAmount.Text = Amount.Trim();
                 divAddlRecAmount.Visible = true;
-                
+
                 //if (SubIncId == "3" || SubIncId == "4" || SubIncId == "9" || SubIncId == "6" || SubIncId == "14")
                 //{
                 //    divrdbHalfyear.Visible = true;
@@ -1980,7 +1994,7 @@ namespace TTAP.UI
                     slno = slno + 1;
                 }
             }
-                return ErrorMsg;
+            return ErrorMsg;
         }
         protected void btnJDHeadOffice_Click(object sender, EventArgs e)
         {
@@ -3280,7 +3294,7 @@ namespace TTAP.UI
             divYesControls.Visible = false;
             divQueryControl.Visible = false;
             divRejectControl.Visible = false;
-           // btnNext.Visible = true;
+            // btnNext.Visible = true;
         }
         public void GetInspectingOfficers()
         {
@@ -3567,6 +3581,8 @@ namespace TTAP.UI
 
                 ObjApplicationStatus.IncentiveId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblIncentiveId")).Text.ToString();
                 ObjApplicationStatus.SubIncentiveId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblSubIncentiveId")).Text.ToString();
+                string IncentiveId = ObjApplicationStatus.IncentiveId;
+                string SubIncentiveId = ObjApplicationStatus.SubIncentiveId;
                 ObjApplicationStatus.QueryId = ((Label)gvQueriesFromIPO.Rows[indexing].FindControl("lblQueryId")).Text.ToString();
                 ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
                 ObjApplicationStatus.Remarks = ((TextBox)gvQueriesFromIPO.Rows[indexing].FindControl("txtIPOQueryReply")).Text.ToString();
@@ -3610,6 +3626,23 @@ namespace TTAP.UI
                     btnFwdtoApplicantBeforeInsp.Visible = false;
                     hypconcernedCTo.Visible = true;
                     BindGMHistory();
+                    ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
+                    try
+                    {
+                        ClsSMSandMailobj.SendMailIncentive(IncentiveId, SubIncentiveId, "IPOQUERY");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                    }
+                    try
+                    {
+                        ClsSMSandMailobj.SendSMSIncentive(IncentiveId, SubIncentiveId, "IPOQUERY");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                    }
                     Successmsg = "Query Forwarded Successfully to Applicant";
                     string message = "alert('" + Successmsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
@@ -3815,6 +3848,23 @@ namespace TTAP.UI
                     btnFwdtoApplicantAfterInsp.Visible = false;
                     hypconcernedCTo.Visible = true;
                     BindGMHistory();
+                    ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
+                    try
+                    {
+                        ClsSMSandMailobj.SendMailIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "IPOQUERY2");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                    }
+                    try
+                    {
+                        ClsSMSandMailobj.SendSMSIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "IPOQUERY2");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                    }
                     string Successmsg = "";
                     Successmsg = "Query Forwarded Successfully to Applicant";
                     string message = "alert('" + Successmsg + "')";
@@ -3971,6 +4021,23 @@ namespace TTAP.UI
                     btnRaiseQueryAftrResp.Visible = false;
                     hypconcernedCTo.Visible = true;
                     BindGMHistory();
+                    ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
+                    try
+                    {
+                        ClsSMSandMailobj.SendMailIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "GMQUERY");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                    }
+                    try
+                    {
+                        ClsSMSandMailobj.SendSMSIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "GMQUERY");
+                    }
+                    catch (Exception ex)
+                    {
+                        LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                    }
                     string Successmsg = "";
                     Successmsg = "Query Raised Successfully";
                     string message = "alert('" + Successmsg + "')";
@@ -4134,20 +4201,20 @@ namespace TTAP.UI
                 }
                 if (ObjApplicationStatus.TransType == "1" || ObjApplicationStatus.TransType == "3" || ObjApplicationStatus.TransType == "4")
                 {
-                    if (ObjApplicationStatus.Remarks == "") 
+                    if (ObjApplicationStatus.Remarks == "")
                     {
                         string info = "";
                         if (ObjApplicationStatus.TransType == "1") { info = "Please enter Query"; }
                         if (ObjApplicationStatus.TransType == "2") { info = "Please enter Remarks"; }
                         if (ObjApplicationStatus.TransType == "3") { info = "Please enter Reject Reason"; }
-                        if (ObjApplicationStatus.TransType == "4") { info = "Please enter Rollback Reason"; } 
+                        if (ObjApplicationStatus.TransType == "4") { info = "Please enter Rollback Reason"; }
                         string message = "alert('" + info + "')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                         return;
                     }
                 }
 
-                    HyperLink hypconcernedCTo = new HyperLink();
+                HyperLink hypconcernedCTo = new HyperLink();
                 hypconcernedCTo = ((HyperLink)gvdivGMRecommendCOI.Rows[indexing].FindControl("hyGMRecFile"));
 
                 string Status = ObjCAFClass.UpdateGMRecommendationtoCoi(ObjApplicationStatus);
@@ -4229,19 +4296,46 @@ namespace TTAP.UI
                                 ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Please enter Rejection Remarks');", true);
                                 return;
                             }
-                            else 
+                            else
                                 ObjApplicationStatus.QueryReason = txtRejectRemarks.Text.Trim();
                         }
                         ObjApplicationStatus.IncentiveId = ViewState["IncentiveId"].ToString();
                         ObjApplicationStatus.SubIncentiveId = SubIncentiveId;
                         ObjApplicationStatus.CreatedBy = ObjLoginNewvo.uid;
-                        ObjApplicationStatus.OfficerId = ddlOfficer.SelectedValue;                        
-                       
+                        ObjApplicationStatus.OfficerId = ddlOfficer.SelectedValue;
+
                         string Status = ObjCAFClass.AssignInspectingOfficer(ObjApplicationStatus);
+                        string msg = "";
                         if (Convert.ToInt32(Status) > 0)
                         {
-                            //UpdateYettoAssignGrid(SubIncentiveId);
                             IncCount = IncCount + 1;
+                            ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
+                            try
+                            {
+                                if (rblAction.SelectedValue == "N")
+                                {
+                                    ClsSMSandMailobj.SendMailIncentive(ViewState["IncentiveId"].ToString(), SubIncentiveId, "GMQUERY");
+                                }
+                                else if (rblAction.SelectedValue == "R")
+                                {
+                                    ClsSMSandMailobj.SendMailIncentive(ViewState["IncentiveId"].ToString(), SubIncentiveId, "GMREJECT");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                            }
+                            try
+                            {
+                                if (rblAction.SelectedValue == "N")
+                                {
+                                    ClsSMSandMailobj.SendSMSIncentive(ViewState["IncentiveId"].ToString(), SubIncentiveId, "GMQUERY");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                            }
                         }
                     }
                     else
@@ -4250,12 +4344,11 @@ namespace TTAP.UI
                         return;
                     }
                 }
-                if (gvNo.Rows.Count == IncCount)
+                if (GvYetAssign.Rows.Count == IncCount)
                 {
                     ScriptManager.RegisterStartupScript(this, GetType(), "showalert", "alert('Application Process has been Submitted Successfully');", true);
-                    gvNo.Visible = false;
-                    divQueryControl.Visible = false;
-                    return;
+                    divGMVerification.Visible = false;
+                    BindGMHistory();
                 }
                 else
                 {
@@ -4284,7 +4377,7 @@ namespace TTAP.UI
             {
                 txtGMAmount.Enabled = false;
             }
-            else 
+            else
             {
                 txtGMAmount.Enabled = true;
             }
@@ -4325,13 +4418,33 @@ namespace TTAP.UI
                         return;
                     }
                 }
-                
+
                 string Status = ObjCAFClass.FwdApplicantResponsetoJD(ObjApplicationStatus);
                 if (Convert.ToInt32(Status) > 0)
                 {
                     string Successmsg = "";
                     divGMVerification.Visible = false;
-                    if (ActionType == "1") { Successmsg = "Query Raised Successfully"; }
+                    if (ActionType == "1") 
+                    { 
+                        Successmsg = "Query Raised Successfully";
+                        ClsSMSandMail ClsSMSandMailobj = new ClsSMSandMail();
+                        try
+                        {
+                            ClsSMSandMailobj.SendMailIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "GMQUERY");
+                        }
+                        catch (Exception ex)
+                        {
+                            LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                        }
+                        try
+                        {
+                            ClsSMSandMailobj.SendSMSIncentive(ObjApplicationStatus.IncentiveId, ObjApplicationStatus.SubIncentiveId, "GMQUERY");
+                        }
+                        catch (Exception ex)
+                        {
+                            LogErrorFile.LogerrorDB(ex, HttpContext.Current.Request.Url.AbsoluteUri, Session["uid"].ToString());
+                        }
+                    }
                     if (ActionType == "2") { Successmsg = "Application Forwarded to JD"; }
                     string message = "alert('" + Successmsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);

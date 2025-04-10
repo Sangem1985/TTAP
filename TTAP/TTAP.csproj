@@ -527,6 +527,7 @@
     <Content Include="UI\Pages\BilldeskPaymentResponse.aspx" />
     <Content Include="UI\Pages\BilldeskPaymentResponseWithMaster.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx" />
+    <Content Include="UI\Pages\CapitalAssistanceCreationEnergyAppraisal.aspx" />
     <Content Include="UI\Pages\CapitalAssistanceNewUnit.aspx" />
     <Content Include="UI\Pages\CapitalSubsidy.aspx" />
     <Content Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx" />
@@ -681,6 +682,7 @@
     <Content Include="UI\Pages\RecommendationLetters\DLOCoveringLetter.aspx" />
     <Content Include="UI\Pages\RecommendationLetters\frmIntimationLetter.aspx" />
     <Content Include="UI\Pages\RecommendationLetters\GMCoveringLetter.aspx" />
+    <Content Include="UI\Pages\RecommendationLetters\IntimationLetter.aspx" />
     <Content Include="UI\Pages\Releases\CompleteReleasedList.aspx" />
     <Content Include="UI\Pages\Releases\FormUnitWorkingStatusHO.aspx" />
     <Content Include="UI\Pages\Releases\FormWorkingStatusDashboard.aspx" />
@@ -708,6 +710,8 @@
     <Content Include="UI\Pages\SLC\frmSLCGeneratedAgendaPrint.aspx" />
     <Content Include="UI\Pages\SLC\frmSLCGeneratedAgendaUpdate.aspx" />
     <Content Include="UI\Pages\SLC\frmSLCSactionedApplications.aspx" />
+    <Content Include="UI\Pages\SLC\ISLCAllApplicationsList.aspx" />
+    <Content Include="UI\Pages\SLC\ISLCSactionedApplications.aspx" />
     <Content Include="UI\Pages\SLVUploadsEntry.aspx" />
     <Content Include="UI\Pages\StampDutyAppraisal.aspx" />
     <Content Include="UI\Pages\StampDutyAppraisalPrint.aspx" />
@@ -718,8 +722,11 @@
     <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaAbstract.aspx" />
     <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaPrint.aspx" />
     <Content Include="UI\Pages\SVC\frmSVCGeneratedAgendaUpdate.aspx" />
+    <Content Include="UI\Pages\SVC\ISVCAllApplicationsList.aspx" />
+    <Content Include="UI\Pages\SVC\ISVCSactionedApplications.aspx" />
     <Content Include="UI\Pages\TaxAppraisalNote.aspx" />
     <Content Include="UI\Pages\TaxAppraisalPrint.aspx" />
+    <Content Include="UI\Pages\TransportSubsidyAppraisalNote.aspx" />
     <Content Include="UI\Pages\TypeOfIncentivesNew.aspx" />
     <Content Include="UI\Pages\TypeOfIncentivesNew1.aspx" />
     <Content Include="UI\Pages\VisitorRegistration.aspx" />
@@ -1112,6 +1119,13 @@
     </Compile>
     <Compile Include="UI\Pages\CapitalAssistanceCreationEnergy.aspx.designer.cs">
       <DependentUpon>CapitalAssistanceCreationEnergy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalAssistanceCreationEnergyAppraisal.aspx.cs">
+      <DependentUpon>CapitalAssistanceCreationEnergyAppraisal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\CapitalAssistanceCreationEnergyAppraisal.aspx.designer.cs">
+      <DependentUpon>CapitalAssistanceCreationEnergyAppraisal.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\CapitalAssistanceNewUnit.aspx.cs">
       <DependentUpon>CapitalAssistanceNewUnit.aspx</DependentUpon>
@@ -2191,6 +2205,13 @@
     <Compile Include="UI\Pages\RecommendationLetters\GMCoveringLetter.aspx.designer.cs">
       <DependentUpon>GMCoveringLetter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\IntimationLetter.aspx.cs">
+      <DependentUpon>IntimationLetter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\RecommendationLetters\IntimationLetter.aspx.designer.cs">
+      <DependentUpon>IntimationLetter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\Releases\CompleteReleasedList.aspx.cs">
       <DependentUpon>CompleteReleasedList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2380,6 +2401,20 @@
     <Compile Include="UI\Pages\SLC\frmSLCSactionedApplications.aspx.designer.cs">
       <DependentUpon>frmSLCSactionedApplications.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\SLC\ISLCAllApplicationsList.aspx.cs">
+      <DependentUpon>ISLCAllApplicationsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\ISLCAllApplicationsList.aspx.designer.cs">
+      <DependentUpon>ISLCAllApplicationsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\ISLCSactionedApplications.aspx.cs">
+      <DependentUpon>ISLCSactionedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SLC\ISLCSactionedApplications.aspx.designer.cs">
+      <DependentUpon>ISLCSactionedApplications.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\SLVUploadsEntry.aspx.cs">
       <DependentUpon>SLVUploadsEntry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2450,6 +2485,20 @@
     <Compile Include="UI\Pages\SVC\frmSVCGeneratedAgendaUpdate.aspx.designer.cs">
       <DependentUpon>frmSVCGeneratedAgendaUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\SVC\ISVCAllApplicationsList.aspx.cs">
+      <DependentUpon>ISVCAllApplicationsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\ISVCAllApplicationsList.aspx.designer.cs">
+      <DependentUpon>ISVCAllApplicationsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\ISVCSactionedApplications.aspx.cs">
+      <DependentUpon>ISVCSactionedApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\SVC\ISVCSactionedApplications.aspx.designer.cs">
+      <DependentUpon>ISVCSactionedApplications.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\TaxAppraisalNote.aspx.cs">
       <DependentUpon>TaxAppraisalNote.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2463,6 +2512,13 @@
     </Compile>
     <Compile Include="UI\Pages\TaxAppraisalPrint.aspx.designer.cs">
       <DependentUpon>TaxAppraisalPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\TransportSubsidyAppraisalNote.aspx.cs">
+      <DependentUpon>TransportSubsidyAppraisalNote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\TransportSubsidyAppraisalNote.aspx.designer.cs">
+      <DependentUpon>TransportSubsidyAppraisalNote.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\TypeOfIncentivesNew.aspx.cs">
       <DependentUpon>TypeOfIncentivesNew.aspx</DependentUpon>

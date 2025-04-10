@@ -310,10 +310,10 @@ namespace TTAP.Classfiles
                         }
                     }
                 }
-            }  
+            }
             return msg;
         }
-       
+
         public DataSet GetSMSandMaildata(string IncentiveID, string MstIncentiveId, string Role, string transaction)
         {
             con.OpenConnection();
@@ -351,6 +351,54 @@ namespace TTAP.Classfiles
                 da.SelectCommand.Parameters.Add("@IncentiveID", SqlDbType.VarChar).Value = IncentiveID;
                 da.SelectCommand.Parameters.Add("@MstIncentiveId", SqlDbType.VarChar).Value = MstIncentiveId;
                 da.SelectCommand.Parameters.Add("@Role", SqlDbType.VarChar).Value = Role;
+                da.SelectCommand.Parameters.Add("@transaction", SqlDbType.VarChar).Value = transaction;
+                da.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
+        public DataSet GetMailData(string IncentiveID, string MstIncentiveId, string transaction)
+        {
+            con.OpenConnection();
+            SqlDataAdapter da;
+            DataSet ds = new DataSet();
+            try
+            {
+                da = new SqlDataAdapter("USP_GET_EMAIL_TEXT", con.GetConnection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.Add("@IncentiveID", SqlDbType.VarChar).Value = IncentiveID;
+                da.SelectCommand.Parameters.Add("@MstIncentiveId", SqlDbType.VarChar).Value = MstIncentiveId;
+                da.SelectCommand.Parameters.Add("@transaction", SqlDbType.VarChar).Value = transaction;
+                da.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+        }
+        public DataSet GetSMSData(string IncentiveID, string MstIncentiveId, string transaction)
+        {
+            con.OpenConnection();
+            SqlDataAdapter da;
+            DataSet ds = new DataSet();
+            try
+            {
+                da = new SqlDataAdapter("USP_GET_SMS_TEXT", con.GetConnection);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.Add("@IncentiveID", SqlDbType.VarChar).Value = IncentiveID;
+                da.SelectCommand.Parameters.Add("@MstIncentiveId", SqlDbType.VarChar).Value = MstIncentiveId;
                 da.SelectCommand.Parameters.Add("@transaction", SqlDbType.VarChar).Value = transaction;
                 da.Fill(ds);
                 return ds;
@@ -452,6 +500,194 @@ namespace TTAP.Classfiles
             dataStream.Close();
             response.Close();
             return responseFromServer;
+        }
+        public void SendMailIncentive1(string mailid, string Messages)
+        {
+
+            string from = "tsipass.telangana@gmail.com";
+
+            string to = mailid;
+
+            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
+            mail.To.Add(to);
+            //mail.CC.Add("coi.tsipass@gmail.com");
+            mail.CC.Add("chanikyagopal@gmail.com");
+            mail.From = new MailAddress(from, ":: TS-iPASS :: Government of Telangana", System.Text.Encoding.UTF8);
+
+            mail.Subject = "T-TAP - Incentive Inspection ::";
+
+            mail.SubjectEncoding = System.Text.Encoding.UTF8;
+            mail.Body = Messages;
+            mail.BodyEncoding = System.Text.Encoding.UTF8;
+
+            mail.IsBodyHtml = true;
+            mail.Priority = MailPriority.High;
+
+            SmtpClient client = new SmtpClient();
+
+            client.Credentials = new System.Net.NetworkCredential(from, "lrefskmlxnoowqtc");
+
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            try
+            {
+                client.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                Exception ex2 = ex;
+                string errorMessage = string.Empty;
+                while (ex2 != null)
+                {
+                    errorMessage += ex2.ToString();
+                    ex2 = ex2.InnerException;
+                }
+                HttpContext.Current.Response.Write(errorMessage);
+            }
+        }
+        public void SendMailIncentive(string IncentiveId, string SubIncentiveId, string Transaction)
+        {  
+            string EmailSend = "";
+            string FromEmailId;
+            string Password;
+            try
+            {
+                DataSet ds = new DataSet();
+                FromEmailId = Convert.ToString(ConfigurationManager.AppSettings["FromMail"]);
+                Password = Convert.ToString(ConfigurationManager.AppSettings["FromMailPwd"]);
+                ds = GetMailData(IncentiveId, SubIncentiveId, Transaction);
+
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    bool ServerFlag = Convert.ToBoolean(ConfigurationManager.AppSettings["IsServer"].ToString());
+                    if (ServerFlag == true)
+                    {
+                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                        {
+                            try
+                            {
+                                string ToMail = ds.Tables[0].Rows[i]["MAILID"].ToString();
+                                string MailDescription = ds.Tables[0].Rows[i]["EMAILTEXT"].ToString();
+                                string MailSubject = ds.Tables[0].Rows[i]["MAILSUBJECT"].ToString();
+                                MailMessage message = new MailMessage(FromEmailId, ToMail)
+                                {
+                                    Subject = MailSubject,
+                                    Body = MailDescription
+                                };
+                                message.CC.Add("chanikya_k@cms.co.in");
+                                message.CC.Add("kalyanbabu.ykb@gmail.com");
+                                message.IsBodyHtml = Convert.ToString(ConfigurationManager.AppSettings["IsBodyHtml"]) == "true";
+                                SmtpClient client = new SmtpClient
+                                {
+                                    Host = Convert.ToString(ConfigurationManager.AppSettings["Host"]),
+                                    Port = Convert.ToInt32(ConfigurationManager.AppSettings["Port"]),
+                                    UseDefaultCredentials = (Convert.ToString(ConfigurationManager.AppSettings["UseDefaultCredentials"]) != "true") ? false : true
+                                };
+                                if (!client.UseDefaultCredentials)
+                                {
+                                    client.Credentials = new NetworkCredential(FromEmailId, Password);
+                                }
+                                client.EnableSsl = Convert.ToString(ConfigurationManager.AppSettings["EnableSsl"]) == "true";
+                                client.Send(message);
+                                EmailSend = "Y";
+                            }
+                            catch (Exception ex)
+                            {
+                                string errorMsg = ex.Message;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception exception1)
+            {
+                EmailSend = "N";
+                Errors.ErrorLog(exception1);
+                LogErrorFile.LogerrorDB(exception1, HttpContext.Current.Request.Url.AbsoluteUri, "0");
+            }
+        }
+        public void SendSMSIncentive(string IncentiveId, string SubIncentiveId, string Transaction)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ds = GetSMSData(IncentiveId, SubIncentiveId, Transaction);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        string MobileNo = ds.Tables[0].Rows[i]["MAILID"].ToString();
+                        string Message = ds.Tables[0].Rows[i]["EMAILTEXT"].ToString();
+                        string Template = ds.Tables[0].Rows[i]["MAILSUBJECT"].ToString();
+                        SendSingleSMS(MobileNo, Message, Template);
+                    }
+                }
+            }
+            catch (Exception exception1)
+            {
+                Errors.ErrorLog(exception1);
+                LogErrorFile.LogerrorDB(exception1, HttpContext.Current.Request.Url.AbsoluteUri, "0");
+            }
+        }
+        public String SendSingleSMS(String mobileNo, String message, string templID)
+        {
+            String username = "TSIPASS";
+            String password = "kcsb@786";
+            String senderid = "TSIPAS";
+            String secureKey = "e8750728-53e8-4f29-9bc9-9f06975accb0";
+
+            //Latest Generated Secure Key
+                Stream dataStream;
+                System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://msdgweb.mgov.gov.in/esms/sendsmsrequestDLT");
+                request.ProtocolVersion = HttpVersion.Version10;
+                request.KeepAlive = false;
+                request.ServicePoint.ConnectionLimit = 1;
+                //((HttpWebRequest)request).UserAgent = ".NET Framework Example Client";
+                ((HttpWebRequest)request).UserAgent = "Mozilla/4.0 (compatible; MSIE 5.0; Windows 98; DigExt)";
+                request.Method = "POST";
+                //System.Net.ServicePointManager.CertificatePolicy = new MyPolicy();
+                //System.Net.ServicePointManager.CertificatePolicy= new 
+                String encryptedPassword = encryptedPasswod(password);
+                String NewsecureKey = hashGenerator(username.Trim(), senderid.Trim(), message.Trim(), secureKey.Trim());
+                String smsservicetype = "singlemsg"; //For single message.
+                String query = "username=" + HttpUtility.UrlEncode(username.Trim()) +
+                    "&password=" + HttpUtility.UrlEncode(encryptedPassword) +
+                    "&smsservicetype=" + HttpUtility.UrlEncode(smsservicetype) +
+                    "&content=" + HttpUtility.UrlEncode(message.Trim()) +
+                    "&mobileno=" + HttpUtility.UrlEncode(mobileNo) +
+                    "&senderid=" + HttpUtility.UrlEncode(senderid.Trim()) +
+                    "&key=" + HttpUtility.UrlEncode(NewsecureKey.Trim()) +
+                    "&templateid=" + HttpUtility.UrlEncode(templID.Trim());
+
+
+                byte[] byteArray = Encoding.ASCII.GetBytes(query);
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = byteArray.Length;
+                dataStream = request.GetRequestStream();
+                dataStream.Write(byteArray, 0, byteArray.Length);
+                dataStream.Close();
+                WebResponse response = request.GetResponse();
+                String Status = ((HttpWebResponse)response).StatusDescription;
+                dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                String responseFromServer = reader.ReadToEnd();
+                if (responseFromServer.Contains("402"))
+                {
+                    try
+                    {
+                        //GetTESTVALUES(message, "Applicationno", mobileNo, templID);
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+                reader.Close();
+                dataStream.Close();
+                response.Close();
+                return responseFromServer;
         }
     }
 }

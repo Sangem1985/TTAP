@@ -57,6 +57,8 @@ namespace TTAP.UI.Pages
                             lblIPOQueries.Text = dss.Tables[0].Rows[0]["IPOQueriesRaised"].ToString();
                             lblIPOQueryFwdtoApp.Text = dss.Tables[0].Rows[0]["IPOQueryForwardtoApplicant"].ToString();
                             lblAppResptoIPOQry.Text = dss.Tables[0].Rows[0]["ApplicantResponsetoIPOQuery"].ToString();
+                            lblGMYettoFwdtoApplicantIQ.Text = dss.Tables[0].Rows[0]["IPOQueryGMYetToForwardToApplicant"].ToString();
+                            lblGMYettoRespondtoAppResp.Text = dss.Tables[0].Rows[0]["AplicntRspdIPOQueryGMYetToRespond"].ToString();
 
                             lblCOIQueriesTotalRaised.Text = dss.Tables[0].Rows[0]["COIQueriesTotalRaised"].ToString();
                             lblCOIQueriesYettoRespondByApplicant.Text = dss.Tables[0].Rows[0]["COIQueriesYettoRespondByApplicant"].ToString();

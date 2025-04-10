@@ -8162,6 +8162,140 @@ namespace TTAP.Classfiles
 
             return Result;
         }
+        public string InsertCACEWECIAppraisal(ApprasialProperties DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INS_APPRAISAL_CAPITAL_ASSISTANCE_CEWE";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@UNITNAME", DLODetails.NAMEOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@ADDRESS", DLODetails.LOCATIONOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@PROPRIETOR_NAME", DLODetails.NAMEOFPROMOTER);
+                com.Parameters.AddWithValue("@CONSTITUTION_ORGANIZATION", DLODetails.ConstitutionOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@SOCIAL_STATUS", DLODetails.SOCIALSTATUS);
+                com.Parameters.AddWithValue("@SHARE_OF_SC_ST_WOMEN", DLODetails.WOMENENTERPRENEUR);
+                com.Parameters.AddWithValue("@REGISTRATION_NO", DLODetails.PMTSSIREGISTRATIONNO);
+                com.Parameters.AddWithValue("@TYPE_OF_UNIT", DLODetails.TypeOfUnit);
+                com.Parameters.AddWithValue("@CATEGORY", DLODetails.CATEGORY);
+                com.Parameters.AddWithValue("@TYPE_OF_SECTOR", DLODetails.SECTOR);
+                com.Parameters.AddWithValue("@TYPE_OF_TEXTILE", DLODetails.TextileType);
+                com.Parameters.AddWithValue("@TECHNICAL_TEXTILE_TYPE", DLODetails.TechnicalTextileType);
+                com.Parameters.AddWithValue("@ACTIVITY", DLODetails.ActivityOfUnit);
+                com.Parameters.AddWithValue("@UID_NO", DLODetails.UID_NO);
+                com.Parameters.AddWithValue("@APPLICATION_NO", DLODetails.Application_No);
+                com.Parameters.AddWithValue("@POWER_CONNECTION_RELEASE_DT", DLODetails.PowerConnectionRlsDate);
+                com.Parameters.AddWithValue("@DCP", DLODetails.DATEOFPRODUCTION);
+                com.Parameters.AddWithValue("@APPLIEDDATE", DLODetails.DICFILLINGDATE);
+                com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
+                com.Parameters.AddWithValue("@XML", DLODetails.EquipmentXml);
+                com.Parameters.AddWithValue("@WORKSHEET_PATH", DLODetails.WorkSheetPath);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+                com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBYIP);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
+        public string InsertTransportAppraisal(ApprasialProperties DLODetails)
+        {
+            string Result = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_INS_APPRAISAL_TRANSPORT_SUBSIDY";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@INCENTIVEID", DLODetails.INCENTIVEID);
+                com.Parameters.AddWithValue("@UNITNAME", DLODetails.NAMEOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@ADDRESS", DLODetails.LOCATIONOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@PROPRIETOR_NAME", DLODetails.NAMEOFPROMOTER);
+                com.Parameters.AddWithValue("@CONSTITUTION_ORGANIZATION", DLODetails.ConstitutionOFINDUSTRIAL);
+                com.Parameters.AddWithValue("@SOCIAL_STATUS", DLODetails.SOCIALSTATUS);
+                com.Parameters.AddWithValue("@SHARE_OF_SC_ST_WOMEN", DLODetails.WOMENENTERPRENEUR);
+                com.Parameters.AddWithValue("@REGISTRATION_NO", DLODetails.PMTSSIREGISTRATIONNO);
+                com.Parameters.AddWithValue("@TYPE_OF_UNIT", DLODetails.TypeOfUnit);
+                com.Parameters.AddWithValue("@CATEGORY", DLODetails.CATEGORY);
+                com.Parameters.AddWithValue("@TYPE_OF_SECTOR", DLODetails.SECTOR);
+                com.Parameters.AddWithValue("@TYPE_OF_TEXTILE", DLODetails.TextileType);
+                com.Parameters.AddWithValue("@TECHNICAL_TEXTILE_TYPE", DLODetails.TechnicalTextileType);
+                com.Parameters.AddWithValue("@ACTIVITY", DLODetails.ActivityOfUnit);
+                com.Parameters.AddWithValue("@UID_NO", DLODetails.UID_NO);
+                com.Parameters.AddWithValue("@APPLICATION_NO", DLODetails.Application_No);
+                com.Parameters.AddWithValue("@POWER_CONNECTION_RELEASE_DT", DLODetails.PowerConnectionRlsDate);
+                com.Parameters.AddWithValue("@DCP", DLODetails.DATEOFPRODUCTION);
+                com.Parameters.AddWithValue("@APPLIEDDATE", DLODetails.DICFILLINGDATE);
+
+                com.Parameters.AddWithValue("@TOTAL_REVENUE_OF_UNIT", DLODetails.TotalRevenueofUnit);
+                com.Parameters.AddWithValue("@EXPORT_VALUE_OF_UNIT", DLODetails.ExportValueofUnit);
+                com.Parameters.AddWithValue("@AVERAGE_REVENUE", DLODetails.AverageRevenue);
+                com.Parameters.AddWithValue("@REVENUE_AFTER_EXPANSION", DLODetails.RevenueAfterExpansion);
+                com.Parameters.AddWithValue("@INCREMENTAL_REVENUE", DLODetails.IncrementalRevenue);
+                com.Parameters.AddWithValue("@AVERAGE_FRIGHT_CHARGES", DLODetails.AverageFrightCharges);
+                com.Parameters.AddWithValue("@FREIGHT_CHARGES_AFTER_EXPANSION", DLODetails.FreightChargesAfterExpansion);
+                com.Parameters.AddWithValue("@CALCULATED_SUBSISDY_AMOUNT", DLODetails.ComputedTotalCost);
+                com.Parameters.AddWithValue("@GM_REC_AMOUNT", DLODetails.GMRecommendedAmount);
+                com.Parameters.AddWithValue("@TOTAL_ELIGIBLE_AMOUNT", DLODetails.EligibleSubsidyAmount);
+                com.Parameters.AddWithValue("@ELIGIBILITY_TYPE", DLODetails.Type);
+                com.Parameters.AddWithValue("@FINAL_ELIGIBLE_AMOUNT", DLODetails.TotalSubsidyAmount);
+                com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
+                com.Parameters.AddWithValue("@WORKSHEET_PATH", DLODetails.WorkSheetPath);
+                com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
+                com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBYIP);
+                com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
+                com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                Result = com.Parameters["@RESULT"].Value.ToString();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return Result;
+        }
 
     }
 

@@ -102,7 +102,7 @@
                                             <asp:BoundField DataField="ApplicationFiledDate" ItemStyle-HorizontalAlign="Center" HeaderText="Application Date" DataFormatString="{0:dd-M-yyyy}">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
-                                            <asp:BoundField DataField="IncentiveCount" ItemStyle-HorizontalAlign="Center" HeaderText="No. of Incentives">
+                                            <asp:BoundField DataField="IncentiveName" ItemStyle-HorizontalAlign="Center" HeaderText="Incentive Name">
                                                 <ItemStyle HorizontalAlign="Center" />
                                             </asp:BoundField>
                                             <asp:TemplateField HeaderText="Process Application" ItemStyle-HorizontalAlign="Center">

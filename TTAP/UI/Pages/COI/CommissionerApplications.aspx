@@ -73,6 +73,11 @@
                                                     <asp:HiddenField ID="HdfApprovalid" runat="server" />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Application No.">
+                                                <ItemTemplate>
+                                                    <asp:Label runat="server" ID="lblApplicationNo" Text='<%#Eval("ApplicationNumber") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
                                              <asp:TemplateField HeaderText="View Application">
                                                 <ItemTemplate>
                                                     <asp:HyperLink runat="server" ID="hypViewApplication" Text="View Application" NavigateUrl='<%#Eval("ViewApplication") %>' Target="_blank"></asp:HyperLink>

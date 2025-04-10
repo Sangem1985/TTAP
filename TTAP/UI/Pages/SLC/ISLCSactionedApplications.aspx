@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="frmSVCGenerateAgenda.aspx.cs" Inherits="TTAP.UI.Pages.SVC.frmSVCGenerateAgenda" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="ISLCSactionedApplications.aspx.cs" Inherits="TTAP.UI.Pages.SLC.ISLCSactionedApplications" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../../js/jquery-latest.min.js" type="text/javascript"></script>
     <script src="../../../js/jquery-ui.min.js" type="text/javascript"></script>
@@ -54,8 +53,8 @@
                     </div>
                     <div class="breadcrumb-bg">
                         <ul class="breadcrumb font-medium title5 container">
-                            <li class="breadcrumb-item"><a href="../frmDashBoard.aspx">Home</a></li>
-                            <li class="breadcrumb-item">Generate SVC Agenda</li>
+                            <li class="breadcrumb-item"><a href="frmDashBoard.aspx">Home</a></li>
+                            <li class="breadcrumb-item">Sanctioned Incentives</li>
                         </ul>
                     </div>
                 </div>
@@ -67,23 +66,49 @@
                                     <span class="icon">
                                         <i class="icon-info-sign"></i>
                                     </span>
-                                    <h5 class="text-blue mb-3 font-SemiBold">Generate SVC Agenda</h5>
+                                    <h5 class="text-blue mb-3 font-SemiBold">List of Cases Sanctioned Incentives</h5>
                                 </div>
+
                                 <div class="widget-content nopadding">
                                     <div class="row">
-                                        <div class="col-sm-12 form-group">
-                                            <div class="row py-4">
-                                                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
-                                                    <label class="control-label" id="Label10" runat="server">Proposed SVC Date </label>
-                                                </div>
-                                                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-                                                    <asp:TextBox ID="txtProposedDLCDate" class="form-control" runat="server"></asp:TextBox>
-                                                </div>
-                                                <div class="col-sm-6 col-md-3 form-group" runat="server" visible="false">
-                                                    <asp:CheckBox runat="server" ID="chkPartial" OnCheckedChanged="chkPartial_CheckedChanged" AutoPostBack="true" CssClass="form-group" Text="Partial Sanctions" />
-                                                </div>
-                                            </div>
+                                        <div class="col-sm-6 col-md-3 form-group">
+                                            <label>Type of Application</label>
+                                            <asp:DropDownList runat="server" ID="ddlApplicationMode" class="form-control" TabIndex="1">
+                                                <asp:ListItem Value="0" Text="--All--"></asp:ListItem>
+                                                <asp:ListItem Value="1" Text="Online Applications"></asp:ListItem>
+                                                <asp:ListItem Value="2" Text="Offline Applications"></asp:ListItem>
+                                            </asp:DropDownList>
                                         </div>
+                                        <div class="col-sm-6 col-md-3 form-group">
+                                            <label runat="server" id="tdworkstatus">Applicaton Status</label>
+                                            <asp:DropDownList runat="server" ID="ddlworkingstatus" CssClass="form-control" TabIndex="1">
+                                                <asp:ListItem Value="0" Selected="True" Text="--All--"></asp:ListItem>
+                                                <asp:ListItem Value="1" Text="SLC Approved Applications"></asp:ListItem>
+                                                <%--<asp:ListItem Value="2" Text="Released Applications"></asp:ListItem>--%>
+                                                <asp:ListItem Value="3" Text="Rejected"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3 form-group">
+                                            <label>Application Timelines</label>
+                                            <asp:DropDownList runat="server" ID="DropDownList1" class="form-control" TabIndex="1">
+                                                <asp:ListItem Value="0" Text="--All--"></asp:ListItem>
+                                                <asp:ListItem Value="1" Text="Within - Timelines"></asp:ListItem>
+                                                <asp:ListItem Value="2" Text="Beyond - Timelines"></asp:ListItem>
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="col-sm-6 col-md-3 form-group">
+                                            <label runat="server" id="td1">SLC No</label>
+                                            <asp:DropDownList runat="server" ID="ddlDIPCno" class="form-control" TabIndex="1">
+                                            </asp:DropDownList>
+                                        </div>
+                                        <div class="col-sm-12 form-group text-center">
+                                            <asp:Button ID="Button2" CssClass="btn btn-blue m-2" OnClick="Button2_Click" runat="server"
+                                                Text="Get List" />
+                                            <asp:Button ID="Button3" CssClass="btn btn-warning m-2 px-3" runat="server"
+                                                Text="Clear" OnClick="Button3_Click" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
                                         <div class="col-sm-12 table-responsive">
                                             <asp:GridView ID="gvdetailsnew" runat="server" AllowPaging="false" AutoGenerateColumns="False"
                                                 CssClass="table table-bordered mb-0 title6 alternet-table w-100 NewEnterprise"

@@ -202,12 +202,6 @@
                                                     <asp:BoundField DataField="ActualRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="JD Recommended Amount to SVC">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="Svc_TextileRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="Textile Dept Recommended Amount">
-                                                        <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:BoundField>
-                                                    <asp:BoundField DataField="Svc_IndustryRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="Industries Dept Recommended Amount">
-                                                        <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:BoundField>
                                                     <asp:BoundField DataField="SVC_FinalSanctionedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended Amount to SLC">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
@@ -238,12 +232,6 @@
                                                             <asp:Label ID="lblTISId" Text='<%#Eval("TISId") %>' runat="server" />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                     <asp:BoundField DataField="PartialSanction" ItemStyle-HorizontalAlign="Center" HeaderText="Is Partial Sanction">
-                                                        <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:BoundField>
-                                                     <asp:BoundField DataField="PartialRemarks" ItemStyle-HorizontalAlign="Center" HeaderText="Partial Remarks">
-                                                        <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:BoundField>
                                                 </Columns>
                                             </asp:GridView>
                                         </div>
@@ -285,7 +273,7 @@
                                                                     OnClientClick="if (!confirm('Are you sure you want delete?')) return false;"></asp:LinkButton>
                                                     </td>
                                                 </tr>
-                                                 <tr class="GridviewScrollC1Item" id="tr1" visible="true" runat="server">
+                                                 <tr class="GridviewScrollC1Item" id="tr1" visible="false" runat="server">
                                                     <td align="center" style="width: 5%" id="Td1" runat="server">2</td>
                                                     <td align="left" style="width: 50%">Sanction Letter</td>
                                                     <td align="left">

@@ -148,7 +148,7 @@
                                         <div class="col-sm-12 table-responsive">
                                             <asp:GridView ID="gvdetailsnew" runat="server" AllowPaging="false" AutoGenerateColumns="False"
                                                 CssClass="table table-bordered mb-0 title6 alternet-table w-100 NewEnterprise"
-                                                PageSize="20" GridLines="Both" OnRowDataBound="gvdetailsnew_RowDataBound">
+                                                PageSize="20" GridLines="Both">
                                                 <HeaderStyle VerticalAlign="Middle" CssClass="text-center" />
                                                 <RowStyle CssClass="GridviewScrollC1Item" />
                                                 <PagerStyle CssClass="GridviewScrollC1Pager" />
@@ -201,7 +201,7 @@
                                                     <asp:BoundField DataField="ActualRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="JD Recommended Amount">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
-                                                    <asp:TemplateField HeaderText="Textile Dept Recommended Amount">
+                                                    <%--<asp:TemplateField HeaderText="Textile Dept Recommended Amount">
                                                         <ItemTemplate>
                                                             <asp:TextBox ID="txtsactionnedAmountHand" onkeypress="return inputOnlyNumbers(event)" Text='<%#Eval("ActualRecommendedAmount") %>' OnTextChanged="txtsactionnedAmountInd_TextChanged" Width="100px" runat="server" AutoPostBack="true"></asp:TextBox>
                                                         </ItemTemplate>
@@ -210,22 +210,22 @@
                                                         <ItemTemplate>
                                                             <asp:TextBox ID="txtsactionnedAmountInd" Text="0" onkeypress="return inputOnlyNumbers(event)" OnTextChanged="txtsactionnedAmountInd_TextChanged"  Width="100px" runat="server" AutoPostBack="true"></asp:TextBox>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                     <asp:BoundField DataField="PartialSanction" ItemStyle-HorizontalAlign="Center" HeaderText="Is Partial Sanction">
+                                                    </asp:TemplateField>--%>
+                                                    <%-- <asp:BoundField DataField="PartialSanction" ItemStyle-HorizontalAlign="Center" HeaderText="Is Partial Sanction">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
                                                      <asp:BoundField DataField="PartialRemarks" ItemStyle-HorizontalAlign="Center" HeaderText="Partial Sanction Remarks">
                                                         <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:BoundField>
+                                                    </asp:BoundField>--%>
                                                      <asp:TemplateField HeaderText="Total Amount Recommended by SVC">
                                                         <ItemTemplate>
-                                                            <asp:TextBox ID="txtsactionnedAmount" ReadOnly="true"  Width="100px" runat="server"></asp:TextBox>
+                                                            <asp:TextBox ID="txtsactionnedAmount" Text='<%#Eval("ActualRecommendedAmount") %>'  Width="100px" runat="server"></asp:TextBox>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Approved/ Rejected">
                                                         <ItemTemplate>
                                                             <asp:RadioButtonList ID="rbtnLstApprove" runat="server" RepeatDirection="Horizontal" Width="180px" AutoPostBack="True" OnSelectedIndexChanged="rbtnLstApprove_SelectedIndexChanged">
-                                                                <asp:ListItem Value="Y" Selected="True">Approved</asp:ListItem>
+                                                                <asp:ListItem Value="Y" Selected="True">Approve</asp:ListItem>
                                                                 <asp:ListItem Value="N">Rejected</asp:ListItem>
                                                                 <%-- <asp:ListItem Value="H">Hold-Application</asp:ListItem>--%>
                                                             </asp:RadioButtonList>
@@ -237,8 +237,8 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
                                                             <asp:Label ID="lblSubIncentiveID" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
-                                                            <asp:Label ID="lblTISId" Text='<%#Eval("TISId") %>' runat="server" />
-                                                            <asp:Label ID="lblPartialSanction" Text='<%#Eval("PartialSanction") %>' runat="server" />
+                                                            <%--<asp:Label ID="lblTISId" Text='<%#Eval("TISId") %>' runat="server" />
+                                                            <asp:Label ID="lblPartialSanction" Text='<%#Eval("PartialSanction") %>' runat="server" />--%>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>

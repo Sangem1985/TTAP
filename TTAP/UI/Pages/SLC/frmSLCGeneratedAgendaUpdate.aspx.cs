@@ -326,7 +326,7 @@ namespace TTAP.UI.Pages.SLC
             valid = ObjCAFClass.UpdateGeneratedSLCProposedAgenda(lstApplicationStatus);
             if (valid == "1")
             {
-                btnSubmit.Enabled = false;
+                btnSubmit.Visible = false;
                 string message = "alert('SLC Application Details Updated Successfully')";
                 ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                 btnDownloadPdf.Visible = false;

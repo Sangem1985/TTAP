@@ -66,6 +66,12 @@
             height: 50px;
         }
     </style>
+    <script>
+        function Print()
+        {
+            print();
+        }
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -825,7 +831,7 @@
                                 </tr>
                                 <tr>
                                     <td class="auto-style55">22.</td>
-                                    <td style="padding: 5px; margin: 5px;" class="auto-style55">Is Belated</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style55">Eligible type</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style55">:</td>
                                     <td class="auto-style55">
                                         <asp:Label ID="lblBelated" runat="server" CssClass="form-control txtbox txtcomn"
@@ -842,7 +848,7 @@
                                 </tr>
                                 <tr>
                                     <td>23.</td>
-                                    <td style="padding: 5px; margin: 5px;">TOTAL Eligible Amount</td>
+                                    <td style="padding: 5px; margin: 5px;">Total Eligible Amount</td>
                                     <td style="padding: 5px; margin: 5px;">:</td>
                                     <td>&nbsp;
                            <asp:Label ID="lblEligibletotal" runat="server" CssClass="form-control txtbox txtcomn"
@@ -919,7 +925,7 @@
                     <br />
                     <br />
                     <input id="btnPrint" style="border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
-                        type="button" value="Print" />
+                        type="button" value="Print" onclick="return Print();" />
                     &nbsp;&nbsp;&nbsp; <a href="HomeDashboard.aspx">HOME</a>
                 </div>
             </div>

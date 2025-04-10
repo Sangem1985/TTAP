@@ -100,7 +100,7 @@ namespace TTAP.UI.Pages
                         lblFixedYear.Text = dsnew.Tables[0].Rows[0]["BASEPOWERCONSUMPTION"].ToString();
                         lblMonth.Text = dsnew.Tables[0].Rows[0]["PERMONTH"].ToString();
 
-                        Month1.Text = dsnew.Tables[0].Rows[0]["BASEFIXEDPERMONTH1"].ToString();
+                        Month1.Text = dsnew.Tables[0].Rows[0]["MONTH1"].ToString();
                         Financial1.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
                         ConsumedNO1.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED1"].ToString();
                         AmountBill1.Text = dsnew.Tables[0].Rows[0]["PAID_BILL_AMOUNT1"].ToString();
@@ -110,7 +110,7 @@ namespace TTAP.UI.Pages
                         Eligibleamount1.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_AMOUNT1"].ToString();
 
 
-                        Month2.Text = dsnew.Tables[0].Rows[0]["BASEFIXEDPERMONTH2"].ToString();
+                        Month2.Text = dsnew.Tables[0].Rows[0]["MONTH2"].ToString();
                         Financial2.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
                         ConsumedNO2.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED2"].ToString();
                         AmountBill2.Text = dsnew.Tables[0].Rows[0]["PAID_BILL_AMOUNT2"].ToString();
@@ -119,7 +119,7 @@ namespace TTAP.UI.Pages
                         Reimbursement2.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_RATE2"].ToString();
                         Eligibleamount2.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_AMOUNT2"].ToString();
 
-                        Month3.Text = dsnew.Tables[0].Rows[0]["BASEFIXEDPERMONTH3"].ToString();
+                        Month3.Text = dsnew.Tables[0].Rows[0]["MONTH3"].ToString();
                         Financial3.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
                         ConsumedNO3.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED3"].ToString();
                         AmountBill3.Text = dsnew.Tables[0].Rows[0]["PAID_BILL_AMOUNT3"].ToString();
@@ -128,7 +128,7 @@ namespace TTAP.UI.Pages
                         Reimbursement3.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_RATE3"].ToString();
                         Eligibleamount3.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_AMOUNT3"].ToString();
 
-                        Month4.Text = dsnew.Tables[0].Rows[0]["BASEFIXEDPERMONTH4"].ToString();
+                        Month4.Text = dsnew.Tables[0].Rows[0]["MONTH4"].ToString();
                         Financial4.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
                         ConsumedNO4.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED4"].ToString();
                         AmountBill4.Text = dsnew.Tables[0].Rows[0]["PAID_BILL_AMOUNT4"].ToString();
@@ -137,7 +137,7 @@ namespace TTAP.UI.Pages
                         Reimbursement4.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_RATE4"].ToString();
                         Eligibleamount4.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_AMOUNT4"].ToString();
 
-                        Month5.Text = dsnew.Tables[0].Rows[0]["BASEFIXEDPERMONTH5"].ToString();
+                        Month5.Text = dsnew.Tables[0].Rows[0]["MONTH5"].ToString();
                         Financial5.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
                         ConsumedNO5.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED5"].ToString();
                         AmountBill5.Text = dsnew.Tables[0].Rows[0]["PAID_BILL_AMOUNT5"].ToString();
@@ -146,7 +146,7 @@ namespace TTAP.UI.Pages
                         Reimbursement5.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_RATE5"].ToString();
                         Eligibleamount5.Text = dsnew.Tables[0].Rows[0]["ELIGIBLE_AMOUNT5"].ToString();
 
-                        Month6.Text = dsnew.Tables[0].Rows[0]["BASEFIXEDPERMONTH6"].ToString();
+                        Month6.Text = dsnew.Tables[0].Rows[0]["MONTH6"].ToString();
                         Financial6.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
                         ConsumedNO6.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED6"].ToString();
                         AmountBill6.Text = dsnew.Tables[0].Rows[0]["PAID_BILL_AMOUNT6"].ToString();
