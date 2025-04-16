@@ -26,7 +26,7 @@
                     <div class="breadcrumb-bg">
                         <ul class="breadcrumb font-medium title5 container">
                             <li class="breadcrumb-item"><a href="frmDashBoard.aspx">Home</a></li>
-                            <li class="breadcrumb-item" id="Sublinkname" runat="server">Reimbursement of TAX Inspection Report</li>
+                            <li class="breadcrumb-item" id="Sublinkname" runat="server">Apprisal Note of Reimbursement of Power Consumption Charges</li>
                         </ul>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
                                     <span class="icon">
                                         <i class="icon-info-sign"></i>
                                     </span>
-                                    <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Reimbursement of TAX Inspection Report</h5>
+                                    <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Apprisal Note of Reimbursement of Power Consumption Charges</h5>
                                 </div>
                                 <div class="widget-content nopadding">
                                     <table runat="server" visible="false">

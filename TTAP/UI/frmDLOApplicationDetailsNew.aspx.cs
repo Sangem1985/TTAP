@@ -1895,22 +1895,22 @@ namespace TTAP.UI
                 slno = slno + 1;
             }
             string SubIncId = ddlDLORecommendedIncentives.SelectedValue.ToString();
-            //if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
-            //{
-            //    if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
-            //    {
-            //        if (txtPartialRecommendedAmount.Text == "")
-            //        {
-            //            ErrorMsg = ErrorMsg + slno + ". Please enter JD Recommended amount \\n";
-            //            slno = slno + 1;
-            //        }
-            //        if (txtFullPartialRemarks.Text == "")
-            //        {
-            //            ErrorMsg = ErrorMsg + slno + ". Please enter Remarks of Partial Process \\n";
-            //            slno = slno + 1;
-            //        }
-            //    }
-            //}
+            /*if (SubIncId == "3" || SubIncId == "4" || SubIncId == "6" || SubIncId == "9" || SubIncId == "14")
+            {
+                if (rdbFullPartial.SelectedValue == "P" || rdbFullPartial.SelectedValue == "CP")
+                {
+                    if (txtPartialRecommendedAmount.Text == "")
+                    {
+                        ErrorMsg = ErrorMsg + slno + ". Please enter JD Recommended amount \\n";
+                        slno = slno + 1;
+                    }
+                    if (txtFullPartialRemarks.Text == "")
+                    {
+                        ErrorMsg = ErrorMsg + slno + ". Please enter Remarks of Partial Process \\n";
+                        slno = slno + 1;
+                    }
+                }
+            }
 
             if (RbtnHeadOfficestatus.SelectedValue == "1")
             {
@@ -1940,8 +1940,8 @@ namespace TTAP.UI
                     }
                 }
 
-            }
-            else if (RbtnHeadOfficestatus.SelectedValue == "2")
+            }*/
+            if (RbtnHeadOfficestatus.SelectedValue == "2")
             {
                 if (txtvHeadOfficeJdQueryRemarks.Text.Trim().TrimStart() == "")
                 {

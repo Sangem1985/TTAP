@@ -33,7 +33,6 @@ namespace TTAP.UI.Pages
                     {
                         string incentiveid = "";
                         ViewState["UID"] = ObjLoginNewvo.uid;
-                        //Request.QueryString["IncentiveID"] = incentiveid;
                         if (Request.QueryString["IncentiveID"] != null)
                         {
                             incentiveid = Request.QueryString["IncentiveID"].ToString();

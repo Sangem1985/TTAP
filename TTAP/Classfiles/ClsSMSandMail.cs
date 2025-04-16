@@ -575,8 +575,8 @@ namespace TTAP.Classfiles
                                     Subject = MailSubject,
                                     Body = MailDescription
                                 };
-                                message.CC.Add("chanikya_k@cms.co.in");
-                                message.CC.Add("kalyanbabu.ykb@gmail.com");
+                                message.CC.Add("coi.tsipass@gmail.com");
+                                //message.CC.Add("kalyanbabu.ykb@gmail.com");
                                 message.IsBodyHtml = Convert.ToString(ConfigurationManager.AppSettings["IsBodyHtml"]) == "true";
                                 SmtpClient client = new SmtpClient
                                 {

@@ -48,14 +48,16 @@
     <script type="text/javascript">
 
         function myFunction() {
-            //document.getElementById("Div2").style.visibility = "hidden";
             document.getElementById("Div2").style.display = "none";
-            //$("#Button2").hide();
             window.print();
-            // $("#Button2").show();
             document.getElementById("Div2").style.display = "block";
         }
-        
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && e.keyCode == 80) {
+                myFunction();
+                e.preventDefault();
+            }
+        });
     </script>
 </head>
 <body>
@@ -99,7 +101,7 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 10px">
                 <span class="floatleft auto-style3"><span style="font-weight: bold">Sub :-  </span>
-                    Commissionerate of Industries. – T-TAP Policy 2017-2022 – Sanction of 
+                    <%--Commissionerate of Industries. – --%>T-TAP Policy 2017-2022 – Sanction of 
                     <asp:Label ID="lblIncentiveName" Font-Bold="true" runat="server"></asp:Label>
                     in respect of M/s. 
                     <asp:Label ID="lblEnterpreneurDetails" Font-Bold="true" runat="server"></asp:Label>
@@ -111,16 +113,16 @@
                     <br />
                     2. G.O.Ms.No.14, Ind. & Com. (Tex) Dept., dt: 15.11.2019.
                     <br />
-                    3. Proceedings Rc.No.2072/2014-Parks, dated: 6.12.2019 of the Director Commissionerate of Industries, TS, Hyderabad.
-                    <br />
-                    4. T-TAP Online Incentive Claims Application No. 
+                    <%--3. Proceedings Rc.No.2072/2014-Parks, dated: 6.12.2019 of the Director Commissionerate of Industries, TS, Hyderabad.
+                    <br />--%>
+                    3. T-TAP Online Incentive Claims Application No. 
                                   &nbsp;<span style="font-weight: bold"><asp:Label ID="lblRefApplicationNo" runat="server"></asp:Label></span>&nbsp;, dt: &nbsp;
                                <span style="font-weight: bold">
                                    <asp:Label ID="lblRefApplnDate" runat="server"></asp:Label></span>
                     of M/s.
                     <asp:Label ID="lblEnterpreneurDetails1" Font-Bold="true" runat="server"></asp:Label>.
                     <br />
-                    5. Minutes of the
+                    4. Minutes of the
                     <asp:Label ID="lblMeetingNumber" Font-Bold="true" runat="server"></asp:Label>
                     meeting held on 
                     <asp:Label ID="lblMeetingdate" Font-Bold="true" runat="server"></asp:Label>.
@@ -132,14 +134,14 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 2px">
                 <b>******* </b>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 6px">
+           <%-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 6px">
                 <span class="floatleft auto-style3">I invite kind attention to the captioned subject and references cited.
                 </span>
-            </div>
+            </div>--%>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 6px">
-                <span class="floatleft auto-style3">In the reference 4th cited,&nbsp;
+                <span class="floatleft auto-style3">
                     <%--M/s. &nbsp;<asp:Label ID="lblEnterpreneurDetails2" Font-Bold="true" runat="server"></asp:Label>&nbsp;has submitted --%>
-                    we are pleased to inform you that you have been sanctioned the
+                    With reference to the subject cited, we are pleased to inform you that you have been sanctioned the
                     <asp:Label ID="lblIncentiveName1" Font-Bold="true" runat="server"></asp:Label>
                     for an amount of Rs.<asp:Label ID="lblAMount" Font-Bold="true" runat="server"></asp:Label>
                     (<asp:Label ID="lblAmountinrupees" Font-Bold="true" runat="server"></asp:Label>)

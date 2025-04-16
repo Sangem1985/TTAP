@@ -41,8 +41,8 @@ namespace TTAP.UI.Pages
                         {
                             incentiveid = Request.QueryString["IncentiveID"].ToString();
                         }
-                        txtIncID.Text = "29193";
-                        BindBesicdata("29193", "6", "");
+                        txtIncID.Text = incentiveid;
+                        BindBesicdata(incentiveid, "6", "");
                         DataSet dsnew1 = new DataSet();
                     }
                 }
