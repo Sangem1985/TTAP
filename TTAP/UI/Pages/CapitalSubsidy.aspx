@@ -119,7 +119,7 @@
                                 <td style="text-align: center; vertical-align: middle">
                                     <u><b>
                                         <%--Telangana State Industrial Development and Entrepreneur Advancement - GO MS. NO 28, Industries & Commerce (IP & INF) Department, Dated : 29/11/2014--%>
-                                  Reimbursement of Capital Subsidy	<br />
+                                 Appraisal Note of Reimbursement of Capital Subsidy	<br />
 
                                         <asp:Label ID="lblSancIncentiveName" runat="server"></asp:Label>
                                     </b></u>
@@ -129,7 +129,7 @@
                         <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">Application no
+                                <td class="auto-style1">Application No
                                 </td>
                                 <td>
                                     <asp:Label ID="lblApplication_no" runat="server"></asp:Label>
@@ -139,7 +139,7 @@
                             <tr>
                                 <td style="width: 2%"></td>
                                 <td style="font: bolder; font-size: small" class="auto-style1">
-                                    <b>1 Name of Industrial Concern</b>
+                                    <b>1. Name of Industrial Concern</b>
                                 </td>
                                 <td>
                                     <b>
@@ -148,7 +148,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">2 Location of the Industrial concern
+                                <td class="auto-style1">2. Location of the Industrial concern
                                 </td>
                                 <td>
                                     <span>
@@ -158,7 +158,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">3 Name of Promoter
+                                <td class="auto-style1">3. Name of Promoter
                                 </td>
                                 <td>
                                     <span>
@@ -168,7 +168,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">4 Constitution of the Industrial Concern
+                                <td class="auto-style1">4. Constitution of the Industrial Concern
                                 </td>
                                 <td>
                                     <span>
@@ -178,7 +178,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">5 Social Status
+                                <td class="auto-style1">5. Social Status
                                 </td>
                                 <td>
                                     <asp:Label ID="lblSocialStatus" runat="server"></asp:Label>
@@ -186,7 +186,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">6 Share of SC/ST/Women Enterpreneur
+                                <td class="auto-style1">6. Share of SC/ST/Women Enterpreneur
                                 </td>
                                 <td>
                                     <span>
@@ -198,7 +198,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">7 PMT SSI Registration. No. &amp; Date
+                                <td class="auto-style1">7. PMT SSI Registration. No. &amp; Date
                                 </td>
                                 <td>
                                     <span>
@@ -208,7 +208,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">8 New/Expansion/Diversification Unit
+                                <td class="auto-style1">8. New/Expansion/Diversification Unit
                                 </td>
                                 <td>
                                     <span>
@@ -218,7 +218,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">9 Date of commencement of production
+                                <td class="auto-style1">9. Date of commencement of production
                                 </td>
                                 <td>
                                     <span>
@@ -228,7 +228,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">10 Date of filing of claim application in DIC
+                                <td class="auto-style1">10. Date of filing of claim application in DIC
                                 </td>
                                 <td>
                                     <span>
@@ -238,7 +238,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">11 Name of Financing Institution in case of Aided Units
+                                <td class="auto-style1">11. Name of Financing Institution in case of Aided Units
                                 </td>
                                 <td>
                                     <span>
@@ -248,7 +248,7 @@
                             </tr>
                             <tr id="TRCLAIMPERIOD" runat="server" visible="false">
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">12 Claim Period
+                                <td class="auto-style1">12. Claim Period
                                 </td>
                                 <td>
                                     <span>
@@ -258,7 +258,7 @@
                             </tr>
                             <tr id="TRSCHEME" runat="server" visible="false">
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">13 Scheme
+                                <td class="auto-style1">13. Scheme
                                 </td>
                                 <td>
                                     <span>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="CaptialSubsidyAppraisalNote.aspx.cs" Inherits="TTAP.UI.Pages.CaptialSubsidyAppraisalNote" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <script src="../../Js/validations.js"></script>
     <asp:UpdatePanel ID="upd1" runat="server">
         <Triggers>
             <asp:PostBackTrigger ControlID="btnUpload" />
@@ -300,12 +301,9 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                
+
                                                 <td colspan="4" style="padding: 5px; margin: 5px;">
                                                     <b>ABSTRACT</b> </td>
-
-
-
                                                 <td class="auto-style25">&nbsp;
                                                 </td>
 
@@ -337,7 +335,7 @@
 
                                                 <td style="margin: 5px; font-weight: bold;" valign="top" class="auto-style16">&nbsp;</td>
                                                 <td style="margin: 5px;" class="auto-style23">
-                                                    <asp:TextBox ID="TextBox56" AutoPostBack="true" runat="server" class="form-control txtbox" Height="28px" MaxLength="100" onkeypress="DecimalOnly()" OnTextChanged="TextBox56_TextChanged" TabIndex="6" Width="150px"></asp:TextBox>
+                                                    <asp:TextBox ID="TextBox56" AutoPostBack="true" runat="server" class="form-control txtbox" Height="28px" MaxLength="100" onkeypress="DecimalOnly()" OnTextChanged="TextBox56_TextChanged" Text="0" TabIndex="6" Width="150px"></asp:TextBox>
                                                 </td>
                                                 <td style="margin: 5px;" class="auto-style1"></td>
                                                 <td style="margin: 5px;" class="auto-style1">&nbsp;</td>
@@ -451,7 +449,7 @@
                                                 <td colspan="10" style="height: 20px"></td>
                                             </tr>
                                             <tr>
-                                               <%-- <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px">4.2.3
+                                                <%-- <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px">4.2.3
                                                 </td>--%>
                                                 <td colspan="4" style="padding: 5px; margin: 5px;">
                                                     <b>ELEGIBLE INCENTIVES</b></td>
@@ -551,12 +549,13 @@
                                                 <td class="auto-style56">
 
                                                     <asp:RadioButtonList ID="rdcategoryofunit" runat="server" RepeatDirection="Horizontal"
-                                                        AutoPostBack="True" OnSelectedIndexChanged="rdcategoryofunit_SelectedIndexChanged">
+                                                        AutoPostBack="True" OnSelectedIndexChanged="rdcategoryofunit_SelectedIndexChanged" Enabled="true">
                                                         <asp:ListItem Value="A1">A1</asp:ListItem>
                                                         <asp:ListItem Value="A2">A2</asp:ListItem>
                                                         <asp:ListItem Value="A3">A3</asp:ListItem>
                                                         <asp:ListItem Value="A4">A4</asp:ListItem>
                                                         <asp:ListItem Value="A5">A5</asp:ListItem>
+                                                        <asp:ListItem Value="NA">NA</asp:ListItem>
                                                     </asp:RadioButtonList>
                                                 </td>
                                                 <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
@@ -583,7 +582,7 @@
                                                         AutoPostBack="True" OnSelectedIndexChanged="rdlmv_SelectedIndexChanged">
                                                         <asp:ListItem Value="GENERAL">GENERAL</asp:ListItem>
                                                         <asp:ListItem Value="SC">SC</asp:ListItem>
-                                                        <asp:ListItem Value="ST">SC</asp:ListItem>
+                                                        <asp:ListItem Value="ST">ST</asp:ListItem>
                                                         <asp:ListItem Value="PHC">PWD</asp:ListItem>
                                                     </asp:RadioButtonList>
                                                 </td>
@@ -627,37 +626,11 @@
                                                 </td>
                                             </tr>
 
-                                            <tr id="treligibility" runat="server">
-                                                <td class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Type</td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
-                                                <%--  <td style="padding: 5px; margin: 5px; ">
-                        <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
-                    </td>--%>
-                                                <td class="auto-style56" colspan="3">
 
-                                                    <asp:RadioButtonList ID="rdeligibility" runat="server" RepeatDirection="Horizontal"
-                                                        AutoPostBack="True" OnSelectedIndexChanged="rdeligibility_SelectedIndexChanged">
-                                                        <asp:ListItem Value="Regular">REGULAR</asp:ListItem>
-                                                        <asp:ListItem Value="Belated">BELATED</asp:ListItem>
-                                                        <asp:ListItem Value="OneYear">BEYOND ONE YEAR</asp:ListItem>
-                                                    </asp:RadioButtonList>
-                                                </td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
-                                                </td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
-                                                <%--  <td style="padding: 5px; margin: 5px; ">
-                        <asp:TextBox ID="txtPlintharea423" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="35" onkeypress="return inputOnlyNumbers(event)"  Width="150px"></asp:TextBox>
-                    </td>--%>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
-                                                <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
-                                                </td>
-                                            </tr>
 
 
                                             <div id="Eligible" runat="server">
-                                                <tr id="trEligible" runat="server">
+                                                <tr id="trEligible" runat="server" visible="true">
                                                     <td class="auto-style48"></td>
                                                     <td class="auto-style48">Eligible %
                                                     </td>
@@ -710,6 +683,33 @@
                                                     <td style="padding: 5px; margin: 5px;" class="auto-style55">&nbsp;
                                                     </td>
                                                 </tr>
+                                                <tr id="treligibility" runat="server">
+                                                    <td class="auto-style56"></td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Type</td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                                    <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txt423guideline" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="34"  Width="150px" onkeypress="return inputOnlyNumbers(event)"></asp:TextBox>
+                    </td>--%>
+                                                    <td class="auto-style56" colspan="3">
+
+                                                        <asp:RadioButtonList ID="rdeligibility" runat="server" RepeatDirection="Horizontal"
+                                                            AutoPostBack="True" OnSelectedIndexChanged="rdeligibility_SelectedIndexChanged">
+                                                            <asp:ListItem Value="Regular">REGULAR</asp:ListItem>
+                                                            <asp:ListItem Value="Belated">BELATED</asp:ListItem>
+                                                            <asp:ListItem Value="OneYear">BEYOND ONE YEAR</asp:ListItem>
+                                                        </asp:RadioButtonList>
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                    </td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                    <%--  <td style="padding: 5px; margin: 5px; ">
+                        <asp:TextBox ID="txtPlintharea423" runat="server" class="form-control txtbox txtcomn" Height="30px" MaxLength="80" TabIndex="35" onkeypress="return inputOnlyNumbers(event)"  Width="150px"></asp:TextBox>
+                    </td>--%>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                                    </td>
+                                                </tr>
                                                 <tr id="tr4233" runat="server" visible="true">
                                                     <td></td>
                                                     <td style="padding: 5px; margin: 5px;">Total Subsidy Amount</td>
@@ -733,7 +733,7 @@
                                                     <td style="padding: 5px; margin: 5px;">:</td>
                                                     <td>&nbsp;
                             <asp:TextBox ID="txtGMAmount" runat="server" class="form-control txtbox txtcomn"
-                                Height="30px" MaxLength="80" onkeypress="return inputOnlyNumbers(event)"  TabIndex="37" Width="150px"></asp:TextBox>
+                                Height="30px" MaxLength="80" onkeypress="return inputOnlyNumbers(event)" TabIndex="37" Width="150px"></asp:TextBox>
                                                     </td>
                                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                                     </td>
@@ -744,7 +744,7 @@
                                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                                     </td>
                                                 </tr>
-                                               
+
                                                 <tr id="tradremarks" runat="server" visible="true">
                                                     <td></td>
                                                     <td style="padding: 5px; margin: 5px;">Remarks</td>
@@ -795,9 +795,10 @@
                                                             Visible="false" Target="_blank"></asp:HyperLink>
                                                         <br />
                                                         <asp:Label ID="Label444" runat="server" Visible="False"></asp:Label>
-                                                        
+
                                                     </td>
-                                                    <td><asp:Button ID="btnUpload" runat="server" CssClass="btn btn-xs btn-warning" Height="35px"
+                                                    <td>
+                                                        <asp:Button ID="btnUpload" runat="server" CssClass="btn btn-xs btn-warning" Height="35px"
                                                             TabIndex="10" Text="Upload" Width="85px" OnClick="btnUpload_Click" /></td>
                                                 </tr>
                                             </div>
@@ -807,7 +808,7 @@
                                                 <td align="center" colspan="3" style="padding: 5px; margin: 5px; text-align: center;">
                                                     <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-primary" Height="32px" OnClick="BtnSave_Click" TabIndex="24" Text="Save" ValidationGroup="group" Width="90px" />
                                                     &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="BtnClearall" Visible="false" runat="server" CausesValidation="False" CssClass="btn btn-warning" OnClick="BtnClearall_Click" Height="32px" Text="Clear" ToolTip="To Clear  the Screen" Width="90px" />
-                                                    &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btnDashBoard" runat="server"  CssClass="btn btn-primary" OnClick="btm_previous_Click" Height="32px" TabIndex="25" Text="Go to Dashboard"   />
+                                                    &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btnDashBoard" runat="server" CssClass="btn btn-primary" OnClick="btm_previous_Click" Height="32px" TabIndex="25" Text="Go to Dashboard" />
                                                 </td>
                                             </tr>
                                             <tr>

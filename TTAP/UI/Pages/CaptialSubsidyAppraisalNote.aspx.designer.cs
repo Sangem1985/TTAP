@@ -1140,24 +1140,6 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.RadioButtonList rdmenwomen;
 
         /// <summary>
-        /// treligibility control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow treligibility;
-
-        /// <summary>
-        /// rdeligibility control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList rdeligibility;
-
-        /// <summary>
         /// Eligible control.
         /// </summary>
         /// <remarks>
@@ -1219,6 +1201,24 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTSSFCnorms423;
+
+        /// <summary>
+        /// treligibility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow treligibility;
+
+        /// <summary>
+        /// rdeligibility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rdeligibility;
 
         /// <summary>
         /// tr4233 control.
