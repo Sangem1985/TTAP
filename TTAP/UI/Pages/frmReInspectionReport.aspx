@@ -265,6 +265,11 @@
                                                     <td align="left" id="tdIORecommended1" runat="server" visible="false">
                                                         <asp:TextBox ID="txtAmountSubsidyRecommended" onkeypress="DecimalOnly()" runat="server" class="form-control"></asp:TextBox>
                                                     </td>
+                                                     <td align="left" class="font-SemiBold" id="td6" runat="server" visible="true">Inspecting Officer Recommended Amount</td>
+                                                    <td align="left" id="td7" runat="server" visible="true">
+                                                        <asp:TextBox ID="txtIPORecommendedAmount" onkeypress="DecimalOnly()" Style="border: darkolivegreen; border-style: solid;"
+                                                            runat="server" class="form-control"></asp:TextBox>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td align="left" class="font-SemiBold">

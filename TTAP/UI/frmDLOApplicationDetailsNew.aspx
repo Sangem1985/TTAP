@@ -2799,11 +2799,11 @@
                                                         </asp:TemplateField>
                                                         <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
                                                         <asp:BoundField DataField="SchduledDate" HeaderText="Raised Date" />
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Raised By" />
+                                                        <%--<asp:BoundField DataField="Emp_Name" HeaderText="Raised By" />--%>
                                                         <asp:BoundField DataField="ReportUpdateDate" HeaderText="Revised Inspection Report Uploaded Date" />
-                                                        <asp:BoundField DataField="ReportUpdatedBy" HeaderText="Revised Inspection Report Uploaded By" />
-                                                        <asp:BoundField DataField="SystemRecommended" HeaderText="System Recommended Amount" />
-                                                        <%-- <asp:BoundField DataField="OfficerRecommendedAmount" HeaderText="Officer Recommended Amount" />--%>
+                                                        <%--<asp:BoundField DataField="ReportUpdatedBy" HeaderText="Revised Inspection Report Uploaded By" />--%>
+                                                        <%--<asp:BoundField DataField="SystemRecommended" HeaderText="System Recommended Amount" />--%>
+                                                         <asp:BoundField datafield="OfficerRecommendedAmount" headertext="officer Recommended Amount" />
                                                         <asp:BoundField DataField="Status" HeaderText="Status" />
                                                         <asp:TemplateField HeaderText="Revised Inspection Report">
                                                             <ItemTemplate>
@@ -3530,10 +3530,10 @@
                             </div>
 
 
-                            <div class="card" id="ClerkProcess" runat="server" visible="false">
+                           <div class="card" id="ClerkProcess" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingelven">
-                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#ClerkProcessview">
-                                        <span id="ClerkProcessview" runat="server">Clerk Process</span>
+                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#ClerkProcessView">
+                                        <span id="ClerkProcessview1" runat="server">Clerk Process</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
@@ -3563,14 +3563,19 @@
                                                         <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
                                                         <asp:BoundField DataField="REMARKS" HeaderText="Clerk Query Response" />
                                                         <asp:BoundField DataField="CLERK_ProcessDate" HeaderText="Process Date" />
+                                                        <asp:TemplateField HeaderText="Appraisal Note">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="anchortagGMCertificate" runat="server" Text="Appraisal Note" Font-Bold="true" ForeColor="Green" Target="_blank" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
 
-
-                                                        <%--                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
                                                                 <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                                <asp:Label ID="lblCLERK_ProcessDate" Text='<%#Eval("CLERK_ProcessDate") %>' runat="server" />
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>--%>
+                                                        </asp:TemplateField>
                                                     </Columns>
                                                 </asp:GridView>
                                             </div>

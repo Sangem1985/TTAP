@@ -83,14 +83,28 @@
             width: 142px;
         }
     </style>
+    <script>
+        function PrintScreen()
+        {
+            document.getElementById("btnPrint").style.display = 'none';
+            print();
+            document.getElementById("btnPrint").style.display = 'block';
+        }
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && e.key === "p") {
+                e.preventDefault();
+                PrintScreen();
+            }
+        });
+    </script>
 </head>
-<body>
+<body style="border: groove;">
     <form id="form1" runat="server">
-        <div align="center">
+        <div align="center" style="margin-top: 25px;">
             <div align="center" style="text-align: center">
                 <div align="center">
                     <center>
-                        <img src="viewpdf.aspx?filepathnew=D:/TS-iPASSFinal/telanganalogo.png" width="75px" height="75px" />
+                        <img src="../../images/favicon.png" width="100px" height="100px" />
                     </center>
                     <%--<h3>TTAP CAPITAL APPRAISAL NOTE FORM</h3>--%>
                 </div>
@@ -119,7 +133,8 @@
                                 <td style="text-align: center; vertical-align: middle">
                                     <u><b>
                                         <%--Telangana State Industrial Development and Entrepreneur Advancement - GO MS. NO 28, Industries & Commerce (IP & INF) Department, Dated : 29/11/2014--%>
-                                 Appraisal Note of Reimbursement of Capital Subsidy	<br />
+                                 Appraisal Note of Reimbursement of Capital Subsidy
+                                        <br />
 
                                         <asp:Label ID="lblSancIncentiveName" runat="server"></asp:Label>
                                     </b></u>
@@ -128,8 +143,26 @@
                         </table>
                         <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
                             <tr>
+                                <td style="padding: 5px; margin: 5px; font-weight: bold;" valign="top" class="auto-style12"><b></b>
+                                </td>
+                                <td colspan="4" style="padding: 5px; margin: 5px;">
+                                    <b>1. INDUSTRY DETAILS</b> </td>
+                                <td class="auto-style25">&nbsp;
+                                </td>
+
+                            </tr>
+                            <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">Application No
+                                <td style="font: bolder; font-size: small" class="auto-style1">1.1. Name of Industrial Concern
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblUnitname" runat="server"></asp:Label>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 2%"></td>
+                                <td class="auto-style1">1.2. Application No
                                 </td>
                                 <td>
                                     <asp:Label ID="lblApplication_no" runat="server"></asp:Label>
@@ -138,17 +171,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td style="font: bolder; font-size: small" class="auto-style1">
-                                    <b>1. Name of Industrial Concern</b>
-                                </td>
-                                <td>
-                                    <b>
-                                        <asp:Label ID="lblUnitname" runat="server"></asp:Label></b> &nbsp;
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="width: 2%"></td>
-                                <td class="auto-style1">2. Location of the Industrial concern
+                                <td class="auto-style1">1.3. Location of the Industrial concern
                                 </td>
                                 <td>
                                     <span>
@@ -158,7 +181,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">3. Name of Promoter
+                                <td class="auto-style1">1.4. Name of Promoter
                                 </td>
                                 <td>
                                     <span>
@@ -168,7 +191,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">4. Constitution of the Industrial Concern
+                                <td class="auto-style1">1.5. Constitution of the Industrial Concern
                                 </td>
                                 <td>
                                     <span>
@@ -178,15 +201,15 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">5. Social Status
+                                <td class="auto-style1">1.6. Social Status
                                 </td>
                                 <td>
                                     <asp:Label ID="lblSocialStatus" runat="server"></asp:Label>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr runat="server" visible="false">
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">6. Share of SC/ST/Women Enterpreneur
+                                <td class="auto-style1">1.7. Share of SC/ST/Women Enterpreneur
                                 </td>
                                 <td>
                                     <span>
@@ -198,7 +221,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">7. PMT SSI Registration. No. &amp; Date
+                                <td class="auto-style1">1.8. Incorporation Registration No
                                 </td>
                                 <td>
                                     <span>
@@ -208,7 +231,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">8. New/Expansion/Diversification Unit
+                                <td class="auto-style1">1.9. Type of Unit
                                 </td>
                                 <td>
                                     <span>
@@ -218,7 +241,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">9. Date of commencement of production
+                                <td class="auto-style1">1.10. Date of commencement of production
                                 </td>
                                 <td>
                                     <span>
@@ -228,7 +251,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">10. Date of filing of claim application in DIC
+                                <td class="auto-style1">1.11. Date of filing of claim application in DIC
                                 </td>
                                 <td>
                                     <span>
@@ -238,7 +261,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">11. Name of Financing Institution in case of Aided Units
+                                <td class="auto-style1">1.12. Name of Financing Institution in case of Aided Units
                                 </td>
                                 <td>
                                     <span>
@@ -248,7 +271,7 @@
                             </tr>
                             <tr id="TRCLAIMPERIOD" runat="server" visible="false">
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">12. Claim Period
+                                <td class="auto-style1">1.13. Claim Period
                                 </td>
                                 <td>
                                     <span>
@@ -258,7 +281,7 @@
                             </tr>
                             <tr id="TRSCHEME" runat="server" visible="false">
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">13. Scheme
+                                <td class="auto-style1">1.13. Scheme
                                 </td>
                                 <td>
                                     <span>
@@ -268,7 +291,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">Confirmed Details by GM
+                                <td class="auto-style1">1.13. Confirmed Details by GM
                                 </td>
                                 <td>
                                     <span>
@@ -278,17 +301,17 @@
                             </tr>
                             <tr id="clerkattachment" runat="server" visible="false">
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">Clerk Worksheet
+                                <td class="auto-style1">1.14. Clerk Worksheet
                                 </td>
                                 <td>
                                     <span>
-                                        <asp:HyperLink ID="hylinkattachment" Text="View" runat="server" Visible="false"></asp:HyperLink>
+                                        <asp:HyperLink ID="hylinkattachment" Text="View" runat="server" Target="_blank" Visible="false"></asp:HyperLink>
                                     </span>
                                 </td>
                             </tr>
 
                         </table>
-                        <div>
+                        <div runat="server" visible="false">
                             <%--//style="font-family: Verdana; font-size: small;"--%>
                             <table style="width: 100%; font-family: Verdana; font-size: small">
                                 <tr>
@@ -407,31 +430,40 @@
                         <%--</table>--%>
                         <%-- capital subsidy appraisal --%>
                         <div class="row">
-                            <table style="width: 74%">
-                                <tr style="height: 30px">
-                                    <td colspan="10" style="padding: 5px; margin: 5px; font-weight: bold; font-size: medium">&nbsp;
-                                    </td>
-                                </tr>
+                            <table>
                                 <tr>
                                     <td style="padding: 5px; margin: 5px; font-weight: bold;" valign="top" class="auto-style12"><b></b>
                                     </td>
                                     <td colspan="4" style="padding: 5px; margin: 5px;">
-                                        <b>ABSTRACT</b> </td>
-
-
-
+                                        <b>2. ABSTRACT</b> </td>
                                     <td class="auto-style25">&nbsp;
                                     </td>
 
                                 </tr>
+                            </table>
+                            <table style="width: 74%; margin-left: 40px;" border="1">
+
+
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" valign="top" class="auto-style13"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style11">Type</td>
+
+                                    <td style="margin: 5px;" class="auto-style6">
+                                        <asp:Label ID="Label1" runat="server" CssClass="form-control txtbox">Approved Project Cost</asp:Label>
+                                    </td>
+
+                                    <td style="margin: 5px;" class="auto-style23">
+                                        <asp:Label ID="Label2" runat="server" CssClass="form-control txtbox">Computed Eligible Investment</asp:Label>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td style="padding: 5px; margin: 5px;" valign="top" class="auto-style13">i)&nbsp;</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style11">Land</td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style6">
                                         <asp:Label ID="lblLand" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style23">
                                         <asp:Label ID="lblLandValue" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
@@ -440,11 +472,11 @@
                                 <tr>
                                     <td style="padding: 5px; margin: 5px;" valign="top" class="auto-style49">ii).</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style50">Building</td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style52">
                                         <asp:Label ID="lblBuilding" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style39">
                                         <asp:Label ID="lblBuildingValue" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
@@ -453,11 +485,11 @@
                                 <tr>
                                     <td style="padding: 5px; margin: 5px;" valign="top" class="auto-style43">iii).</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style44">Plant and Machinery</td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style46">
                                         <asp:Label ID="lblPlantMachinery" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style41">
                                         <asp:Label ID="lblPlantMachineryValue" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
@@ -466,11 +498,11 @@
                                 <tr>
                                     <td style="padding: 5px; margin: 5px;" valign="top" class="auto-style14">iv).</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style10">Technical Know-how feasibility study and turn Key Charges</td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style5">
                                         <asp:Label ID="lblTechnicalKnowhow" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style24">
                                         <asp:Label ID="lblTechnicalKnowhowValue" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
@@ -481,11 +513,11 @@
                                     <td style="padding: 5px; margin: 5px;" class="auto-style10">
                                         <b>Total</b>
                                     </td>
-                                    
+
                                     <td style="margin: 5px;" class="auto-style5">
                                         <asp:Label ID="lbltotal" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
-                                    
+
                                     <td style="margin: 5px;" valign="top" class="auto-style24">
                                         <asp:Label ID="lbltotalValue" runat="server" CssClass="form-control txtbox"></asp:Label>
                                     </td>
@@ -493,16 +525,15 @@
 
                             </table>
                         </div>
-
+                        <br />
                         <%-- sec --%>
                         <div class="row">
                             <table style="width: 100%">
-                                
+
                                 <tr>
-                                    <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px">4.2.3
-                                    </td>
+                                    <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px"></td>
                                     <td colspan="4" style="padding: 5px; margin: 5px;">
-                                        <b>ELEGIBLE INCENTIVES</b></td>
+                                        <b>3. ELEGIBILITY DETAILS</b></td>
 
                                 </tr>
                                 <tr id="trIndustryStatus" runat="server" visible="true">
@@ -515,7 +546,7 @@
                                 </tr>
                                 <tr id="trCONVENTIONALTECHNICAL" runat="server">
                                     <td class="auto-style56"></td>
-                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Select</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Textile Type</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
                                         <asp:Label ID="lblConventionalTech" runat="server" CssClass="form-control"></asp:Label>
@@ -539,7 +570,7 @@
                                 </tr>
                                 <tr id="trcaste" runat="server" visible="true">
                                     <td class="auto-style56"></td>
-                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Select</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Social Status</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
                                         <asp:Label ID="lblCatCaste" runat="server" Text="[Selected Category]" CssClass="form-label"></asp:Label>
@@ -555,7 +586,7 @@
                                 </tr>
                                 <tr id="trmenwomen" runat="server">
                                     <td class="auto-style56"></td>
-                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Men/Women</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Gender</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
                                         <asp:Label ID="lblGender" runat="server" Text="[Selected Gender]" CssClass="form-label"></asp:Label>
@@ -569,7 +600,7 @@
 
                                 <tr id="treligibility" runat="server">
                                     <td class="auto-style56"></td>
-                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Select Type</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Eligibility Type</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56" colspan="3">
                                         <asp:Label ID="lblEligibility" runat="server" Text="[Selected Eligibility]" CssClass="form-label"></asp:Label>
@@ -595,8 +626,24 @@
 
                                     </td>
                                 </tr>
+                                 <tr id="trAlreadyAvailed" runat="server" visible="false">
+                                    <td class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style57">Already Availed Subsidy Amount</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
+                                    <td class="auto-style56">
+                                        <asp:Label ID="lblAlreadyAvailed" runat="server" Text="[Guideline Value]"
+                                            Height="30px" MaxLength="80" Enabled="false" TabIndex="34" Width="150px"></asp:Label>
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
+                                    </td>
+                                </tr>
                                 <tr id="tr4231" runat="server" visible="true">
-                                    <td class="auto-style56">4.1</td>
+                                    <td class="auto-style56"></td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style57">State Investment Subsidy in Rs.</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
@@ -612,7 +659,7 @@
                                     </td>
                                 </tr>
                                 <tr id="tr4232" runat="server" visible="true">
-                                    <td class="auto-style55">4.2</td>
+                                    <td class="auto-style56"></td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style55">Addl Sub. for Women in Rs.</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style55">:</td>
                                     <td class="auto-style55">
@@ -629,8 +676,8 @@
                                     </td>
                                 </tr>
                                 <tr id="tr4233" runat="server" visible="true">
-                                    <td>4.3</td>
-                                    <td style="padding: 5px; margin: 5px;">TOTAL SUBSIDY(4.1 + 4.2)</td>
+                                    <td class="auto-style56"></td>
+                                    <td style="padding: 5px; margin: 5px;">Total Subsidy Amount</td>
                                     <td style="padding: 5px; margin: 5px;">:</td>
                                     <td>&nbsp;
                            <asp:Label ID="lblTotalSubAmt" runat="server" CssClass="form-control txtbox txtcomn"
@@ -646,7 +693,7 @@
                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                     </td>
                                 </tr>
-                                <tr id="tradremarks" runat="server" visible="true">
+                                <tr id="tradremarks" runat="server" visible="false">
                                     <td>4.4</td>
                                     <td style="padding: 5px; margin: 5px;">Remarks</td>
                                     <td style="padding: 5px; margin: 5px;">:</td>
@@ -679,9 +726,9 @@
                                     </td>
                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                     </td>
-                                </tr>                            
+                                </tr>
 
-                                
+
                             </table>
                         </div>
                     </div>
@@ -692,8 +739,8 @@
                     <br />
                     <br />
                     <input id="btnPrint" style="border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
-                        type="button" value="Print" />
-                    &nbsp;&nbsp;&nbsp; <a href="HomeDashboard.aspx">HOME</a>
+                        type="button" value="Print" onclick="return PrintScreen();" />
+                    &nbsp;&nbsp;&nbsp; <a href="HomeDashboard.aspx" runat="server" visible="false">HOME</a>
                 </div>
             </div>
         </div>

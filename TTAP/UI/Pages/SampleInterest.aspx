@@ -227,14 +227,14 @@
                                                                 <tr>
                                                                     <td style="font-family: Calibri"><b>Total Term Loan Availed(In Rs.)</b></td>
                                                                     <td style="font-family: Calibri">
-                                                                        <asp:TextBox ID="txtRptTermLoanAvailedDt" runat="server"
+                                                                        <asp:TextBox ID="txtRptTermLoanAvailed" runat="server"
                                                                             class="form-control txtbox" Height="28px"
                                                                             TabIndex="10" Width="180px"></asp:TextBox>
                                                                     </td>
                                                                     <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b> Period of installment</b></td>
                                                                     <td>
                                                                         <asp:DropDownList ID="ddlRptPeriodOfInstallment" runat="server" class="form-control txtbox" AutoPostBack="true"
-                                                                            TabIndex="4" Height="33px" Width="180px">
+                                                                            TabIndex="4" Height="33px" Width="180px" OnSelectedIndexChanged="ddlRptPeriodOfInstallment_SelectedIndexChanged">
                                                                             <asp:ListItem Value="0">--Select--</asp:ListItem>
                                                                             <asp:ListItem Value="1">Yearly</asp:ListItem>
                                                                             <asp:ListItem Value="2">Halfyearly</asp:ListItem>
@@ -244,9 +244,9 @@
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td style="font-family: Calibri"><b>No of installment</b></td>
+                                                                    <td style="font-family: Calibri"><b>No of installments</b></td>
                                                                     <td style="font-family: Calibri">
-                                                                        <asp:TextBox ID="txtRptNoofInstallment" runat="server"
+                                                                        <asp:TextBox ID="txtRptNoofInstallments" runat="server"
                                                                             class="form-control txtbox" Height="28px"
                                                                             TabIndex="10" Width="180px"></asp:TextBox>
                                                                     </td>
@@ -327,7 +327,7 @@
                                                                                     <td>
                                                                                         <asp:Label ID="lblInstallmentNo" CssClass="form-control" runat="server"></asp:Label></td>
                                                                                     <td>
-                                                                                        <asp:TextBox ID="txtRateofInterest" runat="server" CssClass="form-control"></asp:TextBox></td>
+                                                                                        <asp:TextBox ID="txtRateofInterest" AutoPostBack="true" OnTextChanged="txtRateofInterest_TextChanged" runat="server" CssClass="form-control"></asp:TextBox></td>
                                                                                     <td>
                                                                                         <asp:Label ID="lblInterestDue" CssClass="form-control" runat="server"></asp:Label></td>
                                                                                     <td>

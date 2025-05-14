@@ -511,7 +511,7 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="font-family: Calibri"><b>Total Term Loan Availed(In Rs.)</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Total Eligible Interest for Reimbursement</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement" runat="server" class="form-control txtbox" Height="28px"
                                                                                             onkeypress="DecimalOnly()" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement_TextChanged"
@@ -536,7 +536,7 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="font-family: Calibri"><b>No of installment</b></td>
+                                                                                    <td style="font-family: Calibri"><b>No of installments</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwisenoofinstallment" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwisenoofinstallment_TextChanged"
                                                                                             TabIndex="10" Width="180px"></asp:TextBox>
@@ -830,7 +830,7 @@
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td style="font-family: Calibri">6</td>
+                                                                                                <td style="font-family: Calibri"></td>
                                                                                                 <td style="font-family: Calibri"></td>
                                                                                                 <td style="font-family: Calibri"></td>
                                                                                                 <td style="font-family: Calibri"></td>
@@ -917,7 +917,9 @@
                                                                                             ErrorMessage="Please Enter Considered Amount for Interest" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Considered Amount for Interest 8%</b></td>
+                                                                                    <td runat="server"  style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>
+                                                                                        <asp:Label runat="server" ID="lblConsideredAmountforInterest8">Considered Amount for Interest 8%</asp:Label>
+                                                                                                                                                                                                  </b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement_TextChanged"
                                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
@@ -964,7 +966,7 @@
                                                                                     <td style="font-family: Calibri"></td>
                                                                                     <td style="font-family: Calibri"></td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr runat="server" visible="false">
                                                                                     <td style="font-family: Calibri"><b>GM recommended amount</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_grdeglibilepallavaddiGMrecommendedamount" Text='<%# Eval("GM_Rcon_Amount") %>'

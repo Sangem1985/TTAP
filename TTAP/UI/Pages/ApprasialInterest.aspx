@@ -1,6 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="ApprasialInterest.aspx.cs" Inherits="TTAP.UI.Pages.ApprasialInterest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+      <script>
+        function isDecimal(event) {
+            let char = String.fromCharCode(event.which);
+            let regex = /^[0-9.]$/;
+
+            if (!regex.test(char)) {
+                return false;
+            }
+            let input = event.target.value;
+            if (char === '.' && input.includes('.')) {
+                return false;
+            }
+            return true;
+        }
+      </script>
     <asp:UpdatePanel ID="upd1" runat="server">
         <ContentTemplate>
             <div id="content">
@@ -23,7 +38,7 @@
                                     <h5 class="text-blue mb-3 font-SemiBold  col col-sm-12 mt-3 text-center" runat="server" id="HMainheading">Interest Subsidy Appraisal Note</h5>
                                 </div>
                                 <div class="widget-content nopadding">
-                                    <table>
+                                    <table runat="server" visible="false">
                                         <tr>
                                             <td>
 
@@ -119,7 +134,7 @@
                                             <label class="control-label" id="Label9" runat="server">Promoter details in case eligible for additional subsidy</label>
                                             <label class="form-control" id="lblcategory" runat="server"></label>
                                         </div>
-                                        <div class="col-sm-4 form-group">
+                                        <div class="col-sm-4 form-group" runat="server" visible="false">
                                             <label class="control-label" id="Label4" runat="server">GM-Recommended Amount</label>
                                             <label class="form-control" id="lblRecommended" runat="server"></label>
                                         </div>
@@ -382,7 +397,7 @@
                                         </tr>
                                     </table>
 
-                                    <table align="center" id="regulartr" runat="server" visible="false" cellpadding="10" cellspacing="5" style="width: 90%">
+                                    <table align="center" id="regulartr" runat="server" visible="false" cellpadding="10" cellspacing="5" style="width: 100%">
 
                                         <tr>
                                             <td colspan="5">
@@ -392,7 +407,7 @@
                                                         <td colspan="10" style="padding: 5px; margin: 5px; font-weight: bold; vertical-align: middle;"></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="padding: 5px; margin: 5px; font-weight: bold; width: 20px">21
+                                                        <td style="padding: 5px; margin: 5px; font-weight: bold; width: 20px">
                                                         </td>
                                                         <td colspan="4" style="padding: 5px; margin: 5px;">
                                                             <b>ELEGIBLE INCENTIVES</b></td>
@@ -440,8 +455,11 @@
                                                             &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                               &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                                               &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                             &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                             &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                                             
                                              <asp:Button ID="btn_savegrdclaimperiodofloanadd" runat="server" CssClass="btn btn-primary" Height="32px"
-                                                 OnClick="btn_savegrdclaimperiodofloanadd_Click" Text="Submit to Add More Details" Width="180px" />
+                                                 OnClick="btn_savegrdclaimperiodofloanadd_Click" Text="Submit to Add More Details"  />
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -502,7 +520,7 @@
                                                                                             ErrorMessage="Please Enter Date of Commencement of activity" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Loan installment start Date</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Loan Installment start Date</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseinstallmentstartdate" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseinstallmentstartdate_TextChanged"
                                                                                             TabIndex="10" Width="180px"></asp:TextBox>
@@ -515,13 +533,13 @@
                                                                                     <td style="font-family: Calibri"><b>Total Term Loan Availed(In Rs.)</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement" runat="server" class="form-control txtbox" Height="28px"
-                                                                                            onkeypress="DecimalOnly()" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement_TextChanged"
+                                                                                            onkeypress="return isDecimal(event);" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement_TextChanged"
                                                                                             TabIndex="10" Width="180px"></asp:TextBox>
                                                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator104" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseeglsacamountinterestreimbursement"
                                                                                             ErrorMessage="Please Enter Total Term Loan Availed(Value in Rs.)" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Period of installment</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Period of installment</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:DropDownList ID="ddl_claimeglibleincentivesloanwiseperiodofinstallment" runat="server" class="form-control txtbox" AutoPostBack="true" OnSelectedIndexChanged="ddl_claimeglibleincentivesloanwiseperiodofinstallment_SelectedIndexChanged"
                                                                                             TabIndex="4" Height="33px" Width="180px">
@@ -537,15 +555,15 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="font-family: Calibri"><b>No of installment</b></td>
+                                                                                    <td style="font-family: Calibri"><b>No of Installments</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwisenoofinstallment" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwisenoofinstallment_TextChanged"
-                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                            TabIndex="10" Width="180px" onkeypress="return isDecimal(event)"></asp:TextBox>
                                                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator106" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwisenoofinstallment"
-                                                                                            ErrorMessage="Please Enter No of installment" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                            ErrorMessage="Please Enter No of Installments" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Installment amount</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Installment amount</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseInstallmentamount" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseInstallmentamount_TextChanged"
                                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
@@ -566,7 +584,7 @@
                                                                                             ErrorMessage="Please Enter No of installments completed" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>PrincipalAmount become DUE before this HALFYEAR</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Principal Amount become Due before this Half Year</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:HiddenField ID="hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR" runat="server" />
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR" runat="server" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR_TextChanged"
@@ -578,7 +596,7 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="font-family: Calibri"><b>No of installments completed Months</b></td>
+                                                                                    <td style="font-family: Calibri"><b>No of Installments completed Months</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:HiddenField ID="hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths" runat="server" />
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths_TextChanged"
@@ -587,7 +605,7 @@
                                                                                             ErrorMessage="Please Enter No of installments completed" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>For Previous Financial Year is Moratorium Applicable</b>
+                                                                                    <td style="font-family: Calibri"><b>For Previous Financial Year is Moratorium Applicable</b>
                                                                                         <asp:CheckBox ID="chk_claimeglibleincenloanwisepreviousfymot" Enabled="false" AutoPostBack="true" OnCheckedChanged="chk_claimeglibleincenloanwisepreviousfymot_CheckedChanged" runat="server" />
                                                                                     </td>
                                                                                     <td style="font-family: Calibri">
@@ -620,15 +638,14 @@
                                                                                             <tr style="column-rule-style: solid">
                                                                                                 <th style="font-family: Calibri">Sr.#	</th>
                                                                                                 <th style="font-family: Calibri">Period of Claim</th>
-                                                                                                <th style="font-family: Calibri">Principal amounnt due</th>
-
-                                                                                                <th style="font-family: Calibri">No of Installment</th>
+                                                                                                <th style="font-family: Calibri">Principal Amount due</th>
+                                                                                                <th style="font-family: Calibri">Installment Number</th>
                                                                                                 <th style="font-family: Calibri">Rate of Interest</th>
-                                                                                                <th style="font-family: Calibri">Interest due</th>
+                                                                                                <th style="font-family: Calibri">Interest Due</th>
 
-                                                                                                <th style="font-family: Calibri">75% on interest due</th>
-                                                                                                <th style="font-family: Calibri">interest due @ 8%</th>
-                                                                                                <th style="font-family: Calibri">Eligible Interest Amount</th>
+                                                                                                <th runat="server" visible="false" style="font-family: Calibri">75% on Interest due</th>
+                                                                                                <th runat="server" visible="false" style="font-family: Calibri">interest due @ 8%</th>
+                                                                                                <th runat="server" visible="false" style="font-family: Calibri">Eligible Interest Amount</th>
                                                                                             </tr>
                                                                                             <tr>
                                                                                                 <td style="font-family: Calibri">1</td>
@@ -645,7 +662,7 @@
                                                                                                 </td>
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:TextBox ID="lbl_grd_monthoneRateofinterest" runat="server" AutoPostBack="true" OnTextChanged="lbl_grd_monthoneRateofinterest_TextChanged"
-                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px" onkeypress="return isDecimal(event)"></asp:TextBox>
                                                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="lbl_grd_monthoneRateofinterest"
                                                                                                         ErrorMessage="Please Enter Rate of interest Month1" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -654,13 +671,13 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:Label ID="lbl_grd_monthoneInterestamount" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthoneUnitHolderContribution" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthoneEligibleRateofinterest" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthoneEligibleInterestAmount" runat="server"></asp:Label>
                                                                                                 </td>
                                                                                             </tr>
@@ -680,7 +697,7 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <%--   <asp:Label ID="lbl_grd_monthtwoRateofinterest"  runat="server"></asp:Label>--%>
                                                                                                     <asp:TextBox ID="lbl_grd_monthtwoRateofinterest" runat="server" AutoPostBack="true" OnTextChanged="lbl_grd_monthtwoRateofinterest_TextChanged"
-                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px" onkeypress="return isDecimal(event)"></asp:TextBox>
                                                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="lbl_grd_monthtwoRateofinterest"
                                                                                                         ErrorMessage="Please Enter Rate of interest Month2" Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -688,13 +705,13 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:Label ID="lbl_grd_monthtwoInterestamount" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthtwoUnitHolderContribution" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthtwoEligibleRateofinterest" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthtwoEligibleInterestAmount" runat="server"></asp:Label>
                                                                                                 </td>
                                                                                             </tr>
@@ -714,20 +731,20 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <%-- <asp:Label ID="lbl_grd_monththreeRateofinterest"  runat="server"></asp:Label>--%>
                                                                                                     <asp:TextBox ID="lbl_grd_monththreeRateofinterest" runat="server" AutoPostBack="true" OnTextChanged="lbl_grd_monththreeRateofinterest_TextChanged"
-                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px" onkeypress="return isDecimal(event)"></asp:TextBox>
                                                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="lbl_grd_monththreeRateofinterest"
                                                                                                         ErrorMessage="Please Enter Rate of interest Month3" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                                 </td>
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:Label ID="lbl_grd_monththreeInterestamount" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monththreeUnitHolderContribution" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monththreeEligibleRateofinterest" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monththreeEligibleInterestAmount" runat="server"></asp:Label>
                                                                                                 </td>
                                                                                             </tr>
@@ -747,20 +764,20 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <%-- <asp:Label ID="lbl_grd_monthfourRateofinterest"  runat="server"></asp:Label>--%>
                                                                                                     <asp:TextBox ID="lbl_grd_monthfourRateofinterest" runat="server" AutoPostBack="true" OnTextChanged="lbl_grd_monthfourRateofinterest_TextChanged"
-                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px" onkeypress="return isDecimal(event)"></asp:TextBox>
                                                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="lbl_grd_monthfourRateofinterest"
                                                                                                         ErrorMessage="Please Enter Rate of interest Month4" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                                 </td>
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:Label ID="lbl_grd_monthfourInterestamount" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthfourUnitHolderContribution" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthfourEligibleRateofinterest" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthfourEligibleInterestAmount" runat="server"></asp:Label>
                                                                                                 </td>
                                                                                             </tr>
@@ -780,20 +797,20 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <%-- <asp:Label ID="lbl_grd_monthfiveRateofinterest"  runat="server"></asp:Label>--%>
                                                                                                     <asp:TextBox ID="lbl_grd_monthfiveRateofinterest" runat="server" AutoPostBack="true" OnTextChanged="lbl_grd_monthfiveRateofinterest_TextChanged"
-                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px" onkeypress="return isDecimal(event)"></asp:TextBox>
                                                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="lbl_grd_monthfiveRateofinterest"
                                                                                                         ErrorMessage="Please Enter Rate of interest Month5" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                                 </td>
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:Label ID="lbl_grd_monthfiveInterestamount" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthfiveUnitHolderContribution" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthfiveEligibleRateofinterest" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthfiveEligibleInterestAmount" runat="server"></asp:Label>
                                                                                                 </td>
                                                                                             </tr>
@@ -813,25 +830,25 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <%--  <asp:Label ID="lbl_grd_monthsixRateofinterest"  runat="server"></asp:Label>--%>
                                                                                                     <asp:TextBox ID="lbl_grd_monthsixRateofinterest" runat="server" AutoPostBack="true" OnTextChanged="lbl_grd_monthsixRateofinterest_TextChanged"
-                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                                        class="form-control txtbox" Height="28px" TabIndex="10" Width="180px" onkeypress="return isDecimal(event)"></asp:TextBox>
                                                                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="lbl_grd_monthsixRateofinterest"
                                                                                                         ErrorMessage="Please Enter Rate of interest Month5" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                                 </td>
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:Label ID="lbl_grd_monthsixInterestamount" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthsixUnitHolderContribution" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthsixEligibleRateofinterest" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_monthsixEligibleInterestAmount" runat="server"></asp:Label>
                                                                                                 </td>
                                                                                             </tr>
                                                                                             <tr>
-                                                                                                <td style="font-family: Calibri">6</td>
+                                                                                                <td style="font-family: Calibri"></td>
                                                                                                 <td style="font-family: Calibri"></td>
                                                                                                 <td style="font-family: Calibri"></td>
                                                                                                 <td style="font-family: Calibri"></td>
@@ -840,9 +857,9 @@
                                                                                                 <td style="font-family: Calibri">
                                                                                                     <asp:Label ID="lbl_grd_totmonthsInterestamount" runat="server"></asp:Label>
                                                                                                 </td>
-                                                                                                <td style="font-family: Calibri"></td>
-                                                                                                <td style="font-family: Calibri">Total Eligible Interest Amount:</td>
-                                                                                                <td style="font-family: Calibri">
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false"></td>
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">Total Eligible Interest Amount:</td>
+                                                                                                <td style="font-family: Calibri" runat="server" visible="false">
                                                                                                     <asp:Label ID="lbl_grd_totmonthsEligibleInterestAmount" runat="server"></asp:Label>
                                                                                                 </td>
                                                                                             </tr>
@@ -851,8 +868,16 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-
-                                                                                    <td style="font-family: Calibri"><b>Eligible period in months</b>
+                                                                                     <td style="font-family: Calibri"><b>Average Rate of Interest as per Calculation </b>
+                                                                                        <br />
+                                                                                    </td>
+                                                                                    <td style="font-family: Calibri">
+                                                                                        <br />
+                                                                                        <asp:TextBox ID="txtAvgRateOfInterest" runat="server" class="form-control txtbox" Height="28px" 
+                                                                                            Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                        <br />
+                                                                                    </td>
+                                                                                     <td style="font-family: Calibri"><b>Eligible period in months</b>
                                                                                         <br />
                                                                                     </td>
                                                                                     <td style="font-family: Calibri">
@@ -863,43 +888,51 @@
                                                                                             ErrorMessage="Please Enter Eligible period in months" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="font-family: Calibri"><b>Insert amount to be paid as per calculations</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Intrest amount to be paid as per Calculations</b></td>
+                                                                                    <br />
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations_TextChanged"
                                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
                                                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator123" runat="server" ControlToValidate="txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations"
-                                                                                            ErrorMessage="Please Enter Insert amount to be paid as per calculations" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                            ErrorMessage="Please Enter Intrest amount to be paid as per calculations" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                </tr>
-                                                                                <tr>
                                                                                     <td style="font-family: Calibri"><b>Actual interest amount paid</b></td>
                                                                                     <td style="font-family: Calibri">
-                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiActualinterestamountpaid" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiActualinterestamountpaid_TextChanged"
+                                                                                        <asp:TextBox ID="txt_grdeglibilepallavaddiActualinterestamountpaid" onkeypress="return isDecimal(event)" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiActualinterestamountpaid_TextChanged"
                                                                                             TabIndex="10" Width="180px"></asp:TextBox>
                                                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator124" runat="server" ControlToValidate="txt_grdeglibilepallavaddiActualinterestamountpaid"
                                                                                             ErrorMessage="Please Enter Actual interest amount paid" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="font-family: Calibri"><b>Rate of Interest</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Final Considered interest amount paid</b></td>
                                                                                     <td style="font-family: Calibri">
-                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseRateofInterest" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseRateofInterest_TextChanged"
+                                                                                        <asp:TextBox ID="txtFinalConsiderAmount" Enabled="false" runat="server" class="form-control txtbox" Height="28px"
+                                                                                            TabIndex="10" Width="180px"></asp:TextBox>
+                                                                                    </td>
+                                                                                    <td style="font-family: Calibri"><b>Rate of Interest(Change Rate of Interest If Unit have Special G.O)</b></td>
+                                                                                    <td style="font-family: Calibri">
+                                                                                        <asp:TextBox ID="txt_claimeglibleincentivesloanwiseRateofInterest" Text="8" onkeypress="return isDecimal(event)" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseRateofInterest_TextChanged"
                                                                                             TabIndex="10" Width="180px"></asp:TextBox>
                                                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator107" runat="server" ControlToValidate="txt_claimeglibleincentivesloanwiseRateofInterest"
                                                                                             ErrorMessage="Please Enter Rate of Interest" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Eligible rate of reimbursement</b></td>
+                                                                                    <%--Added by Chanikya--%>
+                                                                                    <%--  <td style="font-family: Calibri"><b>Final Considered interest amount paid</b></td>
+                                                                                    <td style="font-family: Calibri">
+                                                                                        <asp:Label runat="server" ID="lblFinalInterestPaid"></asp:Label>
+                                                                                        <br />
+                                                                                    </td>
+                                                                                    <td style="font-family: Calibri"></td>
+                                                                                    <td style="font-family: Calibri"></td>--%>
+                                                                                </tr>
+                                                                                <tr runat="server" visible="false">
+                                                                                    <td style="font-family: Calibri"><b>Eligible rate of reimbursement</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement_TextChanged"
                                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
@@ -907,7 +940,6 @@
                                                                                             ErrorMessage="Please Enter Eligible rate of reimbursement" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-
                                                                                 </tr>
                                                                                 <tr>
                                                                                     <td style="font-family: Calibri"><b>Considered Amount for Interest 75%</b></td>
@@ -918,7 +950,7 @@
                                                                                             ErrorMessage="Please Enter Considered Amount for Interest" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Considered Amount for Interest 8%</b></td>
+                                                                                    <td style="font-family: Calibri"><b><asp:Label runat="server" ID="lblConsideredAmountforInterest8">Considered Amount for Interest 8%</asp:Label></b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement_TextChanged"
                                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
@@ -928,18 +960,14 @@
                                                                                     </td>
                                                                                 </tr>
                                                                                 <tr>
-                                                                                    <td style="font-family: Calibri"><b>Interst reimbursement calculated</b></td>
+                                                                                    <td style="font-family: Calibri"><b>Interest Reimbursement Calculated</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_grdeglibilepallavaddiInsertreimbursementcalculated" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddiInsertreimbursementcalculated_TextChanged"
                                                                                             Enabled="false" TabIndex="10" Width="180px"></asp:TextBox>
                                                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator125" runat="server" ControlToValidate="txt_grdeglibilepallavaddiInsertreimbursementcalculated"
-                                                                                            ErrorMessage="Please Enter Interst reimbursement calculated" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                                                            ErrorMessage="Please Enter Interest Reimbursement Calculated" Display="Dynamic"></asp:RequiredFieldValidator>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                </tr>
-                                                                                <tr>
                                                                                     <td style="font-family: Calibri"><b>Eligible Type</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:RadioButtonList ID="rbtgrdeglibilepallavaddi_isbelated" runat="server" RepeatDirection="Horizontal" AutoPostBack="true" Height="33px" OnSelectedIndexChanged="rbtgrdeglibilepallavaddi_isbelated_SelectedIndexChanged"
@@ -950,10 +978,8 @@
                                                                                         </asp:RadioButtonList>
                                                                                         <br />
                                                                                     </td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr runat="server" visible="false">
                                                                                     <td style="font-family: Calibri"><b>Interst reimbursement(After selecting the eglible Type)</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype" runat="server" class="form-control txtbox" Height="28px" AutoPostBack="true" OnTextChanged="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype_TextChanged"
@@ -965,7 +991,7 @@
                                                                                     <td style="font-family: Calibri"></td>
                                                                                     <td style="font-family: Calibri"></td>
                                                                                 </tr>
-                                                                                <tr>
+                                                                                <tr runat="server" visible="false">
                                                                                     <td style="font-family: Calibri"><b>GM recommended amount</b></td>
                                                                                     <td style="font-family: Calibri">
                                                                                         <asp:TextBox ID="txt_grdeglibilepallavaddiGMrecommendedamount" Text='<%# Eval("GM_Rcon_Amount") %>'
@@ -990,16 +1016,7 @@
                                                                                     <td style="font-family: Calibri"></td>
                                                                                     <td style="font-family: Calibri"></td>
                                                                                 </tr>
-
-                                                                                <tr>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                    <td style="font-family: Calibri"></td>
-                                                                                </tr>
                                                                             </table>
-
-
                                                                         </ItemTemplate>
                                                                     </asp:TemplateField>
 
@@ -1012,21 +1029,19 @@
                                                 </table>
                                             </td>
                                         </tr>
-
-
                                         <tr>
                                             <td colspan="5">
                                                 <table style="width: 100%">
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
-                                                        <td style="padding: 5px; margin: 5px;">Insert amount to be paid as per calculations</td>
+                                                        <td style="padding: 5px; margin: 5px;">Interest amount to be paid as per calculations</td>
                                                         <td style="padding: 5px; margin: 5px;">:
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style28">
                                                             <asp:TextBox ID="txt_Insertamounttobepaidaspercalculations" runat="server" class="form-control txtbox" Height="28px" Enabled="false"
                                                                 TabIndex="10" ValidationGroup="group" Width="180px"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txt_Insertamounttobepaidaspercalculations"
-                                                                ErrorMessage="Please Enter Insert amount to be paid as per calculations" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
+                                                                ErrorMessage="Please Enter Interest amount to be paid as per calculations" Display="Dynamic" ValidationGroup="group"></asp:RequiredFieldValidator>
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
@@ -1075,7 +1090,7 @@
                                                         <td style="padding: 5px; margin: 5px;">&nbsp;
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    <tr runat="server" visible="false">
                                                         <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                                         <td style="padding: 5px; margin: 5px;">Interst reimbursement calculated<font color="red">*</font></td>
                                                         <td style="padding: 5px; margin: 5px;">:
@@ -1094,7 +1109,7 @@
                                                         <td style="padding: 5px; margin: 5px;">&nbsp;
                                                         </td>
                                                     </tr>
-                                                    <tr>
+                                                    <tr runat="server" visible="false">
                                                         <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                                         <td style="padding: 5px; margin: 5px;">Interst reimbursement(After selecting the eglible Type)<font color="red">*</font></td>
                                                         <td style="padding: 5px; margin: 5px;">:
@@ -1134,7 +1149,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
-                                                        <td style="padding: 5px; margin: 5px;">Eligible amount</td>
+                                                        <td style="padding: 5px; margin: 5px;">Final Eligible amount</td>
                                                         <td style="padding: 5px; margin: 5px;">:
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style28">
@@ -1157,7 +1172,7 @@
                                                         <td style="padding: 5px; margin: 5px;">:
                                                         </td>
                                                         <td style="padding: 5px; margin: 5px;" class="auto-style28">
-                                                            <asp:DropDownList ID="ddlDepartment" runat="server" class="form-control txtbox">
+                                                            <asp:DropDownList ID="ddlDepartment" runat="server" class="form-control txtbox" Width="42%">
                                                                 <asp:ListItem Text="--Select--" Value="Select"></asp:ListItem>
                                                                 <asp:ListItem Text="SUPDT" Value="SUPDT"></asp:ListItem>
                                                                 <asp:ListItem Text="AD" Value="AD"></asp:ListItem>
@@ -1176,16 +1191,24 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td style="font-family: Calibri"><b>Remarks</b></td>
+                                                        <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                                        <td style="padding: 5px; margin: 5px;">Remarks</td>
+                                                        <td style="padding: 5px; margin: 5px;">:
+                                                        </td>
                                                         <td style="font-family: Calibri">
-                                                            <asp:TextBox ID="txt_TotalRemarks" runat="server" class="form-control txtbox" Height="28px"
-                                                                ValidationGroup="group" TabIndex="10" Width="300px"></asp:TextBox>
+                                                            <asp:TextBox ID="txt_TotalRemarks" runat="server" class="form-control txtbox" Height="48px"
+                                                                ValidationGroup="group" TabIndex="10" Width="300px" TextMode="MultiLine"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txt_TotalRemarks"
                                                                 ErrorMessage="Please Enter Remarks" ValidationGroup="group" Display="Dynamic"></asp:RequiredFieldValidator>
                                                             <br />
                                                         </td>
-                                                        <td style="font-family: Calibri"></td>
-                                                        <td style="font-family: Calibri"></td>
+                                                        <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                                        <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
+                                                        <td style="padding: 5px; margin: 5px;"></td>
+                                                        <td style="padding: 5px; margin: 5px;">&nbsp; 
+                                                        </td>
+                                                        <td style="padding: 5px; margin: 5px;">&nbsp;
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -1195,8 +1218,9 @@
                                         <tr id="trsubmit" runat="server" visible="true">
                                             <td align="center" colspan="3" style="padding: 5px; margin: 5px; text-align: center;">
                                                 <asp:Button ID="BtnSave" runat="server" CssClass="btn btn-primary" Height="32px" OnClick="BtnSave_Click" TabIndex="24" Text="Save" ValidationGroup="group" Width="90px" />
-                                                &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="BtnClearall" runat="server" CausesValidation="False" CssClass="btn btn-warning" OnClick="BtnClearall_Click" Height="32px" Text="Clear" ToolTip="To Clear  the Screen" Width="90px" />
-                                                &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btm_previous" runat="server" CausesValidation="False" CssClass="btn btn-primary" OnClick="btm_previous_Click" Height="32px" TabIndex="25" Text="Previous" ToolTip="Payment" Width="90px" />
+                                                &nbsp;&nbsp;&nbsp; &nbsp;<asp:Button ID="btnback" runat="server"
+                                                        CssClass="btn btn-warning" TabIndex="10"
+                                                        Text="Go to Dashboard" OnClick="btnback_Click" />
                                             </td>
                                         </tr>
                                         <tr>

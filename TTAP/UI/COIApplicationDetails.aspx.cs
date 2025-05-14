@@ -3290,7 +3290,7 @@ namespace TTAP.UI
                             {
                                 Response.Redirect("~/UI/Pages/ApprasialInterest.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
-                            else if (ddlClerkIncentive.SelectedValue == "1")
+                            else if (ddlClerkIncentive.SelectedValue == "1" || ddlClerkIncentive.SelectedValue == "19")
                             {
                                 Response.Redirect("~/UI/Pages/CaptialSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
@@ -3306,7 +3306,14 @@ namespace TTAP.UI
                             {
                                 Response.Redirect("~/UI/Pages/StampDutyAppraisal.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
                             }
-
+                            else if (ddlClerkIncentive.SelectedValue == "2")
+                            {
+                                Response.Redirect("~/UI/Pages/CapitalAssistanceCreationEnergyAppraisal.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            }
+                            else if (ddlClerkIncentive.SelectedValue == "9")
+                            {
+                                Response.Redirect("~/UI/Pages/TransportSubsidyAppraisalNote.aspx?IncentiveID=" + ViewState["IncentiveId"] + "&SubIncentiveId=" + ddlClerkIncentive.SelectedValue.Trim().TrimStart());
+                            }
 
                         }
                         else
@@ -4434,11 +4441,25 @@ namespace TTAP.UI
                         {
                             Label enterid = (Label)GVRemark.Rows[i].FindControl("lblIncentiveID");
                             Label lblMstIncentiveId = (Label)GVRemark.Rows[i].FindControl("lblSubIncentiveId");
+                            Label lblCLERK_ProcessDate = (Label)GVRemark.Rows[i].FindControl("lblCLERK_ProcessDate");
                             if (lblMstIncentiveId.Text == "3")
                             {
-                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
-        "~/UI/Pages/InterestSubsidyAppraisalNote.aspx?incid=" + enterid.Text.Trim() +
-        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                                DateTime processDate;
+                                if (DateTime.TryParse(lblCLERK_ProcessDate.Text, out processDate))
+                                {
+                                    if (processDate >= new DateTime(2025, 5, 5))
+                                    {
+                                        (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+            "~/UI/Pages/ApprasialInterestPrint.aspx?incid=" + enterid.Text.Trim() +
+            "&mstid=" + lblMstIncentiveId.Text.Trim();
+                                    }
+                                    else
+                                    {
+                                        (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+                "~/UI/Pages/InterestSubsidyAppraisalNote.aspx?incid=" + enterid.Text.Trim() +
+                "&mstid=" + lblMstIncentiveId.Text.Trim();
+                                    }
+                                }
                             }
                             if (lblMstIncentiveId.Text == "1")
                             {
@@ -4456,6 +4477,18 @@ namespace TTAP.UI
                             {
                                 (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
         "~/UI/Pages/PowerSubsidyAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "2")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/CapitalAssistanceCreationEnergyAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "9")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/TransportSubsidyAppraisalNotePrint.aspx?incid=" + enterid.Text.Trim() +
         "&mstid=" + lblMstIncentiveId.Text.Trim();
                             }
                             else

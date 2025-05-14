@@ -123,6 +123,13 @@ namespace TTAP.UI.Pages
                         lbltotalValue.Text = row["TOTAL_COMP_COST"].ToString();
 
                         lblIndustryStatus.Text = row["INDUSTRY_STATUS_INS"].ToString();
+                        lblAlreadyAvailed.Text = row["ALREADY_AVAILED_AMOUNT"].ToString();
+
+                        if (row["INDUSTRY_STATUS_INS"].ToString() != "New Industry") 
+                        {
+                            trAlreadyAvailed.Visible = true;
+                            tr4232.Visible = false;
+                        }
                         lblConventionalTech.Text = row["TYPE_OF_TEXTILE_INS"].ToString();
                         lblTextileProcessType.Text = row["NATURE_INDUSTRY_INS"].ToString();
                         lblCategory.Text = row["CATEGORY_INDUSTRY_INS"].ToString();

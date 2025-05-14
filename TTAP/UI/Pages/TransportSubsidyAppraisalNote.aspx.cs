@@ -32,7 +32,7 @@ namespace TTAP.UI.Pages
                     if (!IsPostBack)
                     {
 
-                        string incentiveid = "48403";
+                        string incentiveid = "";
                         ViewState["UID"] = ObjLoginNewvo.uid;
                         if (Request.QueryString["IncentiveID"] != null)
                         {
@@ -70,8 +70,8 @@ namespace TTAP.UI.Pages
                     string TextileProcessName = dsnew.Tables[0].Rows[0]["TextileProcessName"].ToString();
                     //ddlindustryStatus(TypeOfIndustry.Trim().TrimStart().TrimEnd(), TextileProcessName);
                     hdnTypeOfIndustry.Value = dsnew.Tables[0].Rows[0]["TypeOfIndustry"].ToString();
-                    TypeOfIndustry = "2";
-                    hdnTypeOfIndustry.Value = "2";
+                    //TypeOfIndustry = "2";
+                    //hdnTypeOfIndustry.Value = "2";
                     if (TypeOfIndustry == "1")
                     {
                         lblDCPdate.InnerText = dsnew.Tables[0].Rows[0]["DCP"].ToString();
@@ -108,73 +108,138 @@ namespace TTAP.UI.Pages
 
         protected void CalucalteNewUnitSubsidy(object sender, EventArgs e)
         {
-            decimal Revenue = 0, Export = 0, Total = 0, GMAmount = 0;
-            if (txtGMRecommendedAmount.Text.Trim() != "") { GMAmount = Convert.ToDecimal(txtGMRecommendedAmount.Text.Trim().ToString()); }
-            if (txtRevenueOfUnit.Text.Trim() != "") { Revenue = Convert.ToDecimal(txtRevenueOfUnit.Text.Trim()); }
-            if (txtExportValueOfUnit.Text.Trim() != "") { Export = Convert.ToDecimal(txtExportValueOfUnit.Text.Trim()); }
-            Total = (Export * Revenue) / 100;
-            txtCalcSubsidyAmount.Text = Total.ToString();
-            decimal minValue = Math.Min(Total, GMAmount);
-            txtEligibleAmount.Text = minValue.ToString();
+            if (txtRevenueOfUnit.Text.Trim() != "" && txtExportValueOfUnit.Text.Trim() != "")
+            {
+                decimal Revenue = 0, Export = 0, Total = 0, GMAmount = 0;decimal CalAmount = 0;
+                if (txtGMRecommendedAmount.Text.Trim() != "") { GMAmount = Convert.ToDecimal(txtGMRecommendedAmount.Text.Trim().ToString()); }
+                if (txtRevenueOfUnit.Text.Trim() != "") { Revenue = Convert.ToDecimal(txtRevenueOfUnit.Text.Trim()); }
+                if (txtExportValueOfUnit.Text.Trim() != "") { Export = Convert.ToDecimal(txtExportValueOfUnit.Text.Trim()); }
+                if (Export < Revenue)
+                {
+                    Total = (Export / Revenue) * 100;
+                    if (Convert.ToInt32(Total) >= 30)
+                    {
+                        divInfoNotEligible.Visible = false;
+                        txtCalcSubsidyAmount.Enabled = true;
+                        txtEligibleAmount.Enabled = true;
+                        txtFinalSubsidyAmount.Enabled = true;
+                        rdbEligbleType.Enabled = true;
+                        CalAmount = Convert.ToDecimal(txtCalcSubsidyAmount.Text.Trim());
+                        decimal minValue = Math.Min(CalAmount, GMAmount);
+                        txtEligibleAmount.Text = minValue.ToString();
 
-            if (rdbEligbleType.SelectedValue != null && rdbEligbleType.SelectedValue != "")
-            {
-                if (rdbEligbleType.SelectedValue.ToString() == "1")
-                {
-                    txtFinalSubsidyAmount.Text = minValue.ToString();
+                        if (rdbEligbleType.SelectedValue != null && rdbEligbleType.SelectedValue != "")
+                        {
+                            if (rdbEligbleType.SelectedValue.ToString() == "1")
+                            {
+                                txtFinalSubsidyAmount.Text = minValue.ToString();
+                            }
+                            if (rdbEligbleType.SelectedValue.ToString() == "2")
+                            {
+                                txtFinalSubsidyAmount.Text = (minValue / 2).ToString();
+                            }
+                            if (rdbEligbleType.SelectedValue.ToString() == "3")
+                            {
+                                txtFinalSubsidyAmount.Text = "0";
+                            }
+                        }
+                        else
+                        {
+                            txtFinalSubsidyAmount.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        txtRemarks.Text = lblNotEligible.InnerText.ToString();
+                        divInfoNotEligible.Visible = true;
+                        txtCalcSubsidyAmount.Text = "0"; txtCalcSubsidyAmount.Enabled = false;
+                        txtEligibleAmount.Text = "0"; txtEligibleAmount.Enabled = false;
+                        txtFinalSubsidyAmount.Text = "0"; txtFinalSubsidyAmount.Enabled = false;
+                    }
                 }
-                if (rdbEligbleType.SelectedValue.ToString() == "2")
+                else 
                 {
-                    txtFinalSubsidyAmount.Text = (minValue / 2).ToString();
-                }
-                if (rdbEligbleType.SelectedValue.ToString() == "3")
-                {
+                    txtCalcSubsidyAmount.Text = "0";
+                    txtEligibleAmount.Text = "0";
                     txtFinalSubsidyAmount.Text = "0";
+                    txtExportValueOfUnit.Text = ""; txtExportValueOfUnit.Focus();
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Revenue value should higher than Export Value');", true);
+                    return;
                 }
-            }
-            else
-            {
-                txtFinalSubsidyAmount.Text = "";
             }
         }
 
         protected void CalucalteExpansionSubsidy(object sender, EventArgs e)
         {
-            decimal AvgRevenue = 0, RvnuAfterExp = 0, IncrementalRevenue = 0, GMAmount = 0;
-            decimal AvgFreightCharges = 0, TotalFrightCharges = 0, ElgFreightCharges = 0;
-            if (txtGMRecommendedAmount.Text.Trim() != "") { GMAmount = Convert.ToDecimal(txtGMRecommendedAmount.Text.Trim().ToString()); }
-
-            if (txtAverageRevenue.Text.Trim() != "") { AvgRevenue = Convert.ToDecimal(txtAverageRevenue.Text.Trim()); }
-            if (txtRevenueAfterExpansion.Text.Trim() != "") { RvnuAfterExp = Convert.ToDecimal(txtRevenueAfterExpansion.Text.Trim()); }
-            if (txtAverageFrightCharges.Text.Trim() != "") { AvgFreightCharges = Convert.ToDecimal(txtAverageFrightCharges.Text.Trim()); }
-            if (txtFreightChargesAfterExpansion.Text.Trim() != "") { TotalFrightCharges = Convert.ToDecimal(txtFreightChargesAfterExpansion.Text.Trim()); }
-
-            IncrementalRevenue = RvnuAfterExp - AvgRevenue;
-            txtIncrementalRevenue.Text = IncrementalRevenue.ToString();
-
-            ElgFreightCharges = TotalFrightCharges - AvgFreightCharges;
-            txtCalcSubsidyAmount.Text = ElgFreightCharges.ToString();
-            decimal minValue = Math.Min(ElgFreightCharges, GMAmount);
-            txtEligibleAmount.Text = minValue.ToString();
-
-            if (rdbEligbleType.SelectedValue != null && rdbEligbleType.SelectedValue != "")
+            if (txtAverageRevenue.Text.Trim() != "" && txtRevenueAfterExpansion.Text.Trim() != "")
             {
-                if (rdbEligbleType.SelectedValue.ToString() == "1")
+                decimal AvgRevenue = 0, RvnuAfterExp = 0, IncrementalRevenue = 0, GMAmount = 0, IncrementalRevenuePercentage = 0;
+                decimal AvgFreightCharges = 0, TotalFrightCharges = 0, ElgFreightCharges = 0;
+                if (txtGMRecommendedAmount.Text.Trim() != "") { GMAmount = Convert.ToDecimal(txtGMRecommendedAmount.Text.Trim().ToString()); }
+
+                if (txtAverageRevenue.Text.Trim() != "") { AvgRevenue = Convert.ToDecimal(txtAverageRevenue.Text.Trim()); }
+                if (txtRevenueAfterExpansion.Text.Trim() != "") { RvnuAfterExp = Convert.ToDecimal(txtRevenueAfterExpansion.Text.Trim()); }
+                if (txtAverageFrightCharges.Text.Trim() != "") { AvgFreightCharges = Convert.ToDecimal(txtAverageFrightCharges.Text.Trim()); }
+                if (txtFreightChargesAfterExpansion.Text.Trim() != "") { TotalFrightCharges = Convert.ToDecimal(txtFreightChargesAfterExpansion.Text.Trim()); }
+
+                IncrementalRevenue = RvnuAfterExp - AvgRevenue;
+                txtIncrementalRevenue.Text = IncrementalRevenue.ToString();
+                IncrementalRevenuePercentage = (IncrementalRevenue / RvnuAfterExp) * 100;
+                if (IncrementalRevenuePercentage >= 30)
                 {
-                    txtFinalSubsidyAmount.Text = minValue.ToString();
+                    divInfoNotEligible.Visible = false;
+                    txtCalcSubsidyAmount.Enabled = true;
+                    txtEligibleAmount.Enabled = true;
+                    txtFinalSubsidyAmount.Enabled = true;
+                    rdbEligbleType.Enabled = true;
+                    if (txtAverageFrightCharges.Text.Trim() != "" && txtFreightChargesAfterExpansion.Text.Trim() != "")
+                    {
+                        if (AvgFreightCharges < TotalFrightCharges)
+                        {
+                            ElgFreightCharges = TotalFrightCharges - AvgFreightCharges;
+                            txtCalcSubsidyAmount.Text = ElgFreightCharges.ToString();
+                            decimal minValue = Math.Min(ElgFreightCharges, GMAmount);
+                            txtEligibleAmount.Text = minValue.ToString();
+
+                            if (rdbEligbleType.SelectedValue != null && rdbEligbleType.SelectedValue != "")
+                            {
+                                if (rdbEligbleType.SelectedValue.ToString() == "1")
+                                {
+                                    txtFinalSubsidyAmount.Text = minValue.ToString();
+                                }
+                                if (rdbEligbleType.SelectedValue.ToString() == "2")
+                                {
+                                    txtFinalSubsidyAmount.Text = (minValue / 2).ToString();
+                                }
+                                if (rdbEligbleType.SelectedValue.ToString() == "3")
+                                {
+                                    txtFinalSubsidyAmount.Text = "0";
+                                }
+                            }
+                            else
+                            {
+                                txtFinalSubsidyAmount.Text = "";
+                            }
+                        }
+                        else 
+                        {
+                            txtCalcSubsidyAmount.Text = "0";
+                            txtEligibleAmount.Text = "0";
+                            txtFinalSubsidyAmount.Text = "0";
+                            txtFreightChargesAfterExpansion.Text = ""; txtFreightChargesAfterExpansion.Focus();
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Total Frieght Charges after Expansion value should higher than Average Freight Charges of Last 3 Yrs Value');", true);
+                            return;
+                        }
+                    }
                 }
-                if (rdbEligbleType.SelectedValue.ToString() == "2")
+                else
                 {
-                    txtFinalSubsidyAmount.Text = (minValue / 2).ToString();
+                    divInfoNotEligible.Visible = true;
+                    txtRemarks.Text = lblNotEligible.InnerText.ToString();
+                    txtCalcSubsidyAmount.Text = "0"; txtCalcSubsidyAmount.Enabled = false;
+                    txtEligibleAmount.Text = "0"; txtEligibleAmount.Enabled = false;
+                    txtFinalSubsidyAmount.Text = "0"; txtFinalSubsidyAmount.Enabled = false;
                 }
-                if (rdbEligbleType.SelectedValue.ToString() == "3")
-                {
-                    txtFinalSubsidyAmount.Text = "0";
-                }
-            }
-            else
-            {
-                txtFinalSubsidyAmount.Text = "";
             }
         }
 
@@ -410,6 +475,57 @@ namespace TTAP.UI.Pages
         protected void btnback_Click(object sender, EventArgs e)
         {
             Response.Redirect("COI/ClerkDashboard.aspx");
+        }
+        protected void txtFinalSubsidyAmount_TextChanged(object sender, EventArgs e)
+        {
+            if (rdbEligbleType.SelectedValue != null && rdbEligbleType.SelectedValue != "")
+            {
+                decimal Value = Convert.ToDecimal(txtFinalSubsidyAmount.Text.Trim().ToString());
+                if (rdbEligbleType.SelectedValue.ToString() == "1")
+                {
+                    txtFinalSubsidyAmount.Text = Value.ToString();
+                }
+                if (rdbEligbleType.SelectedValue.ToString() == "2")
+                {
+                    txtFinalSubsidyAmount.Text = (Value / 2).ToString();
+                }
+                if (rdbEligbleType.SelectedValue.ToString() == "3")
+                {
+                    txtFinalSubsidyAmount.Text = "0";
+                }
+            }
+        }
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            string IncentiveId = txtIncID.Text;
+            string SubIncentiveId = "9";
+
+            if (fuWorksheet.HasFile)
+            {
+                string errormsg = objClsFileUpload.CheckFileSize(fuWorksheet);
+                if (errormsg != "")
+                {
+                    string message = "alert('" + errormsg + "')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    return;
+                }
+                string Mimetype = objClsFileUpload.getmimetype(fuWorksheet);
+                if (Mimetype == "application/pdf")
+                {
+                    string OutPut = objClsFileUpload.WorkSheetFileUploading("~\\WorkSheets", Server.MapPath("~\\WorkSheets"), fuWorksheet, hypWorksheet, "WorkSheet", IncentiveId, SubIncentiveId, ViewState["UID"].ToString(), "USER", "WORKSHEET");
+                    if (OutPut != "0")
+                    {
+                        success.Visible = true;
+                        Failure.Visible = false;
+                        hypWorksheet.Visible = true;
+                        lblmsg.Text = "Attachment Successfully Added..!";
+                    }
+                }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Only pdf files allowed !');", true);
+                }
+            }
         }
     }
 }

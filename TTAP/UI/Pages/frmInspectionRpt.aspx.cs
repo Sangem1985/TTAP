@@ -1087,6 +1087,13 @@ namespace TTAP.UI.Pages
                     RadioButtonList rbtnList = (RadioButtonList)gvrow.FindControl("rbtnEquipmentavailableYes");
                     TextBox txtremarks = (TextBox)gvrow.FindControl("txtremarksEq");
                     TextBox txtAdmissibleAmount = (TextBox)gvrow.FindControl("txtAdmissibleAmountEq");
+                    DropDownList ddlTypeofEquipment = ((DropDownList)(gvrow.FindControl("ddlTypeofEquipment")));
+                    if (ddlTypeofEquipment.SelectedValue == "0") 
+                    {
+                        ErrorMsg = ErrorMsg + slno + ". Please select Eqipment Category under Equipment Section at S.No " + (gvrow.RowIndex + 1).ToString() + " \\n";
+                        slno = slno + 1;
+                        break;
+                    }
                     if (rbtnList.SelectedIndex == -1)
                     {
                         ErrorMsg = ErrorMsg + slno + ". Please Check Availability of the Equipment in Running Condition under Equipment Section at S.No " + (gvrow.RowIndex + 1).ToString() + " \\n";
@@ -1301,6 +1308,7 @@ namespace TTAP.UI.Pages
                             TextBox txtAdmissibleAmountEq = ((TextBox)(gvrow.FindControl("txtAdmissibleAmountEq")));
                             TextBox txtremarksEq = ((TextBox)(gvrow.FindControl("txtremarksEq")));
                             RadioButtonList rbtnEquipmentavailableYes = ((RadioButtonList)(gvrow.FindControl("rbtnEquipmentavailableYes")));
+                            DropDownList ddlTypeofEquipment = ((DropDownList)(gvrow.FindControl("ddlTypeofEquipment")));
 
                             lstPMs.Add(new InspectionEquipment
                             {
@@ -1310,7 +1318,7 @@ namespace TTAP.UI.Pages
                                 EquipmentAvailability = rbtnEquipmentavailableYes.SelectedValue,
                                 Remarks = txtremarksEq.Text,
                                 EquipmentCost = txtAdmissibleAmountEq.Text,
-                                Category = lblCategoryId.Text
+                                Category = ddlTypeofEquipment.SelectedValue.ToString()
                             });
                         }
 
@@ -2304,7 +2312,8 @@ namespace TTAP.UI.Pages
                             TextBox txtAdmissibleAmountEq = ((TextBox)(gvrow.FindControl("txtAdmissibleAmountEq")));
                             TextBox txtremarksEq = ((TextBox)(gvrow.FindControl("txtremarksEq")));
                             RadioButtonList rbtnEquipmentavailableYes = ((RadioButtonList)(gvrow.FindControl("rbtnEquipmentavailableYes")));
-                            
+                            DropDownList ddlTypeofEquipment = ((DropDownList)(gvrow.FindControl("ddlTypeofEquipment")));
+
                             lstPMs.Add(new InspectionEquipment
                             {
                                 EquipmentId = lblEquipment_ID.Text,
@@ -2313,7 +2322,7 @@ namespace TTAP.UI.Pages
                                 EquipmentAvailability = rbtnEquipmentavailableYes.SelectedValue,
                                 Remarks = txtremarksEq.Text,
                                 EquipmentCost = txtAdmissibleAmountEq.Text,
-                                Category = lblCategoryId.Text
+                                Category = ddlTypeofEquipment.SelectedValue.ToString()
                             });
                         }
 
@@ -2383,6 +2392,7 @@ namespace TTAP.UI.Pages
                     ObjApplicationStatus.IndustryDeptFlag = "";
                     ObjApplicationStatus.IndustryDeptRemarks = txtIndustryRemarks.Text;
                     ObjApplicationStatus.DLOManualRecommendAmount = lblDLOSuggestedAmount.Text;
+                    ObjApplicationStatus.IPORecommendedAmount = GetDecimalNullValue(txtIPORecommendedAmount.Text.Trim().TrimStart());
 
                     if (hdnrUserRole.Value == "IND")
                     {
@@ -3170,9 +3180,23 @@ namespace TTAP.UI.Pages
         {
             try
             {
+                foreach (GridViewRow gvrow in gvEquipments.Rows)
+                {   
+                    Label lblCategoryId = ((Label)(gvrow.FindControl("lblCategoryId")));
+                    DropDownList ddlTypeofEquipment = ((DropDownList)(gvrow.FindControl("ddlTypeofEquipment")));
+                    if (lblCategoryId.Text == "" || lblCategoryId.Text == null)
+                    {
+                        ddlTypeofEquipment.SelectedValue = "0";
+                    }
+                    else 
+                    {
+                        ddlTypeofEquipment.SelectedValue = lblCategoryId.Text.ToString();
+                    }
+                    
+                }
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-
+                    
                     RadioButtonList ddlAction = (e.Row.FindControl("rbtnEquipmentavailableYes") as RadioButtonList);
                     string Actiontaken = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "EqipmentAvailability"));
                     if (Actiontaken != "")

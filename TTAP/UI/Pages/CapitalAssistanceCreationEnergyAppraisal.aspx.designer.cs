@@ -618,6 +618,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
 
         /// <summary>
+        /// txtRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtRemarks;
+
+        /// <summary>
         /// fuWorksheet control.
         /// </summary>
         /// <remarks>

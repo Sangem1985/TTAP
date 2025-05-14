@@ -3075,6 +3075,7 @@
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
                                                                 <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                                <asp:Label ID="lblCLERK_ProcessDate" Text='<%#Eval("CLERK_ProcessDate") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
                                                     </Columns>

@@ -34,7 +34,7 @@ namespace TTAP.UI.Pages
                     if (!IsPostBack)
                     {
 
-                        string incentiveid = "2063";
+                        string incentiveid = "17155";
                         ViewState["UID"] = ObjLoginNewvo.uid;
                         if (Request.QueryString["IncentiveID"] != null)
                         {
@@ -210,7 +210,7 @@ namespace TTAP.UI.Pages
             string CS = ConfigurationManager.ConnectionStrings["TTAPDB"].ConnectionString;
             using (SqlConnection con = new SqlConnection(CS))
             {
-                SqlCommand cmd = new SqlCommand("USP_GET_CURRENT_CLAIMPERIOD", con);
+                SqlCommand cmd = new SqlCommand("USP_GET_CURRENT_CLAIMPERIOD_MONTHS", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(new SqlParameter()
@@ -274,56 +274,48 @@ namespace TTAP.UI.Pages
             public decimal EligibleAmount { get; set; }
         }
 
-        protected void txtRptLoanInstallmentStartDt_TextChanged(object sender, EventArgs e)
+        protected void txtRptLoanInstallmentStartDt_TextChanged1(object sender, EventArgs e)
         {
 
             TextBox txt = (TextBox)sender;
             RepeaterItem item = (RepeaterItem)txt.NamingContainer;
 
             TextBox txtRptLoanInstallmentStartDt = (TextBox)item.FindControl("txtRptLoanInstallmentStartDt");
+            TextBox txtRptDCP = (TextBox)item.FindControl("txtRptDCP");
+            DropDownList ddlRptPeriodOfInstallment = (DropDownList)item.FindControl("ddlRptPeriodOfInstallment");
             HiddenField hf_grdeglibilepallavaddiFY_ID = (HiddenField)item.FindControl("hf_grdeglibilepallavaddiFY_ID");
+            
             /*TextBox txtEligibleAmount = (TextBox)item.FindControl("txtEligibleAmount");
             TextBox txtBaseFixed = (TextBox)item.FindControl("txtBaseFixed");
             TextBox txtEligibleUnitsBase = (TextBox)item.FindControl("txtEligibleUnitsBase");*/
+           
+        }
+        private void HandleInstallmentStartDateChange(RepeaterItem item)
+        {
+            TextBox txtRptLoanInstallmentStartDt = (TextBox)item.FindControl("txtRptLoanInstallmentStartDt");
+            TextBox txtRptDCP = (TextBox)item.FindControl("txtRptDCP");
+            TextBox txtRptNoofInstallmentsCompleted = (TextBox)item.FindControl("txtRptNoofInstallmentsCompleted");
+            TextBox txtRptTermLoanAvailed = (TextBox)item.FindControl("txtRptTermLoanAvailed");
+            TextBox txtRptNoofInstallments = (TextBox)item.FindControl("txtRptNoofInstallments");
+            TextBox txtRptInstallmentAmount = (TextBox)item.FindControl("txtRptInstallmentAmount");
+            TextBox txtRptPrincipalAmountDUE = (TextBox)item.FindControl("txtRptPrincipalAmountDUE");
+            DropDownList ddlRptPeriodOfInstallment = (DropDownList)item.FindControl("ddlRptPeriodOfInstallment");
+            HiddenField hf_grdeglibilepallavaddiFY_ID = (HiddenField)item.FindControl("hf_grdeglibilepallavaddiFY_ID");
+
             int slno = 1;
             string ErrorMsg = "";
 
-            //txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted.Enabled = false;
-            //txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths.Enabled = false;
-            //chk_claimeglibleincenloanwisepreviousfymot.Enabled = false;
-            //chk_moratiumapplforthisclaimperiod.Enabled = false;
-            //chk_grdclaimegliblerowstodisable.Enabled = false;
-
             DateTime dcpdate = DateTime.Now; DateTime installmentstartdate = DateTime.Now;
-            decimal Totalamount = 0; int periodofinstallment = 0;
-            int Totalinstallment = 0; decimal installmentamount = 0; int noofinstallmentcompleted = 0; decimal termprincipaldueamount = 0;
-            int noofinstallmentcompletedMonths = 0;
-            int Actualcalnoofinstallmentcompleted = 0; decimal Actualcaltermprincipaldueamount = 0; int ActualcalnoofinstallmentcompletedMonths = 0;
+            int noofinstallmentcompleted = 0;
             int FYSlnoofIncentiveID = 0;
-            int firstsecondhalfyearclaimtype = 0;
             int fyStartyear = 0;
             int fystartmonth = 0;
             int fyendyear = 0;
             int fyendmonth = 0;
+            int firstsecondhalfyearclaimtype = 0;
             int totalclaimperiod = 6;
-            bool previousmotrage = false;
-            bool motrageforclaim = false;
-            bool noofrowsdisablesel = false;
-            int numSelected = 0; int unselectednumber = 0;
-            decimal Toteglibleperiodinmonths = 0; decimal totalinterestforallfy = 0; decimal totaleglibleinterestforallfy = 0;
 
-            decimal rateofinterestMonthone = 0, rateofinterestMonthtwo = 0, rateofinterestMonththree = 0, rateofinterestMonthfour = 0,
-                rateofinterestMonthfive = 0, rateofinterestMonthsix = 0;
-
-            //int InstallmentNoMonthone = 0,InstallmentNoMonthtwo = 0,InstallmentNoMonththree = 0,InstallmentNoMonthfour = 0,InstallmentNoMonthfive = 0,InstallmentNoMonthsix = 0;
-
-            int dcpyearsofdate = 6;
-            //if (Convert.ToString(lbl_schemetide.Text) == "TTAP")
-            //{
-            //    dcpyearsofdate = 6;
-            //}
-
-            //DateTime fiveyearsdate = dcpdate.AddYears(dcpyearsofdate);
+            decimal PrincipleDueAmount = 0,CompletedPrincipleAmount=0;
 
 
             if (!string.IsNullOrEmpty(hf_grdeglibilepallavaddiFY_ID.Value) || hf_grdeglibilepallavaddiFY_ID.Value != "")
@@ -359,7 +351,171 @@ namespace TTAP.UI.Pages
                         totalclaimperiod = 12;
                     }
                 }
+                if (txtRptDCP.Text.TrimStart().TrimEnd().Trim() != "")
+                {
+
+                    dcpdate = Convert.ToDateTime(txtRptDCP.Text);
+                }
+                if (txtRptLoanInstallmentStartDt.Text.TrimStart().TrimEnd().Trim() != "")
+                {
+
+                    installmentstartdate = Convert.ToDateTime(txtRptLoanInstallmentStartDt.Text);
+                }
+                if (txtRptTermLoanAvailed.Text != "" && txtRptNoofInstallments.Text != "")
+                {
+                    txtRptInstallmentAmount.Text = Math.Round((Convert.ToDecimal(txtRptTermLoanAvailed.Text.Trim()) / Convert.ToInt32(txtRptNoofInstallments.Text.ToString())),2).ToString();
+                }
+               
+                if (dcpdate.Date != DateTime.Now.Date)
+                {
+                    if (installmentstartdate.Date != DateTime.Now.Date)
+                    {   
+                        DateTime Claimperiodstartdate = new DateTime(Convert.ToInt32(fyStartyear), fystartmonth, 01);
+                        /*DateTime fyendstss = new DateTime(fyendyear, fyendmonth, 1);*/
+                     
+
+                        int MonthsDifference = GetMonthsDifference(installmentstartdate, Claimperiodstartdate);
+
+                        if (ddlRptPeriodOfInstallment.SelectedValue != "0")
+                        {
+                            string PeriodOfInstallment = ddlRptPeriodOfInstallment.SelectedValue.ToString();
+                            if (PeriodOfInstallment == "1")
+                            {
+                                noofinstallmentcompleted = MonthsDifference / 12;
+                            }
+                            if (PeriodOfInstallment == "2")
+                            {
+                                noofinstallmentcompleted = MonthsDifference / 6;
+                            }
+                            if (PeriodOfInstallment == "3")
+                            {
+                                noofinstallmentcompleted = MonthsDifference / 3;
+                            }
+                            if (PeriodOfInstallment == "4")
+                            {
+                                noofinstallmentcompleted = MonthsDifference;
+                            }
+                            txtRptNoofInstallmentsCompleted.Text = noofinstallmentcompleted.ToString();
+                        }
+                        if (txtRptInstallmentAmount.Text != "" && txtRptNoofInstallmentsCompleted.Text != "")
+                        {
+                            CompletedPrincipleAmount = Convert.ToDecimal((Convert.ToDecimal(txtRptInstallmentAmount.Text.Trim()) * Convert.ToInt32(txtRptNoofInstallmentsCompleted.Text.Trim())).ToString());
+                            txtRptPrincipalAmountDUE.Text = Math.Round((Convert.ToDecimal(txtRptTermLoanAvailed.Text) - CompletedPrincipleAmount),2).ToString();
+                        }
+                    }
+                }
+                if (txtRptPrincipalAmountDUE.Text != "")
+                {
+                    decimal ActualPrincipleDue = Convert.ToDecimal(txtRptPrincipalAmountDUE.Text), InstallmentAmount = Convert.ToDecimal(txtRptInstallmentAmount.Text);
+                    decimal NewPrincipleDue = 0;
+                    int NewInstallmentNo, CompletedInstallments;
+                    foreach (RepeaterItem tt in rpt_eglibilepallavaddi.Items)
+                    {
+                        Repeater rptMonths = (Repeater)tt.FindControl("rptMonths");
+                        foreach (RepeaterItem Row in rptMonths.Items)
+                        {
+                            Label lblPrincipalAmountDue = (Label)Row.FindControl("lblPrincipalAmountDue");
+                            Label lblInstallmentNo = (Label)Row.FindControl("lblInstallmentNo");
+                            if (Row.ItemIndex == 0)
+                            {
+                                lblPrincipalAmountDue.Text = ActualPrincipleDue.ToString();
+                                NewPrincipleDue = ActualPrincipleDue - InstallmentAmount;
+                                lblInstallmentNo.Text = (Convert.ToInt32(txtRptNoofInstallmentsCompleted.Text) + 1).ToString();
+                            }
+                            if (Row.ItemIndex == 1)
+                            {
+                                lblPrincipalAmountDue.Text = NewPrincipleDue.ToString();
+                                NewPrincipleDue = NewPrincipleDue - InstallmentAmount;
+                                lblInstallmentNo.Text = (Convert.ToInt32(txtRptNoofInstallmentsCompleted.Text) + 2).ToString();
+                            }
+                            if (Row.ItemIndex == 2)
+                            {
+                                lblPrincipalAmountDue.Text = NewPrincipleDue.ToString();
+                                NewPrincipleDue = NewPrincipleDue - InstallmentAmount;
+                                lblInstallmentNo.Text = (Convert.ToInt32(txtRptNoofInstallmentsCompleted.Text) + 3).ToString();
+                            }
+                            if (Row.ItemIndex == 3)
+                            {
+                                lblPrincipalAmountDue.Text = NewPrincipleDue.ToString();
+                                NewPrincipleDue = NewPrincipleDue - InstallmentAmount;
+                                lblInstallmentNo.Text = (Convert.ToInt32(txtRptNoofInstallmentsCompleted.Text) + 4).ToString();
+                            }
+                            if (Row.ItemIndex == 4)
+                            {
+                                lblPrincipalAmountDue.Text = NewPrincipleDue.ToString();
+                                NewPrincipleDue = NewPrincipleDue - InstallmentAmount;
+                                lblInstallmentNo.Text = (Convert.ToInt32(txtRptNoofInstallmentsCompleted.Text) + 5).ToString();
+                            }
+                            if (Row.ItemIndex == 5)
+                            {
+                                lblPrincipalAmountDue.Text = NewPrincipleDue.ToString();
+                                NewPrincipleDue = NewPrincipleDue - InstallmentAmount;
+                                lblInstallmentNo.Text = (Convert.ToInt32(txtRptNoofInstallmentsCompleted.Text) + 6).ToString();
+                            }
+                        }
+                    }
+                }
             }
+        }
+        protected void txtRptLoanInstallmentStartDt_TextChanged(object sender, EventArgs e)
+        {
+            TextBox txt = (TextBox)sender;
+            RepeaterItem item = (RepeaterItem)txt.NamingContainer;
+            HandleInstallmentStartDateChange(item);
+        }
+        protected void ddlRptPeriodOfInstallment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl = (DropDownList)sender;
+            RepeaterItem item = (RepeaterItem)ddl.NamingContainer;
+
+            HandleInstallmentStartDateChange(item);
+        }
+        protected void txtRateofInterest_TextChanged(object sender, EventArgs e)
+        {
+            /*TextBox txtRateofInterest = (TextBox)sender;
+            RepeaterItem item = (RepeaterItem)txtRateofInterest.NamingContainer;*/
+
+            foreach (RepeaterItem tt in rpt_eglibilepallavaddi.Items)
+            {
+                Repeater rptMonths = (Repeater)tt.FindControl("rptMonths");
+                foreach (RepeaterItem Row in rptMonths.Items)
+                {
+                    Label lblPrincipalAmountDue = (Label)Row.FindControl("lblPrincipalAmountDue");
+                    Label lblInstallmentNo = (Label)Row.FindControl("lblInstallmentNo");
+                    Label lblInterestDue = (Label)Row.FindControl("lblInterestDue");
+                    Label lbl75onInterestDue = (Label)Row.FindControl("lbl75onInterestDue");
+                    Label lblInterestDue8 = (Label)Row.FindControl("lblInterestDue8");
+                    TextBox txtRateofInterest = (TextBox)Row.FindControl("txtRateofInterest");
+                    int RateOfInterest = 0;
+                    decimal IntrstDue75 = 0;
+                    if (txtRateofInterest.Text != "")
+                    {
+                        RateOfInterest = Convert.ToInt32(txtRateofInterest.Text);
+                        if (lblInterestDue.Text != "") { IntrstDue75 = Convert.ToDecimal(lblInterestDue.Text); }
+                        lblInterestDue.Text = ((Convert.ToDecimal(lblPrincipalAmountDue.Text) * RateOfInterest) / 1200).ToString();
+                        //lbl75onInterestDue.Text = (IntrstDue75 * 0.75).ToString();
+                        lblInterestDue8.Text= ((Convert.ToDecimal(lblPrincipalAmountDue.Text) * 8) / 1200).ToString();
+                    }
+                }
+            }
+        }
+       public static int GetMonthsDifference(DateTime start, DateTime end)
+        {
+            
+            /*if (start > end)
+            {
+                var temp = start;
+                start = end;
+                end = temp;
+            }*/
+
+            int months = (end.Year - start.Year) * 12 + end.Month - start.Month;
+
+           
+            /*if (end.Day < start.Day)
+                months--;*/
+
+            return months;
         }
     }
 }

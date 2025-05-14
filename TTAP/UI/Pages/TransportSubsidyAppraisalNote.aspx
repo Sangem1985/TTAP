@@ -146,8 +146,6 @@
                                                 <asp:TextBox ID="txtRevenueOfUnit" runat="server" class="form-control" OnTextChanged="CalucalteNewUnitSubsidy"
                                                     MaxLength="40" onkeypress="DecimalOnly()" AutoPostBack="true" TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="col-sm-3 form-group">
                                                 <label class="control-label label-required">Total Export Value of the Unit</label>
                                                 <asp:TextBox ID="txtExportValueOfUnit" runat="server" class="form-control" OnTextChanged="CalucalteNewUnitSubsidy"
@@ -157,54 +155,55 @@
                                     </div>
                                     <div runat="server" id="divExpansion" visible="false">
                                         <div class="row">
-                                            <div class="col-sm-3 form-group">
-                                                <label class="control-label label-required">Average Revenue(Last Three Years)</label>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="control-label label-required">Average Revenue(Last Three Years)(A)</label>
                                                 <asp:TextBox ID="txtAverageRevenue" runat="server" OnTextChanged="CalucalteExpansionSubsidy" AutoPostBack="true"
                                                     MaxLength="40" onkeypress="DecimalOnly()" class="form-control" TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3 form-group">
-                                                <label class="control-label label-required">Revenue After Expansion</label>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="control-label label-required">Revenue After Expansion(B)</label>
                                                 <asp:TextBox ID="txtRevenueAfterExpansion" runat="server" class="form-control" OnTextChanged="CalucalteExpansionSubsidy" AutoPostBack="true"
                                                     MaxLength="40" onkeypress="DecimalOnly()" TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3 form-group">
-                                                <label class="control-label label-required">Incremental Revenue</label>
+                                            <div class="col-sm-4 form-group">
+                                                <label class="control-label label-required">Incremental Revenue(B-A)</label>
                                                 <asp:TextBox ID="txtIncrementalRevenue" runat="server" class="form-control"
                                                     MaxLength="40" onkeypress="DecimalOnly()" Enabled="false" TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
+                                        <%--<div class="row">
+                                        </div>
                                         <div class="row">
-                                            <div class="col-sm-3 form-group">
+                                        </div>--%>
+                                        <div class="row">
+                                            <div class="col-sm-4 form-group">
                                                 <label class="control-label label-required">Average Fright Charges(Last Three Years)</label>
                                                 <asp:TextBox ID="txtAverageFrightCharges" runat="server" class="form-control" OnTextChanged="CalucalteExpansionSubsidy" AutoPostBack="true"
                                                     MaxLength="40" onkeypress="DecimalOnly()" TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3 form-group">
+                                            <div class="col-sm-4 form-group">
                                                 <label class="control-label label-required">Total Freight Charges After Expansion</label>
                                                 <asp:TextBox ID="txtFreightChargesAfterExpansion" runat="server" class="form-control" OnTextChanged="CalucalteExpansionSubsidy" AutoPostBack="true"
                                                     MaxLength="40" onkeypress="DecimalOnly()" TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                             </div>
                                         </div>
+                                       <%-- <div class="row">
+                                            
+                                        </div>--%>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-3 form-group">
-                                            <label class="control-label label-required">Calculated Subsisdy Amount</label>
+                                            <label class="control-label label-required">Eligible Fright Charges Calculated</label>
                                             <asp:TextBox ID="txtCalcSubsidyAmount" runat="server" class="form-control"
-                                                MaxLength="40" onkeypress="DecimalOnly()" TabIndex="5" ValidationGroup="group"></asp:TextBox>
+                                                MaxLength="40" onkeypress="DecimalOnly()" AutoPostBack="true" TabIndex="5" OnTextChanged="rdbEligbleType_SelectedIndexChanged" ValidationGroup="group"></asp:TextBox>
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-sm-3 form-group">
                                             <label class="control-label label-required">GM Recommended Amount</label>
                                             <asp:TextBox ID="txtGMRecommendedAmount" runat="server" class="form-control"
                                                 MaxLength="40" onkeypress="DecimalOnly()" OnTextChanged="rdbEligbleType_SelectedIndexChanged" AutoPostBack="true" TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                         </div>
+                                    </div>
+                                    <div class="row">
                                     </div>
                                     <div class="row" runat="server" id="div3">
                                         <div class="col-sm-3 form-group">
@@ -226,7 +225,7 @@
                                         <div class="col-sm-3 form-group">
                                             <label class="control-label label-required">Final Subsidy Amount</label>
                                             <asp:TextBox ID="txtFinalSubsidyAmount" runat="server" class="form-control"
-                                                MaxLength="40" onkeypress="DecimalOnly()" TabIndex="5" ValidationGroup="group"></asp:TextBox>
+                                                MaxLength="40" onkeypress="DecimalOnly()" AutoPostBack="true" TabIndex="5" OnTextChanged="txtFinalSubsidyAmount_TextChanged" ValidationGroup="group"></asp:TextBox>
                                         </div>
                                         <div class="col-sm-3 form-group">
                                             <label class="control-label label-required">Forward To</label>
@@ -239,9 +238,15 @@
                                             </asp:DropDownList>
                                         </div>
                                     </div>
+                                    <div id="divInfoNotEligible" class="row" runat="server" visible="false">
+                                        <div class="col-lg-12 form-group">
+                                            <label class="control-label" style="color: red;" runat="server" id="lblNotEligible">
+                                                As per Calculation this Application is not eligible for Reimbursement</label>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-sm-3 form-group">
-                                            <label class="control-label label-required">Remarks</label>
+                                            <label class="control-label">Remarks</label>
                                             <asp:TextBox ID="txtRemarks" runat="server" class="form-control" TextMode="MultiLine"
                                                 TabIndex="5" ValidationGroup="group"></asp:TextBox>
                                         </div>
@@ -266,6 +271,7 @@
                                             </tr>
                                         </table>
                                     </div>
+
                                     <div class="row">
                                         <table width="100%;">
                                             <tr id="trsubmit" runat="server" visible="true" align="center">

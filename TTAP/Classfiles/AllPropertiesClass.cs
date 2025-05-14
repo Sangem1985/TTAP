@@ -2833,6 +2833,7 @@ namespace TTAP.Classfiles
         public string modified_by { get; set; }
         public DateTime? modified_dt { get; set; }
         public string createdIP { get; set; }
+        public string AlreadyAvailedAmount { get; set; }
 
         public string ModifiedIP { get; set; }
 
@@ -3030,6 +3031,16 @@ namespace TTAP.Classfiles
         /* Capital Assistance for Creation of Energy, Water and Environmental Conservation Infrastructure */
 
         public string EquipmentXml { get; set; }
+
+        public string TotalCostofEnergyConservation { get; set; }
+        public string TotalCostofWaterConservation { get; set; }
+        public string TotalCostofEquipmentEnvironmental { get; set; }
+        public string TotalCostofCetPlantCluster { get; set; }
+        public string EligibleCostofEnergyConservation { get; set; }
+        public string EligibleCostofWaterConservation { get; set; }
+        public string EligibleCostofEquipmentEnvironmental { get; set; }
+        public string EligibleCostofCetPlantCluster { get; set; }
+
 
 
         /*Transport Subsidy*/
@@ -3241,6 +3252,9 @@ namespace TTAP.Classfiles
         public bool Moratoriumrowfour { get; set; }
         public bool Moratoriumrowfive { get; set; }
         public bool Moratoriumrowsix { get; set; }
+        public string AvgRateOfInterest { get; set; }
+        public string Eligible_Interest_Amount_As_per_GO { get; set; }
+        public string Final_Considered_Interest_Amount_Paid { get; set; }
     }
 
     public class StampDutyAprsl

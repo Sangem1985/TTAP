@@ -31,7 +31,7 @@ namespace TTAP.UI.Pages
                     if (!IsPostBack)
                     {
 
-                        string incentiveid = "2060";
+                        string incentiveid = "";
                         ViewState["UID"] = ObjLoginNewvo.uid;
                         if (Request.QueryString["IncentiveID"] != null)
                         {
@@ -447,30 +447,30 @@ namespace TTAP.UI.Pages
                 objApprasialProperties.DATEOFPRODUCTION = Convert.ToDateTime(lblDCPdate.InnerText).ToString("yyyy-MM-dd");
                 objApprasialProperties.DICFILLINGDATE = Convert.ToDateTime(lblReceiptDate.InnerText).ToString("yyyy-MM-dd");
                 objApprasialProperties.PowerConnectionRlsDate = Convert.ToDateTime(lblPowerConnectionReleaseDate.InnerText).ToString("yyyy-MM-dd");
-                objApprasialProperties.NAMEFINANCINGUNIT = lblUnitName.InnerText;
 
-                //objApprasialProperties.TypeOfUnitIns = RBTTYPE.SelectedValue.ToString();
-                //objApprasialProperties.Production = TXTPRODUCTION.Text;
-                //objApprasialProperties.TaxPaidSGST = TXTTAXPAID.Text;
-                //objApprasialProperties.BaseProduction = TXTBASEPRODUCTION.Text;
-                //objApprasialProperties.EligibleProductionQty = TXTELIGIBLEPRODUCTIONQTY.Text;
-                //objApprasialProperties.ProportinateSGST = TXTPROPORTINATESGSTVALUE.Text;
-                //objApprasialProperties.CapitalEligibleInv = TXTCAPITALELIGIBLEINVESTMENT.Text;
-                //objApprasialProperties.AlreadySanctionedAmount = TXTSALESTAXSANCTIONED.Text;
-                //objApprasialProperties.CategoryAsPerInspection = DDLCATEGORY.SelectedValue.ToString();
-                //objApprasialProperties.AMOUNT = TXTELIGIBLEAMOUNT.Text;
-                //objApprasialProperties.Type = rdeligibility.SelectedValue.ToString();
+                objApprasialProperties.TotalCostofEnergyConservation = txtEnergyEquipmentTotal.Text;
+                objApprasialProperties.TotalCostofWaterConservation = txtWaterEquipmentTotal.Text;
+                objApprasialProperties.TotalCostofEquipmentEnvironmental = txttxtEnvironmentalEquipmentTotal.Text;
+                objApprasialProperties.TotalCostofCetPlantCluster = txttxtEffluentTreatmentCotal.Text;
 
-                //objApprasialProperties.GMRecommendedAmount = txtgmRecommend.Text;
-                //objApprasialProperties.EligibleSubsidyAmount = TXTFINALELIGIBLEAMOUNT.Text;
-                //objApprasialProperties.TotalSubsidyAmount = txtEligibleAmount.Text;
-                //objApprasialProperties.Remarks = txtremarks.Text;
-                //objApprasialProperties.WorkSheetPath = hypWorksheet.NavigateUrl.ToString();
-                //objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
-                //objApprasialProperties.CREATEDBYIP = "";
+                objApprasialProperties.EligibleCostofEnergyConservation = txtEnergyEquipment.Text;
+                objApprasialProperties.EligibleCostofWaterConservation = txtWaterEquipment.Text;
+                objApprasialProperties.EligibleCostofEquipmentEnvironmental = txtEnvironmentalEquipment.Text;
+                objApprasialProperties.EligibleCostofCetPlantCluster = txtEffluentTreatment.Text;
+
+                objApprasialProperties.CalculatedSubsisdyAmount = txtSysCalculatedAmount.Text;
+                objApprasialProperties.GMRecommendedAmount = txtGMRecommendedAmount.Text;
+                objApprasialProperties.ELIGIBLETYPE = rdbEligbleType.SelectedItem.Text;
+                objApprasialProperties.TotalSubsidyAmount = txtEligibleAmount.Text;
+                objApprasialProperties.ForwardTo = ddlDepartment.SelectedValue;
+                objApprasialProperties.Remarks = txtRemarks.Text;
+                objApprasialProperties.WorkSheetPath = hypWorksheet.Text;
+                objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
+                objApprasialProperties.CREATEDBYIP = getclientIP();
+
 
                 string returnval = "0";
-                //returnval = ObjCAFClass.InsertCACEWECIAppraisal(objApprasialProperties);
+                returnval = ObjCAFClass.InsertCACEWECIAppraisal(objApprasialProperties);
                 if (!string.IsNullOrEmpty(returnval) && returnval.Trim() != "")
                 {
                     string Role_Code = Session["Role_Code"].ToString().Trim().TrimStart();
@@ -511,6 +511,48 @@ namespace TTAP.UI.Pages
 
             }
             return status;
+        }
+
+        protected void GvEquipmentDtls_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                foreach (GridViewRow gvrow in GvEquipmentDtls.Rows)
+                {
+                    Label lblTypeofEquipmentId = ((Label)(gvrow.FindControl("lblTypeofEquipmentId")));
+                    DropDownList ddlTypeofEquipment = ((DropDownList)(gvrow.FindControl("ddlTypeofEquipment")));
+                    if (lblTypeofEquipmentId.Text == "" || lblTypeofEquipmentId.Text == null)
+                    {
+                        ddlTypeofEquipment.SelectedValue = "0";
+                    }
+                    else
+                    {
+                        ddlTypeofEquipment.SelectedValue = lblTypeofEquipmentId.Text.ToString();
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+        public static string getclientIP()
+        {
+            string result = string.Empty;
+            string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (!string.IsNullOrEmpty(ip))
+            {
+                string[] ipRange = ip.Split(',');
+                int le = ipRange.Length - 1;
+                result = ipRange[0];
+            }
+            else
+            {
+                result = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+
+            return result;
         }
     }
 }

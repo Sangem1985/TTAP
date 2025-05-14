@@ -11,7 +11,7 @@ namespace TTAP.UI.Pages
 {
 
 
-    public partial class CapitalSubsidy
+    public partial class TransportSubsidyAppraisalNotePrint
     {
 
         /// <summary>
@@ -69,40 +69,31 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblSancIncentiveName;
 
         /// <summary>
-        /// lblUnitname control.
+        /// lblUnitName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUnitname;
+        protected global::System.Web.UI.WebControls.Label lblUnitName;
 
         /// <summary>
-        /// lblApplication_no control.
+        /// lblAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApplication_no;
+        protected global::System.Web.UI.WebControls.Label lblAddress;
 
         /// <summary>
-        /// lblLocaddress control.
+        /// lblProprietor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLocaddress;
-
-        /// <summary>
-        /// lblPromoterName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPromoterName;
+        protected global::System.Web.UI.WebControls.Label lblProprietor;
 
         /// <summary>
         /// lblConstitutionOfIndustrial control.
@@ -123,49 +114,40 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblSocialStatus;
 
         /// <summary>
-        /// lblEntrprName control.
+        /// lblShareofSCSTWomenEnterprenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEntrprName;
+        protected global::System.Web.UI.WebControls.Label lblShareofSCSTWomenEnterprenue;
 
         /// <summary>
-        /// lblwomen control.
+        /// lblRegistrationNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblwomen;
+        protected global::System.Web.UI.WebControls.Label lblRegistrationNumber;
 
         /// <summary>
-        /// lblSSIRegn control.
+        /// lblTypeofApplicant control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSSIRegn;
+        protected global::System.Web.UI.WebControls.Label lblTypeofApplicant;
 
         /// <summary>
-        /// lblNewExpnDiver control.
+        /// lblCategoryofUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNewExpnDiver;
-
-        /// <summary>
-        /// lblCommencmentOfCommrclProdcn_Date control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCommencmentOfCommrclProdcn_Date;
+        protected global::System.Web.UI.WebControls.Label lblCategoryofUnit;
 
         /// <summary>
         /// lblApplicationDateDIC control.
@@ -177,256 +159,85 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblApplicationDateDIC;
 
         /// <summary>
-        /// lblFinInstn control.
+        /// lblTypeofTexttile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFinInstn;
+        protected global::System.Web.UI.WebControls.Label lblTypeofTexttile;
 
         /// <summary>
-        /// TRCLAIMPERIOD control.
+        /// lblTechnicalTextileType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow TRCLAIMPERIOD;
+        protected global::System.Web.UI.WebControls.Label lblTechnicalTextileType;
 
         /// <summary>
-        /// lblclaimperiod control.
+        /// lblActivityoftheUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblclaimperiod;
+        protected global::System.Web.UI.WebControls.Label lblActivityoftheUnit;
 
         /// <summary>
-        /// TRSCHEME control.
+        /// lblUIDNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow TRSCHEME;
+        protected global::System.Web.UI.WebControls.Label lblUIDNumber;
 
         /// <summary>
-        /// lblScheme control.
+        /// lblCommonApplicationNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScheme;
+        protected global::System.Web.UI.WebControls.Label lblCommonApplicationNumber;
 
         /// <summary>
-        /// lblDetailsConfirmed control.
+        /// lblPowerConnectionReleaseDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDetailsConfirmed;
+        protected global::System.Web.UI.WebControls.Label lblPowerConnectionReleaseDate;
 
         /// <summary>
-        /// clerkattachment control.
+        /// lblDCPdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow clerkattachment;
+        protected global::System.Web.UI.WebControls.Label lblDCPdate;
 
         /// <summary>
-        /// hylinkattachment control.
+        /// lblReceiptDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hylinkattachment;
+        protected global::System.Web.UI.WebControls.Label lblReceiptDate;
 
         /// <summary>
-        /// divLineNew control.
+        /// divNewUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLineNew;
-
-        /// <summary>
-        /// GvLineOfactivityDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvLineOfactivityDetails;
-
-        /// <summary>
-        /// divLineExp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLineExp;
-
-        /// <summary>
-        /// GvLineOfactivityExpnsionDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvLineOfactivityExpnsionDetails;
-
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
-        /// Label2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
-
-        /// <summary>
-        /// lblLand control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLand;
-
-        /// <summary>
-        /// lblLandValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLandValue;
-
-        /// <summary>
-        /// lblBuilding control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuilding;
-
-        /// <summary>
-        /// lblBuildingValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBuildingValue;
-
-        /// <summary>
-        /// lblPlantMachinery control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlantMachinery;
-
-        /// <summary>
-        /// lblPlantMachineryValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPlantMachineryValue;
-
-        /// <summary>
-        /// lblTechnicalKnowhow control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTechnicalKnowhow;
-
-        /// <summary>
-        /// lblTechnicalKnowhowValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTechnicalKnowhowValue;
-
-        /// <summary>
-        /// lbltotal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltotal;
-
-        /// <summary>
-        /// lbltotalValue control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltotalValue;
-
-        /// <summary>
-        /// trIndustryStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trIndustryStatus;
-
-        /// <summary>
-        /// lblIndustryStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIndustryStatus;
-
-        /// <summary>
-        /// trCONVENTIONALTECHNICAL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCONVENTIONALTECHNICAL;
-
-        /// <summary>
-        /// lblConventionalTech control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblConventionalTech;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divNewUnit;
 
         /// <summary>
         /// tr1 control.
@@ -438,121 +249,130 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlTableRow tr1;
 
         /// <summary>
-        /// lblTextileProcessType control.
+        /// lblRevenueOfUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTextileProcessType;
+        protected global::System.Web.UI.WebControls.Label lblRevenueOfUnit;
 
         /// <summary>
-        /// trCategory control.
+        /// tr2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trCategory;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr2;
 
         /// <summary>
-        /// lblCategory control.
+        /// lblExportValueOfUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCategory;
+        protected global::System.Web.UI.WebControls.Label lblExportValueOfUnit;
 
         /// <summary>
-        /// trcaste control.
+        /// divExpansionUnit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trcaste;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExpansionUnit;
 
         /// <summary>
-        /// lblCatCaste control.
+        /// tr3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCatCaste;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr3;
 
         /// <summary>
-        /// trmenwomen control.
+        /// lblAverageRevenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trmenwomen;
+        protected global::System.Web.UI.WebControls.Label lblAverageRevenue;
 
         /// <summary>
-        /// lblGender control.
+        /// tr4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGender;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr4;
 
         /// <summary>
-        /// treligibility control.
+        /// lblRevenueAfterExpansion control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow treligibility;
+        protected global::System.Web.UI.WebControls.Label lblRevenueAfterExpansion;
 
         /// <summary>
-        /// lblEligibility control.
+        /// tr5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEligibility;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr5;
 
         /// <summary>
-        /// trEligible control.
+        /// lblIncrementalRevenue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trEligible;
+        protected global::System.Web.UI.WebControls.Label lblIncrementalRevenue;
 
         /// <summary>
-        /// lblEligibilitySub control.
+        /// tr6 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEligibilitySub;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr6;
 
         /// <summary>
-        /// trAlreadyAvailed control.
+        /// lblAverageFrightCharges control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trAlreadyAvailed;
+        protected global::System.Web.UI.WebControls.Label lblAverageFrightCharges;
 
         /// <summary>
-        /// lblAlreadyAvailed control.
+        /// tr7 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAlreadyAvailed;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr7;
+
+        /// <summary>
+        /// lblTotalFreightChargesAfterExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalFreightChargesAfterExp;
 
         /// <summary>
         /// tr4231 control.
@@ -564,58 +384,67 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlTableRow tr4231;
 
         /// <summary>
-        /// lblSubsidyAmount control.
+        /// lblCalculatedSubsidyAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSubsidyAmount;
+        protected global::System.Web.UI.WebControls.Label lblCalculatedSubsidyAmount;
 
         /// <summary>
-        /// tr4232 control.
+        /// lblGMAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr4232;
+        protected global::System.Web.UI.WebControls.Label lblGMAmount;
 
         /// <summary>
-        /// lblAddSubAmount control.
+        /// lblEligibletotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAddSubAmount;
+        protected global::System.Web.UI.WebControls.Label lblEligibletotal;
 
         /// <summary>
-        /// tr4233 control.
+        /// lblEligibilityType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tr4233;
+        protected global::System.Web.UI.WebControls.Label lblEligibilityType;
 
         /// <summary>
-        /// lblTotalSubAmt control.
+        /// lblFinalSubsudyAmount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalSubAmt;
+        protected global::System.Web.UI.WebControls.Label lblFinalSubsudyAmount;
 
         /// <summary>
-        /// tradremarks control.
+        /// lblDepartment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tradremarks;
+        protected global::System.Web.UI.WebControls.Label lblDepartment;
+
+        /// <summary>
+        /// trRemarks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trRemarks;
 
         /// <summary>
         /// lblRemarks control.
@@ -627,12 +456,21 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblRemarks;
 
         /// <summary>
-        /// lblDepartment control.
+        /// worksheet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDepartment;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow worksheet;
+
+        /// <summary>
+        /// hypworksheet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hypworksheet;
     }
 }

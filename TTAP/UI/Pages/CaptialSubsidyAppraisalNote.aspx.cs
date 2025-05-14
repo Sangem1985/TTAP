@@ -225,7 +225,6 @@ namespace TTAP.UI.Pages
                     {
                         lblDCPdate.InnerText = dsnew.Tables[0].Rows[0]["DCPExp"].ToString();
                     }
-
                     lblReceiptDate.InnerHtml = dsnew.Tables[0].Rows[0]["ApplicationFiledDate"].ToString();
                     lblcategory.InnerText = dsnew.Tables[0].Rows[0]["SocialStatusText"].ToString();
                     lblCategoryofUnit.InnerText = dsnew.Tables[0].Rows[0]["Category"].ToString();
@@ -299,6 +298,7 @@ namespace TTAP.UI.Pages
                             ddlIndustryStatus.ClearSelection(); // Clear previous selection
                             item.Selected = true; // Set new selection
                         }
+                        rdlmv_SelectedIndexChanged(this, EventArgs.Empty);
                     }
                     if (lblCategoryofUnit.InnerText != null && lblCategoryofUnit.InnerText != "")
                     {
@@ -707,7 +707,14 @@ namespace TTAP.UI.Pages
                 }*/
                 if (rdmenwomen.SelectedValue != "Men" || rdlmv.SelectedValue != "GENERAL")
                 {
-                    tr4232.Visible = true;
+                    if (ddlIndustryStatus.SelectedValue == "1")
+                    {
+                        tr4232.Visible = true;
+                    }
+                }
+                else 
+                {
+                    tr4232.Visible = false;
                 }
                 CapitalsubsidyCalculation();
             }
@@ -772,8 +779,7 @@ namespace TTAP.UI.Pages
             try
             {
                 if (TextBox57.Text != "" && TextBox58.Text != "" && TextBox45.Text != "")
-                {
-                    Eligible.Visible = true;
+                {   
                     trEligible.Visible = true;
                     tr4231.Visible = true;
                     tr4232.Visible = true;
@@ -1327,6 +1333,7 @@ namespace TTAP.UI.Pages
                 objApprasialProperties.Remarks = txtremarks.Text;
                 objApprasialProperties.CREATEDBY = ObjLoginNewvo.uid;
                 objApprasialProperties.GMRecommendedAmount = txtGMAmount.Text.ToString();
+                objApprasialProperties.AlreadyAvailedAmount = txtAmountAlreadyAvailed.Text.ToString();
 
                 objApprasialProperties.Scheme = "TTAP";
                 string returnval = "0";
@@ -1487,6 +1494,19 @@ namespace TTAP.UI.Pages
 
         protected void ddlIndustryStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (ddlIndustryStatus.SelectedValue == "1")
+            {
+                trAMountAlreadyAvailed.Visible = false;
+                trEligible.Visible = true;
+                tr4232.Visible = true;
+            }
+            else 
+            {
+                trEligible.Visible = false;
+                tr4232.Visible = false;
+                trAMountAlreadyAvailed.Visible = true;
+            }
+            
             TTAPCategory();
             CapitalsubsidyCalculation();
         }
@@ -1538,12 +1558,6 @@ namespace TTAP.UI.Pages
                 if (TextBox57.Text != "" && TextBox58.Text != "" && TextBox45.Text != "" && rdcoventinaltech.SelectedValue != "" && (rdcategoryofunit.SelectedValue != "NA" ||
                     rdcategoryofunit.SelectedValue != "") && rdmenwomen.SelectedValue != "")
                 {
-                    Eligible.Visible = true;
-                    trEligible.Visible = true;
-                    tr4231.Visible = true;
-                    tr4232.Visible = true;
-                    tr4233.Visible = true;
-
                     if (ddlIndustryStatus.SelectedValue == "1")
                     {
                         txtTSSFCnorms423.Text = "";
@@ -1558,7 +1572,7 @@ namespace TTAP.UI.Pages
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 10000000);
                             }
-                            else 
+                            else
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 20000000);
                             }
@@ -1569,7 +1583,7 @@ namespace TTAP.UI.Pages
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 30000000);
                             }
-                            else 
+                            else
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 50000000);
                             }
@@ -1580,7 +1594,7 @@ namespace TTAP.UI.Pages
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 50000000);
                             }
-                            else 
+                            else
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 100000000);
                             }
@@ -1602,7 +1616,7 @@ namespace TTAP.UI.Pages
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 200000000);
                             }
-                            else 
+                            else
                             {
                                 CapAmountForAddlSubsidy = Math.Min(ActInvest, 400000000);
                             }
@@ -1630,7 +1644,7 @@ namespace TTAP.UI.Pages
                                     EligibleAmount = Math.Min(CalcAmount, 10000000);
                                 }
                             }
-                            else 
+                            else
                             {
                                 if (rdmenwomen.SelectedValue != "Men" || rdlmv.SelectedValue != "GENERAL")
                                 {
@@ -1655,7 +1669,7 @@ namespace TTAP.UI.Pages
                                     EligibleAmount = Math.Min(CalcAmount, 30000000);
                                 }
                             }
-                            else 
+                            else
                             {
                                 if (rdmenwomen.SelectedValue != "Men" || rdlmv.SelectedValue != "GENERAL")
                                 {
@@ -1680,7 +1694,7 @@ namespace TTAP.UI.Pages
                                     EligibleAmount = Math.Min(CalcAmount, 50000000);
                                 }
                             }
-                            else 
+                            else
                             {
                                 if (rdmenwomen.SelectedValue != "Men" || rdlmv.SelectedValue != "GENERAL")
                                 {
@@ -1705,7 +1719,7 @@ namespace TTAP.UI.Pages
                                     EligibleAmount = Math.Min(CalcAmount, 100000000);
                                 }
                             }
-                            else 
+                            else
                             {
                                 if (rdmenwomen.SelectedValue != "Men" || rdlmv.SelectedValue != "GENERAL")
                                 {
@@ -1730,7 +1744,7 @@ namespace TTAP.UI.Pages
                                     EligibleAmount = Math.Min(CalcAmount, 200000000);
                                 }
                             }
-                            else 
+                            else
                             {
                                 if (rdmenwomen.SelectedValue != "Men" || rdlmv.SelectedValue != "GENERAL")
                                 {
@@ -1742,18 +1756,38 @@ namespace TTAP.UI.Pages
                                 }
                             }
                         }
-                        if (rdeligibility.SelectedValue == "Regular")
+                    }
+                    else 
+                    {
+                        if (txtAmountAlreadyAvailed.Text != "")
                         {
-                            txtvalue424.Text = EligibleAmount.ToString();
+                            decimal AlreadyAvailed = 0, TwentyPerEligibleAmount = 0, TotalAmount = 0;
+                            if (txtAmountAlreadyAvailed.Text.Trim() != "") { AlreadyAvailed = Convert.ToDecimal(txtAmountAlreadyAvailed.Text.Trim().ToString()); }
+                            TwentyPerEligibleAmount = (((Convert.ToDecimal(TextBox58.Text)) * 20) / 100);
+                            TotalAmount = AlreadyAvailed + TwentyPerEligibleAmount;
+                            if (TotalAmount > 50000000)
+                            {
+                                decimal ExtraAmount = TotalAmount - 50000000;
+                                txt423guideline.Text = (TwentyPerEligibleAmount - ExtraAmount).ToString();
+                            }
+                            else
+                            {
+                                txt423guideline.Text = TwentyPerEligibleAmount.ToString();
+                            }
+                            EligibleAmount = Convert.ToDecimal(txt423guideline.Text.ToString());
                         }
-                        if (rdeligibility.SelectedValue == "Belated")
-                        {
-                            txtvalue424.Text = (EligibleAmount / 2).ToString();
-                        }
-                        if (rdeligibility.SelectedValue == "OneYear")
-                        {
-                            txtvalue424.Text = "0";
-                        }
+                    }
+                    if (rdeligibility.SelectedValue == "Regular")
+                    {
+                        txtvalue424.Text = EligibleAmount.ToString();
+                    }
+                    if (rdeligibility.SelectedValue == "Belated")
+                    {
+                        txtvalue424.Text = (EligibleAmount / 2).ToString();
+                    }
+                    if (rdeligibility.SelectedValue == "OneYear")
+                    {
+                        txtvalue424.Text = "0";
                     }
                 }
             }

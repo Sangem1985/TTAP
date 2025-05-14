@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InterestSubsidyAppraisalNote.aspx.cs" Inherits="TTAP.UI.Pages.InterestSubsidyAppraisalNote" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ApprasialInterestPrint.aspx.cs" Inherits="TTAP.UI.Pages.ApprasialInterestPrint" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -82,8 +82,22 @@
             width: 142px;
         }
     </style>
+    <script type="text/javascript">
+      
+        function PrintScreen() {
+            document.getElementById("btnPrint").style.display = 'none';
+            print();
+            document.getElementById("btnPrint").style.display = 'block';
+        }
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && e.key === "p") {
+                e.preventDefault();
+                PrintScreen();
+            }
+        });
+    </script>
 </head>
-<body>
+<body style="border: groove;">
     <form id="form1" runat="server">
         <div align="center">
             <div align="center" style="text-align: center">
@@ -118,7 +132,8 @@
                                 <td style="text-align: center; vertical-align: middle">
                                     <u><b>
                                         <%--Telangana State Industrial Development and Entrepreneur Advancement - GO MS. NO 28, Industries & Commerce (IP & INF) Department, Dated : 29/11/2014--%>
-                                  Reimbursement of Interest Subsidy Appraisal Note <br />
+                                  Reimbursement of Interest Subsidy Appraisal Note
+                                        <br />
 
                                         <asp:Label ID="lblSancIncentiveName" Visible="false" runat="server"></asp:Label>
                                     </b></u>
@@ -128,12 +143,12 @@
                         <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td style="font: bolder; font-size: small" class="auto-style1">
-                                    1. Name of Industrial Concern
+                                <td style="font: bolder; font-size: small" class="auto-style1">1. Name of Industrial Concern
                                 </td>
                                 <td>
-                                    
-                                        <asp:Label ID="lblUnitname" runat="server"></asp:Label> &nbsp;
+
+                                    <asp:Label ID="lblUnitname" runat="server"></asp:Label>
+                                    &nbsp;
                                 </td>
                             </tr>
                             <tr>
@@ -237,7 +252,7 @@
                                     </span>
                                 </td>
                             </tr>
-                             <tr>
+                            <tr>
                                 <td style="width: 2%"></td>
                                 <td class="auto-style1">12. Application no
                                 </td>
@@ -256,7 +271,7 @@
                                     </span>
                                 </td>
                             </tr>
-                            <tr id="TRSCHEME" runat="server" >
+                            <tr id="TRSCHEME" runat="server">
                                 <td style="width: 2%"></td>
                                 <td class="auto-style1">14. Scheme
                                 </td>
@@ -333,9 +348,9 @@
                             </tr>--%><tr>
                                 <td style="width: 2%"></td>
                                 <td>
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2" id="divLineNew" runat="server"  visible="false">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2" id="divLineNew" runat="server" visible="false">
                                         <asp:GridView ID="GvLineOfactivityDetails" ShowHeaderWhenEmpty="true" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                            CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise" >
+                                            CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise">
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                             <RowStyle CssClass="GridviewScrollC1Item" />
@@ -385,7 +400,7 @@
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2" id="divLineExp" runat="server" visible="false">
                                         <asp:GridView ID="GvLineOfactivityExpnsionDetails" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                            CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise" >
+                                            CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise">
                                             <HeaderStyle HorizontalAlign="Center" />
                                             <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                             <RowStyle CssClass="GridviewScrollC1Item" />
@@ -438,7 +453,7 @@
                             </div>
 
                         </table>
-                       <%-- <div align="center" runat="server" visible="false">
+                        <%-- <div align="center" runat="server" visible="false">
                             <table style="font-family: Verdana; font-size: small; width: 100%">
                                 <tr>
                                     <td style="width: 2%"></td>
@@ -2391,7 +2406,7 @@
                                     <td></td>
                                     <td colspan="4">
                                         <asp:GridView ID="grd_claimperiodofloanadd" runat="server" CssClass="table table-small-font table-bordered table-striped"
-                                            AutoGenerateColumns="false" AllowPaging="false" ShowHeaderWhenEmpty="true" ShowFooter="true"
+                                            AutoGenerateColumns="false" AllowPaging="false" ShowHeaderWhenEmpty="true" ShowFooter="false"
                                             EmptyDataText="&lt;b&gt;No Data Available&lt;/b&gt;">
                                             <Columns>
                                                 <asp:TemplateField>
@@ -2494,7 +2509,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="font-family: Calibri">
-                                                                    <b>No of installment</b>
+                                                                    <b>No of installments</b>
                                                                 </td>
                                                                 <td style="font-family: Calibri">
                                                                     <%# Eval("Noofinstallmentforloan") %>
@@ -2538,11 +2553,11 @@
                                                                             </th>
                                                                             <th style="font-family: Calibri">Interest due
                                                                             </th>
-                                                                            <th style="font-family: Calibri">75% on interest due
+                                                                            <th style="font-family: Calibri" runat="server" visible="false">75% on interest due
                                                                             </th>
-                                                                            <th style="font-family: Calibri">interest due @ 8%
+                                                                            <th style="font-family: Calibri" runat="server" visible="false">interest due @ 8%
                                                                             </th>
-                                                                            <th style="font-family: Calibri">Eligible Interest Amount
+                                                                            <th style="font-family: Calibri" runat="server" visible="false">Eligible Interest Amount
                                                                             </th>
                                                                         </tr>
                                                                         <tr>
@@ -2570,15 +2585,15 @@
                                                                                 <asp:Label ID="lbl_grd_monthoneInterestamount" Text='<%# Eval("interestamountMonth1") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthoneUnitHolderContribution" Text='<%# Eval("unitholdercontMonth1") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthoneEligibleRateofinterest" Text='<%# Eval("eligiblerateofintersetMonth1") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthoneEligibleInterestAmount" Text='<%# Eval("eligibleinterestamountMonth1") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
@@ -2608,15 +2623,15 @@
                                                                                 <asp:Label ID="lbl_grd_monthtwoInterestamount" Text='<%# Eval("interestamountMonth2") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthtwoUnitHolderContribution" Text='<%# Eval("unitholdercontMonth2") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthtwoEligibleRateofinterest" Text='<%# Eval("eligiblerateofintersetMonth2") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthtwoEligibleInterestAmount" Text='<%# Eval("eligibleinterestamountMonth2") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
@@ -2646,15 +2661,15 @@
                                                                                 <asp:Label ID="lbl_grd_monththreeInterestamount" Text='<%# Eval("interestamountMonth3") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monththreeUnitHolderContribution" Text='<%# Eval("unitholdercontMonth3") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monththreeEligibleRateofinterest" Text='<%# Eval("eligiblerateofintersetMonth3") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monththreeEligibleInterestAmount" Text='<%# Eval("eligibleinterestamountMonth3") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
@@ -2684,15 +2699,15 @@
                                                                                 <asp:Label ID="lbl_grd_monthfourInterestamount" Text='<%# Eval("interestamountMonth4") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthfourUnitHolderContribution" Text='<%# Eval("unitholdercontMonth4") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthfourEligibleRateofinterest" Text='<%# Eval("eligiblerateofintersetMonth4") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthfourEligibleInterestAmount" Text='<%# Eval("eligibleinterestamountMonth4") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
@@ -2722,15 +2737,15 @@
                                                                                 <asp:Label ID="lbl_grd_monthfiveInterestamount" Text='<%# Eval("interestamountMonth5") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthfiveUnitHolderContribution" Text='<%# Eval("unitholdercontMonth5") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthfiveEligibleRateofinterest" Text='<%# Eval("eligiblerateofintersetMonth5") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthfiveEligibleInterestAmount" Text='<%# Eval("eligibleinterestamountMonth5") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
@@ -2760,22 +2775,21 @@
                                                                                 <asp:Label ID="lbl_grd_monthsixInterestamount" Text='<%# Eval("interestamountMonth6") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthsixUnitHolderContribution" Text='<%# Eval("unitholdercontMonth6") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthsixEligibleRateofinterest" Text='<%# Eval("eligiblerateofintersetMonth6") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_monthsixEligibleInterestAmount" Text='<%# Eval("eligibleinterestamountMonth6") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td style="font-family: Calibri">
-                                                                            </td>
+                                                                            <td style="font-family: Calibri"></td>
                                                                             <td style="font-family: Calibri"></td>
                                                                             <td style="font-family: Calibri"></td>
                                                                             <td style="font-family: Calibri"></td>
@@ -2785,10 +2799,10 @@
                                                                                 <asp:Label ID="lbl_grd_totmonthsInterestamount" Text='<%# Eval("totmonthsinterestamountMonth") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
-                                                                            <td style="font-family: Calibri"></td>
-                                                                            <td style="font-family: Calibri">Total Eligible Interest Amount:
+                                                                            <td style="font-family: Calibri" runat="server" visible="false"></td>
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">Total Eligible Interest Amount:
                                                                             </td>
-                                                                            <td style="font-family: Calibri">
+                                                                            <td style="font-family: Calibri" runat="server" visible="false">
                                                                                 <asp:Label ID="lbl_grd_totmonthsEligibleInterestAmount" Text='<%# Eval("totmonthseligibleinterestamount") %>'
                                                                                     runat="server"></asp:Label>
                                                                             </td>
@@ -2797,6 +2811,16 @@
                                                                 </td>
                                                             </tr>
                                                             <tr>
+                                                                <td style="font-family: Calibri">
+                                                                    <b>Average Rate of Interest as per Calculation</b>
+                                                                    <br />
+                                                                </td>
+                                                                <td style="font-family: Calibri">
+                                                                   
+                                                                    <asp:Label ID="lblAvRate" Text='<%# Eval("AvgRateOfInterest") %>'
+                                                                        runat="server"></asp:Label>
+                                                                    <br />
+                                                                </td>
                                                                 <td style="font-family: Calibri">
                                                                     <b>Eligible period in months</b>
                                                                     <br />
@@ -2807,8 +2831,6 @@
                                                                         runat="server"></asp:Label>
                                                                     <br />
                                                                 </td>
-                                                                <td style="font-family: Calibri"></td>
-                                                                <td style="font-family: Calibri"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="font-family: Calibri">
@@ -2819,10 +2841,6 @@
                                                                         runat="server"></asp:Label>
                                                                     <br />
                                                                 </td>
-                                                                <td style="font-family: Calibri"></td>
-                                                                <td style="font-family: Calibri"></td>
-                                                            </tr>
-                                                            <tr>
                                                                 <td style="font-family: Calibri">
                                                                     <b>Actual interest amount paid</b>
                                                                 </td>
@@ -2831,18 +2849,26 @@
                                                                         runat="server"></asp:Label>
                                                                     <br />
                                                                 </td>
-                                                                <td style="font-family: Calibri"></td>
-                                                                <td style="font-family: Calibri"></td>
                                                             </tr>
                                                             <tr>
                                                                 <td style="font-family: Calibri">
-                                                                    <b>Rate of Interest</b>
+                                                                    <b>Final Considered interest amount paid</b>
+                                                                </td>
+                                                                <td style="font-family: Calibri">
+                                                                    <asp:Label ID="lblFinalConsideredInterestAmountPaid" Text='<%# Eval("Final_Considered_Interest_Amount_Paid") %>'
+                                                                        runat="server"></asp:Label>
+                                                                    <br />
+                                                                </td>
+                                                                <td style="font-family: Calibri">
+                                                                    <b>Eligible Rate of Interest As per G.O</b>
                                                                 </td>
                                                                 <td style="font-family: Calibri">
                                                                     <asp:Label ID="txt_claimeglibleincentivesloanwiseRateofInterest" Text='<%# Eval("Rateofinterestforloan") %>'
                                                                         runat="server"></asp:Label>
                                                                     <br />
                                                                 </td>
+                                                            </tr>
+                                                            <tr runat="server" visible="false">
                                                                 <td style="font-family: Calibri">&nbsp;&nbsp;&nbsp; &nbsp;<b>Eligible rate of reimbursement</b>
                                                                 </td>
                                                                 <td style="font-family: Calibri">
@@ -2853,29 +2879,31 @@
                                                             </tr>
                                                             <tr>
                                                                 <td style="font-family: Calibri">
-                                                                    <b>Considered Amount for Interest</b>
+                                                                    <b>Considered Amount for Interest 75%</b>
                                                                 </td>
                                                                 <td style="font-family: Calibri">
                                                                     <asp:Label ID="txt_claimeglibleincentivesloanwiseConsideredAmountforInterest" Text='<%# Eval("CPL_Conamountforcalintreimberest") %>'
                                                                         runat="server"></asp:Label>
                                                                     <br />
                                                                 </td>
-                                                                <td style="font-family: Calibri"></td>
-                                                                <td style="font-family: Calibri"></td>
-                                                            </tr>
-                                                            <tr>
                                                                 <td style="font-family: Calibri">
-                                                                    <b>Interest reimbursement calculated</b>
+                                                                    <b>Eligible Interest Amount As per G.O</b>
                                                                 </td>
                                                                 <td style="font-family: Calibri">
-                                                                    <asp:Label ID="txt_grdeglibilepallavaddiInsertreimbursementcalculated" Text='<%# Eval("CPL_interestreimbersementcal") %>'
+                                                                    <asp:Label ID="txt_grdeglibilepallavaddiInsertreimbursementcalculated" Text='<%# Eval("Eligible_Interest_Amount_As_per_GO") %>'
                                                                         runat="server"></asp:Label>
                                                                     <br />
                                                                 </td>
-                                                                <td style="font-family: Calibri"></td>
-                                                                <td style="font-family: Calibri"></td>
                                                             </tr>
                                                             <tr>
+                                                                <td style="font-family: Calibri">
+                                                                    <b>Interest Reimbursement Calculated</b>
+                                                                </td>
+                                                                <td style="font-family: Calibri">
+                                                                    <asp:Label ID="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype"
+                                                                        Text='<%# Eval("CPL_interestreimbersementcal") %>' runat="server"></asp:Label>
+                                                                    <br />
+                                                                </td>
                                                                 <td style="font-family: Calibri">
                                                                     <b>Eligible Type</b>
                                                                 </td>
@@ -2884,20 +2912,6 @@
                                                                         runat="server"></asp:Label>
                                                                     <br />
                                                                 </td>
-                                                                <td style="font-family: Calibri"></td>
-                                                                <td style="font-family: Calibri"></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td style="font-family: Calibri">
-                                                                    <b>Interst reimbursement(After selecting the eglible Type)</b>
-                                                                </td>
-                                                                <td style="font-family: Calibri">
-                                                                    <asp:Label ID="txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype"
-                                                                        Text='<%# Eval("CPL_interestreimbersementcal_finaleligibletype") %>' runat="server"></asp:Label>
-                                                                    <br />
-                                                                </td>
-                                                                <td style="font-family: Calibri"></td>
-                                                                <td style="font-family: Calibri"></td>
                                                             </tr>
                                                             <tr runat="server" visible="false">
                                                                 <td style="font-family: Calibri">
@@ -2998,7 +3012,7 @@
                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr runat="server" visible="false">
                                     <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Interst reimbursement calculated
                                     </td>
@@ -3017,7 +3031,7 @@
                                     <td style="padding: 5px; margin: 5px;">&nbsp;
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr runat="server" visible="false">
                                     <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Interst reimbursement(After selecting the eglible Type)
                                     </td>
@@ -4031,9 +4045,9 @@
                         </div>
                         <br />
                         <br />
-                        <input id="btnPrint" onclick="window.print()" style="border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
+                        <input id="btnPrint" onclick="return PrintScreen();" style="border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
                             type="button" value="Print" />
-                        &nbsp;&nbsp;&nbsp; <a href="HomeDashboard.aspx">HOME</a>
+                        <%--&nbsp;&nbsp;&nbsp; <a href="HomeDashboard.aspx">HOME</a>--%>
                     </div>
                 </div>
             </div>

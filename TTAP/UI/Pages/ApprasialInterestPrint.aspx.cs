@@ -13,7 +13,7 @@ using TTAP.Classfiles;
 
 namespace TTAP.UI.Pages
 {
-    public partial class InterestSubsidyAppraisalNote : System.Web.UI.Page
+    public partial class ApprasialInterestPrint : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["TTAPDB"].ConnectionString);
         General Gen = new General();
@@ -61,8 +61,6 @@ namespace TTAP.UI.Pages
         {
             string IncentiveId = Request.QueryString["incid"].ToString();
             string MasterIncentiveId = Request.QueryString["mstid"].ToString();
-            //string IncentiveId = "";
-            //string MasterIncentiveId = "";
 
             DataSet ds2 = new DataSet();
             ds2 = Gen.GetBasicUnitDetails_Proforma_lettersPSR(IncentiveId, MasterIncentiveId);

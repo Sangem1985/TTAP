@@ -1140,15 +1140,6 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.RadioButtonList rdmenwomen;
 
         /// <summary>
-        /// Eligible control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Eligible;
-
-        /// <summary>
         /// trEligible control.
         /// </summary>
         /// <remarks>
@@ -1165,6 +1156,24 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBox59;
+
+        /// <summary>
+        /// trAMountAlreadyAvailed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow trAMountAlreadyAvailed;
+
+        /// <summary>
+        /// txtAmountAlreadyAvailed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAmountAlreadyAvailed;
 
         /// <summary>
         /// tr4231 control.

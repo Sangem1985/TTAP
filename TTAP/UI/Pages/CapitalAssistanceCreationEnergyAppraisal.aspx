@@ -63,7 +63,7 @@
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label26" runat="server">Address</label>
-                                            <label class="form-control" id="lblAddress" runat="server"></label>
+                                            <label class="form-control" id="lblAddress" aria-multiline="true" runat="server"></label>
                                         </div>
                                         <div class="col-sm-4 form-group">
                                             <label class="control-label" id="Label27" runat="server">Name of the Proprietor</label>
@@ -148,7 +148,7 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                             <asp:GridView ID="GvEquipmentDtls" runat="server" AutoGenerateColumns="False" CellPadding="4"
-                                                CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise">
+                                                CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise" OnRowDataBound="GvEquipmentDtls_RowDataBound">
                                                 <HeaderStyle HorizontalAlign="Center" />
                                                 <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
                                                 <RowStyle CssClass="GridviewScrollC1Item" />
@@ -350,6 +350,13 @@
                                                 <asp:ListItem Text="DD" Value="DD"></asp:ListItem>
                                                 <asp:ListItem Text="JD" Value="JD"></asp:ListItem>
                                             </asp:DropDownList>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                         <div class="col-sm-3 form-group">
+                                            <label class="control-label label-required">Remarks</label>
+                                            <asp:TextBox ID="txtRemarks" runat="server" class="form-control"
+                                                MaxLength="40"  TextMode="MultiLine"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="row">

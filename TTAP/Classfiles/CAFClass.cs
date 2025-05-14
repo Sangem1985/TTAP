@@ -6904,6 +6904,14 @@ namespace TTAP.Classfiles
                 {
                     com.Parameters.Add("@eligibleperiodinmonths", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.eligibleperiodinmonths;
                 }
+                if (OBJPVclaimLoandetailsproperties.AvgRateOfInterest == null)
+                {
+                    com.Parameters.Add("@AvgRateOfInterest", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@AvgRateOfInterest", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.AvgRateOfInterest;
+                }
                 if (OBJPVclaimLoandetailsproperties.CPL_interestamountpaidaspercal == null)
                 {
                     com.Parameters.Add("@CPL_interestamountpaidaspercal", SqlDbType.VarChar).Value = DBNull.Value;
@@ -7155,6 +7163,22 @@ namespace TTAP.Classfiles
                 else
                 {
                     com.Parameters.Add("@IsMortageRateOfInterest", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.IsMortageRateOfInterest;
+                }
+                if (OBJPVclaimLoandetailsproperties.Eligible_Interest_Amount_As_per_GO == null)
+                {
+                    com.Parameters.Add("@Eligible_Interest_Amount_As_per_GO", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Eligible_Interest_Amount_As_per_GO", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Eligible_Interest_Amount_As_per_GO;
+                }
+                if (OBJPVclaimLoandetailsproperties.Final_Considered_Interest_Amount_Paid == null)
+                {
+                    com.Parameters.Add("@Final_Considered_Interest_Amount_Paid", SqlDbType.VarChar).Value = DBNull.Value;
+                }
+                else
+                {
+                    com.Parameters.Add("@Final_Considered_Interest_Amount_Paid", SqlDbType.VarChar).Value = OBJPVclaimLoandetailsproperties.Final_Considered_Interest_Amount_Paid;
                 }
                 com.Parameters.Add("@Valid", SqlDbType.Int, 500);
                 com.Parameters["@Valid"].Direction = ParameterDirection.Output;
@@ -7854,6 +7878,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@WORKSHEETPATH", DLODetails.WorkSheetPath);
                 com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
                 com.Parameters.AddWithValue("@GMAMOUNT", DLODetails.GMRecommendedAmount);
+                com.Parameters.AddWithValue("@ALREADY_AVAILED_AMOUNT", DLODetails.AlreadyAvailedAmount);
                 com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
                 com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBY);
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
@@ -8197,8 +8222,21 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@POWER_CONNECTION_RELEASE_DT", DLODetails.PowerConnectionRlsDate);
                 com.Parameters.AddWithValue("@DCP", DLODetails.DATEOFPRODUCTION);
                 com.Parameters.AddWithValue("@APPLIEDDATE", DLODetails.DICFILLINGDATE);
-                com.Parameters.AddWithValue("@REMARKS", DLODetails.Remarks);
-                com.Parameters.AddWithValue("@XML", DLODetails.EquipmentXml);
+                com.Parameters.AddWithValue("@TOTAL_COST_OF_ENERGY_CONSERVATION", DLODetails.TotalCostofEnergyConservation);
+                com.Parameters.AddWithValue("@TOTAL_COST_OF_WATER_CONSERVATION", DLODetails.TotalCostofWaterConservation);
+                com.Parameters.AddWithValue("@TOTAL_COST_OF_EQUIPMENT_ENVIRONMENTAL", DLODetails.TotalCostofEquipmentEnvironmental);
+                com.Parameters.AddWithValue("@TOTAL_COST_OF_CET_PLANT_CLUSTER", DLODetails.TotalCostofCetPlantCluster);
+                com.Parameters.AddWithValue("@ELIGIBLE_COST_OF_ENERGY_CONSERVATION", DLODetails.EligibleCostofEnergyConservation);
+                com.Parameters.AddWithValue("@ELIGIBLE_COST_OF_WATER_CONSERVATION", DLODetails.EligibleCostofWaterConservation);
+                com.Parameters.AddWithValue("@ELIGIBLE_COST_OF_EQUIPMENT_ENVIRONMENTAL", DLODetails.EligibleCostofEquipmentEnvironmental);
+                com.Parameters.AddWithValue("@ELIGIBLE_COST_OF_CET_PLANT_CLUSTER", DLODetails.EligibleCostofCetPlantCluster);
+                com.Parameters.AddWithValue("@CALCULATED_SUBSIDY_AMOUNT", DLODetails.CalculatedSubsisdyAmount);
+                com.Parameters.AddWithValue("@GM_RECOMMENDED_AMOUNT", DLODetails.GMRecommendedAmount);
+                com.Parameters.AddWithValue("@ELIGIBILITY_TYPE", DLODetails.ELIGIBLETYPE);
+                com.Parameters.AddWithValue("@FINAL_SUBSIDY_AMOUNT", DLODetails.TotalSubsidyAmount);
+                com.Parameters.AddWithValue("REMARKS", DLODetails.Remarks);
+                com.Parameters.AddWithValue("@EQXML", DLODetails.EquipmentXml);
+                com.Parameters.AddWithValue("@FORWARDTO", DLODetails.ForwardTo);
                 com.Parameters.AddWithValue("@WORKSHEET_PATH", DLODetails.WorkSheetPath);
                 com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
                 com.Parameters.AddWithValue("@CREATEDIP", DLODetails.CREATEDBYIP);

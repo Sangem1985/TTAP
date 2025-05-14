@@ -387,20 +387,20 @@ namespace TTAP.UI.Pages.Annexures
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
                     Label lbl = (e.Row.FindControl("lbl") as Label);
-                    HyperLink HyperLinkSubsidy = (e.Row.FindControl("HyperLinkSubsidy") as HyperLink);
+                    /*HyperLink HyperLinkSubsidy = (e.Row.FindControl("HyperLinkSubsidy") as HyperLink);*/
 
                     string Category = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "Category"));
                     if (Category.Trim().TrimStart() != "")
                     {
                         lbl.Text = Category.Trim().TrimStart();
                         e.Row.Font.Bold = true;
-                        HyperLinkSubsidy.Visible = false;
+                        /*HyperLinkSubsidy.Visible = false;*/
                     }
 
-                    if (HyperLinkSubsidy.NavigateUrl == "")
+                    /*if (HyperLinkSubsidy.NavigateUrl == "")
                     {
                         HyperLinkSubsidy.Visible = false;
-                    }
+                    }*/
                 }
             }
             catch (Exception ex)

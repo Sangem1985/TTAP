@@ -32,7 +32,7 @@ namespace TTAP.UI.Pages
                 if (!IsPostBack)
                 {
                     //string incentiveid = Request.QueryString["IncentiveID"].ToString();
-                    string incentiveid = "2063";
+                    string incentiveid = "17155";
                     txtIncID.Text = incentiveid;
                     BindBesicdata(incentiveid, "3", "");
                     BindISCrrentClaimPeriodDtls(incentiveid);// ("INCTEXT2022080519163");
@@ -393,6 +393,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -512,7 +513,7 @@ namespace TTAP.UI.Pages
      lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -548,6 +549,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -665,7 +667,7 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8,
      lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount, hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -701,6 +703,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -819,7 +822,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -855,6 +858,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -973,7 +977,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1009,6 +1013,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -1127,7 +1132,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1163,6 +1168,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -1281,7 +1287,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount
     , hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1317,6 +1323,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -1434,7 +1441,7 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8, lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1470,6 +1477,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -1588,7 +1596,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1625,6 +1633,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -1743,7 +1752,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1779,6 +1788,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -1897,7 +1907,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable,lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1934,6 +1944,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -2053,7 +2064,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2090,6 +2101,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -2208,7 +2220,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2245,6 +2257,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -2364,7 +2377,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2401,6 +2414,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -2520,7 +2534,7 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2557,6 +2571,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -2676,7 +2691,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2713,6 +2728,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -2832,7 +2848,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2869,6 +2885,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -2988,7 +3005,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3025,6 +3042,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -3144,7 +3162,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3180,6 +3198,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -3300,7 +3319,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3336,6 +3355,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -3456,7 +3476,7 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3492,6 +3512,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -3611,7 +3632,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3647,6 +3668,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -3766,7 +3788,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3802,6 +3824,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -3921,7 +3944,7 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3957,6 +3980,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -4076,7 +4100,7 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4112,6 +4136,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -4231,7 +4256,7 @@ namespace TTAP.UI.Pages
 , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4269,6 +4294,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -4389,7 +4415,7 @@ namespace TTAP.UI.Pages
 , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4425,6 +4451,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -4544,7 +4571,7 @@ namespace TTAP.UI.Pages
 , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4580,6 +4607,7 @@ namespace TTAP.UI.Pages
             TextBox txt_claimeglibleincentivesloanwisenoofinstallment = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisenoofinstallment");
             TextBox txt_claimeglibleincentivesloanwiseInstallmentamount = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseInstallmentamount");
             TextBox txt_claimeglibleincentivesloanwiseRateofInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseRateofInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
             TextBox txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement");
             TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwiseNoofinstallmentscompleted");
             TextBox txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR = (TextBox)grd_eglibilepallavaddi.FindControl("txt_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR");
@@ -4700,7 +4728,7 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, lblConsideredAmountforInterest8
     );
 
 
@@ -4744,7 +4772,7 @@ namespace TTAP.UI.Pages
         TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8, Label lbl_grd_totmonthsInterestamount, Label lbl_grd_totmonthsEligibleInterestAmount,
         HiddenField hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, HiddenField hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
          HiddenField hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-         CheckBox chk_claimeglibleincenloanwisepreviousfymot, CheckBox chk_moratiumapplforthisclaimperiod, CheckBoxList chk_grdclaimegliblerowstodisable)
+         CheckBox chk_claimeglibleincenloanwisepreviousfymot, CheckBox chk_moratiumapplforthisclaimperiod, CheckBoxList chk_grdclaimegliblerowstodisable,Label lblConsideredAmountforInterest8)
         {
             int slno = 1;
             string ErrorMsg = "";
@@ -6430,7 +6458,7 @@ namespace TTAP.UI.Pages
                             //{
                             //    egliblerateofinterest = 9;
                             //}
-                            egliblerateofinterest = 8;
+                            egliblerateofinterest = Convert.ToDecimal(txt_claimeglibleincentivesloanwiseRateofInterest.Text);//Chanikya
                             if (egliblerateofinterest > 0)
                             {
                                 //if (totalgridinterestamount < actualinterestamountpaid)
@@ -6442,8 +6470,9 @@ namespace TTAP.UI.Pages
                                 //    interestamountcondisered = actualinterestamountpaid;
                                 //}
                                 interestamountcondisered = (actualinterestamountpaid * 75) / 100;
-                                interestamountcondisered8 = (actualinterestamountpaid * egliblerateofinterest) / rateofinterest;
+                                /*interestamountcondisered8 = (actualinterestamountpaid * egliblerateofinterest) / rateofinterest;*/
                                 //interestegliblereimbursement = (interestamountcondisered * egliblerateofinterest) / rateofinterest;
+                                interestamountcondisered8 = actualinterestamountpaid * (egliblerateofinterest / 100);
                                 if (interestamountcondisered < interestamountcondisered8)
                                 {
                                     interestamounttobeconsider = interestamountcondisered;
@@ -6530,6 +6559,7 @@ namespace TTAP.UI.Pages
             }
 
             txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement.Text = Convert.ToString(egliblerateofinterest);
+            lblConsideredAmountforInterest8.Text = "Considered Amount for Interest " + Convert.ToString(egliblerateofinterest) + "%";
             txt_grdeglibilepallavaddiInsertreimbursementcalculated.Text = Convert.ToString(Math.Round(interestegliblereimbursement, 2));
             txt_grdeglibilepallavaddiEligibleamount.Text = Convert.ToString(Math.Round(finalegibleamountdisscussed, 2));
             txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text = Convert.ToString(Math.Round(interestamountcondisered, 2));

@@ -564,6 +564,24 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
 
         /// <summary>
+        /// divInfoNotEligible control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divInfoNotEligible;
+
+        /// <summary>
+        /// lblNotEligible control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblNotEligible;
+
+        /// <summary>
         /// txtRemarks control.
         /// </summary>
         /// <remarks>

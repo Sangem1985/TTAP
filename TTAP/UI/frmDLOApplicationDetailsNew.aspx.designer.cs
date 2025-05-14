@@ -1923,13 +1923,13 @@ namespace TTAP.UI
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ClerkProcess;
 
         /// <summary>
-        /// ClerkProcessview control.
+        /// ClerkProcessview1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ClerkProcessview;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ClerkProcessview1;
 
         /// <summary>
         /// Rmarkes1 control.

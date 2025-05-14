@@ -478,6 +478,10 @@ namespace TTAP.UI.Pages
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
 
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
+
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -511,7 +515,8 @@ namespace TTAP.UI.Pages
      lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -632,7 +637,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
-
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
     hf_grdeglibilepallavaddiIncentiveId, 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, hf_grdeglibilepallavaddiFY_ID, lbl_grdeglibilepallavaddiFYname,
@@ -664,7 +671,7 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8,
      lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount, hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest, lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -785,6 +792,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -818,7 +828,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -939,6 +950,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -972,7 +986,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1093,6 +1108,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -1126,7 +1144,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1247,6 +1266,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -1280,7 +1302,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount
     , hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1401,6 +1424,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -1433,7 +1459,8 @@ namespace TTAP.UI.Pages
     txt_grdeglibilepallavaddiGMrecommendedamount, txt_grdeglibilepallavaddiEligibleamount, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8, lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1554,6 +1581,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -1587,7 +1617,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1709,6 +1740,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -1742,7 +1776,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -1863,6 +1898,10 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
+
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -1896,7 +1935,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2019,6 +2059,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -2052,7 +2095,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2174,6 +2218,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -2207,7 +2254,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2330,6 +2378,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -2363,7 +2414,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2486,6 +2538,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -2519,7 +2574,8 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2642,6 +2698,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -2675,7 +2734,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2797,6 +2857,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
 
@@ -2831,7 +2894,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -2954,6 +3018,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -2987,7 +3054,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3109,6 +3177,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
 
@@ -3143,7 +3214,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3266,6 +3338,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -3299,7 +3374,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3422,6 +3498,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -3455,7 +3534,8 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3577,6 +3657,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -3610,7 +3693,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3732,6 +3816,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -3765,7 +3852,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -3887,6 +3975,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -3920,7 +4011,8 @@ namespace TTAP.UI.Pages
     , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4042,6 +4134,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -4075,7 +4170,8 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4197,6 +4293,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -4230,7 +4329,8 @@ namespace TTAP.UI.Pages
 , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4354,6 +4454,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
 
@@ -4388,7 +4491,8 @@ namespace TTAP.UI.Pages
 , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4510,6 +4614,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
             string errorgmsg = getdynamicallyeachrowdata_eligibleincentives(
@@ -4543,7 +4650,8 @@ namespace TTAP.UI.Pages
 , lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable);
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4665,6 +4773,9 @@ namespace TTAP.UI.Pages
             CheckBox chk_claimeglibleincenloanwisepreviousfymot = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_claimeglibleincenloanwisepreviousfymot");
             CheckBox chk_moratiumapplforthisclaimperiod = (CheckBox)grd_eglibilepallavaddi.FindControl("chk_moratiumapplforthisclaimperiod");
             CheckBoxList chk_grdclaimegliblerowstodisable = (CheckBoxList)grd_eglibilepallavaddi.FindControl("chk_grdclaimegliblerowstodisable");
+            TextBox txtFinalConsiderAmount = (TextBox)grd_eglibilepallavaddi.FindControl("txtFinalConsiderAmount");
+            TextBox txtAvgRateOfInterest = (TextBox)grd_eglibilepallavaddi.FindControl("txtAvgRateOfInterest");
+            Label lblConsideredAmountforInterest8 = (Label)grd_eglibilepallavaddi.FindControl("lblConsideredAmountforInterest8");
 
 
 
@@ -4699,8 +4810,8 @@ namespace TTAP.UI.Pages
     lbl_grd_totmonthsInterestamount, lbl_grd_totmonthsEligibleInterestAmount,
     hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
     hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable
-    );
+    chk_claimeglibleincenloanwisepreviousfymot, chk_moratiumapplforthisclaimperiod, chk_grdclaimegliblerowstodisable, txtFinalConsiderAmount, txtAvgRateOfInterest,
+    lblConsideredAmountforInterest8);
 
 
             if (errorgmsg.Trim().TrimStart() != "")
@@ -4743,7 +4854,8 @@ namespace TTAP.UI.Pages
         TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest, TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8, Label lbl_grd_totmonthsInterestamount, Label lbl_grd_totmonthsEligibleInterestAmount,
         HiddenField hf_claimeglibleincentivesloanwiseNoofinstallmentscompleted, HiddenField hf_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
          HiddenField hf_claimeglibleincentivesloanwisePrincipalamountbecomeDUEbeforethisHALFYEAR, TextBox txt_claimeglibleincentivesloanwiseNoofinstallmentscompletedMonths,
-         CheckBox chk_claimeglibleincenloanwisepreviousfymot, CheckBox chk_moratiumapplforthisclaimperiod, CheckBoxList chk_grdclaimegliblerowstodisable)
+         CheckBox chk_claimeglibleincenloanwisepreviousfymot, CheckBox chk_moratiumapplforthisclaimperiod, CheckBoxList chk_grdclaimegliblerowstodisable,TextBox txtFinalConsiderAmount,TextBox txtAvgRateOfInterest,
+         Label lblConsideredAmountforInterest8)
         {
             int slno = 1;
             string ErrorMsg = "";
@@ -4774,6 +4886,7 @@ namespace TTAP.UI.Pages
 
             decimal rateofinterestMonthone = 0, rateofinterestMonthtwo = 0, rateofinterestMonththree = 0, rateofinterestMonthfour = 0,
                 rateofinterestMonthfive = 0, rateofinterestMonthsix = 0;
+            decimal TotalRateofIntrest = 0;
 
             //int InstallmentNoMonthone = 0,InstallmentNoMonthtwo = 0,InstallmentNoMonththree = 0,InstallmentNoMonthfour = 0,InstallmentNoMonthfive = 0,InstallmentNoMonthsix = 0;
 
@@ -6219,7 +6332,6 @@ namespace TTAP.UI.Pages
 
                                         DataSet dsmain = new DataSet();
                                         dsmain.Tables.Add(dt_grid);
-
                                         if (dt_grid.Rows.Count > 0)
                                         {
                                             for (int t = 0; t < dt_grid.Rows.Count; t++)
@@ -6235,6 +6347,7 @@ namespace TTAP.UI.Pages
                                                     lbl_grd_monthoneUnitHolderContribution.Text = Convert.ToString(dt_grid.Rows[0]["UnitHolderContribution"]);
                                                     lbl_grd_monthoneEligibleRateofinterest.Text = Convert.ToString(dt_grid.Rows[0]["EligibleRateofInterest"]);
                                                     lbl_grd_monthoneEligibleInterestAmount.Text = Convert.ToString(dt_grid.Rows[0]["EligibleInterestAmount"]);
+                                                    TotalRateofIntrest = TotalRateofIntrest + Convert.ToDecimal(dt_grid.Rows[0]["RateofInterest"].ToString());
                                                 }
                                                 if (t == 1)
                                                 {
@@ -6247,6 +6360,7 @@ namespace TTAP.UI.Pages
                                                     lbl_grd_monthtwoUnitHolderContribution.Text = Convert.ToString(dt_grid.Rows[1]["UnitHolderContribution"]);
                                                     lbl_grd_monthtwoEligibleRateofinterest.Text = Convert.ToString(dt_grid.Rows[1]["EligibleRateofInterest"]);
                                                     lbl_grd_monthtwoEligibleInterestAmount.Text = Convert.ToString(dt_grid.Rows[1]["EligibleInterestAmount"]);
+                                                    TotalRateofIntrest = TotalRateofIntrest + Convert.ToDecimal(dt_grid.Rows[1]["RateofInterest"].ToString());
                                                 }
                                                 if (t == 2)
                                                 {
@@ -6259,6 +6373,7 @@ namespace TTAP.UI.Pages
                                                     lbl_grd_monththreeUnitHolderContribution.Text = Convert.ToString(dt_grid.Rows[2]["UnitHolderContribution"]);
                                                     lbl_grd_monththreeEligibleRateofinterest.Text = Convert.ToString(dt_grid.Rows[2]["EligibleRateofInterest"]);
                                                     lbl_grd_monththreeEligibleInterestAmount.Text = Convert.ToString(dt_grid.Rows[2]["EligibleInterestAmount"]);
+                                                    TotalRateofIntrest = TotalRateofIntrest + Convert.ToDecimal(dt_grid.Rows[2]["RateofInterest"].ToString());
                                                 }
                                                 if (t == 3)
                                                 {
@@ -6271,6 +6386,7 @@ namespace TTAP.UI.Pages
                                                     lbl_grd_monthfourUnitHolderContribution.Text = Convert.ToString(dt_grid.Rows[3]["UnitHolderContribution"]);
                                                     lbl_grd_monthfourEligibleRateofinterest.Text = Convert.ToString(dt_grid.Rows[3]["EligibleRateofInterest"]);
                                                     lbl_grd_monthfourEligibleInterestAmount.Text = Convert.ToString(dt_grid.Rows[3]["EligibleInterestAmount"]);
+                                                    TotalRateofIntrest = TotalRateofIntrest + Convert.ToDecimal(dt_grid.Rows[3]["RateofInterest"].ToString());
                                                 }
                                                 if (t == 4)
                                                 {
@@ -6283,6 +6399,7 @@ namespace TTAP.UI.Pages
                                                     lbl_grd_monthfiveUnitHolderContribution.Text = Convert.ToString(dt_grid.Rows[4]["UnitHolderContribution"]);
                                                     lbl_grd_monthfiveEligibleRateofinterest.Text = Convert.ToString(dt_grid.Rows[4]["EligibleRateofInterest"]);
                                                     lbl_grd_monthfiveEligibleInterestAmount.Text = Convert.ToString(dt_grid.Rows[4]["EligibleInterestAmount"]);
+                                                    TotalRateofIntrest = TotalRateofIntrest + Convert.ToDecimal(dt_grid.Rows[4]["RateofInterest"].ToString());
                                                 }
                                                 if (t == 5)
                                                 {
@@ -6295,6 +6412,7 @@ namespace TTAP.UI.Pages
                                                     lbl_grd_monthsixUnitHolderContribution.Text = Convert.ToString(dt_grid.Rows[5]["UnitHolderContribution"]);
                                                     lbl_grd_monthsixEligibleRateofinterest.Text = Convert.ToString(dt_grid.Rows[5]["EligibleRateofInterest"]);
                                                     lbl_grd_monthsixEligibleInterestAmount.Text = Convert.ToString(dt_grid.Rows[5]["EligibleInterestAmount"]);
+                                                    TotalRateofIntrest = TotalRateofIntrest + Convert.ToDecimal(dt_grid.Rows[5]["RateofInterest"].ToString());
                                                 }
                                             }
                                         }
@@ -6372,6 +6490,7 @@ namespace TTAP.UI.Pages
 
 
             lbl_grd_totmonthsInterestamount.Text = Convert.ToString(Math.Round(totalinterestforallfy, 2));
+            txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text = Convert.ToString(Math.Round(totalinterestforallfy, 2));/*Added by Chanikya As per Gangadhar Sir*/
             lbl_grd_totmonthsEligibleInterestAmount.Text = Convert.ToString(Math.Round(totaleglibleinterestforallfy, 2));
 
             decimal totalgridinterestamount = 0; decimal actualinterestamountpaid = 0; decimal interestamountcondisered = 0;
@@ -6389,13 +6508,45 @@ namespace TTAP.UI.Pages
                 totalgridinterestamount = Convert.ToDecimal(txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text);
             }
 
-            if (txt_grdeglibilepallavaddiActualinterestamountpaid.Text != "")
+            /* if (txt_grdeglibilepallavaddiActualinterestamountpaid.Text != "")
+             {
+                 actualinterestamountpaid = Convert.ToDecimal(txt_grdeglibilepallavaddiActualinterestamountpaid.Text); Commented by Chanikya
+             }*/
+            if (txt_grdeglibilepallavaddiActualinterestamountpaid.Text != "" && txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text != "")
             {
-                actualinterestamountpaid = Convert.ToDecimal(txt_grdeglibilepallavaddiActualinterestamountpaid.Text);
+                decimal CalcAmount = Convert.ToDecimal(txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text);
+                decimal EnteredcAmount = Convert.ToDecimal(txt_grdeglibilepallavaddiActualinterestamountpaid.Text);
+                actualinterestamountpaid = Math.Min(CalcAmount, EnteredcAmount);
+                txtFinalConsiderAmount.Text = actualinterestamountpaid.ToString();
+                
             }
-            if (txt_claimeglibleincentivesloanwiseRateofInterest.Text.TrimStart().TrimEnd().Trim() != "")
+
+            /*if (txt_claimeglibleincentivesloanwiseRateofInterest.Text.TrimStart().TrimEnd().Trim() != "")
             {
                 rateofinterest = Convert.ToDecimal(txt_claimeglibleincentivesloanwiseRateofInterest.Text);
+                if (rateofinterest == 0)
+                {
+                    if (lbl_grd_monthsixRateofinterest.Text.TrimStart().TrimEnd().Trim() != "")
+                    {
+                        rateofinterest = Convert.ToDecimal(lbl_grd_monthsixRateofinterest.Text);
+                    }
+                    else
+                    {
+                        if (rateofinterest == 0)
+                        {
+                            if (lbl_grd_monthoneRateofinterest.Text.TrimStart().TrimEnd().Trim() != "")
+                            {
+                                rateofinterest = Convert.ToDecimal(lbl_grd_monthoneRateofinterest.Text);
+                            }
+                        } Commented by Chanikya 
+                    }
+                }
+            }*/
+            txtAvgRateOfInterest.Text = Convert.ToString(TotalRateofIntrest / 6);
+            
+            if (txtAvgRateOfInterest.Text.TrimStart().TrimEnd().Trim() != "")
+            {
+                rateofinterest = Convert.ToDecimal(txtAvgRateOfInterest.Text);
                 if (rateofinterest == 0)
                 {
                     if (lbl_grd_monthsixRateofinterest.Text.TrimStart().TrimEnd().Trim() != "")
@@ -6430,6 +6581,10 @@ namespace TTAP.UI.Pages
                             //    egliblerateofinterest = 9;
                             //}
                             egliblerateofinterest = 8;
+                            if (Convert.ToDecimal(txt_claimeglibleincentivesloanwiseRateofInterest.Text) > 0) 
+                            {
+                                egliblerateofinterest = Convert.ToDecimal(txt_claimeglibleincentivesloanwiseRateofInterest.Text);
+                            }
                             if (egliblerateofinterest > 0)
                             {
                                 //if (totalgridinterestamount < actualinterestamountpaid)
@@ -6458,6 +6613,11 @@ namespace TTAP.UI.Pages
                                 else
                                 {
                                     interestegliblereimbursement = totalgridinterestamount;
+                                }
+                                //gopal
+                                if (egliblerateofinterest > 8) 
+                                {
+                                    interestegliblereimbursement = interestamountcondisered8;
                                 }
 
                             }
@@ -6518,17 +6678,19 @@ namespace TTAP.UI.Pages
                 }
             }
 
-            if (GMrecommendedamount < eglibleamountofreimbursementbyeglibletype)
+            /*if (GMrecommendedamount < eglibleamountofreimbursementbyeglibletype)
             {
                 finalegibleamountdisscussed = GMrecommendedamount;
             }
 
             else
             {
-                finalegibleamountdisscussed = eglibleamountofreimbursementbyeglibletype;
-            }
+                finalegibleamountdisscussed = eglibleamountofreimbursementbyeglibletype; Commented by Chanikya
+            }*/
+            finalegibleamountdisscussed = eglibleamountofreimbursementbyeglibletype;
 
             txt_claimeglibleincentivesloanwiseEligiblerateofreimbursement.Text = Convert.ToString(egliblerateofinterest);
+            lblConsideredAmountforInterest8.Text = "Considered Amount for Interest " + Convert.ToString(egliblerateofinterest) + "%";
             txt_grdeglibilepallavaddiInsertreimbursementcalculated.Text = Convert.ToString(Math.Round(interestegliblereimbursement, 2));
             txt_grdeglibilepallavaddiEligibleamount.Text = Convert.ToString(Math.Round(finalegibleamountdisscussed, 2));
             txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text = Convert.ToString(Math.Round(interestamountcondisered, 2));
@@ -7090,12 +7252,12 @@ namespace TTAP.UI.Pages
                     string message = "alert('" + errorgmsg + "')";
                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     return;
-                    Response.Redirect("ClerkDashboard.aspx");
                 }
                 else
                 {
                     if (save())
                     {
+                        BtnSave.Visible = false;
                         string message = "alert('Appraisal note submitted successfully')";
                         ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
                     }
@@ -7381,6 +7543,7 @@ namespace TTAP.UI.Pages
                 Label lbl_grd_totmonthsEligibleInterestAmount = grd_eglibilepallavaddi.Rows[i].FindControl("lbl_grd_totmonthsEligibleInterestAmount") as Label;
 
                 TextBox txt_grdeglibilepallavaddiEligibleperiodinmonths = grd_eglibilepallavaddi.Rows[i].FindControl("txt_grdeglibilepallavaddiEligibleperiodinmonths") as TextBox;
+                TextBox txtAvgRateOfInterest = grd_eglibilepallavaddi.Rows[i].FindControl("txtAvgRateOfInterest") as TextBox;
                 TextBox txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations = grd_eglibilepallavaddi.Rows[i].FindControl("txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations") as TextBox;
                 TextBox txt_grdeglibilepallavaddiActualinterestamountpaid = grd_eglibilepallavaddi.Rows[i].FindControl("txt_grdeglibilepallavaddiActualinterestamountpaid") as TextBox;
                 TextBox txt_claimeglibleincentivesloanwiseRateofInterest = grd_eglibilepallavaddi.Rows[i].FindControl("txt_claimeglibleincentivesloanwiseRateofInterest") as TextBox;
@@ -7407,6 +7570,8 @@ namespace TTAP.UI.Pages
 
                 CheckBoxList chk_grdclaimegliblerowstodisable = grd_eglibilepallavaddi.Rows[i].FindControl("chk_grdclaimegliblerowstodisable") as CheckBoxList;
 
+                TextBox txtFinalConsiderAmount = grd_eglibilepallavaddi.Rows[i].FindControl("txtFinalConsiderAmount") as TextBox;
+                TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8 = grd_eglibilepallavaddi.Rows[i].FindControl("txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8") as TextBox;
 
 
 
@@ -7554,6 +7719,7 @@ namespace TTAP.UI.Pages
                 objgriduploads.totmonthseligibleinterestamount = Convert.ToDecimal(lbl_grd_totmonthsEligibleInterestAmount.Text);
                 objgriduploads.totmonthsinterestamountMonth = Convert.ToDecimal(lbl_grd_totmonthsInterestamount.Text);
                 objgriduploads.eligibleperiodinmonths = Convert.ToDecimal(txt_grdeglibilepallavaddiEligibleperiodinmonths.Text);
+                objgriduploads.AvgRateOfInterest = txtAvgRateOfInterest.Text;
                 objgriduploads.CPL_interestamountpaidaspercal = Convert.ToDecimal(txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text);
                 objgriduploads.CPL_actualinterestamountpaid = Convert.ToDecimal(txt_grdeglibilepallavaddiActualinterestamountpaid.Text);
                 objgriduploads.Rateofinterestforloan = Convert.ToDecimal(txt_claimeglibleincentivesloanwiseRateofInterest.Text);
@@ -7565,6 +7731,8 @@ namespace TTAP.UI.Pages
                 objgriduploads.CPL_interestreimbersementcal_finaleligibletype = Convert.ToString(txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype.Text);
                 objgriduploads.CPL_gmrecommendedamount = Convert.ToDecimal(txt_grdeglibilepallavaddiGMrecommendedamount.Text);
                 objgriduploads.CPL_FINALELIGIBLEAMOUNT = Convert.ToDecimal(txt_grdeglibilepallavaddiEligibleamount.Text);
+                objgriduploads.Eligible_Interest_Amount_As_per_GO = txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8.Text.ToString();
+                objgriduploads.Final_Considered_Interest_Amount_Paid = txtFinalConsiderAmount.Text.ToString();
 
                 string ClaimperiodeachUNID = ObjCAFClass.INSERT_PAVALLAVADDICLAIMPERIODLOANDETAILS(objgriduploads);
                 if (!string.IsNullOrEmpty(ClaimperiodeachUNID) && ClaimperiodeachUNID != "")
@@ -7805,6 +7973,7 @@ namespace TTAP.UI.Pages
                 TextBox txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype = grd_eglibilepallavaddi.Rows[i].FindControl("txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype") as TextBox;
                 TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest = grd_eglibilepallavaddi.Rows[i].FindControl("txt_claimeglibleincentivesloanwiseConsideredAmountforInterest") as TextBox;
                 TextBox txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8 = grd_eglibilepallavaddi.Rows[i].FindControl("txt_claimeglibleincentivesloanwiseConsideredAmountforInterest8") as TextBox;
+                TextBox txt_grdeglibilepallavaddiEligibleamount = grd_eglibilepallavaddi.Rows[i].FindControl("txt_grdeglibilepallavaddiEligibleamount") as TextBox;
 
                 if (!string.IsNullOrEmpty(txt_grdeglibilepallavaddiInsertamounttobepaidaspercalculations.Text))
                 {
@@ -7826,9 +7995,13 @@ namespace TTAP.UI.Pages
                     eglibleamountofreimbursementbyeglibletype = eglibleamountofreimbursementbyeglibletype + Convert.ToDecimal(txt_grdeglibilepallavaddieglibleamountofreimbursementbyeglibletype.Text);
                 }
 
-                if (!string.IsNullOrEmpty(txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text))
+                /* if (!string.IsNullOrEmpty(txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text))
+                 {
+                     interestamountcondisered = interestamountcondisered + Convert.ToDecimal(txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text);
+                 }*/
+                if (!string.IsNullOrEmpty(txt_grdeglibilepallavaddiEligibleamount.Text))
                 {
-                    interestamountcondisered = interestamountcondisered + Convert.ToDecimal(txt_claimeglibleincentivesloanwiseConsideredAmountforInterest.Text);
+                    interestamountcondisered = interestamountcondisered + Convert.ToDecimal(txt_grdeglibilepallavaddiEligibleamount.Text);
                 }
 
             }
@@ -7910,6 +8083,10 @@ namespace TTAP.UI.Pages
                 string errorMsg = ex.Message;
 
             }
+        }
+        protected void btnback_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("COI/ClerkDashboard.aspx");
         }
     }
 }

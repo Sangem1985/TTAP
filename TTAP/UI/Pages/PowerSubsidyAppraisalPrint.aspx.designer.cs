@@ -240,6 +240,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblelbPromoter;
 
         /// <summary>
+        /// lblMonthwise control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMonthwise;
+
+        /// <summary>
         /// EligibleINC control.
         /// </summary>
         /// <remarks>
@@ -256,6 +265,15 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMonth1;
+
+        /// <summary>
+        /// lblFYear1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFYear1;
 
         /// <summary>
         /// lblLand_ProjectCost control.
@@ -303,6 +321,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblMonth2;
 
         /// <summary>
+        /// lblFYear2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFYear2;
+
+        /// <summary>
         /// lblBuilding_ProjectCost control.
         /// </summary>
         /// <remarks>
@@ -346,6 +373,15 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMonth3;
+
+        /// <summary>
+        /// lblFYear3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFYear3;
 
         /// <summary>
         /// lblPlantMachry_ProjectCost control.
@@ -393,6 +429,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblMonth4;
 
         /// <summary>
+        /// lblFYear4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFYear4;
+
+        /// <summary>
         /// lblFeasibilityStudyCharges_ProjectCost control.
         /// </summary>
         /// <remarks>
@@ -438,6 +483,15 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblMonth5;
 
         /// <summary>
+        /// lblFYear5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFYear5;
+
+        /// <summary>
         /// lblVehicles_ProjectCost control.
         /// </summary>
         /// <remarks>
@@ -481,6 +535,15 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMonth6;
+
+        /// <summary>
+        /// lblFYear6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFYear6;
 
         /// <summary>
         /// lblOthersEligible_ProjectCost control.

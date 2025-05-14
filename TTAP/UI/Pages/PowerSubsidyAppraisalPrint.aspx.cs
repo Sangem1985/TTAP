@@ -73,6 +73,7 @@ namespace TTAP.UI.Pages
                         hypworksheet.NavigateUrl = worksheetPath;
                         hypworksheet.Visible = true;
                     }
+                    lblMonthwise.Text = "MONTH WISE DETAILS" + " - " + dsnew.Tables[0].Rows[0]["CLAIM_PERIOD"].ToString();
 
                     if (lblTypeofApplicant.Text != "New Industry")
                    {
@@ -165,6 +166,13 @@ namespace TTAP.UI.Pages
                         lblMonth4.Text = dsnew.Tables[0].Rows[0]["MONTH4"].ToString();
                         lblMonth5.Text = dsnew.Tables[0].Rows[0]["MONTH5"].ToString();
                         lblMonth6.Text = dsnew.Tables[0].Rows[0]["MONTH6"].ToString();
+
+                        lblFYear1.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
+                        lblFYear2.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
+                        lblFYear3.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
+                        lblFYear4.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
+                        lblFYear5.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
+                        lblFYear6.Text = dsnew.Tables[0].Rows[0]["FINANCIAL_YEAR"].ToString();
 
                         lblLand_ProjectCost.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED1"].ToString();
                         lblBuilding_ProjectCost.Text = dsnew.Tables[0].Rows[0]["UNITS_CONSUMED2"].ToString();

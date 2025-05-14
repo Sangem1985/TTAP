@@ -11,7 +11,7 @@ namespace TTAP.UI.Pages
 {
 
 
-    public partial class InterestSubsidyAppraisalNote
+    public partial class ApprasialInterestPrint
     {
 
         /// <summary>

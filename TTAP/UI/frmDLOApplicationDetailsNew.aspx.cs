@@ -4106,6 +4106,67 @@ namespace TTAP.UI
                         ClerkProcess.Visible = true;
                         Rmarkes1.Visible = true;
 
+                        for (int i = 0; i < dss.Tables[1].Rows.Count; i++)
+                        {
+                            Label enterid = (Label)GVRemark.Rows[i].FindControl("lblIncentiveID");
+                            Label lblMstIncentiveId = (Label)GVRemark.Rows[i].FindControl("lblSubIncentiveId");
+                            Label lblCLERK_ProcessDate = (Label)GVRemark.Rows[i].FindControl("lblCLERK_ProcessDate");
+                            if (lblMstIncentiveId.Text == "3")
+                            {
+                                DateTime processDate;
+                                if (DateTime.TryParse(lblCLERK_ProcessDate.Text, out processDate))
+                                {
+                                    if (processDate >= new DateTime(2025, 5, 5))
+                                    {
+                                        (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+            "~/UI/Pages/ApprasialInterestPrint.aspx?incid=" + enterid.Text.Trim() +
+            "&mstid=" + lblMstIncentiveId.Text.Trim();
+                                    }
+                                    else
+                                    {
+                                        (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+                "~/UI/Pages/InterestSubsidyAppraisalNote.aspx?incid=" + enterid.Text.Trim() +
+                "&mstid=" + lblMstIncentiveId.Text.Trim();
+                                    }
+                                }
+                            }
+                            if (lblMstIncentiveId.Text == "1")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/CapitalSubsidy.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "6")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/TaxAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "4")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/PowerSubsidyAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "2")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/CapitalAssistanceCreationEnergyAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            if (lblMstIncentiveId.Text == "9")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/TransportSubsidyAppraisalNotePrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
+                            else
+                            {
+
+                            }
+
+                        }
+
                     }
                     if (dss != null && dss.Tables.Count > 0 && dss.Tables[2].Rows.Count > 0)
                     {

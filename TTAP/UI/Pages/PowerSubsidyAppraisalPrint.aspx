@@ -67,8 +67,7 @@
         }
     </style>
     <script>
-        function Print()
-        {
+        function Print() {
             print();
         }
     </script>
@@ -115,16 +114,29 @@
                                 </td>
                             </tr>
                         </table>
+                         <div class="row">
+                        <table>
+                            <tr>
+                                <td style="padding: 5px; margin: 5px; font-weight: bold;" valign="top" class="auto-style12"><b></b>
+                                </td>
+                                <td colspan="4" style="padding: 5px; margin: 5px;">
+                                    <b>INDUSTRY DETAILS</b> </td>
+                                <td class="auto-style25">&nbsp;
+                                </td>
+
+                            </tr>
+                        </table>
+                    </div>
                         <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
 
                             <tr>
                                 <td style="width: 2%"></td>
                                 <td style="font: bolder; font-size: small" class="auto-style1">
-                                    <b>1. Unit Name</b>
+                                    1. Unit Name
                                 </td>
                                 <td>
-                                    <b>
-                                        <asp:Label ID="lblUnitName" runat="server"></asp:Label></b> &nbsp;
+                                    
+                                        <asp:Label ID="lblUnitName" runat="server"></asp:Label> &nbsp;
                                 </td>
                             </tr>
                             <tr>
@@ -165,7 +177,7 @@
                                     <asp:Label ID="lblSocialStatus" runat="server"></asp:Label>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr runat="server" visible="false">
                                 <td style="width: 2%"></td>
                                 <td class="auto-style1">6. Share of SC/ST/Women Enterpreneur
                                 </td>
@@ -178,7 +190,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">7. Registration Number
+                                <td class="auto-style1">6. Registration Number
                                 </td>
                                 <td>
                                     <span>
@@ -188,7 +200,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">8. Type of Unit
+                                <td class="auto-style1">7. Type of Unit
                                 </td>
                                 <td>
                                     <span>
@@ -198,7 +210,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">9. Category of Unit as per Application
+                                <td class="auto-style1">8. Category of Unit as per Application
                                 </td>
                                 <td>
                                     <span>
@@ -208,7 +220,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">10. Type of Sector
+                                <td class="auto-style1">9. Type of Sector
                                 </td>
                                 <td>
                                     <span>
@@ -218,7 +230,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">11. Type of Textile as per Application
+                                <td class="auto-style1">10. Type of Textile as per Application
                                 </td>
                                 <td>
                                     <span>
@@ -228,7 +240,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">12. Technical Textile Type
+                                <td class="auto-style1">11. Technical Textile Type
                                 </td>
                                 <td>
                                     <span>
@@ -238,7 +250,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">13.  Activity of the Unit
+                                <td class="auto-style1">12.  Activity of the Unit
                                 </td>
                                 <td>
                                     <span>
@@ -248,7 +260,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">14. UID Number
+                                <td class="auto-style1">13. UID Number
                                 </td>
                                 <td>
                                     <span>
@@ -258,7 +270,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">15.  Incentive Application Number
+                                <td class="auto-style1">14.  Incentive Application Number
                                 </td>
                                 <td>
                                     <span>
@@ -268,7 +280,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">16.  Date of Power Connection Release
+                                <td class="auto-style1">15.  Date of Power Connection Release
                                 </td>
                                 <td>
                                     <span>
@@ -278,7 +290,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">17.  Commencement of Commercial Production
+                                <td class="auto-style1">16.  Commencement of Commercial Production
                                 </td>
                                 <td>
                                     <span>
@@ -288,7 +300,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">18.  Date of Receipt of Claim Application
+                                <td class="auto-style1">17.  Date of Receipt of Claim Application
                                 </td>
                                 <td>
                                     <span>
@@ -298,7 +310,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">19. Promoter Details in case eligible for additional subsidy
+                                <td class="auto-style1">18. Promoter Details in case eligible for additional subsidy
                                 </td>
                                 <td>
                                     <span>
@@ -309,20 +321,28 @@
 
                         </table>
 
+                        <div class="row">
+                        <table>
+                            <tr>
+                                <td style="padding: 5px; margin: 5px; font-weight: bold;" valign="top" class="auto-style12"><b></b>
+                                </td>
+                                <td colspan="4" style="padding: 5px; margin: 5px;">
+                                    <b><asp:Label runat="server" ID="lblMonthwise">MONTH WISE DETAILS</asp:Label></b></td>
+                                <td class="auto-style25">&nbsp;
+                                </td>
 
+                            </tr>
+                        </table>
+                    </div>
                         <div align="center" id="EligibleINC" runat="server" visible="false">
                             <table style="font-family: Verdana; font-size: small; width: 60%" border="1">
-                                <tr>                                   
-                                    <td colspan="4" style="padding: 5px; margin: 5px;">
-                                        <b>ELEGIBLE INCENTIVES</b></td>
-
-                                </tr>
-
                                 <tr>
-                                    <td>Month-year
+                                    <td><b>Month</b>
+                                    </td>
+                                    <td><b>Financial Year</b>
                                     </td>
                                     <td>
-                                        <b>Units Consumed In Nos </b>
+                                        <b>Units Consumed in Nos </b>
                                     </td>
                                     <td>
                                         <b>Amount Paid as Per Bill in Rs.</b>
@@ -339,6 +359,9 @@
 
                                     <td colspan="1px">
                                         <asp:Label runat="server" ID="lblMonth1"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblFYear1"></asp:Label>
                                     </td>
                                     <td class="auto-style2">
                                         <asp:Label runat="server" ID="lblLand_ProjectCost"></asp:Label>
@@ -360,6 +383,9 @@
                                         <asp:Label runat="server" ID="lblMonth2"></asp:Label>
                                     </td>
                                     <td>
+                                        <asp:Label runat="server" ID="lblFYear2"></asp:Label>
+                                    </td>
+                                    <td>
                                         <asp:Label runat="server" ID="lblBuilding_ProjectCost"></asp:Label>
                                     </td>
                                     <td>
@@ -377,6 +403,9 @@
 
                                     <td>
                                         <asp:Label runat="server" ID="lblMonth3"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblFYear3"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblPlantMachry_ProjectCost"></asp:Label>
@@ -398,6 +427,9 @@
                                         <asp:Label runat="server" ID="lblMonth4"></asp:Label>
                                     </td>
                                     <td>
+                                        <asp:Label runat="server" ID="lblFYear4"></asp:Label>
+                                    </td>
+                                    <td>
                                         <asp:Label runat="server" ID="lblFeasibilityStudyCharges_ProjectCost"></asp:Label>
                                     </td>
                                     <td>
@@ -417,6 +449,9 @@
                                         <asp:Label runat="server" ID="lblMonth5"></asp:Label>
                                     </td>
                                     <td>
+                                        <asp:Label runat="server" ID="lblFYear5"></asp:Label>
+                                    </td>
+                                    <td>
                                         <asp:Label runat="server" ID="lblVehicles_ProjectCost"></asp:Label>
                                     </td>
                                     <td>
@@ -434,6 +469,9 @@
 
                                     <td>
                                         <asp:Label runat="server" ID="lblMonth6"></asp:Label>
+                                    </td>
+                                    <td>
+                                        <asp:Label runat="server" ID="lblFYear6"></asp:Label>
                                     </td>
                                     <td>
                                         <asp:Label runat="server" ID="lblOthersEligible_ProjectCost"></asp:Label>
@@ -526,13 +564,13 @@
                                     </td>
 
                                 </tr>
-                              
+
                             </table>
                         </div>
 
                         <div class="row" id="units" runat="server" visible="false">
                             <table style="width: 100%">
-                                <tr id="tr1" runat="server" visible="true">                                   
+                                <tr id="tr1" runat="server" visible="true">
                                     <td style="padding: 5px; margin: 5px;" class="auto-style57">Total units consumed prior to 3 Years</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
@@ -547,7 +585,7 @@
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
                                     </td>
                                 </tr>
-                                <tr id="tr2" runat="server" visible="true">                                   
+                                <tr id="tr2" runat="server" visible="true">
                                     <td style="padding: 5px; margin: 5px;" class="auto-style57">Average units EM</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
@@ -562,7 +600,7 @@
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
                                     </td>
                                 </tr>
-                                <tr id="tr3" runat="server" visible="true">                                   
+                                <tr id="tr3" runat="server" visible="true">
                                     <td style="padding: 5px; margin: 5px;" class="auto-style57">Base power consumption fixed per year</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
@@ -577,7 +615,7 @@
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
                                     </td>
                                 </tr>
-                                <tr id="tr4" runat="server" visible="true">                                   
+                                <tr id="tr4" runat="server" visible="true">
                                     <td style="padding: 5px; margin: 5px;" class="auto-style57">Per month</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
                                     <td class="auto-style56">
@@ -633,7 +671,7 @@
                                 </tr>
 
                                 <tr>
-                                       <td class="auto-style2">
+                                    <td class="auto-style2">
                                         <asp:Label runat="server" ID="Month1"></asp:Label>
                                     </td>
                                     <td class="auto-style2">
@@ -657,11 +695,11 @@
                                     <td class="auto-style2">
                                         <asp:Label runat="server" ID="Eligibleamount1"></asp:Label>
                                     </td>
-                                 
+
 
                                 </tr>
                                 <tr>
-                                     <td>
+                                    <td>
                                         <asp:Label runat="server" ID="Month2"></asp:Label>
                                     </td>
                                     <td>
@@ -685,11 +723,11 @@
                                     <td>
                                         <asp:Label runat="server" ID="Eligibleamount2"></asp:Label>
                                     </td>
-                                   
+
 
                                 </tr>
                                 <tr>
-                                      <td>
+                                    <td>
                                         <asp:Label runat="server" ID="Month3"></asp:Label>
                                     </td>
                                     <td>
@@ -713,11 +751,11 @@
                                     <td>
                                         <asp:Label runat="server" ID="Eligibleamount3"></asp:Label>
                                     </td>
-                                  
+
 
                                 </tr>
                                 <tr>
-                                     <td>
+                                    <td>
                                         <asp:Label runat="server" ID="Month4"></asp:Label>
                                     </td>
                                     <td>
@@ -741,11 +779,11 @@
                                     <td>
                                         <asp:Label runat="server" ID="Eligibleamount4"></asp:Label>
                                     </td>
-                                   
+
 
                                 </tr>
                                 <tr>
-                                     <td>
+                                    <td>
                                         <asp:Label runat="server" ID="Month5"></asp:Label>
                                     </td>
                                     <td>
@@ -769,11 +807,11 @@
                                     <td>
                                         <asp:Label runat="server" ID="Eligibleamount5"></asp:Label>
                                     </td>
-                                   
+
 
                                 </tr>
                                 <tr>
-                                      <td>
+                                    <td>
                                         <asp:Label runat="server" ID="Month6"></asp:Label>
                                     </td>
                                     <td>
@@ -797,7 +835,7 @@
                                     <td>
                                         <asp:Label runat="server" ID="Eligibleamount6"></asp:Label>
                                     </td>
-                                  
+
 
                                 </tr>
 
@@ -899,7 +937,7 @@
                                     </td>
                                 </tr>
                                 <tr id="worksheet" runat="server" visible="false">
-                                     <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">25.</td>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">25.</td>
                                     <td style="padding: 5px; margin: 5px;">Work Sheet </td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -907,7 +945,7 @@
                                         <asp:HyperLink ID="hypworksheet" Text="View" runat="server"></asp:HyperLink>
                                     </td>
 
-                                     <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style20"><strong></strong></td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style29"></td>
                                     <td style="padding: 5px; margin: 5px;"></td>
                                     <td style="padding: 5px; margin: 5px;">&nbsp; 

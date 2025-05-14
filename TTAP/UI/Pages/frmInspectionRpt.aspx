@@ -1592,9 +1592,20 @@
                                                                                 <asp:Label ID="lblNameoftheEquipment" Text='<%#Eval("NameoftheEquipment") %>' runat="server" />
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
-                                                                        <asp:TemplateField HeaderText="Category" HeaderStyle-Width="5%">
+                                                                        <asp:TemplateField HeaderText="Category" HeaderStyle-Width="5%" Visible="false">
                                                                             <ItemTemplate>
                                                                                 <asp:Label ID="lblCategory" Text='<%#Eval("CategoryName") %>' runat="server" />
+                                                                            </ItemTemplate>
+                                                                        </asp:TemplateField>
+                                                                        <asp:TemplateField HeaderText="Category" HeaderStyle-Width="20%">
+                                                                            <ItemTemplate>
+                                                                                <asp:DropDownList runat="server" ID="ddlTypeofEquipment" CssClass="form-control" >
+                                                                                    <asp:ListItem Value="0" Selected="True">--Select--</asp:ListItem>
+                                                                                    <asp:ListItem Value="1">Energy Conservation Infra</asp:ListItem>
+                                                                                    <asp:ListItem Value="2">Water Conservation Infra</asp:ListItem>
+                                                                                    <asp:ListItem Value="3">Environmental Conservation Infra</asp:ListItem>
+                                                                                    <asp:ListItem Value="4">Common Effluent Treatment Plant at Industrial Park / Cluster</asp:ListItem>
+                                                                                </asp:DropDownList>
                                                                             </ItemTemplate>
                                                                         </asp:TemplateField>
                                                                         <asp:TemplateField HeaderText="Invoice No">
