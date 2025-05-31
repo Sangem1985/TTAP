@@ -494,6 +494,7 @@
     <Content Include="PrivateReferences\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
     <Content Include="PrivateReferences\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
     <Content Include="PrivateReferences\Newtonsoft.Json.dll" />
+    <Content Include="TGVehicleData.aspx" />
     <Content Include="TTAPServices.asmx" />
     <Content Include="UI\COIApplicationDetails.aspx" />
     <Content Include="UI\frmDLOApplicationDetailsNew.aspx" />
@@ -737,6 +738,7 @@
     <Content Include="UI\Pages\TypeOfIncentivesNew1.aspx" />
     <Content Include="UI\Pages\VisitorRegistration.aspx" />
     <Content Include="UI\Pages\VisitorsList.aspx" />
+    <Content Include="UI\PIAnte.aspx" />
     <Content Include="UI\UserDashBoard.aspx" />
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap-theme.min.css.map" />
@@ -890,6 +892,13 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="TGVehicleData.aspx.cs">
+      <DependentUpon>TGVehicleData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TGVehicleData.aspx.designer.cs">
+      <DependentUpon>TGVehicleData.aspx</DependentUpon>
     </Compile>
     <Compile Include="TTAPServices.asmx.cs">
       <DependentUpon>TTAPServices.asmx</DependentUpon>
@@ -2588,6 +2597,13 @@
     </Compile>
     <Compile Include="UI\Pages\VisitorsList.aspx.designer.cs">
       <DependentUpon>VisitorsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PIAnte.aspx.cs">
+      <DependentUpon>PIAnte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\PIAnte.aspx.designer.cs">
+      <DependentUpon>PIAnte.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\UserDashBoard.aspx.cs">
       <DependentUpon>UserDashBoard.aspx</DependentUpon>

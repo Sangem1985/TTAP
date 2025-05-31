@@ -18,7 +18,7 @@ namespace TTAP
         {
             refreshToken = GetRefreshToken(clientId, clientSecret);
 
-            // Start access token refresh loop
+          
             RefreshAccessToken();
 
             /*
