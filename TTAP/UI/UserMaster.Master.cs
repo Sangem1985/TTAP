@@ -394,8 +394,9 @@ namespace TTAP.UI
                     Killsession();
                     Session["UserDetails"] = null;
                     Session.Abandon();
-                    Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx?IntUserId=" + IntUserId + "&UserName=" + UserName + "&Password=" +
-                                        Password + "&PwdEncryflag=" + PwdEncryflag + "&IsTtap=Y");
+                    /*Response.Redirect("https://ipass.telangana.gov.in/IpassLogin.aspx?IntUserId=" + IntUserId + "&UserName=" + UserName + "&Password=" +
+                                        Password + "&PwdEncryflag=" + PwdEncryflag + "&IsTtap=Y");*/
+                    Response.Redirect("https://ipass.telangana.gov.in");
                 }
             }
             else

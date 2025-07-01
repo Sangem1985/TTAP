@@ -322,7 +322,7 @@
                             <div class="row" id="Div4" runat="server">
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="../SLC/ISLCSactionedApplications.aspx?Stg=8">
                                             <span><i class="fa fa-fw fa-calendar"></i>Approved by SLC</span>
                                             <span class="badge badge-pill badge-primary bg-success">
                                                 <asp:Label ID="lblApprovedSLC" runat="server"></asp:Label>

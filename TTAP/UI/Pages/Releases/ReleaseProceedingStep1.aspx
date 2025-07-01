@@ -93,7 +93,7 @@
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Sanctioned Amount">
+                                                    <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Pending Release Amount">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblRecommendedAmount" Text='<%#Eval("PendingAmount") %>' runat="server"></asp:Label>
                                                         </ItemTemplate>
@@ -102,26 +102,28 @@
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="G.O No">
                                                         <ItemTemplate>
                                                             <asp:TextBox runat="server" ID="txtGONo" Style="margin: 5px auto;" class="form-control txtbox" Height="28px"
-                                                                TabIndex="1" Width="120px" TextMode="MultiLine"></asp:TextBox>
+                                                                TabIndex="1" Width="120px" ></asp:TextBox>
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="G.O Date">
                                                         <ItemTemplate>
-                                                            <input type="date" id="txtGODate" runat="server" class="form-control" />
+                                                            <asp:TextBox ID="txtGODate" runat="server" class="datepicker form-control txtbox" Height="28px"
+                                                                    MaxLength="80" TabIndex="1" placeholder="DD/MM/YYYY" style="margin: 0px auto;padding: 5px;" Width="100px"></asp:TextBox>
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="LOC No">
                                                         <ItemTemplate>
                                                             <asp:TextBox runat="server" ID="txtLOCNo" class="form-control txtbox" Height="28px"
-                                                                TabIndex="1" Width="120px" TextMode="MultiLine"></asp:TextBox>
+                                                                TabIndex="1" Width="120px" ></asp:TextBox>
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="LOC Date">
                                                         <ItemTemplate>
-                                                            <input type="date" id="txtLOCDate" class="form-control" runat="server" />
+                                                            <asp:TextBox ID="txtLOCDate" runat="server" class="datepicker form-control txtbox" Height="28px"
+                                                                    MaxLength="80" TabIndex="1" placeholder="DD/MM/YYYY" style="margin: 0px auto;padding: 5px;" Width="100px"></asp:TextBox>
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
                                                     </asp:TemplateField>
@@ -172,37 +174,15 @@
     <link href="../../../assets/css/jquery-ui-1.8.19.custom.css" rel="stylesheet" />
     <script type="text/javascript">
 
-        $("input[id$='ContentPlaceHolder1_txtProposedDLCDate']").keydown(function () {
-            return false;
+        Sys.Application.add_load(function () {
+            $(".datepicker").datepicker({
+                dateFormat: "dd/mm/yy",
+                changeMonth: true,
+                changeYear: true
+            }).keydown(function () {
+                return false;
+            });
         });
-
-        function pageLoad() {
-            var date = new Date();
-            var currentMonth = date.getMonth();
-            var currentDate = date.getDate();
-            var currentYear = date.getFullYear();
-
-            $("input[id$='ContentPlaceHolder1_txtProposedDLCDate']").datepicker(
-                {
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                });
-        }
-        $(function () {
-            var date = new Date();
-            var currentMonth = date.getMonth();
-            var currentDate = date.getDate();
-            var currentYear = date.getFullYear();
-
-            $("input[id$='ContentPlaceHolder1_txtProposedDLCDate']").datepicker(
-                {
-                    dateFormat: "dd/mm/yy",
-                    changeMonth: true,
-                    changeYear: true,
-                });
-        });
-
     </script>
 
     <style type="text/css">

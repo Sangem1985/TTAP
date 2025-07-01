@@ -8334,7 +8334,88 @@ namespace TTAP.Classfiles
             }
             return Result;
         }
+        public DataSet GetYetReleaseAbstract(string DistID, string Stage)
+        {
+            DataSet Dsnew = new DataSet();
 
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@DISTID",SqlDbType.VarChar),
+               new SqlParameter("@Status",SqlDbType.VarChar),
+               new SqlParameter("@PartialSanction",SqlDbType.VarChar)
+           };
+            pp[0].Value = DistID;
+            pp[1].Value = Stage;
+            Dsnew = GenericFillDs("USP_GET_YET_TO_RELEASE_ABSTRACT", pp);
+            return Dsnew;
+        }
+        public DataSet GetYettoReleaseIncentives(string Category, string SubIncentiveId, string GOAmount)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@Category",SqlDbType.VarChar),
+               new SqlParameter("@GoAmount",SqlDbType.VarChar),
+               new SqlParameter("@SubIncId",SqlDbType.VarChar)
+           };
+            pp[0].Value = Category;
+            pp[1].Value = GOAmount;
+            pp[2].Value = SubIncentiveId;
+            Dsnew = GenericFillDs("USP_GET_UNIT_INCENTIVEWISE_PROCEEDINGS", pp);
+            return Dsnew;
+        }
+        public int InsertFinalProceedingsStep2(List<ReleasingProceedings> lstincentives)
+        {
+            int valid = 0;
+            foreach (ReleasingProceedings Ramarksvo in lstincentives)
+            {
+                SqlConnection connection = new SqlConnection(str);
+                SqlTransaction transaction = null;
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                try
+                {
+                    SqlCommand com = new SqlCommand();
+                    com.CommandType = CommandType.StoredProcedure;
+                    com.CommandText = "USP_INSERT_RELEASE_PROCEEDINGS_STEP2";
+
+                    com.Transaction = transaction;
+                    com.Connection = connection;
+                    com.Parameters.AddWithValue("@IncentiveId", Convert.ToString(Ramarksvo.EnterperIncentiveID));
+                    com.Parameters.AddWithValue("@SubIncentiveId", Convert.ToString(Ramarksvo.MstIncentiveId));
+                    com.Parameters.AddWithValue("@Created_By", Convert.ToString(Ramarksvo.CreatedByid));
+                    com.Parameters.AddWithValue("@SanctionedAmount", Convert.ToString(Ramarksvo.SantionedAmount));
+                    com.Parameters.AddWithValue("@AllotedAmount", Convert.ToString(Ramarksvo.AllotedAmount));
+                    com.Parameters.AddWithValue("@SLCNo", Convert.ToString(Ramarksvo.SLCNo));
+                    com.Parameters.AddWithValue("@Gono", Convert.ToString(Ramarksvo.Gono));
+                    com.Parameters.AddWithValue("@Godate", Convert.ToString(Ramarksvo.Godate));
+                    com.Parameters.AddWithValue("@Locno", Convert.ToString(Ramarksvo.Locno));
+                    com.Parameters.AddWithValue("@Locdate", Convert.ToString(Ramarksvo.Locdate));
+                    com.Parameters.AddWithValue("@ReleaseProcedingNo", Convert.ToString(Ramarksvo.ReleaseProcedingNo));
+                    com.Parameters.AddWithValue("@ReleaseProcedingDate", Convert.ToString(Ramarksvo.ReleaseProcedingDate));
+                    com.Parameters.AddWithValue("@RemaningAmt", Convert.ToString(Ramarksvo.RemaningAmt));
+                    com.Parameters.AddWithValue("@GoReleaseAmt", Convert.ToString(Ramarksvo.GoReleaseAmt));
+                    com.Parameters.AddWithValue("@Category", Convert.ToString(Ramarksvo.Caste));
+                    com.Parameters.AddWithValue("@IsPartial", Convert.ToString(Ramarksvo.IsPartial));
+                    com.Parameters.Add("@Valid", SqlDbType.Int, 500);
+                    com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                    com.ExecuteNonQuery();
+                    valid = (Int32)com.Parameters["@Valid"].Value;
+                    transaction.Commit();
+                    connection.Close();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    throw ex;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+            }
+            return valid;
+        }
     }
 
 }

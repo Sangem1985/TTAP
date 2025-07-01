@@ -132,8 +132,8 @@ namespace TTAP.UI
                                     SpanApplcationStatusHistory.InnerHtml = "Applcation Status History (Inspecting Officer - " + DistrictName + ")";
                                     SpanApplcationStatusHistoryAfterInspection.InnerHtml = "Applcation Status History - After Inspection (Inspecting Officer - " + DistrictName + ")";
 
-                                    SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (DLO - " + DistrictName + ")";
-                                    SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (DLO - " + DistrictName + ")";
+                                    SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - SLC";
+                                    SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - SVC";
                                     //if (Role_Code == "DLO")
                                     if (Role_Code == "COMM")
                                     {
@@ -4160,6 +4160,12 @@ namespace TTAP.UI
         "~/UI/Pages/TransportSubsidyAppraisalNotePrint.aspx?incid=" + enterid.Text.Trim() +
         "&mstid=" + lblMstIncentiveId.Text.Trim();
                             }
+                            if (lblMstIncentiveId.Text == "5")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/StampDutyAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
                             else
                             {
 
@@ -4196,6 +4202,12 @@ namespace TTAP.UI
                         grdJDProcess.DataBind();
                         divJDProcess.Visible = true;
 
+                    }
+                    if (dss != null && dss.Tables.Count > 0 && dss.Tables[6].Rows.Count > 0)
+                    {
+                        gvCommApproved.DataSource = dss.Tables[6];
+                        gvCommApproved.DataBind();
+                        divCommStatus.Visible = true;
                     }
                 }
                 else

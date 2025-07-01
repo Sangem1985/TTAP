@@ -1185,243 +1185,7 @@
                                 </div>
                             </div>
 
-                            <div class="card" id="divQueries" runat="server" visible="false">
-                                <div class="card-header p-0" id="headingQueryHistory">
-                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapse3">
-                                        <span id="SpanApplcationStatusHistory" runat="server">Applcation Status History (DLO)</span>
-                                        <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
-                                    </a>
-                                </div>
-                                <div id="collapse3" class="collapse">
-                                    <div class="card-body">
-                                        <div class="row" id="DivInspectionDetails" runat="server" visible="false">
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Inspection Details</div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                <asp:GridView ID="gvInspectionStatus" runat="server" AutoGenerateColumns="False"
-                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    Width="100%" Font-Names="Verdana" Font-Size="12px" OnRowDataBound="gvInspectionStatus_RowDataBound">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                    <RowStyle CssClass="GridviewScrollC1Item" />
-                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="60px" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
-                                                        <asp:BoundField DataField="SchduledDate" HeaderText="Inspection Scheduled Date" />
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Scheduled By" />
-                                                        <asp:BoundField DataField="InspectionDoneOn" HeaderText="Inspection Completed Date" />
-                                                        <asp:BoundField DataField="ReportUpdateDate" HeaderText="Inspection Report Uploaded Date" />
-                                                        <asp:BoundField DataField="SystemRecommended" HeaderText="System Recommended Amount" />
-                                                         <asp:BoundField DataField="OfficerRecommendedAmount" HeaderText="Officer Recommended Amount" />
-                                                        <asp:BoundField DataField="Status" HeaderText="Status of Inspection" />
-                                                        <asp:TemplateField HeaderText="Inspection Report">
-                                                            <ItemTemplate>
-                                                                <asp:HyperLink ID="anchortaglinkView" runat="server" Text="View" Font-Bold="true" Target="_blank" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <%-- <asp:TemplateField HeaderText="Download Draft Inspection Report">
-                                                                <ItemTemplate>
-                                                                   <asp:HyperLink ID="anchDownloadDraftInspectionReport" runat="server" Text="Download" Font-Bold="true" Target="_blank" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>--%>
-                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblInspflag" Text='<%#Eval("Inspflag") %>' runat="server" />
-                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
-                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                    </Columns>
-                                                </asp:GridView>
-                                            </div>
-                                        </div>
-                                        <div class="row" id="DivReInspectionDetails" runat="server" visible="false">
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Revised Inspection Report Details</div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                <asp:GridView ID="gvReInspectionStatus" runat="server" AutoGenerateColumns="False"
-                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    Width="100%" Font-Names="Verdana" Font-Size="12px" OnRowDataBound="gvReInspectionStatus_RowDataBound">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                    <RowStyle CssClass="GridviewScrollC1Item" />
-                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="60px" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
-                                                        <asp:BoundField DataField="SchduledDate" HeaderText="Raised Date" />
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Raised By" />
-                                                        <asp:BoundField DataField="ReportUpdateDate" HeaderText="Revised Inspection Report Uploaded Date" />
-                                                        <asp:BoundField DataField="ReportUpdatedBy" HeaderText="Revised Inspection Report Uploaded By" />
-                                                        <asp:BoundField DataField="SystemRecommended" HeaderText="System Recommended Amount" />
-                                                        <%-- <asp:BoundField DataField="OfficerRecommendedAmount" HeaderText="Officer Recommended Amount" />--%>
-                                                        <asp:BoundField DataField="Status" HeaderText="Status" />
-                                                        <asp:TemplateField HeaderText="Revised Inspection Report">
-                                                            <ItemTemplate>
-                                                                <asp:HyperLink ID="anchortaglinkViewRep" runat="server" Text="View" Font-Bold="true" Target="_blank" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <%-- <asp:TemplateField HeaderText="Download Draft Inspection Report">
-                                                                <ItemTemplate>
-                                                                   <asp:HyperLink ID="anchDownloadDraftInspectionReport" runat="server" Text="Download" Font-Bold="true" Target="_blank" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>--%>
-                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblInspflag" Text='<%#Eval("Inspflag") %>' runat="server" />
-                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
-                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                    </Columns>
-                                                </asp:GridView>
-                                            </div>
-                                        </div>
-                                        <div class="row" id="DivQueryDetails" runat="server" visible="false">
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Query Details - Yet to Respond by Applicant</div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                <asp:GridView ID="grdQueries" runat="server" AutoGenerateColumns="False"
-                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    Width="100%" Font-Names="Verdana" Font-Size="12px" OnRowDataBound="grdQueries_RowDataBound">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                    <RowStyle CssClass="GridviewScrollC1Item" />
-                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="60px" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
-                                                        <asp:BoundField DataField="Query" HeaderText="Query" />
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Query Raised By" />
-                                                        <asp:BoundField DataField="CreatedDate" HeaderText="Query Raised Date" />
-                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
-                                                                <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Query Letter">
-                                                            <ItemTemplate>
-                                                                <asp:HyperLink ID="hyQueryLetter" Text="View" NavigateUrl='<%#Eval("QueryLetterPath")%>' Target="_blank" runat="server" />
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Reminder Details">
-                                                            <ItemTemplate>
-                                                                <asp:HyperLink ID="hyQueryReminders" Text="Go to Reminders" Target="_blank" runat="server" />
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                        </asp:TemplateField>
-                                                    </Columns>
-                                                </asp:GridView>
-                                            </div>
-                                        </div>
-                                        <div class="row" id="DivQueryResponse" runat="server" visible="false">
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Query Details - Responded by Applicant</div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                <asp:GridView ID="grdQueriesResponse" runat="server" AutoGenerateColumns="False"
-                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                    <RowStyle CssClass="GridviewScrollC1Item" />
-                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="60px" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
-                                                        <asp:BoundField DataField="Query" HeaderText="Query" />
-                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Query Letter">
-                                                            <ItemTemplate>
-                                                                <asp:HyperLink ID="hyrespQueryLetter" Text="View" NavigateUrl='<%#Eval("QueryLetterPath")%>' Target="_blank" runat="server" />
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Query Raised By" />
-                                                        <asp:BoundField DataField="CreatedDate" HeaderText="Query Raised Date" />
-                                                        <asp:BoundField DataField="Responce" HeaderText="Query Responce" />
-                                                        <asp:BoundField DataField="ResponseDate" HeaderText="Date Of Response" />
-                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Query Attachments Uploaded by User">
-                                                            <ItemTemplate>
-                                                                <asp:HyperLink ID="hyrespAttachmentsPath" Text="View" NavigateUrl='<%#Eval("AttachmentsPath")%>' Target="_blank" runat="server" />
-                                                            </ItemTemplate>
-                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                    </Columns>
-                                                </asp:GridView>
-                                            </div>
-                                        </div>
-
-                                        <div class="row" id="DivRejectedApplications" runat="server" visible="false">
-                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Rejected Applications</div>
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
-                                                <asp:GridView ID="gvRejectedApplications" runat="server" AutoGenerateColumns="False"
-                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
-                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
-                                                    <HeaderStyle HorizontalAlign="Center" />
-                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
-                                                    <RowStyle CssClass="GridviewScrollC1Item" />
-                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
-                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
-                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1%>
-                                                            </ItemTemplate>
-                                                            <HeaderStyle HorizontalAlign="Center" />
-                                                            <ItemStyle Width="60px" />
-                                                        </asp:TemplateField>
-                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
-                                                        <asp:BoundField DataField="RejectionRemarks" HeaderText="Rejection Remarks" />
-                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Rejected By" />
-                                                        <asp:BoundField DataField="CreatedDate" HeaderText="Date of Rejection" />
-                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                    </Columns>
-                                                </asp:GridView>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <div class="card" id="divGMVerification" runat="server" visible="false">
                                 <div class="card-header p-0" id="headerGM1">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#DivCollapseYettoAssign">Verification of Application(GM)
@@ -1636,7 +1400,7 @@
                                     <div class="card-body">
                                         <div class="row" id="divAssignedDtls" runat="server" visible="false">
                                             <div class="col-sm-12 text-black font-SemiBold mb-1">Assigned to Inspecting Officer</div>
-                                            <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
                                                 <asp:GridView ID="gvGMAssigned" runat="server" AutoGenerateColumns="False"
                                                     CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
                                                     HorizontalAlign="Left" ShowHeader="true">
@@ -2411,8 +2175,243 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="card" id="divQueries" runat="server" visible="false">
+                                <div class="card-header p-0" id="headingQueryHistory">
+                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapse3">
+                                        <span id="SpanApplcationStatusHistory" runat="server">Applcation Status History (DLO)</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                                <div id="collapse3" class="collapse">
+                                    <div class="card-body">
+                                        <div class="row" id="DivInspectionDetails" runat="server" visible="false">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Inspection Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="gvInspectionStatus" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px" OnRowDataBound="gvInspectionStatus_RowDataBound">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
+                                                        <asp:BoundField DataField="SchduledDate" HeaderText="Inspection Scheduled Date" />
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Scheduled By" />
+                                                        <asp:BoundField DataField="InspectionDoneOn" HeaderText="Inspection Completed Date" />
+                                                        <asp:BoundField DataField="ReportUpdateDate" HeaderText="Inspection Report Uploaded Date" />
+                                                        <asp:BoundField DataField="SystemRecommended" HeaderText="System Recommended Amount" />
+                                                         <asp:BoundField DataField="OfficerRecommendedAmount" HeaderText="Officer Recommended Amount" />
+                                                        <asp:BoundField DataField="Status" HeaderText="Status of Inspection" />
+                                                        <asp:TemplateField HeaderText="Inspection Report">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="anchortaglinkView" runat="server" Text="View" Font-Bold="true" Target="_blank" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <%-- <asp:TemplateField HeaderText="Download Draft Inspection Report">
+                                                                <ItemTemplate>
+                                                                   <asp:HyperLink ID="anchDownloadDraftInspectionReport" runat="server" Text="Download" Font-Bold="true" Target="_blank" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>--%>
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblInspflag" Text='<%#Eval("Inspflag") %>' runat="server" />
+                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="DivReInspectionDetails" runat="server" visible="false">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Revised Inspection Report Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="gvReInspectionStatus" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px" OnRowDataBound="gvReInspectionStatus_RowDataBound">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
+                                                        <asp:BoundField DataField="SchduledDate" HeaderText="Raised Date" />
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Raised By" />
+                                                        <asp:BoundField DataField="ReportUpdateDate" HeaderText="Revised Inspection Report Uploaded Date" />
+                                                        <asp:BoundField DataField="ReportUpdatedBy" HeaderText="Revised Inspection Report Uploaded By" />
+                                                        <asp:BoundField DataField="SystemRecommended" HeaderText="System Recommended Amount" />
+                                                        <%-- <asp:BoundField DataField="OfficerRecommendedAmount" HeaderText="Officer Recommended Amount" />--%>
+                                                        <asp:BoundField DataField="Status" HeaderText="Status" />
+                                                        <asp:TemplateField HeaderText="Revised Inspection Report">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="anchortaglinkViewRep" runat="server" Text="View" Font-Bold="true" Target="_blank" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <%-- <asp:TemplateField HeaderText="Download Draft Inspection Report">
+                                                                <ItemTemplate>
+                                                                   <asp:HyperLink ID="anchDownloadDraftInspectionReport" runat="server" Text="Download" Font-Bold="true" Target="_blank" />
+                                                                </ItemTemplate>
+                                                            </asp:TemplateField>--%>
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblInspflag" Text='<%#Eval("Inspflag") %>' runat="server" />
+                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="DivQueryDetails" runat="server" visible="false">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Query Details - Yet to Respond by Applicant</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="grdQueries" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px" OnRowDataBound="grdQueries_RowDataBound">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
+                                                        <asp:BoundField DataField="Query" HeaderText="Query" />
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Query Raised By" />
+                                                        <asp:BoundField DataField="CreatedDate" HeaderText="Query Raised Date" />
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                                <asp:Label ID="lblIncentiveId" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Query Letter">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="hyQueryLetter" Text="View" NavigateUrl='<%#Eval("QueryLetterPath")%>' Target="_blank" runat="server" />
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Reminder Details">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="hyQueryReminders" Text="Go to Reminders" Target="_blank" runat="server" />
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="DivQueryResponse" runat="server" visible="false">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Query Details - Responded by Applicant</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="grdQueriesResponse" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
+                                                        <asp:BoundField DataField="Query" HeaderText="Query" />
+                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Query Letter">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="hyrespQueryLetter" Text="View" NavigateUrl='<%#Eval("QueryLetterPath")%>' Target="_blank" runat="server" />
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Query Raised By" />
+                                                        <asp:BoundField DataField="CreatedDate" HeaderText="Query Raised Date" />
+                                                        <asp:BoundField DataField="Responce" HeaderText="Query Responce" />
+                                                        <asp:BoundField DataField="ResponseDate" HeaderText="Date Of Response" />
+                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Query Attachments Uploaded by User">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="hyrespAttachmentsPath" Text="View" NavigateUrl='<%#Eval("AttachmentsPath")%>' Target="_blank" runat="server" />
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
 
-
+                                        <div class="row" id="DivRejectedApplications" runat="server" visible="false">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Rejected Applications</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="gvRejectedApplications" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
+                                                        <asp:BoundField DataField="RejectionRemarks" HeaderText="Rejection Remarks" />
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Rejected By" />
+                                                        <asp:BoundField DataField="CreatedDate" HeaderText="Date of Rejection" />
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="card" id="div2" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingThree">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapseDLOStage1">
@@ -3761,7 +3760,6 @@
 
 
                                                     </Columns>
-
                                                 </asp:GridView>
                                             </div>
                                         </div>
@@ -3986,7 +3984,7 @@
                             <div class="card" id="divQueriesJD" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingQueryHistoryJD">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapseJD">
-                                        <span id="SpanApplcationStatusHistoryJD" runat="server">Applcation Status History - Head Office (JD)</span>
+                                        <span id="SpanApplcationStatusHistoryJD" runat="server">Additional Director Process</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
@@ -4016,6 +4014,41 @@
                                                         <asp:BoundField DataField="RefferedTo" HeaderText="Reffered To" />
                                                         <asp:BoundField DataField="Emp_Name" HeaderText="Reffered By" />
                                                         <asp:BoundField DataField="RefferedDate" HeaderText="Reffered Date" />
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveId") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="divAddlDirProcess" runat="server" visible="false">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Application Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="gvAddlDirProcess" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentives" />
+                                                        <asp:BoundField DataField="RefferedTo" HeaderText="Reffered To" />
+                                                        <asp:BoundField DataField="Emp_Name" HeaderText="Reffered By" />
+                                                        <asp:BoundField DataField="RefferedDate" HeaderText="Reffered Date" />
+                                                        <asp:BoundField DataField="AddlDirector_Rec_Amount" HeaderText="Recommended Amount" />
                                                         <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
@@ -4200,6 +4233,53 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="card" id="divCommStatus" runat="server" visible="false">
+                                 <div class="card-header p-0" id="headingCommStatus">
+                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapseCommStatus">
+                                        <span id="Span11" runat="server">Director Process</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                                <div id="collapseCommStatus" class="collapse">
+                                     <div class="card-body">
+                                         <div class="row" id="divCommApproved" runat="server">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Approved Application Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="gvCommApproved" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentive" />
+                                                        <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
+                                                        <asp:BoundField DataField="REMARKS" HeaderText="Remarks" />
+                                                        <asp:BoundField DataField="Com_ProcessDate" HeaderText="Action Date" />
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                         </div>
+                                    </div>
+                                </div>
 
                             <div class="card" id="divSVCStatus" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingSVCStatus">

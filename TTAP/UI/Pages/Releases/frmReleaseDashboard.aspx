@@ -64,7 +64,7 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Releases</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmReleases.aspx?Stage=1&ApplicationLevel=SLC">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ReleaseProceedingStep1.aspx?Stage=1&ApplicationLevel=SLC">
                                             
                                             <span><i class="fa fa-fw fa-calendar"></i>Yet to Release Proceedings for SLC</span>
                                             <span class="badge badge-pill badge-success" style="display:none;">
@@ -111,10 +111,10 @@
                                     </div>
                                 </div>
                             </div>
-                              <div>
+                              <%--<div>
                                 <h1 class="page-head-linenew" align="left" style="font-size: smaller"></h1>
-                            </div>
-                               <div class="row" id="Div2" runat="server">
+                            </div>--%>
+                               <div class="row" id="Div2" runat="server" visible="false">
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">

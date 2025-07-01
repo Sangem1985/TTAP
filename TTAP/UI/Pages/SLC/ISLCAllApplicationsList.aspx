@@ -196,9 +196,9 @@
                                                     <asp:BoundField DataField="Category" ItemStyle-HorizontalAlign="Center" HeaderText="Category">
                                                         <ItemStyle CssClass="text-left" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="ApplicantName" ItemStyle-HorizontalAlign="Center" HeaderText="Applicant Name">
+                                                    <%--<asp:BoundField DataField="ApplicantName" ItemStyle-HorizontalAlign="Center" HeaderText="Applicant Name">
                                                         <ItemStyle CssClass="text-left" />
-                                                    </asp:BoundField>
+                                                    </asp:BoundField>--%>
                                                     <asp:BoundField DataField="Address" ItemStyle-HorizontalAlign="Center" HeaderText="Address">
                                                         <ItemStyle CssClass="text-left" />
                                                     </asp:BoundField>
@@ -208,18 +208,18 @@
                                                     <asp:BoundField DataField="TypeOfIndustryText" ItemStyle-HorizontalAlign="Center" HeaderText="Type Of Industry">
                                                         <ItemStyle CssClass="text-left" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="TextileProcessName" ItemStyle-HorizontalAlign="Center" HeaderText="Nature Of Industry">
+                                                    <%--<asp:BoundField DataField="TextileProcessName" ItemStyle-HorizontalAlign="Center" HeaderText="Nature Of Industry">
                                                         <ItemStyle CssClass="text-left" />
-                                                    </asp:BoundField>
+                                                    </asp:BoundField>--%>
                                                     <asp:BoundField DataField="ApplicationFiledDate" ItemStyle-HorizontalAlign="Center" HeaderText="Application Date" DataFormatString="{0:dd-M-yyyy}">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>
-                                                     <asp:BoundField DataField="ActualRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended Amount">
+                                                     <%--<asp:BoundField DataField="ActualRecommendedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended Amount">
                                                         <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:BoundField>
-                                                    <asp:BoundField DataField="SVC_Sanctioned_Date" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended to SLC Date">
+                                                    </asp:BoundField>--%>
+                                                    <%--<asp:BoundField DataField="SVC_Sanctioned_Date" ItemStyle-HorizontalAlign="Center" HeaderText="SVC Recommended to SLC Date">
                                                         <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:BoundField>
+                                                    </asp:BoundField>--%>
                                                     <asp:BoundField DataField="FinalSanctionedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="SLC Sanctioned Amount">
                                                         <ItemStyle HorizontalAlign="Center" />
                                                     </asp:BoundField>

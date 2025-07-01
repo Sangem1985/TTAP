@@ -56,9 +56,9 @@ namespace TTAP.UI.Pages.Releases
                 Button btnProcess = (e.Row.FindControl("btnProcess") as Button);
                 Label lblNoClaims = (e.Row.FindControl("lblNoClaims") as Label);
                 TextBox txtGONo = (e.Row.FindControl("txtGONo") as TextBox);
-                HtmlInputGenericControl txtGODate = e.Row.FindControl("txtGODate") as HtmlInputGenericControl;
+                TextBox txtGODate = e.Row.FindControl("txtGODate") as TextBox;
                 TextBox txtLOCNo = (e.Row.FindControl("txtLOCNo") as TextBox);
-                HtmlInputGenericControl txtLOCDate = e.Row.FindControl("txtLOCDate") as HtmlInputGenericControl;
+                TextBox txtLOCDate = e.Row.FindControl("txtLOCDate") as TextBox;
                 TextBox txtGOAmount = (e.Row.FindControl("txtGOAmount") as TextBox);
 
                 if (lblNoClaims.Text == "")
@@ -81,10 +81,11 @@ namespace TTAP.UI.Pages.Releases
                 string txtGOAmount = ((TextBox)gvdetailsnew.Rows[indexing].FindControl("txtGOAmount")).Text;
 
                 string txtGONo = ((TextBox)gvdetailsnew.Rows[indexing].FindControl("txtGONo")).Text;
-                string txtGODate = ((HtmlInputGenericControl)gvdetailsnew.Rows[indexing].FindControl("txtGODate")).Value;
+                string txtGODate = ((TextBox)gvdetailsnew.Rows[indexing].FindControl("txtGODate")).Text;
                 string txtLOCNo = ((TextBox)gvdetailsnew.Rows[indexing].FindControl("txtLOCNo")).Text;
-                string txtLOCDate = ((HtmlInputGenericControl)gvdetailsnew.Rows[indexing].FindControl("txtLOCDate")).Value;
+                string txtLOCDate = ((TextBox)gvdetailsnew.Rows[indexing].FindControl("txtLOCDate")).Text;
                 string lblCategory = ((Label)gvdetailsnew.Rows[indexing].FindControl("lblCategory")).Text;
+                string lblCategoryid = ((Label)gvdetailsnew.Rows[indexing].FindControl("lblCategoryid")).Text;
 
                 if (txtGONo != "" && txtGODate != "" && txtLOCNo != "" && txtLOCDate != "" && txtGOAmount != "")
                 {
@@ -92,7 +93,7 @@ namespace TTAP.UI.Pages.Releases
                     Session["Godate"] = txtGODate;
                     Session["Locno"] = txtLOCNo;
                     Session["Locdate"] = txtLOCDate;
-                    Response.Redirect("ReleaseProceedingStep1.aspx?Cast=" + lblCategory + "&MstIncentiveId=" + lblSubIncentiveID + "&sactionedAmount=" + txtGOAmount + "&GoNo=" + txtGONo + "&GoDate=" + txtGODate + "&LocNo=" + txtLOCNo + "&LocDate=" + txtLOCDate);
+                    Response.Redirect("ReleaseProceedingStep2.aspx?Category=" + lblCategoryid + "&SubIncentiveId=" + lblSubIncentiveID + "&GOAmount=" + txtGOAmount + "&GoNo=" + txtGONo + "&GoDate=" + txtGODate + "&LocNo=" + txtLOCNo + "&LocDate=" + txtLOCDate);
                 }
                 else
                 {

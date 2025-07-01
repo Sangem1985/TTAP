@@ -3295,6 +3295,34 @@ namespace TTAP.Classfiles
         public int CreatedBy { get; set; }
         public string CreatedByIP { get; set; }
     }
-
+    public class ReleasingProceedings
+    {
+        public string SplCase { get; set; }
+        public string MstIncentiveId { get; set; }
+        public string EnterperIncentiveID { get; set; }
+        public string CreatedByid { get; set; }
+        public string AllotedAmount { get; set; }
+        public string SLCNo { get; set; }
+        public string Gono { get; set; }
+        public string Godate { get; set; }
+        public string Locdate { get; set; }
+        public string Locno { get; set; }
+        public string ReleaseProcedingNo { get; set; }
+        public string ReleaseProcedingDate { get; set; }
+        public string Caste { get; set; }
+        public string SubIncTypeId { get; set; }
+        public string GoReleaseAmt { get; set; }
+        public string RemaningAmt { get; set; }
+        public string ReleasingSlcSpeacCaseAmount { get; set; }
+        public string ReleasingSlcSpeacCaseDate { get; set; }
+        public string ReleasingSlcSpeacCasePedingAmount { get; set; }
+        public string GOSpeaclCaseNo { get; set; }
+        public string SanctionSpecialCaseAmount { get; set; }
+        public string Remarks { get; set; }
+        public string PendingAmount { get; set; }
+        public string slno { get; set; }
+        public string IsPartial { get; set; }
+        public string SantionedAmount { get; set; }
+    }
 
 }

@@ -2,6 +2,7 @@
 using System.Net.Http;
 using System.Text;
 using System.Timers;
+using System.Web.Script.Serialization;
 using Newtonsoft.Json;
 
 namespace TTAP
@@ -18,7 +19,7 @@ namespace TTAP
         {
             refreshToken = GetRefreshToken(clientId, clientSecret);
 
-          
+
             RefreshAccessToken();
 
             /*
@@ -26,7 +27,7 @@ namespace TTAP
             refreshTimer.Elapsed += (s, e) => RefreshAccessToken();
             refreshTimer.Start();*/
         }
-        
+
         private string GetRefreshToken(string clientId, string clientSecret)
         {
             System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
@@ -67,7 +68,7 @@ namespace TTAP
                 }
                 else
                 {
-                    
+
                 }
             }
         }
@@ -101,7 +102,7 @@ namespace TTAP
 
                 if (response.IsSuccessStatusCode)
                 {
-                    
+
                 }
                 else
                 {
@@ -115,7 +116,7 @@ namespace TTAP
         protected void btnSubmit_ServerClick(object sender, EventArgs e)
         {
             try
-            {   
+            {
                 string projectId = "";
                 string serviceId = "";
                 string actionTaken = "ServiceFormEdited";
@@ -123,13 +124,138 @@ namespace TTAP
 
                 SendServiceStatusToHEPC(projectId, serviceId, actionTaken, commentByUser);
 
-                
+
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Status sent successfully!');", true);
             }
             catch (Exception ex)
             {
-                
+
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('Error: {ex.Message}');", true);
+            }
+        }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            SubmitNewConnectionRequest();
+        }
+        private async void SubmitNewConnectionRequest()
+        {
+            var requestBody = new
+            {
+                Subdivisonname = "NONGSTOIN",
+                Subdivison = 1132,
+                District = 1,
+                DistrictName = "WEST KHASI HILLS",
+                Applicationfor = 1,
+                Applicationtype = 2,
+                PinCode = 0,
+                state = 0,
+                Address_of_inst = "INSTALLADRESS",
+                Owner_type = 3,
+                Purpose = 4,
+                AppliedLoad = 0,
+                Applicatent_Name = "SHREERAM",
+                Father_name = "DASARATHA",
+                MotherName = "KOUSALYA",
+                Mobile_number = "9898989898",
+                Phone = "9797979797",
+                Email = "test@example.com",
+                Door_no = 0,
+                Perm_Address = "CONSADDRESS",
+                Cast = "IKSHAVAHU",
+                IdentityProof = "AADHAR",
+                CreatedBy = 136,
+                lstDocuments = new[]
+                {
+                new {
+                    documantId = 2,
+                    documentName = "Proof of ownership/occupancy",
+                    document_path = "https://example.com/doc1.pdf"
+                },
+                new {
+                    documantId = 3,
+                    documentName = "Proof of Identification",
+                    document_path = "https://example.com/doc2.pdf"
+                }
+                }
+            };
+
+            var jsonData = new JavaScriptSerializer().Serialize(requestBody);
+
+            using (HttpClient client = new HttpClient())
+            {
+                var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+
+                try
+                {
+                    HttpResponseMessage response = await client.PostAsync("https://uat.mepdcl.trm.ieasybill.com/api/registration/new", content);
+                    string result = await response.Content.ReadAsStringAsync();
+
+                  
+                }
+                catch (Exception ex)
+                {
+                   
+                }
+            }
+        }
+        private string Post()
+        {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+
+            using (var client = new HttpClient())
+            {
+                var url = "https://uat.mepdcl.trm.ieasybill.com/api/registration/new";
+                var requestBody = new
+                {
+                    Subdivisonname = "NONGSTOIN",
+                    Subdivison = 1132,
+                    District = 1,
+                    DistrictName = "WEST KHASI HILLS",
+                    Applicationfor = 1,
+                    Applicationtype = 2,
+                    PinCode = 0,
+                    state = 0,
+                    Address_of_inst = "INSTALLADRESS",
+                    Owner_type = 3,
+                    Purpose = 4,
+                    AppliedLoad = 0,
+                    Applicatent_Name = "SHREERAM",
+                    Father_name = "DASARATHA",
+                    MotherName = "KOUSALYA",
+                    Mobile_number = "9898989898",
+                    Phone = "9797979797",
+                    Email = "test@example.com",
+                    Door_no = 0,
+                    Perm_Address = "CONSADDRESS",
+                    Cast = "IKSHAVAHU",
+                    IdentityProof = "AADHAR",
+                    CreatedBy = 136,
+                    lstDocuments = new[]
+                {
+                new {
+                    documantId = 2,
+                    documentName = "Proof of ownership/occupancy",
+                    document_path = "doc1.pdf"
+                },
+                new {
+                    documantId = 3,
+                    documentName = "Proof of Identification",
+                    document_path = "doc2.pdf"
+                }
+                }
+                };
+                var json = JsonConvert.SerializeObject(requestBody);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = client.PostAsync(url, content).Result;
+                if (response.IsSuccessStatusCode)
+                {
+                    var resultContent = response.Content.ReadAsStringAsync().Result;
+                    //dynamic tokenResponse = JsonConvert.DeserializeObject(resultContent);
+                    
+                }
+
+                throw new Exception("Failed  " + response.StatusCode);
             }
         }
     }

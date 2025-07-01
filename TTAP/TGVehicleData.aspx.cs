@@ -12,16 +12,22 @@ namespace TTAP
 {
     public partial class TGVehicleData : System.Web.UI.Page
     {
+        string token;
         private string UserName = "TelRTO";
         private string Password = "QGH12#0G2&";
-        private string TokenUrl = "https://pmedrive.heavyindustries.gov.in/api/getAccessToken";
-        private string DataUrl = "https://pmedrive.heavyindustries.gov.in/api/vehicles";
+        private string TokenUrl1 = "https://pmedrive.heavyindustries.gov.in/api/getAccessToken";
+        private string DataUrl1 = "https://pmedrive.heavyindustries.gov.in/api/vehicles";
+
+        private string ClientId = "V204mtm9";
+        private string ClientSecret = "e2BHkN7Z#0G2&";
+        private string TokenUrl = "http://103.154.75.191/MeghalayaAPI/api/token/generatetoken";
+        private string DataUrl = "http://103.154.75.191/MeghalayaAPI/api/Data/PostCFEFeasibilityReport";
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                string token = GetAccessToken();
+                 token = GetToken();
             }
         }
 
@@ -49,6 +55,44 @@ namespace TTAP
                         var responseContent = response.Content.ReadAsStringAsync().Result;
                         dynamic tokenResponse = JsonConvert.DeserializeObject(responseContent);
                         return tokenResponse.data.access_token;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                string errorMsg = ex.Message;
+                LogError(ex);
+                return null;
+            }
+        }
+        private string GetToken()
+        {
+            try
+            {
+
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                using (var client = new HttpClient())
+                {
+                    var request = new
+                    {
+                        ClientId = "V204mtm9",
+                        ClientSecret = "e2BHkN7Z"
+                    };
+
+                    var json = JsonConvert.SerializeObject(request);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = client.PostAsync(TokenUrl, content).Result;
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = response.Content.ReadAsStringAsync().Result;
+                        dynamic tokenResponse = JsonConvert.DeserializeObject(responseContent);
+                        return tokenResponse.data.token;
                     }
                     else
                     {

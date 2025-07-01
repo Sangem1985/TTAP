@@ -2472,6 +2472,42 @@ namespace TTAP.UI
         protected global::System.Web.UI.WebControls.Button btnJDHeadOffice;
 
         /// <summary>
+        /// divCommStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCommStatus;
+
+        /// <summary>
+        /// Span3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span3;
+
+        /// <summary>
+        /// divCommApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divCommApproved;
+
+        /// <summary>
+        /// gvCommApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvCommApproved;
+
+        /// <summary>
         /// divSVCStatus control.
         /// </summary>
         /// <remarks>

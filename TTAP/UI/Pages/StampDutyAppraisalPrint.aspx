@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Capital Appraisal Note</title>
+    <title>Appraisal Note</title>
     <style>
         .div3 {
             /*-webkit-column-count: 3;
@@ -83,14 +83,27 @@
             width: 142px;
         }
     </style>
+    <script>
+        function PrintScreen() {
+            document.getElementById("btnPrint").style.display = 'none';
+            print();
+            document.getElementById("btnPrint").style.display = 'block';
+        }
+        document.addEventListener("keydown", function (e) {
+            if (e.ctrlKey && e.key === "p") {
+                e.preventDefault();
+                PrintScreen();
+            }
+        });
+    </script>
 </head>
-<body>
+<body style="border: groove;">
     <form id="form1" runat="server">
-        <div align="center">
+        <div align="center" style="margin-top: 25px;">
             <div align="center" style="text-align: center">
                 <div align="center">
                     <center>
-                        <img src="viewpdf.aspx?filepathnew=D:/TS-iPASSFinal/telanganalogo.png" width="75px" height="75px" />
+                        <img src="../../images/favicon.png" width="100px" height="100px" />
                     </center>
                     <%--<h3>TTAP CAPITAL APPRAISAL NOTE FORM</h3>--%>
                 </div>
@@ -107,19 +120,11 @@
                                     Dated : 29/11/2014
                                 </td>
                             </tr>
-                            <tr id="tprideTr" runat="server" visible="false">
-                                <td style="text-align: center; font-weight: bold;">T-PRIDE -
-                                <asp:Label ID="lblCaste" runat="server" Visible="false" Text="Label"></asp:Label>
-                                    - G.O M.S. NO 29, Industries &amp; Commerce (IP &amp; INF) Department,
-                                <br />
-                                    Dated : 29/11/2014
-                                </td>
-                            </tr>
+                            
                             <tr>
                                 <td style="text-align: center; vertical-align: middle">
-                                    <u><b>
-                                        <%--Telangana State Industrial Development and Entrepreneur Advancement - GO MS. NO 28, Industries & Commerce (IP & INF) Department, Dated : 29/11/2014--%>
-                                    Appraisal Note<br />
+                                    <u><b>Appraisal Note of Reimbursement of Stamp Duty/Transfer Duty/Mortgage and Hypothecation Duty
+                                        <br />
 
                                         <asp:Label ID="lblSancIncentiveName" runat="server"></asp:Label>
                                     </b></u>
@@ -127,20 +132,27 @@
                             </tr>
                         </table>
                         <table bgcolor="White" width="100%" style="font-family: Verdana; font-size: small;">
+                            <tr>
+                                <td style="padding: 5px; margin: 5px; font-weight: bold;" valign="top" class="auto-style12"><b></b>
+                                </td>
+                                <td colspan="4" style="padding: 5px; margin: 5px;">
+                                    <b>1. INDUSTRY DETAILS</b> </td>
+                                <td class="auto-style25">&nbsp;
+                                </td>
 
+                            </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td style="font: bolder; font-size: small" class="auto-style1">
-                                    <b>1. Unit Name</b>
+                                <td style="font: bolder; font-size: small" class="auto-style1">1.1 Unit Name
                                 </td>
                                 <td>
-                                    <b>
-                                        <asp:Label ID="lblUnitName" runat="server"></asp:Label></b> &nbsp;
+                                    
+                                        <asp:Label ID="lblUnitName" runat="server"></asp:Label> &nbsp;
                                 </td>
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">2. Address
+                                <td class="auto-style1">1.2 Address
                                 </td>
                                 <td>
                                     <span>
@@ -150,7 +162,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">3. Name of the Proprietor
+                                <td class="auto-style1">1.3 Name of the Proprietor
                                 </td>
                                 <td>
                                     <span>
@@ -160,7 +172,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">4. Constitution of Organization
+                                <td class="auto-style1">1.4 Constitution of Organization
                                 </td>
                                 <td>
                                     <span>
@@ -170,13 +182,13 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">5. Social Status
+                                <td class="auto-style1">1.5 Social Status
                                 </td>
                                 <td>
                                     <asp:Label ID="lblSocialStatus" runat="server"></asp:Label>
                                 </td>
                             </tr>
-                            <tr>
+                            <tr runat="server" visible="false">
                                 <td style="width: 2%"></td>
                                 <td class="auto-style1">6. Share of SC/ST/Women Enterpreneur
                                 </td>
@@ -189,7 +201,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">7. Registration Number
+                                <td class="auto-style1">1.6 Registration Number
                                 </td>
                                 <td>
                                     <span>
@@ -199,7 +211,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">8. Type of Unit
+                                <td class="auto-style1">1.7 Type of Unit
                                 </td>
                                 <td>
                                     <span>
@@ -209,7 +221,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">9. Category of Unit as per Application
+                                <td class="auto-style1">1.8 Category of Unit as per Application
                                 </td>
                                 <td>
                                     <span>
@@ -219,7 +231,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">10. Type of Sector
+                                <td class="auto-style1">1.9 Type of Sector
                                 </td>
                                 <td>
                                     <span>
@@ -229,7 +241,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">11. Type of Textile as per Application
+                                <td class="auto-style1">1.10 Type of Textile as per Application
                                 </td>
                                 <td>
                                     <span>
@@ -239,7 +251,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">12. Technical Textile Type
+                                <td class="auto-style1">1.11 Technical Textile Type
                                 </td>
                                 <td>
                                     <span>
@@ -249,7 +261,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">13.  Activity of the Unit
+                                <td class="auto-style1">1.12 Activity of the Unit
                                 </td>
                                 <td>
                                     <span>
@@ -259,7 +271,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">14. UID Number
+                                <td class="auto-style1">1.13 UID Number
                                 </td>
                                 <td>
                                     <span>
@@ -269,7 +281,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">15.  Incentive Application Number
+                                <td class="auto-style1">1.14 Incentive Application Number
                                 </td>
                                 <td>
                                     <span>
@@ -279,7 +291,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">16.  Date of Power Connection Release
+                                <td class="auto-style1">1.15 Date of Power Connection Release
                                 </td>
                                 <td>
                                     <span>
@@ -289,7 +301,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">17.  Commencement of Commercial Production
+                                <td class="auto-style1">1.16 Commencement of Commercial Production
                                 </td>
                                 <td>
                                     <span>
@@ -299,7 +311,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">18.  Date of Receipt of Claim Application
+                                <td class="auto-style1">1.17 Date of Receipt of Claim Application
                                 </td>
                                 <td>
                                     <span>
@@ -309,7 +321,7 @@
                             </tr>
                             <tr>
                                 <td style="width: 2%"></td>
-                                <td class="auto-style1">19. Promoter Details in case eligible for additional subsidy
+                                <td class="auto-style1">1.18 Promoter Details in case eligible for additional subsidy
                                 </td>
                                 <td>
                                     <span>
@@ -319,19 +331,23 @@
                             </tr>
 
                         </table>
-                       
+
 
                         <div class="row">
-                            <table style="width: 100%">
-                                 <tr>
-                                    <td style="padding: 5px; margin: 5px; font-weight: bold; width: 10px">
+                            <table>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px; font-weight: bold;" valign="top" class="auto-style12"><b></b>
                                     </td>
                                     <td colspan="4" style="padding: 5px; margin: 5px;">
-                                        <b>STAMP DUSTY</b></td>
+                                        <b>2. STAMP DUTY</b> </td>
+                                    <td class="auto-style25">&nbsp;
+                                    </td>
 
                                 </tr>
+                            </table>
+                            <table style="width: 100%">
 
-                                <tr id="tr4231" runat="server" visible="true">
+                                <tr id="tr4231" runat="server" visible="false">
                                     <td class="auto-style56">20.</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style57">SCHEME</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">:</td>
@@ -347,9 +363,9 @@
                                     <td style="padding: 5px; margin: 5px;" class="auto-style56">&nbsp;
                                     </td>
                                 </tr>
-                                <tr>
+                                <tr runat="server" visible="false">
                                     <td class="auto-style55">21.</td>
-                                    <td style="padding: 5px; margin: 5px;" class="auto-style55">Select Type</td>
+                                    <td style="padding: 5px; margin: 5px;" class="auto-style55">Type</td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style55">:</td>
                                     <td class="auto-style55">
                                         <asp:Label ID="lblselect" runat="server" CssClass="form-control txtbox txtcomn"
@@ -365,7 +381,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>22.</td>
+                                    <td></td>
                                     <td style="padding: 5px; margin: 5px;">Land Measuring in Sq.Mts</td>
                                     <td style="padding: 5px; margin: 5px;">:</td>
                                     <td>&nbsp;
@@ -383,7 +399,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>23.</td>
+                                    <td></td>
                                     <td style="padding: 5px; margin: 5px;">Stamp Duty paid by the unit in Rs.</td>
                                     <td style="padding: 5px; margin: 5px;">:</td>
                                     <td>&nbsp;
@@ -401,7 +417,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">24.</td>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Building plinth area in Sq.Mts</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -417,8 +433,8 @@
                                     </td>
                                 </tr>
 
-                                 <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">25.</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Building plinth area 5 times(Sq.Mts.)</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -434,8 +450,8 @@
                                     </td>
                                 </tr>
 
-                                   <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">26.</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Proportionate value for the area in Rs.</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -451,8 +467,8 @@
                                     </td>
                                 </tr>
 
-                                  <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">26.</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Value Recommended by G.M. DIC in Rs</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -468,8 +484,8 @@
                                     </td>
                                 </tr>
 
-                                   <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">27.</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Value Commputed in Rs</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -485,9 +501,9 @@
                                     </td>
                                 </tr>
 
-                                    <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">28.</td>
-                                    <td style="padding: 5px; margin: 5px;">Select Type</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
+                                    <td style="padding: 5px; margin: 5px;">Eligible Type</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
                                     <td style="padding: 5px; margin: 5px;" class="auto-style28">
@@ -502,8 +518,8 @@
                                     </td>
                                 </tr>
 
-                                  <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">29.</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Eligible Amount in Rs.</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -519,8 +535,8 @@
                                     </td>
                                 </tr>
 
-                                    <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">30.</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Remarks</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -536,8 +552,8 @@
                                     </td>
                                 </tr>
 
-                                   <tr>
-                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary">31.</td>
+                                <tr>
+                                    <td style="padding: 5px; margin: 5px;" class="ui-priority-primary"></td>
                                     <td style="padding: 5px; margin: 5px;">Forward To</td>
                                     <td style="padding: 5px; margin: 5px;">:
                                     </td>
@@ -564,8 +580,8 @@
                     <br />
                     <br />
                     <input id="btnPrint" style="border-right: thin solid; border-top: thin solid; border-left: thin solid; border-bottom: thin solid"
-                        type="button" value="Print" />
-                    &nbsp;&nbsp;&nbsp; <a href="HomeDashboard.aspx">HOME</a>
+                        type="button" value="Print" onclick="return PrintScreen();" />
+                    &nbsp;&nbsp;&nbsp; <%--<a href="HomeDashboard.aspx">HOME</a>--%>
                 </div>
             </div>
         </div>

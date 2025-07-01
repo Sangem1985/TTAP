@@ -483,19 +483,50 @@ namespace TTAP.UI.Pages
                 Remarks=txtremarks.Text,
                 ForwardTo=ddlDepartment.SelectedValue,
                 // Populate CreatedBy and CreatedByIP if needed
-                CreatedBy = 0, // Replace with the actual user ID
+                CreatedBy = Convert.ToInt32(ViewState["UID"].ToString()), // Replace with the actual user ID
                 IncentiveId = int.TryParse(txtIncID.Text, out int incentiveId) ? incentiveId : 0,
                 CreatedByIP = Request.UserHostAddress
             };
             try
             {
-                result = ObjCAFClass.InsertAppraisalStampDuty(stampDutyAprsl);
-                if (result != "")
+                string returnval = "0";
+                returnval = ObjCAFClass.InsertAppraisalStampDuty(stampDutyAprsl);
+                if (!string.IsNullOrEmpty(returnval) && returnval.Trim() != "" && returnval.Trim() != "0")
                 {
-                    success.Visible = true;
-                    Failure.Visible = false;
+                    string Role_Code = Session["Role_Code"].ToString().Trim().TrimStart();
+                    DLOApplication DLODetails = new DLOApplication();
+                    if (txtEligible.Text != "")
+                    {
+                        DLODetails.RECOMMENDEAMOUNT = txtEligible.Text;
+                    }
+                    else
+                    {
+                        DLODetails.RECOMMENDEAMOUNT = Convert.ToString(stampDutyAprsl.EligibleAmount);
+                    }
+
+                    DLODetails.INCENTIVEID = txtIncID.Text;
+                    DLODetails.SUBINCENTIVEID = "5";
+                    DLODetails.ACTIONID = "1";
+                    DLODetails.FORWARDTO = ddlDepartment.SelectedItem.Text;
+                    if (ViewState["UID"] != null)
+                    {
+                        DLODetails.CREATEDBY = ViewState["UID"].ToString();
+                    }
+                    else 
+                    {
+                       
+                    }
+
+                    string result1 = ObjCAFClass.InsertClerkDetails(DLODetails);
+
+                    if (result1 == "1")
+                    {
+                        success.Visible = true;
+                        Failure.Visible = false;
+
+                        lblmsg.Text = "Details Successfully Submitted..!";
+                    }
                     
-                    lblmsg.Text = "Details Successfully Submitted..!";
                 }
                 else
                 {
@@ -560,7 +591,7 @@ namespace TTAP.UI.Pages
         protected void btnUpload_Click(object sender, EventArgs e)
         {
             string IncentiveId = txtIncID.Text;
-            string SubIncentiveId = "1";
+            string SubIncentiveId = "5";
 
             if (fuWorksheet.HasFile)
             {

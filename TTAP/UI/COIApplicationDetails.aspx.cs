@@ -12,7 +12,7 @@ using TTAP.Classfiles;
 using System.IO;
 using System.Net;
 using System.Linq;
-
+using System.Globalization;
 
 namespace TTAP.UI
 {
@@ -130,9 +130,10 @@ namespace TTAP.UI
                                     SpanApplcationStatusHistory.InnerHtml = "Applcation Status History (Inspecting Officer - " + DistrictName + ")";
                                     SpanApplcationStatusHistoryAfterInspection.InnerHtml = "Applcation Status History - After Inspection (Inspecting Officer - " + DistrictName + ")";
 
-                                    SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (DLO - " + DistrictName + ")";
-                                    SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (DLO - " + DistrictName + ")";
-                                    //if (Role_Code == "DLO")
+                                    /*SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (DLO - " + DistrictName + ")";
+                                    SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (DLO - " + DistrictName + ")";*/
+                                    SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - SLC";
+                                    SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - SVC"; 
                                     if (Role_Code == "COMM")
                                     {
                                         string AdminVerifiedFlag = dsnew.Tables[0].Rows[0]["AdminVerifiedFlag"].ToString();
@@ -150,7 +151,7 @@ namespace TTAP.UI
                                     {
                                         BindYetAssignedIncentives(IncentiveId, Role_Code);
                                     }
-                                    if (Role_Code == "IPO" || Role_Code == "IND" || Role_Code == "DLO")
+                                    if (Role_Code == "IPO" || Role_Code == "IND" || Role_Code == "DLO" || Role_Code == "DD" || Role_Code == "AD")
                                     {
                                         SpanApplcationStatusDLCStatus.InnerHtml = "Applcation Status History - DLC (" + Role_Code + " - " + DistrictName + ")";
                                         SpanApplcationStatusSVCStatus.InnerHtml = "Applcation Status History - DL-SVC (" + Role_Code + " - " + DistrictName + ")";
@@ -1921,6 +1922,13 @@ namespace TTAP.UI
             {
                 DivRefferedApplicationDetailsJD.Visible = false;
             }
+            if (dss != null && dss.Tables.Count > 0 && dss.Tables[1].Rows.Count > 0)
+            {
+                gvAddlDirProcess.DataSource = dss.Tables[1];
+                gvAddlDirProcess.DataBind();
+                divAddlDirProcess.Visible = true;
+                divQueriesJD.Visible = true;
+            }
         }
         public void BindJDSenttoDLOIncentives()
         {
@@ -3419,7 +3427,7 @@ namespace TTAP.UI
 
             if (ddlstatus.SelectedValue == "1")
             {
-                if (ddlClerkIncentive.SelectedValue != "3" && ddlClerkIncentive.SelectedValue != "1" && ddlClerkIncentive.SelectedValue != "6" && ddlClerkIncentive.SelectedValue != "4")
+                if (ddlClerkIncentive.SelectedValue != "3" && ddlClerkIncentive.SelectedValue != "1" && ddlClerkIncentive.SelectedValue != "6" && ddlClerkIncentive.SelectedValue != "4" && ddlClerkIncentive.SelectedValue != "5")
                 {
                     if (txtAmount.Text == "")
                     {
@@ -4445,9 +4453,11 @@ namespace TTAP.UI
                             if (lblMstIncentiveId.Text == "3")
                             {
                                 DateTime processDate;
-                                if (DateTime.TryParse(lblCLERK_ProcessDate.Text, out processDate))
-                                {
-                                    if (processDate >= new DateTime(2025, 5, 5))
+                                /*if (DateTime.TryParse(lblCLERK_ProcessDate.Text, out processDate))*/
+                                    if (DateTime.TryParseExact(lblCLERK_ProcessDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out processDate))
+
+                                    {
+                                        if (processDate >= new DateTime(2025, 5, 5))
                                     {
                                         (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
             "~/UI/Pages/ApprasialInterestPrint.aspx?incid=" + enterid.Text.Trim() +
@@ -4491,6 +4501,12 @@ namespace TTAP.UI
         "~/UI/Pages/TransportSubsidyAppraisalNotePrint.aspx?incid=" + enterid.Text.Trim() +
         "&mstid=" + lblMstIncentiveId.Text.Trim();
                             }
+                            if (lblMstIncentiveId.Text == "5")
+                            {
+                                (GVRemark.Rows[i].FindControl("anchortagGMCertificate") as HyperLink).NavigateUrl =
+        "~/UI/Pages/StampDutyAppraisalPrint.aspx?incid=" + enterid.Text.Trim() +
+        "&mstid=" + lblMstIncentiveId.Text.Trim();
+                            }
                             else
                             {
 
@@ -4530,6 +4546,12 @@ namespace TTAP.UI
                         grdJDProcess.DataBind();
                         divJDProcess.Visible = true;
 
+                    }
+                    if (dss != null && dss.Tables.Count > 0 && dss.Tables[6].Rows.Count > 0)
+                    {
+                        gvCommApproved.DataSource = dss.Tables[6];
+                        gvCommApproved.DataBind();
+                        divCommStatus.Visible = true;
                     }
 
                 }

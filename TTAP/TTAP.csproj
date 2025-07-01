@@ -702,6 +702,8 @@
     <Content Include="UI\Pages\Releases\frmReleasedListView.aspx" />
     <Content Include="UI\Pages\Releases\frmReleases.aspx" />
     <Content Include="UI\Pages\Releases\frmReleasesList.aspx" />
+    <Content Include="UI\Pages\Releases\ReleaseProceedingStep1.aspx" />
+    <Content Include="UI\Pages\Releases\ReleaseProceedingStep2.aspx" />
     <Content Include="UI\Pages\ReminderQueries.aspx" />
     <Content Include="UI\Pages\SampleInterest.aspx" />
     <Content Include="UI\Pages\SendMail.aspx" />
@@ -2345,6 +2347,20 @@
     </Compile>
     <Compile Include="UI\Pages\Releases\frmReleasesList.aspx.designer.cs">
       <DependentUpon>frmReleasesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\ReleaseProceedingStep1.aspx.cs">
+      <DependentUpon>ReleaseProceedingStep1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\ReleaseProceedingStep1.aspx.designer.cs">
+      <DependentUpon>ReleaseProceedingStep1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\ReleaseProceedingStep2.aspx.cs">
+      <DependentUpon>ReleaseProceedingStep2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\ReleaseProceedingStep2.aspx.designer.cs">
+      <DependentUpon>ReleaseProceedingStep2.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\ReminderQueries.aspx.cs">
       <DependentUpon>ReminderQueries.aspx</DependentUpon>

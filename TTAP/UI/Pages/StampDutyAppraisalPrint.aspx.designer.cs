@@ -42,24 +42,6 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.Label lblTideaTpride;
 
         /// <summary>
-        /// tprideTr control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow tprideTr;
-
-        /// <summary>
-        /// lblCaste control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCaste;
-
-        /// <summary>
         /// lblSancIncentiveName control.
         /// </summary>
         /// <remarks>

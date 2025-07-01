@@ -1297,7 +1297,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" id="divMoratorium" runat="server">
                                             <h6 class="text-blue font-SemiBold col col-sm-12 mt-3">Moratorium Period for RePayment of Loan</h6>
                                             <div class="col-sm-4 form-group">
                                                 <asp:RadioButtonList runat="server" OnSelectedIndexChanged="rbtnMoratoriumYesNo_SelectedIndexChanged" AutoPostBack="true" ID="rbtnMoratoriumYesNo" RepeatDirection="Horizontal">

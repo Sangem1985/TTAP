@@ -93,6 +93,7 @@ namespace TTAP.UI.Pages
                                     BindAdditionalInformationDtls3(Session["IncentiveID"].ToString());
                                     BindTotalTermLoanRepaid(0, Convert.ToInt32(Session["IncentiveID"].ToString()));
                                     BindMoratoriumPeriodDetails(0, Convert.ToInt32(Session["IncentiveID"].ToString()));
+                                    CheckPrevoiusInterest(Convert.ToInt32(Session["IncentiveID"].ToString()));
                                 }
                                 else
                                 {
@@ -3038,6 +3039,27 @@ namespace TTAP.UI.Pages
                 throw ex;
             }
         }
+        public void CheckPrevoiusInterest(int IncentiveId)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+
+                ds = GetPreviousISDetails(IncentiveId);
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    divMoratorium.Visible = false;
+                }
+                else
+                {
+                    divMoratorium.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public DataSet GetMoratoriumPeriodDetails(int MoratoriumPeriod_ID, int IncentiveId)
         {
             DataSet Dsnew = new DataSet();
@@ -3051,7 +3073,16 @@ namespace TTAP.UI.Pages
             Dsnew = caf.GenericFillDs("USP_GET_MORATORIUM_PERIOD_DTLS", pp);
             return Dsnew;
         }
-
+        public DataSet GetPreviousISDetails(int IncentiveId)
+        {
+            DataSet Dsnew = new DataSet();
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@IncentiveId",SqlDbType.Int)
+           };
+            pp[0].Value = IncentiveId;
+            Dsnew = caf.GenericFillDs("USP_CHECK_INTEREST_SUBSIDY_APPLIED_STATUS", pp);
+            return Dsnew;
+        }
         protected void GvMoratoriumPeriod_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             GridViewRow gr = (GridViewRow)(((Button)e.CommandSource).NamingContainer);

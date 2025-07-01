@@ -3704,8 +3704,6 @@
                                                         <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
                                                         <asp:BoundField DataField="REMARKS" HeaderText="DD Query Response" />
                                                         <asp:BoundField DataField="DD_ProcessDate" HeaderText="Process Date" />
-
-
                                                     </Columns>
                                                 </asp:GridView>
                                             </div>
@@ -3758,7 +3756,7 @@
                             <div class="card" id="divQueriesJD" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingQueryHistoryJD">
                                     <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapseJD">
-                                        <span id="SpanApplcationStatusHistoryJD" runat="server">Applcation Status History - Head Office (Additional Director)</span>
+                                        <span id="SpanApplcationStatusHistoryJD" runat="server">Additional Director Process</span>
                                         <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                 </div>
@@ -4080,6 +4078,53 @@
                                     </div>
                                 </div>
                             </div>
+                            
+                            <div class="card" id="divCommStatus" runat="server" visible="false">
+                                 <div class="card-header p-0" id="headingCommStatus">
+                                    <a class="card-link d-block p-2 px-3 font-SemiBold text-blue" data-toggle="collapse" href="#collapseCommStatus">
+                                        <span id="Span3" runat="server">Director Process</span>
+                                        <span class="pull-right"><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                </div>
+                                <div id="collapseCommStatus" class="collapse">
+                                     <div class="card-body">
+                                         <div class="row" id="divCommApproved" runat="server">
+                                            <div class="col-sm-12 text-black font-SemiBold mb-1">Approved Application Details</div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive mt-2">
+                                                <asp:GridView ID="gvCommApproved" runat="server" AutoGenerateColumns="False"
+                                                    CellPadding="4" Height="62px" CssClass="table table-bordered title6 alternet-table pro-detail w-100 NewEnterprise"
+                                                    Width="100%" Font-Names="Verdana" Font-Size="12px">
+                                                    <HeaderStyle HorizontalAlign="Center" />
+                                                    <HeaderStyle CssClass="GridviewScrollC1HeaderWrap" />
+                                                    <RowStyle CssClass="GridviewScrollC1Item" />
+                                                    <PagerStyle CssClass="GridviewScrollC1Pager" />
+                                                    <FooterStyle CssClass="GridviewScrollC1Footer" />
+                                                    <AlternatingRowStyle CssClass="GridviewScrollC1Item2" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Center" HeaderText="S No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1%>
+                                                            </ItemTemplate>
+                                                            <HeaderStyle HorizontalAlign="Center" />
+                                                            <ItemStyle Width="60px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="IncentiveName" HeaderText="Incentive" />
+                                                        <asp:BoundField DataField="REMARKS_TYPE" HeaderText="Status" />
+                                                        <asp:BoundField DataField="REMARKS" HeaderText="Remarks" />
+                                                        <asp:BoundField DataField="Com_ProcessDate" HeaderText="Action Date" />
+                                                        <asp:TemplateField HeaderText="SubIncentiveId" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
+                                                                <asp:Label ID="lblSubIncentiveId" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+                                                    </Columns>
+                                                </asp:GridView>
+                                            </div>
+                                        </div>
+                                         </div>
+                                    </div>
+                                </div>
 
                             <div class="card" id="divSVCStatus" runat="server" visible="false">
                                 <div class="card-header p-0" id="headingSVCStatus">
