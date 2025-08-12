@@ -576,6 +576,22 @@
                             <div id="divline5" runat="server">
                                 <h1 class="page-head-linenew" align="left" style="font-size: smaller"></h1>
                             </div>
+                            <div class="row" runat="server" id="Div5">
+                                <div class="col-sm-6 mb-4">
+                                    <div class="list-group">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                            <span><i class="fa fa-fw fa-check"></i>Unit Working Status</span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="Releases/UnitWorkingStatusGMAbstract.aspx">
+                                            <span><i class="fa fa-fw fa-calendar"></i> Confirm Working Status For Release (SLC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
                             <asp:HiddenField ID="hdfID" runat="server" />
                             <asp:HiddenField ID="hdfFlagID" runat="server" />
                         </div>

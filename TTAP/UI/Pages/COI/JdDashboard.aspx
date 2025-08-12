@@ -90,25 +90,25 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Queries</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=4">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JdApplications.aspx?Stg=QUERIESRESPNDED_PENDINGTOTAL">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Yet to Respond </span>
                                             <span class="badge badge-pill badge-primary bg-success">
                                                 <asp:Label ID="lblQueryYettoRspnd" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=6">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JdApplications.aspx?Stg=QUERIESRESPNDEDWITHIN">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Responded - Within</span>
                                             <span class="badge badge-pill badge-primary bg-success">
                                                 <asp:Label ID="lblRepliedQueryWITHIN" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=11">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JdApplications.aspx?Stg=11">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Responded - Beyond</span>
                                             <span class="badge badge-pill badge-primary bg-success">
                                                 <asp:Label ID="lblRepliedQueryBEYOND" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=5">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JdApplications.aspx?Stg=QUERIESRESPNDED">
                                             <span><i class="fa fa-fw fa-calendar"></i>Total Queries Responded </span>
                                             <span class="badge badge-pill badge-primary bg-warning">
                                                 <asp:Label ID="lblTotalQueryRspnd" runat="server"></asp:Label>
@@ -165,19 +165,19 @@
                                                 <asp:Label ID="Label7" runat="server"></asp:Label>
                                             </span>
                                         </a>--%>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=2">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JdApplications.aspx?Stg=2">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Responded - Within</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblQueriesRespWithin" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=3">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JdApplications.aspx?Stg=3">
                                             <span><i class="fa fa-fw fa-calendar"></i>Queries Responded - Beyond</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblQueriesRespBeyond" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="frmJDApplications.aspx?Stg=7">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="JdApplications.aspx?Stg=7">
                                             <span><i class="fa fa-fw fa-calendar"></i>Total Queries Responded </span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="lblTotalQueriesRspndd" runat="server"></asp:Label>

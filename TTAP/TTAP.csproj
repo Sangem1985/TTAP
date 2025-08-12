@@ -689,6 +689,7 @@
     <Content Include="UI\Pages\RecommendationLetters\frmIntimationLetter.aspx" />
     <Content Include="UI\Pages\RecommendationLetters\GMCoveringLetter.aspx" />
     <Content Include="UI\Pages\RecommendationLetters\IntimationLetter.aspx" />
+    <Content Include="UI\Pages\Releases\BankDetailsUpdate.aspx" />
     <Content Include="UI\Pages\Releases\CompleteReleasedList.aspx" />
     <Content Include="UI\Pages\Releases\FormUnitWorkingStatusHO.aspx" />
     <Content Include="UI\Pages\Releases\FormWorkingStatusDashboard.aspx" />
@@ -702,8 +703,10 @@
     <Content Include="UI\Pages\Releases\frmReleasedListView.aspx" />
     <Content Include="UI\Pages\Releases\frmReleases.aspx" />
     <Content Include="UI\Pages\Releases\frmReleasesList.aspx" />
+    <Content Include="UI\Pages\Releases\ReleaseModuleUnitWiseGM.aspx" />
     <Content Include="UI\Pages\Releases\ReleaseProceedingStep1.aspx" />
     <Content Include="UI\Pages\Releases\ReleaseProceedingStep2.aspx" />
+    <Content Include="UI\Pages\Releases\UnitWorkingStatusGMAbstract.aspx" />
     <Content Include="UI\Pages\ReminderQueries.aspx" />
     <Content Include="UI\Pages\SampleInterest.aspx" />
     <Content Include="UI\Pages\SendMail.aspx" />
@@ -2257,6 +2260,13 @@
     <Compile Include="UI\Pages\RecommendationLetters\IntimationLetter.aspx.designer.cs">
       <DependentUpon>IntimationLetter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\Releases\BankDetailsUpdate.aspx.cs">
+      <DependentUpon>BankDetailsUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\BankDetailsUpdate.aspx.designer.cs">
+      <DependentUpon>BankDetailsUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\Releases\CompleteReleasedList.aspx.cs">
       <DependentUpon>CompleteReleasedList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2348,6 +2358,13 @@
     <Compile Include="UI\Pages\Releases\frmReleasesList.aspx.designer.cs">
       <DependentUpon>frmReleasesList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\Releases\ReleaseModuleUnitWiseGM.aspx.cs">
+      <DependentUpon>ReleaseModuleUnitWiseGM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\ReleaseModuleUnitWiseGM.aspx.designer.cs">
+      <DependentUpon>ReleaseModuleUnitWiseGM.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\Releases\ReleaseProceedingStep1.aspx.cs">
       <DependentUpon>ReleaseProceedingStep1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2361,6 +2378,13 @@
     </Compile>
     <Compile Include="UI\Pages\Releases\ReleaseProceedingStep2.aspx.designer.cs">
       <DependentUpon>ReleaseProceedingStep2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\UnitWorkingStatusGMAbstract.aspx.cs">
+      <DependentUpon>UnitWorkingStatusGMAbstract.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\Releases\UnitWorkingStatusGMAbstract.aspx.designer.cs">
+      <DependentUpon>UnitWorkingStatusGMAbstract.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\ReminderQueries.aspx.cs">
       <DependentUpon>ReminderQueries.aspx</DependentUpon>

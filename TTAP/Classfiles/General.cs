@@ -2911,6 +2911,47 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
+        public int InsertBankerIdentificationFile(string IncId, string SubIncId, string FileNm, string FilePath, string FileDescription, string DocUploadedUserType, string IsDigiLocker, string EnclTpeesign, string Createdby, string QueryId, string Type)
+        {
+            int valid = 0;
+            try
+            {
+                con.OpenConnection();
+                SqlDataAdapter myDataAdapter;
+                myDataAdapter = new SqlDataAdapter("USP_INSERT_WORKSHEET_DOCUMENTS", con.GetConnection);
+                myDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+                myDataAdapter.SelectCommand.Parameters.Add("@IncentiveId", SqlDbType.VarChar).Value = IncId;
+                myDataAdapter.SelectCommand.Parameters.Add("@SubIncentiveId", SqlDbType.VarChar).Value = SubIncId;
+                myDataAdapter.SelectCommand.Parameters.Add("@FileNm", SqlDbType.VarChar).Value = FileNm;
+                myDataAdapter.SelectCommand.Parameters.Add("@FilePath", SqlDbType.VarChar).Value = FilePath;
+                myDataAdapter.SelectCommand.Parameters.Add("@FileDescription", SqlDbType.VarChar).Value = FileDescription;
+                myDataAdapter.SelectCommand.Parameters.Add("@DocUploadedUserType", SqlDbType.VarChar).Value = DocUploadedUserType;
+                myDataAdapter.SelectCommand.Parameters.Add("@IsDigiLocker", SqlDbType.VarChar).Value = IsDigiLocker;
+                myDataAdapter.SelectCommand.Parameters.Add("@EnclTpeesign", SqlDbType.VarChar).Value = EnclTpeesign;
+                myDataAdapter.SelectCommand.Parameters.Add("@Type", SqlDbType.VarChar).Value = Type;
+                myDataAdapter.SelectCommand.Parameters.Add("@Createdby", SqlDbType.VarChar).Value = Createdby;
+
+                myDataAdapter.SelectCommand.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
+                myDataAdapter.SelectCommand.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                myDataAdapter.SelectCommand.ExecuteNonQuery();
+
+                string Output = myDataAdapter.SelectCommand.Parameters["@Valid"].Value.ToString();
+                if (!string.IsNullOrEmpty(Output))
+                    valid = Convert.ToInt32(myDataAdapter.SelectCommand.Parameters["@Valid"].Value.ToString());
+                else
+                    valid = 0;
+            }
+            catch (Exception ex)
+            {
+                con.CloseConnection();
+                throw ex;
+            }
+            finally
+            {
+                con.CloseConnection();
+            }
+            return valid;
+        }
         public DataSet GetBasicUnitDetails_Proforma_lettersPSR(string incentiveID, string MstIncentiveID)
         {
             con.OpenConnection();

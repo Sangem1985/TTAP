@@ -8416,6 +8416,38 @@ namespace TTAP.Classfiles
             }
             return valid;
         }
+        public DataSet GetReleaseListGM(int Distid, int CatId, string SubIncId)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@SubIncentiveId",SqlDbType.VarChar),
+               new SqlParameter("@DistId",SqlDbType.Int),
+               new SqlParameter("@CatId",SqlDbType.Int)
+           };
+            pp[0].Value = SubIncId;
+            pp[1].Value = Distid;
+            pp[2].Value = CatId;
+            Dsnew = GenericFillDs("USP_GET_RELEASED_LIST_FOR_GM", pp);
+            return Dsnew;
+        }
+        public DataSet GetReleaseDetailsByIncId(string IsPartial, int IncId, int SubIncId,int TrId)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@PARTIALFLAG",SqlDbType.VarChar),
+               new SqlParameter("@INCENTIVEID",SqlDbType.Int),
+               new SqlParameter("@SUBINCENTIVEID",SqlDbType.Int),
+               new SqlParameter("@TRID",SqlDbType.Int)
+           };
+            pp[0].Value = IsPartial;
+            pp[1].Value = IncId;
+            pp[2].Value = SubIncId;
+            pp[3].Value = TrId;
+            Dsnew = GenericFillDs("USP_GET_RELEASED_DATA_BYID", pp);
+            return Dsnew;
+        }
     }
 
 }
