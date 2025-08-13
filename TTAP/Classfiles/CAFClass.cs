@@ -708,6 +708,25 @@ namespace TTAP.Classfiles
                     return ds;
                 }
             }
+        }      
+        public DataSet GetIncentiveReleaseProcess(string SLCNo, string Dist, string UnitName, string Investmentid, string Cast)
+        {
+            using (SqlConnection con = new SqlConnection(str)) 
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GETINCENTIVE_RELEASEPROCEEDINGSUNITNAME", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@SLCNO", SqlDbType.VarChar).Value = SLCNo;
+                    da.SelectCommand.Parameters.Add("@DISTID", SqlDbType.VarChar).Value = Dist;
+                    da.SelectCommand.Parameters.Add("@UNITNAME", SqlDbType.VarChar).Value = UnitName;
+                    da.SelectCommand.Parameters.Add("@INCENTIVETYPE", SqlDbType.VarChar).Value = Investmentid;
+                    da.SelectCommand.Parameters.Add("@CAST", SqlDbType.VarChar).Value = Cast;
+
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    return ds;
+                }
+            }
         }
 
         public string InsertAppliedIncentives(List<AppliedIncentiveStatus> lstAppliedIncentiveStatus)
