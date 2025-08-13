@@ -16,6 +16,7 @@ namespace TTAP.UI.Pages.Releases
         CAFClass ObjCAFClass = new CAFClass();
         decimal TotalSanctioned = 0;
         decimal TotalAllotted = 0;
+        DataSet dss = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -31,6 +32,7 @@ namespace TTAP.UI.Pages.Releases
                     string LocDate = Request.QueryString["Category"].ToString().Trim();
                     GetYettoReleaseIncentives(Category, SubIncentiveId, GOAmount);
                 }
+               
             }
         }
         public void GetYettoReleaseIncentives(string Category, string SubIncentiveId, string GOAmount)
@@ -279,6 +281,100 @@ namespace TTAP.UI.Pages.Releases
                 int valid = ObjCAFClass.InsertFinalProceedingsStep2(lstincentives);
             }
             catch (Exception ex)
+            {
+                lblmsg0.Text = ex.ToString();
+                success.Visible = false;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void chkIsSpecialUnit_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkIsSpecialUnit.Checked == true)
+                {
+                    divSpecialCase.Visible = true;
+                    divSacnctionINC.Visible = false;
+                    divReleaseProceeding.Visible = false;
+                    divRemaining.Visible = false;
+                    BindDistricts();
+                    BindSlcNos(ddlSLCNO);
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.ToString();
+                success.Visible = false;
+                Failure.Visible = true;
+            }
+        }
+        public void BindDistricts()
+        {
+            dss = GetDistrictsList();
+            if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
+            {
+                ddlDistrict.DataSource = dss;
+                ddlDistrict.DataTextField = "District_Name";
+                ddlDistrict.DataValueField = "District_Id";
+                ddlDistrict.DataBind();
+                AddSelect(ddlDistrict);
+            }
+            else
+            {
+                AddSelect(ddlDistrict);
+            }
+        }
+        public DataSet GetDistrictsList()
+        {
+            DataSet Dsnew = new DataSet();
+            Dsnew = ObjCAFClass.GenericFillDs("GetDistrictsHYD");
+            return Dsnew;
+        }
+        public void AddSelect(DropDownList ddl)
+        {
+            ListItem li = new ListItem();
+            li.Text = "--Select--";
+            li.Value = "0";
+            ddl.Items.Insert(0, li);
+        }
+        private void BindSlcNos(DropDownList ddlSLCNO)
+        {
+            try
+            {
+                ddlSLCNO.Items.Clear();
+                string Cast = Request.QueryString["Category"].ToString().Trim();
+                string SubIncentiveId = Request.QueryString["SubIncentiveId"].ToString().Trim();
+                dss = ObjCAFClass.GetIncentiveSLCNO(Cast, SubIncentiveId);
+                if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
+                {
+                    ddlSLCNO.DataSource = dss.Tables[0];
+                    ddlSLCNO.DataValueField = "Meeting_No";
+                    ddlSLCNO.DataTextField = "Meeting_No";
+                    ddlSLCNO.DataBind();
+                    ddlSLCNO.Items.Insert(0, "--Select--");
+                }
+                else
+                {
+                    ddlSLCNO.Items.Insert(0, "--Select--");
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.ToString();
+                success.Visible = false;
+                Failure.Visible = true;
+            }
+        }
+
+        protected void chkSameUnit_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch(Exception ex)
             {
                 lblmsg0.Text = ex.ToString();
                 success.Visible = false;

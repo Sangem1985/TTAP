@@ -692,6 +692,24 @@ namespace TTAP.Classfiles
             }
             return ds;
         }
+        public DataSet GetIncentiveSLCNO(string caste, string incentiveTypeID)
+        {
+            using (SqlConnection con = new SqlConnection(str))
+            {
+                con.Open();
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GET_INCENTIVE_SLCNO_LIST", con)) 
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@caste", SqlDbType.VarChar).Value = caste;
+                    da.SelectCommand.Parameters.Add("@IncentiveTypID", SqlDbType.VarChar).Value = incentiveTypeID;
+
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    return ds;
+                }
+            }
+        }
+
         public string InsertAppliedIncentives(List<AppliedIncentiveStatus> lstAppliedIncentiveStatus)
         {
             string valid = "";
