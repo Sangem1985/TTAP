@@ -3322,7 +3322,8 @@ namespace TTAP.Classfiles
         public string PendingAmount { get; set; }
         public string slno { get; set; }
         public string IsPartial { get; set; }
-        public string SantionedAmount { get; set; }
+        public string SantionedAmount { get; set; }        
     }
+   
 
 }

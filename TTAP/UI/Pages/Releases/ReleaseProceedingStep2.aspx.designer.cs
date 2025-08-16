@@ -60,6 +60,15 @@ namespace TTAP.UI.Pages.Releases
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divSacnctionINC;
 
         /// <summary>
+        /// tdinvestments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdinvestments;
+
+        /// <summary>
         /// gvdetailsnew control.
         /// </summary>
         /// <remarks>
@@ -85,69 +94,6 @@ namespace TTAP.UI.Pages.Releases
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRemainingAmount;
-
-        /// <summary>
-        /// divReleaseProceeding control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReleaseProceeding;
-
-        /// <summary>
-        /// txtReleaseProceedingNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReleaseProceedingNumber;
-
-        /// <summary>
-        /// txtReleaseProceedingDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReleaseProceedingDate;
-
-        /// <summary>
-        /// fuGovermentOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fuGovermentOrder;
-
-        /// <summary>
-        /// btnGovermentOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGovermentOrder;
-
-        /// <summary>
-        /// hyGovermentOrder control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink hyGovermentOrder;
-
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
         /// divSpecialCase control.
@@ -249,6 +195,33 @@ namespace TTAP.UI.Pages.Releases
         protected global::System.Web.UI.WebControls.GridView GVSpecialCase2;
 
         /// <summary>
+        /// divReleaseAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReleaseAmount;
+
+        /// <summary>
+        /// lblSpecialcaseRelease control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSpecialcaseRelease;
+
+        /// <summary>
+        /// h1heading control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl h1heading;
+
+        /// <summary>
         /// trprint control.
         /// </summary>
         /// <remarks>
@@ -265,6 +238,69 @@ namespace TTAP.UI.Pages.Releases
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNext;
+
+        /// <summary>
+        /// divReleaseProceeding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divReleaseProceeding;
+
+        /// <summary>
+        /// txtReleaseProceedingNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReleaseProceedingNumber;
+
+        /// <summary>
+        /// txtReleaseProceedingDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtReleaseProceedingDate;
+
+        /// <summary>
+        /// fuGovermentOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuGovermentOrder;
+
+        /// <summary>
+        /// btnGovermentOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGovermentOrder;
+
+        /// <summary>
+        /// hyGovermentOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink hyGovermentOrder;
+
+        /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
         /// success control.

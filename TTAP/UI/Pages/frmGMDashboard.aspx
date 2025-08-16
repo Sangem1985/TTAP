@@ -588,6 +588,13 @@
                                                 <asp:Label ID="Label1" runat="server"></asp:Label>
                                             </span>
                                         </a>
+
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="Releases/UnitWorkingStatusGMAbstract.aspx">
+                                            <span><i class="fa fa-fw fa-calendar"></i> Confirm Working Status For Release (DIPC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="Label2" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

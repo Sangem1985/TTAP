@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -274,11 +275,54 @@ namespace TTAP.UI.Pages.Releases
                     objrp.Caste = Request.QueryString["Category"].ToString().Trim();
                     objrp.RemaningAmt = lblRemainingAmount.Text;
                     objrp.GoReleaseAmt = Request.QueryString["GOAmount"].ToString().Trim();
+                    if (chkIsSpecialUnit.Checked==true)
+                    {
+                        objrp.SplCase = "Y";
+                    }
 
                     lstincentives.Add(objrp);
                 }
 
                 int valid = ObjCAFClass.InsertFinalProceedingsStep2(lstincentives);
+
+                if (valid == 1)
+                {
+                    string message = "alert('Amount alloted Successfully')";
+                    ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                    trprint.Visible = true;
+                    btnSubmit.Enabled = false;
+                    Failure.Visible = false;
+                    /* foreach (GridViewRow gvrow1 in GVIncentive.Rows)
+                     {
+                         string mobileNumber = ((Label)gvrow1.FindControl("lblUnitMObileNo")).Text;
+                         string Applicationno = ((Label)gvrow1.FindControl("lblApplicationno")).Text;
+                         string ApplicantName = ((Label)gvrow1.FindControl("lblApplicantName")).Text;
+                         string incentiveNo = ((Label)gvrow1.FindControl("lblIncentiveID")).Text;
+                         string Mstid = ((Label)gvrow1.FindControl("lblMstIncentiveId")).Text;
+
+                         if (mobileNumber != "NA" && mobileNumber != "1234567890")
+                         {
+                             string checkingVal = MsgMobile(mobileNumber, Applicationno, ApplicantName);
+                             if (checkingVal.Contains("402"))
+                             {
+                                 SqlConnection osqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[""].ConnectionString);
+                                 osqlConnection.Open();
+                                 SqlCommand cmd = new SqlCommand("USP_releaseDocSMS_slc", osqlConnection);
+                                 cmd.CommandType = CommandType.StoredProcedure;
+                                 cmd.Parameters.AddWithValue("@mstid", Mstid);
+                                 cmd.Parameters.AddWithValue("@incid", incentiveNo);
+                                 cmd.ExecuteNonQuery();
+                                 osqlConnection.Close();
+                             }
+                         }
+                     }*/
+
+                }
+                else
+                {
+                    trprint.Visible = false;
+                    btnSubmit.Enabled = true;
+                }
             }
             catch (Exception ex)
             {
@@ -300,13 +344,26 @@ namespace TTAP.UI.Pages.Releases
                     divRemaining.Visible = false;
                     BindDistricts();
                     BindSlcNos(ddlSLCNO);
+                    divReleaseAmount.Visible = true;
+
+                    string GOAmount = Request.QueryString["GOAmount"] != null
+                        ? Request.QueryString["GOAmount"].Trim()
+                        : string.Empty;
+
+                    lblSpecialcaseRelease.Text = GOAmount;
+
+
                 }
                 else
                 {
                     divSpecialCase.Visible = false;
+                    divReleaseAmount.Visible = false;
                     divSacnctionINC.Visible = true;
                     divReleaseProceeding.Visible = true;
                     divRemaining.Visible = true;
+                    trUnitresult.Visible = false;
+                    trselectedcases.Visible = false;
+                    trprint.Visible = false;
                 }
 
             }
@@ -425,6 +482,8 @@ namespace TTAP.UI.Pages.Releases
                             GVSpecialCase.DataBind();
                             trUnitresult.Visible = true;
                             divSpecialCase.Visible = true;
+                            divReleaseAmount.Visible = true;
+                            Failure.Visible=false;
                         }
                         else
                         {
@@ -433,6 +492,7 @@ namespace TTAP.UI.Pages.Releases
                             Failure.Visible = true;
                             lblmsg0.Text = "No Details Found ";
                             divSpecialCase.Visible = true;
+                            divReleaseAmount.Visible = true;
                             trUnitresult.Visible = false;
 
                         }
@@ -446,6 +506,7 @@ namespace TTAP.UI.Pages.Releases
                         Failure.Visible = true;
                         lblmsg0.Text = "No Details Found ";
                         divSpecialCase.Visible = true;
+                        divReleaseAmount.Visible = true;
                         trUnitresult.Visible = false;
                     }
 
@@ -459,6 +520,7 @@ namespace TTAP.UI.Pages.Releases
                     //grdDetails.DataBind();
                     Failure.Visible = true;
                     divSpecialCase.Visible = true;
+                    divReleaseAmount.Visible = true;
                     trUnitresult.Visible = false;
                 }
                 ddlDistrict.ClearSelection();
@@ -507,20 +569,20 @@ namespace TTAP.UI.Pages.Releases
                                 .Cells[0].FindControl("chkSameUnit");
                 if (chk.Checked)
                 {
-                    //decimal GORelAmt = Convert.ToDecimal(Request.QueryString[2].ToString());
-                    //if (lblremaingAmount2.Text == "")
-                    //{
-                    //    lblremaingAmount2.Text = GORelAmt.ToString();
-                    //}
-                    //decimal SanAmt = enterid;
+                    decimal GORelAmt = Convert.ToDecimal(Request.QueryString[2].ToString());
+                    if (lblSpecialcaseRelease.Text == "")
+                    {
+                        lblSpecialcaseRelease.Text = GORelAmt.ToString();
+                    }
+                    decimal SanAmt = enterid;
 
                     dt = AddRow(GVSpecialCase.Rows[i], dt);
                     if (AddStatus == 1)
                     {
-                        //if (lblremaingAmount2.Text != "")
-                        //{
-                        //    lblremaingAmount2.Text = (Convert.ToDecimal(lblremaingAmount2.Text) - enterid).ToString();
-                        //}
+                        if (lblSpecialcaseRelease.Text != "")
+                        {
+                            lblSpecialcaseRelease.Text = (Convert.ToDecimal(lblSpecialcaseRelease.Text) - enterid).ToString();
+                        }
                     }
 
                 }
@@ -529,10 +591,10 @@ namespace TTAP.UI.Pages.Releases
                     dt = RemoveRow(GVSpecialCase.Rows[i], dt);
                     if (RemoveStatus == 1)
                     {
-                        //if (lblremaingAmount2.Text != "")
-                        //{
-                        //    lblremaingAmount2.Text = (Convert.ToDecimal(lblremaingAmount2.Text) + enterid).ToString();
-                        //}
+                        if (lblSpecialcaseRelease.Text != "")
+                        {
+                            lblSpecialcaseRelease.Text = (Convert.ToDecimal(lblSpecialcaseRelease.Text) + enterid).ToString();
+                        }
                     }
                 }
             }
@@ -543,18 +605,20 @@ namespace TTAP.UI.Pages.Releases
         private DataTable CreateDataTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("UnitName");
+            dt.Columns.Add("NameofUnit");
             dt.Columns.Add("Address");
+            dt.Columns.Add("SanctionedAmount");
             dt.Columns.Add("DCP");
-            dt.Columns.Add("FinalSanctionedAmount");
-            dt.Columns.Add("SANCTIONDATE");
-            dt.Columns.Add("IncentiveID");
-            dt.Columns.Add("SubIncentiveID");
-            dt.Columns.Add("Meeting_No");
-            dt.Columns.Add("UnitMObileNo");
-            dt.Columns.Add("ApplicationNumber");
-            dt.Columns.Add("ApplicantName");
-
+            dt.Columns.Add("SanctionedDate");
+            dt.Columns.Add("SLCNumer");
+            dt.Columns.Add("EnterperIncentiveID");
+            dt.Columns.Add("MstIncentiveId");
+            dt.Columns.Add("IsPartial");
+            dt.Columns.Add("IncentiveName");
+            //dt.Columns.Add("FinalSanctionedAmount");     
+            //dt.Columns.Add("IsPartial");
+            //dt.Columns.Add("IncentiveName");
+            //here only 11 are there
 
             dt.AcceptChanges();
             return dt;
@@ -570,28 +634,31 @@ namespace TTAP.UI.Pages.Releases
             Label lblUnitMObileNo = (gvRow.FindControl("lblUnitMObileNo") as Label);
             Label lblApplicationno = (gvRow.FindControl("lblApplicationno") as Label);
             Label lblApplicantName = (gvRow.FindControl("lblApplicantName") as Label);
+          //  TextBox txtRelaseamount = (gvRow.FindControl("txtReleaseAmount") as TextBox);
+           Label lblpartial = (gvRow.FindControl("lblIsPartial") as Label);
+            Label lblINCName = (gvRow.FindControl("lblINCName") as Label);
 
-            DataRow[] dr = dt.Select("IncentiveID = '" + enterid.Text + "'");
+            DataRow[] dr = dt.Select("EnterperIncentiveID = '" + enterid.Text + "'");
             if (dr.Length <= 0)
             {
                 dt.Rows.Add();
-                dt.Rows[dt.Rows.Count - 1]["UnitName"] = gvRow.Cells[2].Text;
+                dt.Rows[dt.Rows.Count - 1]["NameofUnit"] = gvRow.Cells[2].Text;
                 dt.Rows[dt.Rows.Count - 1]["Address"] = gvRow.Cells[3].Text;
                 dt.Rows[dt.Rows.Count - 1]["DCP"] = gvRow.Cells[4].Text;
 
-                dt.Rows[dt.Rows.Count - 1]["FinalSanctionedAmount"] = gvRow.Cells[5].Text;
-                dt.Rows[dt.Rows.Count - 1]["SANCTIONDATE"] = gvRow.Cells[6].Text;
+                dt.Rows[dt.Rows.Count - 1]["SanctionedAmount"] = gvRow.Cells[5].Text;
+                dt.Rows[dt.Rows.Count - 1]["SanctionedDate"] = gvRow.Cells[6].Text;
 
-                // dt.Rows[dt.Rows.Count - 1]["AllotedAmount"] = lblAllotedAmount.Text;
-                // dt.Rows[dt.Rows.Count - 1]["AllotedAmount"] = gvRow.Cells[5].Text;
+                //dt.Rows[dt.Rows.Count - 1]["SanctionedAmount"] = txtRelaseamount.Text;
+               // dt.Rows[dt.Rows.Count - 1]["AllotedAmount"] = gvRow.Cells[5].Text;
 
 
-                dt.Rows[dt.Rows.Count - 1]["SubIncentiveID"] = lblMstIncentiveId.Text;
-                dt.Rows[dt.Rows.Count - 1]["IncentiveID"] = lblIncentiveID.Text;
-                dt.Rows[dt.Rows.Count - 1]["Meeting_No"] = lblSLCNumer.Text;
-                dt.Rows[dt.Rows.Count - 1]["UnitMObileNo"] = lblUnitMObileNo.Text;
-                dt.Rows[dt.Rows.Count - 1]["ApplicationNumber"] = lblApplicationno.Text;
-                dt.Rows[dt.Rows.Count - 1]["ApplicantName"] = lblApplicantName.Text;
+                dt.Rows[dt.Rows.Count - 1]["MstIncentiveId"] = lblMstIncentiveId.Text;
+                dt.Rows[dt.Rows.Count - 1]["EnterperIncentiveID"] = lblIncentiveID.Text;
+                dt.Rows[dt.Rows.Count - 1]["SLCNumer"] = lblSLCNumer.Text;
+                dt.Rows[dt.Rows.Count - 1]["IncentiveName"] = lblINCName.Text; //gvRow.Cells[8].Text;//lblINCName.Text;
+                dt.Rows[dt.Rows.Count - 1]["IsPartial"] = lblpartial.Text;
+              // dt.Rows[dt.Rows.Count - 1]["ApplicantName"] = lblApplicantName.Text;
 
 
 
@@ -610,7 +677,7 @@ namespace TTAP.UI.Pages.Releases
         private DataTable RemoveRow(GridViewRow gvRow, DataTable dt)
         {
             Label enterid = (gvRow.FindControl("lblIncentiveID") as Label);
-            DataRow[] dr = dt.Select("IncentiveID = '" + enterid.Text + "'");
+            DataRow[] dr = dt.Select("EnterperIncentiveID = '" + enterid.Text + "'");
             if (dr.Length > 0)
             {
                 dt.Rows.Remove(dr[0]);
@@ -661,19 +728,19 @@ namespace TTAP.UI.Pages.Releases
                 dt.AcceptChanges();
                 ViewState["SelectedRecords"] = dt;
                 uncheck(lblIncentiveID.Text);
-                //if (lblremaingAmount2.Text != "")
-                //{
-                //    lblremaingAmount2.Text = (Convert.ToDecimal(lblremaingAmount2.Text) + enterid).ToString();
-                //}
+                if (lblSpecialcaseRelease.Text != "")
+                {
+                    lblSpecialcaseRelease.Text = (Convert.ToDecimal(lblSpecialcaseRelease.Text) + enterid).ToString();
+                }
             }
             BindSecondaryGrid();
         }
         public void uncheck(string str)
         {
-            for (int i = 0; i < GVSpecialCase2.Rows.Count; i++)
+            for (int i = 0; i < GVSpecialCase.Rows.Count; i++)
             {
-                Label lblIncentiveID = GVSpecialCase2.Rows[i].Cells[0].FindControl("lblIncentiveID") as Label;
-                CheckBox chk = (CheckBox)GVSpecialCase2.Rows[i].Cells[0].FindControl("chkSameUnit");
+                Label lblIncentiveID = GVSpecialCase.Rows[i].Cells[0].FindControl("lblIncentiveID") as Label;
+                CheckBox chk = (CheckBox)GVSpecialCase.Rows[i].Cells[0].FindControl("chkSameUnit");
                 if (lblIncentiveID.Text == str)
                 {
                     if (chk.Checked)
@@ -684,5 +751,221 @@ namespace TTAP.UI.Pages.Releases
             }
 
         }
+        protected void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dt1 = new DataTable();
+                DataTable dt2 = new DataTable();
+
+                dt1 = ViewState["SelectedRecords"] as DataTable;
+
+                string Category = Request.QueryString["Category"].ToString().Trim();
+                string SubIncentiveId = Request.QueryString["SubIncentiveId"].ToString().Trim();
+                // string GOAmount = Request.QueryString["GOAmount"].ToString().Trim();
+                string GOAmount = string.Format("{0:C0}", lblSpecialcaseRelease.Text);
+                // Label lblIncentiveID = FindControl("lblIncentiveID") as Label;
+
+
+                h1heading.InnerText = Category + " Category";
+                // DataSet ds = new DataSet();
+                dss = ObjCAFClass.GetReleaseProceedingsStep2(Category, SubIncentiveId, GOAmount);
+                if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0 && chkIsSpecialUnit.Checked == false)
+                {
+                    dt2 = dss.Tables[0];
+                    string incentivename = dss.Tables[0].Rows[0][3].ToString();
+
+                    //foreach (DataRow row in dt1.Rows)
+                    //{
+                    //    row["IncentiveName"] = incentivename;
+                    //}
+                    //dt1.AcceptChanges();
+                    if (!chkIsSpecialUnit.Checked)
+                    {
+                        dt1.Merge(dt2, true, MissingSchemaAction.Ignore);
+                        lblRemainingAmount.Text = dss.Tables[1].Rows[0]["RemainingAmount"].ToString();
+                    }
+                    tdinvestments.InnerHtml = "--> " + dss.Tables[0].Rows[0]["IncentiveName"].ToString();
+
+                    gvdetailsnew.DataSource = dt1;
+                    gvdetailsnew.DataBind();
+
+                    dt1.Clear();
+                    dt2.Clear();
+                    divSacnctionINC.Visible = true;
+                    divSpecialCase.Visible = false;
+                    trselectedcases.Visible = true;
+                    divReleaseAmount.Visible = false;
+
+                    chkIsSpecialUnit.Enabled = false;
+
+                    foreach (GridViewRow row in GVSpecialCase2.Rows)
+                    {
+                        row.FindControl("anchortaglinkDelete").Visible = false;
+                    }
+                    btnNext.Visible = false;
+                    trUnitresult.Visible = false;
+
+                }
+                else if (chkIsSpecialUnit.Checked == true)
+                {
+                    //string incentivename = "";
+                    int rowIndex = 0;
+                    Label lblIncentivename = gvdetailsnew.Rows[rowIndex].FindControl("lblINCName") as Label;
+
+                    dss = ObjCAFClass.GetIncentiveNamebyId(SubIncentiveId);
+                    if (dss != null && dss.Tables.Count > 0 && dss.Tables[0].Rows.Count > 0)
+                    {
+                        SubIncentiveId = dss.Tables[0].Rows[0]["IncentiveName"].ToString();
+
+                    }
+                    //foreach (DataRow row in dt1.Rows)
+                    //{
+                    //    row["IncentiveName"] = lblIncentivename;
+                    //}
+                    //dt1.AcceptChanges();
+
+
+                    tdinvestments.InnerText = "--> " + dss.Tables[0].Rows[0]["IncentiveName"].ToString();
+                    gvdetailsnew.DataSource = dt1;
+                    gvdetailsnew.DataBind();
+
+                    lblRemainingAmount.Text = lblSpecialcaseRelease.Text;
+
+                    dt1.Clear();
+                    divSacnctionINC.Visible = true;
+                    divSpecialCase.Visible = false;
+                    trselectedcases.Visible = true;
+                    divReleaseAmount.Visible = false;
+
+                    chkIsSpecialUnit.Enabled = false;
+
+                    foreach (GridViewRow row in GVSpecialCase2.Rows)
+                    {
+                        row.FindControl("anchortaglinkDelete").Visible = false;
+                    }
+                    btnNext.Visible = false;
+                    trUnitresult.Visible = false;
+                    divReleaseProceeding.Visible = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                lblmsg0.Text = ex.Message;
+                Failure.Visible = true;
+                success.Visible = false;
+            }
+        }
+
+        protected void GVSpecialCase2_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            decimal GOAmount = Convert.ToDecimal(Request.QueryString["GOAmount"].ToString().Trim());
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+              
+            }
+        }
+
+        /* protected void btnReleaseProceding_Click(object sender, EventArgs e)
+         {
+             try
+             {
+                 List<ReleasingProceedings> lstincentives = new List<ReleasingProceedings>();
+                 foreach (GridViewRow gvrow in GVIncentive.Rows)
+                 {
+                     ReleasingProceedings frmvo = new ReleasingProceedings();
+
+                     string lblMstIncentiveId = ((Label)gvrow.FindControl("lblMstIncentiveId")).Text;
+                     string lblIncentiveID = ((Label)gvrow.FindControl("IncentiveID")).Text;
+                     string lblAllotedAmount = Request.QueryString["GOAmount"].ToString().Trim();
+                     //((Label)gvrow.FindControl("lblAllotedAmount")).Text;
+                     string lblSLCNumer = ((Label)gvrow.FindControl("lblSLCNumer")).Text;
+                     string mobileNumber = ((Label)gvrow.FindControl("lblUnitMObileNo")).Text;
+
+                     frmvo.EnterperIncentiveID = lblIncentiveID;
+                     frmvo.MstIncentiveId = lblMstIncentiveId;
+                     frmvo.CreatedByid = Session["uid"].ToString();
+                     frmvo.AllotedAmount = lblAllotedAmount;
+                     frmvo.SLCNo = lblSLCNumer;
+
+                     string txtGoNo = Session["txtGoNo"].ToString();
+                     string txtGodate = Session["txtGodate"].ToString();
+                     string txtLocno = Session["txtLocno"].ToString();
+                     string txtLocdate = Session["txtLocdate"].ToString();
+
+                     string[] godatett = txtGodate.Split('/');
+                     string[] locdate = txtLocdate.Split('/');
+                     string[] releaseProDate = txtRelProDate.Text.Split('/');
+
+                     frmvo.Godate = godatett[2] + "/" + godatett[1] + "/" + godatett[0];
+                     frmvo.Locdate = locdate[2] + "/" + locdate[1] + "/" + locdate[0];
+                     frmvo.Gono = txtGoNo;
+                     frmvo.Locno = txtLocno;
+                     frmvo.ReleaseProcedingNo = txtRelProNo.Text.Trim();
+                     frmvo.ReleaseProcedingDate = releaseProDate[2] + "/" + releaseProDate[1] + "/" + releaseProDate[0];
+                     frmvo.Caste = Request.QueryString["Category"].ToString().Trim();
+                     frmvo.SubIncTypeId = Request.QueryString["SubIncentiveId"].ToString().Trim();
+                     frmvo.RemaningAmt = lblremaingAmount.Text;
+                     frmvo.GoReleaseAmt = Request.QueryString["GOAmount"].ToString().Trim();
+
+                     if (chkIsSpecialUnit.Checked == true)
+                     {
+                         frmvo.SplCase = "Y";
+                     }
+                     lstincentives.Add(frmvo);
+                 }
+
+                 int valid = ObjCAFClass.InsertFinalProceedingsStep2(lstincentives);
+
+
+                 if (valid == 1)
+                 {
+                     //lblmsg.Text = "<font color='green'>Application Submitted Successfully..!</font>";
+                     //success.Visible = true;
+                     //Failure.Visible = false;
+                     //Page.ClientScript.RegisterStartupScript(this.GetType(), "alertMsg", "alert('Application Submitted Successfully');", true);
+                     string message = "alert('Amount alloted Successfully')";
+                     ScriptManager.RegisterClientScriptBlock((sender as Control), this.GetType(), "alert", message, true);
+                     trprint.Visible = true;
+                     btnReleaseProceding.Enabled = false;
+                     /* foreach (GridViewRow gvrow1 in GVIncentive.Rows)
+                      {
+                          string mobileNumber = ((Label)gvrow1.FindControl("lblUnitMObileNo")).Text;
+                          string Applicationno = ((Label)gvrow1.FindControl("lblApplicationno")).Text;
+                          string ApplicantName = ((Label)gvrow1.FindControl("lblApplicantName")).Text;
+                          string incentiveNo = ((Label)gvrow1.FindControl("lblIncentiveID")).Text;
+                          string Mstid = ((Label)gvrow1.FindControl("lblMstIncentiveId")).Text;
+
+                          if (mobileNumber != "NA" && mobileNumber != "1234567890")
+                          {
+                              string checkingVal = MsgMobile(mobileNumber, Applicationno, ApplicantName);
+                              if (checkingVal.Contains("402"))
+                              {
+                                  SqlConnection osqlConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings[""].ConnectionString);
+                                  osqlConnection.Open();
+                                  SqlCommand cmd = new SqlCommand("USP_releaseDocSMS_slc", osqlConnection);
+                                  cmd.CommandType = CommandType.StoredProcedure;
+                                  cmd.Parameters.AddWithValue("@mstid", Mstid);
+                                  cmd.Parameters.AddWithValue("@incid", incentiveNo);
+                                  cmd.ExecuteNonQuery();
+                                  osqlConnection.Close();
+                              }
+                          }
+                      }
+
+                 }
+                 else
+                 {
+                     trprint.Visible = false;
+                     btnReleaseProceding.Enabled = true;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 lblmsg0.Text = ex.Message;
+                 Failure.Visible = true;
+                 success.Visible = false;
+             }
+         } */
     }
 }

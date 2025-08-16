@@ -728,6 +728,44 @@ namespace TTAP.Classfiles
                 }
             }
         }
+        public DataSet GetReleaseProceedingsStep2(string cast, string subIncid, string goAmount)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection con = new SqlConnection(str)) 
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GET_UNIT_INCENTIVEWISE_PROCEEDINGS", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@Category", SqlDbType.VarChar).Value = cast ?? (object)DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@GoAmount", SqlDbType.VarChar).Value = goAmount ?? (object)DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@SubIncId", SqlDbType.VarChar).Value = subIncid ?? (object)DBNull.Value;
+                    da.SelectCommand.CommandTimeout = 3600;
+
+                    da.Fill(ds);
+                }
+            }
+
+            return ds;
+        }
+        public DataSet GetIncentiveNamebyId(string SubIncentiveId)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection con = new SqlConnection(str))
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GETINCENTIVENAMEBY_ID", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@INCENTIVEID", SqlDbType.VarChar).Value =
+                        string.IsNullOrEmpty(SubIncentiveId) ? (object)DBNull.Value : SubIncentiveId;
+
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+            
+        }
 
         public string InsertAppliedIncentives(List<AppliedIncentiveStatus> lstAppliedIncentiveStatus)
         {
@@ -8433,6 +8471,7 @@ namespace TTAP.Classfiles
                     com.Parameters.AddWithValue("@GoReleaseAmt", Convert.ToString(Ramarksvo.GoReleaseAmt));
                     com.Parameters.AddWithValue("@Category", Convert.ToString(Ramarksvo.Caste));
                     com.Parameters.AddWithValue("@IsPartial", Convert.ToString(Ramarksvo.IsPartial));
+                    com.Parameters.AddWithValue("@IsSpecialCase", Convert.ToString(Ramarksvo.SplCase));
                     com.Parameters.Add("@Valid", SqlDbType.Int, 500);
                     com.Parameters["@Valid"].Direction = ParameterDirection.Output;
                     com.ExecuteNonQuery();
