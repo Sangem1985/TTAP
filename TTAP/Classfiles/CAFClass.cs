@@ -3793,6 +3793,19 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_DLSVC_ABSTRACT", pp);
             return Dsnew;
         }
+        public DataSet GetIncentiveWiseList(string DistID, string Stage)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@DISTID",SqlDbType.VarChar),
+               new SqlParameter("@Type",SqlDbType.VarChar)
+           };
+            pp[0].Value = DistID;
+            pp[1].Value = Stage;
+            Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS", pp);
+            return Dsnew;
+        }
         public DataSet GetSVCYetGenerateAgenda(string DistID, string Stage, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();

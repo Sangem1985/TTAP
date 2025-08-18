@@ -582,17 +582,17 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Unit Working Status</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="Releases/UnitWorkingStatusGMAbstract.aspx">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i> Confirm Working Status For Release (SLC) </span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label1" runat="server"></asp:Label>
+                                                <asp:Label ID="lblReleaseSLC" runat="server"></asp:Label>
                                             </span>
                                         </a>
 
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="Releases/UnitWorkingStatusGMAbstract.aspx">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i> Confirm Working Status For Release (DIPC) </span>
                                             <span class="badge badge-pill badge-success">
-                                                <asp:Label ID="Label2" runat="server"></asp:Label>
+                                                <asp:Label ID="lblReleaseDIPC" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
