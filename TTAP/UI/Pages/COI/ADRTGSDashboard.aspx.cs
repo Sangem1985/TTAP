@@ -24,7 +24,7 @@ namespace TTAP.UI.Pages.COI
                 {
                     if (Session["uid"] != null)
                     {
-                        GetClerkDashboard();
+                        GetDashboard();
                     }
                    
                 }
@@ -39,7 +39,7 @@ namespace TTAP.UI.Pages.COI
 
 
         }
-        public void GetClerkDashboard()
+        public void GetDashboard()
         {
             string userid = Session["uid"].ToString();           
            

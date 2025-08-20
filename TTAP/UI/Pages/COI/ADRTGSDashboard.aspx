@@ -55,7 +55,7 @@
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
                                         <%--  <a class="list-group-item"><i class="fa fa-fw fa-check"></i><b>Incentive (Application Stage)</b> </a>--%>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold list-group-item-action" href="DdApplications.aspx?status=TOTALNOOFAPPLICATIONS">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_Approved&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Approved by SLC</span>
                                             <span class="badge badge-pill badge-primary bg-blue">
                                                 <asp:Label ID="lblSLC_Approved" runat="server"></asp:Label>
@@ -64,7 +64,7 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Releases</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=COIPENDINGWITHIN">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_ReleaseProcCompleted&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Print SLC Release Proceedings Completed List</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblSLC_ReleaseProcCompleted" runat="server"></asp:Label>
@@ -76,13 +76,13 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>UC List</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGWITHIN">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_UCUpdated&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Print-UC Updated List</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblSLC_UCUpdated" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGBEYOND">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_UCNotUpdated">
                                             <span><i class="fa fa-fw fa-calendar"></i>Print-UC Not Updated List</span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="lblSLC_UCNotUpdated" runat="server"></asp:Label>
@@ -95,13 +95,13 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Cheque Preparation List</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGTOTAL">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_ToGenerateCheque&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Generate Cheque Preparation List</span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="lblSLC_ToGenerateCheque" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=TOTALAPPLRETURNEDFROMDD">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_GeneratedCheque&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Generated Cheque Preparation List</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblSLC_GeneratedCheque" runat="server"></asp:Label>
@@ -113,19 +113,19 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Update Cheque Details New</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGTOTAL">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_ChequeNotUploaded&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Cheque Details Not Uploaded</span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="lblSLC_ChequeNotUploaded" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=TOTALAPPLRETURNEDFROMDD">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_Cheque_withNo&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Cheque Details Cheque Number</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblSLC_Cheque_withNo" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=TOTALAPPLRETURNEDFROMDD">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=SLC_Cheque_withUTR&Type=SLC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Cheque Details with UTR Number</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblSLC_Cheque_withUTR" runat="server"></asp:Label>
@@ -138,7 +138,7 @@
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
                                         <%--  <a class="list-group-item"><i class="fa fa-fw fa-check"></i><b>Incentive (Application Stage)</b> </a>--%>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold list-group-item-action" href="DdApplications.aspx?status=TOTALNOOFAPPLICATIONS">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_Approved&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Approved by DIPC</span>
                                             <span class="badge badge-pill badge-primary bg-blue">
                                                 <asp:Label ID="lblDIPC_Approved" runat="server"></asp:Label>
@@ -147,7 +147,7 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Releases</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=COIPENDINGWITHIN">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_ReleaseProcCompleted&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Print DIPC Release Proceedings Completed List</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblDIPC_ReleaseProcCompleted" runat="server"></asp:Label>
@@ -159,13 +159,13 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>UC List</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGWITHIN">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_UCUpdated&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Print-UC Updated List</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblDIPC_UCUpdated" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGBEYOND">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_UCNotUpdated&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Print-UC Not Updated List</span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="lblDIPC_UCNotUpdated" runat="server"></asp:Label>
@@ -178,13 +178,13 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Cheque Preparation List</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGTOTAL">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_ToGenerateCheque&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Generate Cheque Preparation List</span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="lblDIPC_ToGenerateCheque" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=TOTALAPPLRETURNEDFROMDD">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_GeneratedCheque&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Generated Cheque Preparation List</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblDIPC_GeneratedCheque" runat="server"></asp:Label>
@@ -196,19 +196,19 @@
                                         <a class="list-group-item d-flex justify-content-between align-items-center font-SemiBold text-blue list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Update Cheque Details New</span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=PSCPENDINGTOTAL">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_ChequeNotUploaded&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Cheque Details Not Uploaded</span>
                                             <span class="badge badge-pill badge-warning">
                                                 <asp:Label ID="lblDIPC_ChequeNotUploaded" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=TOTALAPPLRETURNEDFROMDD">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_Cheque_withNo&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Cheque Details Cheque Number</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblDIPC_Cheque_withNo" runat="server"></asp:Label>
                                             </span>
                                         </a>
-                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="DdApplications.aspx?status=TOTALAPPLRETURNEDFROMDD">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="ADRTGSDashboardDrilldown.aspx?status=DIPC_Cheque_withUTR&Type=DIPC">
                                             <span><i class="fa fa-fw fa-calendar"></i>Cheque Details with UTR Number</span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblDIPC_Cheque_withUTR" runat="server"></asp:Label>
