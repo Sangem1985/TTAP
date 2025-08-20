@@ -537,6 +537,7 @@
     <Content Include="UI\Pages\CapitalAssistanceNewUnit.aspx" />
     <Content Include="UI\Pages\CapitalSubsidy.aspx" />
     <Content Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx" />
+    <Content Include="UI\Pages\CheckDetailsPrint.aspx" />
     <Content Include="UI\Pages\COI\AdApplications.aspx" />
     <Content Include="UI\Pages\COI\AdDashboard.aspx" />
     <Content Include="UI\Pages\COI\ADRTGSDashboard.aspx" />
@@ -1197,6 +1198,13 @@
     </Compile>
     <Compile Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx.designer.cs">
       <DependentUpon>CaptialSubsidyAppraisalNote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\CheckDetailsPrint.aspx.cs">
+      <DependentUpon>CheckDetailsPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\CheckDetailsPrint.aspx.designer.cs">
+      <DependentUpon>CheckDetailsPrint.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\COI\AdApplications.aspx.cs">
       <DependentUpon>AdApplications.aspx</DependentUpon>

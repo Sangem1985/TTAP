@@ -114,7 +114,7 @@ namespace TTAP.UI.Pages
             }
         }
 
-        protected void ddlBank_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlBank_SelectedIndexChanged1(object sender, EventArgs e)
         {
             try
             {
@@ -141,7 +141,25 @@ namespace TTAP.UI.Pages
                 throw ex;
             }
         }
+        protected void ddlBank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ddlBank.SelectedValue.ToString() == "196")
+                {
+                    trNBFC.Visible = true;
 
+                }
+                else
+                {
+                    trNBFC.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         protected void btnBankAccountDet_Click(object sender, EventArgs e)
         {
             /* string newPath = "";

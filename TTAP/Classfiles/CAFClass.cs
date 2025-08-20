@@ -697,7 +697,7 @@ namespace TTAP.Classfiles
             using (SqlConnection con = new SqlConnection(str))
             {
                 con.Open();
-                using (SqlDataAdapter da = new SqlDataAdapter("USP_GET_INCENTIVE_SLCNO_LIST", con)) 
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GET_INCENTIVE_SLCNO_LIST", con))
                 {
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.Add("@caste", SqlDbType.VarChar).Value = caste;
@@ -708,10 +708,10 @@ namespace TTAP.Classfiles
                     return ds;
                 }
             }
-        }      
+        }
         public DataSet GetIncentiveReleaseProcess(string SLCNo, string Dist, string UnitName, string Investmentid, string Cast)
         {
-            using (SqlConnection con = new SqlConnection(str)) 
+            using (SqlConnection con = new SqlConnection(str))
             {
                 using (SqlDataAdapter da = new SqlDataAdapter("USP_GETINCENTIVE_RELEASEPROCEEDINGSUNITNAME", con))
                 {
@@ -732,7 +732,7 @@ namespace TTAP.Classfiles
         {
             DataSet ds = new DataSet();
 
-            using (SqlConnection con = new SqlConnection(str)) 
+            using (SqlConnection con = new SqlConnection(str))
             {
                 using (SqlDataAdapter da = new SqlDataAdapter("USP_GET_UNIT_INCENTIVEWISE_PROCEEDINGS", con))
                 {
@@ -764,7 +764,7 @@ namespace TTAP.Classfiles
                 }
             }
             return ds;
-            
+
         }
 
         public string InsertAppliedIncentives(List<AppliedIncentiveStatus> lstAppliedIncentiveStatus)
@@ -3531,7 +3531,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_LASTTHREE_FINANCIALYEARS", pp);
             return Dsnew;
         }
-        public DataSet GetFinancialYearsAppraisal(string Date,string Date2)
+        public DataSet GetFinancialYearsAppraisal(string Date, string Date2)
         {
             DataSet Dsnew = new DataSet();
 
@@ -3806,7 +3806,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS", pp);
             return Dsnew;
         }
-        public DataSet GetGMUnitWiseListIncentive(string Cast,string Subincentiveid,string Status, string DistID)
+        public DataSet GetGMUnitWiseListIncentive(string Cast, string Subincentiveid, string Status, string DistID)
         {
             DataSet Dsnew = new DataSet();
 
@@ -3823,7 +3823,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS_DRILLDOWN", pp);
             return Dsnew;
         }
-        public DataSet GetUnitWorkingStatusUpdation(string Cast, string Status,string IncentiveId, string Subincentiveid,  string DistID)
+        public DataSet GetUnitWorkingStatusUpdation(string Cast, string Status, string IncentiveId, string Subincentiveid, string DistID)
         {
             DataSet Dsnew = new DataSet();
 
@@ -3831,17 +3831,67 @@ namespace TTAP.Classfiles
                new SqlParameter("@CasteID",SqlDbType.VarChar),
                new SqlParameter("@Type",SqlDbType.VarChar),
                new SqlParameter("@IncentiveID",SqlDbType.VarChar),
-               new SqlParameter("@SubIncentiveID",SqlDbType.VarChar),               
+               new SqlParameter("@SubIncentiveID",SqlDbType.VarChar),
                new SqlParameter("@DISTID",SqlDbType.VarChar)
            };
             pp[0].Value = Cast;
             pp[1].Value = Status;
             pp[2].Value = IncentiveId;
-            pp[3].Value = Subincentiveid;           
+            pp[3].Value = Subincentiveid;
             pp[4].Value = DistID;
             Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS_UPDATION", pp);
             return Dsnew;
         }
+        public DataSet GetCheckDetailsPrint(string Cast, string DIPCFLAG, string IncentiveId, string Subincentiveid)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@CASTEID",SqlDbType.VarChar),
+                new SqlParameter("@DIPCFLAG",SqlDbType.VarChar),
+                 new SqlParameter("@INCENTIVEID",SqlDbType.VarChar),
+               new SqlParameter("@SUBINCENTIVEID",SqlDbType.VarChar)
+
+
+           };
+            pp[0].Value = Cast;
+            pp[1].Value = DIPCFLAG;
+            pp[2].Value = IncentiveId;
+            pp[3].Value = Subincentiveid;
+            Dsnew = GenericFillDs("USP_GETINCENTIVECHECKLISTDETAILSPRINT", pp);
+            return Dsnew;
+        }
+        public int InsCheckListPrintDetails(string dipcFlag, string incentiveId, string subIncentiveId, string proposedDate, string createdById)
+        {
+            int result = 0;
+
+            using (SqlConnection con = new SqlConnection(str))
+            {
+                using (SqlCommand cmd = new SqlCommand("USP_INSCHEQUEGENERATELIST", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@DIPCFLAG", dipcFlag);
+                    cmd.Parameters.AddWithValue("@INCENTIVEID", incentiveId);
+                    cmd.Parameters.AddWithValue("@SUBINCENTIVEID", subIncentiveId);
+                    cmd.Parameters.AddWithValue("@PROPOSEDSVCDATE", proposedDate);
+                    cmd.Parameters.AddWithValue("@CREATEDBY", createdById);
+
+                    SqlParameter outParam = new SqlParameter("@Valid", SqlDbType.Int);
+                    outParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(outParam);
+
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+
+                    result = Convert.ToInt32(outParam.Value);
+                }
+            }
+
+            return result;
+        }
+
+
         public string INSUnitWorkingStatusUpdation(GmfinalProceedings GmfinalProceeding)
         {
             string valid = "";
@@ -3870,8 +3920,8 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@NewIFSCcode", Convert.ToString(GmfinalProceeding.NewIFSCcode));
                 com.Parameters.AddWithValue("@NewAccountType", Convert.ToString(GmfinalProceeding.NewAccountType));
                 com.Parameters.AddWithValue("@NewLoanAggrementAcNo", Convert.ToString(GmfinalProceeding.LoanAggrementAccountNo));
-                com.Parameters.AddWithValue("@Remarks", Convert.ToString(GmfinalProceeding.Remarks));           
-               
+                com.Parameters.AddWithValue("@Remarks", Convert.ToString(GmfinalProceeding.Remarks));
+
 
                 com.Parameters.AddWithValue("@NewNBFCname", Convert.ToString(GmfinalProceeding.nbfcName));
 
@@ -6182,7 +6232,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@RETURNTO", DLODetails.FORWARDTO);
                 com.Parameters.AddWithValue("@CREATEDBY", DLODetails.CREATEDBY);
                 com.Parameters.AddWithValue("@REJECTION_REMARKS", DLODetails.REJECTION_REMARKS);
-                
+
                 com.Parameters.Add("@RESULT", SqlDbType.VarChar, 100);
                 com.Parameters["@RESULT"].Direction = ParameterDirection.Output;
                 com.ExecuteNonQuery();
@@ -8031,7 +8081,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@DICFILLINGDATE", DLODetails.DICFILLINGDATE);//
                 com.Parameters.AddWithValue("@POWERCONNECTIONRLSDATE", DLODetails.PowerConnectionRlsDate);
                 com.Parameters.AddWithValue("@NAMEFINANCINGUNIT", DLODetails.NAMEFINANCINGUNIT);
-                
+
                 com.Parameters.AddWithValue("@APPROVEDLANDCOST", DLODetails.ApprovedLandCost);
                 com.Parameters.AddWithValue("@APPROVEDBUILDINGCOST", DLODetails.ApprovedBuildingCost);
                 com.Parameters.AddWithValue("@APPROVEDPMCOST", DLODetails.ApprovedPMCost);
@@ -8119,7 +8169,7 @@ namespace TTAP.Classfiles
                 com.Parameters.AddWithValue("@DCP", DLODetails.DATEOFPRODUCTION);
                 com.Parameters.AddWithValue("@APPLIEDDATE", DLODetails.DICFILLINGDATE);
                 com.Parameters.AddWithValue("@TYPE_OF_UNIT_INS", DLODetails.TypeOfUnitIns);
-                
+
                 com.Parameters.AddWithValue("@PRODUCTION", DLODetails.Production);
                 com.Parameters.AddWithValue("@TAX_PAID_SGST", DLODetails.TaxPaidSGST);
                 com.Parameters.AddWithValue("@BASE_PRODUCTION", DLODetails.BaseProduction);
@@ -8612,7 +8662,7 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_RELEASED_LIST_FOR_GM", pp);
             return Dsnew;
         }
-        public DataSet GetReleaseDetailsByIncId(string IsPartial, int IncId, int SubIncId,int TrId)
+        public DataSet GetReleaseDetailsByIncId(string IsPartial, int IncId, int SubIncId, int TrId)
         {
             DataSet Dsnew = new DataSet();
 

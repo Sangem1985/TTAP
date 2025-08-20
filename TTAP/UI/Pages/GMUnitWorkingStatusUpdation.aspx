@@ -544,14 +544,16 @@
                                     </td>
                                     <td class="style21" style="padding: 5px; margin: 5px; text-align: left;">
                                         <asp:DropDownList ID="ddlBank" AutoPostBack="true" runat="server" class="form-control txtbox"
-                                            TabIndex="5" Width="250px" ValidationGroup="group" OnSelectedIndexChanged="ddlBank_SelectedIndexChanged">
+                                            TabIndex="5" Width="250px" ValidationGroup="group" OnSelectedIndexChanged="ddlBank_SelectedIndexChanged1">
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="rfvBank" runat="server" InitialValue="-- SELECT --"
                                             ControlToValidate="ddlBank" ErrorMessage="Please Select Bank Name" ValidationGroup="group"
                                             SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
                                     </td>
-                                     <td class="style21" style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;">
-                                    </td>
+
+                                </tr>
+                                <tr id="trNBFC" runat="server">
+                                    <td class="style21" style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;"></td>
                                     <td style="padding: 5px; margin: 5px; text-align: left;">NBFC Name
                                     </td>
                                     <td>:
@@ -561,9 +563,6 @@
                                             MaxLength="200" TabIndex="5" ValidationGroup="group" Width="250px"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <%--<tr id="trNBFC" runat="server">
-                                   
-                                </tr>--%>
                                 <tr>
                                     <td style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;">2
                                     </td>
