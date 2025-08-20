@@ -102,6 +102,16 @@ namespace TTAP.UI.Pages
                             lblReleBeyond.Text = dss.Tables[0].Rows[0]["ReleasedBeyond"].ToString();
                             lblTotalReleINC.Text = dss.Tables[0].Rows[0]["ReleasedTotal"].ToString();
 
+                            lblReleaseSLC.Text = dss.Tables[0].Rows[0]["SLCWorkingStatus"].ToString();
+                            lblReleaseDIPC.Text = dss.Tables[0].Rows[0]["DIPCWorkingStatus"].ToString();
+
+
+                            lblWorkingStatusSLC.Text = dss.Tables[0].Rows[0]["PrintSLCWorkingStatus"].ToString();
+                            lblCloseStatusSLC.Text = dss.Tables[0].Rows[0]["PrintSLCCloseWorkingStatus"].ToString();
+                            lblAbencyStatusSLC.Text = dss.Tables[0].Rows[0]["PrintSLCAbencyWorkingStatus"].ToString();
+                            lblWorkingStatusDIPC.Text = dss.Tables[0].Rows[0]["PrintDIPCWorkingStatus"].ToString();
+                            lblCloseStatusDIPC.Text = dss.Tables[0].Rows[0]["PrintDIPCCloseWorkingStatus"].ToString();
+                            lblAbencyStatusDIPC.Text = dss.Tables[0].Rows[0]["PrintDIPCAbencyWorkingStatus"].ToString();
                         }
                     }
                 }

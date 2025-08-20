@@ -627,6 +627,8 @@
     <Content Include="UI\Pages\frmUserDownloads.aspx" />
     <Content Include="UI\Pages\frmUserPaymentDetails.aspx" />
     <Content Include="UI\Pages\frmViewAttachemnts.aspx" />
+    <Content Include="UI\Pages\GMUnitwiseList.aspx" />
+    <Content Include="UI\Pages\GMUnitWorkingStatusUpdation.aspx" />
     <Content Include="UI\Pages\HeadOfficeInspectionReport.aspx" />
     <Content Include="UI\Pages\Helpdesk\ApplicantDashBaord.aspx" />
     <Content Include="UI\Pages\Helpdesk\fmUserHdView.aspx" />
@@ -648,6 +650,7 @@
     <Content Include="UI\Pages\Helpdesk\ViewHDAttachments.aspx" />
     <Content Include="UI\Pages\IncentiveFormDraftView.aspx" />
     <Content Include="UI\Pages\IncentivesTracker.aspx" />
+    <Content Include="UI\Pages\IncentivewiseListGM.aspx" />
     <Content Include="UI\Pages\IneterestSubsidyAppraisalNoteNew.aspx" />
     <Content Include="UI\Pages\InscentiveView_AttachmentsNewIncType.aspx" />
     <Content Include="UI\Pages\InspectionDelayNotes.aspx" />
@@ -1825,6 +1828,20 @@
     <Compile Include="UI\Pages\frmViewAttachemnts.aspx.designer.cs">
       <DependentUpon>frmViewAttachemnts.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\GMUnitwiseList.aspx.cs">
+      <DependentUpon>GMUnitwiseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\GMUnitwiseList.aspx.designer.cs">
+      <DependentUpon>GMUnitwiseList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\GMUnitWorkingStatusUpdation.aspx.cs">
+      <DependentUpon>GMUnitWorkingStatusUpdation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\GMUnitWorkingStatusUpdation.aspx.designer.cs">
+      <DependentUpon>GMUnitWorkingStatusUpdation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\HeadOfficeInspectionReport.aspx.cs">
       <DependentUpon>HeadOfficeInspectionReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1971,6 +1988,13 @@
     </Compile>
     <Compile Include="UI\Pages\IncentivesTracker.aspx.designer.cs">
       <DependentUpon>IncentivesTracker.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\IncentivewiseListGM.aspx.cs">
+      <DependentUpon>IncentivewiseListGM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\IncentivewiseListGM.aspx.designer.cs">
+      <DependentUpon>IncentivewiseListGM.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\IneterestSubsidyAppraisalNoteNew.aspx.cs">
       <DependentUpon>IneterestSubsidyAppraisalNoteNew.aspx</DependentUpon>

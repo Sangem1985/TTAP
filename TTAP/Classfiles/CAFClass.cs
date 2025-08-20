@@ -708,6 +708,63 @@ namespace TTAP.Classfiles
                     return ds;
                 }
             }
+        }      
+        public DataSet GetIncentiveReleaseProcess(string SLCNo, string Dist, string UnitName, string Investmentid, string Cast)
+        {
+            using (SqlConnection con = new SqlConnection(str)) 
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GETINCENTIVE_RELEASEPROCEEDINGSUNITNAME", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@SLCNO", SqlDbType.VarChar).Value = SLCNo;
+                    da.SelectCommand.Parameters.Add("@DISTID", SqlDbType.VarChar).Value = Dist;
+                    da.SelectCommand.Parameters.Add("@UNITNAME", SqlDbType.VarChar).Value = UnitName;
+                    da.SelectCommand.Parameters.Add("@INCENTIVETYPE", SqlDbType.VarChar).Value = Investmentid;
+                    da.SelectCommand.Parameters.Add("@CAST", SqlDbType.VarChar).Value = Cast;
+
+                    DataSet ds = new DataSet();
+                    da.Fill(ds);
+                    return ds;
+                }
+            }
+        }
+        public DataSet GetReleaseProceedingsStep2(string cast, string subIncid, string goAmount)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection con = new SqlConnection(str)) 
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GET_UNIT_INCENTIVEWISE_PROCEEDINGS", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@Category", SqlDbType.VarChar).Value = cast ?? (object)DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@GoAmount", SqlDbType.VarChar).Value = goAmount ?? (object)DBNull.Value;
+                    da.SelectCommand.Parameters.Add("@SubIncId", SqlDbType.VarChar).Value = subIncid ?? (object)DBNull.Value;
+                    da.SelectCommand.CommandTimeout = 3600;
+
+                    da.Fill(ds);
+                }
+            }
+
+            return ds;
+        }
+        public DataSet GetIncentiveNamebyId(string SubIncentiveId)
+        {
+            DataSet ds = new DataSet();
+
+            using (SqlConnection con = new SqlConnection(str))
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter("USP_GETINCENTIVENAMEBY_ID", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.Add("@INCENTIVEID", SqlDbType.VarChar).Value =
+                        string.IsNullOrEmpty(SubIncentiveId) ? (object)DBNull.Value : SubIncentiveId;
+
+                    da.Fill(ds);
+                }
+            }
+            return ds;
+            
         }
 
         public string InsertAppliedIncentives(List<AppliedIncentiveStatus> lstAppliedIncentiveStatus)
@@ -3735,6 +3792,111 @@ namespace TTAP.Classfiles
             pp[1].Value = Stage;
             Dsnew = GenericFillDs("USP_GET_DLSVC_ABSTRACT", pp);
             return Dsnew;
+        }
+        public DataSet GetIncentiveWiseList(string DistID, string Stage)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@DISTID",SqlDbType.VarChar),
+               new SqlParameter("@Type",SqlDbType.VarChar)
+           };
+            pp[0].Value = DistID;
+            pp[1].Value = Stage;
+            Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS", pp);
+            return Dsnew;
+        }
+        public DataSet GetGMUnitWiseListIncentive(string Cast,string Subincentiveid,string Status, string DistID)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@CasteID",SqlDbType.VarChar),
+               new SqlParameter("@SubIncentiveID",SqlDbType.VarChar),
+               new SqlParameter("@Type",SqlDbType.VarChar),
+               new SqlParameter("@DISTID",SqlDbType.VarChar)
+           };
+            pp[0].Value = Cast;
+            pp[1].Value = Subincentiveid;
+            pp[2].Value = Status;
+            pp[3].Value = DistID;
+            Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS_DRILLDOWN", pp);
+            return Dsnew;
+        }
+        public DataSet GetUnitWorkingStatusUpdation(string Cast, string Status,string IncentiveId, string Subincentiveid,  string DistID)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@CasteID",SqlDbType.VarChar),
+               new SqlParameter("@Type",SqlDbType.VarChar),
+               new SqlParameter("@IncentiveID",SqlDbType.VarChar),
+               new SqlParameter("@SubIncentiveID",SqlDbType.VarChar),               
+               new SqlParameter("@DISTID",SqlDbType.VarChar)
+           };
+            pp[0].Value = Cast;
+            pp[1].Value = Status;
+            pp[2].Value = IncentiveId;
+            pp[3].Value = Subincentiveid;           
+            pp[4].Value = DistID;
+            Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS_UPDATION", pp);
+            return Dsnew;
+        }
+        public string INSUnitWorkingStatusUpdation(GmfinalProceedings GmfinalProceeding)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_UPDATE_UNIT_WORKING_STATUS_BYGM";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@SubIncentiveId", Convert.ToString(GmfinalProceeding.SubIncentiveId));
+                com.Parameters.AddWithValue("@IncentiveID", Convert.ToString(GmfinalProceeding.IncentiveID));
+                com.Parameters.AddWithValue("@SLCMeetingNumer", Convert.ToString(GmfinalProceeding.SLCNumer));
+                com.Parameters.AddWithValue("@WorkingStatus", Convert.ToString(GmfinalProceeding.WorkingStatus));
+                com.Parameters.AddWithValue("@AccDtlsConfirmationFlg", Convert.ToString(GmfinalProceeding.AccNoConfirmationFlg));
+                com.Parameters.AddWithValue("@NewBankname", Convert.ToString(GmfinalProceeding.Newbankname));
+
+                com.Parameters.AddWithValue("@NewAccountNumber", Convert.ToString(GmfinalProceeding.AccountNumber));
+                com.Parameters.AddWithValue("@NewBranchname", Convert.ToString(GmfinalProceeding.NewBranchname));
+                com.Parameters.AddWithValue("@NewIFSCcode", Convert.ToString(GmfinalProceeding.NewIFSCcode));
+                com.Parameters.AddWithValue("@NewAccountType", Convert.ToString(GmfinalProceeding.NewAccountType));
+                com.Parameters.AddWithValue("@NewLoanAggrementAcNo", Convert.ToString(GmfinalProceeding.LoanAggrementAccountNo));
+                com.Parameters.AddWithValue("@Remarks", Convert.ToString(GmfinalProceeding.Remarks));           
+               
+
+                com.Parameters.AddWithValue("@NewNBFCname", Convert.ToString(GmfinalProceeding.nbfcName));
+
+                com.Parameters.AddWithValue("@CreatedBy ", Convert.ToString(GmfinalProceeding.CreatedByid));
+
+                com.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
+                com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@Valid"].Value.ToString();
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
         }
         public DataSet GetSVCYetGenerateAgenda(string DistID, string Stage, string PartialSanction)
         {
@@ -8414,6 +8576,7 @@ namespace TTAP.Classfiles
                     com.Parameters.AddWithValue("@GoReleaseAmt", Convert.ToString(Ramarksvo.GoReleaseAmt));
                     com.Parameters.AddWithValue("@Category", Convert.ToString(Ramarksvo.Caste));
                     com.Parameters.AddWithValue("@IsPartial", Convert.ToString(Ramarksvo.IsPartial));
+                    com.Parameters.AddWithValue("@IsSpecialCase", Convert.ToString(Ramarksvo.SplCase));
                     com.Parameters.Add("@Valid", SqlDbType.Int, 500);
                     com.Parameters["@Valid"].Direction = ParameterDirection.Output;
                     com.ExecuteNonQuery();
