@@ -539,6 +539,8 @@
     <Content Include="UI\Pages\CaptialSubsidyAppraisalNote.aspx" />
     <Content Include="UI\Pages\COI\AdApplications.aspx" />
     <Content Include="UI\Pages\COI\AdDashboard.aspx" />
+    <Content Include="UI\Pages\COI\ADRTGSDashboard.aspx" />
+    <Content Include="UI\Pages\COI\ADRTGSDashboardDrilldown.aspx" />
     <Content Include="UI\Pages\COI\ClerkApplications.aspx" />
     <Content Include="UI\Pages\COI\ClerkDashboard.aspx" />
     <Content Include="UI\Pages\COI\CommissionerApplications.aspx" />
@@ -1206,6 +1208,20 @@
     </Compile>
     <Compile Include="UI\Pages\COI\AdDashboard.aspx.designer.cs">
       <DependentUpon>AdDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ADRTGSDashboard.aspx.cs">
+      <DependentUpon>ADRTGSDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ADRTGSDashboard.aspx.designer.cs">
+      <DependentUpon>ADRTGSDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ADRTGSDashboardDrilldown.aspx.cs">
+      <DependentUpon>ADRTGSDashboardDrilldown.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pages\COI\ADRTGSDashboardDrilldown.aspx.designer.cs">
+      <DependentUpon>ADRTGSDashboardDrilldown.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Pages\COI\ClerkApplications.aspx.cs">
       <DependentUpon>ClerkApplications.aspx</DependentUpon>
