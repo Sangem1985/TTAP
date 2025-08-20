@@ -65,7 +65,9 @@ namespace TTAP.UI.Pages
                 string lblMstIncentiveId = ((Label)gvdetailsnew.Rows[indexing].FindControl("lblSubIncentiveID")).Text;
                 string lblCategory1 = ((Label)gvdetailsnew.Rows[indexing].FindControl("lblCategoryid")).Text;
                 string Status = Request.QueryString["Stage"].ToString();
-                Response.Redirect("frmDLSVCGenerateAgendaList.aspx?Cast=" + lblCategory1 + "&SubIncentiveID=" + lblMstIncentiveId + "&Status=" + Status);
+                int DistId = 0;
+                DistId = Convert.ToInt32(Session["DistrictId"].ToString());
+                Response.Redirect("GMUnitwiseList.aspx?Cast=" + lblCategory1 + "&SubIncentiveID=" + lblMstIncentiveId + "&Status=" + Status+ "&DistId=" + DistId);
             }
             catch(Exception ex)
             {

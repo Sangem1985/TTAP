@@ -85,6 +85,15 @@
 
         .LBLBLACK {
         }
+
+        table#ContentPlaceHolder1_rblBankDetails tr td {
+            margin: 10px !important;
+            padding: 0px 13px;
+        }
+
+            table#ContentPlaceHolder1_rblBankDetails tr td input {
+                margin: 0px 5px;
+            }
     </style>
     <script type="text/javascript" language="javascript">
 
@@ -125,7 +134,7 @@
                                     <tr>
                                         <td style="padding: 5px; margin: 5px; width: 100%" valign="top" colspan="12">
                                             <div style="width: 100%">
-                                                <asp:GridView ID="grdDetails" runat="server" AutoGenerateColumns="false" CellPadding="4"
+                                                <asp:GridView ID="GVDetails" runat="server" AutoGenerateColumns="false" CellPadding="4"
                                                     CssClass="GRD" ForeColor="#333333" Height="62px"
                                                     PageSize="15" ShowFooter="false" Width="100%" CellSpacing="4">
                                                     <FooterStyle BackColor="#be8c2f" Font-Bold="True" ForeColor="White" />
@@ -138,50 +147,66 @@
                                                             <HeaderStyle HorizontalAlign="Center" />
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:BoundField DataField="NameofUnitAddress" ItemStyle-HorizontalAlign="Center"
-                                                            HeaderText="Name of Unit & Address">
+
+                                                        <asp:BoundField DataField="UnitName" ItemStyle-HorizontalAlign="Center" HeaderText="Name of Unit">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>
-                                                        <asp:BoundField DataField="DateofReceipt" ItemStyle-HorizontalAlign="Center" HeaderText="Date of Receipt">
+                                                        <asp:BoundField DataField="IncentiveName" ItemStyle-HorizontalAlign="Center" HeaderText="Incentive Name">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>
-                                                        <asp:BoundField DataField="Scheme" ItemStyle-HorizontalAlign="Center" HeaderText="Scheme">
+                                                        <%--<asp:BoundField DataField="DateofReceipt" ItemStyle-HorizontalAlign="Center" HeaderText="Date of Receipt">
+                                                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                                    </asp:BoundField>--%>
+                                                        <%--<asp:BoundField DataField="Scheme" ItemStyle-HorizontalAlign="Center" HeaderText="Scheme">
+                                                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                                    </asp:BoundField>--%>
+                                                        <asp:BoundField DataField="FinalSanctionedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="Recommended Amount">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>
-                                                        <asp:BoundField DataField="RecommendedAmount" ItemStyle-HorizontalAlign="Center"
-                                                            HeaderText="Recommended Amount">
-                                                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                                        </asp:BoundField>
-                                                        <asp:BoundField DataField="AllotedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="Sanctioned Amount">
+                                                        <asp:BoundField DataField="TotalReleasedAmount" ItemStyle-HorizontalAlign="Center" HeaderText="Sanctioned Amount">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>
                                                         <asp:BoundField DataField="SanctionedDate" ItemStyle-HorizontalAlign="Center" HeaderText="Sanctioned Date">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>
-                                                        <asp:BoundField DataField="SLCNumer" ItemStyle-HorizontalAlign="Center" HeaderText="SLC Numer">
+                                                        <asp:BoundField DataField="Meeting_No" ItemStyle-HorizontalAlign="Center" HeaderText="SLC Numer">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>
-                                                        <asp:BoundField DataField="SLCDate" ItemStyle-HorizontalAlign="Center" HeaderText="SLCDate">
+                                                        <asp:BoundField DataField="MEETINGDATE" ItemStyle-HorizontalAlign="Center" HeaderText="SLC Date">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>
-                                                        <asp:BoundField DataField="SLCDate" ItemStyle-HorizontalAlign="Center" HeaderText="SLCDate">
-                                                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                                        </asp:BoundField>
+                                                        <%--<asp:BoundField DataField="SLCDate" ItemStyle-HorizontalAlign="Center" HeaderText="SLCDate">
+                                                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="MobileNumber" ItemStyle-HorizontalAlign="Center" HeaderText="MobileNumber">
+                                                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                                    </asp:BoundField>
+                                                     <asp:BoundField DataField="LAPSEDDATA" ItemStyle-HorizontalAlign="Center" HeaderText="Rollbacked(Lapsed Cheque)">
+                                                        <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                                    </asp:BoundField>--%>
                                                         <asp:TemplateField HeaderText="Incentiveid" Visible="false">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblEnterperIncentiveID" Text='<%#Eval("EnterperIncentiveID") %>' runat="server" />
+                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveID") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Incentiveid" Visible="false">
+                                                        <asp:TemplateField HeaderText="SubincentiveId" Visible="false">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveId") %>' runat="server" />
+                                                                <asp:Label ID="lblSubIncentiveID" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="SLCNumer" Visible="false">
+                                                        <asp:TemplateField HeaderText="Social Status" Visible="false">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblSLCNumernor" Text='<%#Eval("SLCNumer") %>' runat="server" />
+                                                                <asp:Label ID="lblStatus" Text='<%#Eval("SocialStatus") %>' runat="server" />
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="SLC No" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblSLCNumber" Text='<%#Eval("Meeting_No") %>' runat="server" />
+                                                            </ItemTemplate>
+                                                        </asp:TemplateField>
+
+
+
                                                         <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Intimation Letter"
                                                             Visible="false">
                                                             <ItemTemplate>
@@ -189,7 +214,7 @@
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Left" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Release Doc">
+                                                        <%--<asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Release Doc">
                                                             <ItemTemplate>
                                                                 <asp:HyperLink ID="lnkFile" Target="_blank" NavigateUrl='<%# Eval("LinkFile") %>'
                                                                     runat="server" Text="Release Order"></asp:HyperLink>
@@ -200,7 +225,7 @@
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lblFileName" runat="server" Text='<%#Eval("LINKNEW") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                                     </Columns>
                                                     <PagerStyle BackColor="#013161" ForeColor="White" HorizontalAlign="Center" />
                                                     <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
@@ -214,7 +239,7 @@
                                     <tr style="height: 25px">
                                         <td></td>
                                     </tr>
-                                    <tr id="trrollbackeddata" runat="server" visible="false">
+                                    <%-- <tr id="trrollbackeddata" runat="server" visible="false">
                                         <td style="padding: 5px; margin: 5px; color: blue; font-weight: bold" valign="top"
                                             colspan="12" runat="server" id="td1">Rollbacked data
                                         </td>
@@ -355,12 +380,12 @@
                                                 </asp:GridView>
                                             </div>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                 </table>
                             </div>
                         </td>
                     </tr>
-                    <tr style="height: 25px">
+                    <%--<tr style="height: 25px">
                         <td>
                             <tr id="trAgreementBondAttachments" runat="server" visible="false">
                                 <td style="padding: 5px; margin: 5px; font-weight: bold; font-size: 13pt" colspan="12"
@@ -368,8 +393,8 @@
                                 </td>
                             </tr>
                         </td>
-                    </tr>
-                    <tr id="trAgreementBondCopy" runat="server" visible="false">
+                    </tr>--%>
+                    <%-- <tr id="trAgreementBondCopy" runat="server" visible="false">
                         <td>
                             <div>
                                 Agreement Bond Copy :
@@ -382,25 +407,24 @@
                         <td>Assignment Letter :
                          <asp:HyperLink runat="server" ID="lnkAssignmentLetter" CssClass="LBLBLACK" Target="_blank"></asp:HyperLink>
                         </td>
-                    </tr>
+                    </tr>--%>
                     <tr>
                         <td>
                             <table>
                                 <tr>
-                                    <td style="margin: 5px; padding: 5px" align="left">Working Status
+                                    <td style="margin: 5px; padding: 5px" align="left"><b>A.Working Status</b>
                                     </td>
                                     <td style="margin: 5px; padding: 5px">:
                                     </td>
                                     <td style="padding: 30px; margin: 30px" align="left">
-                                        <asp:DropDownList ID="ddlworkingstatus" class="form-control txtbox" runat="server"
-                                            AutoPostBack="true">
+                                        <asp:DropDownList ID="ddlworkingstatus" class="form-control txtbox" runat="server">
                                             <asp:ListItem Value="0" Text="--Select--"></asp:ListItem>
-                                            <asp:ListItem Value="1" Text="Working"></asp:ListItem>
+                                            <%--<asp:ListItem Value="1" Text="Working"></asp:ListItem>
                                             <asp:ListItem Value="2" Text="Closed"></asp:ListItem>
-                                            <asp:ListItem Value="3" Text="Abeyance"></asp:ListItem>
+                                            <asp:ListItem Value="3" Text="Abeyance"></asp:ListItem>--%>
                                         </asp:DropDownList>
                                     </td>
-                                    <td style="margin: 5px; padding: 5px" align="left" runat="server" visible="false" id="tdROLL1">IF you want to continue with above rollbacked working status details
+                                    <%--    <td style="margin: 5px; padding: 5px" align="left" runat="server" visible="false" id="tdROLL1">IF you want to continue with above rollbacked working status details
                                     </td>
                                     <td style="margin: 5px; padding: 5px" runat="server" visible="false" id="tdROLL2">:
                                     </td>
@@ -409,7 +433,7 @@
                                             <asp:ListItem Value="Y">YES</asp:ListItem>
                                             <asp:ListItem Value="N">NO</asp:ListItem>
                                         </asp:RadioButtonList>
-                                    </td>
+                                    </td>--%>
                                 </tr>
                             </table>
                         </td>
@@ -419,7 +443,7 @@
                             <table align="left" cellpadding="10" cellspacing="5" style="width: 100%">
                                 <tr>
                                     <td style="padding: 5px; margin: 5px; font-weight: bold; font-size: 13pt" colspan="12"
-                                        align="left">Bank Details
+                                        align="left"><b>B.Bank Details</b>
                                     </td>
                                 </tr>
                                 <tr>
@@ -491,14 +515,23 @@
                         </td>
                     </tr>
                     <tr id="trBankDetails2" runat="server">
-                        <td style="padding: 10px; margin: 40px;">
-                            <asp:RadioButtonList ID="RadioButtonList1" runat="server" Width="600px" RepeatDirection="Horizontal"
-                                AutoPostBack="True">
-                                <asp:ListItem Value="1">Above MentionedBank Details are Correct</asp:ListItem>
-                                <asp:ListItem Value="2">Not Correct</asp:ListItem>
-                            </asp:RadioButtonList>
+                        <td>
+                            <table align="left" cellpadding="10" cellspacing="5" style="width: 100%">
+                                <tr>
+                                    <td style="width: 25%;">
+                                        <label class="fw-bold d-block mb-2"><b>C. Above Mentioned Bank Details are?</b></label></td>
+                                    <td>
+                                        <asp:RadioButtonList ID="rblBankDetails" runat="server" CssClass="form-check form-check-inline"
+                                            RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="rblBankDetails_SelectedIndexChanged">
+                                            <asp:ListItem Value="Y">Correct</asp:ListItem>
+                                            <asp:ListItem Value="N">Not Correct</asp:ListItem>
+                                        </asp:RadioButtonList></td>
+                                </tr>
+                            </table>
+
                         </td>
                     </tr>
+
                     <tr id="trBankDetails3" runat="server">
                         <td align="center" style="padding: 5px; margin: 5px; text-align: center;">
                             <table cellpadding="4" cellspacing="5" style="width: 100%">
@@ -509,17 +542,16 @@
                                     </td>
                                     <td class="style21" style="padding: 5px; margin: 5px">:
                                     </td>
-                                    <td class="style21" style="padding: 5px; margin: 5px; text-align: left;" colspan="6">
+                                    <td class="style21" style="padding: 5px; margin: 5px; text-align: left;">
                                         <asp:DropDownList ID="ddlBank" AutoPostBack="true" runat="server" class="form-control txtbox"
-                                            TabIndex="5" Width="250px" ValidationGroup="group">
+                                            TabIndex="5" Width="250px" ValidationGroup="group" OnSelectedIndexChanged="ddlBank_SelectedIndexChanged">
                                         </asp:DropDownList>
                                         <asp:RequiredFieldValidator ID="rfvBank" runat="server" InitialValue="-- SELECT --"
                                             ControlToValidate="ddlBank" ErrorMessage="Please Select Bank Name" ValidationGroup="group"
                                             SetFocusOnError="true" Display="None"></asp:RequiredFieldValidator>
                                     </td>
-                                </tr>
-                                <tr id="trNBFC" runat="server">
-                                    <td style="text-align: left"></td>
+                                     <td class="style21" style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;">
+                                    </td>
                                     <td style="padding: 5px; margin: 5px; text-align: left;">NBFC Name
                                     </td>
                                     <td>:
@@ -529,6 +561,9 @@
                                             MaxLength="200" TabIndex="5" ValidationGroup="group" Width="250px"></asp:TextBox>
                                     </td>
                                 </tr>
+                                <%--<tr id="trNBFC" runat="server">
+                                   
+                                </tr>--%>
                                 <tr>
                                     <td style="padding: 5px; margin: 5px; text-align: left; vertical-align: middle;">2
                                     </td>
@@ -543,8 +578,7 @@
                                             ErrorMessage="Please Enter Bank Name" ValidationGroup="group" SetFocusOnError="true"
                                             Display="None"></asp:RequiredFieldValidator>
                                     </td>
-                                    <td style="padding: 5px; margin: 5px; text-align: left;">&nbsp;
-                                    </td>
+
                                     <td class="style21" style="padding: 5px; margin: 5px; vertical-align: middle;">3
                                     </td>
                                     <td class="style23" style="padding: 5px; margin: 5px; text-align: left;">Account Number<%--<span style="font-weight: bold; color: Red;">*</span>--%>
@@ -573,7 +607,7 @@
                                             ErrorMessage="Please Enter IFSC Code" ValidationGroup="group" SetFocusOnError="true"
                                             Display="None" />
                                     </td>
-                                    <td colspan="3">
+                                    <td colspan="5">
                                         <a href="https://www.bankifsccode.com/" target="_blank">Find IFSC code</a>
                                     </td>
                                 </tr>
@@ -590,12 +624,11 @@
                                             <asp:ListItem Value="1" Text="Savings Account"></asp:ListItem>
                                             <asp:ListItem Value="2" Text="Current Account"></asp:ListItem>
                                             <asp:ListItem Value="3" Text="Term Loan Account"></asp:ListItem>
-                                            <%--<asp:ListItem Value="5" Text="Corporate Account"></asp:ListItem>--%>
+                                            <asp:ListItem Value="5" Text="Corporate Account"></asp:ListItem>
                                             <asp:ListItem Value="4" Text="Non Operative Account"></asp:ListItem>
                                         </asp:DropDownList>
                                     </td>
-                                    <td style="padding: 5px; margin: 5px; text-align: left;">&nbsp;
-                                    </td>
+
                                     <td style="padding: 5px; margin: 5px; width: 10px; vertical-align: middle;">6
                                     </td>
                                     <td class="style20" style="padding: 5px; margin: 5px; text-align: left;">Loan/Aggrement Account Number<%--<span style="font-weight: bold; color: Red;">*</span>--%>
@@ -617,14 +650,14 @@
                                     </td>
                                     <td class="style21" style="padding: 5px; margin: 5px">:
                                     </td>
-                                    <td class="style6" style="padding: 5px; margin: 5px; text-align: left;">
-                                        <asp:FileUpload ID="FileUpload1" runat="server" CssClass="CS" Height="28px" />
-                                        <asp:HyperLink ID="lblFileName" runat="server" CssClass="LBLBLACK" Width="165px"
-                                            Visible="false" Target="_blank"></asp:HyperLink>
-                                        <br />
-                                        <asp:Label ID="Label444" runat="server" Visible="False"></asp:Label>
-                                        <asp:Button ID="BtnSave3" runat="server" CssClass="btn btn-xs btn-warning" Height="28px"
-                                            TabIndex="10" Text="Upload" Width="72px" />
+                                    <td class="style6" style="padding: 5px; margin: 5px; text-align: left; display: flex;">
+                                        <asp:FileUpload ID="fupBankDet" runat="server" CssClass="CS" Height="28px" />
+                                        <asp:HyperLink ID="hypBankDet" runat="server" CssClass="LBLBLACK" Width="165px"
+                                            Visible="false" Target="_blank"></asp:HyperLink>&nbsp;&nbsp;
+                                        
+                                        <asp:Label ID="lblAttachment" runat="server" Visible="False"></asp:Label>
+                                        <asp:Button ID="btnBankAccountDet" runat="server" CssClass="btn btn-xs btn-warning" Height="28px"
+                                            TabIndex="10" Text="Upload" Width="92px" OnClick="btnBankAccountDet_Click" />
                                     </td>
                                     <td colspan="4">
                                         <a href="DisplayDocs/certificatefrombanker.pdf" target="_blank">Certificate from Banker</a>
@@ -676,12 +709,14 @@
                         </td>
                     </tr>
                     <tr>
-                        <td style="padding: 5px; margin: 5px" align="center" class="style7">
-                            <asp:Button ID="Button6" CssClass="btn btn-primary" runat="server" Text="Submit"
-                                Enabled="false" />
-                            <asp:HiddenField ID="HDFmsgOTP" runat="server" />
+                        <td class="style7" style="padding: 5px; margin: 5px;">
+                            <div style="display: flex; justify-content: center;">
+                                <asp:Button ID="btnSubmit" CssClass="btn btn-primary" runat="server" Text="Submit" Enabled="false" OnClick="btnSubmit_Click" />
+                                <asp:HiddenField ID="HDFmsgOTP" runat="server" />
+                            </div>
                         </td>
                     </tr>
+                    <br />
                     <tr>
                         <td align="center" style="padding: 5px; margin: 5px">
                             <div id="success" runat="server" visible="false" class="alert alert-success">

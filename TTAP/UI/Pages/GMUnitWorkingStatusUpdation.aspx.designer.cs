@@ -42,94 +42,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tdinvestments;
 
         /// <summary>
-        /// grdDetails control.
+        /// GVDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdDetails;
-
-        /// <summary>
-        /// trrollbackeddata control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trrollbackeddata;
-
-        /// <summary>
-        /// td1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell td1;
-
-        /// <summary>
-        /// trrollbackedgrid control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trrollbackedgrid;
-
-        /// <summary>
-        /// grdlapseddata control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdlapseddata;
-
-        /// <summary>
-        /// trAgreementBondAttachments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trAgreementBondAttachments;
-
-        /// <summary>
-        /// trAgreementBondCopy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trAgreementBondCopy;
-
-        /// <summary>
-        /// lblFileName2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lblFileName2;
-
-        /// <summary>
-        /// trAssignmentLetter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trAssignmentLetter;
-
-        /// <summary>
-        /// lnkAssignmentLetter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lnkAssignmentLetter;
+        protected global::System.Web.UI.WebControls.GridView GVDetails;
 
         /// <summary>
         /// ddlworkingstatus control.
@@ -139,42 +58,6 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlworkingstatus;
-
-        /// <summary>
-        /// tdROLL1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdROLL1;
-
-        /// <summary>
-        /// tdROLL2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdROLL2;
-
-        /// <summary>
-        /// tdROLL3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableCell tdROLL3;
-
-        /// <summary>
-        /// RBTYESORNO control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RBTYESORNO;
 
         /// <summary>
         /// trBankDetails1 control.
@@ -249,13 +132,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.HtmlControls.HtmlTableRow trBankDetails2;
 
         /// <summary>
-        /// RadioButtonList1 control.
+        /// rblBankDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList RadioButtonList1;
+        protected global::System.Web.UI.WebControls.RadioButtonList rblBankDetails;
 
         /// <summary>
         /// trBankDetails3 control.
@@ -283,15 +166,6 @@ namespace TTAP.UI.Pages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvBank;
-
-        /// <summary>
-        /// trNBFC control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow trNBFC;
 
         /// <summary>
         /// txtNBFCName control.
@@ -384,40 +258,40 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvLoanAggrementAcNo;
 
         /// <summary>
-        /// FileUpload1 control.
+        /// fupBankDet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+        protected global::System.Web.UI.WebControls.FileUpload fupBankDet;
 
         /// <summary>
-        /// lblFileName control.
+        /// hypBankDet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink lblFileName;
+        protected global::System.Web.UI.WebControls.HyperLink hypBankDet;
 
         /// <summary>
-        /// Label444 control.
+        /// lblAttachment control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label444;
+        protected global::System.Web.UI.WebControls.Label lblAttachment;
 
         /// <summary>
-        /// BtnSave3 control.
+        /// btnBankAccountDet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSave3;
+        protected global::System.Web.UI.WebControls.Button btnBankAccountDet;
 
         /// <summary>
         /// troptpbutton control.
@@ -465,13 +339,13 @@ namespace TTAP.UI.Pages
         protected global::System.Web.UI.WebControls.TextBox txtremarks;
 
         /// <summary>
-        /// Button6 control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button6;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
         /// HDFmsgOTP control.

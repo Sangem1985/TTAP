@@ -3806,6 +3806,98 @@ namespace TTAP.Classfiles
             Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS", pp);
             return Dsnew;
         }
+        public DataSet GetGMUnitWiseListIncentive(string Cast,string Subincentiveid,string Status, string DistID)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@CasteID",SqlDbType.VarChar),
+               new SqlParameter("@SubIncentiveID",SqlDbType.VarChar),
+               new SqlParameter("@Type",SqlDbType.VarChar),
+               new SqlParameter("@DISTID",SqlDbType.VarChar)
+           };
+            pp[0].Value = Cast;
+            pp[1].Value = Subincentiveid;
+            pp[2].Value = Status;
+            pp[3].Value = DistID;
+            Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS_DRILLDOWN", pp);
+            return Dsnew;
+        }
+        public DataSet GetUnitWorkingStatusUpdation(string Cast, string Status,string IncentiveId, string Subincentiveid,  string DistID)
+        {
+            DataSet Dsnew = new DataSet();
+
+            SqlParameter[] pp = new SqlParameter[] {
+               new SqlParameter("@CasteID",SqlDbType.VarChar),
+               new SqlParameter("@Type",SqlDbType.VarChar),
+               new SqlParameter("@IncentiveID",SqlDbType.VarChar),
+               new SqlParameter("@SubIncentiveID",SqlDbType.VarChar),               
+               new SqlParameter("@DISTID",SqlDbType.VarChar)
+           };
+            pp[0].Value = Cast;
+            pp[1].Value = Status;
+            pp[2].Value = IncentiveId;
+            pp[3].Value = Subincentiveid;           
+            pp[4].Value = DistID;
+            Dsnew = GenericFillDs("USP_GET_RELEASE_ABSTRACT_FOR_UNITSTATUS_UPDATION", pp);
+            return Dsnew;
+        }
+        public string INSUnitWorkingStatusUpdation(GmfinalProceedings GmfinalProceeding)
+        {
+            string valid = "";
+            SqlConnection connection = new SqlConnection(str);
+            SqlTransaction transaction = null;
+            connection.Open();
+            transaction = connection.BeginTransaction();
+            try
+            {
+                SqlCommand com = new SqlCommand();
+                com.CommandType = CommandType.StoredProcedure;
+                com.CommandText = "USP_UPDATE_UNIT_WORKING_STATUS_BYGM";
+
+                com.Transaction = transaction;
+                com.Connection = connection;
+
+                com.Parameters.AddWithValue("@SubIncentiveId", Convert.ToString(GmfinalProceeding.SubIncentiveId));
+                com.Parameters.AddWithValue("@IncentiveID", Convert.ToString(GmfinalProceeding.IncentiveID));
+                com.Parameters.AddWithValue("@SLCMeetingNumer", Convert.ToString(GmfinalProceeding.SLCNumer));
+                com.Parameters.AddWithValue("@WorkingStatus", Convert.ToString(GmfinalProceeding.WorkingStatus));
+                com.Parameters.AddWithValue("@AccDtlsConfirmationFlg", Convert.ToString(GmfinalProceeding.AccNoConfirmationFlg));
+                com.Parameters.AddWithValue("@NewBankname", Convert.ToString(GmfinalProceeding.Newbankname));
+
+                com.Parameters.AddWithValue("@NewAccountNumber", Convert.ToString(GmfinalProceeding.AccountNumber));
+                com.Parameters.AddWithValue("@NewBranchname", Convert.ToString(GmfinalProceeding.NewBranchname));
+                com.Parameters.AddWithValue("@NewIFSCcode", Convert.ToString(GmfinalProceeding.NewIFSCcode));
+                com.Parameters.AddWithValue("@NewAccountType", Convert.ToString(GmfinalProceeding.NewAccountType));
+                com.Parameters.AddWithValue("@NewLoanAggrementAcNo", Convert.ToString(GmfinalProceeding.LoanAggrementAccountNo));
+                com.Parameters.AddWithValue("@Remarks", Convert.ToString(GmfinalProceeding.Remarks));           
+               
+
+                com.Parameters.AddWithValue("@NewNBFCname", Convert.ToString(GmfinalProceeding.nbfcName));
+
+                com.Parameters.AddWithValue("@CreatedBy ", Convert.ToString(GmfinalProceeding.CreatedByid));
+
+                com.Parameters.Add("@Valid", SqlDbType.VarChar, 500);
+                com.Parameters["@Valid"].Direction = ParameterDirection.Output;
+                com.ExecuteNonQuery();
+
+                valid = com.Parameters["@Valid"].Value.ToString();
+
+                transaction.Commit();
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+                connection.Dispose();
+            }
+            return valid;
+        }
         public DataSet GetSVCYetGenerateAgenda(string DistID, string Stage, string PartialSanction)
         {
             DataSet Dsnew = new DataSet();

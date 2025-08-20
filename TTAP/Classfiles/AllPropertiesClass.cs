@@ -2896,7 +2896,7 @@ namespace TTAP.Classfiles
         public string MORATORIUMMONTH { get; set; }
         public string UPLOAD { get; set; }
         public string SUBINCENTIVEID { get; set; }
-         public string TextBox59 { get; set; }
+        public string TextBox59 { get; set; }
         public string txt423guideline { get; set; }
         public string txtTSSFCnorms423 { get; set; }
         public string txtvalue424 { get; set; }
@@ -2953,7 +2953,7 @@ namespace TTAP.Classfiles
 
         /*POWER*/
 
-       
+
         public string Month1 { get; set; }
         public string Month2 { get; set; }
         public string Month3 { get; set; }
@@ -3322,8 +3322,27 @@ namespace TTAP.Classfiles
         public string PendingAmount { get; set; }
         public string slno { get; set; }
         public string IsPartial { get; set; }
-        public string SantionedAmount { get; set; }        
+        public string SantionedAmount { get; set; }
     }
-   
+    public class GmfinalProceedings
+    {
+        public string SubIncentiveId { get; set; }
+        public string LoanAggrementAccountNo { get; set; }
+        public string IncentiveID { get; set; }
+        public string SLCNumer { get; set; }
+        public string nbfcName { get; set; }
+        public string WorkingStatus { get; set; }
+        public string CreatedByid { get; set; }
+        public string Newbankname { get; set; }
+        public string NewBranchname { get; set; }
+        public string NewIFSCcode { get; set; }
+        public string NewAccountType { get; set; }
+        public string Remarks { get; set; }
+        public string AccountNumber { get; set; }
+        public string AccNoConfirmationFlg { get; set; }
+        public string SubIncTypeId { get; set; }
+        public string txtNBFCName { get; set; }
+
+    }
 
 }

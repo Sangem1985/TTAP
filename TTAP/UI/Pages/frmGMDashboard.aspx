@@ -356,10 +356,10 @@
                                         </a>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-sm-6 mb-4">
                                     <div class="list-group">
-                                     
+
                                         <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
                                             <span><i class="fa fa-fw fa-check"></i>Queries from COI</span>
                                         </a>
@@ -404,7 +404,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div id="divline3" runat="server">
                                 <h1 class="page-head-linenew" align="left" style="font-size: smaller"></h1>
@@ -583,16 +583,60 @@
                                             <span><i class="fa fa-fw fa-check"></i>Unit Working Status</span>
                                         </a>
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
-                                            <span><i class="fa fa-fw fa-calendar"></i> Confirm Working Status For Release (SLC) </span>
+                                            <span><i class="fa fa-fw fa-calendar"></i>Confirm Working Status For Release (SLC) </span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblReleaseSLC" runat="server"></asp:Label>
                                             </span>
                                         </a>
 
                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=DIPC">
-                                            <span><i class="fa fa-fw fa-calendar"></i> Confirm Working Status For Release (DIPC) </span>
+                                            <span><i class="fa fa-fw fa-calendar"></i>Confirm Working Status For Release (DIPC) </span>
                                             <span class="badge badge-pill badge-success">
                                                 <asp:Label ID="lblReleaseDIPC" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 mb-4">
+                                    <div class="list-group">
+                                        <a class="list-group-item d-flex justify-content-between align-items-center text-blue font-SemiBold list-heading-bg">
+                                            <span><i class="fa fa-fw fa-check"></i>Print Working Status</span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Print Working Status (SLC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblWorkingStatusSLC" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Print Close Working Status (SLC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblCloseStatusSLC" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Print Abency Working Status (SLC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblAbencyStatusSLC" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+
+                                         <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Print Working Status (DIPC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblWorkingStatusDIPC" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Print Close Working Status (DIPC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblCloseStatusDIPC" runat="server"></asp:Label>
+                                            </span>
+                                        </a>
+                                        <a class="list-group-item d-flex justify-content-between align-items-center list-group-item-action" href="IncentivewiseListGM.aspx?Stage=SLC">
+                                            <span><i class="fa fa-fw fa-calendar"></i>Print Abency Working Status (DIPC) </span>
+                                            <span class="badge badge-pill badge-success">
+                                                <asp:Label ID="lblAbencyStatusDIPC" runat="server"></asp:Label>
                                             </span>
                                         </a>
                                     </div>
