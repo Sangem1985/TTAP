@@ -36,9 +36,9 @@ namespace BusinessLogic
               
 
         //added by chinna 
-        public DataTable InsUpdCOI_Incentive_Attachments(int AttachmentType, int IncentiveID, int MasterIncentiveID, int SlcNumber, string FileNm, string FilePath, int Createdby)
+        public DataTable InsUpdCOI_Incentive_Attachments(int AttachmentType, int IncentiveID, int MasterIncentiveID, int SlcNumber, string FileNm, string FilePath, int Createdby,string FileDescription)
         {
-            return SqlHelper.ExecuteDataset(con, "usp_InsUpdCOI_Uploads_Incentive", AttachmentType, MasterIncentiveID, IncentiveID, SlcNumber, FileNm, FilePath, Createdby).Tables[0];
+            return SqlHelper.ExecuteDataset(con, "usp_InsUpdCOI_Uploads_Incentive", AttachmentType, MasterIncentiveID, IncentiveID, SlcNumber, FileNm, FilePath, Createdby, FileDescription).Tables[0];
         }        
 
         public DataSet InsUpdDelRawmaterial(string flag, int ID, string EMNoUdyogAadhaar, string TypeofApplication, string UnitName, string District, string Mandal, string Address, string RawmaterialforAllotment, string Requirement, string Usagedetails, string ExistingAllotmentOrder, string ValidCFO, string BoilerDetails, string Proofofproductiontillpreviousmonth, string VAT, string RG1Register, string ProcessDescriptionFlowChart, string Createdby, DateTime CreatedDate, string modifiedby, DateTime Modified_dt, string uom) { return SqlHelper.ExecuteDataset(con, "InsUpdDelRawmaterial", flag, ID, EMNoUdyogAadhaar, TypeofApplication, UnitName, District, Mandal, Address, RawmaterialforAllotment, Requirement, Usagedetails, ExistingAllotmentOrder, ValidCFO, BoilerDetails, Proofofproductiontillpreviousmonth, VAT, RG1Register, ProcessDescriptionFlowChart, Createdby, CreatedDate, modifiedby, Modified_dt, uom); }

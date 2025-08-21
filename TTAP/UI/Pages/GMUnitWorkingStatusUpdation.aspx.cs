@@ -14,6 +14,7 @@ namespace TTAP.UI.Pages
     {
         CAFClass ObjCAFClass = new CAFClass();
         DataSet ds = new DataSet();
+        string linkfile = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -28,6 +29,7 @@ namespace TTAP.UI.Pages
 
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[1].Rows.Count > 0)
                 {
+                    linkfile = ds.Tables[1].Rows[0]["filePath"].ToString();
                     tdinvestments.InnerHtml = "--> " + ds.Tables[1].Rows[0]["IncentiveName"].ToString();
                     GVDetails.DataSource = ds.Tables[1];
                     GVDetails.DataBind();
@@ -277,9 +279,10 @@ namespace TTAP.UI.Pages
                                 IncentiveID = ((Label)gvrow.FindControl("lblIncentiveID")).Text;
                                 SLCNumer = ((Label)gvrow.FindControl("lblSLCNumber")).Text;
                                 newPath = System.IO.Path.Combine(sFileDir, SLCNumer);
+                                string FileDescription = "BankAccountDetails";
                                 if (MstIncentiveId != "" && IncentiveID != "" && SLCNumer != "")
                                 {
-                                    objDml.InsUpdCOI_Incentive_Attachments(2, Convert.ToInt32(IncentiveID), Convert.ToInt32(MstIncentiveId), Convert.ToInt32(SLCNumer), sFileName, newPath, Convert.ToInt32(Session["uid"].ToString()));
+                                    objDml.InsUpdCOI_Incentive_Attachments(2, Convert.ToInt32(IncentiveID), Convert.ToInt32(MstIncentiveId), Convert.ToInt32(SLCNumer), sFileName, newPath, Convert.ToInt32(Session["uid"].ToString()), FileDescription);
                                 }
                             }
 
@@ -409,7 +412,7 @@ namespace TTAP.UI.Pages
                         GmfinalProceeding.SubIncentiveId = ((Label)GVDetails.Rows[0].FindControl("lblSubIncentiveID")).Text;
                         GmfinalProceeding.IncentiveID = ((Label)GVDetails.Rows[0].FindControl("lblIncentiveID")).Text;
                         GmfinalProceeding.SLCNumer = ((Label)GVDetails.Rows[0].FindControl("lblSLCNumber")).Text;
-                        GmfinalProceeding.WorkingStatus = ddlworkingstatus.SelectedValue;
+                        GmfinalProceeding.WorkingStatus = ddlworkingstatus.SelectedItem.Text;
                         GmfinalProceeding.Newbankname = "0";
                         GmfinalProceeding.NewBranchname = "0";
                         GmfinalProceeding.NewIFSCcode = "0";
@@ -439,7 +442,7 @@ namespace TTAP.UI.Pages
                         GmfinalProceeding.SubIncentiveId = ((Label)GVDetails.Rows[0].FindControl("lblSubIncentiveID")).Text;
                         GmfinalProceeding.IncentiveID = ((Label)GVDetails.Rows[0].FindControl("lblIncentiveID")).Text;
                         GmfinalProceeding.SLCNumer = ((Label)GVDetails.Rows[0].FindControl("lblSLCNumber")).Text;
-                        GmfinalProceeding.WorkingStatus = ddlworkingstatus.SelectedValue;
+                        GmfinalProceeding.WorkingStatus = ddlworkingstatus.SelectedItem.Text;
                         GmfinalProceeding.Newbankname = "0";
                         GmfinalProceeding.NewBranchname = "0";
                         GmfinalProceeding.NewIFSCcode = "0";
@@ -469,7 +472,7 @@ namespace TTAP.UI.Pages
                         GmfinalProceeding.SubIncentiveId = ((Label)GVDetails.Rows[0].FindControl("lblSubIncentiveID")).Text;
                         GmfinalProceeding.IncentiveID = ((Label)GVDetails.Rows[0].FindControl("lblIncentiveID")).Text;
                         GmfinalProceeding.SLCNumer = ((Label)GVDetails.Rows[0].FindControl("lblSLCNumber")).Text;
-                        GmfinalProceeding.WorkingStatus = ddlworkingstatus.SelectedValue;
+                        GmfinalProceeding.WorkingStatus = ddlworkingstatus.SelectedItem.Text;
                         GmfinalProceeding.Newbankname = ddlBank.SelectedItem.Text;
                         GmfinalProceeding.NewBranchname = txtBranchName.Text;
                         GmfinalProceeding.NewIFSCcode = txtIfscCode.Text;
@@ -506,46 +509,64 @@ namespace TTAP.UI.Pages
                 throw ex;
             }
         }
-
-       /* protected void ddlworkingstatus_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GVDetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (ddlworkingstatus.SelectedValue == "2" || ddlworkingstatus.SelectedValue == "3")
+            if (linkfile == "")
             {
-                //Button6.Enabled = true;
-
-                btnSubmit.Enabled = true;
-                trBankDetails1.Visible = false;
-                trBankDetails2.Visible = false;
-                trBankDetails3.Visible = false;
-                //tdROLL1.Visible = false;
-                //tdROLL2.Visible = false;
-                //tdROLL3.Visible = false;
-                txtremarks.Text = "";
+                GVDetails.Columns[14].Visible = false;
             }
-            else
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                trBankDetails1.Visible = true;
-                trBankDetails2.Visible = true;
-                trBankDetails3.Visible = true;
-                troptpbutton.Visible = false;
-                //if (trrollbackeddata.Visible == true && trrollbackedgrid.Visible == true)
-                //{
-                //    if (ddlworkingstatus.SelectedValue == "1")
-                //    {
-                //        tdROLL1.Visible = true;
-                //        tdROLL2.Visible = true;
-                //        tdROLL3.Visible = true;
-                //        RadioButtonList1.Enabled = false;
-                //    }
-                //    else
-                //    {
-                //        tdROLL1.Visible = false;
-                //        tdROLL2.Visible = false;
-                //        tdROLL3.Visible = false;
-                //    }
-                //}
-
+               // Label enterid = (e.Row.FindControl("lblIncentiveID") as Label);
+               // Label MstIncentiveId = (e.Row.FindControl("lblIncentiveID") as Label);
+               // string filepathnew = Convert.ToString(DataBinder.Eval(e.Row.DataItem, "LINKNEW"));
+               //// string encpassword = gen.Encrypt(filepathnew, "SYSTIME");
+               // HyperLink h1 = (HyperLink)e.Row.FindControl("lnkFile");
+               // h1.NavigateUrl = "CS.aspx?filepathnew=" + encpassword;
             }
-        }*/
+
+        }
+
+        /* protected void ddlworkingstatus_SelectedIndexChanged(object sender, EventArgs e)
+         {
+             if (ddlworkingstatus.SelectedValue == "2" || ddlworkingstatus.SelectedValue == "3")
+             {
+                 //Button6.Enabled = true;
+
+                 btnSubmit.Enabled = true;
+                 trBankDetails1.Visible = false;
+                 trBankDetails2.Visible = false;
+                 trBankDetails3.Visible = false;
+                 //tdROLL1.Visible = false;
+                 //tdROLL2.Visible = false;
+                 //tdROLL3.Visible = false;
+                 txtremarks.Text = "";
+             }
+             else
+             {
+                 trBankDetails1.Visible = true;
+                 trBankDetails2.Visible = true;
+                 trBankDetails3.Visible = true;
+                 troptpbutton.Visible = false;
+                 //if (trrollbackeddata.Visible == true && trrollbackedgrid.Visible == true)
+                 //{
+                 //    if (ddlworkingstatus.SelectedValue == "1")
+                 //    {
+                 //        tdROLL1.Visible = true;
+                 //        tdROLL2.Visible = true;
+                 //        tdROLL3.Visible = true;
+                 //        RadioButtonList1.Enabled = false;
+                 //    }
+                 //    else
+                 //    {
+                 //        tdROLL1.Visible = false;
+                 //        tdROLL2.Visible = false;
+                 //        tdROLL3.Visible = false;
+                 //    }
+                 //}
+
+             }
+         }*/
     }
 }

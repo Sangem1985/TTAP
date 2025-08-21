@@ -343,13 +343,13 @@
                                     </div>
                                     <div class="panel-heading" style="text-align: center">
                                         <h3 visible="false" id="Government" runat="server" class="panel-title" style="font-weight: bold;">Government of Telangana</h3>
-                                        <h3 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
-                                            <asp:Label ID="lblHeading" runat="server">Pending Generate Check Preparation List </asp:Label>
-                                            <a id="Button2" href="#" runat="server">
+                                        <h4 id="H1" runat="server" class="panel-title" style="font-weight: bold;">
+                                            <asp:Label ID="lblHeading" runat="server">Pending Generate Check Preparation List </asp:Label></h4>
+                                        <%-- <a id="Button2" href="#" runat="server">
                                                 <img src="../../Resource/Images/pdf-icon.png" width="20px;" height="20px;" style="float: right;"
-                                                    alt="PDF" /></a> <a id="A1" href="#" runat="server">
+                                                    alt="PDF" /></a>--%> <%--<a id="A1" href="#" runat="server">
                                                         <img src="../../Resource/Images/Excel-icon.png" width="20px;" height="20px;" style="float: right;"
-                                                            alt="Excel" /></a></h3>
+                                                            alt="Excel" /></a>--%>
                                     </div>
                                     <div class="panel-body">
                                         <table align="left" cellpadding="10" cellspacing="5" style="width: 100%">
@@ -433,7 +433,7 @@
                                                                 <%--    <asp:BoundField DataField="SLCDate" ItemStyle-HorizontalAlign="Center" HeaderText="SLCDate">
                                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                         </asp:BoundField>--%>
-                                                                <asp:TemplateField HeaderText="SubIncentiveid">
+                                                                <asp:TemplateField HeaderText="SubIncentiveid" Visible="false">
                                                                     <ItemTemplate>
                                                                         <asp:Label ID="lblSubIncentiveID" Text='<%#Eval("SubIncentiveID") %>' runat="server" />
                                                                     </ItemTemplate>

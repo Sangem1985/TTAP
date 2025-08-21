@@ -113,6 +113,12 @@
                                                         </ItemTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
                                                     </asp:TemplateField>
+                                                    <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Balance Amount">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblBalance" runat="server"></asp:Label>
+                                                        </ItemTemplate>
+                                                        <HeaderStyle HorizontalAlign="Left" />
+                                                    </asp:TemplateField>
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="SLC Number">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblSLCNumber" Text='<%#Eval("SLCNumer") %>' runat="server"></asp:Label>
@@ -230,7 +236,7 @@
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderText="SLCNumer" Visible="false">
                                                                 <ItemTemplate>
-                                                                    <asp:Label ID="lblSLCNumer" Text='<%#Eval("SLCNumer") %>' runat="server" />                                                                   
+                                                                    <asp:Label ID="lblSLCNumer" Text='<%#Eval("SLCNumer") %>' runat="server" />
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Incentive Name">
@@ -239,9 +245,9 @@
                                                                 </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Left" />
                                                             </asp:TemplateField>
-                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Partial">
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Partial">
                                                                 <ItemTemplate>
-                                                                   <asp:Label ID="lblIsPartial" Text='<%#Eval("IsPartial") %>' runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblIsPartial" Text='<%#Eval("IsPartial") %>' runat="server"></asp:Label>
                                                                 </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Left" />
                                                             </asp:TemplateField>
@@ -316,7 +322,7 @@
                                                             <asp:TemplateField HeaderText="SLCNumer" Visible="false">
                                                                 <ItemTemplate>
                                                                     <asp:Label ID="lblSLCNumer" Text='<%#Eval("SLCNumer") %>' runat="server" />
-                                                                   <%--  <asp:Label ID="lblIsPartial" Text='<%#Eval("IsPartial") %>' runat="server"></asp:Label>--%>
+                                                                    <%--  <asp:Label ID="lblIsPartial" Text='<%#Eval("IsPartial") %>' runat="server"></asp:Label>--%>
                                                                 </ItemTemplate>
                                                             </asp:TemplateField>
                                                             <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Incentive Name">
@@ -324,10 +330,10 @@
                                                                     <asp:Label ID="lblINCName" Text='<%#Eval("IncentiveName") %>' runat="server"></asp:Label>
                                                                 </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Left" />
-                                                            </asp:TemplateField>            
-                                                              <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Partial">
+                                                            </asp:TemplateField>
+                                                            <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Partial">
                                                                 <ItemTemplate>
-                                                                   <asp:Label ID="lblIsPartial" Text='<%#Eval("IsPartial") %>' runat="server"></asp:Label>
+                                                                    <asp:Label ID="lblIsPartial" Text='<%#Eval("IsPartial") %>' runat="server"></asp:Label>
                                                                 </ItemTemplate>
                                                                 <HeaderStyle HorizontalAlign="Left" />
                                                             </asp:TemplateField>

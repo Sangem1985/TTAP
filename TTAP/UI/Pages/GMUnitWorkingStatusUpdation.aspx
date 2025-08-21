@@ -135,7 +135,7 @@
                                         <td style="padding: 5px; margin: 5px; width: 100%" valign="top" colspan="12">
                                             <div style="width: 100%">
                                                 <asp:GridView ID="GVDetails" runat="server" AutoGenerateColumns="false" CellPadding="4"
-                                                    CssClass="GRD" ForeColor="#333333" Height="62px"
+                                                    CssClass="GRD" ForeColor="#333333" Height="62px" OnRowDataBound="GVDetails_RowDataBound"
                                                     PageSize="15" ShowFooter="false" Width="100%" CellSpacing="4">
                                                     <FooterStyle BackColor="#be8c2f" Font-Bold="True" ForeColor="White" />
                                                     <RowStyle BackColor="#EBF2FE" CssClass="GRDITEM" HorizontalAlign="Left" VerticalAlign="Middle" />
@@ -216,14 +216,20 @@
                                                         </asp:TemplateField>
                                                         <%--<asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Release Doc">
                                                             <ItemTemplate>
-                                                                <asp:HyperLink ID="lnkFile" Target="_blank" NavigateUrl='<%# Eval("LinkFile") %>'
+                                                                <asp:HyperLink ID="lnkFile" Target="_blank" NavigateUrl='<%# Eval("filePath") %>'
                                                                     runat="server" Text="Release Order"></asp:HyperLink>
                                                             </ItemTemplate>
                                                             <HeaderStyle HorizontalAlign="Left" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Attachment" Visible="false">
+                                                        </asp:TemplateField>--%>
+                                                        <asp:TemplateField HeaderStyle-CssClass="text-center" HeaderText="Release Doc">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="lblFileName" runat="server" Text='<%#Eval("LINKNEW") %>'></asp:Label>
+                                                                <asp:HyperLink ID="lnkFile" Text="View" NavigateUrl='<%#Eval("filePath")%>' Target="_blank" runat="server" />
+                                                            </ItemTemplate>
+                                                            <ItemStyle HorizontalAlign="Left" CssClass="text-center" Width="100px" />
+                                                        </asp:TemplateField>
+                                                        <%--<asp:TemplateField HeaderText="Attachment" Visible="false">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="lblFileName" runat="server" Text='<%#Eval("FILENAMES") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>--%>
                                                     </Columns>

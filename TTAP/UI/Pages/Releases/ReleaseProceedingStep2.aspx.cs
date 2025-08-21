@@ -17,6 +17,7 @@ namespace TTAP.UI.Pages.Releases
         CAFClass ObjCAFClass = new CAFClass();
         decimal TotalSanctioned = 0;
         decimal TotalAllotted = 0;
+        decimal BalanceAmount = 0;
         DataSet dss = new DataSet();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -53,19 +54,25 @@ namespace TTAP.UI.Pages.Releases
             {
                 Label lblSanctionedAmount = (e.Row.FindControl("lblSanctionedAmount") as Label);
                 TextBox txtReleaseAmount = (e.Row.FindControl("txtReleaseAmount") as TextBox);
+                Label lblBalance =(e.Row.FindControl("lblBalance") as Label);
 
                 decimal TotalSanctioned1 = Convert.ToDecimal(lblSanctionedAmount.Text);
                 TotalSanctioned = TotalSanctioned + TotalSanctioned1;
 
                 decimal TotalAllotted1 = Convert.ToDecimal(txtReleaseAmount.Text);
                 TotalAllotted = TotalAllotted + TotalAllotted1;
+
+                decimal BalanceAmount1 = TotalSanctioned1 - TotalAllotted1;
+                lblBalance.Text = BalanceAmount1.ToString("N2");
+                BalanceAmount = BalanceAmount + BalanceAmount1;
             }
             if (e.Row.RowType == DataControlRowType.Footer)
             {
                 e.Row.Font.Bold = true;
                 e.Row.Cells[2].Text = "Total";
                 e.Row.Cells[3].Text = TotalSanctioned.ToString("N2");
-                e.Row.Cells[5].Text = TotalAllotted.ToString("N2");
+                e.Row.Cells[6].Text = TotalAllotted.ToString("N2");               
+
             }
             decimal RemainingAmount = Convert.ToDecimal(Request.QueryString["GOAmount"].ToString().Trim()) - TotalAllotted;
             lblRemainingAmount.Text = RemainingAmount.ToString();
@@ -132,7 +139,7 @@ namespace TTAP.UI.Pages.Releases
                         footer.Cells[3].Text = ((decimal)ViewState["TotalSanctioned"]).ToString("N2");
 
                     if (ViewState["TotalAllotted"] != null)
-                        footer.Cells[5].Text = ((decimal)ViewState["TotalAllotted"]).ToString("N2");
+                        footer.Cells[6].Text = ((decimal)ViewState["TotalAllotted"]).ToString("N2");
                 }
             }
         }
@@ -178,9 +185,10 @@ namespace TTAP.UI.Pages.Releases
                                 IncentiveID = ((Label)gvrow.FindControl("lblIncentiveId")).Text;
                                 SLCNumer = ((Label)gvrow.FindControl("lblSLCNumber")).Text;
                                 newPath = System.IO.Path.Combine(sFileDir, SLCNumer);
+                                string FileDescription = "ReleaseProceedingCopy";
                                 if (MstIncentiveId != "" && IncentiveID != "" && SLCNumer != "")
                                 {
-                                    objDml.InsUpdCOI_Incentive_Attachments(2, Convert.ToInt32(IncentiveID), Convert.ToInt32(MstIncentiveId), Convert.ToInt32(SLCNumer), sFileName, newPath, Convert.ToInt32(Session["uid"].ToString()));
+                                    objDml.InsUpdCOI_Incentive_Attachments(2, Convert.ToInt32(IncentiveID), Convert.ToInt32(MstIncentiveId), Convert.ToInt32(SLCNumer), sFileName, newPath, Convert.ToInt32(Session["uid"].ToString()), FileDescription);
                                 }
                             }
 
@@ -275,7 +283,7 @@ namespace TTAP.UI.Pages.Releases
                     objrp.Caste = Request.QueryString["Category"].ToString().Trim();
                     objrp.RemaningAmt = lblRemainingAmount.Text;
                     objrp.GoReleaseAmt = Request.QueryString["GOAmount"].ToString().Trim();
-                    if (chkIsSpecialUnit.Checked==true)
+                    if (chkIsSpecialUnit.Checked == true)
                     {
                         objrp.SplCase = "Y";
                     }
@@ -336,8 +344,10 @@ namespace TTAP.UI.Pages.Releases
         {
             try
             {
+
                 if (chkIsSpecialUnit.Checked == true)
                 {
+                    lblSpecialcaseRelease.Text = "";
                     divSpecialCase.Visible = true;
                     divSacnctionINC.Visible = false;
                     divReleaseProceeding.Visible = false;
@@ -483,7 +493,7 @@ namespace TTAP.UI.Pages.Releases
                             trUnitresult.Visible = true;
                             divSpecialCase.Visible = true;
                             divReleaseAmount.Visible = true;
-                            Failure.Visible=false;
+                            Failure.Visible = false;
                         }
                         else
                         {
@@ -624,9 +634,57 @@ namespace TTAP.UI.Pages.Releases
             return dt;
 
         }
+        /* private DataTable AddRow(GridViewRow gvRow, DataTable dt)
+         {
+
+             Label enterid = (gvRow.FindControl("lblIncentiveID") as Label);
+             Label lblMstIncentiveId = (gvRow.FindControl("lblMstIncentiveId") as Label);
+             Label lblIncentiveID = (gvRow.FindControl("lblIncentiveID") as Label);
+             Label lblSLCNumer = (gvRow.FindControl("lblSLCNumer") as Label);
+             Label lblUnitMObileNo = (gvRow.FindControl("lblUnitMObileNo") as Label);
+             Label lblApplicationno = (gvRow.FindControl("lblApplicationno") as Label);
+             Label lblApplicantName = (gvRow.FindControl("lblApplicantName") as Label);
+           //  TextBox txtRelaseamount = (gvRow.FindControl("txtReleaseAmount") as TextBox);
+            Label lblpartial = (gvRow.FindControl("lblIsPartial") as Label);
+             Label lblINCName = (gvRow.FindControl("lblINCName") as Label);
+
+             DataRow[] dr = dt.Select("EnterperIncentiveID = '" + enterid.Text + "'");
+             if (dr.Length <= 0)
+             {
+                 dt.Rows.Add();
+                 dt.Rows[dt.Rows.Count - 1]["NameofUnit"] = gvRow.Cells[2].Text;
+                 dt.Rows[dt.Rows.Count - 1]["Address"] = gvRow.Cells[3].Text;
+                 dt.Rows[dt.Rows.Count - 1]["DCP"] = gvRow.Cells[4].Text;
+
+                 dt.Rows[dt.Rows.Count - 1]["SanctionedAmount"] = gvRow.Cells[5].Text;
+                 dt.Rows[dt.Rows.Count - 1]["SanctionedDate"] = gvRow.Cells[6].Text;
+
+                 //dt.Rows[dt.Rows.Count - 1]["SanctionedAmount"] = txtRelaseamount.Text;
+                // dt.Rows[dt.Rows.Count - 1]["AllotedAmount"] = gvRow.Cells[5].Text;
+
+
+                 dt.Rows[dt.Rows.Count - 1]["MstIncentiveId"] = lblMstIncentiveId.Text;
+                 dt.Rows[dt.Rows.Count - 1]["EnterperIncentiveID"] = lblIncentiveID.Text;
+                 dt.Rows[dt.Rows.Count - 1]["SLCNumer"] = lblSLCNumer.Text;
+                 dt.Rows[dt.Rows.Count - 1]["IncentiveName"] = lblINCName.Text; //gvRow.Cells[8].Text;//lblINCName.Text;
+                 dt.Rows[dt.Rows.Count - 1]["IsPartial"] = lblpartial.Text;
+               // dt.Rows[dt.Rows.Count - 1]["ApplicantName"] = lblApplicantName.Text;
+
+
+
+
+                 dt.AcceptChanges();
+                 AddStatus = 1;
+             }
+             else
+             {
+                 AddStatus = 0;
+             }
+
+             return dt;
+         }*/
         private DataTable AddRow(GridViewRow gvRow, DataTable dt)
         {
-
             Label enterid = (gvRow.FindControl("lblIncentiveID") as Label);
             Label lblMstIncentiveId = (gvRow.FindControl("lblMstIncentiveId") as Label);
             Label lblIncentiveID = (gvRow.FindControl("lblIncentiveID") as Label);
@@ -634,42 +692,32 @@ namespace TTAP.UI.Pages.Releases
             Label lblUnitMObileNo = (gvRow.FindControl("lblUnitMObileNo") as Label);
             Label lblApplicationno = (gvRow.FindControl("lblApplicationno") as Label);
             Label lblApplicantName = (gvRow.FindControl("lblApplicantName") as Label);
-          //  TextBox txtRelaseamount = (gvRow.FindControl("txtReleaseAmount") as TextBox);
-           Label lblpartial = (gvRow.FindControl("lblIsPartial") as Label);
+            Label lblpartial = (gvRow.FindControl("lblIsPartial") as Label);
             Label lblINCName = (gvRow.FindControl("lblINCName") as Label);
 
             DataRow[] dr = dt.Select("EnterperIncentiveID = '" + enterid.Text + "'");
-            if (dr.Length <= 0)
+            if (dr.Length > 0)
             {
-                dt.Rows.Add();
-                dt.Rows[dt.Rows.Count - 1]["NameofUnit"] = gvRow.Cells[2].Text;
-                dt.Rows[dt.Rows.Count - 1]["Address"] = gvRow.Cells[3].Text;
-                dt.Rows[dt.Rows.Count - 1]["DCP"] = gvRow.Cells[4].Text;
-
-                dt.Rows[dt.Rows.Count - 1]["SanctionedAmount"] = gvRow.Cells[5].Text;
-                dt.Rows[dt.Rows.Count - 1]["SanctionedDate"] = gvRow.Cells[6].Text;
-
-                //dt.Rows[dt.Rows.Count - 1]["SanctionedAmount"] = txtRelaseamount.Text;
-               // dt.Rows[dt.Rows.Count - 1]["AllotedAmount"] = gvRow.Cells[5].Text;
-
-
-                dt.Rows[dt.Rows.Count - 1]["MstIncentiveId"] = lblMstIncentiveId.Text;
-                dt.Rows[dt.Rows.Count - 1]["EnterperIncentiveID"] = lblIncentiveID.Text;
-                dt.Rows[dt.Rows.Count - 1]["SLCNumer"] = lblSLCNumer.Text;
-                dt.Rows[dt.Rows.Count - 1]["IncentiveName"] = lblINCName.Text; //gvRow.Cells[8].Text;//lblINCName.Text;
-                dt.Rows[dt.Rows.Count - 1]["IsPartial"] = lblpartial.Text;
-              // dt.Rows[dt.Rows.Count - 1]["ApplicantName"] = lblApplicantName.Text;
-
-
-
-
+                dt.Rows.Remove(dr[0]);
                 dt.AcceptChanges();
-                AddStatus = 1;
             }
-            else
-            {
-                AddStatus = 0;
-            }
+
+            DataRow newRow = dt.NewRow();
+            newRow["NameofUnit"] = gvRow.Cells[2].Text;
+            newRow["Address"] = gvRow.Cells[3].Text;
+            newRow["DCP"] = gvRow.Cells[4].Text;
+            newRow["SanctionedAmount"] = gvRow.Cells[5].Text;
+            newRow["SanctionedDate"] = gvRow.Cells[6].Text;
+            newRow["MstIncentiveId"] = lblMstIncentiveId.Text;
+            newRow["EnterperIncentiveID"] = lblIncentiveID.Text;
+            newRow["SLCNumer"] = lblSLCNumer.Text;
+            newRow["IncentiveName"] = lblINCName.Text;
+            newRow["IsPartial"] = lblpartial.Text;
+
+            dt.Rows.Add(newRow);
+            dt.AcceptChanges();
+
+            AddStatus = 1;
 
             return dt;
         }
@@ -862,7 +910,7 @@ namespace TTAP.UI.Pages.Releases
             decimal GOAmount = Convert.ToDecimal(Request.QueryString["GOAmount"].ToString().Trim());
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-              
+
             }
         }
 
