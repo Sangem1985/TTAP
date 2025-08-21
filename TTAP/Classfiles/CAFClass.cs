@@ -3855,7 +3855,7 @@ namespace TTAP.Classfiles
 
            };
             pp[0].Value = Cast;
-            pp[1].Value = DIPCFLAG;
+            pp[1].Value = string.IsNullOrWhiteSpace(DIPCFLAG) ? (object)DBNull.Value : DIPCFLAG.Trim();
             pp[2].Value = IncentiveId;
             pp[3].Value = Subincentiveid;
             Dsnew = GenericFillDs("USP_GETINCENTIVECHECKLISTDETAILSPRINT", pp);

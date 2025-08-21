@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="ADRTGSDashboardDrilldown.aspx.cs" Inherits="TTAP.UI.Pages.COI.ADRTGSDashboardDrilldown" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <script src="../../../js/jquery-latest.min.js" type="text/javascript"></script>
+    <script src="../../../js/jquery-latest.min.js" type="text/javascript"></script>
     <script src="../../../js/jquery-ui.min.js" type="text/javascript"></script>
     <script src="../../../Js/validations.js"></script>
 
@@ -41,7 +42,7 @@
         </ProgressTemplate>
     </asp:UpdateProgress>
     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
-       <%-- <Triggers>
+        <%-- <Triggers>
             <asp:PostBackTrigger ControlID="btnPaymentProof" />
         </Triggers>--%>
         <ContentTemplate>
@@ -69,10 +70,10 @@
                                     <h5 class="text-blue mb-3 font-SemiBold">Incentive Wise List</h5>
                                 </div>
                                 <div class="widget-content nopadding">
-                                    <div class="row">                                        
+                                    <div class="row">
                                         <div class="col-sm-12 table-responsive">
                                             <asp:GridView ID="gvdetails" runat="server" AllowPaging="false" AutoGenerateColumns="False"
-                                                CssClass="table table-bordered mb-0 title6 alternet-table w-100 NewEnterprise" 
+                                                CssClass="table table-bordered mb-0 title6 alternet-table w-100 NewEnterprise"
                                                 PageSize="20" GridLines="Both" OnRowDataBound="gvdetails_RowDataBound" ShowFooter="true">
                                                 <HeaderStyle VerticalAlign="Middle" CssClass="text-center" />
                                                 <RowStyle CssClass="GridviewScrollC1Item" />
@@ -99,6 +100,7 @@
                                                         </ItemTemplate>
                                                         <FooterTemplate>
                                                             Total
+                                                       
                                                         </FooterTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
                                                         <HeaderStyle HorizontalAlign="Left" Width="400px" />
@@ -108,9 +110,19 @@
                                                             <asp:Label ID="lblNoClaims" runat="server" Text='<%#Eval("Noincentives") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <FooterTemplate>
-                                                            <asp:Label ID="lblTotalClaims" runat="server" ></asp:Label>
+                                                            <asp:Label ID="lblTotalClaims" runat="server"></asp:Label>
                                                         </FooterTemplate>
                                                         <HeaderStyle HorizontalAlign="Left" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Incentiveid" Visible="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblIncentiveID" Text='<%#Eval("IncentiveId") %>' runat="server" />
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="DIPCFlag" Visible="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblDipcFlag" Text='<%#Eval("DIPCFlag") %>' runat="server" />
+                                                        </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderStyle-HorizontalAlign="Left" HeaderText="Sanctioned Amount">
                                                         <ItemTemplate>

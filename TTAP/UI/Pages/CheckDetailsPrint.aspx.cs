@@ -23,24 +23,23 @@ namespace TTAP.UI.Pages
         {
             if (!IsPostBack)
             {
-                string Cast = "1"; //Request.QueryString[0].ToString();
-                string DIPCFLAG = "Y"; //Request.QueryString[1].ToString();
-                string IncentiveId = "1036"; //Request.QueryString[2].ToString();
-                string SubIncentiveid = null; //Convert.ToInt32(Request.QueryString[3]).ToString();
-
+                string Cast = Request.QueryString[0].ToString();
+                string IncentiveId = Request.QueryString[1].ToString();
+                string SubIncentiveid = Convert.ToInt32(Request.QueryString[2]).ToString();
+                string DIPCFLAG = Request.QueryString[3].ToString();
 
                 ds = ObjCAFClass.GetCheckDetailsPrint(Cast, DIPCFLAG, IncentiveId, SubIncentiveid);
 
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     tdinvestments.InnerHtml = "--> " + ds.Tables[0].Rows[0]["IncentiveName"].ToString();
-                    Label lblSocialStatus = FindControl("lblSocialStatus") as Label;
-                    h1heading.InnerHtml = lblSocialStatus + " Category";
+                    //Label lblSocialStatus = FindControl("lblSocialStatus") as Label;
+                    h1heading.InnerHtml = ds.Tables[0].Rows[0]["SocialStatus"].ToString() + " Category";
                     GVDetails.DataSource = ds.Tables[0];
                     GVDetails.DataBind();
                 }
 
-
+                TXTCHEQUEGENERATEPRINTDATE.Text = DateTime.Now.ToString("dd/MM/yyyy");
             }
         }
 
@@ -81,7 +80,7 @@ namespace TTAP.UI.Pages
         {
             try
             {
-               // int valid = 0;
+                // int valid = 0;
                 string DIPCFLAG = Request.QueryString[1].ToString();
                 foreach (GridViewRow gvrow in GVDetails.Rows)
                 {

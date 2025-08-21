@@ -180,7 +180,7 @@ namespace TTAP
                                     Response.Redirect("~/UI/Pages/COI/SuperintendentDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COI-AD")
                                     Response.Redirect("~/UI/Pages/COI/AdDashboard.aspx");
-                                else if (ObjLoginNewvo.Role_Code == "COI-DD")
+                                else if (ObjLoginNewvo.Role_Code == "COI-DD" && ObjLoginNewvo.user_id != "AD-RTGS")
                                     Response.Redirect("~/UI/Pages/COI/DDDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "JD")
                                     Response.Redirect("~/UI/Pages/COI/JdDashboard.aspx");
@@ -188,6 +188,8 @@ namespace TTAP
                                     Response.Redirect("~/UI/Pages/frmJDDashboard.aspx");
                                 else if (ObjLoginNewvo.Role_Code == "COMM")
                                     Response.Redirect("~/UI/Pages/COI/CommissionerDashBoard.aspx");
+                               else if (ObjLoginNewvo.user_id == "AD-RTGS")
+                                    Response.Redirect("~/UI/Pages/COI/ADRTGSDashboard.aspx");
                                 else
                                     Response.Redirect("~/UI/UserDashBoard.aspx");
                                 //Response.Redirect("UI/preaproval/ca_home.aspx");

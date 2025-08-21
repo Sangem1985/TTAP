@@ -82,7 +82,7 @@ namespace TTAP.UI.Pages.COI
 
         }
 
-        
+
         protected void gvdetails_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -93,7 +93,7 @@ namespace TTAP.UI.Pages.COI
 
                 if (lblNoClaims.Text != "")
                 {
-                    
+
                     totalclaims = totalclaims + Convert.ToInt32(lblNoClaims.Text);
                 }
                 else
@@ -113,15 +113,17 @@ namespace TTAP.UI.Pages.COI
                 GridViewRow row = (GridViewRow)btn.NamingContainer;
                 Label lblCategoryid = (Label)row.FindControl("lblCategoryid");
                 Label lblSubIncentiveID = (Label)row.FindControl("lblSubIncentiveID");
-              
+                Label lblIncentiveID = (Label)row.FindControl("lblIncentiveID");
+                Label lblDipcFlag = (Label)row.FindControl("lblDipcFlag");           
 
-                //Response.Redirect("CheckListPrint.aspx?Cast=" + lblCategory1 + "&MstIncentiveId=" + lblMstIncentiveId + "&Date=" + txtsvcdate.Text.Trim() + "&SubIncTypeId=" + lblsubInctypeid + "&RlsProceedNo=" + ddlReleaseProceedingNo.Text + "&DIPC=" + DIPCFlag
-                //    + "&WORKINGSTATUS=" + ddlworkingstatus.SelectedValue + "&FromDate=" + ViewState["FromDate"].ToString() + "&ToDate=" + ViewState["ToDate"].ToString());
+
+                Response.Redirect("~/UI/Pages/CheckDetailsPrint.aspx?Cast=" + lblCategoryid.Text + "&IncentiveId=" + lblIncentiveID.Text + "&SubIncTypeId=" + lblSubIncentiveID.Text + "&DIPC=" + lblDipcFlag.Text);
+
 
             }
             catch (Exception ex)
             {
-
+                throw ex;
             }
 
         }

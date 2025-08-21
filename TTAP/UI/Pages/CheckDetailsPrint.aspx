@@ -1,10 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/UI/UserMaster.Master" AutoEventWireup="true" CodeBehind="CheckDetailsPrint.aspx.cs" Inherits="TTAP.UI.Pages.CheckDetailsPrint" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="../../Resource/Scripts/js/validations.js" type="text/javascript"></script>
     <script language="javascript" type="text/javascript">
         function Panel1() {
 
-            document.getElementById('<%=Button1.ClientID %>').style.display = "none";
+            document.getElementById('<%=btnChequeList.ClientID %>').style.display = "none";
             document.getElementById('<%=tblselection.ClientID %>').style.display = "none";
 
             var panel = document.getElementById("<%=divPrint.ClientID %>");
@@ -312,6 +315,7 @@
     <div align="left">
         <ol class="breadcrumb">
             You are here &nbsp;!&nbsp; &nbsp; &nbsp;
+           
             <li><i class="fa fa-dashboard"></i><a href="Home.aspx"></a></li>
             <li class=""><i class="fa fa-fw fa-edit">CAF</i> </li>
             <li class="active"><i class="fa fa-edit"></i>&nbsp; &nbsp;<a href="#">Departments</a>
@@ -363,11 +367,11 @@
                                                                 <asp:TextBox runat="server" ID="TXTCHEQUEGENERATEPRINTDATE" placeholder="DD/MM/YYYY" class="form-control txtbox" Height="28px"
                                                                     MaxLength="80" TabIndex="1" Width="150px"></asp:TextBox>
                                                             </td>
-                                                            <td style="vertical-align: middle; font-weight: bold; width: 600px" align="right" id="">Release Proceeding No :
+                                                            <%-- <td style="vertical-align: middle; font-weight: bold; width: 600px" align="right" id="">Release Proceeding No :
                                                             </td>
                                                             <td style="padding: 5px; margin: 5px; width: 500px; text-align: left; font-weight: bold">
                                                                 <asp:Label runat="server" ID="lblRlsProceedNo" Height="28px" MaxLength="80" TabIndex="1"></asp:Label>
-                                                            </td>
+                                                            </td>--%>
                                                         </tr>
                                                     </table>
                                                 </td>
@@ -408,7 +412,7 @@
                                                                 <asp:BoundField DataField="DateofReceipt" ItemStyle-HorizontalAlign="Center" HeaderText="Date of Receipt">
                                                                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
                                                                 </asp:BoundField>
-                                                                
+
                                                                 <asp:BoundField DataField="SanctionedAmount" ItemStyle-HorizontalAlign="Center"
                                                                     HeaderText="Recommended Amount">
                                                                     <ItemStyle HorizontalAlign="Center"></ItemStyle>
@@ -512,7 +516,7 @@
 
                                             <tr id="divForward" runat="server" visible="false">
                                                 <td colspan="2" style="padding: 3px;" align="left" class="style7" id="Td1" runat="server">
-                                                    <table width="90%">                                                      
+                                                    <table width="90%">
 
                                                         <tr id="tblselection" runat="server" class="style7">
                                                             <td colspan="12" style="padding: 4px; text-align: left;">
