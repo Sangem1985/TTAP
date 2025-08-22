@@ -498,11 +498,11 @@
                                                                         <asp:Label ID="lblSocialStatus" Text='<%#Eval("SocialStatus") %>' runat="server" />
                                                                     </ItemTemplate>
                                                                 </asp:TemplateField>
-                                                                <%--<asp:TemplateField HeaderText="Letter from Banker">
+                                                                <asp:TemplateField HeaderText="Letter from Banker">
                                                                     <ItemTemplate>
-                                                                        <asp:HyperLink ID="hprlink" runat="server" Text="Document" NavigateUrl='<%#Eval("Document") %>' Target="_blank"></asp:HyperLink>
+                                                                        <asp:HyperLink ID="hprlink" runat="server" Text="Document" NavigateUrl='<%#Eval("filePath") %>' Target="_blank"></asp:HyperLink>
                                                                     </ItemTemplate>
-                                                                </asp:TemplateField>--%>
+                                                                </asp:TemplateField>
                                                             </Columns>
                                                             <PagerStyle BackColor="#013161" ForeColor="White" HorizontalAlign="Center" />
                                                             <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />

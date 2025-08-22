@@ -19,6 +19,7 @@ namespace TTAP.UI.Pages
     {
         CAFClass ObjCAFClass = new CAFClass();
         DataSet ds = new DataSet();
+        string linkfile = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -32,6 +33,7 @@ namespace TTAP.UI.Pages
 
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
+                    linkfile = ds.Tables[0].Rows[0]["filePath"].ToString();
                     tdinvestments.InnerHtml = "--> " + ds.Tables[0].Rows[0]["IncentiveName"].ToString();
                     //Label lblSocialStatus = FindControl("lblSocialStatus") as Label;
                     h1heading.InnerHtml = ds.Tables[0].Rows[0]["SocialStatus"].ToString() + " Category";
@@ -41,7 +43,7 @@ namespace TTAP.UI.Pages
 
                 TXTCHEQUEGENERATEPRINTDATE.Text = DateTime.Now.ToString("dd/MM/yyyy");
             }
-        }
+        }   
 
         protected void chkRow_CheckedChanged(object sender, EventArgs e)
         {
